@@ -37,6 +37,9 @@ Geplante Grenzen nach `GO-IMPLEMENTATION`:
 Ein Workspace-Lockfile und explizite Paketexporte werden angestrebt. Apps
 duerfen gemeinsame Pakete konsumieren, aber nicht gegenseitig importieren.
 Services duerfen Domain/Contracts nutzen, jedoch keine Clientpakete.
+Gemeinsame Pakete werden semantisch versioniert; jedes Client-
+Provenienzmanifest pinnt die konsumierten Paketversionen. Eine inkompatible
+Majorversion darf nicht beide Clients still gleichzeitig aktualisieren.
 
 ## Alternativen
 
@@ -59,6 +62,8 @@ Services duerfen Domain/Contracts nutzen, jedoch keine Clientpakete.
 
 - Ein Monorepo kann neue Monolithen beguenstigen: Importgrenzen und
   Abhaengigkeitspruefungen werden Gate.
+- Eine gemeinsame Paketaenderung kann beide Clients koppeln: Consumer-Pinning,
+  Compatibility-Fenster und getrennte Clientfreigaben.
 - Gemeinsame Komponenten koennen plattformspezifische UX verwischen:
   Navigation und Screenlayouts bleiben in den Apps.
 - Infrastrukturdateien koennen Secrets anziehen: nur Bindings/Referenzen,

@@ -6,13 +6,16 @@ Stand: 21. August 2026
 
 - Phase: G2 – Zielarchitektur und ADRs
 - Task: `WRN-G2-001`
-- Zustand: vollstaendiger Hauptentwurf liegt vor; genau ein unabhaengiger
-  Architecture Review steht aus
-- Gate: G1 fachlich YELLOW und continuity-geprueft; G2 noch nicht durch den
-  Product Owner abgenommen
+- Entwurfscheckpoint: `23f7462244f5050391307d3e6923d4bc1b66158a`
+- Review: genau eine Instanz `independent_architecture_reviewer` Sol/high,
+  read-only abgeschlossen
+- Reviewbefund: drei High, drei Medium, ein Low; alle vom Main Agent validiert
+  und akzeptiert, Korrekturen im Abschlussdiff
+- Gate: **YELLOW – Reviewremediation erstellt; finaler Checkpoint,
+  Continuity Audit und Product-Owner-Abnahme offen**
 - `GO-IMPLEMENTATION`: **nicht erteilt**
-- Produktcode, Produktstruktur, Build, Test, Server, Livezugriff, Deployment,
-  Signierung und Upload: keiner
+- Produktcode, neue Produktstruktur, Produkttest, Build, Server, Livezugriff,
+  Deployment, Signierung und Upload: keiner
 
 ## Verbindliche Quellen
 
@@ -34,36 +37,56 @@ Stand: 21. August 2026
 - Kosten-/Agentenrouting: `docs/architecture/COST-AND-MODEL-ROUTING.md`
 - offene Product-Owner-Entscheidungen:
   `docs/architecture/G2-OPEN-DECISIONS.md`
+- Review/Disposition:
+  `docs/handoffs/WRN-G2-001-independent-architecture-review.md`
+- Hauptuebergabe:
+  `docs/handoffs/WRN-G2-001-target-architecture-adr-package.md`
 - aktualisiert: Paritaetsmatrix, Decision Log, Risk Register und
   Mitarbeiter-Dashboard
-- Handoff: `docs/handoffs/WRN-G2-001-target-architecture-adr-package.md`
 
-## Kernaussagen des Entwurfs
+## Zielentscheidungen nach Reviewremediation
 
-- Plattform-Monorepo mit getrennten Mobile-/Website-Apps; Content bleibt
-  getrennt.
-- React + TypeScript + Vite und Capacitor werden evidenzbasiert empfohlen,
-  bleiben aber Product-Owner-Entscheidung.
-- Daten werden immutable, schema-, hash- und revisionsgebunden; Feed,
-  Landingpages, Manifest und Sitemap muessen dieselbe ID-Menge belegen.
-- Cloudflare bleibt bedingt bevorzugt, aber nur nach read-only Liveinventar,
-  Provider-/Kosten-/Retentionpruefung und mit providerneutralen Vertraegen.
+- Plattform-Monorepo mit getrennten Mobile-/Website-Apps; gemeinsame Pakete
+  werden versioniert und pro Consumer gepinnt; Content bleibt getrennt.
+- React + TypeScript + Vite und Capacitor werden anhand gewichteter,
+  G1-gebundener Kriterien empfohlen; aktuelle Versionen/Lizenzen bleiben
+  vor G3 read-only zu verifizieren.
+- Content nutzt getrennte Mengen/Hashes fuer aktiven Feed, Archiv,
+  Landingpages, Redirects und Sitemap-Artikel. Definierte Beziehungen ersetzen
+  die im Review beanstandete globale Gleichheit.
+- Ein monotones Revocation-/Tombstone-Manifest dominiert immutable Revisionen,
+  Gateways und bekannte Clientcaches.
+- Content Gateway, Translation, Feedback, Podcast und Push sind eigene
+  physische Deploy-/Rollbackeinheiten.
+- Jede Paritaets-ID ist `MUST`, `MUST-SPLIT` oder `OPTIONAL-PO`.
+  Briefings/Dossiers, Termine, Bibliothek, Lexikon,
+  Gefangenensolidaritaet, Hilfe und Medienkern besitzen konkrete W5-Slices.
+- GitHub/Actions ist bedingt vorgeschlagen und benoetigt PO-013; G2 hat keinen
+  Remote eingerichtet oder veraendert.
 - SEC-001/002 muessen vor Portierung geschlossen werden; SEC-003 vor Push.
 - App und Website besitzen getrennte Offline-, Cache-, QA-, Release- und
-  Rollbackketten.
-- Map/Spiel bleibt ausserhalb Release 1; nur Anschlussvertraege.
+  Rollbackketten. Map/Spiel bleibt ausserhalb Release 1.
+
+## Reviewdisposition
+
+| Finding | Disposition | Korrektur |
+|---|---|---|
+| High ID-Mengenvertrag | akzeptiert | getrennte Sets/Hashes/Beziehungen in ADR-004, W3 und R-27 |
+| High fehlende Kern-Slices/MUST | akzeptiert | vollstaendige Klassifikation und neue W5/W6-Slices |
+| High Worker-Rollback | akzeptiert | fuenf fachliche Deployables, keine behaupteten logischen Teilrollbacks |
+| Medium Takedownvorrang | akzeptiert | Revocation-/Tombstone-Overlay, Purge/410/Offline-Grenze |
+| Medium GitHub | akzeptiert | Least-Privilege-/Environment-/Credentialvertrag und PO-013 |
+| Medium Stackevidenz | akzeptiert | Kriterien, Gewichte, Formel, G1-Evidenz und Messpunkte |
+| Low Statusdrift | akzeptiert | Dashboard, State und Handoffs werden synchronisiert |
 
 ## Offene Gates
 
-1. Entwurf als Git-Checkpoint sichern.
-2. Genau eine Instanz `independent_architecture_reviewer` Sol/high read-only
-   prueft das vollstaendige Paket.
-3. Main Agent validiert jedes Finding, arbeitet es ein oder lehnt es mit
-   Evidenz ab.
-4. Product Owner entscheidet die Punkte in `G2-OPEN-DECISIONS.md` und die
-   G2-Abnahme.
-5. Read-only Liveinventar und Rechte-/Lizenzregister vor betroffener G3-Arbeit.
-6. `GO-IMPLEMENTATION` bleibt ein separates ausdrueckliches Gate.
+1. Korrigierten Dokumentdiff/Scope pruefen und Remediationcheckpoint sichern.
+2. Danach den vorgesehenen read-only Continuity Audit aus gesichertem G2-
+   Handoff ausfuehren; kein zweiter Architecture Reviewer.
+3. Product Owner entscheidet PO-001–013 und die G2-Abnahme.
+4. Read-only Liveinventar und Rechte-/Lizenzregister vor betroffener G3-Arbeit.
+5. `GO-IMPLEMENTATION` bleibt ein separates ausdrueckliches Gate.
 
 ## Offene Umgebungsabweichung
 
@@ -74,5 +97,5 @@ autorisierte read-only Diagnose und gegebenenfalls Reparaturfreigabe.
 
 ## Naechste erlaubte Aktion
 
-Dokumentdiff und Scope read-only pruefen, Entwurf committen und danach genau
-einen unabhaengigen Architecture Reviewer starten. Weiterhin kein Produktcode.
+Reviewremediation als reinen Dokumentdiff pruefen und committen, danach
+Continuity Audit. Weiterhin kein Produktcode und keine externe Mutation.

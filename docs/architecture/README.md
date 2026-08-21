@@ -24,6 +24,8 @@ Budget-, Deployment- oder Releasefreigabe.
 12. `MIGRATION-WAVES.md` – vertikale Slices und Gates
 13. `COST-AND-MODEL-ROUTING.md` – Kostenklassen und Agentenrouting
 14. `G2-OPEN-DECISIONS.md` – nur echte Product-Owner-Entscheidungen
+15. `../handoffs/WRN-G2-001-independent-architecture-review.md` – genau ein
+    unabhaengiger Review und Main-Agent-Disposition
 
 ## Statussprache
 

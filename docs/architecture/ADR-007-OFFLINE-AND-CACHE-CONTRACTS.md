@@ -92,8 +92,11 @@ Testfixtures werden geteilt.
   Aktivierungs-/Unregister-Plan und Browser-Upgrade-Matrix.
 - Storagequota wird erreicht: reservierte Mindestmenge, LRU nur fuer
   nicht geschuetzte Revisionen und sichtbarer Degraded Mode.
-- Rechte-/Takedownsignal erreicht Offlinekopien spaet: Manifeststatus und
-  naechster Onlineabgleich loeschen/markieren betroffene Medien.
+- Rechte-/Takedownsignal erreicht Offlinekopien spaet: das monotone
+  Revocation-Manifest aus ADR-004 hat Vorrang vor Contentrevisionen;
+  maximale Offline-Gueltigkeit, Origin-`410` und der naechste Onlineabgleich
+  loeschen/markieren betroffene Medien. Sofortige Offlinepurge ohne Netz wird
+  nicht behauptet.
 
 ## Konsequenzen
 
@@ -115,4 +118,5 @@ Online-, Slow-, Offline-, Erst-/Zweitstart-, Teilupdate-, Storage-full-,
 Schemaupgrade-, App-/Website-Rollback-, Clear-all- und Takedowntests bestehen.
 Kein Test darf App und Website denselben Cache- oder Service-Worker-Namespace
 verwenden lassen; keine fehlerhafte Migration darf die letzte valide Revision
-oder Nutzerdaten still loeschen.
+oder Nutzerdaten still loeschen. Ein bekannter Tombstone darf durch Rollback,
+Cachewiederherstellung oder alte immutable Revision nicht reaktiviert werden.

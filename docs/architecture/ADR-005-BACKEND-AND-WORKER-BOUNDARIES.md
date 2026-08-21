@@ -35,9 +35,20 @@ Adaptern.
 | Push | Config, Challenge, Subscribe, Revoke; Adminversand getrennt | bestaetigte Subscription, Adminauth fuer Versand | Ablauf, Caps, Pruning und bestaetigter Widerruf |
 | Operations/Health | technische Versions-, Quota- und Dependencyzustaende | keine Secretwerte; Adminfelder authentisiert | aggregierte, contentfreie Betriebsdaten |
 
-Physische Worker duerfen anfangs gebuendelt sein, solange Deploy-,
-Observability-, Quota- und Rollbackgrenzen pro logischem Dienst getrennt
-bleiben. Eine spaetere Aufteilung ist vertragserhaltend moeglich.
+Jede unabhaengig rollbackbare fachliche Grenze ist ein eigenes physisches
+Deployable: `content-gateway`, `translation`, `feedback`, `podcast` und `push`.
+Read-only Health/Operations duerfen nur mit dem Dienst gebuendelt werden,
+dessen Version und Datenklasse sie beobachten; dienstuebergreifende
+Adminoperationen sind ein separates Deployable. Quota-Koordination kann als
+gemeinsamer Infrastrukturservice laufen, muss aber versioniert,
+rueckwaertskompatibel und ohne Mitrollback fachlicher Dienste betreibbar sein.
+
+Eine Buendelung ist nur zulaessig, wenn Endpunkte dieselbe Datenklasse,
+Admission, Retention, SLO, Owner, Migrationsfolge und Rollbackeinheit besitzen.
+Dann wird die gesamte Gruppe ausdruecklich als eine Blast-Radius-, Deploy- und
+Rollbackeinheit dokumentiert; logisch getrennte Rollbacks innerhalb eines
+einzelnen Artefakts werden nicht behauptet. Fuer Release 1 trifft diese
+Ausnahme auf die fuenf oben benannten fachlichen Grenzen nicht zu.
 
 ### HTTP-Vertrag
 
@@ -89,8 +100,8 @@ veraendert nichts.
 
 - Providerneutralitaet kann zu duennen Abstraktionen fuehren: nur echte
   Domain-/HTTP-Vertraege abstrahieren, Betriebsfeatures sichtbar lassen.
-- Gebuendelte Worker vergroessern Blast Radius: separate Routen, Quoten,
-  Deployversionen und Rollbackbelege.
+- Gemeinsame Infrastruktur kann mehrere Worker koppeln: versionierte
+  Rueckwaertskompatibilitaet, gestufte Migration und eigener Rollbackbeleg.
 - Observability kann Privacy verletzen: strukturierte Allowlistfelder und
   No-Content-Logging-Negativtests.
 
@@ -98,8 +109,9 @@ veraendert nichts.
 
 Clients sprechen stabile `/v1`-Vertraege statt Providerbindings. Cloudflare
 kann weiterverwendet werden, ohne Architektur und Datenmodell daran zu binden.
-Zustandserzeugende Features bleiben standardmaessig deaktiviert, bis ihr
-jeweiliges Gate freigegeben ist.
+Ein Translation-Rollback setzt weder Content Gateway, Feedback, Podcast noch
+Push zurueck. Zustandserzeugende Features bleiben standardmaessig deaktiviert,
+bis ihr jeweiliges Gate freigegeben ist.
 
 ## Migration
 
@@ -107,11 +119,15 @@ jeweiliges Gate freigegeben ist.
 2. OpenAPI-/JSON-Schemas und Fehlercodes als Dokument/Testfixture.
 3. Content Gateway zuerst, danach Translation mit geschlossenem SEC-001.
 4. Feedback, Podcast und Push jeweils als eigener, freigegebener Slice.
-5. Legacyworker erst nach Parallelvergleich und bewiesenem Rollback abloesen.
+5. Gemeinsame Quota-/Schemaabhaengigkeiten vorwaerts- und rueckwaertskompatibel
+   migrieren; keine fachliche Deploymentgruppe erzwingen.
+6. Legacyworker erst nach Parallelvergleich und bewiesenem Rollback abloesen.
 
 ## Verifikationsgate
 
 Contract-, CORS-, Auth-/Admission-, Quota-, Idempotenz-, No-Side-Effect-,
 No-Content-Logging-, Retention-, Loesch- und Provider-Fallbacktests bestehen.
 Ein Workerrelease ist commit-/configgebunden, getrennt rollbackfaehig und
-deployt niemals als Nebenwirkung eines Tests oder Builds.
+deployt niemals als Nebenwirkung eines Tests oder Builds. Ein Test rollt jedes
+der fuenf fachlichen Deployables separat zur vorherigen Version zurueck und
+belegt, dass die anderen Versionen und Datenmigrationen unveraendert bleiben.

@@ -2,60 +2,58 @@
 
 - Agent: Main Agent / sichtbarer Task `WRN G2 – Zielarchitektur & ADRs`
 - Task-ID: `WRN-G2-001`
-- Ergebnis: **YELLOW – Hauptentwurf vollstaendig, unabhaengiger Review ausstehend**
+- Ergebnis: **YELLOW – Architekturpaket nach unabhaengigem Review korrigiert;
+  Product-Owner-Abnahme und Continuity Audit offen**
+- Entwurfscheckpoint: `23f7462244f5050391307d3e6923d4bc1b66158a`
 - Arbeitsform: ausschliesslich Dokumentation im isolierten Worktree
 
 ## Kurzfazit
 
-Die vollstaendige G1-Baseline wurde in ein implementierbares, aber noch nicht
+Die vollstaendige G1-Baseline ist in ein implementierbares, aber noch nicht
 freigegebenes Zielarchitekturpaket uebersetzt. Es empfiehlt ein
 Plattform-Monorepo mit getrennten Mobile-/Website-Apps, React/TypeScript/Vite
-plus Capacitor, immutable Contentrevisionen, providerneutrale `/v1`-Vertraege,
-getrennte Offline-/Releaseketten und harte Security-/Privacygates.
+plus Capacitor, immutable Contentrevisionen mit getrennten ID-Mengen,
+providerneutrale `/v1`-Vertraege, eigene Worker-Rollbackeinheiten, getrennte
+Offline-/Releaseketten und harte Security-/Privacygates.
 
-SEC-001/002/003, Feed-/SEO-ID-Drift, Retention/Loeschung, Rechte, Liveinventar
-und Kosten sind mit Ownern und Gates versehen. Map und Spiel bleiben ausserhalb
-Release 1. Product-Owner-Entscheidungen sind nicht vorweggenommen;
-`GO-IMPLEMENTATION` ist nicht erteilt.
+Genau ein unabhaengiger Architecture Reviewer pruefte den gesicherten Entwurf
+read-only und meldete drei High-, drei Medium- und ein Low-Finding. Der Main
+Agent validierte und akzeptierte alle Findings. Die Korrekturen sind im
+Reviewhandoff nachvollziehbar. Product-Owner-Entscheidungen sind nicht
+vorweggenommen; `GO-IMPLEMENTATION` ist nicht erteilt.
 
 ## Verwendete Quellen
 
 - `AGENTS.md` und `docs/tasks/WRN-G2-001-TARGET-ARCHITECTURE-ADR-PACKAGE.md`
-- Product Charter, Source of Truth, Paritaetsmatrix, bisherige
-  Zielarchitektur, Quality Rules, Agent Roster, Decision Log, Risk Register,
-  Context Continuity, Activity Index und Project State
-- alle sechs G1-Task Briefs und Fachhandoffs
-- alle sechs G1-Continuity-Audits und `WRN-G1-BASELINE-SUMMARY.md`
-- `docs/security/WRN-G1-004/validation-summary.md` sowie SEC-001 bis SEC-003
+- Product Charter, Source of Truth, Paritaetsmatrix, Ausgangsarchitektur,
+  Quality Rules, Agent Roster, Decision Log, Risk Register, Context
+  Continuity, Activity Index und Project State
+- alle sechs G1-Task Briefs, Fachhandoffs und Continuity Audits
+- `docs/handoffs/WRN-G1-BASELINE-SUMMARY.md`
+- Security Validation Summary und SEC-001 bis SEC-003
 - Screenshotmanifeste in den G1-002- und G1-006-Handoffs
 - App `2216ff3` und Website `9a59b17` fuer lokale read-only Git-/
-  Konfigurationsstichproben; Datenbeobachtung `acec88e` nur aus gebundener
-  G1-Evidenz
+  Konfigurationsstichproben; Datenbeobachtung `acec88e` ausschliesslich aus
+  gebundener G1-Evidenz
+- unabhaengiger Review des Checkpoints `23f7462`
 
 Keine Livequelle, kein Konto, kein Secretwert und kein externer Schreibzugriff
 wurde verwendet.
 
 ## Geaenderte Dateien
 
-### Neu
+### Neues Architekturpaket
 
 - `docs/architecture/README.md`
-- `docs/architecture/ADR-001-REPOSITORY-AND-PACKAGE-STRUCTURE.md`
-- `docs/architecture/ADR-002-CLIENT-STACK.md`
-- `docs/architecture/ADR-003-DESIGN-AND-BRAND-SYSTEM.md`
-- `docs/architecture/ADR-004-IMMUTABLE-CONTENT-CONTRACT.md`
-- `docs/architecture/ADR-005-BACKEND-AND-WORKER-BOUNDARIES.md`
-- `docs/architecture/ADR-006-MEDIA-LIFECYCLE.md`
-- `docs/architecture/ADR-007-OFFLINE-AND-CACHE-CONTRACTS.md`
-- `docs/architecture/ADR-008-SECURITY-AND-PRIVACY.md`
-- `docs/architecture/ADR-009-QA-CI-CD-AND-RELEASE.md`
-- `docs/architecture/ADR-010-FUTURE-MAP-AND-GAME-BOUNDARY.md`
+- `docs/architecture/ADR-001-REPOSITORY-AND-PACKAGE-STRUCTURE.md` bis
+  `docs/architecture/ADR-010-FUTURE-MAP-AND-GAME-BOUNDARY.md`
 - `docs/architecture/MIGRATION-WAVES.md`
 - `docs/architecture/COST-AND-MODEL-ROUTING.md`
 - `docs/architecture/G2-OPEN-DECISIONS.md`
 
-### Aktualisiert
+### Neue/aktualisierte Governancebelege
 
+- `docs/handoffs/WRN-G2-001-independent-architecture-review.md`
 - `docs/02-FEATURE-PARITY-MATRIX.md`
 - `docs/03-TARGET-ARCHITECTURE.md`
 - `docs/06-DECISION-LOG.md`
@@ -64,20 +62,39 @@ wurde verwendet.
 - `docs/PROJECT-STATE.md`
 - dieser Handoff
 
-Keine Produkt-, Legacy-, Build-, Test-, Konfigurations- oder Evidenzdatei wurde
-veraendert oder kopiert.
+Keine Produkt-, Legacy-, Build-, Test-, Konfigurations- oder Screenshotdatei
+wurde veraendert oder kopiert.
 
 ## Tests und Belege
 
-- Keine Tests, Builds, Generatoren, Server, Browserlaeufe, Livezugriffe,
-  Deployments, Signierungen oder Uploads; im Task Brief ausdruecklich verboten.
+- Keine Produkttests, Builds, Generatoren, Server, Browserlaeufe,
+  Livezugriffe, Deployments, Signierungen oder Uploads; im Task Brief
+  ausdruecklich verboten.
 - Read-only: Gitstand der App und Website am erwarteten Commit bestaetigt.
 - Read-only: relevante Capacitor-/Android-/Website-Konfigurationen als
   Stackevidenz gelesen.
-- Dokumentpruefung und Scope-/Diffpruefung stehen vor dem Entwurfscheckpoint
-  noch aus.
-- Unabhaengiger Architecture Review steht noch aus und wird nach gesichertem
-  vollstaendigen Entwurf genau einmal gestartet.
+- Zehn ADRs auf Kontext, Entscheidung, Alternativen, Kosten, Risiken,
+  Konsequenzen, Migration und Verifikationsgate geprueft.
+- Entwurfsdiff `23f7462` enthielt ausschliesslich Dokumentation und bestand
+  `git diff --cached --check`.
+- Genau ein unabhaengiger Sol/high-Architecture-Review abgeschlossen; keine
+  zweite Instanz gestartet.
+- Korrigierter Abschlussdiff und Continuity Audit stehen noch aus.
+
+## Findingsdisposition
+
+| Severity | Finding | Main-Disposition | Zielkontrolle |
+|---|---|---|---|
+| High | aktive/archivierte/Landing-/Sitemap-IDs faelschlich gleichgesetzt | akzeptiert | getrennte Mengen/Hashes und pruefbare Beziehungen; Revocationoverlay |
+| High | mehrere bestaetigte Kernfunktionen ohne Slice/MUST-Klasse | akzeptiert | jede Paritaets-ID klassifiziert; W5-Kernslices und W6-gated Slices |
+| High | gebuendelte Worker versus unabhaengiger Rollback | akzeptiert | Gateway, Translation, Feedback, Podcast und Push eigene Deployables |
+| Medium | Takedown ohne Vorrang vor immutable Revision | akzeptiert | monotone Tombstones, Origin-410, Cache-Purge, Offline-Revalidierung |
+| Medium | GitHub-Entscheidung/Credentialgrenze fehlt | akzeptiert | GitHub bedingt vorgeschlagen; Least Privilege/Environments; PO-013 |
+| Medium | Stack-/KI-Wartbarkeitswertung nicht nachvollziehbar | akzeptiert | gewichtete Kriterien, Formel, G1-Evidenz und spaetere Messpunkte |
+| Low | gespeicherte Statusangaben veraltet | akzeptiert | Dashboard, State und Handoffs synchronisiert |
+
+Vollstaendige Evidenz:
+`docs/handoffs/WRN-G2-001-independent-architecture-review.md`.
 
 ## Feststellungen nach Prioritaet
 
@@ -93,46 +110,53 @@ veraendert oder kopiert.
 - SEC-001 vor jeder Translation-Portierung.
 - SEC-002 vor jeder Podcastgenerierung.
 - SEC-003 und bestaetigter Widerruf vor Push.
-- Immutable Revision/Hash/Required-Optional vor parallelem Clientkonsum.
-- Same-ID-Vertrag vor Website-Landing-/Sitemaprelease.
+- Immutable Revision/Hash/Required-Optional und definierte ID-Mengenbeziehungen
+  vor parallelem Clientkonsum.
+- Revocation-/Tombstone-Vorrang vor Medien-/Offlinefreigabe.
 - getrennte Cachemigration/Rollback vor Offline-Paritaet.
 - Rechtebeleg vor Asset-/Medienuebernahme.
+- fuenf getrennte fachliche Worker-Deployables vor Servicefreigabe.
 
 ## Annahmen und offene Fragen
 
 - React/TypeScript/Vite/Capacitor ist eine Empfehlung, keine Freigabe.
-- Cloudflare ist bedingt bevorzugt; aktueller Livezustand, Tarif, Usage,
-  Bindings, Lifecycle und Providerretention bleiben unbewiesen.
+- Cloudflare ist bedingt bevorzugt; Livezustand, Tarif, Usage, Bindings,
+  Lifecycle und Providerretention bleiben unbewiesen.
 - Retentionobergrenzen sind technische Vorschlaege und benoetigen
   Product-Owner-/gegebenenfalls Rechtspruefung.
-- Offene echte Produktentscheidungen stehen ausschliesslich in
+- GitHub/Actions ist PO-013; kein Remote wurde eingerichtet oder beschrieben,
+  als sei er bereits aktiv.
+- Offene echte Produktentscheidungen PO-001–013 stehen ausschliesslich in
   `docs/architecture/G2-OPEN-DECISIONS.md`.
 
 ## Restrisiken
 
-- Architektur ist noch nicht implementiert oder durch Produkttests bewiesen.
-- Ein Framework-/Providerstand kann sich bis G3 aendern und muss dann
+- Architektur und Reviewremediation sind noch nicht implementiert oder durch
+  Produkttests bewiesen.
+- Framework-/Providerstaende koennen sich bis G3 aendern und muessen dann
   read-only gegen aktuelle offizielle Quellen verifiziert werden.
 - Historische Legacytests, AAB- und Websitepakete bleiben Referenzbelege, keine
   aktuelle Releasefreigabe.
+- Offlineclients koennen einen neuen Takedown ohne Netz nicht sofort kennen;
+  maximale Offline-Gueltigkeit und naechster Onlineabgleich sind Pflicht.
 - Die lokale Python-3.13-Abweichung bleibt fuer spaetere Python-Tests offen.
 
 ## Empfohlener naechster Schritt
 
-Dokumentdiff auf Vollstaendigkeit, ungewollte Dateien und Secrets pruefen,
-Entwurf als Git-Checkpoint sichern und genau eine read-only Instanz
-`independent_architecture_reviewer` auf Sol/high starten. Findings danach durch
-den Main Agent validieren und diesen Handoff abschliessen.
+Korrigierten Dokumentdiff auf Vollstaendigkeit, Scope, Secrets und Format
+pruefen, als Remediationcheckpoint sichern und danach genau einen read-only
+Continuity Audit aus dem gesicherten Handoff ausfuehren. Anschliessend
+entscheidet der Product Owner ueber G2/PO-001–013. Kein Produktcode vor
+separatem `GO-IMPLEMENTATION`.
 
 ## WRN-AGENT-STATUS
 
 - Task: `WRN-G2-001`
 - Status: YELLOW
-- Quellstand: Governance ab `30a54c6`; Entwurfscheckpoint ausstehend; App `2216ff3`; Website `9a59b17`; Daten `acec88e`
-- Erledigt: Hauptentwurf, ADR-001–010, Migrationswellen, Kostenrouting, offene Entscheidungen und Registerupdates
-- Tests: keine; laut Task Brief verboten; lokale read-only Quell-/Konfigurationspruefung
-- Offen: Dokument-/Diffpruefung, Entwurfscheckpoint, genau ein Architecture Review und Findingsdisposition
+- Quellstand: Entwurf `23f7462`; Remediationcheckpoint ausstehend; App `2216ff3`; Website `9a59b17`; Daten `acec88e`
+- Erledigt: ADR-001–010, Migrationswellen, Kostenrouting, Registerupdates, genau ein Architecture Review und validierte Findingskorrekturen
+- Tests: keine Produkttests; laut Task Brief verboten; reine Quell-/Dokument-/Diffpruefung
+- Offen: Abschlussdiff, Remediationcheckpoint, Continuity Audit, Product-Owner-Entscheidungen PO-001–013 und G2-Abnahme
 - Handoff: `docs/handoffs/WRN-G2-001-target-architecture-adr-package.md`
-- Naechster Schritt: Entwurf pruefen und committen, dann genau einen Reviewer starten
+- Naechster Schritt: Remediation pruefen und committen, danach Continuity Audit
 - END-CHECK: :)
-

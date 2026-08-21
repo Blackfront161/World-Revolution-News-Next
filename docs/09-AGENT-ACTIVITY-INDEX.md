@@ -9,7 +9,7 @@ internen Subagenten, Modelle, Ergebnisse und Git-Nachweise.
 | Task/Chat | Typ | Aufgabe | Umgebung | Status | Verweis |
 |---|---|---|---|---|---|
 | `WRN – Chief AI Architect & Orchestrierung` | sichtbarer, angehefteter Haupttask | Product-Owner-Kommunikation, Orchestrierung, Freigaben und konsolidierte Entscheidungen | lokaler Hauptordner | AKTIV | aktueller Codex-Task |
-| `WRN G2 – Zielarchitektur & ADRs` | sichtbarer Phasentask | `WRN-G2-001`: Zielarchitektur und ADR-Paket; kein Produktcode | isolierter Codex-Git-Worktree | AKTIV – ENTWURF VOLLSTAENDIG, REVIEW AUSSTEHEND | `docs/handoffs/WRN-G2-001-target-architecture-adr-package.md` |
+| `WRN G2 – Zielarchitektur & ADRs` | sichtbarer Phasentask | `WRN-G2-001`: Zielarchitektur und ADR-Paket; kein Produktcode | isolierter Codex-Git-Worktree | AKTIV – REVIEW ABGESCHLOSSEN, REMEDIATION ZUM CHECKPOINT | `docs/handoffs/WRN-G2-001-target-architecture-adr-package.md` |
 
 Regel: Jede grosse Phase oder jedes eigenstaendige Ergebnis bekommt hoechstens
 einen sichtbaren Projekt-Task. Kurzlebige Recherche-, Test- und Auditaufgaben
@@ -42,7 +42,7 @@ gestartet werden, arbeitet aber aktuell nicht.
 | `frontend_brand_engineer` | Terra/high | GESPERRT BIS G3 | UI-/Markenumsetzung nach `GO-IMPLEMENTATION` |
 | `backend_data_reliability_engineer` | Terra/high | GESPERRT BIS G3 | Backend-/Datenumsetzung nach Architekturfreigabe |
 | `qa_release_engineer` | Terra/high | VERFUEGBAR FUER QA | unabhaengige Tests und visuelle Belege |
-| `independent_architecture_reviewer` | Sol/high | NOCH NICHT GESTARTET – GENAU EINE INSTANZ NACH ENTWURF | unabhaengiges ADR-/Architekturgate |
+| `independent_architecture_reviewer` | Sol/high | GENAU EINE INSTANZ ABGESCHLOSSEN – 3 HIGH/3 MEDIUM/1 LOW, ALLE AKZEPTIERT | `docs/handoffs/WRN-G2-001-independent-architecture-review.md` |
 | `context_continuity_auditor` | Luna/medium | BEI MEILENSTEIN | Kontext-, Quellen- und Handoffpruefung |
 | Reserveprofile | Spark/Luna/Terra/Sol je Risiko | BEDARFSGESTEUERT | nur bei dokumentiertem Ausloeser |
 
@@ -73,7 +73,7 @@ gestartet werden, arbeitet aber aktuell nicht.
 - Quellstand: Governance ab `86f2615`
 - Erledigt: sichtbare Tasks, G1-Instanzen, Profile und Kontrollorte kartiert
 - Tests: Dokumentpruefung
-- Offen: genau einen G2-Architecture-Review durchfuehren und Ergebnis/Checkpoint nachtragen
+- Offen: Reviewremediation committen, danach Continuity Audit und Product-Owner-G2-Entscheid
 - Handoff: `docs/09-AGENT-ACTIVITY-INDEX.md`
-- Naechster Schritt: G2-Entwurf sichern, genau einen Architecture Reviewer starten
+- Naechster Schritt: korrigierten G2-Diff sichern, danach Continuity Audit
 - END-CHECK: :)

@@ -29,10 +29,11 @@ nur atomar auf eine bereits vollstaendig validierte Revision zeigen.
 | `generatedAt` | UTC-Zeitpunkt des Generators, nicht Clientzeit |
 | `sourceCommit` | gebundener Commit des Datenrepositories |
 | `resources[]` | Pfad/URL, Schema, Required/Optional, SHA-256, Bytes, Recordzahl, Owner, Fallbackklasse |
-| `articleIds` | sortierte ID-Menge oder deren hashgebundene externe Liste |
-| `articleIdsSha256` | Hash der kanonisch sortierten Artikel-IDs |
+| `articleSets` | getrennte, sortierte Mengen fuer aktiven Feed, Archiv, Landingpages, Redirects und Sitemap-Artikel |
+| `articleSetHashes` | SHA-256 je kanonisch sortierter ID-Menge; niemals ein uneindeutiger Gesamthash |
 | `compatibility` | min./max. unterstuetzte Client-/Contractversion |
 | `provenance` | Generatorversion und unveraenderliche Quellenreferenzen |
+| `revocationRevision` | mindestens zu respektierende Version des vorrangigen Tombstone-/Revocation-Manifests |
 
 Jede Ressource ist exakt eine Klasse:
 
@@ -56,19 +57,62 @@ Jede Ressource ist exakt eine Klasse:
 - Unsichere oder fehlende Angaben bleiben explizit unbekannt; es werden keine
   Herkunft, Sprache oder Verifikation erfunden.
 
-### Feed-/Landing-/Sitemap-Gleichheit
+### Getrennte ID-Mengen und beweisbare Beziehungen
 
-Websitepaket, Feed, Landingpage-Manifest und Sitemap muessen dieselbe
-`revision` und `articleIdsSha256` tragen. Vor Publikation gilt:
+G1 belegt unterschiedlich grosse aktive, archivierte und statisch publizierte
+Mengen. Sie werden deshalb nicht gleichgesetzt. Jede Menge besitzt einen
+eigenen sortierten Export, Recordcount und SHA-256:
+
+- `activeFeedIds`: IDs des fuer die Revision aktiven Feeds;
+- `archiveIds`: alle in der Revision direkt aufloesbaren historischen und
+  aktiven Artikel;
+- `landingIds`: IDs mit statischer `/articles/<id>/`-Landingpage;
+- `redirectSourceIds`: alte/aliasierte IDs mit versioniertem Ziel oder
+  bewusstem Gone-Status;
+- `sitemapArticleIds`: ausschliesslich Artikel-URLs der Sitemap; nicht-
+  artikelbezogene Sitemap-URLs werden separat gezaehlt;
+- `resolvableIds`: abgeleitet aus `archiveIds` plus gueltigen Redirectquellen.
+
+Fuer jede publizierte Revision gelten folgende Beziehungen:
 
 ```text
-feed IDs = landing manifest IDs = erzeugte Landingpage IDs
-         = sitemap article IDs = share-/canonical-faehige IDs
+activeFeedIds subseteq archiveIds
+landingIds subseteq archiveIds
+sitemapArticleIds = landingIds
+redirectSourceIds disjunkt zu kanonischen Ziel-IDs
+canonicalPathIds = landingIds
+shareableIds subseteq resolvableIds
 ```
 
-Abweichung stoppt die Paketfreigabe. Historische IDs ausserhalb des aktiven
-Feeds werden separat als Archivmenge gefuehrt und muessen weiterhin eindeutig
-auflosbar sein.
+Ein aktiver oder historisch geteilter Artikel darf also aufloesbar sein, ohne
+im aktiven Feed oder als statische Landingpage vorzuliegen. Fuer
+`landingIds` ist der Pfadcanonical verbindlich; andere aufloesbare IDs nutzen
+den dokumentierten Readerfallback oder einen versionierten Redirect. Ein
+bewusster Takedown/Gone bleibt als nicht wiederverwendete ID mit sicherem
+Status aufloesbar, aber ohne gesperrten Inhalt.
+
+Websitepaket, Feed, Landingpage-Manifest und Sitemap tragen dieselbe
+`revision`, dieselben benannten Mengenshashes und dasselbe Gesamtmanifest. Eine
+verletzte Mengenbeziehung, nicht eine erwartbare unterschiedliche Anzahl,
+stoppt die Paketfreigabe.
+
+### Vorrangiger Revocation-/Tombstone-Vertrag
+
+Immutable Revisionen bleiben reproduzierbar, koennen aber durch ein separates,
+monoton versioniertes Revocation-Manifest ueberstimmt werden. Ein Eintrag nennt
+Ziel-ID/Objekthash, Wirksamkeitszeit, sichere Grundkategorie, betroffene
+Derivate und Status `blocked`, `gone` oder `replaced`; er enthaelt keinen
+entfernten Inhalt.
+
+Revocation hat immer Vorrang vor einer aelteren Contentrevision. Gateway und
+Medienorigin liefern fuer gesperrte Objekte keinen Payload; Clients speichern
+die hoechste bekannte Revocationrevision dauerhaft, purgen passende Cache-
+und Offlineobjekte beim naechsten Onlineabgleich und duerfen sie aus einer
+alten Revision nicht wiederherstellen. Revocable Medienpakete besitzen eine
+maximale Offline-Gueltigkeit; danach ist vor Wiedergabe eine Revalidierung
+erforderlich. Alte Clients werden am Origin mit `410`/sicherem Ersatzstatus
+begrenzt; sofortiges Loeschen bereits offline befindlicher Daten kann ohne
+Netz nicht garantiert und muss ehrlich dokumentiert werden.
 
 ## Alternativen
 
@@ -96,7 +140,8 @@ auflosbar sein.
 - Fehlerhafter Generator kann konsistent falsche Daten erzeugen: Schema-,
   Provenienz-, Mengen- und Stichprobentests plus unabhaengige QA.
 - Hashmanifest ohne vertrauenswuerdige Auslieferung: HTTPS, Releaseprovenienz
-  und spaeter optional Signatur/Attestation.
+  und vor G5 eine Entscheidung ueber authentisierte Signatur/Attestation.
+  Hashes allein erkennen Drift, aber keinen kompromittierten Publisher.
 
 ## Konsequenzen
 
@@ -110,13 +155,18 @@ Raw-Zugriff bleibt hoechstens kontrollierter Recoveryadapter, nie Normalvertrag.
 2. Bestehende IDs gegen Kollisions-/Stabilitaetsregeln kartieren.
 3. Manifest v1 fuer eine feste G1-Fixture erzeugen und nur pruefen.
 4. Website-Generator, Sitemap und Landingpages an dieselbe Revision binden.
-5. Clients ueber einen kompatiblen Adapter umstellen; alte Revision als
+5. Getrennte ID-Mengen/Hashes und Revocation-Overlay gegen G1-Fixtures
+   validieren.
+6. Clients ueber einen kompatiblen Adapter umstellen; alte Revision als
    Rollback behalten.
 
 ## Verifikationsgate
 
-Contract-, Schema-, Hash-, Required/Optional-, Same-ID-, Archiv-, Deep-Link-
-und Rollbacktests muessen bestehen. Eine absichtlich fehlende Required-Datei,
-ein geaenderter Hash oder eine ID-Mengendifferenz muss fail-closed vor
-Paketierung stoppen; eine deklarierte optionale Abwesenheit muss ohne 404 und
-mit dem vorgesehenen UI-Zustand funktionieren.
+Contract-, Schema-, Hash-, Required/Optional-, Mengenbeziehungs-, Archiv-,
+Deep-Link-, Revocation- und Rollbacktests muessen bestehen. Eine absichtlich
+fehlende Required-Datei, ein geaenderter Hash oder eine unzulaessige
+Mengenbeziehung muss fail-closed vor Paketierung stoppen; erwartbar
+unterschiedliche aktive/archivierte/SEO-Anzahlen duerfen nicht fehlschlagen.
+Eine deklarierte optionale Abwesenheit funktioniert ohne 404 und mit dem
+vorgesehenen UI-Zustand. Ein tombstoned Objekt bleibt auch beim Rollback einer
+Contentrevision gesperrt und wird aus erreichbaren Clientcaches entfernt.

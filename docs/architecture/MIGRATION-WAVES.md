@@ -31,11 +31,13 @@ W1 Foundation -> W2 News -> W3 Reader/SEO -> W4 Offline
        QA             QA            QA             QA
         +--------------+-------------+--------------+
                        |
-          W5 optionale sichere Funktionen
+          W5 Kernbereiche Wissen/Medien/Hilfe
                        |
-          W6 Android/Website Releaseketten
+          W6 sichere/gated Funktionen
                        |
-                 G5 Release Candidate
+          W7 Android/Website Releaseketten
+                       |
+                 W8 / G5 Release Candidate
                        |
             G6 nur Product-Owner-Release
 ```
@@ -82,6 +84,8 @@ produktiv unberuehrt.
 
 Paritaet: NEWS-01/02/04/08/09, SYS-03/04
 Risiken: R-05, R-06, R-22
+Owner: Backend/Data fuer Contract/Gateway, Frontend/Brand fuer beide Clients,
+QA fuer unabhaengige Abnahme
 
 ### Slice
 
@@ -95,6 +99,8 @@ Fehler- und Optional-absent-Zustand.
 - Gleiche gebundene Revision in beiden Clients; keine Raw-`main`-Drift.
 - G1-Referenzviewports, Themes, grosse Schrift, Touchziele und Tastatur.
 - Slow-/Offline-Fehlerzustand ehrlich, aber noch kein vollstaendiger Offlinecache.
+- Privacygate: nur oeffentliche Content-/Provenienzdaten; keine Nutzerdaten,
+  kein Contentlogging im Gateway.
 - Product Owner bestaetigt sichtbare Paritaet.
 
 ### Ruecknahme
@@ -106,6 +112,8 @@ bleibt immutable und kann auf die letzte valide Revision zurueckzeigen.
 
 Paritaet: NEWS-03/06/10, WEB-01/02/03
 Risiken: R-17, R-27
+Owner: Website + Backend/Data; Mobile fuer App-Deep-Link; QA fuer ID-Mengen-
+und Accessibilitybelege
 
 ### Slice
 
@@ -114,11 +122,13 @@ Landingpages, Manifest, Canonical und Sitemap aus derselben Revision.
 
 ### Gates
 
-- Same-ID-Mengen-/Hashgleichheit fuer Feed, Landingpages, Manifest, Sitemap.
+- Getrennte Hashes fuer aktiven Feed, Archiv, Landingpages, Redirects und
+  Sitemap-Artikel sowie die Mengenbeziehungen aus ADR-004.
 - Direkter Kaltstart, `?article=`-Fallback, historische ID und Unknown/Gone.
 - Escape, Fokus-Rueckkehr, Screenreader-Smoke und vollstaendiger erster Satz.
 - Websitepaket bleibt statisch/Apache-kompatibel; Mobile-Deep-Link getrennt.
 - Keine Landingpage wird bei normaler Generation geloescht.
+- Takedown-/Revocation-Overlay ueberstimmt auch alte Revisionen und Caches.
 
 ### Ruecknahme
 
@@ -129,6 +139,8 @@ Mobile-Readerfeature separat deaktivierbar.
 
 Paritaet: NEWS-05, HELP-02, SYS-01/02/03, AND-03
 Risiken: R-07, R-22, R-26
+Owner: Backend/Data fuer Storage/Migration, Mobile/Website fuer Adapter, QA fuer
+Upgrade/Rollback, Security fuer Loesch-/Takedownwirkung
 
 ### Slice
 
@@ -150,29 +162,56 @@ Letzte valide Revision bleibt lesbar; kein automatisches Downgrade mit
 stillem Datenverlust. Sicherer Read-only-/Bestaetigungszustand bei
 Schema-Inkompatibilitaet.
 
-## 8. Wave 5 – optionale sichere Funktionen
+## 8. Wave 5 – bestaetigte Kernbereiche Wissen, Medien und Hilfe
 
-Jeder Unterpunkt ist ein eigener Slice und kann entfallen. Keiner blockiert
-News/Reader/Offline, wenn der Product Owner ihn nicht freigibt.
+Diese Bereiche sind Release-1-MUST, werden aber als getrennte kleine Slices
+implementiert. Jeder Slice baut auf ADR-004 auf und darf separat
+zurueckgenommen werden.
 
-| Slice | Vorbedingung | Pflichtgate |
-|---|---|---|
-| Uebersetzung | Entscheidung ueber explizit/automatisch; Provider/Privacy | SEC-001 geschlossen, bewusster Default, No-Content-Logging |
-| Feedback | Retention/Prozess/Owner | sichtbare Referenz, Auskunft/Loeschung end-to-end |
-| Medienplayer | Rechte-/Providerinventar | Consent, CSP, Health, Fehler, Accessibility |
-| generierte Podcasts | Produkt-/Budgetentscheid | SEC-002, kanonische IDs, Admission, Caps, Moderation/Takedown |
-| Push | Produktentscheid | SEC-003, Challenge, Expiry, Caps, Pruning, bestaetigter Widerruf |
-| Action Radar | Produktentscheid | getrennte Permission, Standort-No-Transmission |
-| Intro/Zine | Produktentscheid und UX-Referenz | eigene visuelle/Funktionsabnahme |
+| Slice / Paritaet | Owner | Daten-/Privacygate | Testbeleg | Ruecknahme |
+|---|---|---|---|---|
+| Briefings, Tageslage, Dossiers `NEWS-11` | Content/Data + Frontend | Provenienz, Revision, Uebersetzung nur nach W6-Vertrag | Contract, Flow, Visual, Fehler/Offline | Route/Featureflag auf letzten freigegebenen Datensatz |
+| Termine `INFO-01` | Content/Data + Frontend | Zeitzone, Ort, Quelle; keine Nutzerposition | Schema, TZ-/DST-Faelle, Filter, Accessibility | Events-Slice deaktivieren, Newskern bleibt |
+| Bibliothek und Lexikon `INFO-02/03` | Content/Data + Frontend | Required/Optional-Owner, Rechte, keine erfundene Verifikation | Schema, Suche, Deep Link, Offline-/Fallback | je Katalogadapter auf letzte valide Revision |
+| Gefangenensolidaritaet `INFO-05` | Product Owner/Redaktion + Content/Data + Security | Aktualitaet, Sensibilitaet, Quelle, Redaction und Takedown | redaktioneller Review, Contract, Privacy, UI/A11y | Datensatz sperren/tombstonen, Modul separat deaktivieren |
+| Hilfe `HELP-01–03` | Product Owner/Redaktion + Backend/Data + Security | No-Geolocation, No-Persistence, Safetygrenzen, Offlineaktualitaet | Filtermatrix, Safetytext, Offline, Loeschung, No-Transmission | letzte sichere Revision; veraltetes Paket sichtbar sperren |
+| Podcastkatalog/Radio/Audio/Video `MEDIA-01–05` ohne Generierung | Media/Data + Frontend + Security | Rechte, Consent, Health, Required/Optional, kein Autoplay | Schema, Player, CSP, Tastatur, Fehler, Offline/Takedown | Adapter/Katalog einzeln deaktivieren; Kernnews bleibt |
+
+Wave-5-Gesamtgate: alle enthaltenen MUST-Zeilen besitzen einen aktuellen
+Contentowner, deterministische Fixture, G1-Paritaetsbeleg und beobachtbaren
+Rollback. Fehlende Rechte oder redaktionelle Aktualitaet stoppen nur den
+betroffenen Slice, werden aber nicht als bestandene Release-1-Paritaet
+ausgegeben.
+
+## 9. Wave 6 – sichere oder Product-Owner-gated Funktionen
+
+Jeder Unterpunkt ist ein eigener Slice. Manuelle nutzergesteuerte Uebersetzung
+ist MUST; ihr automatischer Modus ist optional. Die uebrigen Zeilen koennen nur
+entfallen, wenn sie in der Paritaetsklassifikation als `OPTIONAL-PO` bestaetigt
+sind.
+
+| Slice / Klasse | Owner | Vorbedingung/Pflichtgate | Testbeleg und Ruecknahme |
+|---|---|---|---|
+| nutzergesteuerte Uebersetzung `NEWS-07` / MUST; Automatik OPTIONAL-PO | Backend/Data + Security + Frontend | PO-006 fuer Default; Provider/Privacy; SEC-001; No-Content-Logging | Cachemanipulation, Race/Fehler, expliziter Ausloeser; Kill-Switch zeigt Original |
+| Feedback / optionaler Betriebsflow | Backend/Data + Security | Retention/Prozess/Owner | Referenz, Auskunft/Loeschung end-to-end; Route deaktivierbar, Daten weiter geloescht |
+| generierte Podcasts `MEDIA-01`-Teil / OPTIONAL-PO | Product Owner + Backend/Data + Security | PO-007/011, SEC-002, Rechte, Moderation/Takedown | No-Side-Effect/Quota/Takedown; Kill-Switch, Lifecycle bleibt aktiv |
+| Push `SYS-09` / OPTIONAL-PO | Product Owner + Backend/Data + Security | PO-005, SEC-003, Challenge/Expiry/Caps | Fantasieendpoint, Pruning, Widerruf; Versand aus, Loeschung bleibt |
+| Action Radar `INFO-06` / OPTIONAL-PO | Product Owner + Frontend + Security | PO-004, getrennte Permission | Standort-No-Transmission; Modul deaktivierbar |
+| Intro `UX-08` / OPTIONAL-PO | Product Owner + Frontend + QA | PO-002 und UX-Referenz | Persistenz/Visual/A11y; Route deaktivierbar |
+| Zine `INFO-04` / OPTIONAL-PO | Product Owner + Frontend + QA | PO-003, Rechte/Exportumfang | Visual/Export/Print/A11y; Modul deaktivierbar |
 
 Ruecknahme: jede optionale Route hat einen Kill-Switch/Featureflag ohne Verlust
 der Kernfaehigkeiten. Bereits erzeugte Daten werden gemaess Retention/Takedown
-behandelt, nicht durch Featureabschaltung vergessen.
+behandelt, nicht durch Featureabschaltung vergessen. Eine deaktivierte
+MUST-Uebersetzung faellt sichtbar auf den unveraenderten Originalinhalt zurueck
+und ist bis zur Wiederfreigabe eine offene Paritaetsluecke.
 
-## 9. Wave 6 – Android- und Website-Releaseketten
+## 10. Wave 7 – Android- und Website-Releaseketten
 
 Paritaet: WEB-04/05, AND-01–06
 Risiken: R-13, R-14
+Owner: QA Release Engineer; Mobile/Website fuer ihre getrennten Kandidaten;
+Product Owner allein fuer Signierung, Upload oder Deployment
 
 ### Slice
 
@@ -184,6 +223,8 @@ Websitepaket/Hash/Rollback und Android-AAB/Hash/Signaturpruefung.
 - zwei unabhaengige Builds oder gleichwertiger Determinismusbeleg;
 - Android Lint/Unit/Instrumentation/WebView/Lifecycle/API-Ziel;
 - Website Apache-Smoke, Service-Worker-Upgrade/Rollback und CWV-Budgets;
+- native Share-/Kalender-/Update-/Lifecyclepfade; Push nur falls PO-005/W6
+  freigegeben wurde;
 - Artefakt, Commit, Lockfile, Contentrevision, Tests und Hash stimmen ueberein;
 - Signierung/Upload/Deployment nicht als Pipeline-Nebenwirkung.
 
@@ -191,7 +232,7 @@ Ruecknahme: Websitepaket auf gesicherten Stand; Worker vorherige Version;
 Android ueber Compatibility-/Kill-Switch und korrigierten Build, nicht
 unkontrolliertes Downgrade.
 
-## 10. Wave 7 – G5 Release Candidate
+## 11. Wave 8 – G5 Release Candidate
 
 - volle MUST-Paritaetsmatrix;
 - visuelle Matrix gemaess Quality Rules;

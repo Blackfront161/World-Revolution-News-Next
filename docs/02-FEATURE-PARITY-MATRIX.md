@@ -122,24 +122,54 @@ zwischen ADR und Implementierung verloren geht.
 |---|---|---|---|---|
 | UX-01–08 | gemeinsame semantische Tokens/Assets, getrennte Navigation/Layouts, G1-Screenshotmatrix | ADR-003; W1–W3 | Frontend Brand + QA | Product-Owner-Visualabnahme, 44x44, Escape, Reflow |
 | NEWS-01/02/04/08/09 | immutable Revision, typisierte Domainmodelle, Provenienz und sichere Unknown-Werte | ADR-004; W2 | Backend/Data + Frontend | Schema/Hash/Required-Optional und Feedparitaet |
-| NEWS-03/06/10 | stabiler Reader-/Share-/Archivvertrag und gleiche Website-ID-Menge | ADR-004/009; W3 | Website + Data + QA | Same-ID, Deep-Link, Canonical, historischer Fallback |
+| NEWS-03/06/10 | stabiler Reader-/Share-/Archivvertrag mit getrennten aktiven, archivierten, Landing-/Redirect-/Sitemapmengen | ADR-004/009; W3 | Website + Data + QA | Mengenbeziehung/Hash, Deep-Link, Canonical, historischer Fallback |
 | NEWS-05 | clientlokaler, transparenter Lesestatus mit selektiver/gesamter Loeschung | ADR-007; W4 | Frontend + Backend/Data | Upgrade-, Rollback- und Loeschtest |
-| NEWS-07 | explizite Uebersetzung, serverseitiger kanonischer Cachekey, sichtbare Provenienz | ADR-005/008; W5 | Backend/Data + Security | SEC-001 und Privacy-/Fehler-/Race-Negativtests |
-| NEWS-11 | getrennte Feature-Slices gegen freigegebene Produktflows | ADR-001/003; W2 oder W5 | Product Owner + Frontend | Flow-/Visualabnahme pro enthaltenem Format |
-| MEDIA-01 | Admission, kanonische IDs, Rechte, Moderation, Takedown und Kosten-Caps | ADR-006/008; W5 | Product Owner + Backend/Data + Security | SEC-002 und No-Side-Effect-Test |
+| NEWS-07 | explizite Uebersetzung, serverseitiger kanonischer Cachekey, sichtbare Provenienz | ADR-005/008; W6 | Backend/Data + Security | SEC-001 und Privacy-/Fehler-/Race-Negativtests |
+| NEWS-11 | getrennte Feature-Slices gegen freigegebene Produktflows | ADR-001/003; W5 | Product Owner + Frontend | Flow-/Visualabnahme pro enthaltenem Format |
+| MEDIA-01 | Katalog/Player als Kern; Generierung nur mit Admission, kanonischen IDs, Rechten, Moderation, Takedown und Kosten-Caps | ADR-006/008; W5/W6 | Product Owner + Backend/Data + Security | Playerparitaet; fuer Generierung SEC-002 und No-Side-Effect-Test |
 | MEDIA-02–05 | Medienmanifest, Health, Consent, Rechte und deklarierte Fallbacks | ADR-004/006; W5 | Backend/Data + Frontend | Schema/CSP/Player/Offline/Rechte |
-| INFO-01–05 | stabile IDs, Zeit/Ort/Quelle, redaktionelle Owner und getrennte optionale Slices | ADR-004/006/010; W2/W5 | Data + Product Owner | Contract-, Redaktions-, Rechte- und Accessibilitygate |
-| INFO-06 | Action Radar getrennt von Hilfe; freiwilliger lokaler Standort | ADR-008; W5 optional | Product Owner + Security | PO-004 und No-Transmission |
+| INFO-01–03, INFO-05 | stabile IDs, Zeit/Ort/Quelle, redaktionelle Owner und getrennte Kernslices | ADR-004/006/010; W5 | Data + Product Owner | Contract-, Redaktions-, Rechte- und Accessibilitygate |
+| INFO-04 | Zine-/Druckwerkzeuge nur nach PO-003 | ADR-003/009; W6 optional | Product Owner + Frontend + QA | Export-/Print-/Visual-/Accessibilitygate |
+| INFO-06 | Action Radar getrennt von Hilfe; freiwilliger lokaler Standort | ADR-008; W6 optional | Product Owner + Security | PO-004 und No-Transmission |
 | HELP-01–03 | No-Geolocation/No-Persistence, Safetygrenzen, revisionsgebundene Offlinepakete | ADR-007/008; W4 | Backend/Data + Security + QA | Filter-, Aktualitaets-, Offline- und Loeschtest |
 | SYS-01–05 | getrennte App-/Website-Cache-, Storage-, Diagnose- und Fallbackvertraege | ADR-004/007; W2/W4 | Backend/Data + QA | Online/Slow/Offline/Upgrade/Rollback |
-| SYS-06/08 | minimierte Datenfluesse, No-Content-Logging, Origin/CSP und End-to-End-Loeschung | ADR-005/008; W5 | Security + Backend/Data | Privacyreview und Negativtests |
+| SYS-06/08 | minimierte Datenfluesse, No-Content-Logging, Origin/CSP und End-to-End-Loeschung | ADR-005/008; W2–W7 | Security + Backend/Data | Privacyreview und Negativtests |
 | SYS-07 | semantische Komponenten plus automatische und manuelle Accessibilitygates | ADR-003/009; alle UI-Wellen | Frontend + QA | Keyboard, Reflow, Kontrast, Screenreader, Touchziele |
-| SYS-09 | Challenge, Ablauf, Caps, Pruning und bestaetigter Widerruf | ADR-005/008; W5 optional | Product Owner + Security | PO-005 und SEC-003 |
-| WEB-01–03 | Feed/Landing/Manifest/Sitemap aus gleicher Revision und ID-Menge | ADR-004/009; W3 | Website + Data + QA | Hash-/Same-ID-/Canonical-/Fallbackgate |
-| WEB-04/05 | getrenntes Apache-Paket, Service-Worker-Rollback und Performancebudget | ADR-007/009; W6 | Website + QA | Apache-Smoke, CWV, Paket-/Rollbackbeleg |
-| AND-01–06 | Capacitor-Adapter, API-Ziel, reproduzierbarer AAB und getrennte Freigabeoperationen | ADR-002/009; W6 | Mobile + QA | Lint/Unit/Instrumentation/Lifecycle/Hash/Signatur |
+| SYS-09 | Challenge, Ablauf, Caps, Pruning und bestaetigter Widerruf | ADR-005/008; W6 optional | Product Owner + Security | PO-005 und SEC-003 |
+| WEB-01–03 | Feed/Landing/Manifest/Sitemap aus gleicher Revision mit getrennten Mengenhashes und definierten Beziehungen | ADR-004/009; W3 | Website + Data + QA | Hash-/Mengenbeziehungs-/Canonical-/Fallbackgate |
+| WEB-04/05 | getrenntes Apache-Paket, Service-Worker-Rollback und Performancebudget | ADR-007/009; W7 | Website + QA | Apache-Smoke, CWV, Paket-/Rollbackbeleg |
+| AND-01–06 | Capacitor-Adapter, API-Ziel, reproduzierbarer AAB und getrennte Freigabeoperationen | ADR-002/009; W7 | Mobile + QA | Lint/Unit/Instrumentation/Lifecycle/Hash/Signatur |
 
 Offene Produktentscheidungen fuer UX-08, INFO-04/06 und SYS-09 sowie
 automatische Uebersetzung und generierte Podcasts stehen ausschliesslich in
 `docs/architecture/G2-OPEN-DECISIONS.md`. Ohne Entscheidung ist die jeweilige
 optionale Funktion nicht Teil eines Implementierungsslices.
+
+## I. Verbindliche Release-1-Klassifikation
+
+Diese Klassifikation macht die in Charter/Quality Rules verwendete
+`MUST`-Abnahme pruefbar. `OPTIONAL-PO` ist nur nach expliziter Product-Owner-
+Entscheidung Bestandteil von Release 1. `MUST-SPLIT` trennt eine bestaetigte
+Kernfaehigkeit von einem optionalen Betriebsmodus.
+
+| Paritaets-IDs | Klasse | Konkreter Release-1-Vertrag | Slice |
+|---|---|---|---|
+| UX-01–07 | `MUST` | Marke, getrennte Navigationen, Responsive, Themes, Reflow/A11y ohne bekannte Defekte | W1–W7 querschnittlich |
+| UX-08 | `OPTIONAL-PO` | Intro nur bei PO-002 | W6 |
+| NEWS-01–06, NEWS-08–11 | `MUST` | Feed, Suche/Filter, Reader, Satz, Lesestatus, Share, Sprache, Herkunft, Archiv, Briefings/Dossiers | W2–W5 |
+| NEWS-07 | `MUST-SPLIT` | nutzergesteuerte Uebersetzung MUST; automatische Remoteuebersetzung nur PO-006 | W6 |
+| MEDIA-01 | `MUST-SPLIT` | Podcastkatalog/Player MUST; generierte Podcasts nur PO-007 | W5/W6 |
+| MEDIA-02–05 | `MUST` | Radio, Audio, Video und kontrollierte Fallbacks | W5 |
+| INFO-01–03, INFO-05 | `MUST` | Termine, Bibliothek, Lexikon und Gefangenensolidaritaet | W5 |
+| INFO-04 | `OPTIONAL-PO` | Zine-/Druckwerkzeuge nur PO-003 | W6 |
+| INFO-06 | `OPTIONAL-PO` | Action Radar nur PO-004 | W6 |
+| HELP-01–03 | `MUST` | Hilfeprofile, regionale Offlinepakete und unverkuerzte Safetygrenzen | W4/W5 |
+| SYS-01–08 | `MUST` | Offline, Storage, Fehler, Spezialfeeds, Diagnose, Privacy, A11y und CSP | W2–W7 querschnittlich |
+| SYS-09 | `OPTIONAL-PO` | Push nur PO-005 und SEC-003 | W6 |
+| WEB-01–05 | `MUST` | SEO/IDs/Sitemap, Apachepaket und Performance | W3/W7 |
+| AND-01–06 | `MUST` | Capacitor/native Adapter, API-Ziel, reproduzierbarer AAB und getrennte Releaseoperationen | W7 |
+
+`FUTURE`: World Revolution Map und historisches Kartenspiel besitzen keine
+Paritaetszeile und keinen Release-1-Slice; nur ADR-010-Vertragsgrenzen.
+Signierung, Upload und Deployment in AND-06 bleiben auch als MUST-Nachweis
+separate G6-Operationen und werden nicht automatisch ausgefuehrt.

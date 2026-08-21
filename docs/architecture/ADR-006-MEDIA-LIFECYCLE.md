@@ -40,8 +40,9 @@ Takedownbeleg erlaubt.
    bewusster Drittanbieterabruf.
 5. **Ablauf/Pruning:** feste Policy pro Klasse; Legal Hold oder historische
    Referenz blockiert automatische Loeschung.
-6. **Takedown:** sichtbarer Meldeweg, authentisierte Bearbeitung, Sperre vor
-   physischer Loeschung, Auditbeleg ohne sensiblen Inhalt.
+6. **Takedown:** sichtbarer Meldeweg, authentisierte Bearbeitung, Sperre im
+   vorrangigen Revocation-/Tombstone-Manifest vor physischer Loeschung,
+   Cache-Purge und Auditbeleg ohne sensiblen Inhalt.
 7. **Loeschung:** Objekt, Derivate, Caches und Katalogeintrag nachweisbar
    behandeln; tote IDs liefern definierten Gone-/Fallbackzustand.
 
@@ -68,7 +69,8 @@ Takedownbeleg erlaubt.
 ## Risiken und Gegenmassnahmen
 
 - Takedown kann historische Links brechen: stabile ID bleibt mit sicherem
-  Status und Grundkategorie erhalten, Inhalt/Datei wird gesperrt.
+  Status und Grundkategorie erhalten, Inhalt/Datei wird gesperrt; das
+  monotone Revocation-Overlay aus ADR-004 ueberstimmt auch alte Revisionen.
 - Externe Hosts koennen Tracking laden: Consent/Click-to-load und dokumentierte
   Origins.
 - Offlinekopien koennen Rechte/Loeschung verletzen: Medienklasse bestimmt
@@ -96,3 +98,5 @@ Schema-, MIME-, Range-, CSP-, Consent-, Offline-, Rechte-, Ablauf-, Takedown-,
 No-Content-Logging- und Kosten-Cap-Tests bestehen. Ein nicht autorisierter oder
 unbekannter Inhalt erzeugt weder Provideraufruf noch Storageobjekt. Jede
 ausgelieferte Datei ist ueber ID, Revision, Hash und Rechtebeleg rueckverfolgbar.
+Ein gesperrtes Objekt bleibt ueber alte Contentrevisionen, CDN-/Gatewaycaches
+und den naechsten Onlineabgleich eines Offlineclients unzugreifbar.

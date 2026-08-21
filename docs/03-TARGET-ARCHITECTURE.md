@@ -100,13 +100,20 @@ read-only ausserhalb der neuen Runtime.
    Weboberflaechen und Capacitor fuer Android wird empfohlen. Die Freigabe
    bleibt beim Product Owner; die Bewertung steht in ADR-002.
 2. **Daten:** Jeder Client konsumiert ein immutable Release-Manifest mit
-   Schemas, Hashes, Required/Optional-Klassen, Ownern und Revision.
+   Schemas, getrennten Hashes fuer aktive/archivierte/SEO-ID-Mengen,
+   Required/Optional-Klassen, Ownern, Revision und vorrangigem
+   Revocation-/Tombstone-Stand.
 3. **SEO:** Feed, Artikel-IDs, Landingpages, Manifest und Sitemap muessen aus
-   derselben Revision stammen und als Mengen-/Hashvertrag pruefbar sein.
+   derselben Revision stammen; aktive, archivierte, Landing-/Redirect- und
+   Sitemapmengen bleiben getrennt und folgen pruefbaren Teilmengen-/
+   Gleichheitsregeln.
 4. **Backend:** HTTP-Vertraege werden nach Lesezugriff und zustandserzeugenden
-   Operationen getrennt. Provider und Cloudflare bleiben austauschbare Adapter.
+   Operationen getrennt. Content Gateway, Translation, Feedback, Podcast und
+   Push sind eigene Deploy-/Rollbackeinheiten. Provider und Cloudflare bleiben
+   austauschbare Adapter.
 5. **Offline:** Mobile-App und Website haben eigene Storage- und
-   Service-Worker-Versionen sowie getrennte Migrationen und Rollbacks.
+   Service-Worker-Versionen sowie getrennte Migrationen und Rollbacks; bekannte
+   Tombstones duerfen durch alte Revisionen oder Caches nie reaktiviert werden.
 6. **Security/Privacy:** SEC-001/002 sind vor Portierung zu schliessen;
    SEC-003 vor jeder Pushfreigabe. No-Content-Logging, Datenminimierung,
    Retention, Auskunft, Loeschung und Widerruf sind Vertragsbestandteile.

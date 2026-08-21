@@ -20,6 +20,7 @@ ADRs, Migration Waves und Risikoregister.
 | PO-010 | Cloudflare und optionale Provider weiterverwenden? | Cloudflare bedingt beibehalten; Provider ueber Adapter und Budgetvertrag | nach Liveinventar bestaetigen, ersetzen oder Feature deaktivieren | Serviceimplementation |
 | PO-011 | Budgets fuer optionale APIs/Provider? | keine Zusatzkosten ohne Messpunkt, hard cap und Kill-Switch | Budget je Funktion oder Funktion deaktiviert | kostenpflichtiger Aufruf |
 | PO-012 | G2 abnehmen und spaeter `GO-IMPLEMENTATION` erteilen? | erst Reviewfindings, Pflichtinventare und notwendige PO-Entscheidungen schliessen | G2 akzeptieren; `GO-IMPLEMENTATION` separat erteilen oder verweigern | G3 |
+| PO-013 | GitHub als privates Remote und GitHub Actions fuer das neue Plattformrepo? | nach G2 in eigenem autorisierten Task einrichten; Least Privilege, Branchschutz und geschuetzte Environments | GitHub bestaetigen oder Ersatzprovider mit neuer ADR waehlen | Remote-/CI-Einrichtung |
 
 ## Noch keine Entscheidung erforderlich
 

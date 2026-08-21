@@ -44,6 +44,38 @@ Operationen.
 - Release Candidate: unabhaengiger Review, offene Findings und Risikoregister.
 - Produktion: nur Product-Owner-Einzelgenehmigung gemaess G6.
 
+### GitHub-, Credential- und Umgebungsgrenze
+
+GitHub als privates Remote und GitHub Actions werden fuer Release 1
+vorgeschlagen, weil App, Website und vorhandene QA bereits Git-/GitHub-
+Vertraege besitzen. Im neuen Repository ist noch kein Remote eingerichtet;
+Einrichtung, Push und Repository-/Actions-Konfiguration brauchen eine eigene
+Product-Owner-Freigabe PO-013 und sind keine G2-Aktion.
+
+Nach Freigabe gelten:
+
+- `main` geschuetzt: Pull Request, erforderliche Statuschecks, keine
+  Force-Pushes/History-Rewrites und dokumentierte Maintainerrechte;
+- Standard-Workflowtoken read-only fuer Inhalte; Schreibrechte nur pro Job und
+  minimaler Scope;
+- Third-Party Actions commit-SHA-gepinnt und vor Aufnahme lizenz-/security-
+  geprueft;
+- `pull_request`-Jobs aus nicht vertrauenswuerdigem Code erhalten keine
+  Secrets und keine produktiven Environments;
+- Signierung, Website-, Worker- und Play-Operationen liegen in getrennten,
+  geschuetzten Environments mit manueller Product-Owner-Freigabe;
+- bevorzugt kurzlebige OIDC-/federierte Credentials statt langlebiger Tokens,
+  sofern der Provider dies nachweisbar unterstuetzt;
+- Logs/Artefakte besitzen dokumentierte Retention, keine Secrets oder Inhalte;
+- Releaseartefakte sind immutable, hash-/provenienzgebunden und von normalen
+  CI-Zwischenartefakten getrennt;
+- Branchschutz, Environmentregeln und Credentialgrenzen werden read-only
+  exportiert/dokumentiert und am G5-Gate kontrolliert.
+
+Falls GitHub nicht freigegeben wird, braucht der Ersatzprovider vor G3 eine
+neue ADR mit gleichwertigem Least-Privilege-, Approval-, Artefakt- und
+Rollbackvertrag.
+
 ### Provenienzmanifest
 
 Jedes Artefakt nennt Quellcommit, Lockfilehash, Toolchainversionen,
@@ -76,7 +108,8 @@ Manifeste; dieselbe Contentrevision kann referenziert werden.
 - Android: kein stilles Downgrade; serverseitige Compatibility-/Kill-Switch-
   Grenzen und naechster korrigierter Build.
 - Worker: vorherige Version/Configbindung und Datenmigration mit
-  Vorwaerts-/Rueckwaertsstrategie.
+  Vorwaerts-/Rueckwaertsstrategie; Content Gateway, Translation, Feedback,
+  Podcast und Push sind gemaess ADR-005 getrennte Deploy-/Rollbackeinheiten.
 - Rollbacktest darf Produktion nicht veraendern.
 
 ## Alternativen
@@ -119,6 +152,9 @@ erhaelt implizite Deploymentauthority.
 2. Kandidatenpipelines ohne Deployschritte dokumentieren und spaeter umsetzen.
 3. Erstes Slice mit kleiner Matrix; bei wachsendem Scope Testpyramide erweitern.
 4. Releaseprovenienz und Rollback vor erstem RC trocken pruefen.
+5. Nach PO-013 GitHub-Remote, Branchschutz, Actions und geschuetzte
+   Environments in eigenem autorisierten Task einrichten und read-only
+   nachweisen.
 
 ## Verifikationsgate
 
@@ -126,4 +162,6 @@ G5 verlangt volle Paritaetsmatrix, null offene Blocker/High, getrennte
 reproduzierbare Mobile-/Websiteartefakte, Security/Privacy-Review, Offline-
 Upgrade/Rollback, Accessibility-/Visualbelege und unabhaengigen Review. G6
 verlangt zusaetzlich explizite Product-Owner-Freigabe; ein bestandener G5-Lauf
-deployt nichts.
+deployt nichts. GitHub-Branchschutz, Workflowpermissions, gepinnte Actions,
+Environmentapprovals, Credentialgrenzen und Artefaktretention sind Teil des
+G5-Belegs.

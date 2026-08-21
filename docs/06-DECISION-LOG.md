@@ -30,12 +30,12 @@ Product-Owner-Annahme ihrer Annahme.
 | ADR-001 Repository/Pakete | `PROPOSED` | privates Plattform-Monorepo; zwei Apps, gemeinsame Contract-/Brandpakete, getrenntes Contentrepo | PO-001 |
 | ADR-002 Clientstack | `PROPOSED` | React + TypeScript + Vite; Capacitor fuer Android; getrennte Websiteausgabe | PO-001 |
 | ADR-003 Design/Marke | `PROPOSED` | gemeinsame semantische Tokens/Assets/Primitive, getrennte Navigation und Layouts | PO-001/009 |
-| ADR-004 Datenvertrag | `PROPOSED` | immutable Revision, Hashmanifest, stabile IDs, Required/Optional und SEO-ID-Gleichheit | Teil der G2-Abnahme |
-| ADR-005 Backend/Worker | `PROPOSED` | providerneutrale `/v1`-Vertraege; Cloudflare bedingt bevorzugt; getrennte Operationsgates | PO-010/011 |
+| ADR-004 Datenvertrag | `PROPOSED` | immutable Revision, getrennte ID-Mengenhashes/-beziehungen, stabile IDs, Required/Optional und vorrangige Revocations | Teil der G2-Abnahme |
+| ADR-005 Backend/Worker | `PROPOSED` | providerneutrale `/v1`-Vertraege; Cloudflare bedingt bevorzugt; eigene Deploy-/Rollbackeinheiten je fachlichem Dienst | PO-010/011 |
 | ADR-006 Medien | `PROPOSED` | Referenz vor Kopie; Rechte/Lifecycle/Takedown; Generierung standardmaessig aus | PO-007/009/011 |
 | ADR-007 Offline/Cache | `PROPOSED` | getrennte App-/Website-Storages, Migrationen und Rollbacks | Teil der G2-Abnahme |
 | ADR-008 Security/Privacy | `PROPOSED` | SEC-001/002/003 schliessen; No-Content-Logging, Retention, Loeschung/Widerruf | PO-005–008 |
-| ADR-009 QA/Release | `PROPOSED` | getrennte reproduzierbare Pipelines; CI ohne automatische Produktion | Teil der G2-Abnahme |
+| ADR-009 QA/Release | `PROPOSED` | getrennte reproduzierbare Pipelines; GitHub bedingt vorgeschlagen; CI ohne automatische Produktion | PO-013 und G2-Abnahme |
 | ADR-010 Map/Spiel | `PROPOSED`, Feature `DEFERRED` | nur IDs/Vertraege/Deep Links/Textalternative; kein Release-1-Code | spaeteres eigenes Gate |
 
 ## 3. Entscheidungsdisziplin

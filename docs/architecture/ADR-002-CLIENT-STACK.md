@@ -30,17 +30,40 @@ Slices. Die Wahl bleibt bis zur Product-Owner-Freigabe vorgeschlagen.
 
 ## Bewertungsmatrix
 
-Skala: 1 = unguenstig, 3 = tragfaehig, 5 = sehr passend. Die Werte sind eine
-G2-Architekturbewertung aus der gebundenen Baseline, keine Markt- oder
-Preisbehauptung.
+Skala: 1 = unguenstig, 3 = tragfaehig, 5 = sehr passend. Gewichte leiten sich
+aus Charter/G1 ab: oeffentliche statische SEO-Website und bestehende
+Capacitor-/Androidkette sind Muss-Grenzen; der Legacy-Monolith verlangt kleine,
+typisierte, testbare Module. Preise, Popularitaet oder vermutete Modellvorlieben
+sind kein Kriterium.
 
-| Option | Web/SEO | Android-/Native-Kontinuitaet | Paritaetsmigration | automatisierbare Tests | ein gemeinsames Kompetenzmodell | Gesamt |
-|---|---:|---:|---:|---:|---:|---:|
-| React + TS + Vite + Capacitor | 5 | 5 | 4 | 5 | 5 | 24 |
-| modularisiertes Vanilla JS + Capacitor | 5 | 5 | 3 | 3 | 3 | 19 |
-| Flutter fuer Mobile und Web | 2 | 3 | 2 | 4 | 4 | 15 |
-| React Native plus separate Web-App | 4 | 4 | 2 | 4 | 3 | 17 |
-| native Android plus separate Web-App | 5 | 5 | 1 | 5 | 1 | 17 |
+| Kriterium | Gewicht | Messbare Bedeutung fuer WRN |
+|---|---:|---|
+| Web/SEO | 25 % | semantisches DOM, statische Landingpages, Apachepaket, Deep Links |
+| Android-/Native-Kontinuitaet | 20 % | API-36-/Capacitorpfad, Share/Update/Lifecycle ohne Komplettwechsel |
+| Paritaetsmigration | 15 % | vertikale Ablösung der Webruntime ohne Big-Bang oder doppelte Screens |
+| Tests/Accessibility | 15 % | Unit/Contract/E2E/Visual, DOM-A11y, Tastatur/Reflow automatisierbar |
+| KI-gestuetzte Wartbarkeit | 15 % | explizite Typen, kleine Dateien/Exports, geringe globale Kopplung, deterministische Tests und wenig Plattformduplikation; nicht „vom Modell bevorzugt“ |
+| Betrieb/Performance/Dependencies | 10 % | statisches Hosting, Bundlekontrolle, reproduzierbare Lockfiles und ueberschaubare Dependency-/Securityflaeche |
+
+Gewichteter Wert = Summe aus `(Punkte / 5) * Gewicht`, maximal 100.
+
+| Option | Web/SEO 25 | Android 20 | Paritaet 15 | Test/A11y 15 | KI-Wartbarkeit 15 | Betrieb 10 | Gesamt / 100 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| React + TS + Vite + Capacitor | 5 | 5 | 4 | 5 | 5 | 4 | 95 |
+| modularisiertes Vanilla JS + Capacitor | 5 | 5 | 3 | 3 | 2 | 5 | 79 |
+| Flutter fuer Mobile und Web | 2 | 3 | 2 | 4 | 4 | 3 | 58 |
+| React Native plus separate Web-App | 4 | 4 | 2 | 4 | 3 | 2 | 67 |
+| native Android plus separate Web-App | 5 | 5 | 1 | 5 | 2 | 1 | 71 |
+
+Die Punkte binden sich an G1-Evidenz: statische Website/SEO und
+Landingpagevertrag (`WRN-G1-005`), bestehender Capacitor-/API-36-Releasepfad
+(`WRN-G1-001`), monolithische Webruntime und getrennte App-/Website-Layouts
+(`WRN-G1-001/002/005/006`). Annahmen zu aktuellen Frameworkversionen,
+Bundlegroessen, Lizenzen, Securitysupport und Toolchainkompatibilitaet bleiben
+bis zum read-only G3-Vorcheck unbewiesen. Das erste Slice misst statt
+prognostiziert: Bundlebudgets, Buildzeit, Dependencyzahl/-scan,
+Accessibilityautomatisierung und Agenten-Nacharbeitsquote pro akzeptiertem
+Task.
 
 ## Alternativen
 
