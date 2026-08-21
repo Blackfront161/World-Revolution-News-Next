@@ -5,8 +5,8 @@ Stand: 21. August 2026
 ## Aktuelle Phase
 
 - Phase: 0 – Organisations- und Analysebasis
-- Gate: G0 abgeschlossen; `WRN-G1-001` akzeptiert; `WRN-G1-002` visuelle
-  App-Baseline mit drei offenen Medium-Befunden aufgenommen
+- Gate: G0 abgeschlossen; `WRN-G1-001` akzeptiert; `WRN-G1-002` Continuity
+  12/12 GREEN, fachlich wegen drei Medium-Befunden weiterhin YELLOW
 - Produktcode: keiner
 - Produktdeployment/Upload: keiner
 - Git-Checkpoint: aktueller `main`; mit `git log -1` vor jeder Uebergabe pruefen
@@ -30,13 +30,14 @@ Stand: 21. August 2026
 
 ## Aktive Mitarbeiterinstanzen
 
-- keine; Visual Reviewer hat den Auftrag mit vollstaendiger Rueckgabe beendet
+- keine; Visual Reviewer und frische Auditinstanz sind nach vollstaendiger
+  Uebergabe beendet
 
 ## Naechste erlaubte Aktion
 
-`WRN-G1-002` samt Screenshot-Hashes als Git-Checkpoint sichern und durch eine
-frische read-only Continuity-Auditinstanz pruefen. Kein Produktcode vor
-`GO-IMPLEMENTATION`.
+Einen getrennten read-only Task Brief fuer das G1-Backend-/Daten-/Privacy-
+Inventar erstellen und vor Agentenstart als Git-Checkpoint sichern. Kein
+Produktcode vor `GO-IMPLEMENTATION`.
 
 ## Offene Umgebungsabweichung
 
