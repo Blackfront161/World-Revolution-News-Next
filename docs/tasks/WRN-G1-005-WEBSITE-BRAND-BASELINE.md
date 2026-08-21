@@ -5,7 +5,8 @@
 - Task-ID: `WRN-G1-005`
 - Titel: Read-only Website-, SEO-, Hosting- und Markenbaseline
 - Zustaendiger Agent: neue kurze Instanz des Profils `legacy_product_analyst`
-- Modellklasse: Terra/medium; keine Hochrisikoentscheidung und kein Code
+- Modellklasse: Spark/medium; kostenguenstige Evidenzsammlung ohne
+  Hochrisikoentscheidung und ohne Code
 - Delegation: nicht erlaubt
 
 ## Ziel
@@ -96,4 +97,3 @@ Website-Legacy duerfen nicht zusammenkopiert werden.
 - konkrete visuelle Baseline-Checkliste
 - geaenderte Dateien: keine
 - WRN-Statusblock
-
