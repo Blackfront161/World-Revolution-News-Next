@@ -5,8 +5,8 @@ Stand: 21. August 2026
 ## Aktuelle Phase
 
 - Phase: 0 – Organisations- und Analysebasis
-- Gate: G0 abgeschlossen; G1-001/002/003 auditiert; `WRN-G1-004` fachlich
-  abgeschlossen und wegen Security-/Privacy-Gates YELLOW; Continuity Audit offen
+- Gate: G0 abgeschlossen; G1-001/002/003/004 auditiert; `WRN-G1-004`
+  Continuity 12/12 GREEN, fachlich wegen Security-/Privacy-Gates YELLOW
 - Produktcode: keiner
 - Produktdeployment/Upload: keiner
 - Git-Checkpoint: aktueller `main`; mit `git log -1` vor jeder Uebergabe pruefen
@@ -30,14 +30,13 @@ Stand: 21. August 2026
 
 ## Aktive Mitarbeiterinstanzen
 
-- keine Fachinstanz; der Continuity Auditor ist der naechste erlaubte kurze
-  Pruefschritt fuer `WRN-G1-004`
+- keine
 
 ## Naechste erlaubte Aktion
 
-`WRN-G1-004` als Git-Checkpoint sichern und danach durch genau eine kurze
-Continuity-Auditor-Instanz pruefen. Anschliessend G1 mit der getrennten
-Website-/Markenbaseline fortsetzen. Kein Produktcode vor `GO-IMPLEMENTATION`.
+G1 mit einer getrennten read-only Website-/Markenbaseline fortsetzen. Task
+zuerst schriftlich eingrenzen und sichern, dann genau eine passende
+Fachinstanz starten. Kein Produktcode vor `GO-IMPLEMENTATION`.
 
 ## Offene Umgebungsabweichung
 
