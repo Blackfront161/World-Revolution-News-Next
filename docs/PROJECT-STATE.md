@@ -5,7 +5,7 @@ Stand: 21. August 2026
 ## Aktuelle Phase
 
 - Phase: 0 – Organisations- und Analysebasis
-- Gate: G0 abgeschlossen; G1-Baseline-Analyse gestartet
+- Gate: G0 abgeschlossen; erste G1-App-/Android-Baseline liegt vor
 - Produktcode: keiner
 - Produktdeployment/Upload: keiner
 - Git-Checkpoint: aktueller `main`; mit `git log -1` vor jeder Uebergabe pruefen
@@ -29,13 +29,14 @@ Stand: 21. August 2026
 
 ## Aktive Mitarbeiterinstanzen
 
-- `legacy_product_analyst`: Task `WRN-G1-001` vorbereitet; Instanzstart nach
-  Git-Checkpoint dieses Task Briefs
+- keine; `legacy_product_analyst` hat `WRN-G1-001` mit GREEN und vollstaendigem
+  Handoff beendet
 
 ## Naechste erlaubte Aktion
 
-`WRN-G1-001` read-only ausfuehren, Bericht in den vorbereiteten Handoff
-uebernehmen und anschliessend einen Continuity Check durchfuehren.
+Den gesicherten Bericht `WRN-G1-001` durch eine neue read-only Instanz des
+`context_continuity_auditor` pruefen. Erst nach bestandenem Audit den naechsten
+G1-Fachauftrag starten.
 
 ## Offene Umgebungsabweichung
 
