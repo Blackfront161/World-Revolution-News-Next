@@ -31,6 +31,8 @@ beginnen.
 7. [`docs/05-AGENT-ROSTER.md`](docs/05-AGENT-ROSTER.md) – Kernteam, Reserve und Modellrouting
 8. [`docs/06-DECISION-LOG.md`](docs/06-DECISION-LOG.md) – nachvollziehbare Entscheidungen
 9. [`docs/07-RISK-REGISTER.md`](docs/07-RISK-REGISTER.md) – bekannte Risiken und Gegenmassnahmen
+10. [`docs/08-CONTEXT-CONTINUITY.md`](docs/08-CONTEXT-CONTINUITY.md) – Kontextgesundheit und sichere Agentenrotation
+11. [`docs/PROJECT-STATE.md`](docs/PROJECT-STATE.md) – kompakter, dauerhafter Projektstatus
 
 ## Geplanter spaeterer Produktaufbau
 

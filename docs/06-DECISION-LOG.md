@@ -65,3 +65,18 @@ Der aktuelle Log unterscheidet `ACCEPTED`, `PROPOSED` und `DEFERRED`.
 - Status: `ACCEPTED`
 - Entscheidung: Build, Test, Signierung, Upload und Rollout sind getrennte
   Gates. Kein lokaler Test oder Build darf als Nebenwirkung deployen.
+
+## ADR-008 – Kontextkontrolle und sichere Agentenrotation
+
+- Status: `ACCEPTED`
+- Datum: 21. August 2026
+- Entscheidung: Agentenantworten enden mit einem strukturierten Statusblock und
+  `END-CHECK: :)`. Das Zeichen ist nur ein Vollstaendigkeitsmarker.
+- Kontrolle: Ein read-only `context_continuity_auditor` bewertet Meilensteine
+  oder Warnsignale als GREEN/YELLOW/RED.
+- Rotation: Der Main Agent darf eine riskante Instanz bei RED stoppen, sichert
+  zuvor soweit moeglich Git-/Dateistand und Handoff und startet einen Nachfolger
+  nur aus einem geprueften Continuity Packet.
+- Loeschgrenze: Profile und Belege werden nie automatisch geloescht. Der einfache
+  Befehl `FEUERN: <name>` beendet die Instanz; `PROFIL LOESCHEN: <name>` entfernt
+  ausdruecklich das wiederverwendbare Profil.

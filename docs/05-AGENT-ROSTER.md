@@ -19,7 +19,18 @@ den Main Agent zurueck.
 | `qa_release_engineer` | Terra, high | workspace-write | unabhaengige Tests, Screenshots, Android-/Web-Releasebelege | ab Baseline-QA, kein Deployment |
 | `independent_architecture_reviewer` | Sol, high | read-only | Architektur-, Risiko- und Releasegate | G2, G5 und kritische ADRs |
 
-## 3. Reservepool
+## 3. Kontrollstelle fuer Kontextkontinuitaet
+
+| Profil | Modell | Modus | Auftrag | Aktivierung |
+|---|---|---|---|---|
+| `context_continuity_auditor` | Luna, medium | read-only | Task-, Quellen-, Scope-, Evidenz- und Handoff-Konsistenz als GREEN/YELLOW/RED bewerten | Meilenstein oder Warnsignal |
+
+Der Auditor ist bewusst kostenguenstig und liest nur die verdichteten
+Kontrollunterlagen. Bei unklarer `YELLOW`-Bewertung entscheidet der Main Agent,
+ob ein gezielter Terra-Review erforderlich ist. Der Auditor darf keinen Agenten
+starten, stoppen, ersetzen oder loeschen.
+
+## 4. Reservepool
 
 Reserveprofile stehen bereit, laufen aber niemals automatisch.
 
@@ -36,7 +47,7 @@ Weitere Profile duerfen spaeter erstellt werden, wenn ein klarer, wiederkehrende
 Auftrag nicht sinnvoll durch ein vorhandenes Profil abgedeckt ist. Ein neues
 Profil benoetigt Name, Ausloeser, Rechte, Modell, Nicht-Ziele und Ausgabevertrag.
 
-## 4. Aktivierungsregeln
+## 5. Aktivierungsregeln
 
 1. Zuerst Task Brief erstellen.
 2. Pruefen, ob ein einzelner Agent genuegt.
@@ -48,8 +59,10 @@ Profil benoetigt Name, Ausloeser, Rechte, Modell, Nicht-Ziele und Ausgabevertrag
 6. Reserve nur bei dokumentiertem Ausloeser.
 7. Jeder Agent muss warten/abbrechen, wenn neue Autorisierung, Deployment,
    Secretzugriff, Loeschung oder wesentliche Scopeausweitung erforderlich wird.
+8. Mitarbeiterinstanzen werden nach einem Arbeitspaket geschlossen; ihre
+   wiederverwendbaren Profile und Handoffs bleiben standardmaessig erhalten.
 
-## 5. Routing nach Risiko
+## 6. Routing nach Risiko
 
 | Risiko | Primaer | Unabhaengige Kontrolle |
 |---|---|---|
@@ -60,9 +73,10 @@ Profil benoetigt Name, Ausloeser, Rechte, Modell, Nicht-Ziele und Ausgabevertrag
 | schwerer unbekannter Fehler | Sol Incident Debugger | zustaendiger Engineer + QA |
 | Security/Privacy | Sol | zweiter Sol-/Main-Review bei Blockern |
 | Routineberichte/Testlisten | Luna | Main Agent Stichprobe |
+| Kontext-/Handoff-Gesundheit | Luna Auditor | Main Agent; Terra bei unklarem YELLOW |
 | Release Candidate | Terra QA | Sol Reviewer + Product Owner |
 
-## 6. Spark-Nutzung
+## 7. Spark-Nutzung
 
 Spark wird bewusst genutzt fuer:
 
@@ -78,7 +92,7 @@ Ob Spark im Konto tatsaechlich ein getrenntes Kontingent besitzt, wird in der
 jeweiligen Codex-Oberflaeche beobachtet; diese Projektregeln behaupten keine
 nicht verifizierte Abrechnungszusage.
 
-## 7. Gemini als Zweitmeinung
+## 8. Gemini als Zweitmeinung
 
 Das vorhandene Google-AI-Plus-Abo wird zunaechst manuell eingesetzt, nicht ueber
 eine neue kostenpflichtige API:
@@ -91,7 +105,7 @@ Uebergabe an Gemini enthaelt keine Secrets, Keystores, privaten Logs oder
 unnoetig grosse Repositories. Gemini-Ergebnisse sind Reviewinput und werden von
 Codex gegen Quellen, Tests und Projektregeln geprueft.
 
-## 8. Verbindliche Agentenausgabe
+## 9. Verbindliche Agentenausgabe
 
 Jeder Sub-Agent liefert:
 
@@ -102,3 +116,33 @@ Jeder Sub-Agent liefert:
 - ausgefuehrte Tests und deren Resultate;
 - offene Fragen, Annahmen und Restrisiken;
 - empfohlene naechste Aktion, ohne sie ungefragt auszufuehren.
+
+Jede Ausgabe endet zusaetzlich mit:
+
+```text
+WRN-AGENT-STATUS
+Task: <Task-ID>
+Status: GREEN | YELLOW | RED
+Quellstand: <Commit/Hash oder N/A>
+Erledigt: <kurz>
+Tests: <kurz>
+Offen: <kurz>
+Handoff: <Pfad oder N/A>
+Naechster Schritt: <kurz>
+END-CHECK: :)
+```
+
+Das Zeichen ist ein Vollstaendigkeitsmarker, kein alleiniger Gesundheitsbeweis.
+
+## 10. Stoppen, Feuern und Loeschen
+
+- Eine **Instanz** ist ein konkreter laufender oder abgeschlossener Einsatz.
+- Ein **Profil** ist die wiederverwendbare Stellenbeschreibung unter
+  `.codex/agents/`.
+- `FEUERN: <name>` stoppt/schliesst die Instanz nach Sicherung der Uebergabe,
+  loescht aber weder Profil noch Belege.
+- `PROFIL LOESCHEN: <name>` entfernt nur das exakt benannte, versionierte Profil.
+- Automatische Loeschung von Profilen, Handoffs, Git-Historie oder Belegen ist
+  verboten.
+- Bei `RED` darf der Main Agent die Instanz automatisch stoppen. Einen frischen
+  Nachfolger startet er nur aus einem geprueften Continuity Packet.

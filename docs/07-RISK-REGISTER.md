@@ -20,6 +20,9 @@
 | R-16 | Accessibility wird nur automatisch getestet | reale Barrieren bleiben | Tastatur-, Reflow-, Screenreader- und visuelle Smokes | Visual Reviewer / G4–G5 | offen |
 | R-17 | historische IDs/Artikel verschwinden | tote Share-/SEO-Links | append-only/Redirectstrategie und historische Tests | Website + Data / G2–G5 | offen |
 | R-18 | fehlende Lizenz fuer Code/Assets/Fonts | Veroeffentlichungsrisiko | Rechteaudit vor Kopieren und G5 | Security/Product Owner | offen |
+| R-19 | Context Rot oder Kontextverschmutzung | falsche Quellen, Wiederholung, Scopeverlust | kurze Task-Instanzen, Statusblock, Continuity Auditor, Handoffs | Chief / laufend | kontrolliert |
+| R-20 | fehlendes `:)` loest Agentenkaskade aus | Doppelarbeit und Tokenkosten | Marker nur als YELLOW-Signal; Rotation erst nach Audit | Chief / laufend | kontrolliert |
+| R-21 | automatische Profilloeschung entfernt wichtige Regeln | Verlust von Rollen und Nachweisen | Instanz stoppen statt Profil loeschen; expliziter Loeschbefehl und Git | Chief / laufend | kontrolliert |
 
 ## Pflege
 

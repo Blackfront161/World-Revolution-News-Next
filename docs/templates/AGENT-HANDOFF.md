@@ -29,3 +29,15 @@ Keine / Liste
 ## Empfohlener naechster Schritt
 
 Nur Empfehlung; keine automatische Ausfuehrung.
+
+## WRN-AGENT-STATUS
+
+- Task:
+- Status: GREEN / YELLOW / RED
+- Quellstand:
+- Erledigt:
+- Tests:
+- Offen:
+- Handoff: dieser Pfad
+- Naechster Schritt:
+- END-CHECK: :)

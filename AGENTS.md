@@ -82,9 +82,36 @@ Bei widerspruechlichen Dokumenten gilt die juengere, explizite Uebergabe vom
   Arbeitspaket; spaeter nach Git-Freigabe bevorzugt einen eigenen Worktree.
 - Jeder Sub-Agent liefert eine kurze Evidenzuebergabe mit gelesenen Quellen,
   geaenderten Dateien, ausgefuehrten Tests, offenen Fragen und Risiken.
+- Jede Agentenuebergabe verwendet `docs/templates/AGENT-HANDOFF.md`, aktualisiert
+  bei laengerer Arbeit einen Checkpoint unter `docs/handoffs/` und endet mit dem
+  vorgeschriebenen `WRN-AGENT-STATUS` einschliesslich `END-CHECK: :)`.
+- Das fehlende `:)` ist nur ein Hinweis auf eine moeglicherweise unvollstaendige
+  Uebertragung (`YELLOW`), kein automatischer Beweis fuer Context Rot.
+- `context_continuity_auditor` bewertet Kontextgesundheit read-only anhand von
+  Task Brief, Source-of-Truth, Handoff, Git-Diff und Belegen. Er darf Agenten
+  weder starten, stoppen noch loeschen.
 - Reserve-Agenten werden nur bei ihrem dokumentierten Ausloeser aktiviert.
 - Der Main Agent synthetisiert Ergebnisse und bleibt fuer die Gesamtentscheidung
   verantwortlich. Sub-Agenten duerfen keine Freigabe des Product Owners ersetzen.
+
+### Agenten-Lebenszyklus und einfache Befehle
+
+- `PAUSIEREN: <name>`: laufenden Einsatz unterbrechen; Profil und Belege bleiben.
+- `FEUERN: <name>`: laufende Instanz stoppen beziehungsweise einen abgeschlossenen
+  Sub-Agent-Thread schliessen, nachdem Uebergabe und Arbeitsstand gesichert sind.
+  Das wiederverwendbare Profil unter `.codex/agents/` bleibt erhalten.
+- `ERSETZEN: <alter-name> -> <neues-profil>`: alten Einsatz sichern und stoppen;
+  frischen Nachfolger zuerst read-only aus Handoff und Task Brief orientieren.
+- `PROFIL LOESCHEN: <name>`: das exakt benannte TOML-Mitarbeiterprofil entfernen.
+  Dieser ausdrueckliche Befehl ist erforderlich; automatische Profilloeschung
+  ist verboten. Git bleibt der Wiederherstellungsweg.
+
+Der Product Owner hat den Main Agent autorisiert, eine aktive Sub-Agent-Instanz
+bei `RED`, unkontrollierter Schreibkonkurrenz oder akuter Scopeverletzung sofort
+zu stoppen, wenn der vorhandene Git-/Dateistand zuvor soweit sicher moeglich
+gesichert wird. Der Main Agent meldet den Stopp und den Wiederherstellungsstand.
+Ein Nachfolger startet nie allein wegen eines fehlenden Zeichens, sondern erst
+nach dokumentierter Rotation gemaess `docs/08-CONTEXT-CONTINUITY.md`.
 
 ## 6. Modellrouting
 
@@ -129,6 +156,7 @@ Nach Aenderungen:
 3. Abweichungen und Konsolen-/Netzwerkfehler dokumentieren;
 4. Diff auf ungewollte Dateien und Secrets pruefen;
 5. Ergebnis in verstaendlicher Sprache mit Belegen uebergeben.
+6. Bei Meilensteinen `docs/PROJECT-STATE.md` und den Task-Handoff aktualisieren.
 
 ## 8. Verbotene Aktionen ohne ausdrueckliche Einzelgenehmigung
 
@@ -142,6 +170,7 @@ Nach Aenderungen:
 - AAB/APK signieren, Versionscode aendern oder Play-Console-Upload ausfuehren
 - Website veroeffentlichen oder produktiven Cache umstellen
 - kostenpflichtige API-Aufrufe ohne Budget- und Zweckfreigabe
+- Mitarbeiterprofile, Handoffs oder Agentenbelege automatisch loeschen
 
 ## 9. Definition of Done
 
