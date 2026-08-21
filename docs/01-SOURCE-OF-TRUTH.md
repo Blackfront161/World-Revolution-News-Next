@@ -72,9 +72,12 @@ erhalten.
 | Datenrepository | `https://github.com/Blackfront161/Revolution-News-Data` |
 | Raw-Basis | `https://raw.githubusercontent.com/Blackfront161/Revolution-News-Data/main/` |
 | Beispiele | `news.json`, `events.json`, `podcasts.json`, `generated-podcasts.json`, `library-feed.json`, `library-health.json` |
+| G1-Beobachtungssnapshot | `acec88ef40814f70c1bb45001e397a6ca5872ed7`, beobachtet 21. August 2026 11:36:55 UTC |
 
 Der exakte Datenstand, Schemata, Generatoren, Eigentuemerschaft und offene
-Hotfixes muessen waehrend Phase 1 separat inventarisiert werden.
+Hotfixes muessen waehrend Phase 1 separat inventarisiert werden. `main` ist eine
+bewegliche Produktionsquelle; der G1-Hash ist ein Analysebeleg und friert den
+produktiven Feed nicht ein.
 
 ## 6. Bekannte nicht massgebliche Quellen
 

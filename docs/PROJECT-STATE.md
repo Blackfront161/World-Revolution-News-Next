@@ -30,14 +30,14 @@ Stand: 21. August 2026
 
 ## Aktive Mitarbeiterinstanzen
 
-- keine; Visual Reviewer und frische Auditinstanz sind nach vollstaendiger
-  Uebergabe beendet
+- keine; `WRN-G1-003` fuer den Backend/Data Engineer im read-only Modus ist
+  vorbereitet, aber noch nicht gestartet
 
 ## Naechste erlaubte Aktion
 
-Einen getrennten read-only Task Brief fuer das G1-Backend-/Daten-/Privacy-
-Inventar erstellen und vor Agentenstart als Git-Checkpoint sichern. Kein
-Produktcode vor `GO-IMPLEMENTATION`.
+`WRN-G1-003` als Git-Checkpoint sichern. Danach genau eine read-only
+Backend/Data-Instanz starten; Security-Reserve nur bei konkretem Ausloeser.
+Kein Produktcode vor `GO-IMPLEMENTATION`.
 
 ## Offene Umgebungsabweichung
 
