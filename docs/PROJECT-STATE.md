@@ -30,14 +30,14 @@ Stand: 21. August 2026
 
 ## Aktive Mitarbeiterinstanzen
 
-- keine; `legacy_product_analyst` und die frische Auditinstanz sind nach
-  vollstaendiger Uebergabe beendet
+- keine; `WRN-G1-002` fuer den `visual_accessibility_reviewer` ist vorbereitet,
+  aber noch nicht gestartet
 
 ## Naechste erlaubte Aktion
 
-Einen einzelnen, klar abgegrenzten naechsten G1-Fachauftrag vorbereiten und als
-Git-Checkpoint sichern. Prioritaet: visuelle App-Baseline; danach getrennt
-Backend/Privacy und Website. Kein Produktcode vor `GO-IMPLEMENTATION`.
+`WRN-G1-002` als Git-Checkpoint sichern. Danach genau eine read-only
+Visual-Reviewer-Instanz fuer die lokale App-Baseline starten. Anschliessend
+Continuity Check; kein Produktcode vor `GO-IMPLEMENTATION`.
 
 ## Offene Umgebungsabweichung
 
