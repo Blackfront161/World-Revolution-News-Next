@@ -5,8 +5,8 @@
 - Task-ID: `WRN-G1-005`
 - Titel: Read-only Website-, SEO-, Hosting- und Markenbaseline
 - Zustaendiger Agent: neue kurze Instanz des Profils `legacy_product_analyst`
-- Modellklasse: Spark/medium; kostenguenstige Evidenzsammlung ohne
-  Hochrisikoentscheidung und ohne Code
+- Modellklasse: Spark/medium bevorzugt; Luna/medium als kostenguenstiger
+  Runtime-Fallback, falls Spark nicht als Subagent-Override angeboten wird
 - Delegation: nicht erlaubt
 
 ## Ziel
