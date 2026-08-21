@@ -5,8 +5,8 @@ Stand: 21. August 2026
 ## Aktuelle Phase
 
 - Phase: 0 – Organisations- und Analysebasis
-- Gate: G0 abgeschlossen; G1-001/002/003/004 auditiert; `WRN-G1-004`
-  Continuity 12/12 GREEN, fachlich wegen Security-/Privacy-Gates YELLOW
+- Gate: G0 abgeschlossen; G1-001/002/003/004 auditiert; `WRN-G1-005`
+  fachlich abgeschlossen und wegen Manifest-/Live-/Visual-Gates YELLOW
 - Produktcode: keiner
 - Produktdeployment/Upload: keiner
 - Git-Checkpoint: aktueller `main`; mit `git log -1` vor jeder Uebergabe pruefen
@@ -30,13 +30,13 @@ Stand: 21. August 2026
 
 ## Aktive Mitarbeiterinstanzen
 
-- keine; `WRN-G1-005` ist vorbereitet, aber noch nicht gestartet
+- keine; Continuity Audit fuer `WRN-G1-005` ist naechster Schritt
 
 ## Naechste erlaubte Aktion
 
-`WRN-G1-005` als Git-Checkpoint sichern und dann genau eine kurze read-only
-Instanz des Legacy-Product-Analyst-Profils starten. Kein Produktcode vor
-`GO-IMPLEMENTATION`.
+`WRN-G1-005` als Git-Checkpoint sichern und durch genau eine kurze
+Continuity-Auditor-Instanz pruefen. Danach separaten visuellen Website-Task
+vorbereiten. Kein Produktcode vor `GO-IMPLEMENTATION`.
 
 ## Offene Umgebungsabweichung
 

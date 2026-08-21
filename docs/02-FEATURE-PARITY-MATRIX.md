@@ -86,9 +86,9 @@ spaeter trotzdem visuell und funktional aufgenommen werden.
 
 | ID | Faehigkeit | Baseline | Ziel | Abnahme | Status |
 |---|---|---|---|---|---|
-| WEB-01 | SEO-Landingpages | 935 statische Artikelordner dokumentiert | deterministisch und append-only erzeugen | Generator-, Manifest- und Sitemapgleichheit | CONFIRMED |
+| WEB-01 | SEO-Landingpages | 935 statische Artikelordner; aktuelles Manifest enthaelt nicht die von Generator/Runtime erwarteten IDs, Anzahl und Revision | deterministisch, append-only und revisionsgebunden erzeugen | Generator-, Manifest-, Verzeichnis- und Sitemapgleichheit | KNOWN-ISSUE |
 | WEB-02 | Stabile Artikel-URLs | `/articles/<id>/` plus `?article=` | alte und neue IDs aufloesbar | direkter Kaltstart und unbekannter Fallback | CONFIRMED |
-| WEB-03 | Sitemap/Robots | vorhanden | gleiche Datenrevision wie Landingpages | Schema-, Mengen- und Linkcheck | CONFIRMED |
+| WEB-03 | Sitemap/Robots | vorhanden; 937 Sitemap-URLs beobachtet, gemeinsame Revision mit 935 Artikelseiten wegen Manifestdrift nicht bewiesen | gleiche immutable Datenrevision wie Landingpages | Schema-, ID-Mengen-, Revisions- und Linkcheck | KNOWN-ISSUE |
 | WEB-04 | Apache/Hosting | `.htaccess` und Hostinger | getrennte Deploy-/Rollbackkette | Paket-Smoke in Apache-kompatibler Umgebung | CONFIRMED |
 | WEB-05 | Web-Performance | offene Core-Web-Vitals-Arbeit | Budgets nach Baseline festlegen | reale CWV- und langsame-Netz-Messung | KNOWN-ISSUE |
 

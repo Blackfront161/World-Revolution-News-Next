@@ -28,6 +28,7 @@
 | R-24 | Uebersetzungs-Cache vertraut einem clientgelieferten Inhaltskey | manipulierte Uebersetzungen koennen als legitimer Cache-HIT erscheinen | Key serverseitig aus einem versionierten kanonischen Payload berechnen; Kollisions-/Manipulations-Negativtests | Security + Backend / vor G3 | SEC-001 High, statisch validiert |
 | R-25 | kosten- oder zustandserzeugende anonyme Endpunkte verlassen sich auf CORS und IP-Limits | Quota-/Kostenverbrauch, oeffentliche Fremdinhalte oder Push-Verdraengung | zweckgebundene Admission, kanonische Serverdaten, globale Caps, Ablauf/Pruning und Takedown | Architect + Security / G2–G3 | SEC-002 High; SEC-003 bedingt High |
 | R-26 | Privacyversprechen und tatsaechliche Ausloese-/Loeschpfade laufen auseinander | ungewollte Drittuebertragung oder verbleibende Feedback-/Push-/Podcastdaten | Datenflussvertrag, ehrlicher Privacytext, sichtbare Referenz, bestaetigter Widerruf, Retention und Loeschtests | Product Owner + Security / G2–G4 | High-Governance-Luecke in G1 |
+| R-27 | Website-Landingpages, Manifest, Sitemap und Feed folgen nicht nachweisbar derselben ID-Menge/Revision | tote oder falsch indexierte Artikel, inkonsistente Shares und Releases | Generatorvertrag mit `ids`, `articleCount`, immutable Revision und Hashgleichheit fuer alle SEO-Artefakte | Website + Data / G2–G5 | Manifestdrift in G1 bestaetigt |
 
 ## Pflege
 
