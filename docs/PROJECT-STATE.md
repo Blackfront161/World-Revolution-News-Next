@@ -30,13 +30,12 @@ Stand: 21. August 2026
 
 ## Aktive Mitarbeiterinstanzen
 
-- keine
+- keine; `WRN-G1-006` ist vorbereitet, aber noch nicht gestartet
 
 ## Naechste erlaubte Aktion
 
-Separaten visuellen Website-Baseline-Task schriftlich vorbereiten und sichern.
-Danach genau eine Visual-QA-Instanz starten. Kein Produktcode vor
-`GO-IMPLEMENTATION`.
+`WRN-G1-006` als Git-Checkpoint sichern und danach genau eine Visual-QA-
+Instanz starten. Kein Produktcode vor `GO-IMPLEMENTATION`.
 
 ## Offene Umgebungsabweichung
 
