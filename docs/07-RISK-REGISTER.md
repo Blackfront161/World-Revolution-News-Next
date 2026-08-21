@@ -17,7 +17,7 @@
 | R-13 | Build enthaelt nicht den geprueften Quellstand | falsche AAB/Website | commitgebundener Sync, Doppelbuild, Hashreport | QA / G5 | offen |
 | R-14 | Signierung/Deployment erfolgt zu frueh | falscher Production Release | Einzelgenehmigung und getrenntes G6 | Product Owner | kontrolliert |
 | R-15 | Map-/Spielanforderungen vergroessern ersten Scope | Verzoegerung und Architekturballast | nur Vertragsanbindung, separates spaeteres Gate | Architect | kontrolliert |
-| R-16 | Accessibility wird nur automatisch getestet | reale Barrieren bleiben | G1-Befunde zu 200-%-Nav, Touchzielen und Escape als Regressionstests; Tastatur-, Reflow- und Screenreader-Smokes | Visual Reviewer / G4–G5 | in G1 konkretisiert |
+| R-16 | Accessibility wird nur automatisch getestet | reale Barrieren bleiben | G1-Befunde beider Oberflaechen zu Touchzielen und Escape als Regressionstests; Tastatur-, Reflow-, Kontrast- und Screenreader-Smokes | Visual Reviewer / G4–G5 | in App und Website konkretisiert |
 | R-17 | historische IDs/Artikel verschwinden | tote Share-/SEO-Links | append-only/Redirectstrategie und historische Tests | Website + Data / G2–G5 | offen |
 | R-18 | fehlende Lizenz fuer Code/Assets/Fonts | Veroeffentlichungsrisiko | Rechteaudit vor Kopieren und G5 | Security/Product Owner | offen |
 | R-19 | Context Rot oder Kontextverschmutzung | falsche Quellen, Wiederholung, Scopeverlust | kurze Task-Instanzen, Statusblock, Continuity Auditor, Handoffs | Chief / laufend | kontrolliert |

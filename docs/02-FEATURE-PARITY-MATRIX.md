@@ -22,7 +22,7 @@ spaeter trotzdem visuell und funktional aufgenommen werden.
 | UX-01 | Solinaridao-/WRN-Header und aktive Bildmarke | aktive Mark/Mask-Kombination dokumentiert | eigene Web-Headerassets und kompakter Desktopheader | gemeinsame Brand-Tokens, plattformspezifisches Layout | Referenzvergleich in allen Viewports | CONFIRMED |
 | UX-02 | Hauptnavigation und Tabs | bestehende mobile Navigation | eigenstaendige Web-/Desktopnavigation | Funktionsparitaet ohne erzwungene identische Navigation | alle Hauptziele erreichbar, keine Ueberlagerung | VERIFY |
 | UX-03 | Responsive Smartphone | aktuelle App ist mobile Baseline | Reflow ab 320 px dokumentiert | 320/360/390/412 px ohne horizontalen Overflow | Screenshot- und Interaktionstest | CONFIRMED |
-| UX-04 | Responsive Tablet | Verhalten noch aufzunehmen | Verhalten noch aufzunehmen | definierte Hoch-/Querformatlayouts | Screenshot- und Reflowtest | VERIFY |
+| UX-04 | Responsive Tablet | Verhalten noch aufzunehmen | 800x1280-Dark-Feed ohne horizontalen Overflow visuell aufgenommen | definierte Hoch-/Querformatlayouts | weitere Tabletgroessen plus Querformat-Screenshot und Reflowtest | CONFIRMED |
 | UX-05 | Responsive Desktop | nicht primaeres Appziel | 1024–1920 px und Zweispaltenraster dokumentiert | markenkonsistente Desktopoberflaeche | Screenshots 1024/1280/1440/1920 | CONFIRMED |
 | UX-06 | Themes | Themepfade dokumentiert | Light-/weitere Theme-Dateien vorhanden | gleiche Semantik, getrennte Implementierung erlaubt | persistenter Wechsel, Kontrasttest | VERIFY |
 | UX-07 | Schriftgroesse/Reflow | 200-%-Baseline zeigt ueberlappende Bottom-Nav-Beschriftungen bei 390 px | Normal/Gross/Sehr gross dokumentiert | keine Inhaltsverluste bei Vergroesserung | 200-%-Reflowaequivalent und Tastatur | KNOWN-ISSUE |
