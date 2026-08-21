@@ -5,8 +5,8 @@ Stand: 21. August 2026
 ## Aktuelle Phase
 
 - Phase: 0 – Organisations- und Analysebasis
-- Gate: G0 abgeschlossen; `WRN-G1-001` akzeptiert; `WRN-G1-002` auditiert;
-  `WRN-G1-003` Backend/Data-Baseline mit sechs High-Risiken aufgenommen
+- Gate: G0 abgeschlossen; G1-001/002 auditiert; `WRN-G1-003` Continuity
+  12/12 GREEN, fachlich wegen sechs High-Risiken YELLOW
 - Produktcode: keiner
 - Produktdeployment/Upload: keiner
 - Git-Checkpoint: aktueller `main`; mit `git log -1` vor jeder Uebergabe pruefen
@@ -30,13 +30,14 @@ Stand: 21. August 2026
 
 ## Aktive Mitarbeiterinstanzen
 
-- keine; Backend/Data Engineer hat mit vollstaendiger Fachrueckgabe beendet
+- keine; Backend/Data Engineer und frische Auditinstanz sind nach
+  vollstaendiger Uebergabe beendet
 
 ## Naechste erlaubte Aktion
 
-`WRN-G1-003` als Git-Checkpoint sichern und durch eine frische read-only
-Continuity-Auditinstanz pruefen. Die High-Privacy-Befunde aktivieren danach den
-separaten Security-Reserveauftrag. Kein Produktcode vor `GO-IMPLEMENTATION`.
+Einen engen read-only Security/Privacy-Task fuer Uebersetzung, Feedback, Push,
+Podcastmetadaten sowie Hilfe/Action-Radar-Trennung erstellen und vor Start des
+Sol-Reserveprofils sichern. Kein Produktcode vor `GO-IMPLEMENTATION`.
 
 ## Offene Umgebungsabweichung
 
