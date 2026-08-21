@@ -25,6 +25,9 @@
 | R-21 | automatische Profilloeschung entfernt wichtige Regeln | Verlust von Rollen und Nachweisen | Instanz stoppen statt Profil loeschen; expliziter Loeschbefehl und Git | Chief / laufend | kontrolliert |
 | R-22 | bewegliche Datenrevisionen machen visuelle und funktionale Vergleiche nicht deterministisch | falsche Regressionen, auseinanderlaufende Clients oder uebersehene Layoutfehler | immutable Datensnapshot, feste Testfixtures plus getrennte Live-Smokes und Hashes | Backend + QA / G2–G5 | in G1 bestaetigt |
 | R-23 | historische Workerberichte werden als aktueller Livezustand behandelt | falsche Security-, Privacy-, Kosten- oder Releaseentscheidung | spaeter autorisiertes read-only Deploymentinventar mit Version, Bindings, Plan, Lifecycle und Zeitstempel | Backend + Security / G2 | in G1 beobachtet |
+| R-24 | Uebersetzungs-Cache vertraut einem clientgelieferten Inhaltskey | manipulierte Uebersetzungen koennen als legitimer Cache-HIT erscheinen | Key serverseitig aus einem versionierten kanonischen Payload berechnen; Kollisions-/Manipulations-Negativtests | Security + Backend / vor G3 | SEC-001 High, statisch validiert |
+| R-25 | kosten- oder zustandserzeugende anonyme Endpunkte verlassen sich auf CORS und IP-Limits | Quota-/Kostenverbrauch, oeffentliche Fremdinhalte oder Push-Verdraengung | zweckgebundene Admission, kanonische Serverdaten, globale Caps, Ablauf/Pruning und Takedown | Architect + Security / G2–G3 | SEC-002 High; SEC-003 bedingt High |
+| R-26 | Privacyversprechen und tatsaechliche Ausloese-/Loeschpfade laufen auseinander | ungewollte Drittuebertragung oder verbleibende Feedback-/Push-/Podcastdaten | Datenflussvertrag, ehrlicher Privacytext, sichtbare Referenz, bestaetigter Widerruf, Retention und Loeschtests | Product Owner + Security / G2–G4 | High-Governance-Luecke in G1 |
 
 ## Pflege
 

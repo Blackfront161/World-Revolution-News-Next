@@ -38,7 +38,7 @@ spaeter trotzdem visuell und funktional aufgenommen werden.
 | NEWS-04 | Vollstaendiger erster Satz | vertraglich getestet | Desktop-QA bestaetigt | keine willkuerliche Ellipsen-Kuerzung | Segmenter- und Fallbacktests | CONFIRMED |
 | NEWS-05 | Speichern/Lesestatus | gespeicherte Artikel und Reading State | Reading-State-Modul vorhanden | lokal, transparent, loeschbar | Neustart-/Loeschtest | VERIFY |
 | NEWS-06 | Teilen | native Bruecke vorhanden | stabile Web-/Landingpage-URLs | sichere, aufloesbare Share-Ziele | Android- und Web-Sharetest | VERIFY |
-| NEWS-07 | Uebersetzung | Titel/Teaser, Herkunftsregeln | asynchroner Webflow dokumentiert | bewusst ausgeloest, Provenienz sichtbar | Race-, Fehler- und Datenschutztest | CONFIRMED |
+| NEWS-07 | Uebersetzung | Titel/Teaser, Herkunftsregeln; Home-Uebersetzung wird automatisch angestossen; clientgelieferter Cachekey ist manipulierbar | asynchroner Webflow dokumentiert | bewusst und transparent ausgeloest, Provenienz sichtbar, Cachekey serverseitig inhaltsgebunden | Race-, Fehler-, Cacheintegritaets- und Datenschutztest | KNOWN-ISSUE |
 | NEWS-08 | Originalsprache | nur verlaessliche Erkennung | generischer Status bei unbekannt | keine erfundene Sprachangabe | Codes/unknown/UND-Testmatrix | CONFIRMED |
 | NEWS-09 | Quellenpass/Herkunft | Produktumfang dokumentiert | Quellenprofile/-verifikation vorhanden | Quelle, URL, Datum unveraendert | Schema- und UI-Test | VERIFY |
 | NEWS-10 | Archiv und historische Artikel | Nachrichtenarchiv vorhanden | 935 statische Artikelverzeichnisse dokumentiert | stabile IDs und Reader-Fallback | historische Deep-Link-Tests | KNOWN-ISSUE |
@@ -48,7 +48,7 @@ spaeter trotzdem visuell und funktional aufgenommen werden.
 
 | ID | Faehigkeit | App-Baseline | Website-Baseline | Ziel fuer Migration Release 1 | Abnahme | Status |
 |---|---|---|---|---|---|---|
-| MEDIA-01 | Podcasts | Daten und Medienmodule vorhanden | Podcastkatalog vorhanden | kontrolliertes Laden und stabiler Player | Abspielen/Pause/Fehler/Resume | VERIFY |
+| MEDIA-01 | Podcasts | Daten und Medienmodule vorhanden; anonyme Generierung kann Azure/R2 und oeffentlichen Katalog belasten | Podcastkatalog vorhanden | kontrolliertes Laden/Erzeugen, Admission, kanonische Quellen, Moderation/Takedown und stabiler Player | Abspielen/Pause/Fehler/Resume plus Abuse-/No-Side-Effect-Test | KNOWN-ISSUE |
 | MEDIA-02 | Freie Radios | Produktumfang dokumentiert | Radioquellen und Stationen vorhanden | freigegebene Quellen und sichere externe Medien | Quellen-/Player-Test | VERIFY |
 | MEDIA-03 | Audio-Hub | Medienfunktionen vorhanden | Audio-Hub und Katalog vorhanden | mobile und Webbedienung konsistent | Tastatur-, Hintergrund- und Fehlercheck | VERIFY |
 | MEDIA-04 | Video-Hub | Pipeline dokumentiert | Video-Hub/-Feed vorhanden | bewusstes Laden, Rechte/Quelle sichtbar | Netz-/Consent-/Fallbacktest | VERIFY |
@@ -77,10 +77,10 @@ spaeter trotzdem visuell und funktional aufgenommen werden.
 | SYS-03 | Langsames/fehlendes Netz | Fallbacks vorhanden | Fallbacks mit bekannten 404-Warnungen | ehrliche Zustandsanzeige, keine Haenger | Netzwerkprofiltests | KNOWN-ISSUE |
 | SYS-04 | Optionale Spezialfeeds | Library-, Video- und Editorialpfade fehlen am gebundenen Datencommit trotz Clientconfig | mehrere bekannte 404s | Required/Optional-Vertrag; bereitstellen oder Abfrage entfernen | null 404-Dauerwarnungen im Sollpfad | KNOWN-ISSUE |
 | SYS-05 | Diagnose/Selbsttest | Runtime- und App-Diagnose vorhanden | QA-Verzeichnisse vorhanden | menschenlesbarer Healthreport | deterministischer Diagnosecheck | CONFIRMED |
-| SYS-06 | Datenschutz | Uebersetzung, Feedback, Push, Podcast, lokale Speicherung und Standortpfade statisch inventarisiert; Live-Retention/Logging offen | `privacy.html`, CSP und Header | Datenflussvertrag, Minimierung, Loeschung und aktuelle Erklaerung | unabhaengiger Privacy-Review | VERIFY |
+| SYS-06 | Datenschutz | Fluesse statisch inventarisiert; automatische Uebersetzung widerspricht Privacytext, Feedbackreferenz fehlt in UI, Push-Widerruf kann still scheitern; Live-Retention/Logging offen | `privacy.html`, CSP und Header | Datenflussvertrag, Minimierung, bestaetigte End-to-End-Loeschung und aktuelle Erklaerung | unabhaengiger Privacy-Review plus Negativ-/Loeschtests | KNOWN-ISSUE |
 | SYS-07 | Barrierefreiheit | sichtbarer Fokus; einzelne Touchziele unter 44 px und Artikel-Escape ohne Wirkung beobachtet | 44-px-Ziele und Reflow-QA | WCAG-orientierte automatische und manuelle Gates | Axe/Keyboard/Screenreader-Smoke | KNOWN-ISSUE |
 | SYS-08 | Content Security Policy | App-WebView-Regeln pruefen | Apache-CSP vorhanden | minimale, dokumentierte Origins | CSP-/External-Link-Test | VERIFY |
-| SYS-09 | Push/Benachrichtigungen | Gateway und lokale Notifications | optionale Pushpfade | Opt-in, Fehler- und Datenschutzverhalten klaeren | Berechtigungs- und Widerrufstest | PRODUCT-DECISION |
+| SYS-09 | Push/Benachrichtigungen | Gateway und lokale Notifications; keine Maximalretention, stiller Backend-Unsubscribe-Fehler und bedingte 2.500er-Verdraengung | optionale Pushpfade | Produktentscheid, bestaetigte Admission/Expiry/Widerruf und sichtbares Fehler-/Datenschutzverhalten | Berechtigungs-, Fantasieendpoint-, Retention- und Widerrufstest | PRODUCT-DECISION |
 
 ## F. Website-spezifisch
 
