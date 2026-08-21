@@ -1,0 +1,39 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+
+# Build and dependency output
+node_modules/
+dist/
+build/
+coverage/
+.gradle/
+.cache/
+test-results/
+playwright-report/
+
+# Mobile and release artifacts
+*.aab
+*.apk
+*.apks
+*.ipa
+*.zip
+
+# Local QA and logs
+local-qa/
+qa-artifacts/
+*.log
+*.tmp
+
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
