@@ -9,7 +9,7 @@ internen Subagenten, Modelle, Ergebnisse und Git-Nachweise.
 | Task/Chat | Typ | Aufgabe | Umgebung | Status | Verweis |
 |---|---|---|---|---|---|
 | `WRN – Chief AI Architect & Orchestrierung` | sichtbarer, angehefteter Haupttask | Product-Owner-Kommunikation, Orchestrierung, Freigaben und konsolidierte Entscheidungen | lokaler Hauptordner | AKTIV | aktueller Codex-Task |
-| `WRN G2 – Zielarchitektur & ADRs` | sichtbarer Phasentask | Zielarchitektur und Architecture Decision Records; kein Produktcode | eigener Codex-Git-Worktree | WIRD GESTARTET | Thread-ID nach Erstellung nachtragen |
+| `WRN G2 – Zielarchitektur & ADRs` | sichtbarer Phasentask | Zielarchitektur und Architecture Decision Records; kein Produktcode | eigener Codex-Git-Worktree | AKTIV | Thread `01a02497-f526-7cf1-b398-dc664a90c044` |
 
 Regel: Jede grosse Phase oder jedes eigenstaendige Ergebnis bekommt hoechstens
 einen sichtbaren Projekt-Task. Kurzlebige Recherche-, Test- und Auditaufgaben
@@ -73,8 +73,7 @@ gestartet werden, arbeitet aber aktuell nicht.
 - Quellstand: Governance ab `86f2615`
 - Erledigt: sichtbare Tasks, G1-Instanzen, Profile und Kontrollorte kartiert
 - Tests: Dokumentpruefung
-- Offen: G2-Thread-ID nach erfolgreicher Erstellung nachtragen
+- Offen: G2-Ergebnis und Architecture Review abwarten
 - Handoff: `docs/09-AGENT-ACTIVITY-INDEX.md`
-- Naechster Schritt: sichtbaren G2-Task starten
+- Naechster Schritt: sichtbaren G2-Task beobachten und Ergebnis abnehmen
 - END-CHECK: :)
-
