@@ -11,6 +11,8 @@ internen Subagenten, Modelle, Ergebnisse und Git-Nachweise.
 | `WRN – Chief AI Architect & Orchestrierung` | sichtbarer, angehefteter Haupttask | Product-Owner-Kommunikation, Orchestrierung, Freigaben und konsolidierte Entscheidungen | lokaler Hauptordner | AKTIV | aktueller Codex-Task |
 | `WRN G2 – Zielarchitektur & ADRs` | sichtbarer Phasentask | `WRN-G2-001`: Zielarchitektur und ADR-Paket; kein Produktcode | isolierter Codex-Git-Worktree | FACHLICH ABGESCHLOSSEN – G2/PO-ENTSCHEIDUNG OFFEN | `docs/handoffs/WRN-G2-001-target-architecture-adr-package.md` |
 
+Sichtbarer G2-Codex-Thread: `01a02497-f526-7cf1-b398-dc664a90c044`.
+
 Regel: Jede grosse Phase oder jedes eigenstaendige Ergebnis bekommt hoechstens
 einen sichtbaren Projekt-Task. Kurzlebige Recherche-, Test- und Auditaufgaben
 laufen als Subagenten innerhalb des zustaendigen sichtbaren Tasks.

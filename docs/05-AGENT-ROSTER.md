@@ -1,7 +1,8 @@
 # Agenten-Roster und Modellrouting
 
-Status: Profile angelegt; G1-Instanzen abgeschlossen; sichtbarer G2-Phasentask
-wird gestartet. Laufstatus steht verbindlich in `docs/09-AGENT-ACTIVITY-INDEX.md`.
+Status: Profile angelegt; G1- und G2-Instanzen abgeschlossen; G2-Abnahme durch
+den Product Owner offen. Laufstatus steht verbindlich in
+`docs/09-AGENT-ACTIVITY-INDEX.md`.
 
 ## 1. Fuehrungsmodell
 
@@ -10,7 +11,11 @@ Product Owner behaelt Produkt-, Budget-, Design- und Releasefreigaben.
 Sub-Agenten bearbeiten nur klar begrenzte Task Briefs und geben Ergebnisse an
 den Main Agent zurueck.
 
-## 2. Kernteam
+## 2. Kernteam-Profile (wiederverwendbare Rollen)
+
+Diese Tabelle beschreibt Mitarbeiterprofile und keine sichtbaren Chats.
+Sichtbare Arbeitsraeume, laufende Einsaetze und abgeschlossene Instanzen stehen
+getrennt im Mitarbeiter-Dashboard `docs/09-AGENT-ACTIVITY-INDEX.md`.
 
 | Profil | Modell | Modus | Auftrag | Aktivierung |
 |---|---|---|---|---|
