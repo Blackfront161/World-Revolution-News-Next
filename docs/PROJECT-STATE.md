@@ -30,14 +30,14 @@ Stand: 21. August 2026
 
 ## Aktive Mitarbeiterinstanzen
 
-- keine; Backend/Data Engineer und frische Auditinstanz sind nach
-  vollstaendiger Uebergabe beendet
+- keine; `WRN-G1-004` fuer das Sol-Security-Reserveprofil ist vorbereitet,
+  aber noch nicht gestartet
 
 ## Naechste erlaubte Aktion
 
-Einen engen read-only Security/Privacy-Task fuer Uebersetzung, Feedback, Push,
-Podcastmetadaten sowie Hilfe/Action-Radar-Trennung erstellen und vor Start des
-Sol-Reserveprofils sichern. Kein Produktcode vor `GO-IMPLEMENTATION`.
+`WRN-G1-004` als Git-Checkpoint sichern. Danach genau eine read-only Instanz des
+Security-Reserveprofils starten. Kein Vollscan und kein Produktcode vor
+`GO-IMPLEMENTATION`.
 
 ## Offene Umgebungsabweichung
 
