@@ -6,7 +6,7 @@
 | R-02 | App und Website werden blind zusammenkopiert | Cache-, SEO-, Navigations- und Releasefehler | getrennte Apps/Releaseketten, gemeinsame Pakete nur gezielt | Architect / G2 | offen |
 | R-03 | monolithische Legacy-JS/CSS-Struktur wird nur umbenannt | schlechte Wartbarkeit bleibt bestehen | Domain-/Featuregrenzen und schrittweise vertikale Migration | Frontend / G3–G4 | offen |
 | R-04 | Funktionsverlust bei visueller Neumigration | Product Owner erkennt Verlust spaet | Paritaetsmatrix, Referenzscreenshots, Flowtests | Legacy + QA / G1–G4 | offen |
-| R-05 | optionale Feeds erzeugen 404 und stille Fallbacks | Warnungen, veraltete/fehlende Inhalte | Feedinventar, explizite Optionalitaet, Contracttests | Backend / G2–G4 | bekannt |
+| R-05 | optionale Feeds erzeugen 404 und stille Fallbacks | Warnungen, veraltete/fehlende Inhalte | Feedinventar, explizite Optionalitaet, Contracttests | Backend / G2–G4 | in G1 visuell bestaetigt |
 | R-06 | App-/Website-Datenrevisionen laufen auseinander | falsche Links, Landingpages, Offlinepakete | versionierter Releasevertrag und Hashmanifest | Backend + QA / G4–G5 | offen |
 | R-07 | Offline-/Cachemigration bricht Updates | weisse Seite oder alte Inhalte | Cache-Migrationsplan, Erst-/Zweitstart, Rollbacktests | Backend + QA / G4 | offen |
 | R-08 | sensible Hilfe-/Uebersetzungsdaten werden geloggt | Datenschutz- und Vertrauensschaden | Datenflussreview, No-Persistence-/Logtests | Security / G2–G5 | offen |
@@ -17,12 +17,13 @@
 | R-13 | Build enthaelt nicht den geprueften Quellstand | falsche AAB/Website | commitgebundener Sync, Doppelbuild, Hashreport | QA / G5 | offen |
 | R-14 | Signierung/Deployment erfolgt zu frueh | falscher Production Release | Einzelgenehmigung und getrenntes G6 | Product Owner | kontrolliert |
 | R-15 | Map-/Spielanforderungen vergroessern ersten Scope | Verzoegerung und Architekturballast | nur Vertragsanbindung, separates spaeteres Gate | Architect | kontrolliert |
-| R-16 | Accessibility wird nur automatisch getestet | reale Barrieren bleiben | Tastatur-, Reflow-, Screenreader- und visuelle Smokes | Visual Reviewer / G4–G5 | offen |
+| R-16 | Accessibility wird nur automatisch getestet | reale Barrieren bleiben | G1-Befunde zu 200-%-Nav, Touchzielen und Escape als Regressionstests; Tastatur-, Reflow- und Screenreader-Smokes | Visual Reviewer / G4–G5 | in G1 konkretisiert |
 | R-17 | historische IDs/Artikel verschwinden | tote Share-/SEO-Links | append-only/Redirectstrategie und historische Tests | Website + Data / G2–G5 | offen |
 | R-18 | fehlende Lizenz fuer Code/Assets/Fonts | Veroeffentlichungsrisiko | Rechteaudit vor Kopieren und G5 | Security/Product Owner | offen |
 | R-19 | Context Rot oder Kontextverschmutzung | falsche Quellen, Wiederholung, Scopeverlust | kurze Task-Instanzen, Statusblock, Continuity Auditor, Handoffs | Chief / laufend | kontrolliert |
 | R-20 | fehlendes `:)` loest Agentenkaskade aus | Doppelarbeit und Tokenkosten | Marker nur als YELLOW-Signal; Rotation erst nach Audit | Chief / laufend | kontrolliert |
 | R-21 | automatische Profilloeschung entfernt wichtige Regeln | Verlust von Rollen und Nachweisen | Instanz stoppen statt Profil loeschen; expliziter Loeschbefehl und Git | Chief / laufend | kontrolliert |
+| R-22 | dynamische Live-Inhalte machen visuelle Vergleiche nicht deterministisch | falsche Regressionen oder uebersehene Layoutfehler | feste Testfixtures plus getrennte Live-Smokes und Screenshot-Hashes | QA / G3–G5 | in G1 beobachtet |
 
 ## Pflege
 

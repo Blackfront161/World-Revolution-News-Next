@@ -5,8 +5,8 @@ Stand: 21. August 2026
 ## Aktuelle Phase
 
 - Phase: 0 – Organisations- und Analysebasis
-- Gate: G0 abgeschlossen; `WRN-G1-001` App-/Android-Baseline mit Continuity
-  Score 11/12 GREEN akzeptiert
+- Gate: G0 abgeschlossen; `WRN-G1-001` akzeptiert; `WRN-G1-002` visuelle
+  App-Baseline mit drei offenen Medium-Befunden aufgenommen
 - Produktcode: keiner
 - Produktdeployment/Upload: keiner
 - Git-Checkpoint: aktueller `main`; mit `git log -1` vor jeder Uebergabe pruefen
@@ -30,14 +30,13 @@ Stand: 21. August 2026
 
 ## Aktive Mitarbeiterinstanzen
 
-- keine; `WRN-G1-002` fuer den `visual_accessibility_reviewer` ist vorbereitet,
-  aber noch nicht gestartet
+- keine; Visual Reviewer hat den Auftrag mit vollstaendiger Rueckgabe beendet
 
 ## Naechste erlaubte Aktion
 
-`WRN-G1-002` als Git-Checkpoint sichern. Danach genau eine read-only
-Visual-Reviewer-Instanz fuer die lokale App-Baseline starten. Anschliessend
-Continuity Check; kein Produktcode vor `GO-IMPLEMENTATION`.
+`WRN-G1-002` samt Screenshot-Hashes als Git-Checkpoint sichern und durch eine
+frische read-only Continuity-Auditinstanz pruefen. Kein Produktcode vor
+`GO-IMPLEMENTATION`.
 
 ## Offene Umgebungsabweichung
 

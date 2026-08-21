@@ -25,7 +25,7 @@ spaeter trotzdem visuell und funktional aufgenommen werden.
 | UX-04 | Responsive Tablet | Verhalten noch aufzunehmen | Verhalten noch aufzunehmen | definierte Hoch-/Querformatlayouts | Screenshot- und Reflowtest | VERIFY |
 | UX-05 | Responsive Desktop | nicht primaeres Appziel | 1024–1920 px und Zweispaltenraster dokumentiert | markenkonsistente Desktopoberflaeche | Screenshots 1024/1280/1440/1920 | CONFIRMED |
 | UX-06 | Themes | Themepfade dokumentiert | Light-/weitere Theme-Dateien vorhanden | gleiche Semantik, getrennte Implementierung erlaubt | persistenter Wechsel, Kontrasttest | VERIFY |
-| UX-07 | Schriftgroesse/Reflow | Accessibility-Funktionen vorhanden | Normal/Gross/Sehr gross dokumentiert | keine Inhaltsverluste bei Vergroesserung | 200-%-Reflowaequivalent und Tastatur | VERIFY |
+| UX-07 | Schriftgroesse/Reflow | 200-%-Baseline zeigt ueberlappende Bottom-Nav-Beschriftungen bei 390 px | Normal/Gross/Sehr gross dokumentiert | keine Inhaltsverluste bei Vergroesserung | 200-%-Reflowaequivalent und Tastatur | KNOWN-ISSUE |
 | UX-08 | Intro/Onboarding | Module vorhanden | Intro-Module vorhanden | Nutzen und Wiederanzeige mit Product Owner klaeren | visueller Flow und Persistenztest | PRODUCT-DECISION |
 
 ## B. News, Artikel und Herkunft
@@ -78,7 +78,7 @@ spaeter trotzdem visuell und funktional aufgenommen werden.
 | SYS-04 | Optionale Spezialfeeds | noch zu pruefen | mehrere bekannte 404s | bereitstellen oder Abfrage entfernen | null 404-Dauerwarnungen im Sollpfad | KNOWN-ISSUE |
 | SYS-05 | Diagnose/Selbsttest | Runtime- und App-Diagnose vorhanden | QA-Verzeichnisse vorhanden | menschenlesbarer Healthreport | deterministischer Diagnosecheck | CONFIRMED |
 | SYS-06 | Datenschutz | lokale/sensible Regeln dokumentiert | `privacy.html`, CSP und Header | Datenflussinventar und aktuelle Erklaerung | Privacy-Review | VERIFY |
-| SYS-07 | Barrierefreiheit | Tests und Funktionen vorhanden | 44-px-Ziele und Reflow-QA | WCAG-orientierte automatische und manuelle Gates | Axe/Keyboard/Screenreader-Smoke | VERIFY |
+| SYS-07 | Barrierefreiheit | sichtbarer Fokus; einzelne Touchziele unter 44 px und Artikel-Escape ohne Wirkung beobachtet | 44-px-Ziele und Reflow-QA | WCAG-orientierte automatische und manuelle Gates | Axe/Keyboard/Screenreader-Smoke | KNOWN-ISSUE |
 | SYS-08 | Content Security Policy | App-WebView-Regeln pruefen | Apache-CSP vorhanden | minimale, dokumentierte Origins | CSP-/External-Link-Test | VERIFY |
 | SYS-09 | Push/Benachrichtigungen | Gateway und lokale Notifications | optionale Pushpfade | Opt-in, Fehler- und Datenschutzverhalten klaeren | Berechtigungs- und Widerrufstest | PRODUCT-DECISION |
 
