@@ -2,9 +2,10 @@
 
 - Agent: Main Agent / sichtbarer Task `WRN G2 – Zielarchitektur & ADRs`
 - Task-ID: `WRN-G2-001`
-- Ergebnis: **YELLOW – Architekturpaket nach unabhaengigem Review korrigiert;
-  Product-Owner-Abnahme und Continuity Audit offen**
+- Ergebnis: **YELLOW – Architekturpaket, unabhaengiger Review und Continuity
+  Audit abgeschlossen; Product-Owner-Abnahme offen**
 - Entwurfscheckpoint: `23f7462244f5050391307d3e6923d4bc1b66158a`
+- Reviewremediationcheckpoint: `6d22632`
 - Arbeitsform: ausschliesslich Dokumentation im isolierten Worktree
 
 ## Kurzfazit
@@ -79,7 +80,9 @@ wurde veraendert oder kopiert.
   `git diff --cached --check`.
 - Genau ein unabhaengiger Sol/high-Architecture-Review abgeschlossen; keine
   zweite Instanz gestartet.
-- Korrigierter Abschlussdiff und Continuity Audit stehen noch aus.
+- Korrigierter Abschlussdiff wurde als `6d22632` gesichert. Der anschliessende
+  Continuity Audit ist GREEN mit 10/12; die einzige Auflage war diese
+  Statussynchronisierung.
 
 ## Findingsdisposition
 
@@ -143,20 +146,19 @@ Vollstaendige Evidenz:
 
 ## Empfohlener naechster Schritt
 
-Korrigierten Dokumentdiff auf Vollstaendigkeit, Scope, Secrets und Format
-pruefen, als Remediationcheckpoint sichern und danach genau einen read-only
-Continuity Audit aus dem gesicherten Handoff ausfuehren. Anschliessend
-entscheidet der Product Owner ueber G2/PO-001–013. Kein Produktcode vor
-separatem `GO-IMPLEMENTATION`.
+Der Product Owner prueft Zielarchitektur, genau einen Architecture Review,
+Continuity Audit und PO-001–013. Rechte-/Lizenzregister und read-only
+Liveinventar bleiben Vorbedingungen der betroffenen G3-Arbeit. Kein Produktcode
+vor separatem `GO-IMPLEMENTATION`.
 
 ## WRN-AGENT-STATUS
 
 - Task: `WRN-G2-001`
 - Status: YELLOW
-- Quellstand: Entwurf `23f7462`; Remediationcheckpoint ausstehend; App `2216ff3`; Website `9a59b17`; Daten `acec88e`
-- Erledigt: ADR-001–010, Migrationswellen, Kostenrouting, Registerupdates, genau ein Architecture Review und validierte Findingskorrekturen
+- Quellstand: Entwurf `23f7462`; Remediation `6d22632`; App `2216ff3`; Website `9a59b17`; Daten `acec88e`
+- Erledigt: ADR-001–010, Migrationswellen, Kostenrouting, Registerupdates, genau ein Architecture Review, validierte Findingskorrekturen und Continuity Audit GREEN 10/12
 - Tests: keine Produkttests; laut Task Brief verboten; reine Quell-/Dokument-/Diffpruefung
-- Offen: Abschlussdiff, Remediationcheckpoint, Continuity Audit, Product-Owner-Entscheidungen PO-001–013 und G2-Abnahme
+- Offen: Product-Owner-Entscheidungen PO-001–013, G2-Abnahme, Rechte-/Lizenzregister und read-only Liveinventar
 - Handoff: `docs/handoffs/WRN-G2-001-target-architecture-adr-package.md`
-- Naechster Schritt: Remediation pruefen und committen, danach Continuity Audit
+- Naechster Schritt: Product Owner prueft G2-Paket; `GO-IMPLEMENTATION` bleibt separat
 - END-CHECK: :)

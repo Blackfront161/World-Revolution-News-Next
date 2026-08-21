@@ -7,12 +7,15 @@ Stand: 21. August 2026
 - Phase: G2 – Zielarchitektur und ADRs
 - Task: `WRN-G2-001`
 - Entwurfscheckpoint: `23f7462244f5050391307d3e6923d4bc1b66158a`
+- Reviewremediationcheckpoint: `6d22632`
 - Review: genau eine Instanz `independent_architecture_reviewer` Sol/high,
   read-only abgeschlossen
-- Reviewbefund: drei High, drei Medium, ein Low; alle vom Main Agent validiert
-  und akzeptiert, Korrekturen im Abschlussdiff
-- Gate: **YELLOW – Reviewremediation erstellt; finaler Checkpoint,
-  Continuity Audit und Product-Owner-Abnahme offen**
+- Reviewbefund: drei High, drei Medium, ein Low; alle vom Main Agent validiert,
+  akzeptiert und am Checkpoint `6d22632` korrigiert
+- Continuity Audit: **GREEN 10/12** auf `6d22632`; einziges Warnsignal waren
+  die mit diesem Update synchronisierten Statusreferenzen
+- Gate: **YELLOW – G2-Dokumentation und Review abgeschlossen;
+  Product-Owner-Abnahme offen**
 - `GO-IMPLEMENTATION`: **nicht erteilt**
 - Produktcode, neue Produktstruktur, Produkttest, Build, Server, Livezugriff,
   Deployment, Signierung und Upload: keiner
@@ -39,6 +42,8 @@ Stand: 21. August 2026
   `docs/architecture/G2-OPEN-DECISIONS.md`
 - Review/Disposition:
   `docs/handoffs/WRN-G2-001-independent-architecture-review.md`
+- Continuity Audit:
+  `docs/handoffs/WRN-G2-001-context-audit.md`
 - Hauptuebergabe:
   `docs/handoffs/WRN-G2-001-target-architecture-adr-package.md`
 - aktualisiert: Paritaetsmatrix, Decision Log, Risk Register und
@@ -81,12 +86,9 @@ Stand: 21. August 2026
 
 ## Offene Gates
 
-1. Korrigierten Dokumentdiff/Scope pruefen und Remediationcheckpoint sichern.
-2. Danach den vorgesehenen read-only Continuity Audit aus gesichertem G2-
-   Handoff ausfuehren; kein zweiter Architecture Reviewer.
-3. Product Owner entscheidet PO-001–013 und die G2-Abnahme.
-4. Read-only Liveinventar und Rechte-/Lizenzregister vor betroffener G3-Arbeit.
-5. `GO-IMPLEMENTATION` bleibt ein separates ausdrueckliches Gate.
+1. Product Owner entscheidet PO-001–013 und die G2-Abnahme.
+2. Read-only Liveinventar und Rechte-/Lizenzregister vor betroffener G3-Arbeit.
+3. `GO-IMPLEMENTATION` bleibt ein separates ausdrueckliches Gate.
 
 ## Offene Umgebungsabweichung
 
@@ -97,5 +99,6 @@ autorisierte read-only Diagnose und gegebenenfalls Reparaturfreigabe.
 
 ## Naechste erlaubte Aktion
 
-Reviewremediation als reinen Dokumentdiff pruefen und committen, danach
-Continuity Audit. Weiterhin kein Produktcode und keine externe Mutation.
+Product Owner prueft das G2-Paket, Review und die offenen Entscheidungen.
+Weiterhin kein Produktcode und keine externe Mutation. Eine G2-Abnahme erteilt
+`GO-IMPLEMENTATION` nur, wenn dies separat und ausdruecklich erklaert wird.

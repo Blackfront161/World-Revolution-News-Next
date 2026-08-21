@@ -9,7 +9,7 @@ internen Subagenten, Modelle, Ergebnisse und Git-Nachweise.
 | Task/Chat | Typ | Aufgabe | Umgebung | Status | Verweis |
 |---|---|---|---|---|---|
 | `WRN – Chief AI Architect & Orchestrierung` | sichtbarer, angehefteter Haupttask | Product-Owner-Kommunikation, Orchestrierung, Freigaben und konsolidierte Entscheidungen | lokaler Hauptordner | AKTIV | aktueller Codex-Task |
-| `WRN G2 – Zielarchitektur & ADRs` | sichtbarer Phasentask | `WRN-G2-001`: Zielarchitektur und ADR-Paket; kein Produktcode | isolierter Codex-Git-Worktree | AKTIV – REVIEW ABGESCHLOSSEN, REMEDIATION ZUM CHECKPOINT | `docs/handoffs/WRN-G2-001-target-architecture-adr-package.md` |
+| `WRN G2 – Zielarchitektur & ADRs` | sichtbarer Phasentask | `WRN-G2-001`: Zielarchitektur und ADR-Paket; kein Produktcode | isolierter Codex-Git-Worktree | FACHLICH ABGESCHLOSSEN – G2/PO-ENTSCHEIDUNG OFFEN | `docs/handoffs/WRN-G2-001-target-architecture-adr-package.md` |
 
 Regel: Jede grosse Phase oder jedes eigenstaendige Ergebnis bekommt hoechstens
 einen sichtbaren Projekt-Task. Kurzlebige Recherche-, Test- und Auditaufgaben
@@ -43,7 +43,7 @@ gestartet werden, arbeitet aber aktuell nicht.
 | `backend_data_reliability_engineer` | Terra/high | GESPERRT BIS G3 | Backend-/Datenumsetzung nach Architekturfreigabe |
 | `qa_release_engineer` | Terra/high | VERFUEGBAR FUER QA | unabhaengige Tests und visuelle Belege |
 | `independent_architecture_reviewer` | Sol/high | GENAU EINE INSTANZ ABGESCHLOSSEN – 3 HIGH/3 MEDIUM/1 LOW, ALLE AKZEPTIERT | `docs/handoffs/WRN-G2-001-independent-architecture-review.md` |
-| `context_continuity_auditor` | Luna/medium | BEI MEILENSTEIN | Kontext-, Quellen- und Handoffpruefung |
+| `context_continuity_auditor` | Luna/medium | G2-AUDIT GREEN 10/12 – INSTANZ ABGESCHLOSSEN | `docs/handoffs/WRN-G2-001-context-audit.md` |
 | Reserveprofile | Spark/Luna/Terra/Sol je Risiko | BEDARFSGESTEUERT | nur bei dokumentiertem Ausloeser |
 
 ## 4. Wo der Product Owner Arbeit kontrolliert
@@ -73,7 +73,7 @@ gestartet werden, arbeitet aber aktuell nicht.
 - Quellstand: Governance ab `86f2615`
 - Erledigt: sichtbare Tasks, G1-Instanzen, Profile und Kontrollorte kartiert
 - Tests: Dokumentpruefung
-- Offen: Reviewremediation committen, danach Continuity Audit und Product-Owner-G2-Entscheid
+- Offen: Product-Owner-G2-Entscheidung und PO-001–013; `GO-IMPLEMENTATION` separat
 - Handoff: `docs/09-AGENT-ACTIVITY-INDEX.md`
-- Naechster Schritt: korrigierten G2-Diff sichern, danach Continuity Audit
+- Naechster Schritt: Product Owner prueft G2-Paket und offene Entscheidungen
 - END-CHECK: :)

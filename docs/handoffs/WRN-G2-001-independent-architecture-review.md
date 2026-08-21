@@ -123,19 +123,18 @@ Validierung aus.
 
 ## Empfohlener naechster Schritt
 
-Main Agent prueft den korrigierten Diff, synchronisiert Handoff/Project State,
-sichert den finalen G2-Checkpoint und fuehrt erst danach den im Task Brief
-vorgesehenen Continuity Audit aus. Product Owner entscheidet anschliessend ueber
-G2 und erteilt `GO-IMPLEMENTATION` nur separat.
+Die geforderte Main-Agent-Disposition ist am Remediationcheckpoint `6d22632`
+gesichert; der anschliessende Continuity Audit ist GREEN 10/12. Der Product
+Owner entscheidet nun ueber G2 und erteilt `GO-IMPLEMENTATION` nur separat.
 
 ## WRN-AGENT-STATUS
 
 - Task: `WRN-G2-001` unabhaengiger Architecture Review
-- Status: RED am Entwurfscheckpoint; Findings vom Main Agent akzeptiert und in Korrektur
-- Quellstand: `23f7462244f5050391307d3e6923d4bc1b66158a`
-- Erledigt: genau ein vollstaendiger read-only Architekturreview; Findings und Disposition dokumentiert
+- Status: RED am Entwurfscheckpoint; alle Findings am Remediationcheckpoint `6d22632` durch den Main Agent korrigiert
+- Quellstand: Review `23f7462244f5050391307d3e6923d4bc1b66158a`; Remediation `6d22632`
+- Erledigt: genau ein vollstaendiger read-only Architekturreview; Findings, Disposition, Remediation und Continuity Audit dokumentiert
 - Tests: keine; laut Auftrag verboten
-- Offen: korrigierten Diff pruefen, finalen G2-Checkpoint und Continuity Audit sichern
+- Offen: Product-Owner-G2-Abnahme, PO-001–013 und spaetere Verifikationsgates
 - Handoff: `docs/handoffs/WRN-G2-001-independent-architecture-review.md`
-- Naechster Schritt: Main-Agent-Abschlusspruefung
+- Naechster Schritt: Product-Owner-Entscheidung; kein `GO-IMPLEMENTATION` impliziert
 - END-CHECK: :)

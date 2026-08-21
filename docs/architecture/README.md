@@ -26,6 +26,8 @@ Budget-, Deployment- oder Releasefreigabe.
 14. `G2-OPEN-DECISIONS.md` – nur echte Product-Owner-Entscheidungen
 15. `../handoffs/WRN-G2-001-independent-architecture-review.md` – genau ein
     unabhaengiger Review und Main-Agent-Disposition
+16. `../handoffs/WRN-G2-001-context-audit.md` – abschliessender read-only
+    Continuity Audit
 
 ## Statussprache
 
