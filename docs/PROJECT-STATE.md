@@ -5,8 +5,8 @@ Stand: 21. August 2026
 ## Aktuelle Phase
 
 - Phase: 0 – Organisations- und Analysebasis
-- Gate: G0 abgeschlossen; `WRN-G1-001` akzeptiert; `WRN-G1-002` Continuity
-  12/12 GREEN, fachlich wegen drei Medium-Befunden weiterhin YELLOW
+- Gate: G0 abgeschlossen; `WRN-G1-001` akzeptiert; `WRN-G1-002` auditiert;
+  `WRN-G1-003` Backend/Data-Baseline mit sechs High-Risiken aufgenommen
 - Produktcode: keiner
 - Produktdeployment/Upload: keiner
 - Git-Checkpoint: aktueller `main`; mit `git log -1` vor jeder Uebergabe pruefen
@@ -30,14 +30,13 @@ Stand: 21. August 2026
 
 ## Aktive Mitarbeiterinstanzen
 
-- keine; `WRN-G1-003` fuer den Backend/Data Engineer im read-only Modus ist
-  vorbereitet, aber noch nicht gestartet
+- keine; Backend/Data Engineer hat mit vollstaendiger Fachrueckgabe beendet
 
 ## Naechste erlaubte Aktion
 
-`WRN-G1-003` als Git-Checkpoint sichern. Danach genau eine read-only
-Backend/Data-Instanz starten; Security-Reserve nur bei konkretem Ausloeser.
-Kein Produktcode vor `GO-IMPLEMENTATION`.
+`WRN-G1-003` als Git-Checkpoint sichern und durch eine frische read-only
+Continuity-Auditinstanz pruefen. Die High-Privacy-Befunde aktivieren danach den
+separaten Security-Reserveauftrag. Kein Produktcode vor `GO-IMPLEMENTATION`.
 
 ## Offene Umgebungsabweichung
 

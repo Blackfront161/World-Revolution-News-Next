@@ -52,7 +52,7 @@ spaeter trotzdem visuell und funktional aufgenommen werden.
 | MEDIA-02 | Freie Radios | Produktumfang dokumentiert | Radioquellen und Stationen vorhanden | freigegebene Quellen und sichere externe Medien | Quellen-/Player-Test | VERIFY |
 | MEDIA-03 | Audio-Hub | Medienfunktionen vorhanden | Audio-Hub und Katalog vorhanden | mobile und Webbedienung konsistent | Tastatur-, Hintergrund- und Fehlercheck | VERIFY |
 | MEDIA-04 | Video-Hub | Pipeline dokumentiert | Video-Hub/-Feed vorhanden | bewusstes Laden, Rechte/Quelle sichtbar | Netz-/Consent-/Fallbacktest | VERIFY |
-| MEDIA-05 | Medien-Fallbacks | noch zu inventarisieren | optionale Video-Feeds teils 404 | keine unklaren Dauerwarnungen | Netzwerk- und Konsolentest | KNOWN-ISSUE |
+| MEDIA-05 | Medien-Fallbacks | Config referenziert am G1-Datensnapshot fehlende Video-/Librarydateien; lokale Artefakte und Fallbacks vorhanden | optionale Video-Feeds teils 404 | keine unklaren Dauerwarnungen | Required/Optional-Manifest, Netzwerk- und Konsolentest | KNOWN-ISSUE |
 
 ## D. Wissen, Termine und Solidaritaet
 
@@ -73,11 +73,11 @@ spaeter trotzdem visuell und funktional aufgenommen werden.
 | ID | Faehigkeit | App-Baseline | Website-Baseline | Ziel fuer Migration Release 1 | Abnahme | Status |
 |---|---|---|---|---|---|---|
 | SYS-01 | Offline-App-Shell | atomare Caches dokumentiert | eigener Service Worker | getrennte, reproduzierbare Cachevertraege | Erst-/Zweitstart, Flugmodus, Update | CONFIRMED |
-| SYS-02 | Lokale Datenbank | `offline-db.js` vorhanden | eigenes Offline-/Reading-State-Verhalten | versionierte Migration und sichere Loeschung | Upgrade-/Rollback-/Loeschtest | VERIFY |
+| SYS-02 | Lokale Datenbank | IndexedDB `world-revolution-news` mit `datasets` und `translations`; weitere localStorage-Pfade | eigenes Offline-/Reading-State-Verhalten | versionierte Migration und sichere Loeschung | Upgrade-/Rollback-/Loeschtest | VERIFY |
 | SYS-03 | Langsames/fehlendes Netz | Fallbacks vorhanden | Fallbacks mit bekannten 404-Warnungen | ehrliche Zustandsanzeige, keine Haenger | Netzwerkprofiltests | KNOWN-ISSUE |
-| SYS-04 | Optionale Spezialfeeds | noch zu pruefen | mehrere bekannte 404s | bereitstellen oder Abfrage entfernen | null 404-Dauerwarnungen im Sollpfad | KNOWN-ISSUE |
+| SYS-04 | Optionale Spezialfeeds | Library-, Video- und Editorialpfade fehlen am gebundenen Datencommit trotz Clientconfig | mehrere bekannte 404s | Required/Optional-Vertrag; bereitstellen oder Abfrage entfernen | null 404-Dauerwarnungen im Sollpfad | KNOWN-ISSUE |
 | SYS-05 | Diagnose/Selbsttest | Runtime- und App-Diagnose vorhanden | QA-Verzeichnisse vorhanden | menschenlesbarer Healthreport | deterministischer Diagnosecheck | CONFIRMED |
-| SYS-06 | Datenschutz | lokale/sensible Regeln dokumentiert | `privacy.html`, CSP und Header | Datenflussinventar und aktuelle Erklaerung | Privacy-Review | VERIFY |
+| SYS-06 | Datenschutz | Uebersetzung, Feedback, Push, Podcast, lokale Speicherung und Standortpfade statisch inventarisiert; Live-Retention/Logging offen | `privacy.html`, CSP und Header | Datenflussvertrag, Minimierung, Loeschung und aktuelle Erklaerung | unabhaengiger Privacy-Review | VERIFY |
 | SYS-07 | Barrierefreiheit | sichtbarer Fokus; einzelne Touchziele unter 44 px und Artikel-Escape ohne Wirkung beobachtet | 44-px-Ziele und Reflow-QA | WCAG-orientierte automatische und manuelle Gates | Axe/Keyboard/Screenreader-Smoke | KNOWN-ISSUE |
 | SYS-08 | Content Security Policy | App-WebView-Regeln pruefen | Apache-CSP vorhanden | minimale, dokumentierte Origins | CSP-/External-Link-Test | VERIFY |
 | SYS-09 | Push/Benachrichtigungen | Gateway und lokale Notifications | optionale Pushpfade | Opt-in, Fehler- und Datenschutzverhalten klaeren | Berechtigungs- und Widerrufstest | PRODUCT-DECISION |
