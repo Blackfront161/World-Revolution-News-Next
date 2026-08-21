@@ -1,6 +1,7 @@
 # Agenten-Roster und Modellrouting
 
-Status: Profile angelegt, **kein Agent gestartet**
+Status: Profile angelegt; G1-Instanzen abgeschlossen; sichtbarer G2-Phasentask
+wird gestartet. Laufstatus steht verbindlich in `docs/09-AGENT-ACTIVITY-INDEX.md`.
 
 ## 1. Fuehrungsmodell
 

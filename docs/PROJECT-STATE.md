@@ -4,7 +4,7 @@ Stand: 21. August 2026
 
 ## Aktuelle Phase
 
-- Phase: 0 – Organisations- und Analysebasis
+- Phase: G2 – Zielarchitektur und ADRs
 - Gate: G0 abgeschlossen; G1-001 bis G1-006 mit Continuity Audits
   abgeschlossen. G1-Baseline fachlich YELLOW, aber bereit fuer G2-Dokumentation
 - Produktcode: keiner
@@ -30,13 +30,14 @@ Stand: 21. August 2026
 
 ## Aktive Mitarbeiterinstanzen
 
-- keine
+- sichtbarer Codex-Projekt-Task `WRN G2 – Zielarchitektur & ADRs` wird nach dem
+  vorbereitenden Git-Checkpoint in einem isolierten Worktree gestartet
 
 ## Naechste erlaubte Aktion
 
-G1-Abschlussstatus als Git-Checkpoint sichern. Danach `WRN-G2-001` fuer das
-Zielarchitektur-/ADR-Paket schriftlich vorbereiten. Weiterhin kein Produktcode
-vor `GO-IMPLEMENTATION`.
+Dashboard und `WRN-G2-001` als Git-Checkpoint sichern, danach sichtbaren G2-
+Projekt-Task im Worktree starten und beobachten. Weiterhin kein Produktcode vor
+`GO-IMPLEMENTATION`.
 
 ## Offene Umgebungsabweichung
 
