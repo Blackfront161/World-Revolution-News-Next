@@ -30,13 +30,13 @@ Stand: 21. August 2026
 
 ## Aktive Mitarbeiterinstanzen
 
-- keine
+- keine; `WRN-G1-005` ist vorbereitet, aber noch nicht gestartet
 
 ## Naechste erlaubte Aktion
 
-G1 mit einer getrennten read-only Website-/Markenbaseline fortsetzen. Task
-zuerst schriftlich eingrenzen und sichern, dann genau eine passende
-Fachinstanz starten. Kein Produktcode vor `GO-IMPLEMENTATION`.
+`WRN-G1-005` als Git-Checkpoint sichern und dann genau eine kurze read-only
+Instanz des Legacy-Product-Analyst-Profils starten. Kein Produktcode vor
+`GO-IMPLEMENTATION`.
 
 ## Offene Umgebungsabweichung
 
