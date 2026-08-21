@@ -1,121 +1,139 @@
-# Vorgeschlagene Zielarchitektur
+# Zielarchitektur – Migration Release 1
 
-Status: Architekturvorschlag, noch keine Implementierungsfreigabe
+Status: `PROPOSED` – G2-Entwurf, noch keine Implementierungsfreigabe
+Quellen: G1-Baseline App `2216ff3`, Website `9a59b17`, Datenbeobachtung
+`acec88e` sowie SEC-001 bis SEC-003
+Stand: 21. August 2026
 
-## 1. Grundentscheidung
+## 1. Architekturziel
 
-Das lokale Repository `Sauberes Wo Rev Ne` soll als privates Plattform-Monorepo
-gefuehrt werden. Mobile App und Website bleiben getrennte Anwendungen, teilen
-aber bewusst gepflegte Marken-, UI-, Domain- und Testpakete.
+World Revolution News und Solinaridao werden als eine Marke mit zwei getrennt
+lieferbaren Clients geplant:
 
-Content-Erzeugung und grosse generierte Nachrichtendaten bleiben in einem
-separaten, versionierten Content-/Datenrepository. World Revolution Map und das
-spaetere Spiel bleiben bis zu einem eigenen Integrationsgate getrennte Projekte.
+- eine Android-orientierte Mobile-App als Web-App mit Capacitor-Huelle;
+- eine responsive, oeffentliche Website mit SEO-Landingpages;
+- gemeinsame, versionierte Brand-, Domain- und Vertragsbausteine;
+- getrennte Navigation, Cache-, Build-, Deployment- und Rollbackketten;
+- ein weiterhin getrenntes Content-/Datenrepository mit immutable Releases;
+- eng begrenzte Dienste fuer Contentzugriff, Uebersetzung und optionale
+  zustandserzeugende Operationen.
 
-## 2. Geplante Struktur nach `GO-IMPLEMENTATION`
+Die monolithischen Legacy-Runtimes werden nicht kopiert. Sichtbares Verhalten,
+stabile IDs, Provenienz, Offlinefaehigkeiten und Releasebelege werden als
+Vertraege migriert.
+
+## 2. Kleines Systembild
 
 ```text
-Sauberes Wo Rev Ne/
-├── apps/
-│   ├── mobile/                 # Web-App/PWA plus Capacitor-Android-Integration
-│   └── website/                # responsive oeffentliche Website und SEO
-├── packages/
-│   ├── brand/                  # Logos, Tokens, Typografie- und Markenregeln
-│   ├── design-system/          # gemeinsam geeignete UI-Komponenten
-│   ├── domain/                 # fachliche Modelle ohne Plattformkopplung
-│   ├── api-contracts/          # versionierte Ein-/Ausgabevertraege
-│   ├── content-contracts/      # News-, Medien-, Quellen- und Eventschemata
-│   └── test-support/           # Fixtures, Screenshot- und Testhilfen
-├── services/
-│   ├── content-gateway/        # stabile Lesegrenze zu Datenquellen
-│   ├── translation/            # nutzergesteuerte Uebersetzung und Cache
-│   └── operations/             # begrenzte Backend-/Betriebsfunktionen
-├── tests/
-│   ├── contracts/
-│   ├── e2e/
-│   ├── visual/
-│   └── release/
-├── docs/
-└── tools/                      # reproduzierbare lokale Build-/QA-Werkzeuge
+  Content-/Datenrepo (immutable Revision + Hashmanifest)
+                         |
+                  Content Gateway
+                         |
+          +--------------+---------------+
+          |                              |
+  Mobile-App + Capacitor          Responsive Website
+  eigener Cache/Release           eigener Cache/SEO/Release
+          |                              |
+          +--------- versionierte -------+
+                    HTTP-Vertraege
+                         |
+         +---------------+----------------+
+         |               |                |
+   Translation       Operations       Media Storage
+   Cache/Provider   Feedback/Push/    nur autorisierte,
+   SEC-001-Gate      Podcast-Gates     rechtegepruefte Daten
+
+  Map und Spiel: ausserhalb Release 1; nur stabile IDs/Deep Links
 ```
 
-Diese Verzeichnisse werden erst nach Freigabe angelegt. Die Darstellung ist
-eine Zielskizze, kein bereits implementierter Stack.
+Trust Boundaries liegen an jedem Client, am Content Gateway, an jedem Worker,
+an Drittanbietern und an lokalem persistentem Speicher. CORS ist nur eine
+Browserkontrolle und niemals Authentisierung oder Admission.
 
-## 3. Technische Leitplanken
+## 3. Zielbausteine
 
-Der bevorzugte Startpunkt fuer die Architekturpruefung ist:
+| Baustein | Verantwortung | Harte Grenze |
+|---|---|---|
+| Mobile-App | mobile Navigation, Android-Bruecken, App-Offline, lokale Einstellungen | kein Website-SEO oder Website-Service-Worker |
+| Website | responsive Webnavigation, SEO, Sitemap, Landingpages, Apache-kompatibles Paket | kein Android-/Play-Code |
+| Brand/Design System | Tokens, freigegebene Assets, geeignete atomare Komponenten, Accessibility-Grundregeln | keine gemeinsame Navigation erzwingen |
+| Domain/Contracts | IDs, Modelle, Schemas, Provenienz, Fehler- und Kompatibilitaetsregeln | kein direkter Provider- oder Plattformzugriff |
+| Content Gateway | validierter, revisionsgebundener Lesezugriff und kontrollierte Fallbacks | keine Redaktion im Requestpfad, keine stillen Roh-`main`-Vertraege |
+| Translation | nutzergesteuerte Uebersetzung, serverseitiger kanonischer Cachekey | kein clientbestimmter Speicherkey, kein Contentlogging |
+| Operations | getrennte Endpunkte fuer Feedback, Push und optionale Podcastgenerierung | keine Admission ueber CORS, keine unendliche Retention |
+| Media | Referenzen, Rechte, Lifecycle, Auslieferung und Takedown | keine ungepruefte Kopie oder oeffentliche Generierung |
+| Content-/Datenrepo | Generatoren, Quellenaggregation, immutable Publikationsrevisionen | getrennt vom Plattform-Monorepo und dessen Releases |
 
-- React mit TypeScript und Vite fuer klar typisierte Weboberflaechen;
-- Capacitor fuer Android, sofern die Baseline-Analyse keine tragenden
-  Gegenargumente findet;
-- gemeinsame Pakete nur fuer wirklich gemeinsame Regeln, nicht fuer
-  plattformspezifische Sonderfaelle;
-- schema-validierte JSON-/HTTP-Vertraege zwischen App, Website, Content und
-  Diensten;
-- Cloudflare Workers/R2/KV nur dort, wo vorhandene Anforderungen und
-  Betriebskosten dies rechtfertigen;
-- lokale/offline Faehigkeiten als eigener Architekturvertrag;
-- automatisierte Browser- und Android-Abnahme.
+## 4. Geplante Repositoryform nach `GO-IMPLEMENTATION`
 
-Der Stack wird erst nach Legacy-, Kosten-, Offline- und Deploymentanalyse als
-ADR freigegeben. Diese Datei erlaubt noch keine Installation oder Generierung.
+Die folgende Struktur ist nur ein Sollbild; die Verzeichnisse werden in G2
+nicht angelegt.
 
-## 4. Gemeinsame Marke, getrennte Produkte
+```text
+platform-repository/
+  apps/
+    mobile/
+    website/
+  packages/
+    brand/
+    design-system/
+    domain/
+    api-contracts/
+    content-contracts/
+    test-support/
+  services/
+    content-gateway/
+    translation/
+    operations/
+  infrastructure/
+  tools/
+  docs/
+```
 
-Gemeinsam:
+Generierte Feeds, Medienbinaries, Landingpage-Ausgaben und Releasepakete sind
+keine manuell gepflegte Paketquelle. Archive und Legacyrepositories bleiben
+read-only ausserhalb der neuen Runtime.
 
-- Farb-, Typografie-, Icon- und Abstands-Tokens;
-- Markenassets und Nutzungsregeln;
-- geeignete atomare UI-Komponenten;
-- fachliche Datenmodelle und Validierung;
-- Uebersetzungs-, Herkunfts- und Quellenregeln;
-- Accessibility-Grundsaetze und Testhilfen.
+## 5. Leitentscheidungen
 
-Getrennt:
+1. **Clientstack:** React + TypeScript + Vite fuer beide getrennten
+   Weboberflaechen und Capacitor fuer Android wird empfohlen. Die Freigabe
+   bleibt beim Product Owner; die Bewertung steht in ADR-002.
+2. **Daten:** Jeder Client konsumiert ein immutable Release-Manifest mit
+   Schemas, Hashes, Required/Optional-Klassen, Ownern und Revision.
+3. **SEO:** Feed, Artikel-IDs, Landingpages, Manifest und Sitemap muessen aus
+   derselben Revision stammen und als Mengen-/Hashvertrag pruefbar sein.
+4. **Backend:** HTTP-Vertraege werden nach Lesezugriff und zustandserzeugenden
+   Operationen getrennt. Provider und Cloudflare bleiben austauschbare Adapter.
+5. **Offline:** Mobile-App und Website haben eigene Storage- und
+   Service-Worker-Versionen sowie getrennte Migrationen und Rollbacks.
+6. **Security/Privacy:** SEC-001/002 sind vor Portierung zu schliessen;
+   SEC-003 vor jeder Pushfreigabe. No-Content-Logging, Datenminimierung,
+   Retention, Auskunft, Loeschung und Widerruf sind Vertragsbestandteile.
+7. **Release:** CI darf pruefen und Pakete erzeugen, aber nicht ohne gesonderte
+   Freigabe deployen, signieren oder hochladen.
+8. **Map/Spiel:** kein Release-1-Code; nur versionierte IDs, Zeit/Geo-
+   Metadaten, Deep Links und barrierefreie Textalternativen.
 
-- Navigation und Informationsdichte;
-- Android-/Capacitor-Bruecken;
-- Website-SEO, Apache-/Hostingregeln und statische Landingpages;
-- Service-Worker-, Cache- und Releaseversionen;
-- Deployment, Rollback und produktive Konfiguration;
-- plattformspezifische Performancebudgets.
+## 6. Nicht verhandelbare G3-Vorbedingungen
 
-## 5. Daten- und Backendgrenzen
+- Product Owner akzeptiert oder korrigiert die vorgeschlagenen ADRs.
+- Offene Produktentscheidungen in `architecture/G2-OPEN-DECISIONS.md` sind fuer
+  das erste Slice entschieden oder explizit aus dessen Scope entfernt.
+- Rechte-/Lizenzregister erlaubt die konkret zu uebernehmenden Assets und
+  Inhalte; fehlende Rechte bedeuten Neuschaffung oder Ausschluss.
+- Read-only Liveinventar klaert aktive Worker, Bindings, Hosting, Provider,
+  Retention, Quoten und Kosten ohne Secretwerte.
+- Datenrelease-, Cachemigrations-, Security- und Rollbackvertraege sind in
+  beobachtbare Tests uebersetzt.
+- Ein vertikales Slice besitzt Task Brief, UX-Referenzen, vorab definierte
+  Tests und Ruecknahmegrenze.
+- Der Product Owner erteilt ausdruecklich `GO-IMPLEMENTATION`.
 
-- Clients konsumieren keine unvalidierten Rohdaten direkt als stillen Vertrag.
-- Jeder Vertrag besitzt eine Version, Schema-Tests und dokumentierte Fallbacks.
-- Quelle, Original-URL, Datum, Herkunft und Uebersetzungsprovenienz bleiben
-  unverfaelscht nachvollziehbar.
-- Fehlende optionale Feeds erzeugen einen kontrollierten Zustand statt
-  wiederkehrender unklarer 404-Warnungen.
-- Caching, Quoten und Uebersetzung erhalten explizite Kosten- und Fehlerbudgets.
-- Secrets verbleiben ausschliesslich in Secret-Stores und nie im Repository.
-- Deployments sind eigenstaendige, autorisierte Operationen und keine
-  Nebenwirkung von Tests oder Builds.
+## 7. Evidenzgrenzen
 
-## 6. Map-/Spiel-Erweiterungsgrenze
-
-Vor dem ersten Release werden keine Karten- oder Spielfunktionen implementiert.
-Das Domainmodell soll jedoch spaeter folgende Referenzen aufnehmen koennen:
-
-- `contentId`, `eventId`, `locationId`, `actorId`, `topicId`;
-- ISO-/IANA-Zeit- und Sprachangaben;
-- GeoJSON-kompatible Geometrien ausserhalb des News-Kernobjekts;
-- Zeitraeume und Unsicherheitskennzeichnung;
-- Quellen- und Rechteprovenienz;
-- Deep-Link-Schema mit Version;
-- textuelle/barrierefreie Alternative fuer raeumliche Informationen.
-
-## 7. Architektur-Gates
-
-Vor Produktcode muessen mindestens genehmigt sein:
-
-1. Baseline- und Paritaetsbericht
-2. Datenfluss- und Systemkontextdiagramm
-3. ADR fuer Repository- und Stackentscheidung
-4. API-/Content-Vertragsstrategie
-5. Offline-, Cache- und Updatekonzept
-6. Security-/Privacy-Threat-Review
-7. Migrations-, Rollback- und Kostenplan
-8. erstes vertikales Slice mit konkreten Abnahmekriterien
+G2 behauptet keine aktuellen Preise, Tarife, Live-Deployments, Rechte,
+Provider-Retention, Secretkonfiguration oder Play-/Hostinger-Zustaende.
+Historische Builds und Tests bleiben Baselinebelege, keine neue Freigabe. Die
+lokal bestaetigten Legacycommits wurden in diesem Task nur read-only geprueft;
+Tests, Builds, Server und Livezugriffe wurden nicht ausgefuehrt.

@@ -1,82 +1,51 @@
 # Decision Log
 
-Architekturentscheidungen werden spaeter als einzelne ADR-Dateien ergaenzt.
-Der aktuelle Log unterscheidet `ACCEPTED`, `PROPOSED` und `DEFERRED`.
+Stand: 21. August 2026
+Regel: `ACCEPTED` benoetigt den genannten Entscheidungseigner. G2-Empfehlungen
+bleiben `PROPOSED`, bis der Product Owner sie dokumentiert bestaetigt.
 
-## ADR-000 – Dokumentation vor Produktcode
+## 1. Bereits akzeptierte Governanceentscheidungen
 
-- Status: `ACCEPTED`
-- Datum: 21. August 2026
-- Entscheidung: Zuerst Organisations-, Quellen-, Agenten- und Qualitaetsbasis
-  anlegen. Kein Produktcode bis zur ausdruecklichen Freigabe.
-- Grund: Der Product Owner steuert ueber Delegation, Tests und visuelle Abnahme;
-  unklare Agentenrollen wuerden Fehler und Tokenverbrauch vervielfachen.
+Die fruehen Bezeichnungen `ADR-000` bis `ADR-008` waren ein vorlaeufiges
+Governancelog. Damit sie nicht mit dem kanonischen G2-Paket kollidieren, werden
+sie hier unter stabilen `GOV`-IDs weitergefuehrt.
 
-## ADR-001 – Neues lokales Arbeitsrepository
+| ID | Status | Entscheidung |
+|---|---|---|
+| GOV-001 | `ACCEPTED` | Dokumentation, Quellen, Agenten- und Qualitaetsbasis vor Produktcode; kein Produktcode ohne `GO-IMPLEMENTATION`. |
+| GOV-002 | `ACCEPTED` | `Sauberes Wo Rev Ne` ist das neue lokale Arbeitsrepository; Legacyquellen bleiben unveraendert. |
+| GOV-003 | `ACCEPTED` | Sol fuer hohe Risiken/Gates, Terra fuer regulaere Umsetzung, Luna fuer Routine, Spark fuer eng begrenzte Arbeit. |
+| GOV-004 | `ACCEPTED` | Build, Test, Signierung, Upload, Deployment und Rollout sind getrennte Operationen. |
+| GOV-005 | `ACCEPTED` | Statusblock/`END-CHECK: :)`, Continuity Audit und sichere Rotation; Marker allein ist kein Gesundheitsbeweis. |
+| GOV-006 | `ACCEPTED` | Mitarbeiterprofile und Belege werden nie automatisch geloescht; `FEUERN` beendet nur eine Instanz. |
 
-- Status: `ACCEPTED`
-- Datum: 21. August 2026
-- Entscheidung: Der Ordner `Sauberes Wo Rev Ne` ist das neue saubere
-  Arbeitsrepository. Historische Repositories bleiben unveraendert als Quellen.
-- Grenze: Remote/GitHub wird erst nach gesonderter Freigabe eingerichtet.
+Die fruehen Vorschlaege zu Monorepo, Contenttrennung, UI-Stack und Map/Spiel
+werden durch die folgenden kanonischen G2-ADRs praezisiert. Das ist keine
+Product-Owner-Annahme ihrer Annahme.
 
-## ADR-002 – Plattform-Monorepo mit getrennten Anwendungen
+## 2. Kanonisches G2-ADR-Paket
 
-- Status: `PROPOSED`
-- Entscheidung: Mobile App und Website in einem privaten Plattform-Monorepo,
-  aber als getrennte Anwendungen mit eigenen Deploy-/Cache-/Rollbackketten.
-  Gemeinsame Pakete nur fuer Brand, UI-Bausteine, Domain und Vertraege.
-- Alternative: weiterhin zwei vollstaendig getrennte Quellrepositories.
-- Freigabekriterium: Baseline-, CI/CD-, Rechte-, Hosting- und
-  Ownershipvergleich in G2.
+| ADR | Status | G2-Empfehlung | Offene Freigabe |
+|---|---|---|---|
+| ADR-001 Repository/Pakete | `PROPOSED` | privates Plattform-Monorepo; zwei Apps, gemeinsame Contract-/Brandpakete, getrenntes Contentrepo | PO-001 |
+| ADR-002 Clientstack | `PROPOSED` | React + TypeScript + Vite; Capacitor fuer Android; getrennte Websiteausgabe | PO-001 |
+| ADR-003 Design/Marke | `PROPOSED` | gemeinsame semantische Tokens/Assets/Primitive, getrennte Navigation und Layouts | PO-001/009 |
+| ADR-004 Datenvertrag | `PROPOSED` | immutable Revision, Hashmanifest, stabile IDs, Required/Optional und SEO-ID-Gleichheit | Teil der G2-Abnahme |
+| ADR-005 Backend/Worker | `PROPOSED` | providerneutrale `/v1`-Vertraege; Cloudflare bedingt bevorzugt; getrennte Operationsgates | PO-010/011 |
+| ADR-006 Medien | `PROPOSED` | Referenz vor Kopie; Rechte/Lifecycle/Takedown; Generierung standardmaessig aus | PO-007/009/011 |
+| ADR-007 Offline/Cache | `PROPOSED` | getrennte App-/Website-Storages, Migrationen und Rollbacks | Teil der G2-Abnahme |
+| ADR-008 Security/Privacy | `PROPOSED` | SEC-001/002/003 schliessen; No-Content-Logging, Retention, Loeschung/Widerruf | PO-005–008 |
+| ADR-009 QA/Release | `PROPOSED` | getrennte reproduzierbare Pipelines; CI ohne automatische Produktion | Teil der G2-Abnahme |
+| ADR-010 Map/Spiel | `PROPOSED`, Feature `DEFERRED` | nur IDs/Vertraege/Deep Links/Textalternative; kein Release-1-Code | spaeteres eigenes Gate |
 
-## ADR-003 – Content bleibt getrennt
+## 3. Entscheidungsdisziplin
 
-- Status: `PROPOSED`
-- Entscheidung: Generatoren und grosse generierte Inhalte bleiben ausserhalb
-  des Plattform-Repositories; Konsum nur ueber versionierte Schemata.
-- Freigabekriterium: vollstaendiges Datenfluss- und Migrationsinventar.
-
-## ADR-004 – Bevorzugter UI-Stack
-
-- Status: `PROPOSED`
-- Entscheidung: React + TypeScript + Vite + Capacitor als Startpunkt der
-  Architekturpruefung.
-- Noch zu beweisen: Offline-/Service-Worker-Migration, bestehende native
-  Funktionen, Buildreproduzierbarkeit und fehlerfreie visuelle Paritaet.
-
-## ADR-005 – Modellrouting und Reservepool
-
-- Status: `ACCEPTED`
-- Entscheidung: Sol fuer hohe Risiken/Gates, Terra fuer regulaere Umsetzung,
-  Luna fuer klare Routine und Spark fuer eng begrenzte schnelle Arbeit.
-  Fuenf Kernprofile plus sechs inaktive Reserveprofile werden projektbezogen
-  konfiguriert.
-- Kostenregel: standardmaessig ein bis zwei aktive Sub-Agenten.
-
-## ADR-006 – Map und Spiel spaeter
-
-- Status: `ACCEPTED`
-- Entscheidung: Kein Map-/Spielcode in Migration Release 1. Nur IDs,
-  Datenvertraege, Deep Links und Accessibility-Grenzen vorbereiten.
-
-## ADR-007 – Deployment und Signierung sind eigene Operationen
-
-- Status: `ACCEPTED`
-- Entscheidung: Build, Test, Signierung, Upload und Rollout sind getrennte
-  Gates. Kein lokaler Test oder Build darf als Nebenwirkung deployen.
-
-## ADR-008 – Kontextkontrolle und sichere Agentenrotation
-
-- Status: `ACCEPTED`
-- Datum: 21. August 2026
-- Entscheidung: Agentenantworten enden mit einem strukturierten Statusblock und
-  `END-CHECK: :)`. Das Zeichen ist nur ein Vollstaendigkeitsmarker.
-- Kontrolle: Ein read-only `context_continuity_auditor` bewertet Meilensteine
-  oder Warnsignale als GREEN/YELLOW/RED.
-- Rotation: Der Main Agent darf eine riskante Instanz bei RED stoppen, sichert
-  zuvor soweit moeglich Git-/Dateistand und Handoff und startet einen Nachfolger
-  nur aus einem geprueften Continuity Packet.
-- Loeschgrenze: Profile und Belege werden nie automatisch geloescht. Der einfache
-  Befehl `FEUERN: <name>` beendet die Instanz; `PROFIL LOESCHEN: <name>` entfernt
-  ausdruecklich das wiederverwendbare Profil.
+- Die vollstaendigen Optionen, Kosten, Risiken, Migrationen und Gates stehen in
+  `docs/architecture/ADR-*.md`.
+- Echte offene Product-Owner-Entscheidungen stehen in
+  `docs/architecture/G2-OPEN-DECISIONS.md`.
+- Fehlendes Liveinventar, Rechtebelege oder bestandene Tests sind keine
+  Entscheidung und koennen nicht durch eine Freigabeformulierung ersetzt
+werden.
+- `ACCEPTED` fuer G2 erteilt weder automatisch `GO-IMPLEMENTATION` noch
+  Deployment-, Signier- oder Uploadauthority.

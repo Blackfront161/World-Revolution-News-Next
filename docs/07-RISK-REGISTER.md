@@ -29,6 +29,32 @@
 | R-25 | kosten- oder zustandserzeugende anonyme Endpunkte verlassen sich auf CORS und IP-Limits | Quota-/Kostenverbrauch, oeffentliche Fremdinhalte oder Push-Verdraengung | zweckgebundene Admission, kanonische Serverdaten, globale Caps, Ablauf/Pruning und Takedown | Architect + Security / G2–G3 | SEC-002 High; SEC-003 bedingt High |
 | R-26 | Privacyversprechen und tatsaechliche Ausloese-/Loeschpfade laufen auseinander | ungewollte Drittuebertragung oder verbleibende Feedback-/Push-/Podcastdaten | Datenflussvertrag, ehrlicher Privacytext, sichtbare Referenz, bestaetigter Widerruf, Retention und Loeschtests | Product Owner + Security / G2–G4 | High-Governance-Luecke in G1 |
 | R-27 | Website-Landingpages, Manifest, Sitemap und Feed folgen nicht nachweisbar derselben ID-Menge/Revision | tote oder falsch indexierte Artikel, inkonsistente Shares und Releases | Generatorvertrag mit `ids`, `articleCount`, immutable Revision und Hashgleichheit fuer alle SEO-Artefakte | Website + Data / G2–G5 | Manifestdrift in G1 bestaetigt |
+| R-28 | gemeinsame Pakete koppeln App und Website wieder auf Screen-/Navigationsniveau | getrennte Releases werden nur scheinbar unabhaengig | Apps importieren einander nie; gemeinsame Pakete nur Brand/Primitive/Domain/Contracts; Importgrenzentest | Architect + Frontend / G3–G5 | in ADR-001/003 adressiert |
+| R-29 | vorgeschlagene Retentionfristen werden ungeprueft als rechtlich oder betrieblich korrekt behandelt | zu lange oder zu kurze Speicherung und falscher Privacytext | Product-Owner-/gegebenenfalls Rechtsfreigabe; technische Obergrenzen, TTL, Pruning und End-to-End-Loeschung | Product Owner + Security / vor Aktivierung | PO-008 offen |
+| R-30 | Cloudflare-/Providerempfehlung wird ohne aktuellen Live-, Tarif- und Retentionsbeleg umgesetzt | Kosten-, Privacy- oder Betriebsueberraschung | zeitgestempeltes read-only Liveinventar ohne Secretwerte; Adapter, Budget, Caps und Kill-Switch | Backend + Security + Product Owner / vor G3-Servicearbeit | offen |
+| R-31 | ein globaler Token-/Assetwechsel veraendert beide Oberflaechen unbemerkt | Marken- oder Accessibilityregression in App und Website | semantische Versionierung, beide Consumer in Screenshot-/Accessibilitymatrix, Rechtebeleg | Frontend + QA / G4–G5 | in ADR-003 adressiert |
+| R-32 | alter Client versteht neue Content-/Storageversion nicht | weisse Seite, Mischrevision oder Datenverlust beim Rollback | Compatibility-Fenster, fail-closed Manifest, sichere Read-only-/Reset-Bestaetigung, Upgrade-/Rollbackmatrix | Backend + QA / G3–G5 | in ADR-004/007 adressiert |
+
+## G2-Zielkontrollen fuer G1-High-Risiken
+
+Diese Matrix verdichtet alle in G1 als High oder High-Governance-Luecke
+klassifizierten Themen. `adressiert` bedeutet Architekturkontrolle vorhanden,
+nicht Risiko geschlossen.
+
+| Risiko/Finding | Zielkontrolle | Owner | Spaetestes Gate | Status nach G2-Entwurf |
+|---|---|---|---|---|
+| R-05 fehlende/unklare Feeds | Manifestklasse `required`, `optional-empty` oder `optional-absent`, Schema/Owner/Fallback | Backend/Data | W2/G4 | adressiert, nicht implementiert |
+| R-06/R-22 bewegliche Revisionen | immutable Revision, SHA-256, Compatibility und atomarer Alias | Backend/Data + QA | W2/G5 | adressiert, nicht implementiert |
+| R-08/R-26 Privacy-/Loeschdrift | Datenflussregister, explizite Aktion, Retention, Auskunft, End-to-End-Loeschung/Widerruf | Security + Product Owner | vor betroffener W5-Funktion/G5 | adressiert; PO-006/008 offen |
+| R-09/R-18 Rechte | Asset-/Medienregister mit Ursprung, Lizenz, Nutzung und Hash; kein Import ohne Beleg | Product Owner + Security | vor jedem Import/G5 | offen; PO-009 |
+| R-12 Kosten | Ressourcemessung, Warnschwelle, hard cap, Kill-Switch und Owner | Product Owner + Cost/Backend | vor kostenpflichtigem Aufruf | offen; Liveinventar/PO-011 |
+| R-17 historische IDs | stabile opake IDs, append-only oder versionierte Aliase, Gone-/Fallbackvertrag | Website + Data | W3/G5 | adressiert, nicht implementiert |
+| R-23 Livezustand unbekannt | zeitgestempeltes read-only Inventar von Versionen, Bindingsarten, Plan, Lifecycle und Usage ohne Secrets | Backend + Security | Wave 0/vor G3-Servicearbeit | offen |
+| SEC-001/R-24 Translation Cache | Key ausschliesslich serverseitig aus kanonischem versioniertem Payload | Backend + Security | vor Translation-Portierung | adressiert, Finding offen |
+| SEC-002/R-25 Podcast | zweckgebundene Admission, kanonische Artikel, globale Caps, Moderation/Takedown | Backend + Security + Product Owner | vor Podcastaktivierung | adressiert; PO-007/011 offen |
+| SEC-003/R-25 Push | Subscription-Challenge, Ablauf, Capacity, Pruning, faire Auswahl, bestaetigter Widerruf | Backend + Security + Product Owner | vor Pushaktivierung | adressiert; PO-005 offen |
+| R-27 SEO-ID-Drift | identische Revision und `articleIdsSha256` in Feed, Landingmanifest und Sitemap | Website + Data + QA | W3/G5 | adressiert, nicht implementiert |
+| R-07 Cachemigration | getrennte Namespaces, idempotente Migration, letzte valide Revision, sicherer Rollback | Backend + QA | W4/G5 | adressiert, nicht implementiert |
 
 ## Pflege
 
@@ -36,3 +62,5 @@
 - Blocker und High-Risiken benoetigen einen Owner und ein Gate.
 - Ein Risiko wird nur mit Beleg geschlossen, nicht weil es laenger nicht
   beobachtet wurde.
+- Eine ADR schliesst ein Risiko nicht. Abschluss erfordert den in der
+  Zielkontrollmatrix genannten Test-/Live-/Rechtebeleg.

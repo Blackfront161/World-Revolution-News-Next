@@ -1,6 +1,7 @@
 # Vorlaeufige Feature-Paritaetsmatrix
 
-Status: Ausgangsmatrix fuer die read-only Baseline-Analyse
+Status: G1-Baseline mit G2-Architekturzuordnung; Produktumfang weiterhin nur
+durch Product-Owner-Entscheidungen veraenderbar
 
 Regel: Kein Eintrag gilt allein aufgrund eines Dateinamens als vollstaendig
 verifiziert. `CONFIRMED` bedeutet nur, dass die Uebergabe oder ein vorhandener
@@ -110,3 +111,35 @@ konkreten Dateien, Screenshots, Testpfaden und beobachtetem Verhalten ergaenzen.
 Ein Unterschied zwischen App und Website ist nicht automatisch ein Defekt; er
 muss als bewusst plattformspezifisch oder als echte Paritaetsluecke klassifiziert
 werden.
+
+## H. G2-Architekturzuordnung
+
+Diese Tabelle ersetzt keine einzelne Paritaetszeile. Sie benennt die
+Zielkontrolle, den technischen Owner und das Gate, damit keine G1-Faehigkeit
+zwischen ADR und Implementierung verloren geht.
+
+| Paritaetsbereich | Zielkontrolle | ADR / Welle | Owner nach Freigabe | Gate |
+|---|---|---|---|---|
+| UX-01–08 | gemeinsame semantische Tokens/Assets, getrennte Navigation/Layouts, G1-Screenshotmatrix | ADR-003; W1–W3 | Frontend Brand + QA | Product-Owner-Visualabnahme, 44x44, Escape, Reflow |
+| NEWS-01/02/04/08/09 | immutable Revision, typisierte Domainmodelle, Provenienz und sichere Unknown-Werte | ADR-004; W2 | Backend/Data + Frontend | Schema/Hash/Required-Optional und Feedparitaet |
+| NEWS-03/06/10 | stabiler Reader-/Share-/Archivvertrag und gleiche Website-ID-Menge | ADR-004/009; W3 | Website + Data + QA | Same-ID, Deep-Link, Canonical, historischer Fallback |
+| NEWS-05 | clientlokaler, transparenter Lesestatus mit selektiver/gesamter Loeschung | ADR-007; W4 | Frontend + Backend/Data | Upgrade-, Rollback- und Loeschtest |
+| NEWS-07 | explizite Uebersetzung, serverseitiger kanonischer Cachekey, sichtbare Provenienz | ADR-005/008; W5 | Backend/Data + Security | SEC-001 und Privacy-/Fehler-/Race-Negativtests |
+| NEWS-11 | getrennte Feature-Slices gegen freigegebene Produktflows | ADR-001/003; W2 oder W5 | Product Owner + Frontend | Flow-/Visualabnahme pro enthaltenem Format |
+| MEDIA-01 | Admission, kanonische IDs, Rechte, Moderation, Takedown und Kosten-Caps | ADR-006/008; W5 | Product Owner + Backend/Data + Security | SEC-002 und No-Side-Effect-Test |
+| MEDIA-02–05 | Medienmanifest, Health, Consent, Rechte und deklarierte Fallbacks | ADR-004/006; W5 | Backend/Data + Frontend | Schema/CSP/Player/Offline/Rechte |
+| INFO-01–05 | stabile IDs, Zeit/Ort/Quelle, redaktionelle Owner und getrennte optionale Slices | ADR-004/006/010; W2/W5 | Data + Product Owner | Contract-, Redaktions-, Rechte- und Accessibilitygate |
+| INFO-06 | Action Radar getrennt von Hilfe; freiwilliger lokaler Standort | ADR-008; W5 optional | Product Owner + Security | PO-004 und No-Transmission |
+| HELP-01–03 | No-Geolocation/No-Persistence, Safetygrenzen, revisionsgebundene Offlinepakete | ADR-007/008; W4 | Backend/Data + Security + QA | Filter-, Aktualitaets-, Offline- und Loeschtest |
+| SYS-01–05 | getrennte App-/Website-Cache-, Storage-, Diagnose- und Fallbackvertraege | ADR-004/007; W2/W4 | Backend/Data + QA | Online/Slow/Offline/Upgrade/Rollback |
+| SYS-06/08 | minimierte Datenfluesse, No-Content-Logging, Origin/CSP und End-to-End-Loeschung | ADR-005/008; W5 | Security + Backend/Data | Privacyreview und Negativtests |
+| SYS-07 | semantische Komponenten plus automatische und manuelle Accessibilitygates | ADR-003/009; alle UI-Wellen | Frontend + QA | Keyboard, Reflow, Kontrast, Screenreader, Touchziele |
+| SYS-09 | Challenge, Ablauf, Caps, Pruning und bestaetigter Widerruf | ADR-005/008; W5 optional | Product Owner + Security | PO-005 und SEC-003 |
+| WEB-01–03 | Feed/Landing/Manifest/Sitemap aus gleicher Revision und ID-Menge | ADR-004/009; W3 | Website + Data + QA | Hash-/Same-ID-/Canonical-/Fallbackgate |
+| WEB-04/05 | getrenntes Apache-Paket, Service-Worker-Rollback und Performancebudget | ADR-007/009; W6 | Website + QA | Apache-Smoke, CWV, Paket-/Rollbackbeleg |
+| AND-01–06 | Capacitor-Adapter, API-Ziel, reproduzierbarer AAB und getrennte Freigabeoperationen | ADR-002/009; W6 | Mobile + QA | Lint/Unit/Instrumentation/Lifecycle/Hash/Signatur |
+
+Offene Produktentscheidungen fuer UX-08, INFO-04/06 und SYS-09 sowie
+automatische Uebersetzung und generierte Podcasts stehen ausschliesslich in
+`docs/architecture/G2-OPEN-DECISIONS.md`. Ohne Entscheidung ist die jeweilige
+optionale Funktion nicht Teil eines Implementierungsslices.
