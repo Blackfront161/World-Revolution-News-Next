@@ -5,7 +5,8 @@ Stand: 21. August 2026
 ## Aktuelle Phase
 
 - Phase: 0 – Organisations- und Analysebasis
-- Gate: G0 abgeschlossen; erste G1-App-/Android-Baseline liegt vor
+- Gate: G0 abgeschlossen; `WRN-G1-001` App-/Android-Baseline mit Continuity
+  Score 11/12 GREEN akzeptiert
 - Produktcode: keiner
 - Produktdeployment/Upload: keiner
 - Git-Checkpoint: aktueller `main`; mit `git log -1` vor jeder Uebergabe pruefen
@@ -29,14 +30,14 @@ Stand: 21. August 2026
 
 ## Aktive Mitarbeiterinstanzen
 
-- keine; `legacy_product_analyst` hat `WRN-G1-001` mit GREEN und vollstaendigem
-  Handoff beendet
+- keine; `legacy_product_analyst` und die frische Auditinstanz sind nach
+  vollstaendiger Uebergabe beendet
 
 ## Naechste erlaubte Aktion
 
-Den gesicherten Bericht `WRN-G1-001` durch eine neue read-only Instanz des
-`context_continuity_auditor` pruefen. Erst nach bestandenem Audit den naechsten
-G1-Fachauftrag starten.
+Einen einzelnen, klar abgegrenzten naechsten G1-Fachauftrag vorbereiten und als
+Git-Checkpoint sichern. Prioritaet: visuelle App-Baseline; danach getrennt
+Backend/Privacy und Website. Kein Produktcode vor `GO-IMPLEMENTATION`.
 
 ## Offene Umgebungsabweichung
 
