@@ -5,7 +5,7 @@ Stand: 21. August 2026
 ## Aktuelle Phase
 
 - Phase: 0 – Organisations- und Analysebasis
-- Gate: G0 vorbereitet; G1-Baseline-Analyse noch nicht gestartet
+- Gate: G0 abgeschlossen; G1-Baseline-Analyse gestartet
 - Produktcode: keiner
 - Produktdeployment/Upload: keiner
 - Git-Checkpoint: aktueller `main`; mit `git log -1` vor jeder Uebergabe pruefen
@@ -29,12 +29,13 @@ Stand: 21. August 2026
 
 ## Aktive Mitarbeiterinstanzen
 
-Keine.
+- `legacy_product_analyst`: Task `WRN-G1-001` vorbereitet; Instanzstart nach
+  Git-Checkpoint dieses Task Briefs
 
 ## Naechste erlaubte Aktion
 
-Nach Product-Owner-Auftrag den `legacy_product_analyst` read-only fuer G1
-starten. Vor dem Start einen Task Brief und einen leeren Handoffpfad anlegen.
+`WRN-G1-001` read-only ausfuehren, Bericht in den vorbereiteten Handoff
+uebernehmen und anschliessend einen Continuity Check durchfuehren.
 
 ## Offene Umgebungsabweichung
 
