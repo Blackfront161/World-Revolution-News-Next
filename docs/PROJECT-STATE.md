@@ -5,9 +5,8 @@ Stand: 21. August 2026
 ## Aktuelle Phase
 
 - Phase: 0 – Organisations- und Analysebasis
-- Gate: G0 abgeschlossen; G1-001 bis G1-005 auditiert; `WRN-G1-006`
-  visuell abgeschlossen und wegen Accessibility-/Daten-/SEO-Gates YELLOW;
-  Continuity Audit offen
+- Gate: G0 abgeschlossen; G1-001 bis G1-006 mit Continuity Audits
+  abgeschlossen. G1-Baseline fachlich YELLOW, aber bereit fuer G2-Dokumentation
 - Produktcode: keiner
 - Produktdeployment/Upload: keiner
 - Git-Checkpoint: aktueller `main`; mit `git log -1` vor jeder Uebergabe pruefen
@@ -31,13 +30,13 @@ Stand: 21. August 2026
 
 ## Aktive Mitarbeiterinstanzen
 
-- keine; Continuity Audit fuer `WRN-G1-006` ist naechster Schritt
+- keine
 
 ## Naechste erlaubte Aktion
 
-`WRN-G1-006` inklusive Screenshots als Git-Checkpoint sichern und danach durch
-genau eine kurze Continuity-Auditor-Instanz pruefen. Anschliessend G1-
-Abschlussstatus erstellen. Kein Produktcode vor `GO-IMPLEMENTATION`.
+G1-Abschlussstatus als Git-Checkpoint sichern. Danach `WRN-G2-001` fuer das
+Zielarchitektur-/ADR-Paket schriftlich vorbereiten. Weiterhin kein Produktcode
+vor `GO-IMPLEMENTATION`.
 
 ## Offene Umgebungsabweichung
 
