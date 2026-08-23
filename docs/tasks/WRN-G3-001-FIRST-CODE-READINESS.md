@@ -57,7 +57,8 @@ Primitiven entwickelt werden koennen. Noch keine Legacyfunktion portieren.
 - PO-017 ist dokumentiert: owner-attested Markenassets duerfen erst nach
   `GO-IMPLEMENTATION` in einem eigenen Asset-Task importiert werden; die
   Foundation nutzt weiterhin neutrale Platzhalter;
-- WRN-G2-004 liefert das akzeptierte read-only Liveinventar ohne Secrets;
+- WRN-G2-004 ist abgeschlossen und unabhaengig ohne Secretbefund geprueft; die
+  Product-Owner-Abnahme bleibt Teil des separaten `GO-IMPLEMENTATION`-Befehls;
 - aktueller Git-Status ist gesichert; ein Foundation-Checkpoint ist
   ruecknehmbar;
 - Dependencydownload und spaetere Remote-/CI-Aenderungen erhalten jeweils die

@@ -10,7 +10,7 @@
   Main Agent synthetisiert
 - Modell/Reasoning: Terra/high fuer Inventar, Sol/high fuer kritischen Review
 - Delegation: nach Start erlaubt mit maximal zwei getrennten read-only Agenten
-- Status: **IN ARBEIT – GITHUB/PUBLIC DOCS ERFASST; ACCOUNT-LOGIN OFFEN**
+- Status: **COMPLETE – LIVE ERFASST UND UNABHAENGIG GEPRUEFT**
 
 ## Ziel in beobachtbarer Sprache
 
@@ -72,6 +72,12 @@ Lifecycle- und Rollbackgrenzen. Nichts wird veraendert.
    oder unnoetigen personenbezogenen Daten enthaelt.
 7. Keine externe Mutation ist erfolgt; Account-Auditlog bleibt unveraendert,
    soweit ein read-only Vergleich moeglich ist.
+
+Abschlussbewertung: Kriterien 1–6 sind mit Livebericht und unabhaengigem
+Security-/Privacy-Review erfuellt. Zu Kriterium 7 erfolgte keine Mutation;
+Cloudflare-/Hostinger-Aktivitaetslogs wurden zum Schutz von E-Mail-, IP- und
+sonstigen personenbezogenen Daten nicht geoeffnet. Der unabhaengige
+Auditlogvergleich bleibt deshalb explizit `UNVERIFIED`.
 
 ## Tests und visuelle Belege
 
