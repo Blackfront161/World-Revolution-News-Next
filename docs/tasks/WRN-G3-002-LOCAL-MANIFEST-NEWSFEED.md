@@ -259,4 +259,3 @@ Dieses Dokument bereitet die Arbeit vor. Es startet keinen Mitarbeiter und
 autorisiert keinen Produktcode. Erst `START WRN-G3-002` gibt exakt diesen Slice
 frei. Assetimport, Liveintegration, Artikelreader, Android, Remote/CI,
 Deployment, Signierung und Veroeffentlichung bleiben auch danach gesperrt.
-

@@ -1,6 +1,6 @@
 # WRN-G3-002 – gefuehrte visuelle Abnahme
 
-Stand: 23. August 2026  
+Stand: 23. August 2026
 Status: **VORBEREITET – NEUE PRODUKTSCREENSHOTS EXISTIEREN NOCH NICHT**
 
 ## Warum dieser Bogen existiert
@@ -103,4 +103,3 @@ G3-002 AENDERUNG: <kurze Beschreibung, zum Beispiel "Karten auf dem Handy zu dic
 
 Diese Rueckmeldung erfolgt erst, nachdem die neuen Tafeln wirklich vorliegen.
 Das aktuelle Dokument selbst ist keine visuelle Freigabe.
-
