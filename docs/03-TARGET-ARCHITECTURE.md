@@ -97,8 +97,9 @@ read-only ausserhalb der neuen Runtime.
 ## 5. Leitentscheidungen
 
 1. **Clientstack:** React + TypeScript + Vite fuer beide getrennten
-   Weboberflaechen und Capacitor fuer Android wird empfohlen. Die Freigabe
-   bleibt beim Product Owner; die Bewertung steht in ADR-002.
+   Weboberflaechen und Capacitor fuer Android ist durch den Product Owner
+   akzeptiert. Exakte kompatible Versionen werden im Foundation-Task
+   reproduzierbar fixiert; die Bewertung steht in ADR-002.
 2. **Daten:** Jeder Client konsumiert ein immutable Release-Manifest mit
    Schemas, getrennten Hashes fuer aktive/archivierte/SEO-ID-Mengen,
    Required/Optional-Klassen, Ownern, Revision und vorrangigem

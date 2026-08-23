@@ -1,6 +1,6 @@
 # Product-Owner-Entscheidungen nach G2
 
-Status: PO-001–013 am 23. August 2026 entschieden; `GO-IMPLEMENTATION` offen.
+Status: PO-001–015 am 23. August 2026 entschieden; `GO-IMPLEMENTATION` offen.
 Regel: Technische Beweisluecken und Pflichtgates stehen nicht hier, sondern in
 ADRs, Migration Waves und Risikoregister.
 
@@ -21,6 +21,8 @@ ADRs, Migration Waves und Risikoregister.
 | PO-011 | API-/Providerbudget | neue optionale Kosten standardmaessig 0 CHF | spaetere Einzelbudgetfreigabe mit Hard Cap/Kill-Switch |
 | PO-012 | G2-Abnahme | G2 akzeptiert | `GO-IMPLEMENTATION` separat und noch offen |
 | PO-013 | GitHub/Actions | privat und bedingt akzeptiert | eigener autorisierter Remote-/CI-Task |
+| PO-014 | Qood-Font | vollstaendig ausschliessen; keine Runtimeverwendung und kein Ersatz noetig | kein Import; spaetere offene Fonts nur mit Lizenz-/Visualbeleg |
+| PO-015 | ungeklaerte Markenassets | nicht importieren, sondern neue Originalassets erstellen | eigener visueller Product-Owner- und Rechtegate vor Markenparitaet |
 
 ## Weiterhin keine Entscheidung erforderlich
 

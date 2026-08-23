@@ -60,7 +60,18 @@ Freigabe fuer Produktcode, Remote-Setup, Deployment, Signierung oder Upload.
 | PO-012 | `ACCEPTED-G2-ONLY` | G2 ist abgenommen. `GO-IMPLEMENTATION` wird ausdruecklich nicht miterteilt und bleibt separates G3-Gate. |
 | PO-013 | `ACCEPTED-CONDITIONAL` | Privates GitHub-Remote und GitHub Actions werden fuer das neue Plattformrepo vorgesehen, aber erst in einem eigenen autorisierten Task mit Least Privilege und geschuetzten Environments eingerichtet. |
 
-## 4. Entscheidungsdisziplin
+## 4. Sichere Rechteentscheidungen vom 23. August 2026
+
+Der Product Owner antwortete auf die unmittelbar zuvor angebotenen sicheren
+Rechteoptionen mit „ok weiterfahren bitte“. Um keine unbelegte Eigentumsangabe
+zu erfinden, wird dies als Zustimmung zur konservativen Variante dokumentiert.
+
+| ID | Status | Dokumentierte Entscheidung |
+|---|---|---|
+| PO-014 | `ACCEPTED-EXCLUDE` | `Qood.ttf` wird weder kopiert noch lizenziert. Read-only Git-Greps belegen keine Runtimeverwendung in App-Runtime `968c320`, App-HEAD `2216ff3` oder Website `9a59b17`; fuer Paritaet ist kein Qood-Ersatz erforderlich. |
+| PO-015 | `ACCEPTED-RECREATE` | Ungeklaerte Legacy-Markenassets werden nicht importiert. Sie dienen nur als visuelle Baselinereferenz; neue originale Markenassets erhalten einen eigenen Product-Owner-Visualgate und eine neue Rechte-/Hashkette. |
+
+## 5. Entscheidungsdisziplin
 
 - Die vollstaendigen Optionen, Kosten, Risiken, Migrationen und Gates stehen in
   `docs/architecture/ADR-*.md`.

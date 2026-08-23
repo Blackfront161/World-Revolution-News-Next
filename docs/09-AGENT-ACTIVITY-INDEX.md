@@ -8,7 +8,7 @@ internen Subagenten, Modelle, Ergebnisse und Git-Nachweise.
 
 | Task/Chat | Typ | Aufgabe | Umgebung | Status | Verweis |
 |---|---|---|---|---|---|
-| `WRN – Chief AI Architect & Orchestrierung` | sichtbarer, angehefteter Haupttask | `WRN-G2-002`: G2-Abnahme, Vorimplementierungsbelege und G3-Bereitschaft; kein Produktcode | lokaler Hauptordner | YELLOW – DOKUMENTATION FERTIG, RECHTE-/LIVEGATES OFFEN | `docs/handoffs/WRN-G2-002-preimplementation-evidence.md` |
+| `WRN – Chief AI Architect & Orchestrierung` | sichtbarer, angehefteter Haupttask | `WRN-G2-003`: Rechteentscheidung/Markenbrief; WRN-G2-004 Liveinventar vorbereitet; kein Produktcode | lokaler Hauptordner | YELLOW – RECHTEWEG ENTSCHIEDEN, LIVEINVENTAR OFFEN | `docs/tasks/WRN-G2-004-READ-ONLY-LIVE-INVENTORY.md` |
 | `WRN G2 – Zielarchitektur & ADRs` | sichtbarer Phasentask | `WRN-G2-001`: Zielarchitektur und ADR-Paket; kein Produktcode | isolierter Codex-Git-Worktree | ABGESCHLOSSEN UND VOM PRODUCT OWNER AKZEPTIERT | `docs/handoffs/WRN-G2-001-target-architecture-adr-package.md` |
 
 Sichtbarer G2-Codex-Thread: `01a02497-f526-7cf1-b398-dc664a90c044`.
@@ -75,9 +75,9 @@ gestartet werden, arbeitet aber aktuell nicht.
 - Quellstand: Governance ab `86f2615`
 - Erledigt: sichtbare Tasks, G1-Instanzen, Profile und Kontrollorte kartiert
 - Tests: Dokumentpruefung
-- Offen: Qood-Ersatz, Marken-/Medienrechte, spaeteres Liveinventar,
+- Offen: autorisiertes Liveinventar, Medien-/Codebelege pro Element,
   SEC-001–003 und `GO-IMPLEMENTATION`
 - Handoff: `docs/09-AGENT-ACTIVITY-INDEX.md`
-- Naechster Schritt: Product Owner bestaetigt Qood-Ersatz und Assetrechte;
-  `GO-IMPLEMENTATION` bleibt separat
+- Naechster Schritt: Product Owner startet `LIVE-INVENTAR STARTEN`;
+  `GO-IMPLEMENTATION` bleibt danach separat
 - END-CHECK: :)

@@ -52,8 +52,11 @@ Primitiven entwickelt werden koennen. Noch keine Legacyfunktion portieren.
 ## Vorbedingungen
 
 - Product Owner erteilt separat exakt `GO-IMPLEMENTATION`;
-- Product Owner bestaetigt `QOOD ERSETZEN` oder liefert eine gueltige Lizenz;
-- Markenassets bleiben bis zum Rechtebeleg draussen oder werden neu erstellt;
+- PO-014 ist erfuellt: Qood wird ausgeschlossen und ist keine Runtimeparitaet;
+- PO-015 ist erfuellt: ungeklaerte Markenassets bleiben draussen und werden in
+  einem spaeteren visuellen Task neu erstellt; die Foundation nutzt neutrale
+  Platzhalter;
+- WRN-G2-004 liefert das akzeptierte read-only Liveinventar ohne Secrets;
 - aktueller Git-Status ist gesichert; ein Foundation-Checkpoint ist
   ruecknehmbar;
 - Dependencydownload und spaetere Remote-/CI-Aenderungen erhalten jeweils die

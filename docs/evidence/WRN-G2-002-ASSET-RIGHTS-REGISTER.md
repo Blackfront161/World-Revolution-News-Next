@@ -13,8 +13,8 @@ Quellcode, die Markenbilder, Inhalte oder Fonts.
 
 | Klasse | Status fuer neues Repository | Entscheidung/Gate |
 |---|---|---|
-| `Qood.ttf` und alle Kopien | **BLOCKED** | beiliegender Hinweis erlaubt nur persoenliche, nicht kommerzielle Nutzung und verbietet Distribution/Produkteinbettung; ersetzen oder gueltige Lizenz samt Distributionsrecht belegen |
-| WRN-/Solinaridao-Logos, Header, Masken und Hintergrund | **UNGEKLAERT – NICHT IMPORTIEREN** | Product Owner belegt eigene Urheberschaft/Rechtekette oder laesst das Asset neu und nachweisbar erstellen |
+| `Qood.ttf` und alle Kopien | **AUSSCHLIESSEN – PO-014** | keine Runtimeverwendung; nicht kopieren oder lizenzieren, kein Ersatz fuer Paritaet erforderlich |
+| WRN-/Solinaridao-Logos, Header, Masken und Hintergrund | **REFERENZ ONLY / NEU ERSTELLEN – PO-015** | nicht importieren; neue Originalassets mit Product-Owner-Visualgate und eigener Rechtekette |
 | Android-Icon-/Splash-Ableitungen | **UNGEKLAERT – NICHT IMPORTIEREN** | erst kanonisches, rechtegeklaertes Masterasset bestimmen; Ableitungen spaeter reproduzierbar generieren |
 | `placeholder.jpg` | **AUSSCHLIESSEN** | Datei hat nur zwei Bytes und ist keine brauchbare Quelle |
 | Legacy-Quellcode und Inhalte | **NICHT PAUSCHAL KOPIEREN** | Feature fuer Feature neu schreiben; nur konkret belegte eigene Bestandteile uebernehmen |
@@ -65,10 +65,11 @@ importiert.
   `B9A9E7CFEB8202757A05CA3BF07859967B2D75F2D6F0C165DF8EC1AACCA3833C`
 - App-README und Website-README verneinen eine pauschale Open-Source-Lizenz.
 
-## Einfachste sichere Product-Owner-Entscheidung
+## Product-Owner-Entscheidung
 
-Empfehlung: `Qood.ttf` nicht lizenzieren und durch eine passende Open-Source-
-Schrift mit nachweisbarer OFL-/Apache-Lizenz ersetzen. Fuer die Markenassets
-genuegt als naechster Schritt eine schriftliche Eigentuemererklaerung des
-Product Owners nur dann, wenn er sie selbst erstellt hat oder die vollstaendige
-Rechtekette kennt; andernfalls werden sie neu erstellt.
+PO-014/015 sind am 23. August 2026 konservativ entschieden: Qood wird komplett
+ausgeschlossen; ungeklaerte Markenassets werden nicht importiert, sondern
+spaeter mit sichtbarer Product-Owner-Abnahme neu erstellt. Ein read-only
+`git grep` fand fuer `Qood` keine CSS-, JavaScript- oder HTML-Referenz in
+App-Runtime `968c320`, App-HEAD `2216ff3` oder Website `9a59b17`. Damit besteht
+keine Qood-Paritaetsluecke.

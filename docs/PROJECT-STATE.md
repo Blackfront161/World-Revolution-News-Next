@@ -5,10 +5,10 @@ Stand: 23. August 2026
 ## Aktuelle Phase
 
 - Phase: G2 abgenommen; Wave 0/Vorimplementierungsbelege
-- Task: `WRN-G2-002`
-- Ausgangscheckpoint: `66a9eb6`
-- Gate: **YELLOW – G2 akzeptiert, G3-Foundation vorbereitet; Rechte- und
-  Livebelege teilweise offen**
+- Task: `WRN-G2-003`; naechster vorbereiteter Task `WRN-G2-004`
+- Ausgangscheckpoint: `be3a43e`
+- Gate: **YELLOW – konservativer Rechteweg entschieden und G3-Foundation
+  vorbereitet; autorisiertes Liveinventar noch offen**
 - `GO-IMPLEMENTATION`: **nicht erteilt**
 - Produktcode, Scaffolding, Dependencies, Build, Server, Livezugriff,
   Deployment, Signierung und Upload: keiner
@@ -35,6 +35,10 @@ Stand: 23. August 2026
   oder Uploadauthority.
 - Details: `docs/06-DECISION-LOG.md` und
   `docs/architecture/G2-OPEN-DECISIONS.md`.
+- PO-014 schliesst Qood vollstaendig aus. Git-Grep belegt keine
+  Runtimeverwendung; ein Ersatz ist fuer Paritaet nicht erforderlich.
+- PO-015 verbietet den Import ungeklaerter Markenassets und verlangt neue
+  Originalassets mit separatem visuellem Product-Owner-Gate.
 
 ## Neue Wave-0-Belege
 
@@ -44,19 +48,23 @@ Stand: 23. August 2026
   `docs/evidence/WRN-G2-002-LOCAL-INFRASTRUCTURE-INVENTORY.md`
 - Stack-/Lizenzbeleg:
   `docs/evidence/WRN-G2-002-STACK-AND-LICENSE-EVIDENCE.md`
+- Font-/Marken-Neuschaffungsbrief:
+  `docs/evidence/WRN-G2-003-FONT-AND-BRAND-RECREATION-BRIEF.md`
 - vorbereiteter erster Code-Task:
   `docs/tasks/WRN-G3-001-FIRST-CODE-READINESS.md`
+- vorbereiteter read-only Liveinventar-Task:
+  `docs/tasks/WRN-G2-004-READ-ONLY-LIVE-INVENTORY.md`
 - Task/Handoff:
   `docs/tasks/WRN-G2-002-PREIMPLEMENTATION-EVIDENCE.md` und
   `docs/handoffs/WRN-G2-002-preimplementation-evidence.md`
 
 ## Wesentliche Feststellungen
 
-1. `Qood.ttf` ist laut beiliegendem Hinweis nur fuer persoenliche Nutzung
-   bestimmt; kommerzielle Nutzung und Produktdistribution sind nicht erlaubt.
-   Der Font ist fuer Import und Release blockiert.
-2. Hashes der Markenbilder sind erfasst. Ohne Rechtekette beweisen sie keine
-   Uebernahmeerlaubnis; Assets bleiben gesperrt oder werden neu erstellt.
+1. `Qood.ttf` ist lizenzrechtlich ungeeignet, wird aber in keiner verbindlichen
+   App-/Website-Runtime referenziert. PO-014 schliesst ihn ohne Paritaetsverlust
+   aus; kein Fontkauf und kein Qood-Ersatz ist notwendig.
+2. Hashes der Markenbilder sind erfasst. PO-015 behandelt sie nur als visuelle
+   Baseline; neue Originalassets erhalten eine eigene Rechte-/Hashkette.
 3. Legacy besitzt lokal zwei Worker-Deployables, waehrend das akzeptierte Ziel
    mindestens fuenf getrennte fachliche Deploy-/Rollbackeinheiten vorsieht.
 4. Lokale Configs belegen keine Liveversion, Tarife, Nutzung, Retention oder
@@ -67,22 +75,22 @@ Stand: 23. August 2026
 
 ## Offene Gates
 
-1. Product Owner bestaetigt `QOOD ERSETZEN` oder liefert einen belastbaren
-   Lizenzbeleg mit kommerzieller Nutzung und Produktdistribution.
-2. Product Owner belegt die Rechtekette der zu uebernehmenden Markenassets oder
-   laesst sie neu erstellen.
-3. Vor Cloudflare-/Servicearbeit wird ein eigener read-only Liveinventar-Task
-   autorisiert; keine Secretwerte werden gelesen.
-4. SEC-001/002 bleiben vor Translation-/Podcastportierung, SEC-003 vor Push
+1. Product Owner autorisiert `WRN-G2-004` mit `LIVE-INVENTAR STARTEN`; keine
+   Secretwerte oder externen Mutationen sind erlaubt.
+2. Das Liveinventar klaert Worker, Bindingsarten, Hosting, Provider, Plan,
+   Usage, Retention, Lifecycle, Kosten und Rollbackgrenzen.
+3. SEC-001/002 bleiben vor Translation-/Podcastportierung, SEC-003 vor Push
    offen.
-5. `GO-IMPLEMENTATION` bleibt ein separater ausdruecklicher Befehl.
+4. Legacycode und Medien werden weiterhin nur pro Element mit Rechtebeleg
+   importiert; WRN-G3-001 importiert nichts davon.
+5. `GO-IMPLEMENTATION` bleibt nach Liveinventar ein separater ausdruecklicher
+   Befehl.
 
 ## Naechste empfohlene Aktion
 
-Zuerst `QOOD ERSETZEN` bestaetigen und die Markenasset-Rechte klaeren. Danach
-kann der Product Owner `GO-IMPLEMENTATION` fuer den bereits eng begrenzten
-Task `WRN-G3-001` erteilen. Das Liveinventar ist spaetestens vor jeder
-Cloudflare-/Serviceimplementierung separat erforderlich.
+Product Owner startet `WRN-G2-004` mit `LIVE-INVENTAR STARTEN`. Nach dessen
+read-only Bericht und Review kann er separat `GO-IMPLEMENTATION` fuer den
+bereits eng begrenzten Task `WRN-G3-001` erteilen.
 
 ## Bekannte Umgebungsabweichung
 
