@@ -1,6 +1,6 @@
 # Source-of-Truth-Register
 
-Stand: 21. August 2026
+Stand: 23. August 2026
 
 Dieses Register verhindert, dass aehnlich benannte Altordner, Buildkopien oder
 historische Artefakte als aktuelle Quelle verwendet werden.
@@ -11,8 +11,8 @@ historische Artefakte als aktuelle Quelle verwendet werden.
 |---|---|
 | Lokaler Name | `Sauberes Wo Rev Ne` |
 | Pfad | `C:\Users\patri\Documents\ChatGPT\Sauberes Wo Rev Ne` |
-| Status | neutrale lokale Foundation auf Kandidat `e4d78b4`; kein Legacyimport und keine Produktparitaet |
-| Branch | `codex/g3-001-foundation`; Ausgangscheckpoint `bb77c06` |
+| Status | G3-001 technisch akzeptierte neutrale Foundation; QA-Evidenzstand `ea2564f`; keine Design-/Produktparitaet und kein Legacyimport |
+| Branch | `codex/g3-001-foundation`; Ausgangscheckpoint `bb77c06`; WRN-G3-002 nur dokumentarisch vorbereitet |
 | Remote | noch nicht eingerichtet |
 
 ## 2. Massgebliche App-Baseline
@@ -32,6 +32,8 @@ historische Artefakte als aktuelle Quelle verwendet werden.
 
 `968c320` enthaelt den sichtbaren Runtime-Stand. `2216ff3` ergaenzt den
 hashgebundenen Signierer und Tests, ohne die sichtbare Runtime zu aendern.
+Beide Commits und der gesamte App-Arbeitsbaum bleiben fuer die Migration
+strikt read-only; Produktarbeit findet nur im neuen Zielrepository statt.
 
 ## 3. App-Releasebelege
 
@@ -64,6 +66,9 @@ Auftrag darf kein Agent signieren, hochladen oder die Dateien veraendern.
 Website-spezifische Navigation, SEO, Apache-Regeln, Landingpages, Responsive-CSS
 und Cacheversionen bleiben bei jeder Migration als eigene Produktanforderungen
 erhalten.
+Auch dieser Arbeitsbaum bleibt strikt read-only. Visuelle Referenzen duerfen
+gelesen und verglichen, aber nicht dort veraendert oder zurueckgeschrieben
+werden.
 
 ## 5. Content- und Datenquelle
 

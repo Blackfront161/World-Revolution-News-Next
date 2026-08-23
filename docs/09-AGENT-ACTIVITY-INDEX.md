@@ -8,7 +8,7 @@ internen Subagenten, Modelle, Ergebnisse und Git-Nachweise.
 
 | Task/Chat | Typ | Aufgabe | Umgebung | Status | Verweis |
 |---|---|---|---|---|---|
-| `WRN – Chief AI Architect & Orchestrierung` | sichtbarer, angehefteter Haupttask | `WRN-G3-001`: lokale Foundation; keine Legacy-/Livewirkung | `codex/g3-001-foundation` | QA GREEN – PRODUCT-OWNER-VISUALABNAHME AUSSTEHEND | `docs/handoffs/WRN-G3-001-foundation.md` |
+| `WRN – Chief AI Architect & Orchestrierung` | sichtbarer, angehefteter Haupttask | `WRN-G3-002`: lokaler Manifest-Newsfeed dokumentarisch vorbereitet; keine Legacy-/Livewirkung | `codex/g3-001-foundation` | VORBEREITET – STARTGATE AUSSTEHEND | `docs/handoffs/WRN-G3-002-preparation.md` |
 | `WRN G2 – Zielarchitektur & ADRs` | sichtbarer Phasentask | `WRN-G2-001`: Zielarchitektur und ADR-Paket; kein Produktcode | isolierter Codex-Git-Worktree | ABGESCHLOSSEN UND VOM PRODUCT OWNER AKZEPTIERT | `docs/handoffs/WRN-G2-001-target-architecture-adr-package.md` |
 
 Sichtbarer G2-Codex-Thread: `01a02497-f526-7cf1-b398-dc664a90c044`.
@@ -83,12 +83,12 @@ gestartet werden, arbeitet aber aktuell nicht.
 
 - Task: Mitarbeiter-Dashboard
 - Status: GREEN
-- Quellstand: Foundation-Kandidat `e4d78b4`
-- Erledigt: sichtbare Tasks, G1-/G3-Instanzen, Profile und Kontrollorte kartiert
+- Quellstand: Foundation-QA-Stand `ea2564f` vor G3-002-Dokumentcheckpoint
+- Erledigt: G3-001 technisch akzeptiert; G3-002-Scope und gefuehrte visuelle Abnahme vorbereitet
 - Tests: Dokumentpruefung
-- Offen: Product-Owner-Visualabnahme; Medien-/Codebelege pro Element,
+- Offen: `START WRN-G3-002`; Medien-/Codebelege pro Element,
   R-26/R-29/R-37 und SEC-001–003 fuer spaetere Slices
 - Handoff: `docs/09-AGENT-ACTIVITY-INDEX.md`
-- Naechster Schritt: Product Owner prueft die zehn Foundation-Screenshots;
-  danach separater Task Brief fuer G3-002, keine automatische Folgefreigabe
+- Naechster Schritt: Product Owner prueft den G3-002-Task-Brief und erteilt
+  nur bei Zustimmung `START WRN-G3-002`; keine automatische Folgefreigabe
 - END-CHECK: :)

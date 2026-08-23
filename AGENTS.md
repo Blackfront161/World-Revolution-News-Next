@@ -21,19 +21,27 @@ eine erfundene Annahme verdeckt.
 
 ## 2. Aktuelles Phasengate
 
-Der aktuelle Zustand ist **Phase G3 / WRN-G3-001 Foundation**.
-Der Product Owner erteilte `GO-IMPLEMENTATION` am 23. August 2026.
+Der aktuelle Zustand ist **Phase G3 / Vorbereitung WRN-G3-002**.
 
-Diese Freigabe gilt ausschliesslich fuer den Task Brief
-`docs/tasks/WRN-G3-001-FIRST-CODE-READINESS.md`:
+`WRN-G3-001` ist technisch akzeptiert. Diese enge Akzeptanz bestaetigt die
+neutrale, lokal getestete Foundation; sie ist keine Design-, Funktions-,
+Markenasset- oder Paritaetsfreigabe. Der vorbereitete Folgeauftrag steht in
+`docs/tasks/WRN-G3-002-LOCAL-MANIFEST-NEWSFEED.md`.
 
-- lokale, neutrale Workspacefoundation fuer getrennte Mobile-App und Website;
-- gemeinsame Domain-, Contract-, Brand-Token- und Test-Support-Pakete;
-- lokale Builds, Tests und visuelle Foundationbelege;
-- keine Legacydateien oder Markenassets importieren;
-- keine echte Newsfunktion, Datenbank oder Providerintegration;
-- keine produktiven Dienste konfigurieren oder deployen;
-- kein Remote, Push, Signing, Upload oder Google-Play-/Hostinger-Zugriff.
+Bis der Product Owner exakt `START WRN-G3-002` erteilt:
+
+- keinen weiteren Produktcode schreiben;
+- keine Mitarbeiter oder Sub-Agenten fuer die Umsetzung starten;
+- nur Task-, Abnahme-, Status- und Governance-Dokumentation bearbeiten;
+- keine Legacydateien, echten Inhalte oder Markenassets importieren;
+- keine Dependencies installieren und keine Apps oder Server starten.
+
+Die aktuelle Live-App und ihr Repository, die aktuelle Website und ihr
+Repository, das Contentrepository sowie Cloudflare, Hostinger und Google Play
+bleiben in jedem Fall read-only und unveraendert. Auch nach dem Startgate ist
+nur der schriftliche G3-002-Scope im neuen Repository erlaubt. Datenbank,
+echte Dienste, Remote/CI, Deployment, Signierung, Upload und Veroeffentlichung
+bleiben separate Gates.
 
 Dependencydownload, Browserbinaries und externe Programme benoetigen weiterhin
 eine eigene sichtbare Einzelgenehmigung. Jede Scopeausweitung braucht einen

@@ -95,3 +95,11 @@ werden.
 | ID | Status | Dokumentierte Entscheidung |
 |---|---|---|
 | PO-018 | `ACCEPTED-G3-001-ONLY` | Der Product Owner erteilte am 23. August 2026 exakt `GO-IMPLEMENTATION`. Freigegeben ist ausschliesslich die lokale, neutrale Foundation `WRN-G3-001`. Legacyimport, Markenassetimport, echte Dienste, Datenbank, Remote/CI, Deployment, Signierung, Upload und Veroeffentlichung bleiben separate Gates. |
+
+## 7. G3-Fortsetzungsentscheidungen vom 23. August 2026
+
+| ID | Status | Dokumentierte Entscheidung |
+|---|---|---|
+| PO-019 | `ACCEPTED-TECHNICAL-ONLY` | Der Product Owner akzeptiert G3-001 als technisch geprueftes neutrales Grundgeruest. Nach seiner Klarstellung, dass an den Foundationbildern kaum Produktgestaltung zu pruefen war, gilt dies ausdruecklich nicht als Design-, Funktions-, Marken- oder Paritaetsfreigabe. Kuenftige sichtbare Slices erhalten einen gefuehrten Alt-vs.-Neu-Vergleich. |
+| PO-020 | `ACCEPTED-READ-ONLY-RECONFIRMED` | Die aktuelle Live-App und ihr Repository duerfen nicht veraendert werden. Gleiches gilt im vorbereiteten G3-002-Scope fuer aktuelle Website, Content-/Datenquellen und Liveinfrastruktur. Neue Arbeit findet ausschliesslich im Repository `Sauberes Wo Rev Ne` statt. |
+| PO-021 | `ACCEPTED-PREPARATION-ONLY` | Mit „ja dann fahren wir fort wie du gesagt hast“ autorisiert der Product Owner die zuvor beschriebene Dokumentvorbereitung fuer WRN-G3-002: lokaler Manifest-v1-Newsfeed und gefuehrter visueller Abnahmebogen. Produktcode und Mitarbeiterstart benoetigen weiterhin das separate Gate `START WRN-G3-002`. |

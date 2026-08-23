@@ -9,7 +9,7 @@
 - Delegation: erst nach `GO-IMPLEMENTATION`; maximal zwei getrennte Schreibpakete
 - Risikoklasse: hoch wegen neuer Toolchain-/Repositorygrenzen, ohne Livewirkung
 - Freigabe: Product Owner – `GO-IMPLEMENTATION` am 23. August 2026
-- Status: **QA GREEN – PRODUCT-OWNER-VISUALABNAHME AUSSTEHEND**
+- Status: **TECHNISCH AKZEPTIERT – KEINE DESIGN-/PARITAETSFREIGABE**
 
 ## Ziel
 
@@ -79,9 +79,13 @@ Capacitor-Vertrag konfiguriert und die Abweichung dokumentiert.
 | externe Nebenwirkungen/ungepruefte Dateien | PASS | Secret-/Artefakt-/Legacy-/Remote-Scan leer |
 | unabhaengiger QA-Review | PASS | `docs/handoffs/WRN-G3-001-independent-qa.md` |
 
-Der technische Foundation-Scope ist erfuellt. Die visuelle Abnahme des Product
-Owners bleibt gemaess Qualitaetsregeln erforderlich; daraus folgt keine
-automatische Freigabe von `WRN-G3-002`, Legacyimport, Android oder Release.
+Der technische Foundation-Scope ist erfuellt und vom Product Owner als
+neutrales Grundgeruest akzeptiert. Der Product Owner stellte danach klar, dass
+an den Foundationbildern keine eigentliche Produktgestaltung zu beurteilen
+war. Deshalb gilt diese Entscheidung ausdruecklich nicht als Design-,
+Funktions-, Marken- oder Paritaetsfreigabe. Die erste gefuehrte visuelle
+Produktabnahme folgt mit echten Feedansichten in `WRN-G3-002`; daraus folgt
+keine automatische Freigabe von Legacyimport, Android oder Release.
 
 ## Vorbedingungen
 

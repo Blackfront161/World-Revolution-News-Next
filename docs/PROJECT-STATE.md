@@ -4,17 +4,20 @@ Stand: 23. August 2026
 
 ## Aktuelle Phase
 
-- Phase: G3 / Wave 1 Foundation
-- Task: `WRN-G3-001` – lokale Foundation QA GREEN; visuelle
-  Product-Owner-Abnahme ausstehend
+- Phase: G3 / Vorbereitung Wave 2 Newsfeed
+- Task: `WRN-G3-002` – lokaler Manifest-Newsfeed dokumentarisch vorbereitet;
+  Produktcode noch nicht autorisiert
 - Ausgangscheckpoint: `bb77c06`
 - Foundation-Kandidatencheckpoint: `e4d78b4`
+- Foundation-QA-/Evidenzcheckpoint: `ea2564f`
 - Arbeitsbranch: `codex/g3-001-foundation`
-- Gate: **QA GREEN FUER WRN-G3-001 – PRODUCT-OWNER-VISUALABNAHME AUSSTEHEND**
+- Gate: **G3-001 TECHNISCH AKZEPTIERT – START WRN-G3-002 AUSSTEHEND**
 - `GO-IMPLEMENTATION`: **am 23. August 2026 fuer WRN-G3-001 erteilt**
 - Legacyimport, Markenassets, echte Dienste, Datenbank, Remote/CI, Deployment,
   Signierung und Upload: nicht freigegeben
 - aktive Subagenten/Mitarbeiterinstanzen: keine
+- Schutzgrenze: Live-App, Legacy-Repositories, Website, Daten und
+  Liveinfrastruktur bleiben read-only und unveraendert
 
 ## Verbindliche Quellen
 
@@ -62,6 +65,23 @@ Stand: 23. August 2026
   null Blocker/High/Medium im unabhaengigen QA-Review
 - Restpunkt: R-37 ist eine moderate transitive Development-Advisory im
   Capacitor-CLI-Pfad; vor Androidgenerierung/G5 erneut pruefen
+- Product-Owner-Entscheidung: technische Foundation akzeptiert; keine Design-,
+  Funktions-, Marken- oder Paritaetsfreigabe. Die erste echte visuelle
+  Produktabnahme erfolgt gefuehrt am Newsfeed-Slice.
+
+## G3-002-Vorbereitung
+
+- Task Brief: `docs/tasks/WRN-G3-002-LOCAL-MANIFEST-NEWSFEED.md`
+- visueller Alt-vs.-Neu-Abnahmebogen:
+  `docs/evidence/WRN-G3-002-VISUAL-ACCEPTANCE-BRIEF.md`
+- Vorbereitungshandoff: `docs/handoffs/WRN-G3-002-preparation.md`
+- Scope: lokale immutable Manifest-v1-Fixture, Domainvertrag und getrennte
+  Mobile-/Websitefeeds mit Quelle, Datum, Sprache, Tags und sechs klaren
+  Zustaenden
+- ausgeschlossen: Legacykopie, echte Nachrichten, Livequelle, Suche/Filter,
+  Reader/SEO, echte Medien, Dienste, Android, Remote/CI und Releaseoperationen
+- Startgate: `START WRN-G3-002`; bis dahin kein Produktcode und kein
+  Mitarbeiterstart
 
 ## Wave-0-Belege
 
@@ -127,18 +147,19 @@ Stand: 23. August 2026
    SEC-003 vor Push
    offen.
 4. Legacycode und Medien werden weiterhin nur pro Element mit Rechtebeleg
-   importiert; WRN-G3-001 importiert nichts davon.
+   importiert; WRN-G3-001 importierte nichts davon und WRN-G3-002 plant keinen
+   Import.
 5. Jeder Folge-Slice, Assetimport, native Androidtask, Remote-/CI-Schritt und
    Release bleibt ein separater Task mit eigener Freigabe; `GO-IMPLEMENTATION`
    fuer WRN-G3-001 erweitert diesen Scope nicht.
 
 ## Naechste empfohlene Aktion
 
-Der Product Owner prueft die zehn neutralen Foundation-Screenshots und
-akzeptiert oder korrigiert sie. Erst danach wird ein neuer Task Brief fuer
-`WRN-G3-002` vorbereitet: immutable lokale Manifest-v1-Fixture und getrennte
-Newsfeed-Slices, weiterhin ohne Livequelle oder Legacykopie. Kein Folge-Agent
-und kein Produktcode startet automatisch.
+Der Product Owner prueft den vorbereiteten Scope in
+`docs/tasks/WRN-G3-002-LOCAL-MANIFEST-NEWSFEED.md`. Wenn er stimmt, startet nur
+der ausdrueckliche Befehl `START WRN-G3-002` den lokalen Produktslice. Danach
+werden echte Feed-Screenshots als klar beschriftete Alt-vs.-Neu-Tafeln
+vorgelegt. Kein Folge-Agent und kein Produktcode startet automatisch.
 
 ## Bekannte Umgebungsabweichung
 
