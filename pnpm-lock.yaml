@@ -120,13 +120,22 @@ importers:
 
   packages/brand-tokens: {}
 
-  packages/domain: {}
+  packages/content-contracts: {}
+
+  packages/domain:
+    dependencies:
+      '@wrn/content-contracts':
+        specifier: workspace:*
+        version: link:../content-contracts
 
   packages/test-support:
     dependencies:
       '@wrn/api-contracts':
         specifier: workspace:*
         version: link:../api-contracts
+      '@wrn/content-contracts':
+        specifier: workspace:*
+        version: link:../content-contracts
       '@wrn/domain':
         specifier: workspace:*
         version: link:../domain

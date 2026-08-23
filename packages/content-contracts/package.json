@@ -1,5 +1,5 @@
 {
-  "name": "@wrn/test-support",
+  "name": "@wrn/content-contracts",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -12,10 +12,5 @@
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test:unit": "vitest run"
-  },
-  "dependencies": {
-    "@wrn/api-contracts": "workspace:*",
-    "@wrn/content-contracts": "workspace:*",
-    "@wrn/domain": "workspace:*"
   }
 }
