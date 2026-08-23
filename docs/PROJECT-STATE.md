@@ -5,10 +5,12 @@ Stand: 23. August 2026
 ## Aktuelle Phase
 
 - Phase: G3 / Wave 1 Foundation
-- Task: `WRN-G3-001` – lokale Foundation in Arbeit
+- Task: `WRN-G3-001` – lokale Foundation QA GREEN; visuelle
+  Product-Owner-Abnahme ausstehend
 - Ausgangscheckpoint: `bb77c06`
+- Foundation-Kandidatencheckpoint: `e4d78b4`
 - Arbeitsbranch: `codex/g3-001-foundation`
-- Gate: **GREEN FUER WRN-G3-001 – keine weitergehende Produkt-/Servicefreigabe**
+- Gate: **QA GREEN FUER WRN-G3-001 – PRODUCT-OWNER-VISUALABNAHME AUSSTEHEND**
 - `GO-IMPLEMENTATION`: **am 23. August 2026 fuer WRN-G3-001 erteilt**
 - Legacyimport, Markenassets, echte Dienste, Datenbank, Remote/CI, Deployment,
   Signierung und Upload: nicht freigegeben
@@ -43,7 +45,25 @@ Stand: 23. August 2026
   inventarisierten Markenassets. Ein kontrollierter Import ist erst nach
   `GO-IMPLEMENTATION` in einem eigenen Asset-Task erlaubt.
 
-## Neue Wave-0-Belege
+## G3-001-Foundationbelege
+
+- Task Brief: `docs/tasks/WRN-G3-001-FIRST-CODE-READINESS.md`
+- Toolchain-, Dependency-, Audit- und Lizenzbeleg:
+  `docs/evidence/WRN-G3-001-TOOLCHAIN-AND-LICENSES.md`
+- zehn commitgebundene Screenshots: `docs/evidence/WRN-G3-001/`
+- Visual-QA-Bericht: `docs/evidence/WRN-G3-001-VISUAL-QA-REPORT.md`
+- Implementierungshandoffs:
+  `docs/handoffs/WRN-G3-001-frontend-foundation.md` und
+  `docs/handoffs/WRN-G3-001-contract-foundation.md`
+- unabhaengiger QA-Gegenreview:
+  `docs/handoffs/WRN-G3-001-independent-qa.md`
+- Ergebnis: exakte Node-/pnpm-Toolchain, Frozen-Lockfile, 20 lokale
+  Unit-/Contract-/Boundary-Tests, zwei Builds und 10/10 Browser-E2E bestanden;
+  null Blocker/High/Medium im unabhaengigen QA-Review
+- Restpunkt: R-37 ist eine moderate transitive Development-Advisory im
+  Capacitor-CLI-Pfad; vor Androidgenerierung/G5 erneut pruefen
+
+## Wave-0-Belege
 
 - Asset-/Rechteregister:
   `docs/evidence/WRN-G2-002-ASSET-RIGHTS-REGISTER.md`
@@ -93,9 +113,9 @@ Stand: 23. August 2026
    aktiv, Auto-Cache aus und dateibasierte Backups. GitHub ist nicht als
    Deploymentquelle verbunden; der Pfad ist `public_html` und Rollback nicht
    commitgebunden.
-8. React/TypeScript/Vite/Capacitor bleibt die akzeptierte Stackrichtung. Exakte
-   kompatible Versionen und Lockfile werden erst im freigegebenen Foundation-
-   Task reproduzierbar fixiert.
+8. React `19.2.8`, TypeScript `6.0.3`, Vite `8.2.2`, Capacitor `8.5.0`,
+   Node `24.19.0` und pnpm `11.19.0` sind im Foundation-Lockfile exakt
+   beziehungsweise durch Toolchaingate reproduzierbar fixiert.
 
 ## Offene Gates
 
@@ -108,14 +128,17 @@ Stand: 23. August 2026
    offen.
 4. Legacycode und Medien werden weiterhin nur pro Element mit Rechtebeleg
    importiert; WRN-G3-001 importiert nichts davon.
-5. `GO-IMPLEMENTATION` bleibt nach Liveinventar ein separater ausdruecklicher
-   Befehl.
+5. Jeder Folge-Slice, Assetimport, native Androidtask, Remote-/CI-Schritt und
+   Release bleibt ein separater Task mit eigener Freigabe; `GO-IMPLEMENTATION`
+   fuer WRN-G3-001 erweitert diesen Scope nicht.
 
 ## Naechste empfohlene Aktion
 
-WRN-G3-001 implementiert und prueft jetzt die lokale Foundation. Vor dem
-Dependencydownload folgt die vorgeschriebene Einzelgenehmigung. Danach werden
-Build-, Test-, Accessibility- und Screenshotbelege ohne Deployment erzeugt.
+Der Product Owner prueft die zehn neutralen Foundation-Screenshots und
+akzeptiert oder korrigiert sie. Erst danach wird ein neuer Task Brief fuer
+`WRN-G3-002` vorbereitet: immutable lokale Manifest-v1-Fixture und getrennte
+Newsfeed-Slices, weiterhin ohne Livequelle oder Legacykopie. Kein Folge-Agent
+und kein Produktcode startet automatisch.
 
 ## Bekannte Umgebungsabweichung
 

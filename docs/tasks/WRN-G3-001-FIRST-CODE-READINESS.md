@@ -9,7 +9,7 @@
 - Delegation: erst nach `GO-IMPLEMENTATION`; maximal zwei getrennte Schreibpakete
 - Risikoklasse: hoch wegen neuer Toolchain-/Repositorygrenzen, ohne Livewirkung
 - Freigabe: Product Owner – `GO-IMPLEMENTATION` am 23. August 2026
-- Status: **IN ARBEIT – LOKALE FOUNDATION FREIGEGEBEN**
+- Status: **QA GREEN – PRODUCT-OWNER-VISUALABNAHME AUSSTEHEND**
 
 ## Ziel
 
@@ -65,6 +65,23 @@ Capacitor-Vertrag konfiguriert und die Abweichung dokumentiert.
    Touchziele und semantische Grundstruktur.
 7. Keine produktive externe Nebenwirkung und keine ungepruefte Datei im Diff.
 8. Unabhaengiger QA-Review vor Abnahme.
+
+## Abschlussbelege
+
+| Kriterium | Ergebnis | Beleg |
+|---|---|---|
+| getrennte Clients und Ruecknahme | PASS | Kandidatencommit `e4d78b4`, getrennte Mobile-/Website-Builds |
+| Import- und Plattformgrenzen | PASS | Workspace-Guard und 4/4 Boundary-Negativtests |
+| Toolchain, Lockfile und Lizenzen | PASS MIT R-37 | `docs/evidence/WRN-G3-001-TOOLCHAIN-AND-LICENSES.md` |
+| lokale Zustaende ohne Remote | PASS | 16 Unit-/Contracttests und 10/10 E2E |
+| Screenshotmatrix | PASS | zehn commitgebundene PNGs unter `docs/evidence/WRN-G3-001/` |
+| Accessibility-Grundlage | PASS | Axe 0 Violations, Fokus, 44px, Semantik, Overflow und Reflow |
+| externe Nebenwirkungen/ungepruefte Dateien | PASS | Secret-/Artefakt-/Legacy-/Remote-Scan leer |
+| unabhaengiger QA-Review | PASS | `docs/handoffs/WRN-G3-001-independent-qa.md` |
+
+Der technische Foundation-Scope ist erfuellt. Die visuelle Abnahme des Product
+Owners bleibt gemaess Qualitaetsregeln erforderlich; daraus folgt keine
+automatische Freigabe von `WRN-G3-002`, Legacyimport, Android oder Release.
 
 ## Vorbedingungen
 

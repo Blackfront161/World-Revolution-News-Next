@@ -11,8 +11,8 @@ historische Artefakte als aktuelle Quelle verwendet werden.
 |---|---|
 | Lokaler Name | `Sauberes Wo Rev Ne` |
 | Pfad | `C:\Users\patri\Documents\ChatGPT\Sauberes Wo Rev Ne` |
-| Status | Organisationsbasis, noch kein Produktcode |
-| Branch | `main` |
+| Status | neutrale lokale Foundation auf Kandidat `e4d78b4`; kein Legacyimport und keine Produktparitaet |
+| Branch | `codex/g3-001-foundation`; Ausgangscheckpoint `bb77c06` |
 | Remote | noch nicht eingerichtet |
 
 ## 2. Massgebliche App-Baseline

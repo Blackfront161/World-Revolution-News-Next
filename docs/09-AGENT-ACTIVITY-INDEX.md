@@ -8,7 +8,7 @@ internen Subagenten, Modelle, Ergebnisse und Git-Nachweise.
 
 | Task/Chat | Typ | Aufgabe | Umgebung | Status | Verweis |
 |---|---|---|---|---|---|
-| `WRN – Chief AI Architect & Orchestrierung` | sichtbarer, angehefteter Haupttask | `WRN-G3-001`: lokale Foundation; keine Legacy-/Livewirkung | `codex/g3-001-foundation` | IN ARBEIT – `GO-IMPLEMENTATION` FUER DIESEN TASK ERTEILT | `docs/tasks/WRN-G3-001-FIRST-CODE-READINESS.md` |
+| `WRN – Chief AI Architect & Orchestrierung` | sichtbarer, angehefteter Haupttask | `WRN-G3-001`: lokale Foundation; keine Legacy-/Livewirkung | `codex/g3-001-foundation` | QA GREEN – PRODUCT-OWNER-VISUALABNAHME AUSSTEHEND | `docs/handoffs/WRN-G3-001-foundation.md` |
 | `WRN G2 – Zielarchitektur & ADRs` | sichtbarer Phasentask | `WRN-G2-001`: Zielarchitektur und ADR-Paket; kein Produktcode | isolierter Codex-Git-Worktree | ABGESCHLOSSEN UND VOM PRODUCT OWNER AKZEPTIERT | `docs/handoffs/WRN-G2-001-target-architecture-adr-package.md` |
 
 Sichtbarer G2-Codex-Thread: `01a02497-f526-7cf1-b398-dc664a90c044`.
@@ -32,7 +32,18 @@ laufen als Subagenten innerhalb des zustaendigen sichtbaren Tasks.
 Die Instanzen sind beendet und verbrauchen keine weiteren Tokens. Ihre
 Profile, Handoffs, Screenshots und Git-Nachweise bleiben erhalten.
 
-## 3. Aktive oder reservierte Profile
+## 3. Abgeschlossene G3-001-Mitarbeiterinstanzen
+
+| Instanz/Rolle | Modell im Lauf | Eigentum | Ergebnis | Dauerhafter Handoff | Kandidat |
+|---|---|---|---|---|---|
+| Frontend Brand Engineer | Terra/high | `apps/mobile`, `apps/website`, `packages/brand-tokens` | Implementierung abgeschlossen; Gesamt-QA GREEN | `docs/handoffs/WRN-G3-001-frontend-foundation.md` | `e4d78b4` |
+| Backend/Data Reliability Engineer | Terra/high | Domain-, Contract-, Test-Support- und Boundary-Pakete | Implementierung abgeschlossen; Gesamt-QA GREEN | `docs/handoffs/WRN-G3-001-contract-foundation.md` | `e4d78b4` |
+| QA Release Engineer | Terra/high | unabhaengiger read-only Abschlussreview | GREEN; null Blocker/High/Medium, ein Low-Loghinweis | `docs/handoffs/WRN-G3-001-independent-qa.md` | `e4d78b4` |
+
+Alle drei Instanzen sind beendet. Ihre Profile, Handoffs und Belege bleiben
+erhalten und verbrauchen keine weiteren Tokens.
+
+## 4. Aktive oder reservierte Profile
 
 Profile unter `.codex/agents/` sind Stellenbeschreibungen, keine laufenden
 Mitarbeiter. `VERFUEGBAR` bedeutet deshalb: darf bei passendem Task Brief
@@ -41,14 +52,14 @@ gestartet werden, arbeitet aber aktuell nicht.
 | Profil | Modellrouting | Status | Naechster typischer Einsatz |
 |---|---|---|---|
 | `legacy_product_analyst` | Spark/medium | VERFUEGBAR | kleine read-only Bestandsaufnahme |
-| `frontend_brand_engineer` | Terra/high | VERFUEGBAR FUER WRN-G3-001 | neutrale Foundation/UI; kein Legacy-/Markenassetimport |
-| `backend_data_reliability_engineer` | Terra/high | VERFUEGBAR FUER WRN-G3-001 | reine Domain-/Contract-/Test-Support-Pakete; keine Dienste |
-| `qa_release_engineer` | Terra/high | VERFUEGBAR FUER QA | unabhaengige Tests und visuelle Belege |
+| `frontend_brand_engineer` | Terra/high | VERFUEGBAR | naechster freigegebener Frontend-Slice; kein stiller Legacy-/Markenassetimport |
+| `backend_data_reliability_engineer` | Terra/high | VERFUEGBAR | naechster freigegebener Domain-/Contract-Slice; keine stillen Dienste |
+| `qa_release_engineer` | Terra/high | VERFUEGBAR | unabhaengige Tests und visuelle Belege pro neuem Slice |
 | `independent_architecture_reviewer` | Sol/high | GENAU EINE INSTANZ ABGESCHLOSSEN – 3 HIGH/3 MEDIUM/1 LOW, ALLE AKZEPTIERT | `docs/handoffs/WRN-G2-001-independent-architecture-review.md` |
 | `context_continuity_auditor` | Luna/medium | G2-AUDIT GREEN 10/12 – INSTANZ ABGESCHLOSSEN | `docs/handoffs/WRN-G2-001-context-audit.md` |
 | Reserveprofile | Spark/Luna/Terra/Sol je Risiko | BEDARFSGESTEUERT | nur bei dokumentiertem Ausloeser |
 
-## 4. Wo der Product Owner Arbeit kontrolliert
+## 5. Wo der Product Owner Arbeit kontrolliert
 
 1. **Sichtbarer Codex-Task:** laufende Kommunikation, Status und Rueckfragen.
 2. **`docs/tasks/`:** exakter Auftrag und Verbote vor Arbeitsbeginn.
@@ -58,7 +69,7 @@ gestartet werden, arbeitet aber aktuell nicht.
 6. **Git-Verlauf:** unveraenderlicher Nachweis, wann welche Governance-Datei
    aufgenommen wurde.
 
-## 5. Lifecycle-Regeln
+## 6. Lifecycle-Regeln
 
 - `START <Task-ID>` startet nur einen bereits schriftlich begrenzten Auftrag.
 - `STATUS <Name/Task-ID>` fordert einen kompakten Zustand an.
@@ -72,12 +83,12 @@ gestartet werden, arbeitet aber aktuell nicht.
 
 - Task: Mitarbeiter-Dashboard
 - Status: GREEN
-- Quellstand: Governance ab `86f2615`
-- Erledigt: sichtbare Tasks, G1-Instanzen, Profile und Kontrollorte kartiert
+- Quellstand: Foundation-Kandidat `e4d78b4`
+- Erledigt: sichtbare Tasks, G1-/G3-Instanzen, Profile und Kontrollorte kartiert
 - Tests: Dokumentpruefung
-- Offen: WRN-G3-001-Belege; Medien-/Codebelege pro Element, R-26/R-29 und
-  SEC-001–003 fuer spaetere Slices
+- Offen: Product-Owner-Visualabnahme; Medien-/Codebelege pro Element,
+  R-26/R-29/R-37 und SEC-001–003 fuer spaetere Slices
 - Handoff: `docs/09-AGENT-ACTIVITY-INDEX.md`
-- Naechster Schritt: lokale Foundation implementieren, testen und visuell
-  belegen; keine automatische Folgefreigabe
+- Naechster Schritt: Product Owner prueft die zehn Foundation-Screenshots;
+  danach separater Task Brief fuer G3-002, keine automatische Folgefreigabe
 - END-CHECK: :)

@@ -1,6 +1,7 @@
 # Zielarchitektur – Migration Release 1
 
-Status: `ACCEPTED` – G2-Abnahme durch den Product Owner am 23. August 2026; `GO-IMPLEMENTATION` nicht erteilt
+Status: `ACCEPTED` – G2-Abnahme am 23. August 2026; `GO-IMPLEMENTATION` nur
+fuer die neutrale Foundation `WRN-G3-001` erteilt, Kandidat `e4d78b4`
 Quellen: G1-Baseline App `2216ff3`, Website `9a59b17`, Datenbeobachtung
 `acec88e` sowie SEC-001 bis SEC-003
 Stand: 23. August 2026
@@ -64,9 +65,11 @@ Browserkontrolle und niemals Authentisierung oder Admission.
 | Media | Referenzen, Rechte, Lifecycle, Auslieferung und Takedown | keine ungepruefte Kopie oder oeffentliche Generierung |
 | Content-/Datenrepo | Generatoren, Quellenaggregation, immutable Publikationsrevisionen | getrennt vom Plattform-Monorepo und dessen Releases |
 
-## 4. Geplante Repositoryform nach `GO-IMPLEMENTATION`
+## 4. Repositoryform und aktueller Foundationstand
 
-Die folgende Struktur ist nur ein Sollbild; die Verzeichnisse werden in G2
+Die folgende Struktur bleibt das Sollbild. `apps/mobile`, `apps/website`, die
+vier neutralen Foundationpakete und `tools` sind in `WRN-G3-001` angelegt.
+`services` und `infrastructure` bleiben bis zu eigenen Task Briefs bewusst
 nicht angelegt.
 
 ```text

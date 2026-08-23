@@ -37,6 +37,13 @@ Mobile und Website bleiben getrennt baubar. Die Browser-Smokes starten und
 schliessen ihre rein lokalen Testserver selbst. Es wird kein externer Dienst
 angesprochen.
 
+Die wichtigsten Abnahmebelege liegen im
+[`WRN-G3-001 Visual-QA-Bericht`](docs/evidence/WRN-G3-001-VISUAL-QA-REPORT.md),
+im
+[`Toolchain-/Lizenzbeleg`](docs/evidence/WRN-G3-001-TOOLCHAIN-AND-LICENSES.md)
+und im
+[`unabhaengigen QA-Handoff`](docs/handoffs/WRN-G3-001-independent-qa.md).
+
 ## Verbindliche Einstiegsdokumente
 
 1. [`AGENTS.md`](AGENTS.md) – Regeln fuer Main Agent und Sub-Agenten
