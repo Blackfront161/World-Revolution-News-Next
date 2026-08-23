@@ -1,6 +1,6 @@
 # ADR-007 – Getrennte Offline-, Storage- und Cachevertraege
 
-- Status: `PROPOSED`
+- Status: `ACCEPTED` am 23. August 2026; Testgates bleiben offen
 - Entscheidungseigner: Product Owner fuer Offlineumfang
 - Technischer Owner nach Freigabe: Backend Data Reliability Engineer
 - Betroffene Risiken: R-05, R-06, R-07, R-22, R-26

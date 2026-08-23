@@ -1,6 +1,6 @@
 # Kosten- und Modellrouting
 
-Status: `PROPOSED`
+Status: `ACCEPTED`; neue optionale API-/Providerkosten standardmaessig 0 CHF
 Ziel: nachvollziehbare Trennung von vorhandener Abo-Nutzung, optionalen APIs,
 Betriebsprovidern und menschlicher Freigabe.
 

@@ -1,6 +1,6 @@
 # ADR-008 – Security-, Privacy- und Datenloeschvertrag
 
-- Status: `PROPOSED`
+- Status: `ACCEPTED` am 23. August 2026; SEC-001/002/003 bleiben funktionsbezogene Blocker
 - Entscheidungseigner: Product Owner fuer Funktionen, Datenschutzhinweise und
   Retention; technische Freigabe durch Security/Privacy Review
 - Betroffene Risiken: R-08, R-23, R-24, R-25, R-26

@@ -1,24 +1,18 @@
 # WRN Project State
 
-Stand: 21. August 2026
+Stand: 23. August 2026
 
 ## Aktuelle Phase
 
-- Phase: G2 – Zielarchitektur und ADRs
-- Task: `WRN-G2-001`
-- Entwurfscheckpoint: `23f7462244f5050391307d3e6923d4bc1b66158a`
-- Reviewremediationcheckpoint: `6d22632`
-- Review: genau eine Instanz `independent_architecture_reviewer` Sol/high,
-  read-only abgeschlossen
-- Reviewbefund: drei High, drei Medium, ein Low; alle vom Main Agent validiert,
-  akzeptiert und am Checkpoint `6d22632` korrigiert
-- Continuity Audit: **GREEN 10/12** auf `6d22632`; einziges Warnsignal waren
-  die mit diesem Update synchronisierten Statusreferenzen
-- Gate: **YELLOW – G2-Dokumentation und Review abgeschlossen;
-  Product-Owner-Abnahme offen**
+- Phase: G2 abgenommen; Wave 0/Vorimplementierungsbelege
+- Task: `WRN-G2-002`
+- Ausgangscheckpoint: `66a9eb6`
+- Gate: **YELLOW – G2 akzeptiert, G3-Foundation vorbereitet; Rechte- und
+  Livebelege teilweise offen**
 - `GO-IMPLEMENTATION`: **nicht erteilt**
-- Produktcode, neue Produktstruktur, Produkttest, Build, Server, Livezugriff,
+- Produktcode, Scaffolding, Dependencies, Build, Server, Livezugriff,
   Deployment, Signierung und Upload: keiner
+- aktive Subagenten/Mitarbeiterinstanzen: keine
 
 ## Verbindliche Quellen
 
@@ -28,77 +22,71 @@ Stand: 21. August 2026
 - Website:
   `wrn-web-portal-2026-08-20-r10n-work@9a59b17cc9b3a6a7b7541c2e64862af208d02ace`
 - Datenbeobachtung: `acec88ef40814f70c1bb45001e397a6ca5872ed7`
-- G1: sechs Fachhandoffs, sechs GREEN Continuity Audits, Baseline Summary,
-  SEC-001/002/003 und Screenshotmanifeste
-- Details/Ausschluesse: `docs/01-SOURCE-OF-TRUTH.md`
+- beide autoritativen Legacy-Arbeitsbaeume waren bei der WRN-G2-002-Pruefung
+  sauber; es wurde nichts kopiert oder geaendert
 
-## G2-Artefakte
+## G2-Abnahme
 
-- Gesamtbild: `docs/03-TARGET-ARCHITECTURE.md`
-- kanonische ADRs: `docs/architecture/ADR-001-*.md` bis `ADR-010-*.md`
-- vertikale Slices: `docs/architecture/MIGRATION-WAVES.md`
-- Kosten-/Agentenrouting: `docs/architecture/COST-AND-MODEL-ROUTING.md`
-- offene Product-Owner-Entscheidungen:
-  `docs/architecture/G2-OPEN-DECISIONS.md`
-- Review/Disposition:
-  `docs/handoffs/WRN-G2-001-independent-architecture-review.md`
-- Continuity Audit:
-  `docs/handoffs/WRN-G2-001-context-audit.md`
-- Hauptuebergabe:
-  `docs/handoffs/WRN-G2-001-target-architecture-adr-package.md`
-- aktualisiert: Paritaetsmatrix, Decision Log, Risk Register und
-  Mitarbeiter-Dashboard
+- PO-001–013 wurden am 23. August 2026 mit „ja mach weiter bitte“ auf das
+  unmittelbar zuvor vollstaendig beschriebene Empfehlungspaket akzeptiert.
+- ADR-001–009 sind als Architekturvertrag akzeptiert; ADR-010 ist als Vertrag
+  akzeptiert und als Produktfunktion fuer Release 1 aufgeschoben.
+- G2-Abnahme erteilt keine Implementierungs-, Remote-, Deployment-, Signier-
+  oder Uploadauthority.
+- Details: `docs/06-DECISION-LOG.md` und
+  `docs/architecture/G2-OPEN-DECISIONS.md`.
 
-## Zielentscheidungen nach Reviewremediation
+## Neue Wave-0-Belege
 
-- Plattform-Monorepo mit getrennten Mobile-/Website-Apps; gemeinsame Pakete
-  werden versioniert und pro Consumer gepinnt; Content bleibt getrennt.
-- React + TypeScript + Vite und Capacitor werden anhand gewichteter,
-  G1-gebundener Kriterien empfohlen; aktuelle Versionen/Lizenzen bleiben
-  vor G3 read-only zu verifizieren.
-- Content nutzt getrennte Mengen/Hashes fuer aktiven Feed, Archiv,
-  Landingpages, Redirects und Sitemap-Artikel. Definierte Beziehungen ersetzen
-  die im Review beanstandete globale Gleichheit.
-- Ein monotones Revocation-/Tombstone-Manifest dominiert immutable Revisionen,
-  Gateways und bekannte Clientcaches.
-- Content Gateway, Translation, Feedback, Podcast und Push sind eigene
-  physische Deploy-/Rollbackeinheiten.
-- Jede Paritaets-ID ist `MUST`, `MUST-SPLIT` oder `OPTIONAL-PO`.
-  Briefings/Dossiers, Termine, Bibliothek, Lexikon,
-  Gefangenensolidaritaet, Hilfe und Medienkern besitzen konkrete W5-Slices.
-- GitHub/Actions ist bedingt vorgeschlagen und benoetigt PO-013; G2 hat keinen
-  Remote eingerichtet oder veraendert.
-- SEC-001/002 muessen vor Portierung geschlossen werden; SEC-003 vor Push.
-- App und Website besitzen getrennte Offline-, Cache-, QA-, Release- und
-  Rollbackketten. Map/Spiel bleibt ausserhalb Release 1.
+- Asset-/Rechteregister:
+  `docs/evidence/WRN-G2-002-ASSET-RIGHTS-REGISTER.md`
+- lokales Infrastrukturinventar:
+  `docs/evidence/WRN-G2-002-LOCAL-INFRASTRUCTURE-INVENTORY.md`
+- Stack-/Lizenzbeleg:
+  `docs/evidence/WRN-G2-002-STACK-AND-LICENSE-EVIDENCE.md`
+- vorbereiteter erster Code-Task:
+  `docs/tasks/WRN-G3-001-FIRST-CODE-READINESS.md`
+- Task/Handoff:
+  `docs/tasks/WRN-G2-002-PREIMPLEMENTATION-EVIDENCE.md` und
+  `docs/handoffs/WRN-G2-002-preimplementation-evidence.md`
 
-## Reviewdisposition
+## Wesentliche Feststellungen
 
-| Finding | Disposition | Korrektur |
-|---|---|---|
-| High ID-Mengenvertrag | akzeptiert | getrennte Sets/Hashes/Beziehungen in ADR-004, W3 und R-27 |
-| High fehlende Kern-Slices/MUST | akzeptiert | vollstaendige Klassifikation und neue W5/W6-Slices |
-| High Worker-Rollback | akzeptiert | fuenf fachliche Deployables, keine behaupteten logischen Teilrollbacks |
-| Medium Takedownvorrang | akzeptiert | Revocation-/Tombstone-Overlay, Purge/410/Offline-Grenze |
-| Medium GitHub | akzeptiert | Least-Privilege-/Environment-/Credentialvertrag und PO-013 |
-| Medium Stackevidenz | akzeptiert | Kriterien, Gewichte, Formel, G1-Evidenz und Messpunkte |
-| Low Statusdrift | akzeptiert | Dashboard, State und Handoffs werden synchronisiert |
+1. `Qood.ttf` ist laut beiliegendem Hinweis nur fuer persoenliche Nutzung
+   bestimmt; kommerzielle Nutzung und Produktdistribution sind nicht erlaubt.
+   Der Font ist fuer Import und Release blockiert.
+2. Hashes der Markenbilder sind erfasst. Ohne Rechtekette beweisen sie keine
+   Uebernahmeerlaubnis; Assets bleiben gesperrt oder werden neu erstellt.
+3. Legacy besitzt lokal zwei Worker-Deployables, waehrend das akzeptierte Ziel
+   mindestens fuenf getrennte fachliche Deploy-/Rollbackeinheiten vorsieht.
+4. Lokale Configs belegen keine Liveversion, Tarife, Nutzung, Retention oder
+   wirksame Hard Caps. Ein Liveinventar bleibt vor Servicearbeit Pflicht.
+5. React/TypeScript/Vite/Capacitor bleibt die akzeptierte Stackrichtung. Exakte
+   kompatible Versionen und Lockfile werden erst im freigegebenen Foundation-
+   Task reproduzierbar fixiert.
 
 ## Offene Gates
 
-1. Product Owner entscheidet PO-001–013 und die G2-Abnahme.
-2. Read-only Liveinventar und Rechte-/Lizenzregister vor betroffener G3-Arbeit.
-3. `GO-IMPLEMENTATION` bleibt ein separates ausdrueckliches Gate.
+1. Product Owner bestaetigt `QOOD ERSETZEN` oder liefert einen belastbaren
+   Lizenzbeleg mit kommerzieller Nutzung und Produktdistribution.
+2. Product Owner belegt die Rechtekette der zu uebernehmenden Markenassets oder
+   laesst sie neu erstellen.
+3. Vor Cloudflare-/Servicearbeit wird ein eigener read-only Liveinventar-Task
+   autorisiert; keine Secretwerte werden gelesen.
+4. SEC-001/002 bleiben vor Translation-/Podcastportierung, SEC-003 vor Push
+   offen.
+5. `GO-IMPLEMENTATION` bleibt ein separater ausdruecklicher Befehl.
 
-## Offene Umgebungsabweichung
+## Naechste empfohlene Aktion
+
+Zuerst `QOOD ERSETZEN` bestaetigen und die Markenasset-Rechte klaeren. Danach
+kann der Product Owner `GO-IMPLEMENTATION` fuer den bereits eng begrenzten
+Task `WRN-G3-001` erteilen. Das Liveinventar ist spaetestens vor jeder
+Cloudflare-/Serviceimplementierung separat erforderlich.
+
+## Bekannte Umgebungsabweichung
 
 Die lokal registrierte Python-3.13-Installation konnte beim Governance-Setup
-das Standardmodul `typing` nicht laden. In WRN-G2-001 wurde Python nicht
+das Standardmodul `typing` nicht laden. In WRN-G2-002 wurde Python nicht
 verwendet. Vor Python-basierten Produkttests braucht die Toolchain eine separat
 autorisierte read-only Diagnose und gegebenenfalls Reparaturfreigabe.
-
-## Naechste erlaubte Aktion
-
-Product Owner prueft das G2-Paket, Review und die offenen Entscheidungen.
-Weiterhin kein Produktcode und keine externe Mutation. Eine G2-Abnahme erteilt
-`GO-IMPLEMENTATION` nur, wenn dies separat und ausdruecklich erklaert wird.

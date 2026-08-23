@@ -1,9 +1,9 @@
 # Zielarchitektur – Migration Release 1
 
-Status: `PROPOSED` – G2-Entwurf, noch keine Implementierungsfreigabe
+Status: `ACCEPTED` – G2-Abnahme durch den Product Owner am 23. August 2026; `GO-IMPLEMENTATION` nicht erteilt
 Quellen: G1-Baseline App `2216ff3`, Website `9a59b17`, Datenbeobachtung
 `acec88e` sowie SEC-001 bis SEC-003
-Stand: 21. August 2026
+Stand: 23. August 2026
 
 ## 1. Architekturziel
 

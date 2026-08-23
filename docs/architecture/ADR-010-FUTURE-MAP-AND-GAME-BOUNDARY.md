@@ -1,6 +1,6 @@
 # ADR-010 – Kuenftige Map-/Spielgrenze
 
-- Status: `PROPOSED` fuer den Vertrag; Featurestatus `DEFERRED`
+- Status: `ACCEPTED` fuer den Vertrag am 23. August 2026; Featurestatus `DEFERRED`
 - Entscheidungseigner: Product Owner fuer jedes spaetere Integrationsgate
 - Betroffene Risiken: R-15, R-17, R-18
 

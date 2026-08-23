@@ -1,6 +1,6 @@
 # ADR-009 – QA, CI/CD, Release und Rollback
 
-- Status: `PROPOSED`
+- Status: `ACCEPTED` am 23. August 2026; Remote-/CI-Einrichtung bleibt separater Task
 - Entscheidungseigner: Product Owner fuer Releases; QA Release Engineer fuer
   unabhaengige Evidenz ohne Deploymentauthority
 - Betroffene Risiken: R-04, R-07, R-13, R-14, R-16, R-17, R-27

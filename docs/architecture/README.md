@@ -1,8 +1,8 @@
 # G2-Zielarchitekturpaket – Migration Release 1
 
-Status: `PROPOSED` – entscheidungsreif, aber nicht freigegeben
+Status: `ACCEPTED` – G2 fachlich freigegeben; Produktcode bleibt bis `GO-IMPLEMENTATION` gesperrt
 Task: `WRN-G2-001`
-Stand: 21. August 2026
+Stand: 23. August 2026
 
 Dieses Verzeichnis beschreibt die Zielarchitektur. Es ist keine angelegte
 Produktstruktur und erteilt weder `GO-IMPLEMENTATION` noch eine Provider-,
@@ -23,7 +23,8 @@ Budget-, Deployment- oder Releasefreigabe.
 11. `ADR-010-FUTURE-MAP-AND-GAME-BOUNDARY.md`
 12. `MIGRATION-WAVES.md` – vertikale Slices und Gates
 13. `COST-AND-MODEL-ROUTING.md` – Kostenklassen und Agentenrouting
-14. `G2-OPEN-DECISIONS.md` – nur echte Product-Owner-Entscheidungen
+14. `G2-OPEN-DECISIONS.md` – dokumentierte Product-Owner-Entscheidungen und
+    verbleibende Evidenzgates
 15. `../handoffs/WRN-G2-001-independent-architecture-review.md` – genau ein
     unabhaengiger Review und Main-Agent-Disposition
 16. `../handoffs/WRN-G2-001-context-audit.md` – abschliessender read-only

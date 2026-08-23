@@ -1,6 +1,6 @@
 # ADR-001 – Repository- und Paketstruktur
 
-- Status: `PROPOSED`
+- Status: `ACCEPTED` am 23. August 2026; Umsetzung erst nach `GO-IMPLEMENTATION`
 - Entscheidungseigner: Product Owner
 - Technischer Owner nach Freigabe: Chief AI Architect
 - Betroffene Risiken: R-02, R-03, R-10, R-13, R-18

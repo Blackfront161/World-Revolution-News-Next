@@ -1,6 +1,6 @@
 # ADR-003 – Gemeinsames Design- und Markensystem
 
-- Status: `PROPOSED`
+- Status: `ACCEPTED` am 23. August 2026; Assetimport nur mit Rechtebeleg
 - Entscheidungseigner: Product Owner fuer sichtbare Marke/Abweichungen
 - Technischer Owner nach Freigabe: Frontend Brand Engineer
 - Betroffene Risiken: R-04, R-16, R-18

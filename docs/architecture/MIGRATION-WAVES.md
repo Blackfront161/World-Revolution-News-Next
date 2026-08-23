@@ -1,6 +1,6 @@
 # Migrationswellen – vertikale Slices und Gates
 
-Status: `PROPOSED`
+Status: `ACCEPTED` als Migrationsplan; Ausfuehrung erst nach `GO-IMPLEMENTATION`
 Task: `WRN-G2-001`
 Grundsatz: Keine Implementierungswelle beginnt ohne `GO-IMPLEMENTATION`.
 

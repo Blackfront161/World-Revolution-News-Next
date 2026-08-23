@@ -1,6 +1,6 @@
 # ADR-005 – Backend-, HTTP- und Workergrenzen
 
-- Status: `PROPOSED`
+- Status: `ACCEPTED` am 23. August 2026; Liveinventar/Budgetgate bleiben offen
 - Entscheidungseigner: Product Owner fuer Provider/Budget; Chief Architect
   fuer die technische Empfehlung
 - Technischer Owner nach Freigabe: Backend Data Reliability Engineer

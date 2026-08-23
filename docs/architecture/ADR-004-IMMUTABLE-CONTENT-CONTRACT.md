@@ -1,6 +1,6 @@
 # ADR-004 – Immutable Datenrevision und Contentvertrag
 
-- Status: `PROPOSED`
+- Status: `ACCEPTED` am 23. August 2026; Contracttests vor Nutzung
 - Entscheidungseigner: Product Owner fuer Contentumfang; Backend/Data Owner
   fuer Vertragserfuellung
 - Betroffene Risiken: R-05, R-06, R-17, R-22, R-27

@@ -1,6 +1,6 @@
 # Mitarbeiter-Dashboard
 
-Stand: 21. August 2026  
+Stand: 23. August 2026
 Zweck: einfache, menschenlesbare Kontrolle aller sichtbaren Projekt-Tasks,
 internen Subagenten, Modelle, Ergebnisse und Git-Nachweise.
 
@@ -8,8 +8,8 @@ internen Subagenten, Modelle, Ergebnisse und Git-Nachweise.
 
 | Task/Chat | Typ | Aufgabe | Umgebung | Status | Verweis |
 |---|---|---|---|---|---|
-| `WRN – Chief AI Architect & Orchestrierung` | sichtbarer, angehefteter Haupttask | Product-Owner-Kommunikation, Orchestrierung, Freigaben und konsolidierte Entscheidungen | lokaler Hauptordner | AKTIV | aktueller Codex-Task |
-| `WRN G2 – Zielarchitektur & ADRs` | sichtbarer Phasentask | `WRN-G2-001`: Zielarchitektur und ADR-Paket; kein Produktcode | isolierter Codex-Git-Worktree | FACHLICH ABGESCHLOSSEN – G2/PO-ENTSCHEIDUNG OFFEN | `docs/handoffs/WRN-G2-001-target-architecture-adr-package.md` |
+| `WRN – Chief AI Architect & Orchestrierung` | sichtbarer, angehefteter Haupttask | `WRN-G2-002`: G2-Abnahme, Vorimplementierungsbelege und G3-Bereitschaft; kein Produktcode | lokaler Hauptordner | YELLOW – DOKUMENTATION FERTIG, RECHTE-/LIVEGATES OFFEN | `docs/handoffs/WRN-G2-002-preimplementation-evidence.md` |
+| `WRN G2 – Zielarchitektur & ADRs` | sichtbarer Phasentask | `WRN-G2-001`: Zielarchitektur und ADR-Paket; kein Produktcode | isolierter Codex-Git-Worktree | ABGESCHLOSSEN UND VOM PRODUCT OWNER AKZEPTIERT | `docs/handoffs/WRN-G2-001-target-architecture-adr-package.md` |
 
 Sichtbarer G2-Codex-Thread: `01a02497-f526-7cf1-b398-dc664a90c044`.
 
@@ -41,8 +41,8 @@ gestartet werden, arbeitet aber aktuell nicht.
 | Profil | Modellrouting | Status | Naechster typischer Einsatz |
 |---|---|---|---|
 | `legacy_product_analyst` | Spark/medium | VERFUEGBAR | kleine read-only Bestandsaufnahme |
-| `frontend_brand_engineer` | Terra/high | GESPERRT BIS G3 | UI-/Markenumsetzung nach `GO-IMPLEMENTATION` |
-| `backend_data_reliability_engineer` | Terra/high | GESPERRT BIS G3 | Backend-/Datenumsetzung nach Architekturfreigabe |
+| `frontend_brand_engineer` | Terra/high | GESPERRT BIS `GO-IMPLEMENTATION` | Foundation/UI spaeter nur mit rechtegeklaerten oder neuen Assets |
+| `backend_data_reliability_engineer` | Terra/high | GESPERRT BIS `GO-IMPLEMENTATION` | Contract-/Datenumsetzung; Servicearbeit zusaetzlich nach Liveinventar |
 | `qa_release_engineer` | Terra/high | VERFUEGBAR FUER QA | unabhaengige Tests und visuelle Belege |
 | `independent_architecture_reviewer` | Sol/high | GENAU EINE INSTANZ ABGESCHLOSSEN – 3 HIGH/3 MEDIUM/1 LOW, ALLE AKZEPTIERT | `docs/handoffs/WRN-G2-001-independent-architecture-review.md` |
 | `context_continuity_auditor` | Luna/medium | G2-AUDIT GREEN 10/12 – INSTANZ ABGESCHLOSSEN | `docs/handoffs/WRN-G2-001-context-audit.md` |
@@ -75,7 +75,9 @@ gestartet werden, arbeitet aber aktuell nicht.
 - Quellstand: Governance ab `86f2615`
 - Erledigt: sichtbare Tasks, G1-Instanzen, Profile und Kontrollorte kartiert
 - Tests: Dokumentpruefung
-- Offen: Product-Owner-G2-Entscheidung und PO-001–013; `GO-IMPLEMENTATION` separat
+- Offen: Qood-Ersatz, Marken-/Medienrechte, spaeteres Liveinventar,
+  SEC-001–003 und `GO-IMPLEMENTATION`
 - Handoff: `docs/09-AGENT-ACTIVITY-INDEX.md`
-- Naechster Schritt: Product Owner prueft G2-Paket und offene Entscheidungen
+- Naechster Schritt: Product Owner bestaetigt Qood-Ersatz und Assetrechte;
+  `GO-IMPLEMENTATION` bleibt separat
 - END-CHECK: :)

@@ -1,6 +1,6 @@
 # ADR-002 – Clientstack fuer Android-App und Website
 
-- Status: `PROPOSED`
+- Status: `ACCEPTED` am 23. August 2026; aktuelle Versionen/Lizenzen vor G3 belegen
 - Entscheidungseigner: Product Owner
 - Technischer Owner nach Freigabe: Frontend Brand Engineer
 - Betroffene Risiken: R-03, R-04, R-07, R-13, R-16

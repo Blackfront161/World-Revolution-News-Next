@@ -1,6 +1,6 @@
 # ADR-006 – Medien-, Rechte- und Lifecyclevertrag
 
-- Status: `PROPOSED`
+- Status: `ACCEPTED` am 23. August 2026; Rechte-/Securitygates bleiben offen
 - Entscheidungseigner: Product Owner fuer Medienumfang, Rechte und bezahlte
   Provider
 - Technische Owner nach Freigabe: Backend/Data plus Frontend/Brand
