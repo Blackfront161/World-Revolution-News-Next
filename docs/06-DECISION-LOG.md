@@ -89,3 +89,9 @@ Nachvollziehbarkeit erhalten.
 werden.
 - `ACCEPTED` fuer G2 erteilt weder automatisch `GO-IMPLEMENTATION` noch
   Deployment-, Signier- oder Uploadauthority.
+
+## 6. Implementierungsfreigabe
+
+| ID | Status | Dokumentierte Entscheidung |
+|---|---|---|
+| PO-018 | `ACCEPTED-G3-001-ONLY` | Der Product Owner erteilte am 23. August 2026 exakt `GO-IMPLEMENTATION`. Freigegeben ist ausschliesslich die lokale, neutrale Foundation `WRN-G3-001`. Legacyimport, Markenassetimport, echte Dienste, Datenbank, Remote/CI, Deployment, Signierung, Upload und Veroeffentlichung bleiben separate Gates. |

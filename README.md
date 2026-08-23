@@ -3,22 +3,39 @@
 Dieses private Arbeitsrepository ist das neue, kontrollierte Grundgeruest fuer
 World Revolution News (WRN) und die gemeinsame Marke Solinaridao.
 
-Der aktuelle Stand enthaelt bewusst **keinen Produktcode**. Er definiert zuerst
-Produktziel, Quellen, Architekturgrenzen, Agentenzustaendigkeiten und
-Qualitaetsgates. Implementierung darf erst nach dem dokumentierten Start-Gate
-beginnen.
+Der Product Owner hat den eng begrenzten Foundation-Task `WRN-G3-001`
+freigegeben. Die entstehende neutrale Workspacebasis enthaelt noch keine
+Legacyfunktion, echten Inhalte, Markenassets oder produktiven Dienste.
 
 ## Aktuelle Phase
 
-**Phase 0 – Organisations- und Analysebasis**
+**Phase G3 / Wave 1 – lokale Foundation**
 
 - Git-Struktur und Codex-Regeln: angelegt
 - Custom-Agent-Profile: angelegt, nicht gestartet
 - Product Charter: angelegt
 - vorlaeufige Feature-Paritaetsmatrix: angelegt
 - Qualitaets- und Release-Gates: angelegt
-- Produktcode: nicht angelegt
+- Foundation-Code: lokal implementiert und automatisiert geprueft auf
+  `codex/g3-001-foundation`; visuelle Product-Owner-Abnahme noch ausstehend
+- Legacycode, echte Inhalte und Markenassets: nicht importiert
 - Deployment, Signierung oder Upload: nicht ausgefuehrt
+
+## Lokale Foundation-Befehle
+
+Voraussetzung ist exakt Node `24.19.0` gemaess `.node-version` und pnpm
+`11.19.0`. Der Hauptcheck bricht bei einer abweichenden Toolchain ab.
+
+```text
+pnpm install --frozen-lockfile
+pnpm run check
+pnpm run build
+pnpm run test:e2e
+```
+
+Mobile und Website bleiben getrennt baubar. Die Browser-Smokes starten und
+schliessen ihre rein lokalen Testserver selbst. Es wird kein externer Dienst
+angesprochen.
 
 ## Verbindliche Einstiegsdokumente
 

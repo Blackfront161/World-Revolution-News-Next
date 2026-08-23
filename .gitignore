@@ -18,6 +18,7 @@ coverage/
 .cache/
 test-results/
 playwright-report/
+.pnpm-store/
 
 # Mobile and release artifacts
 *.aab

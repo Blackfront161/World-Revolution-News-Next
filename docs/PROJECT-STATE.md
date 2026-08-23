@@ -4,14 +4,14 @@ Stand: 23. August 2026
 
 ## Aktuelle Phase
 
-- Phase: G2 abgenommen; Wave 0/Liveinventar abgeschlossen
-- Task: `WRN-G2-004` – abgeschlossen und unabhaengig geprueft
-- Ausgangscheckpoint: `841d74c`
-- Gate: **YELLOW – G2-004 bestanden; Produkt-/Servicegates und ausdrueckliches
-  `GO-IMPLEMENTATION` bleiben offen**
-- `GO-IMPLEMENTATION`: **nicht erteilt**
-- Produktcode, Scaffolding, Dependencies, Build, Server, Deployment,
-  Signierung und Upload: keiner; externer Zugriff ausschliesslich read-only
+- Phase: G3 / Wave 1 Foundation
+- Task: `WRN-G3-001` – lokale Foundation in Arbeit
+- Ausgangscheckpoint: `bb77c06`
+- Arbeitsbranch: `codex/g3-001-foundation`
+- Gate: **GREEN FUER WRN-G3-001 – keine weitergehende Produkt-/Servicefreigabe**
+- `GO-IMPLEMENTATION`: **am 23. August 2026 fuer WRN-G3-001 erteilt**
+- Legacyimport, Markenassets, echte Dienste, Datenbank, Remote/CI, Deployment,
+  Signierung und Upload: nicht freigegeben
 - aktive Subagenten/Mitarbeiterinstanzen: keine
 
 ## Verbindliche Quellen
@@ -113,10 +113,9 @@ Stand: 23. August 2026
 
 ## Naechste empfohlene Aktion
 
-Der Product Owner kann den geprueften Livebericht abnehmen und separat
-`GO-IMPLEMENTATION` fuer den eng begrenzten, rein lokalen und dienstfreien Task
-`WRN-G3-001` erteilen. Der Befehl erlaubt keine Servicearbeit, Assetportierung,
-Remoteerstellung, Bereitstellung, Signierung oder Veroeffentlichung.
+WRN-G3-001 implementiert und prueft jetzt die lokale Foundation. Vor dem
+Dependencydownload folgt die vorgeschriebene Einzelgenehmigung. Danach werden
+Build-, Test-, Accessibility- und Screenshotbelege ohne Deployment erzeugt.
 
 ## Bekannte Umgebungsabweichung
 

@@ -1,4 +1,4 @@
-# Task Brief – WRN-G3-001 Foundation (noch nicht freigegeben)
+# Task Brief – WRN-G3-001 Foundation
 
 ## Metadaten
 
@@ -8,7 +8,8 @@
 - Owner-Agent: Chief AI Architect; spaeter eng begrenzte Implementierungsowner
 - Delegation: erst nach `GO-IMPLEMENTATION`; maximal zwei getrennte Schreibpakete
 - Risikoklasse: hoch wegen neuer Toolchain-/Repositorygrenzen, ohne Livewirkung
-- Status: **VORBEREITET – GESPERRT BIS `GO-IMPLEMENTATION`**
+- Freigabe: Product Owner – `GO-IMPLEMENTATION` am 23. August 2026
+- Status: **IN ARBEIT – LOKALE FOUNDATION FREIGEGEBEN**
 
 ## Ziel
 
@@ -26,6 +27,22 @@ Primitiven entwickelt werden koennen. Noch keine Legacyfunktion portieren.
   Screenshot-Smokes;
 - CI nur pruefend und ohne Deployment-, Signier- oder Uploadauthority;
 - neutrale, selbst erzeugte Platzhalter statt ungepruefter Legacyassets.
+
+## Erlaubte Schreibpfade
+
+- Root-Workspacekonfiguration: `package.json`, `pnpm-workspace.yaml`,
+  `pnpm-lock.yaml`, TypeScript-/ESLint-/Prettier-/Playwright-Konfiguration,
+  `.node-version`, `.npmrc`, `.gitignore` und `README.md`;
+- `apps/mobile/**` und `apps/website/**`;
+- `packages/domain/**`, `packages/api-contracts/**`,
+  `packages/brand-tokens/**` und `packages/test-support/**`;
+- lokale pruefende Werkzeuge unter `tools/**`;
+- Task-, Evidenz-, Handoff-, Status-, Risiko- und Kostenbelege unter `docs/**`.
+
+`.github/**`, Remotes, produktive Infrastruktur und alle Legacyquellen bleiben
+ausserhalb dieses Tasks. Native Androidgenerierung wird nur aufgenommen, wenn
+die lokale Toolchain den read-only Vorcheck besteht; andernfalls bleibt der
+Capacitor-Vertrag konfiguriert und die Abweichung dokumentiert.
 
 ## Nicht-Ziele
 

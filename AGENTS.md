@@ -21,17 +21,23 @@ eine erfundene Annahme verdeckt.
 
 ## 2. Aktuelles Phasengate
 
-Der aktuelle Zustand ist **Phase 0: Organisations- und Analysebasis**.
+Der aktuelle Zustand ist **Phase G3 / WRN-G3-001 Foundation**.
+Der Product Owner erteilte `GO-IMPLEMENTATION` am 23. August 2026.
 
-Bis der Product Owner das Gate `GO-IMPLEMENTATION` ausdruecklich freigibt:
+Diese Freigabe gilt ausschliesslich fuer den Task Brief
+`docs/tasks/WRN-G3-001-FIRST-CODE-READINESS.md`:
 
-- keinen Produktcode erzeugen;
-- keine alten Produktdateien kopieren oder portieren;
-- keine Abhaengigkeiten installieren;
-- keine Apps, Server oder Datenbanken scaffolden;
+- lokale, neutrale Workspacefoundation fuer getrennte Mobile-App und Website;
+- gemeinsame Domain-, Contract-, Brand-Token- und Test-Support-Pakete;
+- lokale Builds, Tests und visuelle Foundationbelege;
+- keine Legacydateien oder Markenassets importieren;
+- keine echte Newsfunktion, Datenbank oder Providerintegration;
 - keine produktiven Dienste konfigurieren oder deployen;
-- nur Dokumentation, Analyseartefakte, Agentenkonfiguration und sichere
-  read-only-Pruefungen bearbeiten.
+- kein Remote, Push, Signing, Upload oder Google-Play-/Hostinger-Zugriff.
+
+Dependencydownload, Browserbinaries und externe Programme benoetigen weiterhin
+eine eigene sichtbare Einzelgenehmigung. Jede Scopeausweitung braucht einen
+neuen Task Brief und gegebenenfalls ein weiteres Product-Owner-Gate.
 
 ## 3. Verbindliche Quellen
 

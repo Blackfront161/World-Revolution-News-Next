@@ -1,0 +1,51 @@
+{
+  "name": "sauberes-wo-rev-ne",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Local WRN platform foundation with separately buildable mobile and website clients.",
+  "packageManager": "pnpm@11.19.0",
+  "engines": {
+    "node": ">=24.19.0 <25",
+    "pnpm": ">=11.19.0 <12"
+  },
+  "scripts": {
+    "build": "pnpm run build:mobile && pnpm run build:website",
+    "build:mobile": "pnpm --filter @wrn/mobile build",
+    "build:website": "pnpm --filter @wrn/website build",
+    "check": "pnpm run toolchain:check && pnpm run format && pnpm run lint && pnpm run typecheck && pnpm run test",
+    "check:boundaries": "node tools/check-boundaries.mjs",
+    "format": "prettier --check .",
+    "format:write": "prettier --write .",
+    "lint": "eslint . --max-warnings=0 && pnpm run check:boundaries",
+    "test": "pnpm run test:unit && pnpm run test:boundaries",
+    "test:boundaries": "node --test tools/check-boundaries.test.mjs",
+    "test:e2e": "playwright test",
+    "test:unit": "pnpm -r --if-present test:unit",
+    "toolchain:check": "node tools/check-toolchain.mjs",
+    "typecheck": "pnpm -r --if-present typecheck"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.62.1",
+    "@testing-library/dom": "10.4.1",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.6",
+    "@types/node": "24.13.3",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "@vitejs/plugin-react": "6.1.0",
+    "eslint": "10.9.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-react-refresh": "0.5.4",
+    "globals": "17.11.0",
+    "jsdom": "30.0.1",
+    "prettier": "3.9.6",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.67.0",
+    "vite": "8.2.2",
+    "vitest": "4.1.11"
+  }
+}

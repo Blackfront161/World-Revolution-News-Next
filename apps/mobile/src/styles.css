@@ -1,0 +1,109 @@
+.mobile-shell {
+  max-width: 42rem;
+  min-height: 100dvh;
+  margin-inline: auto;
+  background: var(--wrn-color-canvas);
+}
+.mobile-header,
+main,
+footer {
+  padding: var(--wrn-space-3);
+}
+.mobile-header {
+  border-bottom: 1px solid var(--wrn-color-border);
+}
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--wrn-space-2);
+}
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+h1 {
+  font-size: clamp(1.5rem, 6vw, 2.25rem);
+  margin-bottom: 0;
+}
+h2 {
+  font-size: 1.2rem;
+}
+.eyebrow,
+.foundation-note {
+  color: var(--wrn-color-muted);
+  font-size: 0.875rem;
+}
+.mobile-nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--wrn-color-border);
+}
+.mobile-nav a {
+  display: grid;
+  place-items: center;
+  padding: var(--wrn-space-2);
+  color: var(--wrn-color-text);
+  background: var(--wrn-color-surface);
+  text-decoration: none;
+}
+.preview-card {
+  margin-block: var(--wrn-space-3);
+  padding: var(--wrn-space-4);
+  border: 1px solid var(--wrn-color-border);
+  border-radius: var(--wrn-radius);
+  background: var(--wrn-color-surface);
+}
+.state-message {
+  padding: var(--wrn-space-3);
+  border-inline-start: 0.35rem solid var(--wrn-color-accent);
+  background: color-mix(in srgb, var(--wrn-color-accent) 8%, var(--wrn-color-surface));
+}
+.state-error {
+  border-color: var(--wrn-color-danger);
+  color: var(--wrn-color-danger);
+}
+.state-offline {
+  border-color: var(--wrn-color-offline);
+  color: var(--wrn-color-offline);
+}
+.state-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--wrn-space-2);
+}
+button {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--wrn-color-border);
+  border-radius: var(--wrn-radius);
+  color: var(--wrn-color-accent-contrast);
+  background: var(--wrn-color-accent);
+  cursor: pointer;
+}
+button[aria-pressed='true'] {
+  outline: 0.2rem solid var(--wrn-color-text);
+  outline-offset: 0.15rem;
+}
+footer {
+  color: var(--wrn-color-muted);
+  font-size: 0.875rem;
+}
+.skip-link {
+  position: fixed;
+  z-index: 2;
+  left: var(--wrn-space-2);
+  top: -5rem;
+  padding: var(--wrn-space-2);
+  background: var(--wrn-color-surface);
+  color: var(--wrn-color-text);
+}
+.skip-link:focus {
+  top: var(--wrn-space-2);
+}
+@media (min-width: 36rem) {
+  .state-controls {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
