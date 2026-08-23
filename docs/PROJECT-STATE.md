@@ -4,14 +4,14 @@ Stand: 23. August 2026
 
 ## Aktuelle Phase
 
-- Phase: G2 abgenommen; Wave 0/Vorimplementierungsbelege
-- Task: `WRN-G2-003`; naechster vorbereiteter Task `WRN-G2-004`
-- Ausgangscheckpoint: `be3a43e`
-- Gate: **YELLOW – konservativer Rechteweg entschieden und G3-Foundation
-  vorbereitet; autorisiertes Liveinventar noch offen**
+- Phase: G2 abgenommen; Wave 0/Liveinventar
+- Task: `WRN-G2-004` – gestartet, teilweise belegt
+- Ausgangscheckpoint: `841d74c`
+- Gate: **YELLOW – GitHub und offizielle Providerbaseline belegt;
+  Cloudflare-/Hostinger-Kontoinventar wartet auf Product-Owner-Login**
 - `GO-IMPLEMENTATION`: **nicht erteilt**
-- Produktcode, Scaffolding, Dependencies, Build, Server, Livezugriff,
-  Deployment, Signierung und Upload: keiner
+- Produktcode, Scaffolding, Dependencies, Build, Server, Deployment,
+  Signierung und Upload: keiner; externer Zugriff ausschliesslich read-only
 - aktive Subagenten/Mitarbeiterinstanzen: keine
 
 ## Verbindliche Quellen
@@ -35,10 +35,11 @@ Stand: 23. August 2026
   oder Uploadauthority.
 - Details: `docs/06-DECISION-LOG.md` und
   `docs/architecture/G2-OPEN-DECISIONS.md`.
-- PO-014 schliesst Qood vollstaendig aus. Git-Grep belegt keine
-  Runtimeverwendung; ein Ersatz ist fuer Paritaet nicht erforderlich.
-- PO-015 verbietet den Import ungeklaerter Markenassets und verlangt neue
-  Originalassets mit separatem visuellem Product-Owner-Gate.
+- PO-014/015 sind durch PO-016/017 ersetzt: Qood bleibt als Datei
+  ausgeschlossen, erhaelt aber auf Product-Owner-Wunsch einen offenen Ersatz.
+- Der Product Owner bestaetigt alle erforderlichen Rechte an den
+  inventarisierten Markenassets. Ein kontrollierter Import ist erst nach
+  `GO-IMPLEMENTATION` in einem eigenen Asset-Task erlaubt.
 
 ## Neue Wave-0-Belege
 
@@ -48,37 +49,47 @@ Stand: 23. August 2026
   `docs/evidence/WRN-G2-002-LOCAL-INFRASTRUCTURE-INVENTORY.md`
 - Stack-/Lizenzbeleg:
   `docs/evidence/WRN-G2-002-STACK-AND-LICENSE-EVIDENCE.md`
-- Font-/Marken-Neuschaffungsbrief:
+- Font-Ersatz-/Marken-Importbrief:
   `docs/evidence/WRN-G2-003-FONT-AND-BRAND-RECREATION-BRIEF.md`
 - vorbereiteter erster Code-Task:
   `docs/tasks/WRN-G3-001-FIRST-CODE-READINESS.md`
-- vorbereiteter read-only Liveinventar-Task:
+- aktiver read-only Liveinventar-Task:
   `docs/tasks/WRN-G2-004-READ-ONLY-LIVE-INVENTORY.md`
+- vorlaeufiger Livebericht:
+  `docs/evidence/WRN-G2-004-LIVE-INFRASTRUCTURE-INVENTORY.md`
+- aktueller Handoff:
+  `docs/handoffs/WRN-G2-004-live-inventory-partial.md`
 - Task/Handoff:
   `docs/tasks/WRN-G2-002-PREIMPLEMENTATION-EVIDENCE.md` und
   `docs/handoffs/WRN-G2-002-preimplementation-evidence.md`
 
 ## Wesentliche Feststellungen
 
-1. `Qood.ttf` ist lizenzrechtlich ungeeignet, wird aber in keiner verbindlichen
-   App-/Website-Runtime referenziert. PO-014 schliesst ihn ohne Paritaetsverlust
-   aus; kein Fontkauf und kein Qood-Ersatz ist notwendig.
-2. Hashes der Markenbilder sind erfasst. PO-015 behandelt sie nur als visuelle
-   Baseline; neue Originalassets erhalten eine eigene Rechte-/Hashkette.
-3. Legacy besitzt lokal zwei Worker-Deployables, waehrend das akzeptierte Ziel
+1. `Qood.ttf` ist lizenzrechtlich ungeeignet und wird in keiner verbindlichen
+   Runtime referenziert. PO-016 verlangt einen lokal ausgelieferten, offen
+   lizenzierten Ersatz nach Lizenz-/Hash-/Accessibility-/Visualgate.
+2. Die Markenbild-Hashes sind erfasst und ihre Rechte vom Product Owner
+   bestaetigt. PO-017 erlaubt spaeteren kontrollierten Import, keine pauschale
+   Kopie aller Medien.
+3. GitHub-Liveabgleich bestaetigt App-/Website-Quellcommits. Das Datenrepository
+   ist weitergelaufen; alle drei Legacy-`main`-Branches sind ungeschuetzt und
+   die Datenautomation pusht direkt auf `main`.
+4. Legacy besitzt lokal zwei Worker-Deployables, waehrend das akzeptierte Ziel
    mindestens fuenf getrennte fachliche Deploy-/Rollbackeinheiten vorsieht.
-4. Lokale Configs belegen keine Liveversion, Tarife, Nutzung, Retention oder
-   wirksame Hard Caps. Ein Liveinventar bleibt vor Servicearbeit Pflicht.
-5. React/TypeScript/Vite/Capacitor bleibt die akzeptierte Stackrichtung. Exakte
+5. Cloudflare/Hostinger verlangen eine Anmeldung. Lokale Configs und
+   oeffentliche Tarife belegen keine Liveversion, Nutzung, Retention oder
+   wirksame Hard Caps.
+6. React/TypeScript/Vite/Capacitor bleibt die akzeptierte Stackrichtung. Exakte
    kompatible Versionen und Lockfile werden erst im freigegebenen Foundation-
    Task reproduzierbar fixiert.
 
 ## Offene Gates
 
-1. Product Owner autorisiert `WRN-G2-004` mit `LIVE-INVENTAR STARTEN`; keine
-   Secretwerte oder externen Mutationen sind erlaubt.
-2. Das Liveinventar klaert Worker, Bindingsarten, Hosting, Provider, Plan,
-   Usage, Retention, Lifecycle, Kosten und Rollbackgrenzen.
+1. Product Owner meldet sich selbst in den geoeffneten Cloudflare- und
+   Hostinger-Tabs an und antwortet `LIVE-INVENTAR BEREIT`; keine Zugangsdaten
+   werden uebergeben.
+2. Das Liveinventar vervollstaendigt Worker, Bindingsarten, Hosting, Provider,
+   Plan, Usage, Retention, Lifecycle, Kosten und Rollbackgrenzen.
 3. SEC-001/002 bleiben vor Translation-/Podcastportierung, SEC-003 vor Push
    offen.
 4. Legacycode und Medien werden weiterhin nur pro Element mit Rechtebeleg
@@ -88,9 +99,10 @@ Stand: 23. August 2026
 
 ## Naechste empfohlene Aktion
 
-Product Owner startet `WRN-G2-004` mit `LIVE-INVENTAR STARTEN`. Nach dessen
-read-only Bericht und Review kann er separat `GO-IMPLEMENTATION` fuer den
-bereits eng begrenzten Task `WRN-G3-001` erteilen.
+Product Owner meldet sich in den bereits geoeffneten Cloudflare- und
+Hostinger-Tabs des Codex-Browsers an und antwortet `LIVE-INVENTAR BEREIT`.
+Nach dem vervollstaendigten read-only Bericht und Review kann er separat
+`GO-IMPLEMENTATION` fuer den eng begrenzten Task `WRN-G3-001` erteilen.
 
 ## Bekannte Umgebungsabweichung
 

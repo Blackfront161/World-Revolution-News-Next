@@ -1,5 +1,9 @@
 # Task Brief – WRN-G2-003
 
+> Historischer Abschlussstand. Die damaligen Vorsichtsentscheidungen PO-014/015
+> wurden spaeter durch PO-016/017 ersetzt; der aktuelle Rechteweg steht in
+> `docs/06-DECISION-LOG.md`.
+
 ## Identitaet
 
 - Task-ID: `WRN-G2-003`

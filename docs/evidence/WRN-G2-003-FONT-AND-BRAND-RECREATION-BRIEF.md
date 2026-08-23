@@ -1,15 +1,19 @@
-# WRN-G2-003 – Font- und Marken-Neuschaffungsbrief
+# WRN-G2-003 – Font-Ersatz- und Marken-Importbrief
 
 Stand: 23. August 2026
 
 ## Entscheidung und Beweisgrenze
 
 - `Qood.ttf` wird nicht uebernommen. In den verbindlichen App-/Website-
-  Runtimes existiert keine CSS-, JavaScript- oder HTML-Referenz darauf.
-- Ungeklaerte Legacylogos/-header/-masken werden nicht kopiert, nachgezeichnet,
-  konvertiert oder als neue Masterdateien ausgegeben.
-- Vorhandene G1-Screenshots duerfen fuer Wirkung, Proportion, Platzbedarf und
-  Paritaetsvergleich betrachtet werden; sie sind keine Importquelle.
+  Runtimes existiert keine CSS-, JavaScript- oder HTML-Referenz darauf. PO-016
+  verlangt trotzdem eine offen lizenzierte Ersatzschrift als bewusste
+  Marken-/Designentscheidung.
+- Der Product Owner bestaetigt mit PO-017 alle erforderlichen Rechte an den
+  inventarisierten WRN-/Solinaridao-Markenassets. Ausgewaehlte Originaldateien
+  duerfen erst nach `GO-IMPLEMENTATION` anhand des Rechte-/Hashregisters in
+  einem eigenen Asset-Task importiert werden.
+- Vorhandene G1-Screenshots bleiben die Referenz fuer Wirkung, Proportion,
+  Platzbedarf und Paritaetsvergleich.
 - Noch wurde keine Schrift heruntergeladen, kein Markenasset erzeugt und keine
   Produktdatei angelegt.
 
@@ -28,8 +32,9 @@ Die Legacyruntime verwendet keine eingebettete Qood-Schrift. Ihr
 ## Kosten- und datenschutzoptimierte Fontstrategie
 
 Foundation und erste neutrale Shell duerfen ausschliesslich Systemfallbacks
-verwenden. Vor sichtbarer Markenparitaet wird eine lokale, trackingfreie
-A/B-Matrix mit hoechstens drei offenen Familien erstellt:
+verwenden. Vor sichtbarer Markenparitaet wird fuer den verlangten Qood-Ersatz
+eine lokale, trackingfreie A/B-Matrix mit hoechstens drei offenen Familien
+erstellt:
 
 | Rolle | Kandidat | Begruendung | Lizenzbeleg |
 |---|---|---|---|
@@ -43,13 +48,14 @@ Offizielle read-only Quellen:
 - <https://github.com/jpt/barlow>
 - <https://github.com/googlefonts/atkinson-hyperlegible-next>
 
-Die Tabelle ist eine Shortlist, keine Download- oder Produktfreigabe. Nach
+Die Tabelle ist eine Shortlist, noch keine Schriftauswahl, Download- oder
+Produktfreigabe. Nach
 `GO-IMPLEMENTATION` braucht jede gewaehlte Datei: gepinnten Upstreamstand,
 Original-Lizenzdatei, SHA-256, WOFF2-Subsetbeleg, Third-Party-Notice und
 separate Dependency-/Downloadfreigabe. Externe Font-CDNs sind ausgeschlossen;
 Auslieferung erfolgt lokal ohne Tracking oder Laufzeitkosten.
 
-## Originaler Marken-Recreation-Brief
+## Kontrollierter Marken-Import und Aufbereitung
 
 ### Zu bewahrende Wirkung
 
@@ -61,15 +67,20 @@ Auslieferung erfolgt lokal ohne Tracking oder Laufzeitkosten.
 - keine Abhaengigkeit von politischen Fremdsymbolen, Stockelementen oder
   ungeprueften Drittassets.
 
-### Neu zu erstellende Mastervarianten
+### Zu klassifizierende und bei Bedarf aufzubereitende Mastervarianten
 
-1. originale kombinierte Bild-/Wortmarke als sauberes SVG;
+1. vorhandene kombinierte Bild-/Wortmarke und ihre kanonische Masterquelle;
 2. reduzierte quadratische App-/Favicon-Marke;
 3. horizontale Headerwortmarke fuer Website/Desktop;
-4. helle, dunkle und einfarbige Version aus demselben Master;
+4. helle, dunkle und einfarbige Versionen samt Ableitungsbeziehung;
 5. Android-Adaptive-Icon mit getrenntem Vorder-/Hintergrund;
 6. reproduzierbar generierte PNG/WebP-Ableitungen, niemals manuell als
    unabhaengige Master gepflegt.
+
+Falls eine benoetigte Variante im owner-attested Bestand technisch ungeeignet
+oder nicht vorhanden ist, wird sie erst nach eigenem visuellen Auftrag neu
+erstellt. Die Rechtebestaetigung ist keine Anweisung, alle inventarisierten
+Dateien ungefiltert zu kopieren.
 
 ### Verbindliche visuelle Matrix
 
@@ -84,14 +95,15 @@ Auslieferung erfolgt lokal ohne Tracking oder Laufzeitkosten.
 
 ### Abnahmebedingungen
 
-- Product Owner sieht Altbaseline und mindestens zwei neue Originalvarianten
-  nebeneinander und waehlt ausdruecklich eine aus.
+- Product Owner sieht Altbaseline und die aufbereiteten Masterkandidaten
+  nebeneinander und bestaetigt die kanonische Variante ausdruecklich.
 - Kein Text/Detail wird bei 200-Prozent-Reflow abgeschnitten; Touchziele und
   Headeraktionen bleiben mindestens 44 × 44 CSS-Pixel.
 - Kontrast, Fokus, Screenreader-Name, Motion-reduced und High-Contrast werden
   geprueft; die Wortmarke darf nicht der einzige zugaengliche Name sein.
-- Neue Masterdateien dokumentieren Ersteller/Tool, Datum, Prompt/Brief,
-  verwendete Quellen, Bearbeitung, Lizenz, SHA-256 und Exportpipeline.
+- Importierte oder neu erzeugte Masterdateien dokumentieren Ursprung,
+  Eigentuemerbestaetigung, Bearbeitung, Lizenz-/Rechtestatus, SHA-256 und
+  Exportpipeline.
 - Kein Asset gelangt vor Product-Owner-Visualfreigabe oder ohne Rechtebeleg in
   einen Releasekandidaten.
 
@@ -99,6 +111,6 @@ Auslieferung erfolgt lokal ohne Tracking oder Laufzeitkosten.
 
 WRN-G3-001 darf mit neutralen selbst erzeugten Platzhaltern und Systemfonts
 starten, sobald alle uebrigen G3-Gates erfuellt und `GO-IMPLEMENTATION`
-ausdruecklich erteilt sind. Die Marken-Neuschaffung ist ein eigener spaeterer
-UI-Task vor sichtbarer Paritaetsabnahme; sie blockiert nicht die leere
+ausdruecklich erteilt sind. Fontauswahl und Markenimport bleiben eigene spaetere
+UI-/Asset-Tasks vor sichtbarer Paritaetsabnahme; sie blockieren nicht die leere
 Foundation, wohl aber jeden behaupteten Marken-/Release-Paritaetsstand.

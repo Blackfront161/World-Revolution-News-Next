@@ -60,16 +60,22 @@ Freigabe fuer Produktcode, Remote-Setup, Deployment, Signierung oder Upload.
 | PO-012 | `ACCEPTED-G2-ONLY` | G2 ist abgenommen. `GO-IMPLEMENTATION` wird ausdruecklich nicht miterteilt und bleibt separates G3-Gate. |
 | PO-013 | `ACCEPTED-CONDITIONAL` | Privates GitHub-Remote und GitHub Actions werden fuer das neue Plattformrepo vorgesehen, aber erst in einem eigenen autorisierten Task mit Least Privilege und geschuetzten Environments eingerichtet. |
 
-## 4. Sichere Rechteentscheidungen vom 23. August 2026
+## 4. Rechteentscheidungen vom 23. August 2026
 
 Der Product Owner antwortete auf die unmittelbar zuvor angebotenen sicheren
 Rechteoptionen mit „ok weiterfahren bitte“. Um keine unbelegte Eigentumsangabe
 zu erfinden, wird dies als Zustimmung zur konservativen Variante dokumentiert.
+Mit den spaeteren ausdruecklichen Angaben `QOOD ERSETZEN` und
+`MARKENASSETS: Ich besitze alle erforderlichen Rechte.` ersetzte er diesen
+Vorsichtsweg durch PO-016/017. Die historischen IDs bleiben fuer
+Nachvollziehbarkeit erhalten.
 
 | ID | Status | Dokumentierte Entscheidung |
 |---|---|---|
-| PO-014 | `ACCEPTED-EXCLUDE` | `Qood.ttf` wird weder kopiert noch lizenziert. Read-only Git-Greps belegen keine Runtimeverwendung in App-Runtime `968c320`, App-HEAD `2216ff3` oder Website `9a59b17`; fuer Paritaet ist kein Qood-Ersatz erforderlich. |
-| PO-015 | `ACCEPTED-RECREATE` | Ungeklaerte Legacy-Markenassets werden nicht importiert. Sie dienen nur als visuelle Baselinereferenz; neue originale Markenassets erhalten einen eigenen Product-Owner-Visualgate und eine neue Rechte-/Hashkette. |
+| PO-014 | `SUPERSEDED-BY-PO-016` | Fruehere Vorsichtsentscheidung: `Qood.ttf` ausschliessen und wegen fehlender Runtimeverwendung keinen Ersatz voraussetzen. Der Dateiausschluss bleibt bestehen; der Product Owner verlangt nun ausdruecklich einen offenen Ersatz. |
+| PO-015 | `SUPERSEDED-BY-PO-017` | Fruehere Vorsichtsentscheidung: mangels ausdruecklicher Eigentumsbestaetigung Markenassets nicht importieren und neu erstellen. Der Product Owner hat die erforderlichen Rechte nun ausdruecklich bestaetigt. |
+| PO-016 | `ACCEPTED-REPLACE` | `Qood.ttf` und seine Kopien werden nie in das neue Produkt importiert. Eine lokal ausgelieferte, offen lizenzierte Ersatzschrift wird nach visuellem Vergleich, Accessibility-Test, gepinntem Lizenzbeleg und Hash ausgewaehlt. Die aktuelle Shortlist ist noch keine Auswahl. |
+| PO-017 | `ACCEPTED-OWNER-ATTESTED` | Der Product Owner bestaetigt, alle erforderlichen Rechte an den inventarisierten WRN-/Solinaridao-Markenassets zu besitzen. Nach `GO-IMPLEMENTATION` duerfen ausgewaehlte Dateien in einem eigenen Asset-Task anhand ihrer vorhandenen Hashes importiert, als kanonische Master/Ableitungen klassifiziert und visuell geprueft werden. Die Bestaetigung ist eine Eigentuemererklaerung, keine unabhaengige Rechtspruefung fuer sonstige Medien oder Drittinhalte. |
 
 ## 5. Entscheidungsdisziplin
 

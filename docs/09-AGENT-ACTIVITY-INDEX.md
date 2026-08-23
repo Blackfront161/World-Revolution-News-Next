@@ -8,7 +8,7 @@ internen Subagenten, Modelle, Ergebnisse und Git-Nachweise.
 
 | Task/Chat | Typ | Aufgabe | Umgebung | Status | Verweis |
 |---|---|---|---|---|---|
-| `WRN – Chief AI Architect & Orchestrierung` | sichtbarer, angehefteter Haupttask | `WRN-G2-003`: Rechteentscheidung/Markenbrief; WRN-G2-004 Liveinventar vorbereitet; kein Produktcode | lokaler Hauptordner | YELLOW – RECHTEWEG ENTSCHIEDEN, LIVEINVENTAR OFFEN | `docs/tasks/WRN-G2-004-READ-ONLY-LIVE-INVENTORY.md` |
+| `WRN – Chief AI Architect & Orchestrierung` | sichtbarer, angehefteter Haupttask | `WRN-G2-004`: read-only Liveinventar; GitHub/public docs erfasst, Kontologin offen; kein Produktcode | lokaler Hauptordner | YELLOW – TEILINVENTAR FERTIG, CLOUDFLARE/HOSTINGER-LOGIN OFFEN | `docs/evidence/WRN-G2-004-LIVE-INFRASTRUCTURE-INVENTORY.md` |
 | `WRN G2 – Zielarchitektur & ADRs` | sichtbarer Phasentask | `WRN-G2-001`: Zielarchitektur und ADR-Paket; kein Produktcode | isolierter Codex-Git-Worktree | ABGESCHLOSSEN UND VOM PRODUCT OWNER AKZEPTIERT | `docs/handoffs/WRN-G2-001-target-architecture-adr-package.md` |
 
 Sichtbarer G2-Codex-Thread: `01a02497-f526-7cf1-b398-dc664a90c044`.
@@ -75,9 +75,10 @@ gestartet werden, arbeitet aber aktuell nicht.
 - Quellstand: Governance ab `86f2615`
 - Erledigt: sichtbare Tasks, G1-Instanzen, Profile und Kontrollorte kartiert
 - Tests: Dokumentpruefung
-- Offen: autorisiertes Liveinventar, Medien-/Codebelege pro Element,
+- Offen: Cloudflare-/Hostinger-Kontoteil des Liveinventars, Medien-/Codebelege pro Element,
   SEC-001–003 und `GO-IMPLEMENTATION`
 - Handoff: `docs/09-AGENT-ACTIVITY-INDEX.md`
-- Naechster Schritt: Product Owner startet `LIVE-INVENTAR STARTEN`;
+- Naechster Schritt: Product Owner meldet sich in den geoeffneten
+  Cloudflare-/Hostinger-Tabs an und antwortet `LIVE-INVENTAR BEREIT`;
   `GO-IMPLEMENTATION` bleibt danach separat
 - END-CHECK: :)

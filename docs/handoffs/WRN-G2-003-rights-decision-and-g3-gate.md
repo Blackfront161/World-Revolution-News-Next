@@ -1,5 +1,9 @@
 # Agent Handoff – WRN-G2-003
 
+> Historischer Handoff. Die damaligen Vorsichtsentscheidungen PO-014/015 wurden
+> spaeter durch PO-016/017 ersetzt; der aktuelle Rechteweg steht in
+> `docs/06-DECISION-LOG.md`.
+
 - Agent: Chief AI Architect / Main Agent
 - Task-ID: `WRN-G2-003`
 - Ergebnis: bestanden

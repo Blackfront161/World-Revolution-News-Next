@@ -52,10 +52,11 @@ Primitiven entwickelt werden koennen. Noch keine Legacyfunktion portieren.
 ## Vorbedingungen
 
 - Product Owner erteilt separat exakt `GO-IMPLEMENTATION`;
-- PO-014 ist erfuellt: Qood wird ausgeschlossen und ist keine Runtimeparitaet;
-- PO-015 ist erfuellt: ungeklaerte Markenassets bleiben draussen und werden in
-  einem spaeteren visuellen Task neu erstellt; die Foundation nutzt neutrale
-  Platzhalter;
+- PO-016 ist eingeplant: Qood wird ausgeschlossen; die verlangte offene
+  Ersatzschrift wird erst in einem spaeteren Font-/Visualtask ausgewaehlt;
+- PO-017 ist dokumentiert: owner-attested Markenassets duerfen erst nach
+  `GO-IMPLEMENTATION` in einem eigenen Asset-Task importiert werden; die
+  Foundation nutzt weiterhin neutrale Platzhalter;
 - WRN-G2-004 liefert das akzeptierte read-only Liveinventar ohne Secrets;
 - aktueller Git-Status ist gesichert; ein Foundation-Checkpoint ist
   ruecknehmbar;

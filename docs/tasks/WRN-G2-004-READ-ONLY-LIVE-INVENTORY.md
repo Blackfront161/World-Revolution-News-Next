@@ -1,16 +1,16 @@
-# Task Brief – WRN-G2-004 Liveinventar (noch nicht autorisiert)
+# Task Brief – WRN-G2-004 Liveinventar
 
 ## Identitaet
 
 - Task-ID: `WRN-G2-004`
 - Titel: Zeitgestempeltes read-only Liveinventar vor G3
 - Paritaets-/Risiko-ID: R-12, R-23, R-30, R-34, G3
-- Auftraggeber: Product Owner – ausdruecklicher Startbefehl noch offen
+- Auftraggeber: Product Owner – `LIVE-INVENTAR STARTEN` am 23. August 2026
 - Zustaendiger Agent: Backend/Data Reliability mit Security/Privacy-Review;
   Main Agent synthetisiert
 - Modell/Reasoning: Terra/high fuer Inventar, Sol/high fuer kritischen Review
 - Delegation: nach Start erlaubt mit maximal zwei getrennten read-only Agenten
-- Status: **VORBEREITET – NICHT GESTARTET**
+- Status: **IN ARBEIT – GITHUB/PUBLIC DOCS ERFASST; ACCOUNT-LOGIN OFFEN**
 
 ## Ziel in beobachtbarer Sprache
 
@@ -21,7 +21,7 @@ Lifecycle- und Rollbackgrenzen. Nichts wird veraendert.
 
 ## Ausgangslage und Belege
 
-- Zielrepository ab Checkpoint `be3a43e`
+- Zielrepository ab Checkpoint `841d74c`
 - lokales Inventar:
   `docs/evidence/WRN-G2-002-LOCAL-INFRASTRUCTURE-INVENTORY.md`
 - akzeptierte Grenzen: ADR-005/006/008/009 und R-12/R-23/R-30/R-34
@@ -92,8 +92,9 @@ IDs, E-Mails und Zahlungsdaten werden nicht persistiert.
 Der Task ist strikt read-only. Nur Dokumente im Zielrepository entstehen und
 koennen per Git rueckgenommen werden.
 
-## Startbedingung
+## Startnachweis
 
-Der Product Owner startet diesen Task separat mit `LIVE-INVENTAR STARTEN` und
-stellt bei Bedarf die bereits angemeldete Browser-/Kontositzung bereit. Dieser
-Befehl erteilt weder `GO-IMPLEMENTATION` noch Deploymentauthority.
+Der Product Owner startete diesen Task mit `LIVE-INVENTAR STARTEN`. Fuer den
+Cloudflare-/Hostinger-Kontoteil stellt er nach eigener Anmeldung die
+Browsersitzung bereit. Der Startbefehl erteilt weder `GO-IMPLEMENTATION` noch
+Deploymentauthority.

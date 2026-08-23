@@ -5,17 +5,20 @@ Methode: read-only Dateiinventar und SHA-256; es wurde keine Legacydatei kopiert
 
 ## Ergebnis
 
-Die Dateien sind technisch identifiziert, aber noch nicht automatisch zur
-Uebernahme freigegeben. Weder App- noch Website-Repository enthaelt eine
+Die Dateien sind technisch identifiziert. Der Product Owner hat am 23. August
+2026 ausdruecklich bestaetigt, alle erforderlichen Rechte an den inventarisierten
+WRN-/Solinaridao-Markenassets zu besitzen. Dies erlaubt noch keinen Import vor
+`GO-IMPLEMENTATION` und ersetzt keine Einzelpruefung fremder Medien oder
+Drittinhalte. Weder App- noch Website-Repository enthaelt eine
 repositoryweite `LICENSE`. Der `ISC`-Eintrag im untergeordneten
 `android-wrapper/package.json` ersetzt keine Rechtekette fuer den gesamten
 Quellcode, die Markenbilder, Inhalte oder Fonts.
 
 | Klasse | Status fuer neues Repository | Entscheidung/Gate |
 |---|---|---|
-| `Qood.ttf` und alle Kopien | **AUSSCHLIESSEN – PO-014** | keine Runtimeverwendung; nicht kopieren oder lizenzieren, kein Ersatz fuer Paritaet erforderlich |
-| WRN-/Solinaridao-Logos, Header, Masken und Hintergrund | **REFERENZ ONLY / NEU ERSTELLEN – PO-015** | nicht importieren; neue Originalassets mit Product-Owner-Visualgate und eigener Rechtekette |
-| Android-Icon-/Splash-Ableitungen | **UNGEKLAERT – NICHT IMPORTIEREN** | erst kanonisches, rechtegeklaertes Masterasset bestimmen; Ableitungen spaeter reproduzierbar generieren |
+| `Qood.ttf` und alle Kopien | **DATEI AUSSCHLIESSEN / OFFENEN ERSATZ WAEHLEN – PO-016** | Qood nie kopieren oder lizenzieren; Ersatz erst nach Lizenz-, Hash-, Accessibility- und Visualbeleg |
+| WRN-/Solinaridao-Logos, Header, Masken und Hintergrund | **OWNER-ATTESTED / IMPORT NACH GO – PO-017** | Product-Owner-Rechtebestaetigung liegt vor; erst in eigenem Asset-Task importieren, Hash/Masterrolle und Visualparitaet pruefen |
+| Android-Icon-/Splash-Ableitungen | **OWNER-ATTESTED / MASTERROLLE OFFEN** | kanonisches Masterasset bestimmen; Ableitungen spaeter reproduzierbar generieren statt einzeln manuell pflegen |
 | `placeholder.jpg` | **AUSSCHLIESSEN** | Datei hat nur zwei Bytes und ist keine brauchbare Quelle |
 | Legacy-Quellcode und Inhalte | **NICHT PAUSCHAL KOPIEREN** | Feature fuer Feature neu schreiben; nur konkret belegte eigene Bestandteile uebernehmen |
 | externe Artikelbilder, Audio, Video und Quellen | **PRO ELEMENT PRUEFEN** | bevorzugt verlinken/provenienzbelegen; keine Kopie ohne passende Lizenz |
@@ -23,7 +26,8 @@ Quellcode, die Markenbilder, Inhalte oder Fonts.
 ## Kanonische technische Fingerabdruecke
 
 Die folgenden Dateien liegen in App und Website mit identischem SHA-256 vor.
-Alle Rechte bleiben ungeprueft.
+Die Markenrechte sind durch den Product Owner bestaetigt; die Tabelle bleibt
+der technische Integritaetsbeleg fuer einen spaeteren kontrollierten Import.
 
 | Datei | Bytes | SHA-256 |
 |---|---:|---|
@@ -45,11 +49,11 @@ Alle Rechte bleiben ungeprueft.
 |---|---:|---|---|
 | App `solinaridao-header-logo.png` | 1,659,169 | `814C83B6DD027ABECECDDA0B4C7F4878B3A6E5BDCBFD8B649312582AC122152B` | unterscheidet sich von Website; Variante klaeren |
 | Website `solinaridao-header-logo.png` | 78,854 | `C599F1F9B397780288D36D4849E049C56412D6C5C75E14B84A6C79BBA452F142` | unterscheidet sich von App; Variante klaeren |
-| App `solinaridao-header-mark-filled.png` | 1,197,127 | `60F839B54A573173D28387DBB2DC6199B2474FC4EF6450FF4EF933108C141081` | Rechte ungeklärt |
-| App `solinaridao-world-revolution-news-mask.png` | 35,938 | `18C4E5A504CFAA0AAC882B68118B7D81DD2B91B3BB9AB3265D54D5480907D411` | Rechte ungeklärt |
-| Website `wrn-word-world.png` | 63,407 | `7F999810AD296541FA439A4F3EFC3674DAE94AC7CF7E7D6D19278671830D693C` | Rechte ungeklärt |
-| Website `wrn-word-revolution.png` | 92,574 | `905DF58AC164DE66FDB2AA984AEEACE97260C28F849D71A16D426666F874FA2F` | Rechte ungeklärt |
-| Website `wrn-word-news.png` | 55,173 | `92AFD78826115C2E0A44B8A29F970029C107B61EFDDB63ABBFE04CE37EB63680` | Rechte ungeklärt |
+| App `solinaridao-header-mark-filled.png` | 1,197,127 | `60F839B54A573173D28387DBB2DC6199B2474FC4EF6450FF4EF933108C141081` | owner-attested; Masterrolle pruefen |
+| App `solinaridao-world-revolution-news-mask.png` | 35,938 | `18C4E5A504CFAA0AAC882B68118B7D81DD2B91B3BB9AB3265D54D5480907D411` | owner-attested; Masterrolle pruefen |
+| Website `wrn-word-world.png` | 63,407 | `7F999810AD296541FA439A4F3EFC3674DAE94AC7CF7E7D6D19278671830D693C` | owner-attested; Ableitungsrolle pruefen |
+| Website `wrn-word-revolution.png` | 92,574 | `905DF58AC164DE66FDB2AA984AEEACE97260C28F849D71A16D426666F874FA2F` | owner-attested; Ableitungsrolle pruefen |
+| Website `wrn-word-news.png` | 55,173 | `92AFD78826115C2E0A44B8A29F970029C107B61EFDDB63ABBFE04CE37EB63680` | owner-attested; Ableitungsrolle pruefen |
 | App `android-wrapper/assets/icon.png` | 1,908,440 | `C5AA6139881658F5943AAF3FD646508232F575345D984444BAEB32B8674B582E` | identisch zu `splash.png`; Masterrolle unklar |
 | App `android-wrapper/assets/splash.png` | 1,908,440 | `C5AA6139881658F5943AAF3FD646508232F575345D984444BAEB32B8674B582E` | identisch zu `icon.png`; Masterrolle unklar |
 
@@ -67,9 +71,11 @@ importiert.
 
 ## Product-Owner-Entscheidung
 
-PO-014/015 sind am 23. August 2026 konservativ entschieden: Qood wird komplett
-ausgeschlossen; ungeklaerte Markenassets werden nicht importiert, sondern
-spaeter mit sichtbarer Product-Owner-Abnahme neu erstellt. Ein read-only
-`git grep` fand fuer `Qood` keine CSS-, JavaScript- oder HTML-Referenz in
-App-Runtime `968c320`, App-HEAD `2216ff3` oder Website `9a59b17`. Damit besteht
-keine Qood-Paritaetsluecke.
+PO-016/017 ersetzen die frueheren Vorsichtsannahmen PO-014/015: Qood bleibt
+vollstaendig ausgeschlossen, wird auf Wunsch des Product Owners aber durch eine
+offen lizenzierte Schrift ersetzt. Die inventarisierten Markenassets duerfen
+auf Basis der ausdruecklichen Eigentuemerbestaetigung nach `GO-IMPLEMENTATION`
+in einem kontrollierten Asset-Task importiert werden. Ein read-only `git grep`
+fand fuer `Qood` keine CSS-, JavaScript- oder HTML-Referenz in App-Runtime
+`968c320`, App-HEAD `2216ff3` oder Website `9a59b17`; der Ersatz ist daher eine
+neue Marken-/Designentscheidung und keine technisch notwendige Runtimeparitaet.
