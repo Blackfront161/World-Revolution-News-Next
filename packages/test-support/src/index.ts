@@ -134,6 +134,7 @@ export interface LocalNewsfeedFixture {
 const sourceCommitPattern = /^[a-f0-9]{40}(?:[a-f0-9]{24})?$/;
 const fixtureArticleIds = localNewsArticlePayload.articles.map((article) => article.id).sort();
 const emptyIds: string[] = [];
+export const localNewsfeedSeedCommit = '6c9ca5521f7338334d2e443155f0a5f2bf5392a6' as const;
 
 async function createSetHashes() {
   return {
@@ -143,6 +144,14 @@ async function createSetHashes() {
     redirectSourceIds: await sha256Utf8(canonicalJson(emptyIds)),
     sitemapArticleIds: await sha256Utf8(canonicalJson(emptyIds)),
   };
+}
+
+/**
+ * Liefert die lokal verankerte, reale Seed-Fixierung als unveraenderliche
+ * Quelle fuer WRN-G3-002.
+ */
+export function createPinnedLocalNewsfeedFixture(): Promise<LocalNewsfeedFixture> {
+  return createLocalNewsfeedFixture({ sourceCommit: localNewsfeedSeedCommit });
 }
 
 /**

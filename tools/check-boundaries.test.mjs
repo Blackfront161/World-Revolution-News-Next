@@ -84,10 +84,11 @@ test('rejects platform and provider imports from pure packages', () => {
       'packages/domain/src/index.ts': 'import "react";\nimport "@capacitor/core";\n',
       'packages/api-contracts/src/index.ts':
         'import "firebase/app";\nimport "@azure/ai-translation-text";\n',
+      'packages/content-contracts/src/index.ts': 'import "react-dom";\n',
     },
     (fixtureRoot) => {
       const violations = findBoundaryViolations(fixtureRoot);
-      assert.equal(violations.length, 4);
+      assert.equal(violations.length, 5);
       assert.ok(violations.every(({ rule }) => rule.includes('unabhaengig')));
     },
   );

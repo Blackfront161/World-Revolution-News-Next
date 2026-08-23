@@ -4,7 +4,7 @@ import path from 'node:path';
 
 const sourceExtensions = new Set(['.cts', '.js', '.jsx', '.mts', '.mjs', '.ts', '.tsx']);
 const ignoredDirectories = new Set(['.git', 'coverage', 'dist', 'node_modules']);
-const purePackages = new Set(['domain', 'api-contracts']);
+const purePackages = new Set(['domain', 'api-contracts', 'content-contracts']);
 
 function normalizedPath(value) {
   return path.resolve(value).toLowerCase();
@@ -163,7 +163,7 @@ export function findBoundaryViolations(workspaceRoot) {
         violations.push({
           filePath,
           specifier,
-          rule: 'Domain- und API-Contracts muessen React-, DOM-, Capacitor- und Provider-unabhaengig bleiben.',
+          rule: 'Domain-, API- und Content-Contracts muessen React-, DOM-, Capacitor- und Provider-unabhaengig bleiben.',
         });
       }
     }

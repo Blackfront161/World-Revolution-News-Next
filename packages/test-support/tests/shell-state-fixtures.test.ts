@@ -5,9 +5,11 @@ import { foundationContractVersion, isShellStateContract } from '@wrn/api-contra
 import { validateLocalManifestIntegrity } from '@wrn/content-contracts';
 
 import {
+  createPinnedLocalNewsfeedFixture,
   createLocalNewsfeedFixture,
   createShellStateFixture,
   localNewsArticlePayload,
+  localNewsfeedSeedCommit,
   shellStateFixtures,
 } from '../src/index.js';
 
@@ -31,15 +33,19 @@ describe('ShellState fixtures', () => {
 });
 
 describe('WRN-G3-002 local newsfeed fixture', () => {
-  const seed = { sourceCommit: '0123456789abcdef0123456789abcdef01234567' };
-
   it('is self-authored, deterministic and validates with a supplied immutable seed checkpoint', async () => {
-    const first = await createLocalNewsfeedFixture(seed);
-    const second = await createLocalNewsfeedFixture(seed);
+    const first = await createPinnedLocalNewsfeedFixture();
+    const second = await createPinnedLocalNewsfeedFixture();
+    const direct = await createLocalNewsfeedFixture({ sourceCommit: localNewsfeedSeedCommit });
 
     expect(first.manifest).toEqual(second.manifest);
-    expect(first.manifest.sourceCommit).toBe(seed.sourceCommit);
-    expect(first.manifest.provenance.fixtureSeedCommit).toBe(seed.sourceCommit);
+    expect(first).toEqual(direct);
+    expect(first.manifest.sourceCommit).toBe(localNewsfeedSeedCommit);
+    expect(first.manifest.sourceCommit).toHaveLength(40);
+    expect(first.manifest.revision).toBe(
+      `wrn-g3-002-local-fixture-v1-${localNewsfeedSeedCommit.slice(0, 12)}`,
+    );
+    expect(first.manifest.provenance.fixtureSeedCommit).toBe(localNewsfeedSeedCommit);
     expect(first.manifest.articleSets.activeFeedIds).toEqual(first.manifest.articleSets.archiveIds);
     expect(first.states.ready).toMatchObject({
       kind: 'ready',

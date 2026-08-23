@@ -43,7 +43,7 @@ export interface LocalArticleResourcePayload {
 }
 
 export interface LocalEmptyResourcePayload {
-  readonly items: readonly [];
+  readonly items: readonly never[];
 }
 
 export type LocalResourcePayload = LocalArticleResourcePayload | LocalEmptyResourcePayload;
