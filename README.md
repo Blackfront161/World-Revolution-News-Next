@@ -6,12 +6,11 @@ World Revolution News (WRN) und die gemeinsame Marke Solinaridao.
 Der Product Owner hat den eng begrenzten Foundation-Task `WRN-G3-001`
 technisch akzeptiert. Die neutrale Workspacebasis enthaelt noch keine
 Legacyfunktion, echten Inhalte, Markenassets oder produktiven Dienste. Der
-erste lokale Newsfeed-Slice `WRN-G3-002` ist vorbereitet, aber noch nicht zur
-Codeumsetzung freigegeben.
+erste lokale Newsfeed-Slice `WRN-G3-002` wurde am 23. August 2026 gestartet.
 
 ## Aktuelle Phase
 
-**Phase G3 / Vorbereitung Wave 2 – lokaler Manifest-Newsfeed**
+**Phase G3 / aktive Wave 2 – lokaler Manifest-Newsfeed**
 
 - Git-Struktur und Codex-Regeln: angelegt
 - Custom-Agent-Profile: angelegt, nicht gestartet
@@ -21,7 +20,7 @@ Codeumsetzung freigegeben.
 - Foundation-Code: lokal implementiert, automatisiert geprueft und technisch
   akzeptiert auf `codex/g3-001-foundation`; keine Design-/Paritaetsfreigabe
 - G3-002: Task Brief und gefuehrter Alt-vs.-Neu-Abnahmebogen vorbereitet;
-  Start erst mit `START WRN-G3-002`
+  Umsetzung im exakt begrenzten lokalen Scope gestartet
 - Legacycode, echte Inhalte und Markenassets: nicht importiert
 - Deployment, Signierung oder Upload: nicht ausgefuehrt
 

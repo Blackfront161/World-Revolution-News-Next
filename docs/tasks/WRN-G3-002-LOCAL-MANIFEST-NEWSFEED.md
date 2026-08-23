@@ -16,9 +16,8 @@
 - Paritaet: `NEWS-01`, begrenzte Vorarbeit fuer `NEWS-04/08/09`,
   `SYS-03/04/07`, `UX-03/04/05/07`
 - Risiken: `R-04`, `R-05`, `R-06`, `R-16`, `R-22`, `R-37`
-- Status: **VORBEREITET – KEIN PRODUKTCODE AUTORISIERT**
-- Startgate: erst der ausdrueckliche Product-Owner-Befehl
-  `START WRN-G3-002`
+- Status: **AKTIV – VOM PRODUCT OWNER AM 23. AUGUST 2026 GESTARTET**
+- Startgate: `START WRN-G3-002` am 23. August 2026 erteilt
 
 ## Ziel in beobachtbarer Sprache
 
@@ -255,7 +254,7 @@ in diesem Task unveraendert bleiben.
 
 ## Freigabegrenze
 
-Dieses Dokument bereitet die Arbeit vor. Es startet keinen Mitarbeiter und
-autorisiert keinen Produktcode. Erst `START WRN-G3-002` gibt exakt diesen Slice
-frei. Assetimport, Liveintegration, Artikelreader, Android, Remote/CI,
+Der Product Owner hat mit `START WRN-G3-002` exakt diesen Slice freigegeben.
+Diese Freigabe autorisiert keine darueber hinausgehende Arbeit. Assetimport,
+Liveintegration, Artikelreader, Android, Remote/CI,
 Deployment, Signierung und Veroeffentlichung bleiben auch danach gesperrt.

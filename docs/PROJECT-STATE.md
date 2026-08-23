@@ -4,18 +4,19 @@ Stand: 23. August 2026
 
 ## Aktuelle Phase
 
-- Phase: G3 / Vorbereitung Wave 2 Newsfeed
-- Task: `WRN-G3-002` – lokaler Manifest-Newsfeed dokumentarisch vorbereitet;
-  Produktcode noch nicht autorisiert
+- Phase: G3 / aktive Wave 2 Newsfeed
+- Task: `WRN-G3-002` – lokaler Manifest-Newsfeed vom Product Owner gestartet
 - Ausgangscheckpoint: `bb77c06`
 - Foundation-Kandidatencheckpoint: `e4d78b4`
 - Foundation-QA-/Evidenzcheckpoint: `ea2564f`
-- Arbeitsbranch: `codex/g3-001-foundation`
-- Gate: **G3-001 TECHNISCH AKZEPTIERT – START WRN-G3-002 AUSSTEHEND**
+- G3-002-Ausgangscheckpoint: `955f8e6`
+- Arbeitsbranch: `codex/g3-002-newsfeed`
+- Gate: **START WRN-G3-002 ERTEILT – NUR LOKALER NEWSFEED-SLICE**
 - `GO-IMPLEMENTATION`: **am 23. August 2026 fuer WRN-G3-001 erteilt**
 - Legacyimport, Markenassets, echte Dienste, Datenbank, Remote/CI, Deployment,
   Signierung und Upload: nicht freigegeben
-- aktive Subagenten/Mitarbeiterinstanzen: keine
+- aktive Subagenten/Mitarbeiterinstanzen: Backend/Data wird zuerst gestartet;
+  Frontend und QA folgen erst an ihren dokumentierten Gates
 - Schutzgrenze: Live-App, Legacy-Repositories, Website, Daten und
   Liveinfrastruktur bleiben read-only und unveraendert
 
@@ -80,8 +81,8 @@ Stand: 23. August 2026
   Zustaenden
 - ausgeschlossen: Legacykopie, echte Nachrichten, Livequelle, Suche/Filter,
   Reader/SEO, echte Medien, Dienste, Android, Remote/CI und Releaseoperationen
-- Startgate: `START WRN-G3-002`; bis dahin kein Produktcode und kein
-  Mitarbeiterstart
+- Startgate: `START WRN-G3-002` am 23. August 2026 erteilt; die vertragliche
+  Backend-/Fixturearbeit beginnt zuerst
 
 ## Wave-0-Belege
 
@@ -155,11 +156,11 @@ Stand: 23. August 2026
 
 ## Naechste empfohlene Aktion
 
-Der Product Owner prueft den vorbereiteten Scope in
-`docs/tasks/WRN-G3-002-LOCAL-MANIFEST-NEWSFEED.md`. Wenn er stimmt, startet nur
-der ausdrueckliche Befehl `START WRN-G3-002` den lokalen Produktslice. Danach
-werden echte Feed-Screenshots als klar beschriftete Alt-vs.-Neu-Tafeln
-vorgelegt. Kein Folge-Agent und kein Produktcode startet automatisch.
+Backend/Data implementiert und prueft zuerst Fixture, Manifest und
+Domainvertrag. Nach gesicherter Uebergabe integriert Frontend/Brand die beiden
+getrennten Feedansichten. Danach erstellt QA echte Feed-Screenshots als klar
+beschriftete Alt-vs.-Neu-Tafeln. Kein weiterer Produktslice startet
+automatisch.
 
 ## Bekannte Umgebungsabweichung
 

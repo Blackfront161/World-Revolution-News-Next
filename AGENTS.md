@@ -21,25 +21,25 @@ eine erfundene Annahme verdeckt.
 
 ## 2. Aktuelles Phasengate
 
-Der aktuelle Zustand ist **Phase G3 / Vorbereitung WRN-G3-002**.
+Der aktuelle Zustand ist **Phase G3 / aktive Umsetzung WRN-G3-002**.
 
 `WRN-G3-001` ist technisch akzeptiert. Diese enge Akzeptanz bestaetigt die
 neutrale, lokal getestete Foundation; sie ist keine Design-, Funktions-,
 Markenasset- oder Paritaetsfreigabe. Der vorbereitete Folgeauftrag steht in
 `docs/tasks/WRN-G3-002-LOCAL-MANIFEST-NEWSFEED.md`.
 
-Bis der Product Owner exakt `START WRN-G3-002` erteilt:
-
-- keinen weiteren Produktcode schreiben;
-- keine Mitarbeiter oder Sub-Agenten fuer die Umsetzung starten;
-- nur Task-, Abnahme-, Status- und Governance-Dokumentation bearbeiten;
-- keine Legacydateien, echten Inhalte oder Markenassets importieren;
-- keine Dependencies installieren und keine Apps oder Server starten.
+Der Product Owner erteilte am 23. August 2026 exakt `START WRN-G3-002`.
+Freigegeben ist nur der schriftliche Scope in
+`docs/tasks/WRN-G3-002-LOCAL-MANIFEST-NEWSFEED.md`: lokale immutable
+Manifest-v1-Fixture, Content-/Domainvertrag, getrennte Mobile-/Websitefeeds,
+deterministische Zustaende, lokale Tests und visuelle Vergleichsbelege. Die
+Backend-/Contractarbeit wird vor der Frontendintegration uebergeben; QA prueft
+den integrierten Kandidaten danach unabhaengig.
 
 Die aktuelle Live-App und ihr Repository, die aktuelle Website und ihr
 Repository, das Contentrepository sowie Cloudflare, Hostinger und Google Play
-bleiben in jedem Fall read-only und unveraendert. Auch nach dem Startgate ist
-nur der schriftliche G3-002-Scope im neuen Repository erlaubt. Datenbank,
+bleiben in jedem Fall read-only und unveraendert. Es ist nur der schriftliche
+G3-002-Scope im neuen Repository erlaubt. Datenbank,
 echte Dienste, Remote/CI, Deployment, Signierung, Upload und Veroeffentlichung
 bleiben separate Gates.
 
