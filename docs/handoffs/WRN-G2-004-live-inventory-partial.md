@@ -90,4 +90,3 @@ antwortet `LIVE-INVENTAR BEREIT`. Danach wird nur read-only weiterinventarisiert
 - Handoff: `docs/handoffs/WRN-G2-004-live-inventory-partial.md`
 - Naechster Schritt: Product Owner antwortet nach Anmeldung `LIVE-INVENTAR BEREIT`
 - END-CHECK: :)
-
