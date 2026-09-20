@@ -136,6 +136,8 @@ importers:
         specifier: workspace:*
         version: link:../domain
 
+  services/podcast: {}
+
   services/translation:
     dependencies:
       '@wrn/api-contracts':

@@ -97,11 +97,10 @@ export function MobileContentDirectoryRoute({
           (entry) =>
             (!sourceLanguage ||
               entry.observations.some((o) => o.languages.includes(sourceLanguage))) &&
-            entry.observations
-              .map((o) => `${o.name} ${o.languages.join(' ')}`)
+            [entry.url, ...entry.observations.map((o) => `${o.name} ${o.languages.join(' ')}`)]
               .join(' ')
               .toLocaleLowerCase()
-              .includes(query.toLocaleLowerCase()),
+              .includes(query.trim().toLocaleLowerCase()),
         ) ?? [],
         sourcePreferences.state,
         'directory',

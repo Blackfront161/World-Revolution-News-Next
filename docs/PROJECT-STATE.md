@@ -1,5 +1,7 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu20.09. – Azure-Podcast und Quellensuche: F0 durch PO bestätigt. Direkte Aktion war bereits in beiden Quellenlisten; Domainsuche korrigiert und in beiden Vorschauen geprüft. Mobile923/Website152+65 Tests bestanden. Separater Azure-Dienst für18 Stimmen/neun Sprachen lokal vorbereitet; echter Workerd-Test ohne externe Provideranfrage bestanden. Gemeinsame Livequoten, Ressourcen-/Speicherbindung und Erstellungsoberfläche noch offen, Dienst deaktiviert. MEDIA-03 bleibt in Arbeit. Vorschauen App43232/Website43233. [Paketbericht](evidence/WRN-PODCAST-AZURE-2026-09-20/REPORT.md).
+
 Neu20.09. – globale Sportquellen:40 Einträge,17 neu, sechs bewohnte Kontinente; Kontinentfilter in neun Sprachen. Unabhängiger Review PASS, Mobile922/Website151+65 Tests, abschließend4 Sporttests bestanden. Getrenntes GitHub main92128dc, exakter Elf-Dateien-Transfer. Vorschauen App43230/Website43231. Öffentlich-Schaltung wartet auf GitHub-Kontobestätigung; Cloudflare-Verbindung auf konkrete Berechtigungsbestätigung. Android27/2.2.0: unsigniertes AAB offline gebaut,91 Assets bytegleich,16 JVM-Tests/Lint ohne Fehler. Signierung, Upgradeprüfung und Veröffentlichung offen. [Sportbericht](evidence/WRN-GLOBAL-SPORT-2026-09-20/REPORT.md), [Veröffentlichung und TTS](evidence/WRN-GLOBAL-SPORT-2026-09-20/PUBLICATION-AND-TTS.md).
 
 

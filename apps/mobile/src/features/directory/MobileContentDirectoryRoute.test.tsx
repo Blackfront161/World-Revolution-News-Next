@@ -8,6 +8,19 @@ beforeEach(() =>
 afterEach(() => vi.restoreAllMocks());
 
 describe('MobileContentDirectoryRoute', () => {
+  it('finds the existing Direkte Aktion source by domain and by name without duplicates', async () => {
+    const { MobileContentDirectoryRoute } = await import('./MobileContentDirectoryRoute');
+    render(<MobileContentDirectoryRoute language="en" section="sources" />);
+    await screen.findByText('Showing 30 of 532');
+    for (const query of [' DIREKTEAKTION.ORG ', 'Direkte Aktion']) {
+      fireEvent.change(screen.getByLabelText('Search'), { target: { value: query } });
+      expect(screen.getByText('Showing 1 of 1')).toBeInTheDocument();
+      expect(screen.getByRole('link', { name: 'Direkte Aktion (DE)' })).toHaveAttribute(
+        'href',
+        'https://direkteaktion.org/',
+      );
+    }
+  });
   it('renders the three sections, local filters and safe external links', async () => {
     const { MobileContentDirectoryRoute } = await import('./MobileContentDirectoryRoute');
     render(<MobileContentDirectoryRoute language="en" headingRef={{ current: null }} />);

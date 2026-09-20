@@ -71,9 +71,9 @@ export function WebsiteContentDirectoryRoute({
             ? projectSourcePreferences(
                 data.projection.sources.filter(
                   (x) =>
-                    `${x.name} ${x.languages.join(' ')}`
+                    `${x.name} ${x.url} ${x.languages.join(' ')}`
                       .toLocaleLowerCase()
-                      .includes(query.toLocaleLowerCase()) &&
+                      .includes(query.trim().toLocaleLowerCase()) &&
                     (!contentLanguage || x.languages.includes(contentLanguage)),
                 ),
                 sourcePreferences.state,
