@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "path": "packages/browser-content/src/sport-sources-data.ts",
+      "sha256": "4cf02bc5363d9d01ccdc295273d6ef45782993c708ba0d4a8bb545a28adb2b9e"
+    },
+    {
+      "path": "packages/browser-content/src/sport-sources.tsx",
+      "sha256": "9c802a059cf874a1f4fc825178fe61cfac2b4e1e3aa1a03306521309f96c99a3"
+    },
+    {
+      "path": "packages/browser-content/src/sport-sources.css",
+      "sha256": "dcd51c54842f34142c306855f10e877b1aeaf10fdbe78defeb5e9eceb12b34a6"
+    },
+    {
+      "path": "packages/ui-language/src/sport-sources.ts",
+      "sha256": "1a57a94539727653bf15e0b2432f09b482ccf9bd6ffc8d8cf660a6f00fb4f156"
+    },
+    {
+      "path": "apps/mobile/src/sport-sources.test.tsx",
+      "sha256": "40c2e78fecd7f812f86f91456157d2efbd20072ff94c335f218ac2a625483287"
+    },
+    {
+      "path": "apps/mobile/src/App.test.tsx",
+      "sha256": "586c31239c6d13312ad594863b58d40b0cf46b9df08cf1a1917c84e48342a1ff"
+    },
+    {
+      "path": "docs/evidence/WRN-GLOBAL-SPORT-2026-09-20/candidates.json",
+      "sha256": "cb7186c549766f72cfaa8b4acb2f85bb1a7dade1b7bf7093d92c6aa627567c69"
+    },
+    {
+      "path": "docs/evidence/WRN-GLOBAL-SPORT-2026-09-20/REPORT.md",
+      "sha256": "a3485b931a43863f344fbe29ea476b266f35505b1d1d9557376c332aba35126b"
+    },
+    {
+      "path": "docs/evidence/WRN-GLOBAL-SPORT-2026-09-20/app-africa.png",
+      "sha256": "08327a3267ab1ec806a6cd7429e2c4f3ef6747391cb748dbd92eaa4a76532199"
+    },
+    {
+      "path": "docs/evidence/WRN-GLOBAL-SPORT-2026-09-20/website-oceania.png",
+      "sha256": "42035d6b58e5b5f8a381fd601aaef568c1545a1b36a3e9d22feb3ca834b6ca76"
+    }
+  ]
+}

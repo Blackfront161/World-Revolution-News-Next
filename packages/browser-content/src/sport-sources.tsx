@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import type { UiLanguage } from '@wrn/ui-language';
 import { getSportSourcesCopy } from '@wrn/ui-language/sport-sources';
-import { sportFanSources, sportSources } from './sport-sources-data';
+import { sportFanSources, sportSources, type SportContinent } from './sport-sources-data';
 import './sport-sources.css';
 
 const externalProps = {
@@ -23,6 +24,21 @@ export function SportSources({
   headingLevel?: 2 | 3;
 }) {
   const copy = getSportSourcesCopy(language);
+  const [continent, setContinent] = useState<SportContinent | 'all'>('all');
+  const regions: Record<SportContinent, string> = {
+    africa: '002',
+    asia: '142',
+    europe: '150',
+    'north-america': '003',
+    'south-america': '005',
+    oceania: '009',
+    international: '001',
+  };
+  const continentName = (value: SportContinent) =>
+    value === 'international' ? copy.international : copy.continentNames[value];
+  const visibleFans = sportFanSources.filter(
+    (source) => continent === 'all' || source.continent === continent,
+  );
   const Heading = headingLevel === 2 ? 'h2' : 'h3';
   return (
     <>
@@ -79,15 +95,35 @@ export function SportSources({
         <p>{copy.fanIntro}</p>
         <details open={open || undefined}>
           <summary data-testid="sport-fan-sources-summary">
-            {count(copy.fanSummary, sportFanSources.length)}
+            {count(copy.fanSummary, visibleFans.length)}
           </summary>
+          <label className="sport-continent-filter">
+            {copy.continent}
+            <select
+              value={continent}
+              onChange={(event) => setContinent(event.target.value as SportContinent | 'all')}
+            >
+              <option value="all">{copy.allContinents}</option>
+              {(Object.keys(regions) as SportContinent[])
+                .filter((value) => sportFanSources.some((source) => source.continent === value))
+                .map((value) => (
+                  <option key={value} value={value}>
+                    {continentName(value)}
+                  </option>
+                ))}
+            </select>
+          </label>
+          <p role="status" aria-live="polite" aria-atomic="true">
+            {count(copy.fanSummary, visibleFans.length)}
+          </p>
           <ul>
-            {sportFanSources.map((source) => (
+            {visibleFans.map((source) => (
               <li key={source.id} data-testid={`sport-fan-source-${source.id}`}>
                 <strong>{source.name}</strong>
                 <p>
                   {copy.category}: {copy.fanCategories[source.category] ?? source.category} ·{' '}
-                  {copy.originalLanguage}: {source.originalLanguage}
+                  {copy.originalLanguage}: {source.originalLanguage} ·{' '}
+                  {continentName(source.continent)}
                 </p>
                 <a href={source.originalUrl} {...externalProps}>
                   {copy.openOriginal}

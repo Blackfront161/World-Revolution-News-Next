@@ -277,10 +277,10 @@ const entries: Readonly<Record<UiLanguage, SportSourcesCopy>> = {
 
 const fanEntries: Readonly<Record<UiLanguage, SportFanSourcesCopy>> = {
   en: {
-    fanHeading: 'Supporter groups and networks',
-    fanSummary: 'Supporter groups and networks ({count})',
+    fanHeading: 'Supporter groups, organisations and networks',
+    fanSummary: 'Supporter groups, organisations and networks ({count})',
     fanIntro:
-      'Official self-descriptions of supporter groups and networks. Directory links only; political labels are not inferred.',
+      'Official self-descriptions of supporter groups, organisations and networks. Directory links only; political labels are not inferred.',
     fanCategories: fanCategories([
       'Antifascist fan network',
       'Supporter rights and democracy',
@@ -291,10 +291,10 @@ const fanEntries: Readonly<Record<UiLanguage, SportFanSourcesCopy>> = {
     ]),
   },
   de: {
-    fanHeading: 'Fangruppen und Netzwerke',
-    fanSummary: 'Fangruppen und Netzwerke ({count})',
+    fanHeading: 'Fangruppen, Organisationen und Netzwerke',
+    fanSummary: 'Fangruppen, Organisationen und Netzwerke ({count})',
     fanIntro:
-      'Offizielle Selbstbeschreibungen von Fangruppen und Netzwerken. Nur Verzeichnis-Links; politische Etiketten werden nicht abgeleitet.',
+      'Offizielle Selbstbeschreibungen von Fangruppen, Organisationen und Netzwerken. Nur Verzeichnis-Links; politische Etiketten werden nicht abgeleitet.',
     fanCategories: fanCategories([
       'Antifaschistisches Fannetzwerk',
       'Supporterrechte und Demokratie',
@@ -305,10 +305,10 @@ const fanEntries: Readonly<Record<UiLanguage, SportFanSourcesCopy>> = {
     ]),
   },
   es: {
-    fanHeading: 'Grupos y redes de aficionados',
-    fanSummary: 'Grupos y redes de aficionados ({count})',
+    fanHeading: 'Grupos, organizaciones y redes de aficionados',
+    fanSummary: 'Grupos, organizaciones y redes de aficionados ({count})',
     fanIntro:
-      'Autodescripciones oficiales de grupos y redes de aficionados. Solo enlaces de directorio; no se infieren etiquetas políticas.',
+      'Autodescripciones oficiales de grupos, organizaciones y redes de aficionados. Solo enlaces de directorio; no se infieren etiquetas políticas.',
     fanCategories: fanCategories([
       'Red antifascista de aficionados',
       'Derechos y democracia de aficionados',
@@ -319,10 +319,10 @@ const fanEntries: Readonly<Record<UiLanguage, SportFanSourcesCopy>> = {
     ]),
   },
   fr: {
-    fanHeading: 'Groupes et réseaux de supporteur·ices',
-    fanSummary: 'Groupes et réseaux de supporteur·ices ({count})',
+    fanHeading: 'Groupes, organisations et réseaux de supporteur·ices',
+    fanSummary: 'Groupes, organisations et réseaux de supporteur·ices ({count})',
     fanIntro:
-      'Autodescriptions officielles de groupes et réseaux de supporteur·ices. Liens de répertoire uniquement ; aucune étiquette politique n’est déduite.',
+      'Autodescriptions officielles de groupes, organisations et réseaux de supporteur·ices. Liens de répertoire uniquement ; aucune étiquette politique n’est déduite.',
     fanCategories: fanCategories([
       'Réseau de supporteur·ices antifasciste',
       'Droits et démocratie des supporteur·ices',
@@ -333,10 +333,10 @@ const fanEntries: Readonly<Record<UiLanguage, SportFanSourcesCopy>> = {
     ]),
   },
   it: {
-    fanHeading: 'Gruppi e reti di tifosi',
-    fanSummary: 'Gruppi e reti di tifosi ({count})',
+    fanHeading: 'Gruppi, organizzazioni e reti di tifosi',
+    fanSummary: 'Gruppi, organizzazioni e reti di tifosi ({count})',
     fanIntro:
-      'Autodescrizioni ufficiali di gruppi e reti di tifosi. Solo link di elenco; le etichette politiche non sono dedotte.',
+      'Autodescrizioni ufficiali di gruppi, organizzazioni e reti di tifosi. Solo link di elenco; le etichette politiche non sono dedotte.',
     fanCategories: fanCategories([
       'Rete di tifosi antifascista',
       'Diritti e democrazia dei tifosi',
@@ -347,10 +347,10 @@ const fanEntries: Readonly<Record<UiLanguage, SportFanSourcesCopy>> = {
     ]),
   },
   pt: {
-    fanHeading: 'Grupos e redes de adeptos',
-    fanSummary: 'Grupos e redes de adeptos ({count})',
+    fanHeading: 'Grupos, organizações e redes de adeptos',
+    fanSummary: 'Grupos, organizações e redes de adeptos ({count})',
     fanIntro:
-      'Autodescrições oficiais de grupos e redes de adeptos. Apenas ligações de diretório; não são inferidos rótulos políticos.',
+      'Autodescrições oficiais de grupos, organizações e redes de adeptos. Apenas ligações de diretório; não são inferidos rótulos políticos.',
     fanCategories: fanCategories([
       'Rede antifascista de adeptos',
       'Direitos e democracia dos adeptos',
@@ -361,10 +361,10 @@ const fanEntries: Readonly<Record<UiLanguage, SportFanSourcesCopy>> = {
     ]),
   },
   ru: {
-    fanHeading: 'Группы и сети болельщиков',
-    fanSummary: 'Группы и сети болельщиков ({count})',
+    fanHeading: 'Группы, организации и сети болельщиков',
+    fanSummary: 'Группы, организации и сети болельщиков ({count})',
     fanIntro:
-      'Официальные самоописания групп и сетей болельщиков. Только ссылки каталога; политические ярлыки не выводятся.',
+      'Официальные самоописания групп, организаций и сетей болельщиков. Только ссылки каталога; политические ярлыки не выводятся.',
     fanCategories: fanCategories([
       'Антифашистская сеть болельщиков',
       'Права и демократия болельщиков',
@@ -375,10 +375,10 @@ const fanEntries: Readonly<Record<UiLanguage, SportFanSourcesCopy>> = {
     ]),
   },
   el: {
-    fanHeading: 'Ομάδες και δίκτυα οπαδών',
-    fanSummary: 'Ομάδες και δίκτυα οπαδών ({count})',
+    fanHeading: 'Ομάδες, οργανώσεις και δίκτυα οπαδών',
+    fanSummary: 'Ομάδες, οργανώσεις και δίκτυα οπαδών ({count})',
     fanIntro:
-      'Επίσημες αυτοπεριγραφές ομάδων και δικτύων οπαδών. Μόνο σύνδεσμοι καταλόγου· δεν συνάγονται πολιτικές ετικέτες.',
+      'Επίσημες αυτοπεριγραφές ομάδων, οργανώσεων και δικτύων οπαδών. Μόνο σύνδεσμοι καταλόγου· δεν συνάγονται πολιτικές ετικέτες.',
     fanCategories: fanCategories([
       'Αντιφασιστικό δίκτυο οπαδών',
       'Δικαιώματα και δημοκρατία οπαδών',
@@ -389,10 +389,10 @@ const fanEntries: Readonly<Record<UiLanguage, SportFanSourcesCopy>> = {
     ]),
   },
   tr: {
-    fanHeading: 'Taraftar grupları ve ağları',
-    fanSummary: 'Taraftar grupları ve ağları ({count})',
+    fanHeading: 'Taraftar grupları, kuruluşları ve ağları',
+    fanSummary: 'Taraftar grupları, kuruluşları ve ağları ({count})',
     fanIntro:
-      'Taraftar grupları ve ağlarının resmî öz tanımları. Yalnızca dizin bağlantıları; siyasi etiketler çıkarılmaz.',
+      'Taraftar grupları, kuruluşları ve ağlarının resmî öz tanımları. Yalnızca dizin bağlantıları; siyasi etiketler çıkarılmaz.',
     fanCategories: fanCategories([
       'Antifaşist taraftar ağı',
       'Taraftar hakları ve demokrasi',
@@ -404,6 +404,43 @@ const fanEntries: Readonly<Record<UiLanguage, SportFanSourcesCopy>> = {
   },
 };
 
-export function getSportSourcesCopy(language: UiLanguage): SportSourcesCopy & SportFanSourcesCopy {
-  return { ...entries[language], ...fanEntries[language] };
+const regionCopy: Readonly<Record<UiLanguage, readonly [string, string, string]>> = {
+  de: ['Kontinent', 'Alle Kontinente', 'International'],
+  en: ['Continent', 'All continents', 'International'],
+  es: ['Continente', 'Todos los continentes', 'Internacional'],
+  fr: ['Continent', 'Tous les continents', 'International'],
+  it: ['Continente', 'Tutti i continenti', 'Internazionale'],
+  pt: ['Continente', 'Todos os continentes', 'Internacional'],
+  ru: ['Континент', 'Все континенты', 'Международные'],
+  el: ['Ήπειρος', 'Όλες οι ήπειροι', 'Διεθνή'],
+  tr: ['Kıta', 'Tüm kıtalar', 'Uluslararası'],
+};
+
+const continentCopy: Readonly<Record<UiLanguage, readonly string[]>> = {
+  en: ['Africa', 'Asia', 'Europe', 'North America', 'South America', 'Oceania'],
+  de: ['Afrika', 'Asien', 'Europa', 'Nordamerika', 'Südamerika', 'Ozeanien'],
+  es: ['África', 'Asia', 'Europa', 'América del Norte', 'América del Sur', 'Oceanía'],
+  fr: ['Afrique', 'Asie', 'Europe', 'Amérique du Nord', 'Amérique du Sud', 'Océanie'],
+  it: ['Africa', 'Asia', 'Europa', 'America del Nord', 'America del Sud', 'Oceania'],
+  pt: ['África', 'Ásia', 'Europa', 'América do Norte', 'América do Sul', 'Oceania'],
+  ru: ['Африка', 'Азия', 'Европа', 'Северная Америка', 'Южная Америка', 'Океания'],
+  el: ['Αφρική', 'Ασία', 'Ευρώπη', 'Βόρεια Αμερική', 'Νότια Αμερική', 'Ωκεανία'],
+  tr: ['Afrika', 'Asya', 'Avrupa', 'Kuzey Amerika', 'Güney Amerika', 'Okyanusya'],
+};
+export function getSportSourcesCopy(language: UiLanguage) {
+  const [continent, allContinents, international] = regionCopy[language];
+  const continentNames: Readonly<Record<string, string>> = Object.fromEntries(
+    ['africa', 'asia', 'europe', 'north-america', 'south-america', 'oceania'].map((key, index) => [
+      key,
+      continentCopy[language][index]!,
+    ]),
+  );
+  return {
+    ...entries[language],
+    ...fanEntries[language],
+    continent,
+    allContinents,
+    international,
+    continentNames,
+  };
 }

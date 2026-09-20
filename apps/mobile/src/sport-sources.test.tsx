@@ -1,4 +1,4 @@
-import { cleanup, render, screen, within } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { uiLanguageIds } from '@wrn/ui-language';
 import snapshot from './features/directory/data/content-directory-v1.json';
@@ -36,7 +36,7 @@ describe('sport source directory supplement', () => {
       const section = screen.getByTestId('sport-sources');
       expect(within(section).getAllByTestId(/^sport-source-/u)).toHaveLength(9);
       const fanSection = screen.getByTestId('sport-fan-sources');
-      expect(within(fanSection).getAllByTestId(/^sport-fan-source-/u)).toHaveLength(14);
+      expect(within(fanSection).getAllByTestId(/^sport-fan-source-/u)).toHaveLength(31);
       expect(within(fanSection).getByTestId('sport-fan-sources-summary')).not.toHaveTextContent(
         '{count}',
       );
@@ -47,6 +47,29 @@ describe('sport source directory supplement', () => {
       }
       rendered.unmount();
     }
+    expect(globalThis.fetch).not.toHaveBeenCalled();
+  });
+
+  it('filters sources across all six inhabited continents without network requests', () => {
+    render(<SportSources language="de" open />);
+    const filter = screen.getByRole('combobox', { name: 'Kontinent' });
+    expect(within(filter).getByRole('option', { name: 'Afrika' })).toHaveValue('africa');
+    expect(within(filter).getByRole('option', { name: 'Ozeanien' })).toHaveValue('oceania');
+    const section = screen.getByTestId('sport-fan-sources');
+    for (const [continent, count] of [
+      ['africa', 2],
+      ['asia', 2],
+      ['europe', 14],
+      ['north-america', 4],
+      ['south-america', 5],
+      ['oceania', 4],
+    ] as const) {
+      fireEvent.change(filter, { target: { value: continent } });
+      expect(within(section).getAllByTestId(/^sport-fan-source-/u)).toHaveLength(count);
+      expect(within(section).getByRole('status')).toHaveTextContent(`(${count})`);
+    }
+    fireEvent.change(filter, { target: { value: 'all' } });
+    expect(within(section).getAllByTestId(/^sport-fan-source-/u)).toHaveLength(31);
     expect(globalThis.fetch).not.toHaveBeenCalled();
   });
 

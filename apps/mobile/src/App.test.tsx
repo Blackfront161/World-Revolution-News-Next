@@ -892,7 +892,7 @@ describe('mobile local newsfeed', () => {
       within(screen.getByRole('region', { name: 'Sport reading notes' }))
         .getAllByRole('link')
         .filter((link) => link.getAttribute('target') === '_blank'),
-    ).toHaveLength(28);
+    ).toHaveLength(45);
     expect(screen.getByRole('link', { name: 'RSS' })).toHaveAttribute(
       'href',
       'https://www.fsgt.org/feed/',
