@@ -1,0 +1,3 @@
+# Preserve the exact bytes bound by this package's evidence manifest.
+* -text
+*.snapshot -diff

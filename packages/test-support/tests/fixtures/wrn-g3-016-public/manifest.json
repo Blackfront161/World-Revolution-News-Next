@@ -1,0 +1,127 @@
+{
+  "contractVersion": "1.0.0",
+  "revision": "wrn-g3-016-mobile-home-manifest-v1",
+  "generatedAt": "2026-08-30T10:00:00.000Z",
+  "sourceCommit": "4ae0dfaf08b84cbfa51c91216957c386b3730917",
+  "resources": [
+    {
+      "id": "articles",
+      "path": "local-fixture://wrn-g3-002/articles.json",
+      "schema": "wrn.local-article-records.v1",
+      "owner": "wrn-g3-016-local-home-fixture",
+      "fallbackClass": "fail-closed",
+      "availability": "required",
+      "sha256": "702cd6e31b3e9810706ce0d4e6b107169cd3d827358f4e70569f68fbede64afb",
+      "bytes": 5958,
+      "recordCount": 9
+    },
+    {
+      "id": "supplemental-items",
+      "path": "local-fixture://wrn-g3-002/supplemental-items.json",
+      "schema": "wrn.local-empty-items.v1",
+      "owner": "wrn-g3-007-local-publication-fixture",
+      "fallbackClass": "render-empty",
+      "availability": "optional-empty",
+      "sha256": "eef46741adfc3a9f76294d3b78f37a45f113092ac9d44ee77c7a038a88ff09a1",
+      "bytes": 12,
+      "recordCount": 0
+    },
+    {
+      "id": "media-placeholder",
+      "path": "local-fixture://wrn-g3-002/media-placeholder.json",
+      "schema": "wrn.local-empty-items.v1",
+      "owner": "wrn-g3-007-local-publication-fixture",
+      "fallbackClass": "render-optional-absent",
+      "availability": "optional-absent",
+      "absence": {
+        "reason": "Keine Medien sind Teil dieser lokalen Publikationsfixture.",
+        "uiState": "optional-absent",
+        "nextReviewAt": "2026-09-24T14:00:00.000Z"
+      }
+    }
+  ],
+  "articleSets": {
+    "activeFeedIds": [
+      "wrn-test-art-cedar",
+      "wrn-test-art-ember",
+      "wrn-test-art-fern",
+      "wrn-test-art-g3-016-a",
+      "wrn-test-art-g3-016-b",
+      "wrn-test-art-g3-016-c",
+      "wrn-test-art-g3-016-d",
+      "wrn-test-art-g3-016-e",
+      "wrn-test-art-g3-016-f"
+    ],
+    "archiveIds": [
+      "wrn-test-art-cedar",
+      "wrn-test-art-ember",
+      "wrn-test-art-fern",
+      "wrn-test-art-g3-016-a",
+      "wrn-test-art-g3-016-b",
+      "wrn-test-art-g3-016-c",
+      "wrn-test-art-g3-016-d",
+      "wrn-test-art-g3-016-e",
+      "wrn-test-art-g3-016-f"
+    ],
+    "landingIds": [
+      "wrn-test-art-cedar",
+      "wrn-test-art-ember",
+      "wrn-test-art-fern",
+      "wrn-test-art-g3-016-a",
+      "wrn-test-art-g3-016-b",
+      "wrn-test-art-g3-016-c",
+      "wrn-test-art-g3-016-d",
+      "wrn-test-art-g3-016-e",
+      "wrn-test-art-g3-016-f"
+    ],
+    "redirectSourceIds": [],
+    "sitemapArticleIds": [
+      "wrn-test-art-cedar",
+      "wrn-test-art-ember",
+      "wrn-test-art-fern",
+      "wrn-test-art-g3-016-a",
+      "wrn-test-art-g3-016-b",
+      "wrn-test-art-g3-016-c",
+      "wrn-test-art-g3-016-d",
+      "wrn-test-art-g3-016-e",
+      "wrn-test-art-g3-016-f"
+    ]
+  },
+  "articleSetHashes": {
+    "activeFeedIds": "a97ca8fbcc1cd0d703887ca2b8e4a7d5d1f97cfb9c36ad5e955b3594a521cc27",
+    "archiveIds": "a97ca8fbcc1cd0d703887ca2b8e4a7d5d1f97cfb9c36ad5e955b3594a521cc27",
+    "landingIds": "a97ca8fbcc1cd0d703887ca2b8e4a7d5d1f97cfb9c36ad5e955b3594a521cc27",
+    "redirectSourceIds": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "sitemapArticleIds": "a97ca8fbcc1cd0d703887ca2b8e4a7d5d1f97cfb9c36ad5e955b3594a521cc27"
+  },
+  "compatibility": {
+    "minContractVersion": "1.0.0",
+    "maxContractVersion": "1.0.0"
+  },
+  "provenance": {
+    "generatorVersion": "wrn-g3-016-local-home-fixture/1",
+    "fixtureSeedCommit": "4ae0dfaf08b84cbfa51c91216957c386b3730917",
+    "sourceKind": "self-authored-local-fixture"
+  },
+  "revocationRevision": "wrn-local-revocations-v1",
+  "homePresentation": {
+    "contractVersion": "1.0.0",
+    "schema": "wrn.local-home-presentation.v1",
+    "revision": "wrn-g3-016-local-home-presentation-v1",
+    "leadId": "wrn-test-art-cedar",
+    "mainIds": [
+      "wrn-test-art-ember",
+      "wrn-test-art-fern",
+      "wrn-test-art-g3-016-a",
+      "wrn-test-art-g3-016-b",
+      "wrn-test-art-g3-016-c"
+    ],
+    "sport": {
+      "featureId": "wrn-test-art-g3-016-d",
+      "secondaryIds": ["wrn-test-art-g3-016-e", "wrn-test-art-g3-016-f"],
+      "categories": ["football", "fanculture", "women"],
+      "checkedAt": "2026-08-30T10:00:00.000Z",
+      "validUntil": "2026-09-06T10:00:00.000Z"
+    }
+  }
+}

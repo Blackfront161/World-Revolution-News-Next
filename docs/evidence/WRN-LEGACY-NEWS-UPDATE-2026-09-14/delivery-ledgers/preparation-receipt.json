@@ -1,0 +1,37 @@
+{
+  "preparationNow": true,
+  "historicalPublicationClaimed": false,
+  "publicationPerformed": false,
+  "results": [
+    {
+      "name": "v2",
+      "sequence": 2,
+      "releaseRevision": "wrn-production-eff-2026-09-10-v2",
+      "descriptorSha256": "4abdb966da09b114cbbe4ab5dd1a60248e128ac82c713f660f0b2db4b0b80595",
+      "generatedAt": "2026-09-13T22:24:18.921Z",
+      "nextLedgerSha256": "741a00d46ca4d52017907e88df4d2ac3a18768202e93a6a2b2b344339b670d07",
+      "outputDirectory": "C:\\Users\\patri\\Documents\\ChatGPT\\Sauberes Wo Rev Ne\\docs\\evidence\\WRN-LEGACY-NEWS-UPDATE-2026-09-14\\work\\delivery-chain-1789338258920\\v2",
+      "pointerLast": true
+    },
+    {
+      "name": "v3",
+      "sequence": 3,
+      "releaseRevision": "wrn-production-news-2026-09-11-v3",
+      "descriptorSha256": "78215f104a3a45d8c530db5ca687d64d20276d8e60b3121afd8b731642aee653",
+      "generatedAt": "2026-09-13T22:24:19.074Z",
+      "nextLedgerSha256": "6019d1b1e5f2a60c65d735e7d6383afcda3bec6e040c48cb6dc3b428832f2644",
+      "outputDirectory": "C:\\Users\\patri\\Documents\\ChatGPT\\Sauberes Wo Rev Ne\\docs\\evidence\\WRN-LEGACY-NEWS-UPDATE-2026-09-14\\work\\delivery-chain-1789338258920\\v3",
+      "pointerLast": true
+    },
+    {
+      "name": "v4",
+      "sequence": 4,
+      "releaseRevision": "wrn-production-news-2026-09-14-v4",
+      "descriptorSha256": "0fc717af52471b711fd8c585adef398032d8acf74ce6de14d4650357cf6c90c8",
+      "generatedAt": "2026-09-13T22:24:19.388Z",
+      "nextLedgerSha256": "9b5a275d1af4a4834792ab05c7ab11a109cf578f580b680425bfa9bdbd914d3e",
+      "outputDirectory": "C:\\Users\\patri\\Documents\\ChatGPT\\Sauberes Wo Rev Ne\\docs\\evidence\\WRN-LEGACY-NEWS-UPDATE-2026-09-14\\work\\delivery-chain-1789338258920\\v4",
+      "pointerLast": true
+    }
+  ]
+}

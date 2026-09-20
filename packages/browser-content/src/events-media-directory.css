@@ -1,0 +1,112 @@
+.events-media-directory {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.events-media-filters {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+}
+.events-media-filters label {
+  display: grid;
+  gap: 0.25rem;
+  font-weight: 700;
+  min-width: 0;
+}
+.events-media-directory input,
+.events-media-directory select,
+.events-media-directory button,
+.events-media-link {
+  min-height: 44px;
+  padding: 0.55rem 0.75rem;
+  border: 2px solid var(--wrn-color-action, var(--wrn-color-border));
+  border-radius: 0.5rem;
+  background: var(--wrn-color-surface);
+  color: inherit;
+  font: inherit;
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
+}
+.events-media-directory button[aria-pressed='true'] {
+  background: var(--wrn-color-action);
+  border-color: var(--wrn-color-action);
+  color: var(--wrn-color-action-contrast);
+}
+.events-media-list {
+  display: grid;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+.events-media-list article {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid var(--wrn-color-border, #b787ff);
+  border-radius: 0.75rem;
+  min-width: 0;
+}
+.events-media-link {
+  width: max-content;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  color: inherit;
+  cursor: pointer;
+}
+.events-media-http {
+  font-size: 0.9rem;
+}
+.events-media-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.events-media-dialog {
+  max-width: min(32rem, calc(100% - 2rem));
+  color: inherit;
+  background: var(--wrn-color-surface);
+  border: 2px solid var(--wrn-color-action);
+  border-radius: 0.75rem;
+}
+.events-media-dialog::backdrop {
+  background: rgb(0 0 0 / 72%);
+}
+.events-media-dialog div {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.events-media-dialog a {
+  display: inline-grid;
+  place-items: center;
+  min-height: 44px;
+  padding: 0.55rem 0.75rem;
+  background: var(--wrn-color-action);
+  color: var(--wrn-color-action-contrast);
+  border-radius: 0.5rem;
+  font-weight: 700;
+}
+@media (forced-colors: active) {
+  .events-media-dialog::backdrop {
+    background: CanvasText;
+  }
+  .events-media-directory button,
+  .events-media-directory input,
+  .events-media-directory select,
+  .events-media-link {
+    forced-color-adjust: auto;
+    border: 2px solid CanvasText;
+  }
+}
+@media (max-width: 20rem) {
+  .events-media-filters {
+    grid-template-columns: 1fr;
+  }
+}
+.events-media-directory :focus-visible {
+  outline: 3px solid var(--wrn-color-focus);
+  outline-offset: 3px;
+}

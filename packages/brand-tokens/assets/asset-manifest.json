@@ -1,0 +1,47 @@
+{
+  "manifestVersion": "wrn-brand-assets-v1",
+  "assets": [
+    {
+      "id": "solinaridao-header-mark-filled",
+      "file": "solinaridao-header-mark-filled.png",
+      "sourceRepository": "wrn-github-app-current",
+      "sourceCommit": "2216ff3c1305f6d474712892a36dc9b0ea7cb0a0",
+      "sourcePath": "solinaridao-header-mark-filled.png",
+      "rightsStatus": "owner-attested-po-017",
+      "role": "master",
+      "allowedSurfaces": ["mobile-header", "website-header"],
+      "bytes": 1197127,
+      "sha256": "60F839B54A573173D28387DBB2DC6199B2474FC4EF6450FF4EF933108C141081",
+      "altTextRule": "Die sichtbare Textbezeichnung Solinaridao / World Revolution News bleibt immer vorhanden; das Bild selbst ist dekorativ.",
+      "editingStatus": "unmodified-original"
+    },
+    {
+      "id": "wrn-future-header-white",
+      "file": "wrn-future-header-white.png",
+      "sourceRepository": "wrn-github-app-current",
+      "sourceCommit": "2216ff3c1305f6d474712892a36dc9b0ea7cb0a0",
+      "sourcePath": "wrn-future-header-white.png",
+      "rightsStatus": "owner-attested-po-017",
+      "role": "master",
+      "allowedSurfaces": ["website-header"],
+      "bytes": 212123,
+      "sha256": "9DA0E22936304A30A55BA1483C2305C6AD6C3B1A057341AF2AB3B16FE98A5E2F",
+      "altTextRule": "Die sichtbare Textbezeichnung World Revolution News bleibt immer vorhanden; die Wortmarke ist dekorativ.",
+      "editingStatus": "unmodified-original"
+    },
+    {
+      "id": "wrn-editorial-background",
+      "file": "app-background.webp",
+      "sourceRepository": "wrn-github-app-current",
+      "sourceCommit": "2216ff3c1305f6d474712892a36dc9b0ea7cb0a0",
+      "sourcePath": "app-background.webp",
+      "rightsStatus": "owner-attested-po-017",
+      "role": "master",
+      "allowedSurfaces": ["body-recovery"],
+      "bytes": 81416,
+      "sha256": "CBA5EB9BBFB9E20D2DAD86EBC9295C5D48F04EE080087A42F7E6CA85ADEF1167",
+      "altTextRule": "Rein redaktioneller Hintergrund ohne informationshaltigen Text; kein Alt-Text erforderlich.",
+      "editingStatus": "unmodified-original"
+    }
+  ]
+}

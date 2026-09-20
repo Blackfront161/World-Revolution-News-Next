@@ -1,0 +1,103 @@
+.website-knowledge-view,
+.website-support-view {
+  max-width: 76rem;
+  margin: 0 auto;
+}
+.website-content-tabs,
+.website-content-filters,
+.website-safe-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: end;
+}
+.website-content-tabs button[aria-pressed='true'],
+.website-content-list button[aria-pressed='true'] {
+  background: var(--red);
+  color: var(--on-accent, #fff);
+}
+.website-content-filters {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  margin: 1rem 0;
+}
+.website-content-filters label {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 10rem;
+  flex: 1;
+}
+.website-content-filters input,
+.website-content-filters select,
+.website-source-list a {
+  min-height: 44px;
+}
+.website-knowledge-view button,
+.website-support-view button,
+.website-knowledge-view a,
+.website-support-view a {
+  min-height: 44px;
+  min-width: 44px;
+}
+.website-knowledge-view a,
+.website-support-view a {
+  align-items: center;
+  display: inline-flex;
+}
+.website-content-filters input,
+.website-content-filters select {
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  width: 100%;
+}
+.website-source-list a {
+  display: inline-flex;
+  align-items: center;
+}
+.website-source-list,
+.website-source-list li,
+.website-source-list details {
+  min-width: 0;
+}
+.website-source-list li,
+.website-source-list details a {
+  overflow-wrap: anywhere;
+}
+.website-content-list,
+.website-source-list {
+  display: grid;
+  gap: 1rem;
+  padding-left: 1.5rem;
+}
+.website-content-list li,
+.website-source-list li {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1rem;
+}
+.website-safe-links a,
+.website-safe-links button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.website-lexicon-layout {
+  display: grid;
+  grid-template-columns: minmax(14rem, 1fr) minmax(0, 2fr);
+  gap: 1rem;
+}
+.website-lexicon-layout article {
+  border: 1px solid var(--line);
+  padding: 1rem;
+}
+@media (max-width: 42rem) {
+  .website-lexicon-layout {
+    grid-template-columns: 1fr;
+  }
+  .website-content-filters {
+    align-items: stretch;
+  }
+  .website-content-filters label {
+    min-width: 100%;
+  }
+}

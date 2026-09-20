@@ -1,0 +1,20 @@
+{
+  "out": "C:\\Users\\patri\\Documents\\ChatGPT\\Sauberes Wo Rev Ne\\docs\\evidence\\WRN-LEGACY-NEWS-UPDATE-2026-09-14\\work\\candidate-1789338058701",
+  "id": "wrn-art-c6c6c2fd56d7a3965b4da062d0f73981",
+  "articles": 7,
+  "retainedArticles": 6,
+  "retainedImages": 4,
+  "paragraphs": 20,
+  "originalLanguage": "it",
+  "sourceSnapshotSha256": "8536dac362100173b2c613bb418be08fe81d00387441abda4a0cdf6c360de54f",
+  "apiSnapshotSha256": "3ccb55f4d3170aefb95a48906a0a31d2e97848bc7736b68452acd37ae54e6f1d",
+  "previousInputSha256": "d61e33e15f4dda44e1774bbbae8324588e5b8d1e116309cc0d465425450dd8b9",
+  "checkedAt": "2026-09-13T22:20:58.643Z",
+  "build": {
+    "outputPath": "C:\\Users\\patri\\Documents\\ChatGPT\\Sauberes Wo Rev Ne\\docs\\evidence\\WRN-LEGACY-NEWS-UPDATE-2026-09-14\\work\\candidate-1789338058701\\release",
+    "releaseRevision": "wrn-production-news-2026-09-14-v4",
+    "sequence": 4,
+    "descriptorSha256": "0fc717af52471b711fd8c585adef398032d8acf74ce6de14d4650357cf6c90c8"
+  },
+  "publicationPerformed": false
+}

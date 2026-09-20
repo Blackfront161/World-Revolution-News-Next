@@ -1,0 +1,70 @@
+{
+  "schema": "wrn.production-regional-events.v1",
+  "revision": 1,
+  "generatedAt": "2026-09-12T12:59:39.000Z",
+  "validUntil": "2026-09-19T00:00:00.000Z",
+  "rights": "metadata-references-only",
+  "reviewReference": "wrn-current-regional-review-2026-09-12",
+  "continents": [
+    { "id": "continent-europe", "name": "Europe" },
+    { "id": "continent-north-america", "name": "North America" },
+    { "id": "continent-south-america", "name": "South America" }
+  ],
+  "countries": [
+    { "id": "country-gb", "continentId": "continent-europe", "code": "GB", "name": "United Kingdom" },
+    { "id": "country-us", "continentId": "continent-north-america", "code": "US", "name": "United States" },
+    { "id": "country-cl", "continentId": "continent-south-america", "code": "CL", "name": "Chile" },
+    { "id": "country-br", "continentId": "continent-south-america", "code": "BR", "name": "Brazil" }
+  ],
+  "regions": [
+    { "id": "region-london", "countryId": "country-gb", "name": "London" },
+    { "id": "region-greater-manchester", "countryId": "country-gb", "name": "Greater Manchester" },
+    { "id": "region-new-york", "countryId": "country-us", "name": "New York" },
+    { "id": "region-santiago", "countryId": "country-cl", "name": "Santiago" },
+    { "id": "region-sao-paulo", "countryId": "country-br", "name": "São Paulo" }
+  ],
+  "sources": [
+    { "id": "source-nyc-bookfair", "name": "NYC Anarchist Book Fair", "language": "en", "url": "https://anarchistbookfair.net/", "kind": "organizer", "checkedOn": "2026-09-12" },
+    { "id": "source-oxford-house", "name": "Oxford House", "language": "en", "url": "https://www.oxfordhouse.org.uk/event/2026-london-anarchist-bookfair-2/", "kind": "venue", "checkedOn": "2026-09-12" },
+    { "id": "source-manchester-bookfair", "name": "Manchester & Salford Anarchist Bookfair", "language": "en", "url": "https://bookfair.org.uk/", "kind": "organizer", "checkedOn": "2026-09-12" },
+    { "id": "source-la-zarzamora", "name": "La Zarzamora", "language": "es", "url": "https://lazarzamora.cl/invitacion-al-8vo-encuentro-del-libro-y-la-propaganda-anarquista-de-santiago-2026/", "kind": "attributed-announcement", "checkedOn": "2026-09-12" },
+    { "id": "source-noticias-anarquistas", "name": "Agência de Notícias Anarquistas", "language": "pt", "url": "https://noticiasanarquistas.noblogs.org/post/2026/06/19/iniciamos-os-trabalhos-de-divulgacao-da-xvi-feira-anarquista-de-sao-paulo/", "kind": "attributed-announcement", "checkedOn": "2026-09-11" }
+  ],
+  "events": [
+    {
+      "id": "event-nyc-anarchist-bookfair-2026",
+      "regionId": "region-new-york", "sourceId": "source-nyc-bookfair",
+      "title": "NYC Anarchist Book Fair 2026", "language": "en",
+      "venue": "La Plaza Community Garden – Garden Circle", "originalUrl": "https://anarchistbookfair.net/", "status": "scheduled",
+      "schedule": { "precision": "day", "startDate": "2026-09-26", "endDate": "2026-09-26", "timeZone": "America/New_York" }
+    },
+    {
+      "id": "event-london-anarchist-bookfair-2026",
+      "regionId": "region-london", "sourceId": "source-oxford-house",
+      "title": "London Anarchist Bookfair 2026", "language": "en",
+      "venue": "Rich Mix, Oxford House, Freedom Bookshop, House of Annetta, Common Press, People's Letters", "originalUrl": "https://www.oxfordhouse.org.uk/event/2026-london-anarchist-bookfair-2/", "status": "scheduled",
+      "schedule": { "precision": "minute", "startAt": "2026-09-26T09:00:00.000Z", "endAt": "2026-09-26T17:00:00.000Z", "timeZone": "Europe/London" }
+    },
+    {
+      "id": "event-manchester-salford-anarchist-bookfair-2026",
+      "regionId": "region-greater-manchester", "sourceId": "source-manchester-bookfair",
+      "title": "Manchester & Salford Anarchist Bookfair 2026", "language": "en",
+      "venue": "People's History Museum", "originalUrl": "https://bookfair.org.uk/", "status": "scheduled",
+      "schedule": { "precision": "minute", "startAt": "2026-10-31T10:00:00.000Z", "endAt": "2026-10-31T16:00:00.000Z", "timeZone": "Europe/London" }
+    },
+    {
+      "id": "event-santiago-encuentro-libro-anarquista-2026",
+      "regionId": "region-santiago", "sourceId": "source-la-zarzamora",
+      "title": "8vo Encuentro del Libro y la Propaganda Anarquista de Santiago", "language": "es",
+      "venue": null, "originalUrl": "https://lazarzamora.cl/invitacion-al-8vo-encuentro-del-libro-y-la-propaganda-anarquista-de-santiago-2026/", "status": "scheduled",
+      "schedule": { "precision": "day", "startDate": "2026-11-07", "endDate": "2026-11-08", "timeZone": "America/Santiago" }
+    },
+    {
+      "id": "event-sao-paulo-feira-anarquista-2026",
+      "regionId": "region-sao-paulo", "sourceId": "source-noticias-anarquistas",
+      "title": "XVI Feira Anarquista de São Paulo", "language": "pt",
+      "venue": "ARCO Escola-Cooperativa, Rua Corinto 652, Butantã", "originalUrl": "https://noticiasanarquistas.noblogs.org/post/2026/06/19/iniciamos-os-trabalhos-de-divulgacao-da-xvi-feira-anarquista-de-sao-paulo/", "status": "scheduled",
+      "schedule": { "precision": "minute", "startAt": "2026-12-12T13:00:00.000Z", "endAt": "2026-12-12T22:00:00.000Z", "timeZone": "America/Sao_Paulo" }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Native compact WRN star. The original header artwork is unchanged. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <path android:pathData="M54,22 A32,32 0,1 0,54,86 A32,32 0,1 0,54,22"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/wrn_native_ink" android:strokeWidth="1.6" />
+    <path android:pathData="M26.3,38 A32,32 0,0 1,38,26.3"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/wrn_native_violet" android:strokeWidth="2"
+        android:strokeLineCap="round" />
+    <path android:pathData="M70,81.7 A32,32 0,0 0,81.7,70"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/wrn_native_red" android:strokeWidth="2"
+        android:strokeLineCap="round" />
+    <path android:pathData="M54,28 L60.35,45.26 L78.73,45.97 L64.28,57.34 L69.28,75.03 L54,64.8 L38.72,75.03 L43.72,57.34 L29.27,45.97 L47.65,45.26 Z"
+        android:fillColor="@color/wrn_native_ink" />
+    <group>
+        <clip-path android:pathData="M54,0 H108 V108 H54 Z" />
+        <path android:pathData="M54,28 L60.35,45.26 L78.73,45.97 L64.28,57.34 L69.28,75.03 L54,64.8 L38.72,75.03 L43.72,57.34 L29.27,45.97 L47.65,45.26 Z"
+            android:fillColor="@color/wrn_native_red" />
+    </group>
+    <path android:pathData="M54,28 L60.35,45.26 L78.73,45.97 L64.28,57.34 L69.28,75.03 L54,64.8 L38.72,75.03 L43.72,57.34 L29.27,45.97 L47.65,45.26 Z"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/wrn_native_ink" android:strokeWidth="1.6"
+        android:strokeLineJoin="round" />
+</vector>

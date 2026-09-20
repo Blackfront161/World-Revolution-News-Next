@@ -1,0 +1,58 @@
+{
+  "schema": "wrn.mobile-media-admission.v1",
+  "contractVersion": "1.0.0",
+  "releaseId": "wrn-media-release-local",
+  "revision": 1,
+  "generatedAt": "2026-09-01T00:00:00.000Z",
+  "validUntil": "2026-09-02T00:00:00.000Z",
+  "owner": "wrn-local",
+  "sources": [
+    {
+      "id": "wrn-media-source-local",
+      "displayName": {
+        "en": "WRN local fixture",
+        "de": "WRN lokale Fixture",
+        "es": "Fixture local WRN",
+        "fr": "Fixture locale WRN",
+        "it": "Fixture locale WRN",
+        "pt": "Fixture local WRN",
+        "ru": "Локальная фикстура WRN",
+        "el": "Τοπική δοκιμή WRN",
+        "tr": "WRN yerel test içeriği"
+      },
+      "selfDescription": {
+        "en": "Self-authored local fixture",
+        "de": "Selbst erstellte lokale Fixture",
+        "es": "Fixture local creada internamente",
+        "fr": "Fixture locale créée en interne",
+        "it": "Fixture locale creata internamente",
+        "pt": "Fixture local criada internamente",
+        "ru": "Самостоятельно созданная локальная фикстура",
+        "el": "Τοπική δοκιμαστική εγγραφή",
+        "tr": "Yerel olarak oluşturulan test içeriği"
+      },
+      "editorialDescription": {
+        "en": "Safe local contract fixture",
+        "de": "Sichere lokale Vertragsfixture",
+        "es": "Fixture contractual local segura",
+        "fr": "Fixture contractuelle locale sûre",
+        "it": "Fixture contrattuale locale sicura",
+        "pt": "Fixture contratual local segura",
+        "ru": "Безопасная локальная контрактная фикстура",
+        "el": "Ασφαλής τοπική δοκιμή σύμβασης",
+        "tr": "Güvenli yerel sözleşme testi"
+      },
+      "language": "en",
+      "region": "global",
+      "healthAt": "2026-09-01T00:00:00.000Z",
+      "healthStatus": "ok",
+      "deliveryClass": "admitted-local-fixture",
+      "admissionRevision": 1,
+      "validFrom": "2026-09-01T00:00:00.000Z",
+      "validUntil": "2026-09-02T00:00:00.000Z",
+      "owner": "wrn-local",
+      "correctionContact": "WRN local correction contact"
+    }
+  ],
+  "identityLinks": []
+}

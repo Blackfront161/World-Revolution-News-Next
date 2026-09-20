@@ -1,0 +1,31 @@
+{
+  "contractVersion": "1.0.0",
+  "schema": "wrn.local-content-release-descriptor.v1",
+  "releaseRevision": "wrn-g3-012-local-content-release-v1-d8ff4f1",
+  "expectedManifest": {
+    "revision": "wrn-g3-007-local-publication-source-v1-d8ff4f1",
+    "sha256": "261c9a5e2b7a5aa9b494fedc9ab03a413bfed666d5f9063507432468a19971eb"
+  },
+  "expectedComponents": {
+    "discoverIndex": {
+      "revision": "wrn-g3-005-local-discover-index-v1",
+      "sha256": "02cb6d5042048ebb3fc41bb9141b2251bbfd5c59a59f29554725839e1573975b"
+    },
+    "readerDetails": {
+      "revision": "wrn-g3-006-local-reader-details-v2-long-cedar",
+      "sha256": "83c8c6771af9c1e1edec91db85ff1fa4b951cb8f5a24ed4853b285d18a5d8f41"
+    },
+    "archiveLifecycle": {
+      "revision": "wrn-g3-012-local-release-lifecycle-v1-d8ff4f1",
+      "sha256": "475d747ecb47488a54c67d82162b70c3c68d1d2374259087458a97f179ae0e7a"
+    },
+    "websitePublication": {
+      "revision": "wrn-g3-007-local-website-publication-v1-d8ff4f1",
+      "sha256": "505b9f94965cad3ea7d977f9d22574da744e1fbd85522b04da8d3badabec0fc6"
+    }
+  },
+  "compatibility": {
+    "minManifestContractVersion": "1.0.0",
+    "maxManifestContractVersion": "1.0.0"
+  }
+}

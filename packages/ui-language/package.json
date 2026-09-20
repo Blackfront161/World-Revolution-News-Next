@@ -1,0 +1,52 @@
+{
+  "name": "@wrn/ui-language",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./sport-sources": {
+      "types": "./src/sport-sources.ts",
+      "default": "./src/sport-sources.ts"
+    },
+    "./production-regional": {
+      "types": "./src/production-regional.ts",
+      "default": "./src/production-regional.ts"
+    },
+    "./production-translation": {
+      "types": "./src/production-translation.ts",
+      "default": "./src/production-translation.ts"
+    },
+    "./source-preferences": {
+      "types": "./src/source-preferences.ts",
+      "default": "./src/source-preferences.ts"
+    },
+    "./events-media": {
+      "types": "./src/events-media.ts",
+      "default": "./src/events-media.ts"
+    },
+    "./production-content": {
+      "types": "./src/production-content.ts",
+      "default": "./src/production-content.ts"
+    },
+    "./production-home": {
+      "types": "./src/production-home.ts",
+      "default": "./src/production-home.ts"
+    },
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./support": {
+      "types": "./src/support-copy.ts",
+      "default": "./src/support-copy.ts"
+    },
+    "./directory": {
+      "types": "./src/directory-copy.ts",
+      "default": "./src/directory-copy.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test:unit": "vitest run"
+  }
+}

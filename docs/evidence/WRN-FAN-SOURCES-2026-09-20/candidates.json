@@ -1,0 +1,207 @@
+{
+  "schema": "wrn-fan-source-candidates.v1",
+  "checkedAt": "2026-09-20T09:12:56.363Z",
+  "scope": "Official self-descriptions only; candidate research, not admission or product promotion.",
+  "languagesCovered": ["de", "en", "es", "fr", "it", "pt"],
+  "languageGaps": ["el", "ru", "tr"],
+  "candidates": [
+    {
+      "id": "roter-stern-leipzig",
+      "name": "Roter Stern Leipzig '99 e.V.",
+      "url": "https://rotersternleipzig.de/rsl-selbstverstaendnis-rsl-thesen/",
+      "language": "de",
+      "type": "self-organised sports club / fan culture",
+      "focus": ["explicit antifascism", "hierarchy-free and grassroots democracy", "anti-racism", "anti-sexism", "anti-homophobia"],
+      "selfDescriptionEvidence": "The club calls itself an antifascist sports project, organised self-determined, hierarchy-free and grassroots-democratically, and rejects racism, sexism, antisemitism and homophobia.",
+      "officialFeed": null,
+      "politicalClaimLevel": "explicit"
+    },
+    {
+      "id": "fc-st-pauli-fanclubs",
+      "name": "FC St. Pauli fan clubs / Fanclubsprecherrat",
+      "url": "https://leichtesprache.fcstpauli.com/de-de/werte",
+      "language": "de",
+      "type": "club fan-club network",
+      "focus": ["anti-racism", "anti-sexism", "anti-homophobia", "anti-discrimination"],
+      "selfDescriptionEvidence": "The official fan-club values page says fan clubs oppose discrimination, racism, sexism, homophobia and hooliganism.",
+      "officialFeed": null,
+      "politicalClaimLevel": "anti-discrimination; no anarchist label"
+    },
+    {
+      "id": "f-in",
+      "name": "F_in Netzwerk Frauen im Fußball",
+      "url": "https://www.f-in.org/",
+      "language": "de",
+      "type": "women fans and football network",
+      "focus": ["women fans", "fan-project work", "research", "journalism"],
+      "selfDescriptionEvidence": "The official site describes F_in as an international association of women fans, fan-project staff, researchers and journalists, founded in 2004.",
+      "officialFeed": null,
+      "politicalClaimLevel": "gender-focused; political orientation not inferred"
+    },
+    {
+      "id": "queer-football-fanclubs",
+      "name": "Queer Football Fanclubs",
+      "url": "https://queerfootballfanclubs.org/ueber-uns",
+      "language": "de",
+      "type": "queer fan network",
+      "focus": ["queer supporters", "anti-discrimination", "football fan culture"],
+      "selfDescriptionEvidence": "The official about page presents the network as a football fan-club association working against discrimination and for queer visibility.",
+      "officialFeed": null,
+      "politicalClaimLevel": "anti-discrimination; no anarchist label"
+    },
+    {
+      "id": "alerta-network",
+      "name": "Alerta Network",
+      "url": "https://alertanetwork.org/manifesto/",
+      "language": "en",
+      "type": "international football-fan network",
+      "focus": ["explicit antifascism", "anti-racism", "anti-sexism", "anti-homophobia", "ultras solidarity"],
+      "selfDescriptionEvidence": "Its manifesto calls Alerta an antifascist network sparked by football fans and describes antifascist sports fans, ultras and fan groups acting together.",
+      "officialFeed": null,
+      "politicalClaimLevel": "explicit"
+    },
+    {
+      "id": "rebel-ultras",
+      "name": "Rebel Ultras",
+      "url": "https://rebelultras.com/the-network/",
+      "language": "en",
+      "type": "international ultras network",
+      "focus": ["antifascism", "anti-racism", "solidarity", "opposition to commercialised football"],
+      "selfDescriptionEvidence": "The network page says Rebel Ultras gathers Antifa ultras across continents and sports and names antifascism, antiracism and resistance to modern football as its values.",
+      "officialFeed": null,
+      "politicalClaimLevel": "explicit"
+    },
+    {
+      "id": "football-supporters-europe",
+      "name": "Football Supporters Europe",
+      "url": "https://www.fanseurope.org/about-fse/",
+      "language": "en",
+      "type": "European supporters association",
+      "focus": ["supporter rights", "collective action", "solidarity", "democracy", "fan ownership", "anti-discrimination"],
+      "selfDescriptionEvidence": "FSE describes itself as an independent, non-profit members' association and democratic voice for supporters, with collective action, solidarity and democracy as core principles.",
+      "officialFeed": null,
+      "politicalClaimLevel": "democratic/solidarity; no anarchist label"
+    },
+    {
+      "id": "football-v-homophobia",
+      "name": "Football v Homophobia",
+      "url": "https://www.footballvhomophobia.com/",
+      "language": "en",
+      "type": "international football campaign and fan network",
+      "focus": ["anti-homophobia", "anti-transphobia", "LGBTIQ+ inclusion", "fan-group participation"],
+      "selfDescriptionEvidence": "FvH calls itself a year-round international initiative challenging discrimination based on sexual orientation, gender identity and expression at all levels of football.",
+      "officialFeed": null,
+      "politicalClaimLevel": "anti-discrimination; no anarchist label"
+    },
+    {
+      "id": "kick-it-out",
+      "name": "Kick It Out",
+      "url": "https://www.kickitout.org/about-us",
+      "language": "en",
+      "type": "football equality organisation with fan programmes",
+      "focus": ["anti-racism", "equality", "inclusion", "fan education", "reporting discrimination"],
+      "selfDescriptionEvidence": "Kick It Out says it was founded to fight racism, expanded to all forms of discrimination, and now runs education and campaigns with fans and communities.",
+      "officialFeed": null,
+      "politicalClaimLevel": "anti-discrimination; no anarchist label"
+    },
+    {
+      "id": "clapton-community-fc",
+      "name": "Clapton Community FC",
+      "url": "https://www.claptoncfc.co.uk/about-clapton-community-fc/",
+      "language": "en",
+      "type": "fan-owned community football club",
+      "focus": ["explicit antifascism", "anti-sexism", "anti-racism", "anti-homophobia", "anti-transphobia", "egalitarian ownership"],
+      "selfDescriptionEvidence": "The club describes itself as fan-owned and states: always anti-fascist, anti-sexist, anti-racist, anti-homophobe and anti-transphobe.",
+      "officialFeed": null,
+      "politicalClaimLevel": "explicit"
+    },
+    {
+      "id": "fc-united-manchester",
+      "name": "FC United of Manchester",
+      "url": "https://fc-utd.co.uk/",
+      "language": "en",
+      "type": "supporter-owned football club",
+      "focus": ["one-member-one-vote", "community ownership", "affordable access", "inclusion"],
+      "selfDescriptionEvidence": "The official club describes FC United as supporter-owned and community-focused, with democratic ownership and accessible football as core principles.",
+      "officialFeed": null,
+      "politicalClaimLevel": "anti-commercial/community; no anarchist label"
+    },
+    {
+      "id": "bukaneros",
+      "name": "Bukaneros",
+      "url": "https://bukaneros.org/",
+      "language": "es",
+      "type": "Rayo Vallecano supporters collective",
+      "focus": ["explicit anti-racism", "explicit anti-fascism", "neighbourhood solidarity", "anti-repression"],
+      "selfDescriptionEvidence": "The collective describes its history as defending its team, neighbourhood and way of understanding football as clean of racism and fascism; its official posts also document antifascist and neighbourhood organising.",
+      "officialFeed": null,
+      "politicalClaimLevel": "explicit"
+    },
+    {
+      "id": "uisp-progetto-ultra",
+      "name": "Progetto Ultrà (UISP)",
+      "url": "https://www.uisp.it/milano/pagina/progetto-ultr",
+      "language": "it",
+      "type": "supporters social project",
+      "focus": ["popular fan culture", "anti-racism", "anti-xenophobia", "social work with fans", "fan embassies"],
+      "selfDescriptionEvidence": "UISP says Progetto Ultrà defends popular supporter culture and limits violence and intolerance through social work carried out with supporters.",
+      "officialFeed": null,
+      "politicalClaimLevel": "social/anti-discrimination; no anarchist label"
+    },
+    {
+      "id": "mondiali-antirazzisti",
+      "name": "Mondiali Antirazzisti",
+      "url": "https://www.uisp.it/firenze/pagina/mondiali-antirazzisti-uisp-firenze-2026",
+      "language": "it",
+      "type": "anti-racist football and sport event network",
+      "focus": ["anti-racism", "anti-discrimination", "mixed teams", "migrant and fan participation"],
+      "selfDescriptionEvidence": "UISP describes the event as combining sport, culture, sociality and civic engagement against racism, prejudice and discrimination, with participation across cultures.",
+      "officialFeed": null,
+      "politicalClaimLevel": "anti-discrimination; no anarchist label"
+    },
+    {
+      "id": "association-nationale-supporters",
+      "name": "Association Nationale des Supporters",
+      "url": "https://www.association-nationale-supporters.fr/qui-sommes-nous/",
+      "language": "fr",
+      "type": "French supporters association",
+      "focus": ["supporter representation", "collective organisation", "supporter rights"],
+      "selfDescriptionEvidence": "ANS says it federates French football supporters' associations and represents supporters in dialogue with football bodies and public authorities.",
+      "officialFeed": null,
+      "politicalClaimLevel": "rights/representation; no anarchist label"
+    },
+    {
+      "id": "irresistibles-francais",
+      "name": "Irrésistibles Français",
+      "url": "https://irresistiblesfrancais.fr/",
+      "language": "fr",
+      "type": "official France supporters association",
+      "focus": ["supporter solidarity", "collective participation", "supporter football"],
+      "selfDescriptionEvidence": "The organisation describes itself as an official association of France-team supporters recognised by the FFF, centred on collective life and solidarity.",
+      "officialFeed": null,
+      "politicalClaimLevel": "solidarity; no left/anarchist claim"
+    },
+    {
+      "id": "gara-portugal",
+      "name": "GARA – Grupo de Ação Revolucionária Antifascista",
+      "url": "https://gara.pt/",
+      "language": "pt",
+      "type": "antifascist political collective with sport-adjacent relevance",
+      "focus": ["explicit antifascism", "anti-exploitation", "anti-discrimination", "local chapters"],
+      "selfDescriptionEvidence": "GARA describes itself as a revolutionary antifascist collective operating across Portugal against exploitation, discrimination and far-right ideologies.",
+      "officialFeed": null,
+      "politicalClaimLevel": "explicit; not a fan group, keep as adjacent candidate"
+    },
+    {
+      "id": "fare-network",
+      "name": "Football Against Racism in Europe (FARE)",
+      "url": "https://www.farenet.org/",
+      "language": "en",
+      "type": "international football anti-discrimination network",
+      "focus": ["anti-racism", "anti-discrimination", "fan and community projects"],
+      "selfDescriptionEvidence": "FARE presents itself as a network working against inequality and discrimination in football with partners across Europe and beyond.",
+      "officialFeed": null,
+      "politicalClaimLevel": "anti-discrimination; no anarchist label"
+    }
+  ]
+}

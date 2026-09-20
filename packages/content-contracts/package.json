@@ -1,0 +1,72 @@
+{
+  "name": "@wrn/content-contracts",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./production-regional-events-v1": {
+      "types": "./src/directory/production-regional-events-v1.ts",
+      "default": "./src/directory/production-regional-events-v1.ts"
+    },
+    "./production-media-offline-v1": {
+      "types": "./src/production-media-offline-v1.ts",
+      "default": "./src/production-media-offline-v1.ts"
+    },
+    "./video-sources-v1": {
+      "types": "./src/video-sources-v1.ts",
+      "default": "./src/video-sources-v1.ts"
+    },
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./production-content-release-v1": {
+      "types": "./src/production-content-release-v1.ts",
+      "default": "./src/production-content-release-v1.ts"
+    },
+    "./production-content-release-v3": {
+      "types": "./src/production-content-release-v3.ts",
+      "default": "./src/production-content-release-v3.ts"
+    },
+    "./production-media-v1": {
+      "types": "./src/production-media-v1.ts",
+      "default": "./src/production-media-v1.ts"
+    },
+    "./production-content-offline-v1": {
+      "types": "./src/production-content-offline-v1.ts",
+      "default": "./src/production-content-offline-v1.ts"
+    },
+    "./mobile-reader-v2": {
+      "types": "./src/mobile-reader-v2.ts",
+      "default": "./src/mobile-reader-v2.ts"
+    },
+    "./mobile-regional-events-v1": {
+      "types": "./src/mobile-regional-events-v1.ts",
+      "default": "./src/mobile-regional-events-v1.ts"
+    },
+    "./mobile-media-v1": {
+      "types": "./src/mobile-media-v1.ts",
+      "default": "./src/mobile-media-v1.ts"
+    },
+    "./mobile-knowledge-v1": {
+      "types": "./src/mobile-knowledge-v1.ts",
+      "default": "./src/mobile-knowledge-v1.ts"
+    },
+    "./mobile-support-v1": {
+      "types": "./src/support/mobile-support-v1.ts",
+      "default": "./src/support/mobile-support-v1.ts"
+    },
+    "./mobile-content-directory-v1": {
+      "types": "./src/directory/mobile-content-directory-v1.ts",
+      "default": "./src/directory/mobile-content-directory-v1.ts"
+    },
+    "./production-events-media-v1": {
+      "types": "./src/directory/production-events-media-v1.ts",
+      "default": "./src/directory/production-events-media-v1.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test:unit": "vitest run"
+  }
+}

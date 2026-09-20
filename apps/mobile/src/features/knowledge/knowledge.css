@@ -1,0 +1,71 @@
+.knowledge-view {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.knowledge-panel,
+.lexicon-detail {
+  min-width: 0;
+}
+.knowledge-view button,
+.knowledge-view input,
+.knowledge-view select,
+.knowledge-view a {
+  min-height: 44px;
+  max-width: 100%;
+}
+.knowledge-view a {
+  display: inline-flex;
+  align-items: center;
+  min-width: 44px;
+}
+.knowledge-view input,
+.knowledge-view select {
+  width: 100%;
+  min-width: 0;
+}
+.knowledge-tabs,
+.knowledge-filters,
+.knowledge-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: end;
+}
+.knowledge-filters label {
+  display: grid;
+  gap: 0.3rem;
+  flex: 1 1 10rem;
+}
+.knowledge-list,
+.knowledge-sources {
+  display: grid;
+  gap: 0.7rem;
+  padding-left: 1.3rem;
+}
+.knowledge-list li,
+.knowledge-sources li,
+.lexicon-detail {
+  border: 1px solid var(--chrome-strong);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+.knowledge-list h3,
+.lexicon-detail h3 {
+  margin-top: 0;
+}
+.knowledge-term-button {
+  width: 100%;
+  text-align: left;
+}
+.lexicon-layout {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(12rem, 1fr) minmax(0, 2fr);
+}
+@media (max-width: 600px) {
+  .lexicon-layout {
+    grid-template-columns: 1fr;
+  }
+}

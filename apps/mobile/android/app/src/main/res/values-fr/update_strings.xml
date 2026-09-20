@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="update_ready_title">Mise à jour prête</string>
+    <string name="update_ready_message">La mise à jour a été téléchargée. Enregistre tes brouillons avant de continuer. Redémarrer World Revolution News pour l’installer ?</string>
+    <string name="update_restart_action">Redémarrer</string>
+    <string name="update_later_action">Plus tard</string>
+    <string name="update_install_failed">La mise à jour n’a pas pu être installée. Réessaie plus tard.</string>
+</resources>

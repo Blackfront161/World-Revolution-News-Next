@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="update_ready_title">Atualização pronta</string>
+    <string name="update_ready_message">A atualização foi transferida. Guarda primeiro os rascunhos. Reiniciar o World Revolution News para a instalar?</string>
+    <string name="update_restart_action">Reiniciar</string>
+    <string name="update_later_action">Mais tarde</string>
+    <string name="update_install_failed">Não foi possível instalar a atualização. Tenta novamente mais tarde.</string>
+</resources>

@@ -1,0 +1,26 @@
+{
+  "contractVersion": "1.0.0",
+  "schema": "wrn.local-discover-index.v1",
+  "revision": "wrn-g3-005-local-discover-index-v1",
+  "entries": [
+    {
+      "articleId": "wrn-test-art-cedar",
+      "region": "Europa",
+      "topics": ["Leseliste", "Lokales"],
+      "format": "news"
+    },
+    {
+      "articleId": "wrn-test-art-ember",
+      "region": "Nordamerika",
+      "topics": ["Medien", "Technologie"],
+      "format": "analysis"
+    },
+    {
+      "articleId": "wrn-test-art-fern",
+      "region": "Lateinamerika",
+      "topics": ["Basisarbeit", "Lokales"],
+      "format": "commentary"
+    }
+  ],
+  "integritySha256": "220c1b25a40be4bc925f79f327cc0dd48e4e9b0d6019a399f60b5509f58b11ea"
+}

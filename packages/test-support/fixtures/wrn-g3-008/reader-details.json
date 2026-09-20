@@ -1,0 +1,31 @@
+{
+  "contractVersion": "1.0.0",
+  "schema": "wrn.local-reader-details.v1",
+  "revision": "wrn-g3-008-local-reader-details-v1",
+  "entries": [
+    {
+      "articleId": "wrn-test-art-g3-008-active",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "This self-authored active article exists only to verify local lifecycle resolution."
+        }
+      ]
+    },
+    {
+      "articleId": "wrn-test-art-g3-008-historical",
+      "blocks": [
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Historical local fixture"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This self-authored historical article remains readable after leaving the active local feed."
+        }
+      ]
+    }
+  ],
+  "integritySha256": "edc4031b3a14009155a5b4cbc828f5631f93d8a7a6cd6e4bc69db8f7ad546619"
+}

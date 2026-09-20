@@ -1,0 +1,134 @@
+/* G3-017: explicit, local-only personalization. The compact controls are
+ * deliberately ordinary checkboxes, never behaviour-derived suggestions. */
+.personalization-view,
+.personalization-groups,
+.personalization-group,
+.personalization-options,
+.personalization-results,
+.personalization-actions {
+  display: grid;
+  gap: var(--wrn-space-2);
+  min-width: 0;
+}
+.personalization-view {
+  max-width: 46rem;
+  padding: var(--wrn-space-3) 0;
+}
+.personalization-view h1,
+.personalization-view h2,
+.personalization-view h3,
+.personalization-view p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.personalization-intro,
+.personalization-privacy {
+  color: var(--wrn-color-muted);
+  line-height: 1.5;
+}
+.personalization-privacy {
+  padding: var(--wrn-space-2);
+  border-inline-start: 0.35rem solid var(--wrn-color-accent);
+  background: var(--wrn-color-surface-raised);
+}
+.personalization-status {
+  padding: var(--wrn-space-2);
+  border: 1px solid var(--wrn-color-border);
+  border-radius: var(--wrn-radius);
+  background: var(--wrn-color-surface);
+}
+.personalization-group {
+  padding: var(--wrn-space-2);
+  border: 1px solid var(--wrn-color-border);
+  border-radius: var(--wrn-radius);
+  background: var(--wrn-color-surface);
+}
+.personalization-group legend {
+  padding-inline: var(--wrn-space-1);
+  color: var(--wrn-color-text);
+  font-weight: 800;
+}
+.personalization-options {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+}
+.personalization-option {
+  display: flex;
+  align-items: center;
+  gap: var(--wrn-space-2);
+  min-height: var(--wrn-control-min-size);
+  padding: var(--wrn-space-1) var(--wrn-space-2);
+  border: 1px solid var(--wrn-color-border);
+  border-radius: var(--wrn-radius);
+  color: var(--wrn-color-text);
+  background: var(--wrn-color-surface-raised);
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.personalization-option input {
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  flex: 0 0 auto;
+  accent-color: var(--wrn-color-accent);
+}
+.personalization-option:has(input:focus-visible),
+.personalization-actions button:focus-visible {
+  outline: 0.2rem solid var(--wrn-color-accent);
+  outline-offset: 0.15rem;
+}
+.personalization-actions {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+}
+.personalization-actions button {
+  min-height: var(--wrn-control-min-size);
+  padding: var(--wrn-space-1) var(--wrn-space-2);
+  border: 1px solid var(--wrn-color-border);
+  border-radius: var(--wrn-radius);
+  color: var(--wrn-color-text);
+  background: var(--wrn-color-surface-raised);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.personalization-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.personalization-results {
+  padding-top: var(--wrn-space-2);
+  border-top: 1px solid var(--wrn-color-border);
+}
+@media (max-width: 28rem) {
+  .personalization-options,
+  .personalization-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.personalization-dialog {
+  box-sizing: border-box;
+  width: min(34rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  padding: var(--wrn-space-3);
+  overflow: auto;
+  overflow-wrap: anywhere;
+  border: 2px solid var(--wrn-color-action);
+  border-radius: var(--wrn-radius);
+  background: var(--wrn-color-surface);
+  color: var(--wrn-color-text);
+}
+.personalization-dialog::backdrop {
+  background: rgb(0 0 0 / 72%);
+}
+.personalization-dialog .personalization-actions button {
+  border-color: var(--wrn-color-action);
+}
+.personalization-dialog :focus-visible {
+  outline: 3px solid var(--wrn-color-focus);
+  outline-offset: 3px;
+}
+@media (forced-colors: active) {
+  .personalization-dialog {
+    border-color: CanvasText;
+  }
+}

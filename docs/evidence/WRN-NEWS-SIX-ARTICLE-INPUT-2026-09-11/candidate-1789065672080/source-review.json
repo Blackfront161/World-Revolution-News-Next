@@ -1,0 +1,104 @@
+{
+  "kind": "local-reviewed-input-not-published",
+  "feedCommit": "4e8b0e783f39d3e97b64209e9ccfcfe8a39398bb",
+  "newsBlob": "4afaf42d46bb7e04a18e44c673d20e7399da045d",
+  "oldRecordsUnchanged": true,
+  "readerTextProjections": [
+    {
+      "originalUrl": "https://c4ss.org/content/61296",
+      "blockIndex": 17,
+      "sourceToken": "https://keepitfree.ai/",
+      "readerToken": "keepitfree.ai"
+    }
+  ],
+  "records": [
+    {
+      "name": "eff-awards",
+      "articleId": "wrn-art-f2ad391804423c87773b3351eb79c802",
+      "originalUrl": "https://www.eff.org/deeplinks/2026/09/2026-eff-award-winners-access-now-7amleh-arab-center-advancement-social-media",
+      "sourceSnapshotSha256": "6f076aa308f29cac7cb3bf28c86d02c82895c033c1006319aaa4167469d85810",
+      "sourceSnapshotBytes": 42933,
+      "bodySha256": "f9a801cfeb34ae1f905f7703bd801187fe5dfeb1b02712fb210ad85b367916e0",
+      "proseParity": true,
+      "proseBlocks": 16,
+      "imageReceipt": {
+        "sha256": "514a7e8db4489498694f624d8536ad34012242bf4ef30726ef5f854add09ef1a",
+        "bytes": 139073,
+        "sourceUrl": "https://www.eff.org/files/banner_library/eff-awards-2023.png"
+      },
+      "publishedAt": "2026-09-09T16:00:33.000Z",
+      "publishedTimeEvidence": "Original article meta and pinned feed",
+      "originalLanguage": "en",
+      "languageEvidence": "Complete primary prose read in English by Root; not inferred solely from site htmlLang",
+      "authors": [
+        "Josh Richman"
+      ],
+      "admittedContentSha256": "ac5fae44b2e8b83209a8063dec2deb553ab076c98b30562d24b8f2c80e38be41"
+    },
+    {
+      "name": "eff-medicare",
+      "articleId": "wrn-art-bdb90712e1c72ee72293c70904b50889",
+      "originalUrl": "https://www.eff.org/deeplinks/2026/09/new-records-reveal-problems-medicares-ai-prior-authorization-experiment",
+      "sourceSnapshotSha256": "25f68fe28d41983fe8b16f5e1cc3b942ce50885abc110e134277357ed996cf90",
+      "sourceSnapshotBytes": 67529,
+      "bodySha256": "efd269bab5fa4786c6257728471d387b11f42915d3e59f074396f6b7948584da",
+      "proseParity": true,
+      "proseBlocks": 30,
+      "imageReceipt": {
+        "sha256": "86ceda82f34eb18cd5ce44a94e974421f99bfe3c9c6baabeeffb4ee072da1423",
+        "bytes": 186891,
+        "sourceUrl": "https://www.eff.org/files/banner_library/adm-bureaucratic-final-1200x600.jpg"
+      },
+      "publishedAt": "2026-09-08T19:19:44.000Z",
+      "publishedTimeEvidence": "Original article meta and pinned feed",
+      "originalLanguage": "en",
+      "languageEvidence": "Complete primary prose read in English by Root; not inferred solely from site htmlLang",
+      "authors": [
+        "Lena Cohen"
+      ],
+      "admittedContentSha256": "1e768a92bc248c8e3ada30f76e00f6eed7780ab98c4fe124fad06d24db0e89a6"
+    },
+    {
+      "name": "eff-dmca",
+      "articleId": "wrn-art-67bca5d4b29dab78f8ae26ccd996a9d8",
+      "originalUrl": "https://www.eff.org/deeplinks/2026/09/court-rules-against-citizen-journalists-dmca-takedown-case-eff-will-appeal",
+      "sourceSnapshotSha256": "e3e4099de6b6847e64502325fbe8883fae8ac9d9b69247fb13d9dcfa037c1bbe",
+      "sourceSnapshotBytes": 59634,
+      "bodySha256": "bb0e44c5d2e3686f975451f0aab487975f748950e982825c6c1e7ce3ff926513",
+      "proseParity": true,
+      "proseBlocks": 22,
+      "imageReceipt": {
+        "sha256": "e94131ac023d8cf0a648c1cb251abd45f477da186a21a7c421ff5787eeb57b21",
+        "bytes": 7773,
+        "sourceUrl": "https://www.eff.org/files/banner_library/fair-use-og-1.png"
+      },
+      "publishedAt": "2026-09-03T19:11:56.000Z",
+      "publishedTimeEvidence": "Original article meta and pinned feed",
+      "originalLanguage": "en",
+      "languageEvidence": "Complete primary prose read in English by Root; not inferred solely from site htmlLang",
+      "authors": [
+        "Betty Gedlu"
+      ],
+      "admittedContentSha256": "41773b71a255629fc30fc9267ae8d4ce53fd5dedd22ab5a89d7b8a5599fad5ec"
+    },
+    {
+      "name": "c4ss-tech",
+      "articleId": "wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c",
+      "originalUrl": "https://c4ss.org/content/61296",
+      "sourceSnapshotSha256": "80d832f8f1324a74f3a523600d0423d2adf91f35f84acf2abd8cc9d6a2ac085d",
+      "sourceSnapshotBytes": 51398,
+      "bodySha256": "967f569c9b4a36162ced3f6054aabeac4a9bab66f5fb7aebc19ae94e8d9c35c9",
+      "proseParity": true,
+      "proseBlocks": 18,
+      "publishedAt": "2026-09-08T13:11:31.000Z",
+      "publishedTimeEvidence": "Pinned feed timestamp; original calendar date confirmed",
+      "originalLanguage": "en",
+      "languageEvidence": "Complete primary prose read in English by Root; not inferred solely from site htmlLang",
+      "authors": [
+        "C4SS"
+      ],
+      "admittedContentSha256": "0e296e69691db354a72421c65887609e5de72b85d0e23ef9968a507cc5a516bf"
+    }
+  ],
+  "inputSha256": "d61e33e15f4dda44e1774bbbae8324588e5b8d1e116309cc0d465425450dd8b9"
+}

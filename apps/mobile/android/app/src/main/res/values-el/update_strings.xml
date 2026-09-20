@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="update_ready_title">Η ενημέρωση είναι έτοιμη</string>
+    <string name="update_ready_message">Η ενημέρωση έχει ληφθεί. Αποθήκευσε πρώτα τα πρόχειρά σου. Να γίνει επανεκκίνηση του World Revolution News για εγκατάσταση;</string>
+    <string name="update_restart_action">Επανεκκίνηση</string>
+    <string name="update_later_action">Αργότερα</string>
+    <string name="update_install_failed">Δεν ήταν δυνατή η εγκατάσταση της ενημέρωσης. Δοκίμασε ξανά αργότερα.</string>
+</resources>

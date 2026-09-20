@@ -1,0 +1,32 @@
+[
+  {
+    "app": "mobile",
+    "articlesReachable": 7,
+    "retainedArticles": 6,
+    "originalImagesDecoded": 4,
+    "sourceParagraphs": 20,
+    "readerLanguage": "it",
+    "translatorPreserved": true,
+    "uiLanguages": 9,
+    "reflow320": true,
+    "axeViolations": 0,
+    "offlineReaderRemount": true,
+    "externalRequests": 0,
+    "pageErrors": 0
+  },
+  {
+    "app": "website",
+    "articlesReachable": 7,
+    "retainedArticles": 6,
+    "originalImagesDecoded": 4,
+    "sourceParagraphs": 20,
+    "readerLanguage": "it",
+    "translatorPreserved": true,
+    "uiLanguages": 9,
+    "reflow320": true,
+    "axeViolations": 0,
+    "offlineReaderRemount": true,
+    "externalRequests": 0,
+    "pageErrors": 0
+  }
+]

@@ -1,0 +1,1006 @@
+{
+  "sourceCommit": "294464bd4035d0a1d72d79b95c582a198e38f179",
+  "workingTree": false,
+  "baseCommit": "294464bd4035d0a1d72d79b95c582a198e38f179",
+  "dirtyPaths": [],
+  "generationStartedAtMs": 1789339153952,
+  "generatedAtUTC": "2026-09-13T22:39:13.952Z",
+  "output": "C:\\Users\\patri\\Documents\\ChatGPT\\Sauberes Wo Rev Ne\\docs\\evidence\\WRN-LEGACY-NEWS-UPDATE-2026-09-14\\work\\build-1789339153952",
+  "articles": 7,
+  "images": 4,
+  "builds": [
+    {
+      "app": "mobile",
+      "directory": "C:\\Users\\patri\\Documents\\ChatGPT\\Sauberes Wo Rev Ne\\docs\\evidence\\WRN-LEGACY-NEWS-UPDATE-2026-09-14\\work\\build-1789339153952\\mobile",
+      "shellBytes": null,
+      "files": [
+        {
+          "path": ".vite/manifest.json",
+          "bytes": 4248,
+          "sha256": "e72a04cd09f36371c7a985eecdf67d696bbe8de4a08d957a2ba15010f970a342"
+        },
+        {
+          "path": "assets/content-directory-v1-DG3MKh6I.json",
+          "bytes": 1952616,
+          "sha256": "1f017b98721e18a863635d8c4783889f6724aa3a46d4523e65ddb85b871258a1"
+        },
+        {
+          "path": "assets/directory-CzUDs0Bd.css",
+          "bytes": 2218,
+          "sha256": "46deaf9b6e834f1e3e9e05d02b9ec93fa67107839cbba8e612f5ef73fdd96848"
+        },
+        {
+          "path": "assets/index-CaG-LgsZ.css",
+          "bytes": 59973,
+          "sha256": "ddb4635ee6ec8c796ba96c4f6489b2c725d5cfc89f016703fa57ae7ee7ca2d29"
+        },
+        {
+          "path": "assets/index-D4DBrMue.js",
+          "bytes": 808172,
+          "sha256": "dae5f5ceee8f87b5d1e4b41db75336e5798fd4e8e247b47fa76701e21714b247"
+        },
+        {
+          "path": "assets/jsx-runtime-QtymfJMM.js",
+          "bytes": 7922,
+          "sha256": "427a84395c129818d7ec67332dd614684fe262d43c39a2e4c8304c3b140366ea"
+        },
+        {
+          "path": "assets/legacy-knowledge-v1-mfukn68x.json",
+          "bytes": 462654,
+          "sha256": "26eb4c118d0483788f07ef0b103c97e1cf53fbf75d36a61ae47456146240726b"
+        },
+        {
+          "path": "assets/legacy-support-v1-BkODOOc1.json",
+          "bytes": 53283,
+          "sha256": "bbd721dc73f0b67e4065618248a1bcd6c86938beb164684e1ccdf1ad54c2e75f"
+        },
+        {
+          "path": "assets/MobileContentDirectoryRoute-CVp02iXJ.js",
+          "bytes": 8654,
+          "sha256": "bf8d1c960b6d8e39065933d9c8d08381ed911916b8a70b9ee234ce542a9532e6"
+        },
+        {
+          "path": "assets/MobileHomeDirectory-Bp6zLqzH.js",
+          "bytes": 2704,
+          "sha256": "b42d49377218d39439e82c4972885979acb67b2fc194c137f752acad8526fd21"
+        },
+        {
+          "path": "assets/MobileKnowledgeRoute-CAhxvNHB.js",
+          "bytes": 14734,
+          "sha256": "92c4b99ffd4e828bca70247deb38c2364db30b4c2bad94d0e849924ab1503528"
+        },
+        {
+          "path": "assets/MobileKnowledgeRoute-CJMeQjPv.css",
+          "bytes": 1008,
+          "sha256": "ff0dfe3772b6714954f5b8f5439897f07b0c6b68b1b811c574bcdc3a739e0d6a"
+        },
+        {
+          "path": "assets/MobileSupportRoute-Cxs--sqG.js",
+          "bytes": 20545,
+          "sha256": "840f893a1f8885a88c55252ae74eea53a7aae770f67cbf6679d55bd9635a84e9"
+        },
+        {
+          "path": "assets/MobileSupportRoute-DejO63Ui.css",
+          "bytes": 1584,
+          "sha256": "055568b10cb8137c5cd96fbef37574a1be8d6785aae172cd8d7bc075f92bf544"
+        },
+        {
+          "path": "assets/production-events-media-v1-DqjyU-f0.json",
+          "bytes": 3317607,
+          "sha256": "003c32358ebe0d5ad22fb9c0b059bf82c242aa0b99a4d869fb67960c86acdc07"
+        },
+        {
+          "path": "assets/react-dom-D8nLcCSd.js",
+          "bytes": 3550,
+          "sha256": "13093fceef3508638201f075426ec5861fa732cb18e98c2e0e8ee80a7d487d71"
+        },
+        {
+          "path": "assets/solinaridao-header-mark-filled-j9ndwJbt.png",
+          "bytes": 1197127,
+          "sha256": "60f839b54a573173d28387dbb2dc6199b2474fc4ef6450ff4ef933108c141081"
+        },
+        {
+          "path": "assets/src-CUONDBnF.js",
+          "bytes": 253564,
+          "sha256": "0cc6eafff4e87cfd46345a0824c32bcc7ed98e093642d6bfadbcb79f01c7ad61"
+        },
+        {
+          "path": "assets/wrn-future-header-white-D5q8hgPK.png",
+          "bytes": 212123,
+          "sha256": "9da0e22936304a30a55ba1483c2305c6ad6c3b1a057341af2ab3b16fe98a5e2f"
+        },
+        {
+          "path": "index.html",
+          "bytes": 880,
+          "sha256": "27e35cbf022932056e117f7e1bfd2b28c0649577e89b603e04c0d4a8e04993bd"
+        },
+        {
+          "path": "wrn-local-release/v1/archive-lifecycle.json",
+          "bytes": 1687,
+          "sha256": "db691abd014256642f220b6e4f855367e6fa7d782e9fa93fa907f3016298122c"
+        },
+        {
+          "path": "wrn-local-release/v1/articles.json",
+          "bytes": 7830,
+          "sha256": "06394d509f18c3d09635904de212ce30d3fd82476e403154433ee7504655fcac"
+        },
+        {
+          "path": "wrn-local-release/v1/discover-index.json",
+          "bytes": 1629,
+          "sha256": "89506270ec0015dfc8418c095df2ec18a0fe054f3b8d6ad9e530f786576176c2"
+        },
+        {
+          "path": "wrn-local-release/v1/manifest.json",
+          "bytes": 4247,
+          "sha256": "8e532078c6304bf8b9a310c2310aef9364818a0ead9de41181a256a684983204"
+        },
+        {
+          "path": "wrn-local-release/v1/reader-details.json",
+          "bytes": 10243,
+          "sha256": "6fc207b46395f0bc3db2b4e1d2bcbd6a3ac23342007d7fe71c30c9c27d098b8f"
+        },
+        {
+          "path": "wrn-local-release/v1/release-descriptor.json",
+          "bytes": 1135,
+          "sha256": "8c2a205259a2f3821d32648fdae25d1e1a31d7c4a68b997f15f6965ca98594ea"
+        },
+        {
+          "path": "wrn-local-release/v1/supplemental-items.json",
+          "bytes": 18,
+          "sha256": "0343639fac1511a32a4c9a92c7655a6e9f9ad3a600fc6f30b5bdad6806160a97"
+        },
+        {
+          "path": "wrn-local-release/v1/website-publication.json",
+          "bytes": 1662,
+          "sha256": "ea8a6e20bdc7ac8496eeeddc3ebf981bb0b10a8a7a17be6b2a85959477734ad7"
+        },
+        {
+          "path": "wrn-mobile-media/v1/episode-local.png",
+          "bytes": 79,
+          "sha256": "65479503f1dc2208b5a90912e728e95c17daab9e041f3efe6df6d077c13219fd"
+        },
+        {
+          "path": "wrn-mobile-media/v1/episode-local.txt",
+          "bytes": 25,
+          "sha256": "ab5596429ec71dd956a264ad8beb93d42ed9e41bd480ff52b9f4c059454d6041"
+        },
+        {
+          "path": "wrn-mobile-media/v1/episode-local.wav",
+          "bytes": 1644,
+          "sha256": "c726d333dd159a31423f3480dbb1c5c4a9dfcd30efe1f7e12ade390dc92e8908"
+        },
+        {
+          "path": "wrn-mobile-media/v1/media-admission.json",
+          "bytes": 2235,
+          "sha256": "3edac5c4e99cd1b332decd281e3a0828d9e8daabab3e575c5066975c73bfccd5"
+        },
+        {
+          "path": "wrn-mobile-media/v1/media-consent.json",
+          "bytes": 507,
+          "sha256": "20b285570bb00dac5c643612b3b1ac5948b7011e538b2485de3802c8afb42025"
+        },
+        {
+          "path": "wrn-mobile-media/v1/media-lifecycle.json",
+          "bytes": 2611,
+          "sha256": "96aff25a3a72f989a9403641d01d6cd2e6c23fc5d5035d4205ef815f54fb68f1"
+        },
+        {
+          "path": "wrn-mobile-media/v1/media-manifest.json",
+          "bytes": 3001,
+          "sha256": "aa5285bcde22b14a0febd3467dbe4678327eb8fd64893f6fe1150b1f2e219b1f"
+        },
+        {
+          "path": "wrn-mobile-media/v1/media-revocation.json",
+          "bytes": 708,
+          "sha256": "56af73da2278d6db3046f51ff48374d2b981e2019e51b93bcec3bdc8005f9978"
+        },
+        {
+          "path": "wrn-mobile-media/v1/media-rights.json",
+          "bytes": 1804,
+          "sha256": "db2e0514b3985076701a4d4e976263259ef5ff01bfc29df8bc1f2140da1d0e0d"
+        },
+        {
+          "path": "wrn-mobile-media/v1/mobile-media-release.json",
+          "bytes": 2838,
+          "sha256": "311c9d4ec2c3614f20e8b66735e09fc9c85bcdf667781c738f5120aeae9f9994"
+        },
+        {
+          "path": "wrn-mobile-reader-v2/v1/mobile-reader-v2.json",
+          "bytes": 6223,
+          "sha256": "f51e992443f47aa8eaa6063783533fae91c37f44ece27480016b265f0d5b0874"
+        },
+        {
+          "path": "wrn-mobile-regional-events/v1/mobile-regional-events.json",
+          "bytes": 2873,
+          "sha256": "f39fb174a5bdb5a958713a9801178e404fb476662b52afd5e5d9c5f68c08f907"
+        },
+        {
+          "path": "wrn-production-content/current.json",
+          "bytes": 276,
+          "sha256": "ca1875065fffc68aa2459b674ca7ab641ef91cb5d35f84145793d5907519bc26"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v1/admission.json",
+          "bytes": 2351,
+          "sha256": "89b976efc51eb2739fb868c00838d9d4f10097b670c338b3a3bcd83fef6b594d"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v1/archive-lifecycle.json",
+          "bytes": 531,
+          "sha256": "9efc0163cf27ded7c4cb3f066acaf37ac265c98a1c0aefb754a4b16d78b5b390"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v1/articles.json",
+          "bytes": 2709,
+          "sha256": "8244ae9063f5c92ddc72a3204b521ca74dbf0212f5dfe5e6dfa9a7a7da6c2efb"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v1/discover-index.json",
+          "bytes": 424,
+          "sha256": "44aee648fe9b27f95ca01ebb8e967ccbc9c745f14a721d8c739c516079e9ca00"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v1/manifest.json",
+          "bytes": 1003,
+          "sha256": "ba3768ca31cdef5dd12dda24869a1600f6a3441f4dbb867631de15bb0820d463"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v1/reader-details.json",
+          "bytes": 19156,
+          "sha256": "4eb3d06e3cc2e522065242dc8b5f87956504b3c718aacb1ab8bed982ea88f1a3"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v1/release-descriptor.json",
+          "bytes": 874,
+          "sha256": "a7ef8c16cdd6120a119071bc6aa7a8fb7f45f96d1b7d531b74c6e0f1d7d26d13"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v2/admission.json",
+          "bytes": 2397,
+          "sha256": "ed523cddd04c6b04b52e83e47206daccde0a039cd00897c39dc0d847ffb5c367"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v2/archive-lifecycle.json",
+          "bytes": 531,
+          "sha256": "2ace816b04293abb5d5dbf906fd9e3c16115b17db50505866d3fac88e5bb5a5f"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v2/articles.json",
+          "bytes": 2755,
+          "sha256": "aac1917b839b72f0fdf96db0e8d41b95c5a7d6a0bdf937b76c7127b5b040c7e1"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v2/discover-index.json",
+          "bytes": 424,
+          "sha256": "3cb870fd4d2b0867bf2ef5bee26d1e27871569ffd6cbc2ae365252ef1d9e4522"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v2/manifest.json",
+          "bytes": 1004,
+          "sha256": "334a10565605de86ff9529df4f7cf9e593fe6a60d84c36649abc3732df329faf"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v2/reader-details.json",
+          "bytes": 225078,
+          "sha256": "60c980e73a13f48428cfa0b695ad33dfe3c8d415dc2f4cb488660fffc27c0f4b"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v2/release-descriptor.json",
+          "bytes": 874,
+          "sha256": "4abdb966da09b114cbbe4ab5dd1a60248e128ac82c713f660f0b2db4b0b80595"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-11-v3/admission.json",
+          "bytes": 7296,
+          "sha256": "f55356350113519a6a38a575666a0b80791d9b78c30ac5fe4380365579bb5247"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-11-v3/archive-lifecycle.json",
+          "bytes": 1048,
+          "sha256": "0edfa1724fed1b872e02ae280e4cdc28d7cb6fe6fa7271adab7161b5bb64bf69"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-11-v3/articles.json",
+          "bytes": 8654,
+          "sha256": "3a270b13b030cc9535fbc07a4ec041c3c7fac7489112daaad4f8f55faa05d0a8"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-11-v3/discover-index.json",
+          "bytes": 1042,
+          "sha256": "290d445353c5fbf4b8c14e140cff3e241d56bec5386c1becba480094c929a044"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-11-v3/manifest.json",
+          "bytes": 1179,
+          "sha256": "cd8fe074f515e3a4a51bb3fa808a63c37e52154e98a9e009e78550120d95f342"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-11-v3/reader-details.json",
+          "bytes": 702265,
+          "sha256": "8f9d4307e2f046a5a6dcbc6274e8dca628c02ff1ba4c7728b3a0d3ba510b5a7f"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-11-v3/release-descriptor.json",
+          "bytes": 880,
+          "sha256": "78215f104a3a45d8c530db5ca687d64d20276d8e60b3121afd8b731642aee653"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-14-v4/admission.json",
+          "bytes": 8592,
+          "sha256": "fe4a219d470bb163a329b20126a1fd80982083a2d1d350d8c9a43ae62a991eed"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-14-v4/archive-lifecycle.json",
+          "bytes": 1177,
+          "sha256": "e8366d068bc7b1a629368c0689f4a418fae6bcaa71ba0a2215f9687e01318514"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-14-v4/articles.json",
+          "bytes": 10176,
+          "sha256": "7dc7b85fe5ce8d6996f0f58e789312caafc3de53f083dcde34b309b72a3c3bb7"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-14-v4/discover-index.json",
+          "bytes": 1195,
+          "sha256": "e375b08fdf92ee5f4680a2160654d4c717a4b91cc092799820c8fc5f4ed19bb8"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-14-v4/manifest.json",
+          "bytes": 1223,
+          "sha256": "fdc9705849a2244506d4164fc1b490497173f0c3571d3a7aa75827b21f4fd54b"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-14-v4/reader-details.json",
+          "bytes": 709087,
+          "sha256": "e933cce7cdd08435596378df5a493c451c54e091ab373f09f7f215f978e8e54e"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-14-v4/release-descriptor.json",
+          "bytes": 880,
+          "sha256": "0fc717af52471b711fd8c585adef398032d8acf74ce6de14d4650357cf6c90c8"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-14-v4/website-publication.json",
+          "bytes": 1358,
+          "sha256": "ad4bb67737dff8a8a45086c86dc7dd6ce398ea47f5b2ae0bee412762f0cba194"
+        }
+      ],
+      "publicFiles": [
+        {
+          "path": "current.json",
+          "bytes": 276,
+          "sha256": "ca1875065fffc68aa2459b674ca7ab641ef91cb5d35f84145793d5907519bc26"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v1/admission.json",
+          "bytes": 2351,
+          "sha256": "89b976efc51eb2739fb868c00838d9d4f10097b670c338b3a3bcd83fef6b594d"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v1/archive-lifecycle.json",
+          "bytes": 531,
+          "sha256": "9efc0163cf27ded7c4cb3f066acaf37ac265c98a1c0aefb754a4b16d78b5b390"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v1/articles.json",
+          "bytes": 2709,
+          "sha256": "8244ae9063f5c92ddc72a3204b521ca74dbf0212f5dfe5e6dfa9a7a7da6c2efb"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v1/discover-index.json",
+          "bytes": 424,
+          "sha256": "44aee648fe9b27f95ca01ebb8e967ccbc9c745f14a721d8c739c516079e9ca00"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v1/manifest.json",
+          "bytes": 1003,
+          "sha256": "ba3768ca31cdef5dd12dda24869a1600f6a3441f4dbb867631de15bb0820d463"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v1/reader-details.json",
+          "bytes": 19156,
+          "sha256": "4eb3d06e3cc2e522065242dc8b5f87956504b3c718aacb1ab8bed982ea88f1a3"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v1/release-descriptor.json",
+          "bytes": 874,
+          "sha256": "a7ef8c16cdd6120a119071bc6aa7a8fb7f45f96d1b7d531b74c6e0f1d7d26d13"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v2/admission.json",
+          "bytes": 2397,
+          "sha256": "ed523cddd04c6b04b52e83e47206daccde0a039cd00897c39dc0d847ffb5c367"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v2/archive-lifecycle.json",
+          "bytes": 531,
+          "sha256": "2ace816b04293abb5d5dbf906fd9e3c16115b17db50505866d3fac88e5bb5a5f"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v2/articles.json",
+          "bytes": 2755,
+          "sha256": "aac1917b839b72f0fdf96db0e8d41b95c5a7d6a0bdf937b76c7127b5b040c7e1"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v2/discover-index.json",
+          "bytes": 424,
+          "sha256": "3cb870fd4d2b0867bf2ef5bee26d1e27871569ffd6cbc2ae365252ef1d9e4522"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v2/manifest.json",
+          "bytes": 1004,
+          "sha256": "334a10565605de86ff9529df4f7cf9e593fe6a60d84c36649abc3732df329faf"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v2/reader-details.json",
+          "bytes": 225078,
+          "sha256": "60c980e73a13f48428cfa0b695ad33dfe3c8d415dc2f4cb488660fffc27c0f4b"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v2/release-descriptor.json",
+          "bytes": 874,
+          "sha256": "4abdb966da09b114cbbe4ab5dd1a60248e128ac82c713f660f0b2db4b0b80595"
+        },
+        {
+          "path": "wrn-production-news-2026-09-11-v3/admission.json",
+          "bytes": 7296,
+          "sha256": "f55356350113519a6a38a575666a0b80791d9b78c30ac5fe4380365579bb5247"
+        },
+        {
+          "path": "wrn-production-news-2026-09-11-v3/archive-lifecycle.json",
+          "bytes": 1048,
+          "sha256": "0edfa1724fed1b872e02ae280e4cdc28d7cb6fe6fa7271adab7161b5bb64bf69"
+        },
+        {
+          "path": "wrn-production-news-2026-09-11-v3/articles.json",
+          "bytes": 8654,
+          "sha256": "3a270b13b030cc9535fbc07a4ec041c3c7fac7489112daaad4f8f55faa05d0a8"
+        },
+        {
+          "path": "wrn-production-news-2026-09-11-v3/discover-index.json",
+          "bytes": 1042,
+          "sha256": "290d445353c5fbf4b8c14e140cff3e241d56bec5386c1becba480094c929a044"
+        },
+        {
+          "path": "wrn-production-news-2026-09-11-v3/manifest.json",
+          "bytes": 1179,
+          "sha256": "cd8fe074f515e3a4a51bb3fa808a63c37e52154e98a9e009e78550120d95f342"
+        },
+        {
+          "path": "wrn-production-news-2026-09-11-v3/reader-details.json",
+          "bytes": 702265,
+          "sha256": "8f9d4307e2f046a5a6dcbc6274e8dca628c02ff1ba4c7728b3a0d3ba510b5a7f"
+        },
+        {
+          "path": "wrn-production-news-2026-09-11-v3/release-descriptor.json",
+          "bytes": 880,
+          "sha256": "78215f104a3a45d8c530db5ca687d64d20276d8e60b3121afd8b731642aee653"
+        },
+        {
+          "path": "wrn-production-news-2026-09-14-v4/admission.json",
+          "bytes": 8592,
+          "sha256": "fe4a219d470bb163a329b20126a1fd80982083a2d1d350d8c9a43ae62a991eed"
+        },
+        {
+          "path": "wrn-production-news-2026-09-14-v4/archive-lifecycle.json",
+          "bytes": 1177,
+          "sha256": "e8366d068bc7b1a629368c0689f4a418fae6bcaa71ba0a2215f9687e01318514"
+        },
+        {
+          "path": "wrn-production-news-2026-09-14-v4/articles.json",
+          "bytes": 10176,
+          "sha256": "7dc7b85fe5ce8d6996f0f58e789312caafc3de53f083dcde34b309b72a3c3bb7"
+        },
+        {
+          "path": "wrn-production-news-2026-09-14-v4/discover-index.json",
+          "bytes": 1195,
+          "sha256": "e375b08fdf92ee5f4680a2160654d4c717a4b91cc092799820c8fc5f4ed19bb8"
+        },
+        {
+          "path": "wrn-production-news-2026-09-14-v4/manifest.json",
+          "bytes": 1223,
+          "sha256": "fdc9705849a2244506d4164fc1b490497173f0c3571d3a7aa75827b21f4fd54b"
+        },
+        {
+          "path": "wrn-production-news-2026-09-14-v4/reader-details.json",
+          "bytes": 709087,
+          "sha256": "e933cce7cdd08435596378df5a493c451c54e091ab373f09f7f215f978e8e54e"
+        },
+        {
+          "path": "wrn-production-news-2026-09-14-v4/release-descriptor.json",
+          "bytes": 880,
+          "sha256": "0fc717af52471b711fd8c585adef398032d8acf74ce6de14d4650357cf6c90c8"
+        },
+        {
+          "path": "wrn-production-news-2026-09-14-v4/website-publication.json",
+          "bytes": 1358,
+          "sha256": "ad4bb67737dff8a8a45086c86dc7dd6ce398ea47f5b2ae0bee412762f0cba194"
+        }
+      ]
+    },
+    {
+      "app": "website",
+      "directory": "C:\\Users\\patri\\Documents\\ChatGPT\\Sauberes Wo Rev Ne\\docs\\evidence\\WRN-LEGACY-NEWS-UPDATE-2026-09-14\\work\\build-1789339153952\\website",
+      "shellBytes": 8257104,
+      "files": [
+        {
+          "path": ".vite/manifest.json",
+          "bytes": 1735,
+          "sha256": "bed7406d09e3c3a8548dcf5748a18e342014c3466febabe33f5fa66bd3dbab40"
+        },
+        {
+          "path": "article-publication-manifest.json",
+          "bytes": 3768,
+          "sha256": "5cef68390bee042820ac4d127c9def9f441e54689fd30a7468a7d7aafd586048"
+        },
+        {
+          "path": "articles/wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c/index.html",
+          "bytes": 13852,
+          "sha256": "c1c06e9dd39329b488dee631eec2e9ad19bd65f9cefe08e00e39acbae9f1eda4"
+        },
+        {
+          "path": "articles/wrn-art-67bca5d4b29dab78f8ae26ccd996a9d8/index.html",
+          "bytes": 25237,
+          "sha256": "8d0ec6cf1d42435efcd1c2198881aa7dc22026ed19c9842540eda5dbd033beb3"
+        },
+        {
+          "path": "articles/wrn-art-a772ab86c915a036c6177f1bfe958d4d/index.html",
+          "bytes": 218496,
+          "sha256": "c55102a759c4f4f59827369d77b252e8f2f6e6fd7cd387d894aa0ccc59fbe8a9"
+        },
+        {
+          "path": "articles/wrn-art-ba76ef8b7afb34885bd5f64bc7135f6c/index.html",
+          "bytes": 20784,
+          "sha256": "3b712331fb160e695264a60ed11f34022b88740ddc085e29f099a95ebb73534d"
+        },
+        {
+          "path": "articles/wrn-art-bdb90712e1c72ee72293c70904b50889/index.html",
+          "bytes": 267350,
+          "sha256": "293bbcd70e7d8bc2bd9b04e60acc950579e32e796c3ed140809e5ae3cdacc979"
+        },
+        {
+          "path": "articles/wrn-art-c6c6c2fd56d7a3965b4da062d0f73981/index.html",
+          "bytes": 14317,
+          "sha256": "1c6e42980c403a7ff54f4c2be41ca18ed7e2974357c856fa60861ccb71b2fbf0"
+        },
+        {
+          "path": "articles/wrn-art-f2ad391804423c87773b3351eb79c802/index.html",
+          "bytes": 199637,
+          "sha256": "b63b741b10831dab85edbb84209a7d83c5d3aaa4ba43c29128f1cfc2974d8a97"
+        },
+        {
+          "path": "assets/content-directory-v1-DG3MKh6I.json",
+          "bytes": 1952616,
+          "sha256": "1f017b98721e18a863635d8c4783889f6724aa3a46d4523e65ddb85b871258a1"
+        },
+        {
+          "path": "assets/index-B4yalG9V.js",
+          "bytes": 1000473,
+          "sha256": "53ab4e6d5bd911039af17c5460f171b5fbd826b70bdb7128afdc6bb3b28314a9"
+        },
+        {
+          "path": "assets/index-DGEMNHnG.css",
+          "bytes": 60726,
+          "sha256": "a7d6f02e6bb6004c010ccb18456765f0f67fd3a31f5504391d6624d3ee16f4d8"
+        },
+        {
+          "path": "assets/legacy-knowledge-v1-mfukn68x.json",
+          "bytes": 462654,
+          "sha256": "26eb4c118d0483788f07ef0b103c97e1cf53fbf75d36a61ae47456146240726b"
+        },
+        {
+          "path": "assets/legacy-support-v1-BkODOOc1.json",
+          "bytes": 53283,
+          "sha256": "bbd721dc73f0b67e4065618248a1bcd6c86938beb164684e1ccdf1ad54c2e75f"
+        },
+        {
+          "path": "assets/production-events-media-v1-DqjyU-f0.json",
+          "bytes": 3317607,
+          "sha256": "003c32358ebe0d5ad22fb9c0b059bf82c242aa0b99a4d869fb67960c86acdc07"
+        },
+        {
+          "path": "assets/solinaridao-header-mark-filled-j9ndwJbt.png",
+          "bytes": 1197127,
+          "sha256": "60f839b54a573173d28387dbb2dc6199b2474fc4ef6450ff4ef933108c141081"
+        },
+        {
+          "path": "assets/wrn-future-header-white-D5q8hgPK.png",
+          "bytes": 212123,
+          "sha256": "9da0e22936304a30a55ba1483c2305c6ad6c3b1a057341af2ab3b16fe98a5e2f"
+        },
+        {
+          "path": "index.html",
+          "bytes": 495,
+          "sha256": "e972ffac7589ac3c6703d580f8fae22c5904af96be9b8405a3781da7adf908ad"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 68,
+          "sha256": "44614f978d8565d1fec4e418bd48a8e2d990c326c6c82aac4ced480d94558e17"
+        },
+        {
+          "path": "sitemap.xml",
+          "bytes": 1006,
+          "sha256": "e1ee3e7956ea7135133cee5ba3934512d87b8a251edf6932b8617a58cab27536"
+        },
+        {
+          "path": "website-shell-sw.js",
+          "bytes": 22911,
+          "sha256": "3a6cf93d20332f0e9df2696e4eebfdf874ccbf1d56e37812863e0cf6d608326c"
+        },
+        {
+          "path": "wrn-local-release/v1/archive-lifecycle.json",
+          "bytes": 1141,
+          "sha256": "8f188d60cd8671cfd8c922379f834ad3dd2cb87055933c718f4436c209d78a4f"
+        },
+        {
+          "path": "wrn-local-release/v1/articles.json",
+          "bytes": 2616,
+          "sha256": "36b2be6b4f4860da34f46fdf417e8d8c4a27ec68f8940e97364160cb711ea9d0"
+        },
+        {
+          "path": "wrn-local-release/v1/discover-index.json",
+          "bytes": 695,
+          "sha256": "ab3d88693b19cf94795925a9a78b4380c9bbcf7819a51669bd3d524cc5f8b4a4"
+        },
+        {
+          "path": "wrn-local-release/v1/manifest.json",
+          "bytes": 2770,
+          "sha256": "29d11ae5acb940273924dc7f8c768147f3ea8d295b77efdb9efe568169338b8c"
+        },
+        {
+          "path": "wrn-local-release/v1/reader-details.json",
+          "bytes": 8511,
+          "sha256": "9f152e94649299306c544a6737af46f75f972cbea241f5334826d6e4e04c2381"
+        },
+        {
+          "path": "wrn-local-release/v1/release-descriptor.json",
+          "bytes": 1192,
+          "sha256": "db04d93413f0634dbf836a4556eafb4ee68d9ae816043525722e946b10d5f30e"
+        },
+        {
+          "path": "wrn-local-release/v1/supplemental-items.json",
+          "bytes": 18,
+          "sha256": "0343639fac1511a32a4c9a92c7655a6e9f9ad3a600fc6f30b5bdad6806160a97"
+        },
+        {
+          "path": "wrn-local-release/v1/website-publication.json",
+          "bytes": 1315,
+          "sha256": "e3b2c2f28028554cfd3445a9c72e65242d86f40b158ee634f6202d8af68c46f5"
+        },
+        {
+          "path": "wrn-production-content/current.json",
+          "bytes": 276,
+          "sha256": "ca1875065fffc68aa2459b674ca7ab641ef91cb5d35f84145793d5907519bc26"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v1/admission.json",
+          "bytes": 2351,
+          "sha256": "89b976efc51eb2739fb868c00838d9d4f10097b670c338b3a3bcd83fef6b594d"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v1/archive-lifecycle.json",
+          "bytes": 531,
+          "sha256": "9efc0163cf27ded7c4cb3f066acaf37ac265c98a1c0aefb754a4b16d78b5b390"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v1/articles.json",
+          "bytes": 2709,
+          "sha256": "8244ae9063f5c92ddc72a3204b521ca74dbf0212f5dfe5e6dfa9a7a7da6c2efb"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v1/discover-index.json",
+          "bytes": 424,
+          "sha256": "44aee648fe9b27f95ca01ebb8e967ccbc9c745f14a721d8c739c516079e9ca00"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v1/manifest.json",
+          "bytes": 1003,
+          "sha256": "ba3768ca31cdef5dd12dda24869a1600f6a3441f4dbb867631de15bb0820d463"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v1/reader-details.json",
+          "bytes": 19156,
+          "sha256": "4eb3d06e3cc2e522065242dc8b5f87956504b3c718aacb1ab8bed982ea88f1a3"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v1/release-descriptor.json",
+          "bytes": 874,
+          "sha256": "a7ef8c16cdd6120a119071bc6aa7a8fb7f45f96d1b7d531b74c6e0f1d7d26d13"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v1/website-publication.json",
+          "bytes": 711,
+          "sha256": "992ff6c73e843b423ad2101e332f0e7ba8579bac9e76a71aabce8fc5da36b8e4"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v2/admission.json",
+          "bytes": 2397,
+          "sha256": "ed523cddd04c6b04b52e83e47206daccde0a039cd00897c39dc0d847ffb5c367"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v2/archive-lifecycle.json",
+          "bytes": 531,
+          "sha256": "2ace816b04293abb5d5dbf906fd9e3c16115b17db50505866d3fac88e5bb5a5f"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v2/articles.json",
+          "bytes": 2755,
+          "sha256": "aac1917b839b72f0fdf96db0e8d41b95c5a7d6a0bdf937b76c7127b5b040c7e1"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v2/discover-index.json",
+          "bytes": 424,
+          "sha256": "3cb870fd4d2b0867bf2ef5bee26d1e27871569ffd6cbc2ae365252ef1d9e4522"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v2/manifest.json",
+          "bytes": 1004,
+          "sha256": "334a10565605de86ff9529df4f7cf9e593fe6a60d84c36649abc3732df329faf"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v2/reader-details.json",
+          "bytes": 225078,
+          "sha256": "60c980e73a13f48428cfa0b695ad33dfe3c8d415dc2f4cb488660fffc27c0f4b"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v2/release-descriptor.json",
+          "bytes": 874,
+          "sha256": "4abdb966da09b114cbbe4ab5dd1a60248e128ac82c713f660f0b2db4b0b80595"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-eff-2026-09-10-v2/website-publication.json",
+          "bytes": 711,
+          "sha256": "dbaee9d04692cfed08029fedd51c8f00beb763910c49615022f65ca37f5358d1"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-11-v3/admission.json",
+          "bytes": 7296,
+          "sha256": "f55356350113519a6a38a575666a0b80791d9b78c30ac5fe4380365579bb5247"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-11-v3/archive-lifecycle.json",
+          "bytes": 1048,
+          "sha256": "0edfa1724fed1b872e02ae280e4cdc28d7cb6fe6fa7271adab7161b5bb64bf69"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-11-v3/articles.json",
+          "bytes": 8654,
+          "sha256": "3a270b13b030cc9535fbc07a4ec041c3c7fac7489112daaad4f8f55faa05d0a8"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-11-v3/discover-index.json",
+          "bytes": 1042,
+          "sha256": "290d445353c5fbf4b8c14e140cff3e241d56bec5386c1becba480094c929a044"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-11-v3/manifest.json",
+          "bytes": 1179,
+          "sha256": "cd8fe074f515e3a4a51bb3fa808a63c37e52154e98a9e009e78550120d95f342"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-11-v3/reader-details.json",
+          "bytes": 702265,
+          "sha256": "8f9d4307e2f046a5a6dcbc6274e8dca628c02ff1ba4c7728b3a0d3ba510b5a7f"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-11-v3/release-descriptor.json",
+          "bytes": 880,
+          "sha256": "78215f104a3a45d8c530db5ca687d64d20276d8e60b3121afd8b731642aee653"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-11-v3/website-publication.json",
+          "bytes": 1229,
+          "sha256": "85d983abd8c85664aca192eb86eb144320f3addd005ad86ab20f943828d0d59e"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-14-v4/admission.json",
+          "bytes": 8592,
+          "sha256": "fe4a219d470bb163a329b20126a1fd80982083a2d1d350d8c9a43ae62a991eed"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-14-v4/archive-lifecycle.json",
+          "bytes": 1177,
+          "sha256": "e8366d068bc7b1a629368c0689f4a418fae6bcaa71ba0a2215f9687e01318514"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-14-v4/articles.json",
+          "bytes": 10176,
+          "sha256": "7dc7b85fe5ce8d6996f0f58e789312caafc3de53f083dcde34b309b72a3c3bb7"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-14-v4/discover-index.json",
+          "bytes": 1195,
+          "sha256": "e375b08fdf92ee5f4680a2160654d4c717a4b91cc092799820c8fc5f4ed19bb8"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-14-v4/manifest.json",
+          "bytes": 1223,
+          "sha256": "fdc9705849a2244506d4164fc1b490497173f0c3571d3a7aa75827b21f4fd54b"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-14-v4/reader-details.json",
+          "bytes": 709087,
+          "sha256": "e933cce7cdd08435596378df5a493c451c54e091ab373f09f7f215f978e8e54e"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-14-v4/release-descriptor.json",
+          "bytes": 880,
+          "sha256": "0fc717af52471b711fd8c585adef398032d8acf74ce6de14d4650357cf6c90c8"
+        },
+        {
+          "path": "wrn-production-content/wrn-production-news-2026-09-14-v4/website-publication.json",
+          "bytes": 1358,
+          "sha256": "ad4bb67737dff8a8a45086c86dc7dd6ce398ea47f5b2ae0bee412762f0cba194"
+        }
+      ],
+      "publicFiles": [
+        {
+          "path": "current.json",
+          "bytes": 276,
+          "sha256": "ca1875065fffc68aa2459b674ca7ab641ef91cb5d35f84145793d5907519bc26"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v1/admission.json",
+          "bytes": 2351,
+          "sha256": "89b976efc51eb2739fb868c00838d9d4f10097b670c338b3a3bcd83fef6b594d"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v1/archive-lifecycle.json",
+          "bytes": 531,
+          "sha256": "9efc0163cf27ded7c4cb3f066acaf37ac265c98a1c0aefb754a4b16d78b5b390"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v1/articles.json",
+          "bytes": 2709,
+          "sha256": "8244ae9063f5c92ddc72a3204b521ca74dbf0212f5dfe5e6dfa9a7a7da6c2efb"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v1/discover-index.json",
+          "bytes": 424,
+          "sha256": "44aee648fe9b27f95ca01ebb8e967ccbc9c745f14a721d8c739c516079e9ca00"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v1/manifest.json",
+          "bytes": 1003,
+          "sha256": "ba3768ca31cdef5dd12dda24869a1600f6a3441f4dbb867631de15bb0820d463"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v1/reader-details.json",
+          "bytes": 19156,
+          "sha256": "4eb3d06e3cc2e522065242dc8b5f87956504b3c718aacb1ab8bed982ea88f1a3"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v1/release-descriptor.json",
+          "bytes": 874,
+          "sha256": "a7ef8c16cdd6120a119071bc6aa7a8fb7f45f96d1b7d531b74c6e0f1d7d26d13"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v1/website-publication.json",
+          "bytes": 711,
+          "sha256": "992ff6c73e843b423ad2101e332f0e7ba8579bac9e76a71aabce8fc5da36b8e4"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v2/admission.json",
+          "bytes": 2397,
+          "sha256": "ed523cddd04c6b04b52e83e47206daccde0a039cd00897c39dc0d847ffb5c367"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v2/archive-lifecycle.json",
+          "bytes": 531,
+          "sha256": "2ace816b04293abb5d5dbf906fd9e3c16115b17db50505866d3fac88e5bb5a5f"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v2/articles.json",
+          "bytes": 2755,
+          "sha256": "aac1917b839b72f0fdf96db0e8d41b95c5a7d6a0bdf937b76c7127b5b040c7e1"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v2/discover-index.json",
+          "bytes": 424,
+          "sha256": "3cb870fd4d2b0867bf2ef5bee26d1e27871569ffd6cbc2ae365252ef1d9e4522"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v2/manifest.json",
+          "bytes": 1004,
+          "sha256": "334a10565605de86ff9529df4f7cf9e593fe6a60d84c36649abc3732df329faf"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v2/reader-details.json",
+          "bytes": 225078,
+          "sha256": "60c980e73a13f48428cfa0b695ad33dfe3c8d415dc2f4cb488660fffc27c0f4b"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v2/release-descriptor.json",
+          "bytes": 874,
+          "sha256": "4abdb966da09b114cbbe4ab5dd1a60248e128ac82c713f660f0b2db4b0b80595"
+        },
+        {
+          "path": "wrn-production-eff-2026-09-10-v2/website-publication.json",
+          "bytes": 711,
+          "sha256": "dbaee9d04692cfed08029fedd51c8f00beb763910c49615022f65ca37f5358d1"
+        },
+        {
+          "path": "wrn-production-news-2026-09-11-v3/admission.json",
+          "bytes": 7296,
+          "sha256": "f55356350113519a6a38a575666a0b80791d9b78c30ac5fe4380365579bb5247"
+        },
+        {
+          "path": "wrn-production-news-2026-09-11-v3/archive-lifecycle.json",
+          "bytes": 1048,
+          "sha256": "0edfa1724fed1b872e02ae280e4cdc28d7cb6fe6fa7271adab7161b5bb64bf69"
+        },
+        {
+          "path": "wrn-production-news-2026-09-11-v3/articles.json",
+          "bytes": 8654,
+          "sha256": "3a270b13b030cc9535fbc07a4ec041c3c7fac7489112daaad4f8f55faa05d0a8"
+        },
+        {
+          "path": "wrn-production-news-2026-09-11-v3/discover-index.json",
+          "bytes": 1042,
+          "sha256": "290d445353c5fbf4b8c14e140cff3e241d56bec5386c1becba480094c929a044"
+        },
+        {
+          "path": "wrn-production-news-2026-09-11-v3/manifest.json",
+          "bytes": 1179,
+          "sha256": "cd8fe074f515e3a4a51bb3fa808a63c37e52154e98a9e009e78550120d95f342"
+        },
+        {
+          "path": "wrn-production-news-2026-09-11-v3/reader-details.json",
+          "bytes": 702265,
+          "sha256": "8f9d4307e2f046a5a6dcbc6274e8dca628c02ff1ba4c7728b3a0d3ba510b5a7f"
+        },
+        {
+          "path": "wrn-production-news-2026-09-11-v3/release-descriptor.json",
+          "bytes": 880,
+          "sha256": "78215f104a3a45d8c530db5ca687d64d20276d8e60b3121afd8b731642aee653"
+        },
+        {
+          "path": "wrn-production-news-2026-09-11-v3/website-publication.json",
+          "bytes": 1229,
+          "sha256": "85d983abd8c85664aca192eb86eb144320f3addd005ad86ab20f943828d0d59e"
+        },
+        {
+          "path": "wrn-production-news-2026-09-14-v4/admission.json",
+          "bytes": 8592,
+          "sha256": "fe4a219d470bb163a329b20126a1fd80982083a2d1d350d8c9a43ae62a991eed"
+        },
+        {
+          "path": "wrn-production-news-2026-09-14-v4/archive-lifecycle.json",
+          "bytes": 1177,
+          "sha256": "e8366d068bc7b1a629368c0689f4a418fae6bcaa71ba0a2215f9687e01318514"
+        },
+        {
+          "path": "wrn-production-news-2026-09-14-v4/articles.json",
+          "bytes": 10176,
+          "sha256": "7dc7b85fe5ce8d6996f0f58e789312caafc3de53f083dcde34b309b72a3c3bb7"
+        },
+        {
+          "path": "wrn-production-news-2026-09-14-v4/discover-index.json",
+          "bytes": 1195,
+          "sha256": "e375b08fdf92ee5f4680a2160654d4c717a4b91cc092799820c8fc5f4ed19bb8"
+        },
+        {
+          "path": "wrn-production-news-2026-09-14-v4/manifest.json",
+          "bytes": 1223,
+          "sha256": "fdc9705849a2244506d4164fc1b490497173f0c3571d3a7aa75827b21f4fd54b"
+        },
+        {
+          "path": "wrn-production-news-2026-09-14-v4/reader-details.json",
+          "bytes": 709087,
+          "sha256": "e933cce7cdd08435596378df5a493c451c54e091ab373f09f7f215f978e8e54e"
+        },
+        {
+          "path": "wrn-production-news-2026-09-14-v4/release-descriptor.json",
+          "bytes": 880,
+          "sha256": "0fc717af52471b711fd8c585adef398032d8acf74ce6de14d4650357cf6c90c8"
+        },
+        {
+          "path": "wrn-production-news-2026-09-14-v4/website-publication.json",
+          "bytes": 1358,
+          "sha256": "ad4bb67737dff8a8a45086c86dc7dd6ce398ea47f5b2ae0bee412762f0cba194"
+        }
+      ]
+    }
+  ]
+}

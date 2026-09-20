@@ -1,0 +1,77 @@
+{
+  "schema": "wrn.production-content-build-input.v1",
+  "releaseRevision": "synthetic-release-1",
+  "sequence": 1,
+  "documents": {
+    "articles": {
+      "articles": [
+        {
+          "id": "wrn-art-0123456789abcdef0123456789abcdef",
+          "title": "Synthetic admission record",
+          "teaser": "Self-authored test metadata.",
+          "publishedAt": "2026-09-10T00:00:00.000Z",
+          "originalUrl": "https://example.org/original",
+          "source": { "id": "example", "name": "Example source", "authors": ["Example author"] },
+          "originalLanguage": "en",
+          "tags": ["test"],
+          "contentCompleteness": "full",
+          "rights": {
+            "licenseId": "CC-BY-4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "evidenceUrl": "https://example.org/rights",
+            "checkedAt": "2026-09-10T00:00:00.000Z",
+            "scope": "synthetic test scope",
+            "thirdPartyMaterialReviewed": true
+          },
+          "transformation": { "status": "original", "reference": "synthetic record" }
+        }
+      ]
+    },
+    "admission": {
+      "entries": [
+        {
+          "articleId": "wrn-art-0123456789abcdef0123456789abcdef",
+          "originalUrl": "https://example.org/original",
+          "sourceId": "example",
+          "authors": ["Example author"],
+          "sourceSnapshotSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "sourceSnapshotBytes": 42,
+          "admittedContentSha256": "578c70b34cf1c99b994d40156ed47582b591e756f342b9061cb3b3ba49cc1640",
+          "licenseId": "CC-BY-4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "evidenceUrl": "https://example.org/rights",
+          "checkedAt": "2026-09-10T00:00:00.000Z",
+          "scope": "synthetic test scope",
+          "thirdPartyMaterialReviewed": true,
+          "transformation": { "status": "original", "reference": "synthetic record" }
+        }
+      ]
+    },
+    "discoverIndex": {
+      "entries": [
+        {
+          "articleId": "wrn-art-0123456789abcdef0123456789abcdef",
+          "region": "global",
+          "topics": ["test"],
+          "format": "news"
+        }
+      ]
+    },
+    "readerDetails": {
+      "entries": [
+        {
+          "articleId": "wrn-art-0123456789abcdef0123456789abcdef",
+          "blocks": [{ "kind": "paragraph", "text": "Synthetic reader text." }]
+        }
+      ]
+    },
+    "archiveLifecycle": {
+      "activeArticleIds": ["wrn-art-0123456789abcdef0123456789abcdef"],
+      "archiveArticleIds": ["wrn-art-0123456789abcdef0123456789abcdef"],
+      "shareableArticleIds": ["wrn-art-0123456789abcdef0123456789abcdef"],
+      "aliases": [],
+      "gone": [],
+      "revocations": { "revision": 1, "previousRevision": 0, "entries": [] }
+    }
+  }
+}

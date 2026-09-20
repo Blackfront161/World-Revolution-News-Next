@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="wrn_native_canvas">#0B1017</color>
+    <color name="wrn_native_violet">#B787FF</color>
+    <color name="wrn_native_red">#FF5266</color>
+    <color name="wrn_native_ink">#F4F5F7</color>
+</resources>

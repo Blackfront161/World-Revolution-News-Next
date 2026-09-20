@@ -1,0 +1,70 @@
+.source-profile,
+.source-preferences-panel,
+.production-selection-explanation {
+  margin-block: 1rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.source-profile summary,
+.source-preferences-panel summary,
+.production-selection-explanation summary {
+  padding-block: 0.65rem;
+  min-height: 44px;
+  cursor: pointer;
+}
+.source-choice-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-block: 0.65rem;
+}
+.source-choice-actions button {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--wrn-color-action);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: inherit;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.source-choice-actions button[aria-pressed='true'] {
+  background: var(--wrn-color-action);
+  color: var(--wrn-color-action-contrast);
+}
+.source-choice-actions button:disabled {
+  opacity: 0.55;
+}
+.source-preferences-notice {
+  padding-inline-start: 0.75rem;
+  border-inline-start: 3px solid var(--wrn-color-action);
+}
+.source-preferences-panel ul {
+  padding-inline-start: 1.2rem;
+}
+.source-preferences-dialog {
+  max-width: min(36rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--wrn-color-action);
+  border-radius: 0.65rem;
+  background: var(--wrn-color-surface);
+  color: var(--wrn-color-text);
+  padding: 1rem;
+}
+.source-preferences-dialog::backdrop {
+  background: rgb(0 0 0 / 75%);
+}
+.source-preferences-dialog h2 {
+  font-size: 1.125em;
+  line-height: 1.35;
+  margin-block: 0 1rem;
+}
+@media (forced-colors: active) {
+  .source-choice-actions button[aria-pressed='true'] {
+    background: Highlight;
+    color: HighlightText;
+  }
+}

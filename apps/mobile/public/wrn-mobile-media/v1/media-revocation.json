@@ -1,0 +1,20 @@
+{
+  "schema": "wrn.mobile-media-revocation.v1",
+  "contractVersion": "1.0.0",
+  "releaseId": "wrn-media-release-local",
+  "revision": 1,
+  "generatedAt": "2026-09-01T00:00:00.000Z",
+  "validUntil": "2026-09-02T00:00:00.000Z",
+  "owner": "wrn-local",
+  "safetyRevision": 1,
+  "revocationFloor": 1,
+  "references": [
+    { "kind": "asset", "id": "wrn-media-asset-audio-local" },
+    { "kind": "asset", "id": "wrn-media-asset-thumbnail-local" },
+    { "kind": "asset", "id": "wrn-media-asset-transcript-local" },
+    { "kind": "episode", "id": "wrn-media-episode-local" },
+    { "kind": "series", "id": "wrn-media-series-local" },
+    { "kind": "source", "id": "wrn-media-source-local" }
+  ],
+  "entries": []
+}

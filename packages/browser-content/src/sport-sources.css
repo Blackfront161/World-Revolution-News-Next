@@ -1,0 +1,30 @@
+.sport-sources {
+  margin-block: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--wrn-color-border);
+  border-radius: 0.65rem;
+  background: var(--wrn-color-surface);
+}
+.sport-sources h2,
+.sport-sources h3,
+.sport-sources p {
+  margin-block: 0 0.65rem;
+}
+.sport-sources summary,
+.sport-sources a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.sport-sources summary {
+  cursor: pointer;
+}
+.sport-sources ul {
+  display: grid;
+  gap: 0.75rem;
+  margin-block: 0.75rem 0;
+  padding-inline-start: 1.25rem;
+}
+.sport-sources li > details {
+  margin-block-start: 0.5rem;
+}

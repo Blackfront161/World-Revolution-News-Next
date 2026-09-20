@@ -1,0 +1,103 @@
+.support-route {
+  display: grid;
+  gap: 1rem;
+  max-width: 72rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.support-overline {
+  color: var(--accent, currentColor);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.support-filters,
+.support-letter {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--line, currentColor);
+  border-radius: 0.75rem;
+}
+.support-filters label,
+.support-letter label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+.support-filters input,
+.support-filters select,
+.support-letter input,
+.support-letter select,
+.support-letter textarea {
+  min-height: 44px;
+  padding: 0.55rem;
+  font: inherit;
+  min-width: 0;
+  max-width: 100%;
+}
+.support-letter textarea {
+  min-height: 10rem;
+  resize: vertical;
+}
+.support-list {
+  display: grid;
+  gap: 1rem;
+}
+.support-card {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1rem;
+  border: 1px solid var(--line, currentColor);
+  border-radius: 0.75rem;
+}
+.support-card h3,
+.support-card p {
+  margin: 0;
+}
+.support-card a,
+.support-letter button,
+.support-filters button {
+  min-height: 44px;
+  width: fit-content;
+}
+.support-card a {
+  display: inline-flex;
+  align-items: center;
+  min-width: 44px;
+  max-width: 100%;
+}
+.support-dialog {
+  max-width: min(32rem, calc(100vw - 2rem));
+  padding: 1rem;
+  background: Canvas;
+  color: CanvasText;
+  border: 2px solid currentColor;
+  border-radius: 0.75rem;
+}
+.support-dialog::backdrop {
+  background: rgb(0 0 0 / 0.55);
+}
+.support-dialog button {
+  min-height: 44px;
+  max-width: 100%;
+}
+.support-print-only {
+  display: none;
+}
+@media print {
+  body:has(> .support-print-only) > :not(.support-print-only) {
+    display: none !important;
+  }
+  .support-print-only {
+    display: block !important;
+    margin: 0;
+    white-space: pre-wrap;
+    font: 12pt/1.5 serif;
+  }
+}
+@media (min-width: 48rem) {
+  .support-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

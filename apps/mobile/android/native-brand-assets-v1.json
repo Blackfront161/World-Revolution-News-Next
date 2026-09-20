@@ -1,0 +1,75 @@
+{
+  "schema": "wrn.native-brand-assets.v1",
+  "resourceHashEncoding": "utf8-normalized-lf",
+  "reference": "packages/brand-tokens/assets/solinaridao-header-mark-filled.png",
+  "authorship": "Original compact native vector prepared for the authorized WRN release; not an altered header raster.",
+  "poVisualAcceptance": "pending",
+  "viewport": [
+    108,
+    108
+  ],
+  "safeCoreDiameter": 66,
+  "colors": {
+    "wrn_native_canvas": "#0B1017",
+    "wrn_native_violet": "#B787FF",
+    "wrn_native_red": "#FF5266",
+    "wrn_native_ink": "#F4F5F7"
+  },
+  "entries": [
+    {
+      "path": "apps/mobile/android/app/src/main/res/values/wrn_brand_colors.xml",
+      "bytes": 266,
+      "sha256": "b9b3d158c6604df159a00009f95d3af4ad49bc9ae61501e74728ed965f033efd"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/values/styles.xml",
+      "bytes": 1293,
+      "sha256": "35e270bb9877c14af0b561ff6ecd87c34b49b7a4df832e43adf93e1d77109072"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/values/ic_launcher_background.xml",
+      "bytes": 138,
+      "sha256": "4644909bf028202bdac03696b09309e50b4afc75f72e1c811e25c877dd2d8d6d"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable/wrn_native_mark.xml",
+      "bytes": 1808,
+      "sha256": "fca47ee36a112c07921be5cd1b0b1586a8863d77a5ee2daaae68dd889fc145a2"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable/wrn_native_monochrome.xml",
+      "bytes": 617,
+      "sha256": "2291ff0990aab852b6f7213e316f639a53df120f2cd3f5aa82fc4e696b93985b"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-anydpi/ic_launcher.xml",
+      "bytes": 240,
+      "sha256": "b9e76af519ed080b180111f3f3d14b48c0699fc688624dbecbfa50073c57cbd4"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml",
+      "bytes": 240,
+      "sha256": "b9e76af519ed080b180111f3f3d14b48c0699fc688624dbecbfa50073c57cbd4"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+      "bytes": 328,
+      "sha256": "d65aa62a08ef2a9faa6d2e66fa8c74762ace17f321d3952b32e4cd94e3a08fbe"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+      "bytes": 328,
+      "sha256": "d65aa62a08ef2a9faa6d2e66fa8c74762ace17f321d3952b32e4cd94e3a08fbe"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-anydpi-v33/ic_launcher.xml",
+      "bytes": 328,
+      "sha256": "d65aa62a08ef2a9faa6d2e66fa8c74762ace17f321d3952b32e4cd94e3a08fbe"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-anydpi-v33/ic_launcher_round.xml",
+      "bytes": 328,
+      "sha256": "d65aa62a08ef2a9faa6d2e66fa8c74762ace17f321d3952b32e4cd94e3a08fbe"
+    }
+  ]
+}

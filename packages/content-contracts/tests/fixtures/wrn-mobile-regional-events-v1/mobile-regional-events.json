@@ -1,0 +1,94 @@
+{
+  "schema": "wrn.mobile-regional-events.v1",
+  "contractVersion": "1.0.0",
+  "minimumAppContractVersion": "1.0.0",
+  "bundleRevision": 1,
+  "taxonomyRevision": 1,
+  "generatedAt": "2026-09-01T00:00:00.000Z",
+  "validUntil": "2026-09-02T00:00:00.000Z",
+  "locales": ["en", "de", "es", "fr", "it", "pt", "ru", "el", "tr"],
+  "taxonomySha256": "5d6b5c5aa56ff069d2a311bd5bde6ab757cb8c3d29deb3506b984ce1424a4b49",
+  "sourcesSha256": "9d467c4e06c09fc23ab5383ba77e1164543cec02aaef46108e3fa08b1810aaf7",
+  "eventsSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "mediaSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "revocationsSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "continents": [
+    {
+      "continentId": "wrn-cont-test",
+      "names": {
+        "en": "Test",
+        "de": "Test",
+        "es": "Prueba",
+        "fr": "Essai",
+        "it": "Test",
+        "pt": "Teste",
+        "ru": "Тест",
+        "el": "Δοκιμή",
+        "tr": "Deneme"
+      }
+    }
+  ],
+  "countries": [
+    {
+      "countryId": "wrn-country-test",
+      "continentId": "wrn-cont-test",
+      "names": {
+        "en": "Testland",
+        "de": "Testland",
+        "es": "Tierraprueba",
+        "fr": "Pays test",
+        "it": "Paese test",
+        "pt": "País teste",
+        "ru": "Тестовая страна",
+        "el": "Χώρα δοκιμής",
+        "tr": "Test ülkesi"
+      }
+    }
+  ],
+  "regions": [
+    {
+      "regionId": "wrn-region-test",
+      "countryId": "wrn-country-test",
+      "names": {
+        "en": "Test Region",
+        "de": "Testregion",
+        "es": "Región de prueba",
+        "fr": "Région test",
+        "it": "Regione test",
+        "pt": "Região teste",
+        "ru": "Тестовый регион",
+        "el": "Περιοχή δοκιμής",
+        "tr": "Test bölgesi"
+      }
+    }
+  ],
+  "identityLinks": [],
+  "sources": [
+    {
+      "sourceId": "wrn-source-local-fixture",
+      "names": {
+        "en": "Local fixture",
+        "de": "Lokale Fixture",
+        "es": "Fixture local",
+        "fr": "Fixture locale",
+        "it": "Fixture locale",
+        "pt": "Fixture local",
+        "ru": "Локальная фикстура",
+        "el": "Τοπικό fixture",
+        "tr": "Yerel fixture"
+      },
+      "originalUrl": "https://regional-events.invalid/source",
+      "rightsStatus": "self-authored-local-fixture",
+      "licenseId": "CC0-1.0",
+      "rightsReference": "wrn-rights-local-fixture",
+      "provenanceReference": "wrn-provenance-local-fixture",
+      "publishedAt": "2026-09-01T00:00:00.000Z",
+      "observedAt": "2026-09-01T00:00:00.000Z",
+      "correctionContactLabel": "Local fixture correction contact"
+    }
+  ],
+  "events": [],
+  "media": [],
+  "revocationRevision": 0,
+  "revocations": []
+}

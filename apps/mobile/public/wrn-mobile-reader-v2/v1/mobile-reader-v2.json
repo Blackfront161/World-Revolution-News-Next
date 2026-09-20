@@ -1,0 +1,199 @@
+{
+  "contractVersion": "1.0.0",
+  "schema": "wrn.mobile-reader-v2.v1",
+  "revision": "wrn-g3-019-local-v2",
+  "snapshot": {
+    "releaseRevision": "wrn-g3-016-mobile-home-release-v1",
+    "manifestSha256": "77244d6774a91b30af2898f2c8ccf98633e8fcb609d4807852e0ea991db562f4",
+    "readerDetailsRevision": "wrn-g3-016-local-home-reader-v1",
+    "readerDetailsWholeDocumentSha256": "cb87e281ad020872ae7fdade538c0764db057d0b31e9543ed08b8a62cd3c0e14",
+    "readerDetailsIntegritySha256": "e821e8ffe3845d9e8cbe83317add309987bce4aa673461e9ebe5ad403b534b99"
+  },
+  "articles": [
+    {
+      "articleId": "wrn-test-art-cedar",
+      "projection": "structured",
+      "transformerId": "wrn-local-reader-v2-transformer",
+      "transformerVersion": "1.0.0",
+      "sections": [
+        {
+          "sectionId": "wrn-v2-section-cedar",
+          "blockReferences": [
+            {
+              "blockId": "wrn-v2-block-cedar-0",
+              "startIndex": 0,
+              "endIndex": 11,
+              "sourceFragmentSha256": "e0e57d50c5baff2f1f4397f645890b4ad673557c97de4ff248f67fc5bba97012"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "wrn-test-art-ember",
+      "projection": "original",
+      "transformerId": "wrn-local-reader-v2-transformer",
+      "transformerVersion": "1.0.0",
+      "sections": [
+        {
+          "sectionId": "wrn-v2-section-ember",
+          "blockReferences": [
+            {
+              "blockId": "wrn-v2-block-ember-0",
+              "startIndex": 0,
+              "endIndex": 3,
+              "sourceFragmentSha256": "3f853fd24fd29f60bf99f87560888fd8782956579f8b3b8ac589ff4311b95f74"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "wrn-test-art-fern",
+      "projection": "ambiguous",
+      "transformerId": "wrn-local-reader-v2-transformer",
+      "transformerVersion": "1.0.0",
+      "sections": [
+        {
+          "sectionId": "wrn-v2-section-fern",
+          "blockReferences": [
+            {
+              "blockId": "wrn-v2-block-fern-0",
+              "startIndex": 0,
+              "endIndex": 3,
+              "sourceFragmentSha256": "828364145c89d7ae769459ba1bcc922264207b4a5b4cfbb0cd8190849d32caac"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-a",
+      "projection": "original",
+      "transformerId": "wrn-local-reader-v2-transformer",
+      "transformerVersion": "1.0.0",
+      "sections": [
+        {
+          "sectionId": "wrn-v2-section-a",
+          "blockReferences": [
+            {
+              "blockId": "wrn-v2-block-a-0",
+              "startIndex": 0,
+              "endIndex": 0,
+              "sourceFragmentSha256": "13f8be406e27041c20e9fa0d6aa2faa4794a30e2d033500f8ac9a2a1a89a4ed8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-b",
+      "projection": "original",
+      "transformerId": "wrn-local-reader-v2-transformer",
+      "transformerVersion": "1.0.0",
+      "sections": [
+        {
+          "sectionId": "wrn-v2-section-b",
+          "blockReferences": [
+            {
+              "blockId": "wrn-v2-block-b-0",
+              "startIndex": 0,
+              "endIndex": 0,
+              "sourceFragmentSha256": "13f8be406e27041c20e9fa0d6aa2faa4794a30e2d033500f8ac9a2a1a89a4ed8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-c",
+      "projection": "original",
+      "transformerId": "wrn-local-reader-v2-transformer",
+      "transformerVersion": "1.0.0",
+      "sections": [
+        {
+          "sectionId": "wrn-v2-section-c",
+          "blockReferences": [
+            {
+              "blockId": "wrn-v2-block-c-0",
+              "startIndex": 0,
+              "endIndex": 0,
+              "sourceFragmentSha256": "13f8be406e27041c20e9fa0d6aa2faa4794a30e2d033500f8ac9a2a1a89a4ed8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-d",
+      "projection": "original",
+      "transformerId": "wrn-local-reader-v2-transformer",
+      "transformerVersion": "1.0.0",
+      "sections": [
+        {
+          "sectionId": "wrn-v2-section-d",
+          "blockReferences": [
+            {
+              "blockId": "wrn-v2-block-d-0",
+              "startIndex": 0,
+              "endIndex": 0,
+              "sourceFragmentSha256": "13f8be406e27041c20e9fa0d6aa2faa4794a30e2d033500f8ac9a2a1a89a4ed8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-e",
+      "projection": "original",
+      "transformerId": "wrn-local-reader-v2-transformer",
+      "transformerVersion": "1.0.0",
+      "sections": [
+        {
+          "sectionId": "wrn-v2-section-e",
+          "blockReferences": [
+            {
+              "blockId": "wrn-v2-block-e-0",
+              "startIndex": 0,
+              "endIndex": 0,
+              "sourceFragmentSha256": "13f8be406e27041c20e9fa0d6aa2faa4794a30e2d033500f8ac9a2a1a89a4ed8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-f",
+      "projection": "original",
+      "transformerId": "wrn-local-reader-v2-transformer",
+      "transformerVersion": "1.0.0",
+      "sections": [
+        {
+          "sectionId": "wrn-v2-section-f",
+          "blockReferences": [
+            {
+              "blockId": "wrn-v2-block-f-0",
+              "startIndex": 0,
+              "endIndex": 0,
+              "sourceFragmentSha256": "13f8be406e27041c20e9fa0d6aa2faa4794a30e2d033500f8ac9a2a1a89a4ed8"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "wrn-test-source-local",
+      "selfDescription": "Synthetische, selbst verfasste lokale Fixturequelle ohne Bezug zu einer realen Organisation.",
+      "editorialContext": "Dieses Quellenprofil existiert nur fuer den lokalen Reader-Vertrag und trifft keine Aussagen ueber reale Quellen.",
+      "sourceType": "synthetic-fixture",
+      "regions": ["local-fixture"],
+      "languages": ["de"],
+      "freshness": { "status": "unknown", "reviewedAt": null },
+      "correctionContact": null
+    }
+  ],
+  "media": [],
+  "revocations": { "revision": 0, "previousRevision": 0, "entries": [] }
+}

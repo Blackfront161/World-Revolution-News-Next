@@ -1,0 +1,39 @@
+{
+  "identityMap": [
+    {
+      "legacyKey": "legacy://wrn_bookmarks/old-historical",
+      "articleId": "wrn-test-art-g3-008-old-historical"
+    },
+    {
+      "legacyKey": "legacy://wrn_read_list/unknown",
+      "articleId": "wrn-test-art-g3-008-unknown"
+    },
+    {
+      "legacyKey": "legacy://wrn_read_positions/active",
+      "articleId": "wrn-test-art-g3-008-active"
+    }
+  ],
+  "bookmarks": [
+    {
+      "key": "legacy://wrn_bookmarks/old-historical",
+      "savedAt": "2026-08-26T08:00:00.000Z"
+    },
+    {
+      "key": "legacy://wrn_read_list/unknown",
+      "savedAt": "2026-08-26T08:01:00.000Z"
+    }
+  ],
+  "readList": [
+    {
+      "key": "legacy://wrn_bookmarks/old-historical",
+      "readAt": "2026-08-26T08:02:00.000Z"
+    }
+  ],
+  "positions": [
+    {
+      "key": "legacy://wrn_read_positions/active",
+      "fraction": 0.6,
+      "updatedAt": "2026-08-26T08:03:00.000Z"
+    }
+  ]
+}

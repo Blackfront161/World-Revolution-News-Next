@@ -1,0 +1,19 @@
+{
+  "schema": "wrn.mobile-media-consent.v1",
+  "contractVersion": "1.0.0",
+  "releaseId": "wrn-media-release-local",
+  "revision": 1,
+  "generatedAt": "2026-09-01T00:00:00.000Z",
+  "validUntil": "2026-09-02T00:00:00.000Z",
+  "owner": "wrn-local",
+  "consents": [
+    {
+      "episodeId": "wrn-media-episode-local",
+      "deliveryClass": "packaged-local-audio",
+      "origin": "same-origin-local",
+      "dataCategories": [],
+      "mode": "local-no-third-party",
+      "requiresPrompt": false
+    }
+  ]
+}

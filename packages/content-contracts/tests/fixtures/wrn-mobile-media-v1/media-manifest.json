@@ -1,0 +1,92 @@
+{
+  "schema": "wrn.mobile-media-manifest.v1",
+  "contractVersion": "1.0.0",
+  "releaseId": "wrn-media-release-local",
+  "revision": 1,
+  "generatedAt": "2026-09-01T00:00:00.000Z",
+  "validUntil": "2026-09-02T00:00:00.000Z",
+  "owner": "wrn-local",
+  "series": [
+    {
+      "id": "wrn-media-series-local",
+      "sourceId": "wrn-media-source-local",
+      "title": {
+        "en": "Local media",
+        "de": "Lokale Medien",
+        "es": "Medios locales",
+        "fr": "Médias locaux",
+        "it": "Media locali",
+        "pt": "Mídia local",
+        "ru": "Локальные медиа",
+        "el": "Τοπικά μέσα",
+        "tr": "Yerel medya"
+      },
+      "episodeIds": ["wrn-media-episode-local"]
+    }
+  ],
+  "episodes": [
+    {
+      "id": "wrn-media-episode-local",
+      "seriesId": "wrn-media-series-local",
+      "sourceId": "wrn-media-source-local",
+      "title": {
+        "en": "Local episode",
+        "de": "Lokale Folge",
+        "es": "Episodio local",
+        "fr": "Épisode locale",
+        "it": "Episodio locale",
+        "pt": "Episódio local",
+        "ru": "Локальный эпизод",
+        "el": "Τοπικό επεισόδιο",
+        "tr": "Yerel bölüm"
+      },
+      "summary": {
+        "en": "A self-authored local fixture.",
+        "de": "Eine selbst erstellte lokale Fixture.",
+        "es": "Una fixture local creada internamente.",
+        "fr": "Une fixture locale créée en interne.",
+        "it": "Una fixture locale creata internamente.",
+        "pt": "Uma fixture local criada internamente.",
+        "ru": "Самостоятельно созданная локальная фикстура.",
+        "el": "Μια τοπική δοκιμαστική εγγραφή.",
+        "tr": "Yerel olarak oluşturulan test içeriği."
+      },
+      "audioAssetId": "wrn-media-asset-audio-local",
+      "thumbnailAssetId": "wrn-media-asset-thumbnail-local",
+      "transcriptAssetId": "wrn-media-asset-transcript-local",
+      "durationMs": 100
+    }
+  ],
+  "assets": [
+    {
+      "id": "wrn-media-asset-audio-local",
+      "kind": "audio",
+      "path": "/wrn-mobile-media/v1/episode-local.wav",
+      "mime": "audio/wav",
+      "bytes": 1644,
+      "sha256": "c726d333dd159a31423f3480dbb1c5c4a9dfcd30efe1f7e12ade390dc92e8908",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "wrn-media-asset-thumbnail-local",
+      "kind": "thumbnail",
+      "path": "/wrn-mobile-media/v1/episode-local.png",
+      "mime": "image/png",
+      "bytes": 79,
+      "sha256": "65479503f1dc2208b5a90912e728e95c17daab9e041f3efe6df6d077c13219fd",
+      "width": 2,
+      "height": 2
+    },
+    {
+      "id": "wrn-media-asset-transcript-local",
+      "kind": "transcript",
+      "path": "/wrn-mobile-media/v1/episode-local.txt",
+      "mime": "text/plain;charset=utf-8",
+      "bytes": 25,
+      "sha256": "ab5596429ec71dd956a264ad8beb93d42ed9e41bd480ff52b9f4c059454d6041",
+      "width": null,
+      "height": null
+    }
+  ]
+}

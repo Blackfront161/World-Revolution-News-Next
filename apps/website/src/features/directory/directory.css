@@ -1,0 +1,26 @@
+.website-directory {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.website-directory nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.website-directory button {
+  min-height: 44px;
+}
+.website-directory li {
+  margin: 0.75rem 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.website-directory .website-content-list {
+  grid-template-columns: minmax(0, 1fr);
+}
+.website-directory .website-content-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}

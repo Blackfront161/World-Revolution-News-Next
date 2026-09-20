@@ -1,0 +1,62 @@
+{
+  "compilerOptions": {
+    "allowImportingTsExtensions": false,
+    "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "lib": ["ES2024", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleDetection": "force",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": false,
+    "strict": true,
+    "target": "ES2024",
+    "paths": {
+      "@wrn/ui-language/production-regional": ["./packages/ui-language/src/production-regional.ts"],
+      "@wrn/content-contracts/production-media-v1": [
+        "./packages/content-contracts/src/production-media-v1.ts"
+      ],
+      "@wrn/content-contracts/production-media-offline-v1": [
+        "./packages/content-contracts/src/production-media-offline-v1.ts"
+      ],
+      "@wrn/content-contracts/production-regional-events-v1": [
+        "./packages/content-contracts/src/directory/production-regional-events-v1.ts"
+      ],
+      "@wrn/ui-language/production-translation": [
+        "./packages/ui-language/src/production-translation.ts"
+      ],
+      "@wrn/api-contracts/translation-v1": ["./packages/api-contracts/src/translation-v1.ts"],
+      "@wrn/content-contracts": ["./packages/content-contracts/src/index.ts"],
+      "@wrn/content-contracts/production-content-offline-v1": [
+        "./packages/content-contracts/src/production-content-offline-v1.ts"
+      ],
+      "@wrn/content-contracts/production-content-release-v1": [
+        "./packages/content-contracts/src/production-content-release-v1.ts"
+      ],
+      "@wrn/content-contracts/mobile-reader-v2": [
+        "./packages/content-contracts/src/mobile-reader-v2.ts"
+      ],
+      "@wrn/content-contracts/mobile-content-directory-v1": [
+        "./packages/content-contracts/src/directory/mobile-content-directory-v1.ts"
+      ],
+      "@wrn/content-contracts/production-events-media-v1": [
+        "./packages/content-contracts/src/directory/production-events-media-v1.ts"
+      ],
+      "@wrn/domain": ["./packages/domain/src/index.ts"],
+      "@wrn/ui-language": ["./packages/ui-language/src/index.ts"],
+      "@wrn/ui-language/sport-sources": ["./packages/ui-language/src/sport-sources.ts"],
+      "@wrn/ui-language/production-content": ["./packages/ui-language/src/production-content.ts"],
+      "@wrn/ui-language/production-home": ["./packages/ui-language/src/production-home.ts"],
+      "@wrn/ui-language/directory": ["./packages/ui-language/src/directory-copy.ts"],
+      "@wrn/ui-language/events-media": ["./packages/ui-language/src/events-media.ts"],
+      "@wrn/ui-language/source-preferences": ["./packages/ui-language/src/source-preferences.ts"]
+    },
+    "useDefineForClassFields": true,
+    "verbatimModuleSyntax": true
+  }
+}

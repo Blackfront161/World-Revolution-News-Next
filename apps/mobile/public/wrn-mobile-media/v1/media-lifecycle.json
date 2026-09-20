@@ -1,0 +1,71 @@
+{
+  "schema": "wrn.mobile-media-lifecycle.v1",
+  "contractVersion": "1.0.0",
+  "releaseId": "wrn-media-release-local",
+  "revision": 1,
+  "generatedAt": "2026-09-01T00:00:00.000Z",
+  "validUntil": "2026-09-02T00:00:00.000Z",
+  "owner": "wrn-local",
+  "lifecycle": {
+    "playbackStates": ["idle", "loading", "ready", "playing", "paused", "ended", "error"],
+    "availabilityStates": ["local", "online", "offline", "stale", "blocked"],
+    "playbackTransitions": [
+      { "from": "idle", "event": "user-play", "to": "loading" },
+      { "from": "loading", "event": "decoder-ready", "to": "playing" },
+      { "from": "loading", "event": "failure", "to": "error" },
+      { "from": "playing", "event": "user-pause", "to": "paused" },
+      { "from": "paused", "event": "user-play", "to": "playing" },
+      { "from": "playing", "event": "media-ended", "to": "ended" },
+      { "from": "ended", "event": "user-play", "to": "loading" },
+      { "from": "error", "event": "user-reset", "to": "idle" }
+    ],
+    "availabilityTransitions": [
+      { "from": "online", "event": "network-lost", "to": "offline" },
+      { "from": "offline", "event": "network-restored", "to": "online" },
+      { "from": "online", "event": "freshness-expired", "to": "stale" },
+      { "from": "offline", "event": "freshness-expired", "to": "stale" },
+      { "from": "local", "event": "freshness-expired", "to": "stale" },
+      { "from": "local", "event": "safety-block", "to": "blocked" },
+      { "from": "online", "event": "safety-block", "to": "blocked" },
+      { "from": "offline", "event": "safety-block", "to": "blocked" },
+      { "from": "stale", "event": "safety-block", "to": "blocked" }
+    ],
+    "dominanceRules": [
+      {
+        "availability": "local",
+        "stopPlayback": false,
+        "detachDecoder": false,
+        "allowNewStart": true,
+        "allowResumeWrite": true
+      },
+      {
+        "availability": "online",
+        "stopPlayback": false,
+        "detachDecoder": false,
+        "allowNewStart": true,
+        "allowResumeWrite": true
+      },
+      {
+        "availability": "offline",
+        "stopPlayback": false,
+        "detachDecoder": false,
+        "allowNewStart": false,
+        "allowResumeWrite": true
+      },
+      {
+        "availability": "stale",
+        "stopPlayback": true,
+        "detachDecoder": true,
+        "allowNewStart": false,
+        "allowResumeWrite": false
+      },
+      {
+        "availability": "blocked",
+        "stopPlayback": true,
+        "detachDecoder": true,
+        "allowNewStart": false,
+        "allowResumeWrite": false
+      }
+    ]
+  }
+}

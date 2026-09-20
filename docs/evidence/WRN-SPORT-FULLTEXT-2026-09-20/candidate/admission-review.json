@@ -1,0 +1,25 @@
+{
+  "schema": "wrn.sport-fulltext-review.v1",
+  "sourceUrl": "https://africasacountry.com/2026/07/is-football-still-capable-of-scandal",
+  "aboutUrl": "https://africasacountry.com/about",
+  "title": "Is football still capable of scandal?",
+  "author": "Lee Nxumalo",
+  "publishedAt": "2026-07-29T19:12:24.175Z",
+  "feedUrl": "https://africasacountry.com/feed",
+  "feedEntryId": "https://africasacountry.com/2026/07/is-football-still-capable-of-scandal",
+  "sourceSnapshotSha256": "1da7a3474f542acf6ed5bffaa38962abdc30d0cdea44dae2e90c6fb29f6a4175",
+  "sourceSnapshotBytes": 46306,
+  "aboutSnapshotSha256": "e8cdac8fc1f33137b8bff94ba9ce82cbcac4956b5ef7b34f22c6bc35c938d531",
+  "proseBlocks": 30,
+  "imageImported": false,
+  "rights": {
+    "licenseId": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "evidenceUrl": "https://africasacountry.com/about",
+    "checkedAt": "2026-09-20T08:31:46.415Z",
+    "scope": "Complete original English article prose under the publisher About page CC BY 4.0 statement. Allegations, legal statuses and named claims remain source-attributed commentary; no independent verification is asserted. The Fred Murphy image and all other media are excluded because no image-specific licence was evidenced.",
+    "thirdPartyMaterialReviewed": true
+  },
+  "safety": "commentary; allegations and legal statuses remain source claims",
+  "combinedInputSha256": "5f1dd5b6899b909f1a0d6ea7d4eeba77daf1e940b7bdd041ad96800f07305448"
+}

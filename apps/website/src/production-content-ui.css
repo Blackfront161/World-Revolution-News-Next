@@ -1,0 +1,25 @@
+.website-production {
+  width: min(100%, 72rem);
+  margin-inline: auto;
+}
+.website-production-heading {
+  font-size: 1rem;
+  color: var(--wrn-color-accent);
+  margin-block: 0 1rem;
+}
+.website-production .production-content {
+  min-width: 0;
+}
+.website-production .secondary-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block: 1rem;
+}
+.website-production .secondary-navigation a {
+  min-height: 2.75rem;
+  padding: 0.65rem;
+  color: var(--wrn-color-text);
+  border: 1px solid var(--wrn-color-action);
+  border-radius: var(--wrn-radius);
+}

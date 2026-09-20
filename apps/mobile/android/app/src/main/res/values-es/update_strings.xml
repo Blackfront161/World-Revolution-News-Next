@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="update_ready_title">Actualización lista</string>
+    <string name="update_ready_message">La actualización se ha descargado. Guarda primero tus borradores. ¿Reiniciar World Revolution News para instalarla?</string>
+    <string name="update_restart_action">Reiniciar</string>
+    <string name="update_later_action">Más tarde</string>
+    <string name="update_install_failed">No se pudo instalar la actualización. Inténtalo de nuevo más tarde.</string>
+</resources>

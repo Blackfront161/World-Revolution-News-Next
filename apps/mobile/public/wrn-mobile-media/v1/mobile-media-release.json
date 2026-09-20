@@ -1,0 +1,78 @@
+{
+  "schema": "wrn.mobile-media-release.v1",
+  "contractVersion": "1.0.0",
+  "releaseId": "wrn-media-release-local",
+  "revision": 1,
+  "generatedAt": "2026-09-01T00:00:00.000Z",
+  "validUntil": "2026-09-02T00:00:00.000Z",
+  "owner": "wrn-local",
+  "revocationFloor": 1,
+  "documents": [
+    {
+      "documentClass": "manifest",
+      "path": "/wrn-mobile-media/v1/media-manifest.json",
+      "schema": "wrn.mobile-media-manifest.v1",
+      "contractVersion": "1.0.0",
+      "revision": 1,
+      "bytes": 3001,
+      "sha256": "aa5285bcde22b14a0febd3467dbe4678327eb8fd64893f6fe1150b1f2e219b1f",
+      "recordCount": 5,
+      "compatibility": { "minReaderContract": "1.0.0", "maxReaderContract": "1.0.0" }
+    },
+    {
+      "documentClass": "admission",
+      "path": "/wrn-mobile-media/v1/media-admission.json",
+      "schema": "wrn.mobile-media-admission.v1",
+      "contractVersion": "1.0.0",
+      "revision": 1,
+      "bytes": 2235,
+      "sha256": "3edac5c4e99cd1b332decd281e3a0828d9e8daabab3e575c5066975c73bfccd5",
+      "recordCount": 1,
+      "compatibility": { "minReaderContract": "1.0.0", "maxReaderContract": "1.0.0" }
+    },
+    {
+      "documentClass": "rights",
+      "path": "/wrn-mobile-media/v1/media-rights.json",
+      "schema": "wrn.mobile-media-rights.v1",
+      "contractVersion": "1.0.0",
+      "revision": 1,
+      "bytes": 1804,
+      "sha256": "db2e0514b3985076701a4d4e976263259ef5ff01bfc29df8bc1f2140da1d0e0d",
+      "recordCount": 3,
+      "compatibility": { "minReaderContract": "1.0.0", "maxReaderContract": "1.0.0" }
+    },
+    {
+      "documentClass": "consent",
+      "path": "/wrn-mobile-media/v1/media-consent.json",
+      "schema": "wrn.mobile-media-consent.v1",
+      "contractVersion": "1.0.0",
+      "revision": 1,
+      "bytes": 507,
+      "sha256": "20b285570bb00dac5c643612b3b1ac5948b7011e538b2485de3802c8afb42025",
+      "recordCount": 1,
+      "compatibility": { "minReaderContract": "1.0.0", "maxReaderContract": "1.0.0" }
+    },
+    {
+      "documentClass": "lifecycle",
+      "path": "/wrn-mobile-media/v1/media-lifecycle.json",
+      "schema": "wrn.mobile-media-lifecycle.v1",
+      "contractVersion": "1.0.0",
+      "revision": 1,
+      "bytes": 2611,
+      "sha256": "96aff25a3a72f989a9403641d01d6cd2e6c23fc5d5035d4205ef815f54fb68f1",
+      "recordCount": 1,
+      "compatibility": { "minReaderContract": "1.0.0", "maxReaderContract": "1.0.0" }
+    },
+    {
+      "documentClass": "revocation",
+      "path": "/wrn-mobile-media/v1/media-revocation.json",
+      "schema": "wrn.mobile-media-revocation.v1",
+      "contractVersion": "1.0.0",
+      "revision": 1,
+      "bytes": 708,
+      "sha256": "56af73da2278d6db3046f51ff48374d2b981e2019e51b93bcec3bdc8005f9978",
+      "recordCount": 0,
+      "compatibility": { "minReaderContract": "1.0.0", "maxReaderContract": "1.0.0" }
+    }
+  ]
+}

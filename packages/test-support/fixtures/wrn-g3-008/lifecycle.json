@@ -1,0 +1,36 @@
+{
+  "contractVersion": "1.0.0",
+  "schema": "wrn.local-archive-lifecycle.v1",
+  "revision": "wrn-g3-008-local-archive-lifecycle-v1",
+  "sourceContent": {
+    "articlePayloadSha256": "a23763da322a9c09c4930ab8e04b34afaf646b2f2bc62c401a39b35b69d73aa7",
+    "readerDetailsRevision": "wrn-g3-008-local-reader-details-v1",
+    "readerDetailsIntegritySha256": "edc4031b3a14009155a5b4cbc828f5631f93d8a7a6cd6e4bc69db8f7ad546619"
+  },
+  "activeArticleIds": ["wrn-test-art-g3-008-active"],
+  "archiveArticleIds": ["wrn-test-art-g3-008-active", "wrn-test-art-g3-008-historical"],
+  "shareableArticleIds": ["wrn-test-art-g3-008-active", "wrn-test-art-g3-008-historical"],
+  "aliases": [
+    {
+      "sourceId": "wrn-test-art-g3-008-old-historical",
+      "targetId": "wrn-test-art-g3-008-historical"
+    },
+    {
+      "sourceId": "wrn-test-art-g3-008-revoked",
+      "targetId": "wrn-test-art-g3-008-historical"
+    }
+  ],
+  "gone": [{ "id": "wrn-test-art-g3-008-gone", "category": "removed" }],
+  "revocations": {
+    "revision": 2,
+    "previousRevision": 1,
+    "entries": [
+      {
+        "id": "wrn-test-art-g3-008-revoked",
+        "status": "blocked",
+        "category": "rights-or-safety"
+      }
+    ]
+  },
+  "integritySha256": "fb97729e020d4caf6875876999e955a0f2dec0c33e9940ef4695069ebee07ee3"
+}

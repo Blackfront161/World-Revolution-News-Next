@@ -1,0 +1,55 @@
+.production-activity,
+.production-activity-change {
+  border: 1px solid var(--wrn-color-border);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-block: 1rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.production-activity p {
+  max-width: 72ch;
+}
+.production-activity summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding-block: 0.75rem;
+}
+.production-activity button,
+.production-activity-change button,
+.production-activity-dialog button {
+  min-height: 44px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+.production-activity-hours {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: end;
+}
+.production-activity-hours label {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+.production-activity-hours input {
+  min-height: 44px;
+  max-width: 100%;
+}
+.production-activity-badge {
+  font-weight: 700;
+}
+.production-activity-dialog {
+  max-width: min(36rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  overflow-wrap: anywhere;
+}
+@media (forced-colors: active) {
+  .production-activity,
+  .production-activity-change {
+    border-color: CanvasText;
+  }
+}

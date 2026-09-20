@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<title>Center for a Stateless Society  &raquo; Attacco alla Libertà Tecnologica e al Dissenso</title>
+<link rel="pingback" href="https://c4ss.org/xmlrpc.php" />
+  <link rel="stylesheet" type="text/css" href="https://c4ss.org/wp-content/themes/center2015/style.css">
+  <link rel="stylesheet" type="text/css" href="https://c4ss.org/wp-content/themes/center2015/print.css" media="print">
+  <link rel="stylesheet" type="text/css" href="https://c4ss.org/wp-content/themes/center2015/quiz/quiz.css">
+  <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="https://c4ss.org/wp-content/themes/center2015/favicon.ico">
+  <link rel="pingback" href="https://c4ss.org/xmlrpc.php" />
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="https://c4ss.org/?feed=rss2" />
+    <link rel="alternate" type="text/xml" title="RSS .92" href="https://c4ss.org/?feed=rss" />
+    <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="https://c4ss.org/?feed=atom" />
+    <link rel="alternate" type="application/rss+xml" title="Center for a Stateless Society RSS Comments Feed" href="https://c4ss.org/comments/feed/" />
+<link rel=”apple-touch-icon” href=”/wp-content/themes/center2015/images/c4ss-apple-icon.png">
+
+
+
+
+<script>
+function showComments(){
+document.getElementById("comments-wrapper").className = "";
+document.getElementById("comments-show").className = "hidden";
+};
+</script>
+
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://c4ss.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fc4ss.org%2Fcontent%2F61302" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://c4ss.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fc4ss.org%2Fcontent%2F61302&#038;format=xml" />
+<style id='wp-img-auto-sizes-contain-inline-css' type='text/css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id='wp-block-library-inline-css' type='text/css'>
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<script type="text/javascript" src="https://c4ss.org/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://c4ss.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="https://c4ss.org/wp-content/plugins/radslide/vendor/jquery.cycle.all.js?ver=6.9.7" id="jquery.cycle-js"></script>
+<link rel="https://api.w.org/" href="https://c4ss.org/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://c4ss.org/wp-json/wp/v2/posts/61302" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://c4ss.org/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.9.7" />
+<link rel="canonical" href="https://c4ss.org/content/61302" />
+<link rel='shortlink' href='https://c4ss.org/?p=61302' />
+<script type="text/javascript">jQuery(window).load(function() { 
+                  jQuery(function(){                    jQuery("#radslide-1").cycle({ timeout:6000, speed:1000 });                     jQuery("#radslide-2").cycle({ timeout:2000, speed:4000 }); })
+        });</script>	<meta property="og:title" content="Attacco alla Libertà Tecnologica e al Dissenso" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://c4ss.org/content/61302" />
+<meta property="og:description" content="C4SS. Pubblicato l’otto settembre 2026 con il titolo An Attack on Tech Freedom, an Assault on Dissent. Traduzione di Enrico Sanna. Viviamo in un mondo caratterizzato da stato di polizia, militarizzazione della polizia, e repressione del dissenso. Con i colossi aziendali spesso alleati con lo stato per mettere a tacere chi dissente o per rafforzare..." />
+<meta property="og:site_name" content="Center for a Stateless Society" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@c4ssdotorg">
+<meta name="twitter:title" content="Attacco alla Libertà Tecnologica e al Dissenso" />
+<meta name="twitter:description" content="C4SS. Pubblicato l’otto settembre 2026 con il titolo An Attack on Tech Freedom, an Assault on Dissent. Traduzione di Enrico Sanna. Viviamo in un mondo caratterizzato da stato di polizia, militarizzazione della polizia, e repressione del dissenso. Con i colossi aziendali spesso alleati con lo stato per mettere a tacere chi dissente o per rafforzare..." />
+<meta name="twitter:image" content="http://c4ss.org/wp-content/themes/center2015/images/og.jpg">
+
+
+
+
+
+<meta property="og:image" content="http://c4ss.org/wp-content/themes/center2015/images/og.jpg"/>
+
+
+<meta property="fb:admins" content="19401609"/>
+
+</head>
+
+<body class="wp-singular post-template-default single single-post postid-61302 single-format-standard wp-theme-center2015" >
+<div class="outestbox">
+<div class="outerbox">
+  <div class="header-top">
+    <a href="/"><div class="logo"><img src="https://c4ss.org/wp-content/themes/center2015/images/C4SSLogo2.png"></div></a>
+    <a href="/"><div class="site-title-wrapper">
+    <img src="https://c4ss.org/wp-content/themes/center2015/images/mobile-banner.png">
+      <div class="site-title">Center for a Stateless Society</div>
+      <div class="site-subtitle">A Left Market Anarchist Think Tank & Media Center</div>
+    </div></a>
+    <div class="header-tabs">
+      <ul>
+        <a href="https://store.c4ss.org"><li class="first headline">STORE</li></a>
+        <a href="/about"><li class="headline">About</li></a>
+        <a href="/resources"><li class="headline">Resources</li></a>
+        <a href="/support"><li class="last headline">Support</li></a>
+      </ul>
+    </div>
+    <div class="search-bar">
+      
+ 
+<form method="get" id="searchform"  
+action="https://c4ss.org/"> 
+<input type="text" class="search" value="Search"  
+name="s" id="s"  
+onblur="if (this.value == '')  
+{this.value = 'Search';}"  
+onfocus="if (this.value == 'Search')  
+{this.value = '';}" /> 
+<input type="hidden" id="searchsubmit" class="search" /> 
+</form>
+
+    </div>
+    <div class="rss">
+     <a href="/feed"><img src="https://c4ss.org/wp-content/themes/center2015/images/rss.png"></a>
+    </div>
+  </div>
+    
+
+
+
+
+  
+<div class ="main clear">
+   <div class ="blog-content">
+
+      
+       <div class="blog-content-post">
+         <div class="category-title headline"><a href="https://c4ss.org/content/category/stateless-embassies/italian" rel="category tag">Italian</a>, <a href="https://c4ss.org/content/category/stateless-embassies" rel="category tag">Stateless Embassies</a></div>        
+        <div class="blog-content-post-title headline">Attacco alla Libertà Tecnologica e al Dissenso</div>
+          <div class="blog-content-meta">
+          <span class="byline"><a href="https://c4ss.org/content/author/c4ssorg-admin" title="Posts by C4SS" rel="author">C4SS</a>          </span> | 
+           <span class="author-twitter"><a href="https://twitter.com/c4ssdotorg">@c4ssdotorg</a></span> |  
+           <span class="author-patreon"> <a href="https://www.patreon.com/c4ssdotorg">Support this author on Patreon</a></span> |  
+          <span class="date"> September 9th, 2026</span> 
+        </div>
+
+<div class="source-info"></div>
+
+        <div class="blog-content-post-text">
+           <p style="text-align: left; padding: 1em; background: #e6e6e6;"><b>C4SS</b>. Pubblicato l’otto settembre 2026 con il titolo <a href="https://c4ss.org/content/61296">An Attack on Tech Freedom, an Assault on Dissent</a>. Traduzione di <a href="http://tinyurl.com/3scy96ry">Enrico Sanna</a>.</p>
+<p>Viviamo in un mondo caratterizzato da <a href="https://link.springer.com/article/10.1057/s41302-024-00278-1">stato di polizia</a>, <a href="https://c4ss.org/content/50904">militarizzazione della polizia</a>, e <a href="https://www.mprnews.org/story/2026/08/26/rightleaning-groups-say-mn-15-prosecution-violates-free-speech-of-antiice-activists">repressione</a> <a href="https://c4ss.org/content/52251">del</a> <a href="https://gunsguardsandgovernance.substack.com/p/decades-for-dissent">dissenso</a>. Con i colossi aziendali spesso alleati con lo stato per <a href="https://crimethinc.com/2020/08/22/open-letter-stand-with-anarchist-publishers-banned-by-facebook-announcing-a-solidarity-statement-from-anarchist-agency">mettere a tacere chi dissente</a> o per rafforzare la <a href="https://www.npr.org/2026/03/25/nx-s1-5752369/ice-surveillance-data-brokers-congress-anthropic">sorveglianza</a>.</p>
+<p>Dato il contesto, è importante che i gruppi autonomi abbiano piattaforme di comunicazione e hosting criptate.</p>
+<p>Per aver fatto ciò, un collettivo italiano è stato recentemente <a href="https://www.state.gov/releases/office-of-the-spokesperson/2026/08/designation-of-autistici-inventati-as-a-specially-designated-global-terrorist">dichiarato</a> “associazione terroristica globale” dall’amministrazione Trump. Il collettivo è Autistici/Inventati, che offre servizi ad attivisti tramite il servizio di hosting <a href="https://noblogs.org/">NoBlogs</a> e altre infrastrutture digitali.</p>
+<p><a href="https://www.state.gov/releases/office-of-the-spokesperson/2026/08/designation-of-autistici-inventati-as-a-specially-designated-global-terrorist">Secondo</a> il dipartimento di stato degli Stati Uniti, “Autistici/Inventati (A/I) è un gruppo estremista con base in Italia che crea e gestisce infrastrutture digitali al servizio di cellule antifasciste (antifa) violente e gruppi militanti di estrema sinistra in tutto il mondo”.</p>
+<p>L’accento sulle <i>cellule antifasciste</i> riflette il tentativo in corso dell’amministrazione Trump di abbattere il dissenso demonizzando gli “antifascisti”. Questo è l’obiettivo esplicito del memorandum presidenziale sulla sicurezza nazionale (<a href="https://www.aclu.org/news/national-security/how-nspm-7-seeks-to-use-domestic-terrorism-to-target-nonprofits-and-activists">NSPM-7</a>), ed è alla base delle azioni penali contro gli attivisti anti-CIE (che gestisce i rimpatri), come <a href="https://wagingnonviolence.org/2026/08/defend-the-minneapolis-15-ice-surveillance/">Minneapolis 15</a> e <a href="https://gunsguardsandgovernance.substack.com/p/decades-for-dissent">Prairieland defendants</a>.</p>
+<p>Nel loro desiderio ossessivo di collegare tutto il dissenso anarchico e di sinistra agli “antifascisti”, l’amministrazione Trump è incorsa in dichiarazioni sfacciatamente false. Così il dipartimento di stato:</p>
+<p style="padding-left: 40px;">L’organizzazione antifascista Rose City, con base nell’Oregon, si è servita di strutture e servizi del collettivo A/I per coordinare e spingere a compiere localmente atti violenti e criminali, compreso un attacco contro gli elicotteri della polizia di frontiera che ha portato ad una denuncia federale. Rose City si è inoltre servita di strumenti e servizi di A/I per diffondere liste di proscrizione e informazioni personali ottenute illegalmente sulla polizia di frontiera, oltre a inviti a prendere di mira agenti in strada e “in casa loro”.</p>
+<p>Ma come <a href="https://x.com/TorchAntifa/status/2092703759709225067">fa notare</a> la rete antifascista Torch, Rose City non è responsabile di tali azioni e non si serve di A/I. Gli agenti federali si riferiscono ai comunicati di Rose City Counter-Info, un’organizzazione completamente diversa che fa uso dei servizi di A/I. “Rose City” è un appellativo molto comune a Portland, nell’Oregon. Il nome accomuna organizzazioni diverse tra loro. Si tratta di chiare falsità ingenuamente amplificate da giornalisti di <a href="https://www.foxnews.com/politics/exclusive-state-dept-reveals-portland-antifa-connection-hamas-irans-irgc-sweeping-terror-action">Fox News</a> e <a href="https://www.nationalreview.com/news/italian-extremist-group-provided-encrypted-tech-services-for-u-s-antifa-cells-state-department-says/">National Review</a>.</p>
+<p>Al di là dell’incompetenza dimostrata, dire che il collettivo A/I è una “associazione terroristica globale” è, questa sì, una minaccia serissima. Come <a href="https://x.com/rechelon/status/2092696097357463890">afferma</a> il coordinatore tecnico di C4SS William Gillis, “È un FORTE attacco contro il diritto elementare di libertà di parola. Non oso immaginare quale colpo potrebbe subire un movimento anarchico costituito, come dicono gli Stati Uniti, da 5.500 mailing list e 10.000 blog.”</p>
+<p>Il dipartimento di stato punta il dito contro gli utenti dei servizi di A/I accusandoli di aver commesso presunti reati, come il sabotaggio e il terrorismo. Ma si tratta perlopiù di attività che rientrano chiaramente nel primo emendamento (libertà di parola, religione, stampa e assemblea, <i>NdT</i>). Ci rientrano l’organizzazione di fiere del libro anarchico, attività di ricerca antifascista che studiano e denunciano organizzazioni di estrema destra e anche il blog di una rivista accademica di revisione paritaria e una trasmissione radio con podcast anarchico.</p>
+<p>Classificare A/I come “associazione terroristica globale” significa a sanzioni. Significa che chiunque faccia transazioni con A/I si espone a rappresaglie legali, e questo sulla base di un decreto dell’esecutivo. Il risultato è che il sito del collettivo è stato <a href="https://www.ilfattoquotidiano.it/2026/08/29/autistici-inventati-trump-terrorists-news/8491452/#:%7E:text=And%20yet%20the%20designation%20as%20a%20terrorist%20entity%20immediately%20led%20to%20the%20shutdown%20of%20the%20autistici.org%20website%3A%20who%20ordered%20it%3F%20The%20collective%20confirmed%20that%20it%20has%20not%20received%20any%20injunction%20from%20U.S.%20or%20Italian%20authorities%3A%20their%20website%20was%20simply%20taken%20down%20less%20than%2048%20hours%20after%20the%20designation.">chiuso</a>, <a href="https://www.ilfattoquotidiano.it/2026/08/29/autistici-inventati-trump-terrorists-news/8491452/#:%7E:text=The%20organization%E2%80%99s%20PayPal%20account%20was%20immediately%20blocked%20as%20well.">PayPal</a> ha bloccato il conto e lo stesso conta di fare l’italiana <a href="https://www.ilfattoquotidiano.it/2026/08/29/autistici-inventati-trump-terrorists-news/8491452/#:%7E:text=Autistici/Inventati%20relies%20on%20donations%20and%20has%20a%20bank%20account%20with%20the%20Italian%20Banca%20Etica.%20As%20of%20this%20writing%2C%20Banca%20Etica%20appears%20intent%20on%20closing%20the%20account.">Banca Etica</a>,</p>
+<p>Si tratta di sanzioni che hanno un effetto devastante per A/I. <a href="https://sabot.media/post/ai-shuts-down">Così</a> <i>Sabot Media</i>: “Il sei settembre, undici giorni dopo che gli Stati Uniti hanno messo il collettivo italiano nell’elenco delle attività terroristiche, A/I ha annunciato che chiuderà, tutti i servizi di email, blogging, hosting e comunicazioni offerti da venticinque anni saranno interrotti.”</p>
+<p>Un precedente agghiacciante. Il governo può dichiarare unilateralmente “associazione terroristica globale” un fornitore di hosting, servizi email e altre infrastrutture di contatto. Può imporre sanzioni e distruggerlo. Può imporre pesanti costi su chiunque faccia divulgazione, organizzazione e ricerca tramite i suoi servizi. E può fare tutto ciò unilateralmente. Niente capi d’accusa, niente denunce, niente processi.</p>
+<p>Questo significa che l’esecutivo ha il potere di imporre forti costi ai movimenti di opposizione. E può farlo senza le limitazioni di un sistema di pesi e contrappesi.</p>
+<p>Come ha dichiarato a <a href="https://reason.com/2026/08/27/rubio-uses-terrorism-law-to-ban-secure-email-service/?fbclid=IwcGRvZgNleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8yNzUyNTQ2OTI1OTgyNzkAAR69DJzQcPMc6Z-whO5VQ5-OYbgnw3seTTmfs28kBxmE1CyjxxDxGOZwnDMKxQ_aem_nW3QcRckTh5XxzJ8-0_Ajg"><i>Reason</i></a> Jillian York di Electronic Frontier Foundation (EFF), “È terribile sapere che un’organizzazione alternativa di hosting (email, siti web e altri servizi) può essere dichiarata organizzazione terroristica solo perché offre servizi che la gente vuole.”</p>
+<p>L’effetto voluto è chiaro. L’amministrazione vuole zittire il dissenso. Vuole che instillare la paura di parlare.</p>
+<p>Non datele ciò che cerca. Continuate a dire quello che volete. Continuate a organizzare. Continuate a sognare un mondo migliore in cui tutti sono liberi.</p>
+<p>Ulteriori informazioni e particolari su questi attacchi alla libertà di parola, al volontariato e alla libertà tecnologica si possono trovare su <a href="https://sabot.media/post/ai-shuts-down"><i>Sabot Media</i></a>, <a href="https://crimethinc.com/2026/08/27/us-government-designates-host-of-noblogsorg-a-global-terrorist">CrimethInc.</a>, <a href="https://www.ilfattoquotidiano.it/2026/08/29/autistici-inventati-trump-terrorists-news/8491452/"><i>il Fatto Quotidiano</i></a>, <a href="https://decode39.com/16319/autistici-inventati-case-sets-a-new-counterterrorism-precedent-irdi-says/"><i>Decode39</i></a>, <a href="https://thefinalstrawradio.libsyn.com/the-situation-with-noblogs-a-midweek-special-featuring-sabot-media-and-crimethinc">Final Straw Radio</a>, <a href="https://podcasts.apple.com/us/podcast/recent-terrorism-sanctions-with-shayana-kadidal/id1803156411?i=1000786968035">Outlaw</a> e <a href="https://theintercept.com/2026/08/28/trump-antifa-terrorist-websites-free-speech/"><i>The Intercept</i></a>. Campagne di sensibilizzazione sul caso sono ospitate su <a href="https://sabot.media/campaigns/autistici-inventati"><i>Sabot Media</i></a> e <a href="https://keepitfree.ai/">https://keepitfree.ai/</a>.</p>
+<p style="text-align: center; padding: .6em 1em; border: 1px solid black; border-radius: 5px; margin: .5em 0 2em;">Le nostre traduzioni sono finanziate interamente da donazioni. Se vi piace quello che scriviamo, siete invitati a contribuire. Trovate le istruzioni su come fare nella pagina <i>Sostieni C4SS</i>: <a href="https://c4ss.org/sostieni-c4ss">https://c4ss.org/sostieni-c4ss</a>.</p>
+         </div>
+
+
+           
+       </div>
+
+       
+
+
+    </div>
+  </div>
+
+    <div class="blog-sidebar">
+<div style="border: 1px solid #CCC;
+margin: 5px;
+width: 170px;
+padding: 8px;
+">
+<div id="radslide-2"><div class="radslide"><a href="https://store.c4ss.org/index.php/product/anarchy-democracy/"><img src="https://c4ss.org/wp-content/uploads/2020/09/A.D-cover.png" alt="Anarchy and Democracy" /></a></div><div class="radslide"><a href="https://store.c4ss.org/index.php/product/fighting-fascism/"><img src="https://c4ss.org/wp-content/uploads/2019/07/51o7J4INDL._SX331_BO1204203200_-1.jpg" alt="Fighting Fascism" /></a></div><div class="radslide"><a href="https://store.c4ss.org/index.php/product/markets-not-capitalism/"><img src="http://c4ss.org/wp-content/uploads/2015/06/MarketsNotCapitalism.jpg" alt="Markets Not Capitalism" /></a></div><div class="radslide"><a href="https://store.c4ss.org/index.php/product/anatomy-of-escape-book/"><img src="https://c4ss.org/wp-content/uploads/2019/04/Screenshot_20190415-130601_Drive.jpg" alt="The Anatomy of Escape" /></a></div><div class="radslide"><a href="https://store.c4ss.org/index.php/product/organization-theory/"><img src="http://c4ss.org/wp-content/uploads/2015/06/organization1.png" alt="Organization Theory" /></a></div></div></div>
+<div class="sidebar-section">			<div class="textwidget"></div>
+		</div><div class="sidebar-section"><h2 class="title">Supporter Updates</h2>			<div class="textwidget"><form style="border:1px solid #ccc;padding:3px;text-align:center;" action="//feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('//feedburner.google.com/fb/a/mailverify?uri=CenterForAStatelessSocietySupporterUpdates', 'popupwindow', 'scrollbars=yes');return true">
+<p>Enter your email address:</p><p><input type="text" style="" name="email"/></p><input type="hidden" value="CenterForAStatelessSocietySupporterUpdates" name="uri"/><input type="hidden" name="loc" value="en_US"/><input type="submit" style=""  value="Subscribe" /></form>
+
+
+<!--<form style="padding:3px;text-align:center;" action="http://www.feedburner.com/fb/a/emailverify" method="post">
+	<fieldset>
+		<p><label>Enter your email address:</label></p>
+		<input type="text" style="width:140px" name="email"/>
+		<input type="hidden" value="http://feeds.feedburner.com/~e?ffid=2852725" name="url"/>
+		<input type="hidden" value="C4SS.org Supporter Updates" name="title"/>
+		<input type="hidden" name="loc" value="en_US"/>
+		<input type="submit" style="width:120px" value="Subscribe" />
+	</fieldset>
+</form>--></div>
+		</div>
+<div id="tags">
+<a href="https://c4ss.org/content/tag/anarchism">anarchism</a>, <a href="https://c4ss.org/content/tag/anti-fascism">anti-fascism</a>, <a href="https://c4ss.org/content/tag/censorship">censorship</a>, <a href="https://c4ss.org/content/tag/fascism">fascism</a>, <a href="https://c4ss.org/content/tag/free-speech">free speech</a>, <a href="https://c4ss.org/content/tag/freedom-of-expression">Freedom Of Expression</a>, <a href="https://c4ss.org/content/tag/surveillance">surveillance</a>, </div>
+ 
+ 
+<div id="sidebar-social">
+   
+<a href="JavaScript:void()"><div id="facebook"></div></a>
+<a href="JavaScript:void()"><div id="twitter"></div></a>
+<a href="JavaScript:void()"><div id="reddit" ></div></a>
+<a href="https://www.tumblr.com/share" title="Share on Tumblr"><div id="tumblr" ></div></a>
+<div class="dropdown" id="facebook-dropdown"><div class="social-internal"></div></div>
+<div class="dropdown" id="twitter-dropdown"><div class="social-internal"><iframe allowtransparency="true" frameborder="0" scrolling="no"
+        src="https://platform.twitter.com/widgets/tweet_button.html"
+        style="width:130px; height:20px;"></iframe></div>
+</div>
+<div class="dropdown" id="reddit-dropdown"><div class="social-internal"><script type="text/javascript" src="https://www.reddit.com/static/button/button1.js"></script>
+
+<script type='text/javascript'>reddit_url='https://c4ss.org/content/61302'</script>
+<script type='text/javascript'>reddit_title='Attacco alla Libertà Tecnologica e al Dissenso'</script></div>
+</div>
+
+
+</div>
+
+  </div>
+  
+
+  <div class="clear"></div>
+  <div class="footer-small">
+
+  <div class="footer-about-small">
+      <p>All content on this site is available for republishing under a <a href="http://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Public Domain Dedication</a>.</p>
+      <p class="about-footer"><strong><a href="/about">about</a> | <a href="/press-room">press room</a> | <a href="/contact">contact us</a></strong></p>
+  </div>
+  <div class="footer-column-small">
+    <a href="/issues"><h3>Regions</h3></a>
+  </div>
+  <div class="footer-column-small">
+   <a href="/issues"><h3>Issues</h3></a>
+  </div>
+  <div class="footer-column-small">
+    <a href="/about"><h3>Contributors</h3></a>
+  </div>
+  <div class="footer-column-small">
+    <a href="/support"><h3>Support</h3></a>
+  </div>
+  <div class="footer-column-small">
+    <a href="/resources"><h3>Resources</h3></a>
+  </div>
+  <div class="footer-column-small">
+    <a href="/help-expand-our-translations"><h3>Languages</h3></a>
+  </div>
+
+
+
+
+
+
+<script>
+jQuery(document).ready(function() {
+        jQuery('#facebook').click(function() {
+		jQuery('.dropdown').hide();
+                jQuery('#facebook-dropdown').css('display','block');
+})
+        jQuery('#twitter').click(function() {
+		jQuery('.dropdown').hide();
+                jQuery('#twitter-dropdown').css('display','block');
+})
+        jQuery('#reddit').click(function() {
+		jQuery('.dropdown').hide();
+                jQuery('#reddit-dropdown').css('display','block');
+})
+
+})
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-7726261-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</div>
+
+</div>
+</div>
+</div>
+</body>
+
+
+
+
+
+
+
+
+

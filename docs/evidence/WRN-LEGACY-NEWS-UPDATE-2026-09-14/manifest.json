@@ -1,0 +1,233 @@
+{
+  "package": "WRN-LEGACY-NEWS-UPDATE-2026-09-14",
+  "sourceCommit": "294464bd4035d0a1d72d79b95c582a198e38f179",
+  "workingBuild": false,
+  "articles": 7,
+  "retainedArticles": 6,
+  "images": 4,
+  "sourceParagraphs": 20,
+  "releaseRevision": "wrn-production-news-2026-09-14-v4",
+  "descriptorSha256": "0fc717af52471b711fd8c585adef398032d8acf74ce6de14d4650357cf6c90c8",
+  "tests": {
+    "intake": 18,
+    "affectedBackend": 32,
+    "fixturePairs": 16,
+    "fixtureProvenance": true,
+    "browserClients": 2
+  },
+  "publicationPerformed": false,
+  "nativeVerified": false,
+  "fullReleaseReady": false,
+  "files": [
+    {
+      "path": "apps/mobile/public/wrn-production-content/current.json",
+      "bytes": 276,
+      "sha256": "ca1875065fffc68aa2459b674ca7ab641ef91cb5d35f84145793d5907519bc26"
+    },
+    {
+      "path": "apps/mobile/public/wrn-production-content/wrn-production-news-2026-09-14-v4/admission.json",
+      "bytes": 8592,
+      "sha256": "fe4a219d470bb163a329b20126a1fd80982083a2d1d350d8c9a43ae62a991eed"
+    },
+    {
+      "path": "apps/mobile/public/wrn-production-content/wrn-production-news-2026-09-14-v4/archive-lifecycle.json",
+      "bytes": 1177,
+      "sha256": "e8366d068bc7b1a629368c0689f4a418fae6bcaa71ba0a2215f9687e01318514"
+    },
+    {
+      "path": "apps/mobile/public/wrn-production-content/wrn-production-news-2026-09-14-v4/articles.json",
+      "bytes": 10176,
+      "sha256": "7dc7b85fe5ce8d6996f0f58e789312caafc3de53f083dcde34b309b72a3c3bb7"
+    },
+    {
+      "path": "apps/mobile/public/wrn-production-content/wrn-production-news-2026-09-14-v4/discover-index.json",
+      "bytes": 1195,
+      "sha256": "e375b08fdf92ee5f4680a2160654d4c717a4b91cc092799820c8fc5f4ed19bb8"
+    },
+    {
+      "path": "apps/mobile/public/wrn-production-content/wrn-production-news-2026-09-14-v4/manifest.json",
+      "bytes": 1223,
+      "sha256": "fdc9705849a2244506d4164fc1b490497173f0c3571d3a7aa75827b21f4fd54b"
+    },
+    {
+      "path": "apps/mobile/public/wrn-production-content/wrn-production-news-2026-09-14-v4/reader-details.json",
+      "bytes": 709087,
+      "sha256": "e933cce7cdd08435596378df5a493c451c54e091ab373f09f7f215f978e8e54e"
+    },
+    {
+      "path": "apps/mobile/public/wrn-production-content/wrn-production-news-2026-09-14-v4/release-descriptor.json",
+      "bytes": 880,
+      "sha256": "0fc717af52471b711fd8c585adef398032d8acf74ce6de14d4650357cf6c90c8"
+    },
+    {
+      "path": "apps/mobile/public/wrn-production-content/wrn-production-news-2026-09-14-v4/website-publication.json",
+      "bytes": 1358,
+      "sha256": "ad4bb67737dff8a8a45086c86dc7dd6ce398ea47f5b2ae0bee412762f0cba194"
+    },
+    {
+      "path": "apps/website/public/wrn-production-content/current.json",
+      "bytes": 276,
+      "sha256": "ca1875065fffc68aa2459b674ca7ab641ef91cb5d35f84145793d5907519bc26"
+    },
+    {
+      "path": "apps/website/public/wrn-production-content/wrn-production-news-2026-09-14-v4/admission.json",
+      "bytes": 8592,
+      "sha256": "fe4a219d470bb163a329b20126a1fd80982083a2d1d350d8c9a43ae62a991eed"
+    },
+    {
+      "path": "apps/website/public/wrn-production-content/wrn-production-news-2026-09-14-v4/archive-lifecycle.json",
+      "bytes": 1177,
+      "sha256": "e8366d068bc7b1a629368c0689f4a418fae6bcaa71ba0a2215f9687e01318514"
+    },
+    {
+      "path": "apps/website/public/wrn-production-content/wrn-production-news-2026-09-14-v4/articles.json",
+      "bytes": 10176,
+      "sha256": "7dc7b85fe5ce8d6996f0f58e789312caafc3de53f083dcde34b309b72a3c3bb7"
+    },
+    {
+      "path": "apps/website/public/wrn-production-content/wrn-production-news-2026-09-14-v4/discover-index.json",
+      "bytes": 1195,
+      "sha256": "e375b08fdf92ee5f4680a2160654d4c717a4b91cc092799820c8fc5f4ed19bb8"
+    },
+    {
+      "path": "apps/website/public/wrn-production-content/wrn-production-news-2026-09-14-v4/manifest.json",
+      "bytes": 1223,
+      "sha256": "fdc9705849a2244506d4164fc1b490497173f0c3571d3a7aa75827b21f4fd54b"
+    },
+    {
+      "path": "apps/website/public/wrn-production-content/wrn-production-news-2026-09-14-v4/reader-details.json",
+      "bytes": 709087,
+      "sha256": "e933cce7cdd08435596378df5a493c451c54e091ab373f09f7f215f978e8e54e"
+    },
+    {
+      "path": "apps/website/public/wrn-production-content/wrn-production-news-2026-09-14-v4/release-descriptor.json",
+      "bytes": 880,
+      "sha256": "0fc717af52471b711fd8c585adef398032d8acf74ce6de14d4650357cf6c90c8"
+    },
+    {
+      "path": "apps/website/public/wrn-production-content/wrn-production-news-2026-09-14-v4/website-publication.json",
+      "bytes": 1358,
+      "sha256": "ad4bb67737dff8a8a45086c86dc7dd6ce398ea47f5b2ae0bee412762f0cba194"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/.gitattributes",
+      "bytes": 95,
+      "sha256": "bdee12c920d0c59c91e8f1712ed0ce0eb85a09752a8ded4bb2f1fc16ae50a388"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/CANDIDATE-REVIEW.md",
+      "bytes": 4088,
+      "sha256": "13f27334279551f21e62ead5e3632e0f2803fc4a7f53a749ea470686d4eab5d8"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/INDEPENDENT-REVIEW.md",
+      "bytes": 3239,
+      "sha256": "d8307ee4944c21941dff33c6eaf44607fa76d054aa28403d7eea81c1573cabf6"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/REPORT.md",
+      "bytes": 5871,
+      "sha256": "98c41c57fdb2e5188588470a09216b1b4de3754746e3bfef4b3dfa3f8eea03e6"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/SOURCE-ADMISSION.md",
+      "bytes": 4423,
+      "sha256": "366e2ca6f575425e48d3d4757f2ecd3aa01e7e461b5cb49f362c634f80c771a6"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/browser-check.mjs",
+      "bytes": 4847,
+      "sha256": "224b99bc66629e4472af4e2ff4d08a0cdc77e82dee775923a18006e39b985039"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/browser-results.json",
+      "bytes": 716,
+      "sha256": "159a00c070df35c000dcd23d0dd28231160d6a565870bc5b17f263964e14870a"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/build-receipt.json",
+      "bytes": 41729,
+      "sha256": "50e3a9474b4fe55a90b2018b6317db1e7bca1a635e37c66e76f732e5b3a575dd"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/candidate/bindings.json",
+      "bytes": 260,
+      "sha256": "20673e941b443179615c76c517971d8ac5b4e64bcb33b3eac4d21bc1e20eea92"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/candidate/production-build-input-v3.json",
+      "bytes": 729917,
+      "sha256": "63dc7bf6594e99a6dfbc5393ff87044452f2d51dc27ec31dda7f470e17ce2dd1"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/candidate/results.json",
+      "bytes": 1030,
+      "sha256": "0bc1c4827248455d65c48bf23e9478155fcea01e3e0faf0d434fdfab4cfa4fac"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/candidate/reviewed-batch.json",
+      "bytes": 10340,
+      "sha256": "83cfd650d36bf9562b531a4077766ffc8e2dd24edb3931328394f756e2f11fc9"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/delivery-ledgers/preparation-receipt.json",
+      "bytes": 1786,
+      "sha256": "838cab8b1dc0d72e1974f1ba7ff8bd0d94eb9dfdd5bc0ca51668e25d40cdbb88"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/delivery-ledgers/v2.json",
+      "bytes": 1491,
+      "sha256": "741a00d46ca4d52017907e88df4d2ac3a18768202e93a6a2b2b344339b670d07"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/delivery-ledgers/v3.json",
+      "bytes": 2240,
+      "sha256": "6019d1b1e5f2a60c65d735e7d6383afcda3bec6e040c48cb6dc3b428832f2644"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/delivery-ledgers/v4.json",
+      "bytes": 3032,
+      "sha256": "9b5a275d1af4a4834792ab05c7ab11a109cf578f580b680425bfa9bdbd914d3e"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/screenshots/mobile-italian-reader.png",
+      "bytes": 32004,
+      "sha256": "accd9e5ef4f587d19d3b9584cb317986a4d953d606be258fc35489869dfae3c7"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/screenshots/mobile-new-card.png",
+      "bytes": 65119,
+      "sha256": "ea06b5e7f799e21d5762d4947200b31905348b84b4a3cf53bf6029fc66a51fce"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/screenshots/website-italian-reader.png",
+      "bytes": 32015,
+      "sha256": "1011570c18b1a31106e4c7105b8b9d97d180fba9d868684f9d804ab32638f9c9"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/screenshots/website-new-card.png",
+      "bytes": 38208,
+      "sha256": "0d75f2f48875408314ad928f95d86a60965f353b2b4a6ab45178bc0835160b5d"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/source-evidence/c4ss-api.snapshot",
+      "bytes": 13759,
+      "sha256": "3ccb55f4d3170aefb95a48906a0a31d2e97848bc7736b68452acd37ae54e6f1d"
+    },
+    {
+      "path": "docs/evidence/WRN-LEGACY-NEWS-UPDATE-2026-09-14/source-evidence/c4ss-page.snapshot",
+      "bytes": 28777,
+      "sha256": "8536dac362100173b2c613bb418be08fe81d00387441abda4a0cdf6c360de54f"
+    },
+    {
+      "path": "tools/legacy-news-ingestion.mjs",
+      "bytes": 19101,
+      "sha256": "5a43af962d51995be189d37eda80e4563093f577ddfbba6b589cc321f15c6b63"
+    },
+    {
+      "path": "tools/legacy-news-ingestion.test.mjs",
+      "bytes": 18047,
+      "sha256": "0f2109bde9ee273dd7b1c21cf23ad7bd3b499052b94ab3345e6e27545542bfed"
+    }
+  ]
+}

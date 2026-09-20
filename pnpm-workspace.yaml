@@ -1,0 +1,46 @@
+packages:
+  - apps/*
+  - packages/*
+  - services/*
+
+autoInstallPeers: false
+engineStrict: true
+ignoreScripts: true
+nodeVersion: 24.19.0
+pmOnFail: error
+preferFrozenLockfile: true
+saveExact: true
+strictPeerDependencies: true
+verifyStoreIntegrity: true
+verifyDepsBeforeRun: error
+enableGlobalVirtualStore: false
+
+minimumReleaseAge: 1440
+
+minimumReleaseAgeExclude:
+  - '@axe-core/playwright@4.13.0'
+  - '@capacitor/android@8.5.0'
+  - '@capacitor/cli@8.5.0'
+  - '@capacitor/core@8.5.0'
+  - '@eslint/js@10.0.1'
+  - '@playwright/test@1.62.1'
+  - '@testing-library/dom@10.4.1'
+  - '@testing-library/jest-dom@7.0.1'
+  - '@testing-library/react@16.3.2'
+  - '@testing-library/user-event@14.6.6'
+  - '@types/node@24.13.3'
+  - '@types/react-dom@19.2.4'
+  - '@types/react@19.2.18'
+  - '@vitejs/plugin-react@6.1.0'
+  - 'eslint-plugin-react-hooks@7.1.1'
+  - 'eslint-plugin-react-refresh@0.5.4'
+  - 'eslint@10.9.0'
+  - 'globals@17.11.0'
+  - 'jsdom@30.0.1'
+  - 'prettier@3.9.6'
+  - 'react-dom@19.2.8'
+  - 'react@19.2.8'
+  - 'typescript-eslint@8.67.0'
+  - 'typescript@6.0.3'
+  - 'vite@8.2.2'
+  - 'vitest@4.1.11'

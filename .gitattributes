@@ -1,0 +1,47 @@
+* text=auto
+# Frontend source text uses platform-neutral LF line endings.
+*.css text eol=lf
+*.html text eol=lf
+*.js text eol=lf
+*.mjs text eol=lf
+*.mts text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.md text eol=lf
+*.toml text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.ico binary
+*.aab binary
+*.apk binary
+*.zip binary
+/apps/mobile/public/wrn-mobile-media/v1/episode-local.txt text eol=lf
+/docs/evidence/WRN-G3-020/P7-SOL-BACKFILL-VISUAL-MANIFEST.tsv text eol=lf
+# Preserve the exact bytes used for the bound Home PNG manifest hashes.
+/docs/evidence/WRN-PRODUCTION-HOME-ROOT-2026-09-11/home-reflow-20260911-a/SHA256SUMS.txt -text
+/docs/evidence/WRN-PRODUCTION-TRANSLATION-CLIENT-2026-09-11/accepted-visuals-a/SHA256SUMS.txt -text
+/docs/evidence/WRN-PRODUCTION-TRANSLATION-CLIENT-2026-09-11/accepted-visuals-b/SHA256SUMS.txt -text
+/docs/evidence/WRN-PRODUCTION-TRANSLATION-CLIENT-2026-09-11/accepted-visuals-c/SHA256SUMS.txt -text
+/docs/evidence/WRN-PRODUCTION-HOME-WRITER-2026-09-11/e2e-43177-43178-acceptance-r3/SHA256SUMS.txt -text
+/docs/evidence/WRN-NEWS-SUPPLY-REVIEW-2026-09-11/snapshots-*/*.html -text
+/docs/evidence/WRN-PRODUCTION-MEDIA-SOURCE-EVIDENCE-2026-09-11/observation-1789071039979/primary-0.txt -text
+/docs/evidence/WRN-PRODUCTION-MEDIA-SOURCE-EVIDENCE-2026-09-11/observation-1789071039979/primary-1.txt -text
+/docs/evidence/WRN-EFF-PODCAST-SOURCE-EVIDENCE-2026-09-11/observation-1789074953999/primary-0.html -text
+/docs/evidence/WRN-EFF-PODCAST-SOURCE-EVIDENCE-2026-09-11/observation-1789074953999/primary-1.html -text
+/docs/evidence/WRN-EFF-PODCAST-SOURCE-EVIDENCE-2026-09-11/observation-1789075005070/primary-0.html -text
+docs/evidence/WRN-EFF-PODCAST-TECHNICAL-EVIDENCE-2026-09-11/observation-1789076530347/archive-terms.html -text
+docs/evidence/WRN-ARADIO-PUBLISHER-EVIDENCE-2026-09-11/observation-1789078121658/publisher-contact.html -text
+# Preserve the byte-identical pre-streamlining working snapshots, including mixed EOLs.
+/docs/history/WRN-AGENTS-BEFORE-RC-WORKFLOW-2026-09-12.md -text
+/docs/history/WRN-PROJECT-STATE-BEFORE-RC-WORKFLOW-2026-09-12.md -text
+/docs/history/WRN-DELEGATION-BEFORE-RC-WORKFLOW-2026-09-12.md -text
+/docs/history/WRN-PO-SCOPE-BEFORE-RC-WORKFLOW-2026-09-12.md -text

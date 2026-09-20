@@ -1,0 +1,47 @@
+.website-support-welcome {
+  box-sizing: border-box;
+  width: min(34rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  padding: 1.5rem;
+  border: 2px solid var(--wrn-color-action);
+  border-radius: 1rem;
+  background: var(--wrn-color-surface);
+  color: var(--wrn-color-text);
+  overflow-wrap: anywhere;
+}
+.website-support-welcome::backdrop {
+  background: rgb(0 0 0 / 75%);
+}
+.website-support-welcome[data-dialog-fallback][open] {
+  display: block;
+  position: fixed;
+  inset: 1rem 0 auto;
+  margin-inline: auto;
+  z-index: 100;
+}
+.website-support-welcome h2 {
+  margin-top: 0;
+}
+.website-support-welcome button,
+.website-support-welcome a {
+  display: block;
+  box-sizing: border-box;
+  min-height: 44px;
+  width: 100%;
+  margin: 0.75rem 0;
+  padding: 0.7rem;
+  border: 2px solid var(--wrn-color-action);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: center;
+}
+.website-support-welcome :focus-visible {
+  outline: 3px solid var(--wrn-color-focus);
+  outline-offset: 3px;
+}
+.website-support-welcome small {
+  display: block;
+}

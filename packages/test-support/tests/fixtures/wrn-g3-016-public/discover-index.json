@@ -1,0 +1,62 @@
+{
+  "contractVersion": "1.0.0",
+  "schema": "wrn.local-discover-index.v1",
+  "revision": "wrn-g3-016-local-home-discover-v1",
+  "entries": [
+    {
+      "articleId": "wrn-test-art-cedar",
+      "region": "Europa",
+      "topics": ["Leseliste", "Lokales"],
+      "format": "news"
+    },
+    {
+      "articleId": "wrn-test-art-ember",
+      "region": "Nordamerika",
+      "topics": ["Medien", "Technologie"],
+      "format": "analysis"
+    },
+    {
+      "articleId": "wrn-test-art-fern",
+      "region": "Lateinamerika",
+      "topics": ["Basisarbeit", "Lokales"],
+      "format": "commentary"
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-a",
+      "region": "Local test region",
+      "topics": ["Fixture", "Layout"],
+      "format": "news"
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-b",
+      "region": "Local test region",
+      "topics": ["Fixture", "Layout"],
+      "format": "news"
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-c",
+      "region": "Local test region",
+      "topics": ["Fixture", "Layout"],
+      "format": "news"
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-d",
+      "region": "Local test region",
+      "topics": ["Sport", "Fussball"],
+      "format": "news"
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-e",
+      "region": "Local test region",
+      "topics": ["Sport", "Fankultur"],
+      "format": "news"
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-f",
+      "region": "Local test region",
+      "topics": ["Sport", "Frauen"],
+      "format": "news"
+    }
+  ],
+  "integritySha256": "9cfaeeaccaf079946966258ebc69725e053680e2074c7518b1a19c4c4109c9a7"
+}

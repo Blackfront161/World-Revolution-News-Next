@@ -1,0 +1,175 @@
+{
+  "contractVersion": "1.0.0",
+  "schema": "wrn.local-reader-details.v1",
+  "revision": "wrn-g3-016-local-home-reader-v1",
+  "entries": [
+    {
+      "articleId": "wrn-test-art-cedar",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Diese vollstaendige lokale Testnotiz beschreibt eine erfundene Lesewerkstatt ohne Bezug zu realen Ereignissen, Personen, Orten oder Organisationen. In der Werkstatt liegen nur neutrale Karten mit kurzen Beobachtungen auf einem Tisch. Eine Karte erinnert daran, dass ein Reader einen ganzen Text zeigen soll und nicht nur eine Vorschau. Eine andere Karte beschreibt, wie Abschnitte beim langsamen Lesen wiedergefunden werden koennen. Die Geschichte behauptet keine Nachrichtenlage und bewertet keine reale Quelle. Sie dient ausschliesslich dazu, lange lokale Inhalte mit ruhigem Textfluss zu pruefen."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Lesen in kleinen Schritten"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Zu Beginn der erfundenen Werkstatt legt eine anonyme Figur drei leere Papierstreifen nebeneinander. Auf dem ersten steht, dass ein Titel Orientierung geben kann. Auf dem zweiten steht, dass ein Absatz einen Gedanken zu Ende fuehren muss. Auf dem dritten steht, dass der Rueckweg sichtbar bleiben soll. Danach werden die Streifen nur als Lesematerial betrachtet. Niemand sammelt Daten, niemand bewertet eine Person, und niemand fuegt einen externen Verweis hinzu. Die lange Passage prueft allein, ob der lokale Reader beim Scrollen stabil bleibt, ob der Text nicht hinter einer Navigation verschwindet und ob ein Abschnitt nach einer Unterbrechung weiter lesbar ist."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Im naechsten erfundenen Abschnitt wird eine Reihe von Satzbausteinen umsortiert. Erst steht ein Hinweis am Anfang, dann wandert er in die Mitte, und schliesslich endet er als klarer letzter Satz. Das Ergebnis bleibt bewusst sachlich: Der Reader zeigt lokalen Text, die zugehoerigen Metadaten stammen weiterhin aus dem bereits validierten Artikelrecord, und diese Detailfixture erfindet weder Quelle noch Datum noch Sprache. Die Uebung ist absichtlich lang genug, damit eine kleine Anzeige mehrere Bildschirmhoehen durchlaeuft. So kann die spaetere visuelle QA pruefen, dass Ueberschriften, Zitate, Listen und fortlaufende Absaetze nicht abgeschnitten, ueberlagert oder unlesbar werden."
+        },
+        {
+          "kind": "heading",
+          "level": 3,
+          "text": "Eine fiktive Lesepause"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Nach einer fiktiven Lesepause wird der gleiche neutrale Gedanke mit mehr Abstand fortgesetzt. Die Figur der Werkstatt schaut nicht auf einen Bildschirm ausserhalb dieses Tests und kennt keine reale Welt ausserhalb der eigenen Papierkarten. Sie ordnet lediglich beschriftete Klammern, die fuer Absatz, Zwischenueberschrift, Zitat und Liste stehen. Dadurch entsteht ein Text, der weder als Meldung noch als Kommentar zu einem Ereignis missverstanden werden soll. Er ist eine kontrollierte Testoberflaeche fuer Leselaenge. Jeder weitere Satz erhoeht nur die Menge des selbst verfassten Platzhalterinhalts und fuegt keine technische Aktion hinzu. Es gibt keine Medien, keine Formulare, keine Trackingdaten und keine anklickbaren Inhaltslinks."
+        },
+        {
+          "kind": "quote",
+          "text": "Ein langer lokaler Testtext soll nur zeigen, dass eine ruhige Leseflaeche auch nach mehreren Bildschirmhoehen vollstaendig, klar und erreichbar bleibt.",
+          "attribution": "Erfundene Werkstattnotiz"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Die Papierkarten enthalten anschliessend eine erfundene Reihenfolge: zuerst wird ein langer Absatz gelesen, danach wird eine Zwischenueberschrift erreicht, und zuletzt folgt eine kurze Liste. Diese Reihenfolge ist kein Arbeitsablauf fuer Nutzer und kein Aufruf zu einer realen Handlung. Sie macht nur die Struktur des Textes sichtbar. In einer schmalen mobilen Ansicht soll sie ausreichend Hoehe erzeugen, damit das Scrollen getestet werden kann. In einer breiten Websiteansicht soll derselbe Text weiterhin eine begrenzte Lesespalte fuellen, ohne dass der Inhalt kuenstlich gekuerzt wird. Die Fixture ist damit kein Ersatz fuer kuenftige echte Inhalte, sondern ein sicherer Beleg fuer die Behandlung langer, selbst erstellter Textbloecke."
+        },
+        {
+          "kind": "list",
+          "style": "unordered",
+          "items": [
+            "Der lange Text bleibt vollstaendig lokal und beschreibt nur eine erfundene Lesewerkstatt.",
+            "Titel, Quelle, Datum, Sprache und Themen werden nicht im Detailtext wiederholt oder neu erfunden.",
+            "Absatz, Heading, Quote und Liste bleiben getrennte sichere Bloecke ohne HTML, Medien oder Inhaltslinks.",
+            "Die spaetere Sichtpruefung kann mehrere Bildschirmhoehen scrollen, ohne sich auf eine bestimmte Viewportgroesse als Vertrag zu stuetzen."
+          ]
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Fortsetzung ohne Abkuerzung"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Zum Abschluss der erfundenen Werkstatt wird festgehalten, warum der Text nicht absichtlich verkuerzt wird. Ein kurzer Teaser kann einen Inhalt ankuendigen, aber er kann keinen vollstaendigen Readerartikel simulieren. Deshalb bleibt dieser Abschnitt aus mehreren sauberen Saetzen bestehen. Er wiederholt nicht die Metadaten des Artikelrecords und ruft keine fremde Ressource auf. Stattdessen beschreibt er weiter die harmlose Vorstellung von Papierkarten, Lesepausen und neutralen Satzbausteinen. Wenn ein Reader diesen Abschnitt erreicht, soll die Person am Bildschirm noch immer eine klare Ueberschrift, lesbaren Fliesstext und einen erreichbaren Rueckweg vorfinden. Das ist die einzige fachliche Aussage dieser Fixture."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Die letzte lokale Passage verlaengert die Lesestrecke bewusst, ohne neue Funktionen anzudeuten. Sie sagt nicht, dass etwas gespeichert, geteilt, uebersetzt, zusammengefasst oder vorgelesen wird. Sie beschreibt auch keine echte Redaktion, keine reale Gruppe und keine historische Behauptung. Die fiktive Werkstatt endet damit, dass die Karten wieder geordnet auf dem Tisch liegen. Der Reader kann nun ueber eine laengere Strecke geprueft werden, waehrend sein sicherer Vertrag unveraendert bleibt: Textbloecke sind strukturiert, die Detail-ID ist an den validierten Artikel gebunden, und jede Integritaetsabweichung verhindert einen Ready-Zustand."
+        }
+      ]
+    },
+    {
+      "articleId": "wrn-test-art-ember",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "This self-authored reader fixture verifies that a second language remains fully readable in a local, offline-capable view."
+        },
+        {
+          "kind": "quote",
+          "text": "Clear structure helps readers distinguish a complete local test text from a short preview.",
+          "attribution": "Local fixture note"
+        },
+        {
+          "kind": "heading",
+          "level": 3,
+          "text": "Deliberately small scope"
+        },
+        {
+          "kind": "paragraph",
+          "text": "No network request, media item, saved state, summary, translation, or sharing action belongs to this reader slice."
+        }
+      ]
+    },
+    {
+      "articleId": "wrn-test-art-fern",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Esta nota local creada para pruebas permite comprobar que un texto completo puede contener parrafos, citas y listas sin afirmar hechos reales."
+        },
+        {
+          "kind": "heading",
+          "level": 2,
+          "text": "Contenido local verificable"
+        },
+        {
+          "kind": "list",
+          "style": "ordered",
+          "items": [
+            "La ficha conserva una identificacion estable.",
+            "El contenido no contiene enlaces ni medios externos.",
+            "Los errores de integridad impiden mostrar el cuerpo del lector."
+          ]
+        },
+        {
+          "kind": "quote",
+          "text": "La lectura local sigue disponible cuando no existe una conexion de red."
+        }
+      ]
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-a",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Dieser selbst verfasste lokale Platzhalter prueft nur die stabile Zuordnung einer Kartenposition ohne reale Aussage oder externe Quelle."
+        }
+      ]
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-b",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Dieser selbst verfasste lokale Platzhalter prueft nur die stabile Zuordnung einer Kartenposition ohne reale Aussage oder externe Quelle."
+        }
+      ]
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-c",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Dieser selbst verfasste lokale Platzhalter prueft nur die stabile Zuordnung einer Kartenposition ohne reale Aussage oder externe Quelle."
+        }
+      ]
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-d",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Dieser selbst verfasste lokale Platzhalter prueft nur die stabile Zuordnung einer Kartenposition ohne reale Aussage oder externe Quelle."
+        }
+      ]
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-e",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Dieser selbst verfasste lokale Platzhalter prueft nur die stabile Zuordnung einer Kartenposition ohne reale Aussage oder externe Quelle."
+        }
+      ]
+    },
+    {
+      "articleId": "wrn-test-art-g3-016-f",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Dieser selbst verfasste lokale Platzhalter prueft nur die stabile Zuordnung einer Kartenposition ohne reale Aussage oder externe Quelle."
+        }
+      ]
+    }
+  ],
+  "integritySha256": "e821e8ffe3845d9e8cbe83317add309987bce4aa673461e9ebe5ad403b534b99"
+}

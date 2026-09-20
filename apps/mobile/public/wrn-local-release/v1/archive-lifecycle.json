@@ -1,0 +1,62 @@
+{
+  "contractVersion": "1.0.0",
+  "schema": "wrn.local-archive-lifecycle.v1",
+  "revision": "wrn-g3-016-mobile-home-lifecycle-v1",
+  "sourceContent": {
+    "articlePayloadSha256": "702cd6e31b3e9810706ce0d4e6b107169cd3d827358f4e70569f68fbede64afb",
+    "readerDetailsRevision": "wrn-g3-016-local-home-reader-v1",
+    "readerDetailsIntegritySha256": "e821e8ffe3845d9e8cbe83317add309987bce4aa673461e9ebe5ad403b534b99"
+  },
+  "activeArticleIds": [
+    "wrn-test-art-cedar",
+    "wrn-test-art-ember",
+    "wrn-test-art-fern",
+    "wrn-test-art-g3-016-a",
+    "wrn-test-art-g3-016-b",
+    "wrn-test-art-g3-016-c",
+    "wrn-test-art-g3-016-d",
+    "wrn-test-art-g3-016-e",
+    "wrn-test-art-g3-016-f"
+  ],
+  "archiveArticleIds": [
+    "wrn-test-art-cedar",
+    "wrn-test-art-ember",
+    "wrn-test-art-fern",
+    "wrn-test-art-g3-016-a",
+    "wrn-test-art-g3-016-b",
+    "wrn-test-art-g3-016-c",
+    "wrn-test-art-g3-016-d",
+    "wrn-test-art-g3-016-e",
+    "wrn-test-art-g3-016-f"
+  ],
+  "shareableArticleIds": [
+    "wrn-test-art-cedar",
+    "wrn-test-art-ember",
+    "wrn-test-art-fern",
+    "wrn-test-art-g3-016-a",
+    "wrn-test-art-g3-016-b",
+    "wrn-test-art-g3-016-c",
+    "wrn-test-art-g3-016-d",
+    "wrn-test-art-g3-016-e",
+    "wrn-test-art-g3-016-f"
+  ],
+  "aliases": [],
+  "gone": [
+    {
+      "id": "wrn-test-art-g3-012-gone",
+      "category": "removed"
+    }
+  ],
+  "revocations": {
+    "revision": 1,
+    "previousRevision": 0,
+    "entries": [
+      {
+        "id": "wrn-test-art-g3-012-revoked",
+        "status": "blocked",
+        "category": "rights-or-safety"
+      }
+    ]
+  },
+  "integritySha256": "805ad1296df720089deb95179716a686cc9af421824056eb03a2176b1bcf7eb1"
+}

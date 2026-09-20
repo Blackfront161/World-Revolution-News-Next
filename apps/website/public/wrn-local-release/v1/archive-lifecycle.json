@@ -1,0 +1,32 @@
+{
+  "contractVersion": "1.0.0",
+  "schema": "wrn.local-archive-lifecycle.v1",
+  "revision": "wrn-g3-012-local-release-lifecycle-v1-d8ff4f1",
+  "sourceContent": {
+    "articlePayloadSha256": "1647076aae4b10f76fa2e8e2b91d542901c84da9dc1907a4ab37d623a03cc0a2",
+    "readerDetailsRevision": "wrn-g3-006-local-reader-details-v2-long-cedar",
+    "readerDetailsIntegritySha256": "d2b55103e365c635994792491d63d753ecee4b9e2bbae092772afb110e10d39e"
+  },
+  "activeArticleIds": ["wrn-test-art-cedar", "wrn-test-art-ember", "wrn-test-art-fern"],
+  "archiveArticleIds": ["wrn-test-art-cedar", "wrn-test-art-ember", "wrn-test-art-fern"],
+  "shareableArticleIds": ["wrn-test-art-cedar", "wrn-test-art-ember", "wrn-test-art-fern"],
+  "aliases": [],
+  "gone": [
+    {
+      "id": "wrn-test-art-g3-012-gone",
+      "category": "removed"
+    }
+  ],
+  "revocations": {
+    "revision": 1,
+    "previousRevision": 0,
+    "entries": [
+      {
+        "id": "wrn-test-art-g3-012-revoked",
+        "status": "blocked",
+        "category": "rights-or-safety"
+      }
+    ]
+  },
+  "integritySha256": "9476dc68ed6528b271517a4d06a4f5036af3fc84cd9d58933e7dd263e23c50be"
+}

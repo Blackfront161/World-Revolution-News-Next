@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="update_ready_title">Обновление готово</string>
+    <string name="update_ready_message">Обновление загружено. Сначала сохраните черновики. Перезапустить World Revolution News для установки?</string>
+    <string name="update_restart_action">Перезапустить</string>
+    <string name="update_later_action">Позже</string>
+    <string name="update_install_failed">Не удалось установить обновление. Повторите попытку позже.</string>
+</resources>

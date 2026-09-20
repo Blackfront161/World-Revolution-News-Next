@@ -1,0 +1,53 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+
+# Build and dependency output
+node_modules/
+dist/
+apps/website/dist-staging-*/
+apps/website/dist-staging-*.manifest.json
+apps/website/dist-normal-*/
+apps/website/dist-normal-*.tar
+build/
+coverage/
+.gradle/
+.cache/
+test-results/
+playwright-report/
+.pnpm-store/
+
+# Mobile and release artifacts
+*.aab
+*.apk
+*.apks
+*.ipa
+*.zip
+
+# Local QA and logs
+local-qa/
+qa-artifacts/
+work/
+*.log
+*.tmp
+
+# RC working evidence; existing tracked history remains unchanged
+docs/evidence/**/work/
+docs/evidence/**/cache/
+docs/evidence/**/build-*/
+docs/evidence/**/runs/
+docs/evidence/**/*.stdout.txt
+docs/evidence/**/*.stderr.txt
+
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

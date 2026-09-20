@@ -1,0 +1,67 @@
+{
+  "contractVersion": "1.0.0",
+  "revision": "wrn-g3-007-local-publication-source-v1-d8ff4f1",
+  "generatedAt": "2026-08-24T14:00:00.000Z",
+  "sourceCommit": "d8ff4f15a1b9cf9a243dc0e85d0ec416bc3bfc87",
+  "resources": [
+    {
+      "id": "articles",
+      "path": "local-fixture://wrn-g3-002/articles.json",
+      "schema": "wrn.local-article-records.v1",
+      "owner": "wrn-g3-007-local-publication-fixture",
+      "fallbackClass": "fail-closed",
+      "availability": "required",
+      "sha256": "1647076aae4b10f76fa2e8e2b91d542901c84da9dc1907a4ab37d623a03cc0a2",
+      "bytes": 1986,
+      "recordCount": 3
+    },
+    {
+      "id": "supplemental-items",
+      "path": "local-fixture://wrn-g3-002/supplemental-items.json",
+      "schema": "wrn.local-empty-items.v1",
+      "owner": "wrn-g3-007-local-publication-fixture",
+      "fallbackClass": "render-empty",
+      "availability": "optional-empty",
+      "sha256": "eef46741adfc3a9f76294d3b78f37a45f113092ac9d44ee77c7a038a88ff09a1",
+      "bytes": 12,
+      "recordCount": 0
+    },
+    {
+      "id": "media-placeholder",
+      "path": "local-fixture://wrn-g3-002/media-placeholder.json",
+      "schema": "wrn.local-empty-items.v1",
+      "owner": "wrn-g3-007-local-publication-fixture",
+      "fallbackClass": "render-optional-absent",
+      "availability": "optional-absent",
+      "absence": {
+        "reason": "Keine Medien sind Teil dieser lokalen Publikationsfixture.",
+        "uiState": "optional-absent",
+        "nextReviewAt": "2026-09-24T14:00:00.000Z"
+      }
+    }
+  ],
+  "articleSets": {
+    "activeFeedIds": ["wrn-test-art-cedar", "wrn-test-art-ember", "wrn-test-art-fern"],
+    "archiveIds": ["wrn-test-art-cedar", "wrn-test-art-ember", "wrn-test-art-fern"],
+    "landingIds": ["wrn-test-art-cedar", "wrn-test-art-ember", "wrn-test-art-fern"],
+    "redirectSourceIds": [],
+    "sitemapArticleIds": ["wrn-test-art-cedar", "wrn-test-art-ember", "wrn-test-art-fern"]
+  },
+  "articleSetHashes": {
+    "activeFeedIds": "1bfd7f0c97e4368dac8c0ff9f6dbf6a61e4013b1d03f17662bd5c8142229aa06",
+    "archiveIds": "1bfd7f0c97e4368dac8c0ff9f6dbf6a61e4013b1d03f17662bd5c8142229aa06",
+    "landingIds": "1bfd7f0c97e4368dac8c0ff9f6dbf6a61e4013b1d03f17662bd5c8142229aa06",
+    "redirectSourceIds": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "sitemapArticleIds": "1bfd7f0c97e4368dac8c0ff9f6dbf6a61e4013b1d03f17662bd5c8142229aa06"
+  },
+  "compatibility": {
+    "minContractVersion": "1.0.0",
+    "maxContractVersion": "1.0.0"
+  },
+  "provenance": {
+    "generatorVersion": "wrn-g3-007-local-publication-fixture/1",
+    "fixtureSeedCommit": "d8ff4f15a1b9cf9a243dc0e85d0ec416bc3bfc87",
+    "sourceKind": "self-authored-local-fixture"
+  },
+  "revocationRevision": "wrn-local-revocations-v1"
+}

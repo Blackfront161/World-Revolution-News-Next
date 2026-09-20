@@ -1,0 +1,139 @@
+.production-media-experience {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  color: var(--wrn-color-text);
+  background: var(--wrn-color-canvas);
+  border: 2px solid var(--wrn-color-action);
+  border-radius: 0.75rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.production-media-list {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.production-media-list article {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--wrn-color-border);
+  background: var(--wrn-color-surface);
+  border-radius: 0.5rem;
+}
+.production-media-list h4,
+.production-media-list p,
+.production-media-list dl {
+  margin: 0;
+}
+.production-media-list dl {
+  display: grid;
+  gap: 0.5rem;
+}
+.production-media-list dl div {
+  display: grid;
+  grid-template-columns: minmax(7rem, 1fr) minmax(0, 2fr);
+  gap: 0.5rem;
+}
+.production-media-list dt {
+  font-weight: 700;
+}
+.production-media-list dd {
+  margin: 0;
+}
+.production-media-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: end;
+}
+.production-media-controls label {
+  display: grid;
+  gap: 0.25rem;
+  min-width: min(100%, 12rem);
+  flex: 1;
+}
+.production-media-experience button,
+.production-media-experience input,
+.production-media-experience a,
+.production-media-modal button,
+.production-media-modal a {
+  min-height: 44px;
+  box-sizing: border-box;
+}
+.production-media-experience button,
+.production-media-modal button {
+  padding: 0.55rem 0.75rem;
+  border: 2px solid var(--wrn-color-action);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.production-media-experience button:active,
+.production-media-modal button:active {
+  background: var(--wrn-color-action);
+  color: var(--wrn-color-action-contrast);
+}
+.production-media-experience a,
+.production-media-modal a {
+  color: inherit;
+}
+.production-media-clear {
+  max-width: 18rem;
+}
+.production-media-modal {
+  max-width: min(36rem, calc(100% - 2rem));
+  display: grid;
+  gap: 0.75rem;
+  color: var(--wrn-color-text);
+  background: var(--wrn-color-surface);
+  border: 2px solid var(--wrn-color-action);
+  border-radius: 0.75rem;
+}
+.production-media-modal::backdrop {
+  background: rgb(0 0 0 / 75%);
+}
+.production-media-experience :focus-visible,
+.production-media-modal :focus-visible {
+  outline: 3px solid var(--wrn-color-focus);
+  outline-offset: 3px;
+}
+@media (max-width: 20rem) {
+  .production-media-experience {
+    padding: 0.75rem;
+  }
+  .production-media-list dl div {
+    grid-template-columns: 1fr;
+  }
+  .production-media-controls > * {
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .production-media-experience *,
+  .production-media-modal * {
+    scroll-behavior: auto;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+@media (forced-colors: active) {
+  .production-media-experience,
+  .production-media-list article,
+  .production-media-modal {
+    forced-color-adjust: auto;
+    border-color: CanvasText;
+  }
+  .production-media-experience button,
+  .production-media-modal button {
+    border-color: CanvasText;
+  }
+  .production-media-modal::backdrop {
+    background: CanvasText;
+  }
+}

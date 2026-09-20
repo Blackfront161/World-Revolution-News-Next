@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "wrn-next-translation",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-09-11",
+  "observability": { "enabled": true, "head_sampling_rate": 0 },
+  "vars": {
+    "TRANSLATION_V2_ENABLED": "false",
+  },
+  // Activation must add reviewed binding names/types, origins, model, secret and route evidence separately.
+}

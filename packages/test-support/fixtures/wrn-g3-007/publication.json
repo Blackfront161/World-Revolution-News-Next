@@ -1,0 +1,25 @@
+{
+  "contractVersion": "1.0.0",
+  "schema": "wrn.local-website-publication.v1",
+  "revision": "wrn-g3-007-local-website-publication-v1-d8ff4f1",
+  "generatedAt": "2026-08-24T14:00:00.000Z",
+  "siteOrigin": "https://solinaridao.com",
+  "sourceManifest": {
+    "revision": "wrn-g3-007-local-publication-source-v1-d8ff4f1",
+    "integritySha256": "261c9a5e2b7a5aa9b494fedc9ab03a413bfed666d5f9063507432468a19971eb",
+    "articleSetHashes": {
+      "activeFeedIds": "1bfd7f0c97e4368dac8c0ff9f6dbf6a61e4013b1d03f17662bd5c8142229aa06",
+      "archiveIds": "1bfd7f0c97e4368dac8c0ff9f6dbf6a61e4013b1d03f17662bd5c8142229aa06",
+      "landingIds": "1bfd7f0c97e4368dac8c0ff9f6dbf6a61e4013b1d03f17662bd5c8142229aa06",
+      "redirectSourceIds": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "sitemapArticleIds": "1bfd7f0c97e4368dac8c0ff9f6dbf6a61e4013b1d03f17662bd5c8142229aa06"
+    }
+  },
+  "readerDetails": {
+    "revision": "wrn-g3-006-local-reader-details-v2-long-cedar",
+    "integritySha256": "d2b55103e365c635994792491d63d753ecee4b9e2bbae092772afb110e10d39e"
+  },
+  "landingIds": ["wrn-test-art-cedar", "wrn-test-art-ember", "wrn-test-art-fern"],
+  "sitemapArticleIds": ["wrn-test-art-cedar", "wrn-test-art-ember", "wrn-test-art-fern"],
+  "generatorVersion": "wrn-g3-007-static-publisher/1"
+}

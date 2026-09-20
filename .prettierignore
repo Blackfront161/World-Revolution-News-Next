@@ -1,0 +1,27 @@
+.codex/
+.git/
+AGENTS.md
+README.md
+docs/
+node_modules/
+dist/
+build/
+coverage/
+test-results/
+work/
+playwright-report/
+pnpm-lock.yaml
+tools/create-g3-003-contact-sheets.py
+# Generated copies and immutable content snapshots retain producer-verified bytes.
+apps/mobile/android/app/src/main/assets/
+apps/mobile/android/native-brand-assets-v1.json
+apps/mobile/src/features/directory/data/content-directory-v1.json
+apps/mobile/src/features/knowledge/data/legacy-knowledge-v1.json
+apps/mobile/src/features/support/data/legacy-support-v1.json
+apps/website/src/features/directory/data/content-directory-v1.json
+apps/website/src/features/knowledge/data/legacy-knowledge-v1.json
+apps/website/src/features/support/data/legacy-support-v1.json
+apps/mobile/public/wrn-production-content/
+apps/website/public/wrn-production-content/
+apps/mobile/src/features/events-media/data/production-events-media-v1.json
+apps/website/src/features/events-media/data/production-events-media-v1.json

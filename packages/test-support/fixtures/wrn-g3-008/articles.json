@@ -1,0 +1,30 @@
+{
+  "articles": [
+    {
+      "id": "wrn-test-art-g3-008-active",
+      "title": "Local active archive fixture",
+      "teaser": "This self-authored active fixture proves a canonical article remains available.",
+      "publishedAt": "2026-08-25T09:00:00.000Z",
+      "originalUrl": "https://fixture.invalid/articles/g3-008-active",
+      "source": { "id": "wrn-test-source-g3-008", "name": "Local archive fixture" },
+      "originalLanguage": "en",
+      "tags": ["archive", "fixture"],
+      "rights": { "status": "fixture-authored", "reference": "wrn-g3-008-local-fixture" },
+      "transformation": { "status": "original", "reference": "self-authored-fixture" },
+      "translation": { "status": "not-requested", "reference": "not-requested" }
+    },
+    {
+      "id": "wrn-test-art-g3-008-historical",
+      "title": "Local historical archive fixture",
+      "teaser": "This self-authored historical fixture remains available only through the local archive.",
+      "publishedAt": "2024-04-18T14:30:00.000Z",
+      "originalUrl": "https://fixture.invalid/articles/g3-008-historical",
+      "source": { "id": "wrn-test-source-g3-008", "name": "Local archive fixture" },
+      "originalLanguage": "en",
+      "tags": ["archive", "historical", "fixture"],
+      "rights": { "status": "fixture-authored", "reference": "wrn-g3-008-local-fixture" },
+      "transformation": { "status": "original", "reference": "self-authored-fixture" },
+      "translation": { "status": "not-requested", "reference": "not-requested" }
+    }
+  ]
+}

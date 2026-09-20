@@ -1,0 +1,1511 @@
+{
+  "schema": "wrn.mobile-support.v1",
+  "contractVersion": "1.0.0",
+  "sourceCommit": "2216ff3c1305f6d474712892a36dc9b0ea7cb0a0",
+  "observedAt": "2026-09-09T00:07:09.000Z",
+  "origin": "legacy-app-snapshot",
+  "input": {
+    "solidarityNetworkSha256": "c4127417bd4078e86a4e0526542d7f9832b5f811d176f2ee4ff6f4c9641e96d2",
+    "solidarityNetworkBytes": 19591,
+    "prisonerSolidaritySha256": "c97fa20b4e78e1b2effab9974e2dd754b015ed44ea3c85b4b003f942e7da4273",
+    "prisonerSolidarityBytes": 57100
+  },
+  "organizations": [
+    {
+      "id": "rote-hilfe-ev",
+      "name": "Rote Hilfe e. V.",
+      "officialOperator": "Rote Hilfe e. V.",
+      "regions": [
+        "DE"
+      ],
+      "confirmedCounsellingLanguages": [],
+      "informationLanguages": [
+        "de"
+      ],
+      "helpTopics": [
+        "antirepression",
+        "prisoner-support",
+        "labor-struggle"
+      ],
+      "audiences": [
+        "politisch Verfolgte wegen linker politischer Betätigung in Deutschland",
+        "politische Gefangene"
+      ],
+      "canHelpWith": [
+        "Prozessvorbereitung",
+        "Suche nach Rechtsanwält*innen",
+        "Öffentlichkeitsarbeit",
+        "teilweise Anwalts- und Gerichtskosten"
+      ],
+      "notResponsibleFor": [
+        "Unterstützung ohne Zusammenhang mit linker politischer Betätigung oder staatlicher Repression"
+      ],
+      "requirements": [
+        "Kontakt zur zuständigen Ortsgruppe",
+        "für finanzielle Hilfe: Unterstützungsantrag"
+      ],
+      "officialWebsite": "https://rote-hilfe.de/unterstuetzung",
+      "officialContact": "https://rote-hilfe.de/ortsgruppen",
+      "verificationSources": [
+        "https://rote-hilfe.de/unterstuetzung",
+        "https://rote-hilfe.de/ueber-uns/wer-ist-die-rote-hilfe"
+      ],
+      "lastChecked": "2026-08-12",
+      "nextCheck": "2026-11-12",
+      "reachabilityStatus": "reachable",
+      "emergency": false,
+      "emergencyEvidence": [],
+      "officialDomains": [
+        "rote-hilfe.de"
+      ],
+      "fieldEvidence": {
+        "identity": [
+          "https://rote-hilfe.de/ueber-uns/wer-ist-die-rote-hilfe"
+        ],
+        "serviceScope": [
+          "https://rote-hilfe.de/unterstuetzung"
+        ],
+        "audiencesAndRequirements": [
+          "https://rote-hilfe.de/unterstuetzung"
+        ],
+        "limits": [
+          "https://rote-hilfe.de/unterstuetzung"
+        ],
+        "contact": [
+          "https://rote-hilfe.de/ortsgruppen"
+        ],
+        "emergency": [
+          "https://rote-hilfe.de/unterstuetzung"
+        ]
+      },
+      "locations": [],
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "augenauf-ch",
+      "name": "augenauf",
+      "officialOperator": "Menschenrechtsverein augenauf Bern und Gruppe augenauf Zürich",
+      "regions": [
+        "CH-BE",
+        "CH-ZH"
+      ],
+      "confirmedCounsellingLanguages": [],
+      "informationLanguages": [
+        "de"
+      ],
+      "helpTopics": [
+        "police-violence",
+        "antirepression",
+        "flight-asylum"
+      ],
+      "audiences": [
+        "Betroffene behördlicher Übergriffe, Diskriminierungen sowie Menschen- und Grundrechtsverletzungen in der Schweiz"
+      ],
+      "canHelpWith": [
+        "Fälle dokumentieren",
+        "Betroffene unterstützen"
+      ],
+      "notResponsibleFor": [
+        "Fälle ohne Bezug zu behördlichen Übergriffen, Diskriminierungen oder Menschen- und Grundrechtsverletzungen in der Schweiz"
+      ],
+      "requirements": [
+        "Kontakt per E-Mail oder Anrufbeantworter mit der regionalen Gruppe"
+      ],
+      "officialWebsite": "https://augenauf.ch/",
+      "officialContact": "https://augenauf.ch/index.php/kontakt/",
+      "verificationSources": [
+        "https://augenauf.ch/",
+        "https://augenauf.ch/index.php/kontakt/"
+      ],
+      "lastChecked": "2026-08-12",
+      "nextCheck": "2026-11-12",
+      "reachabilityStatus": "reachable",
+      "emergency": false,
+      "emergencyEvidence": [],
+      "officialDomains": [
+        "augenauf.ch"
+      ],
+      "fieldEvidence": {
+        "identity": [
+          "https://augenauf.ch/"
+        ],
+        "serviceScope": [
+          "https://augenauf.ch/"
+        ],
+        "audiencesAndRequirements": [
+          "https://augenauf.ch/"
+        ],
+        "limits": [
+          "https://augenauf.ch/"
+        ],
+        "contact": [
+          "https://augenauf.ch/index.php/kontakt/"
+        ],
+        "emergency": [
+          "https://augenauf.ch/"
+        ]
+      },
+      "locations": [],
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "humanrights-ch",
+      "name": "humanrights.ch – Beratungsstelle Freiheitsentzug",
+      "officialOperator": "humanrights.ch",
+      "regions": [
+        "CH"
+      ],
+      "confirmedCounsellingLanguages": [
+        "de",
+        "en"
+      ],
+      "informationLanguages": [
+        "de",
+        "en"
+      ],
+      "helpTopics": [
+        "prisoner-support"
+      ],
+      "audiences": [
+        "Menschen im Freiheitsentzug in der Schweiz",
+        "Angehörige",
+        "Fachpersonen, die mit Betroffenen arbeiten"
+      ],
+      "canHelpWith": [
+        "Rechtsberatung zu Haftbedingungen",
+        "Rechtsberatung zu Vollzugsverfahrensentscheiden",
+        "Rechtsberatung zu therapeutischen Massnahmen und Verwahrung",
+        "Vermittlung und Intervention bei Behörden",
+        "Triage an spezialisierte Anwält*innen"
+      ],
+      "notResponsibleFor": [
+        "allgemeine Beratungsadress-Datenbank oder Falltriage ohne Bezug zu Freiheitsentzug"
+      ],
+      "requirements": [
+        "rechtliche Frage zu Freiheitsentzug oder Straf- und Massnahmenvollzug in der Schweiz",
+        "Beratung derzeit auf Deutsch oder Englisch",
+        "Kontakt über die spezielle Hotline, E-Mail oder Briefpost"
+      ],
+      "officialWebsite": "https://www.humanrights.ch/de/beratungsstelle-freiheitsentzug/beratung/",
+      "officialContact": "mailto:freiheitsentzug@humanrights.ch",
+      "verificationSources": [
+        "https://www.humanrights.ch/de/beratungsstelle-freiheitsentzug/beratung/",
+        "https://www.humanrights.ch/de/beratungsstelle-freiheitsentzug/"
+      ],
+      "lastChecked": "2026-08-12",
+      "nextCheck": "2026-11-12",
+      "reachabilityStatus": "reachable",
+      "emergency": false,
+      "emergencyEvidence": [],
+      "officialDomains": [
+        "www.humanrights.ch",
+        "humanrights.ch"
+      ],
+      "fieldEvidence": {
+        "identity": [
+          "https://www.humanrights.ch/de/beratungsstelle-freiheitsentzug/"
+        ],
+        "serviceScope": [
+          "https://www.humanrights.ch/de/beratungsstelle-freiheitsentzug/beratung/"
+        ],
+        "audiencesAndRequirements": [
+          "https://www.humanrights.ch/de/beratungsstelle-freiheitsentzug/beratung/"
+        ],
+        "limits": [
+          "https://www.humanrights.ch/de/beratungsstelle-freiheitsentzug/beratung/"
+        ],
+        "contact": [
+          "https://www.humanrights.ch/de/beratungsstelle-freiheitsentzug/beratung/"
+        ],
+        "emergency": [
+          "https://www.humanrights.ch/de/beratungsstelle-freiheitsentzug/beratung/"
+        ]
+      },
+      "locations": [],
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "pro-asyl",
+      "name": "PRO ASYL-Einzelfallberatung",
+      "officialOperator": "PRO ASYL",
+      "regions": [
+        "DE"
+      ],
+      "confirmedCounsellingLanguages": [
+        "de",
+        "en"
+      ],
+      "informationLanguages": [
+        "de",
+        "en"
+      ],
+      "helpTopics": [
+        "flight-asylum"
+      ],
+      "audiences": [
+        "Flüchtlinge im Asylverfahren",
+        "Menschen mit aufenthaltsrechtlichen Problemen",
+        "Unterstützende"
+      ],
+      "canHelpWith": [
+        "Asyl- und Aufenthaltsrecht",
+        "Familiennachzug",
+        "drohende Abschiebung",
+        "Bleiberecht",
+        "Vermittlung lokaler Beratung und Anwält*innen"
+      ],
+      "notResponsibleFor": [
+        "persönliche Beratung in der Geschäftsstelle",
+        "Notruf oder Rettungsdienst"
+      ],
+      "requirements": [
+        "Beratung ausschließlich telefonisch oder per E-Mail",
+        "Deutsch oder Englisch"
+      ],
+      "officialWebsite": "https://www.proasyl.de/asylberatung/",
+      "officialContact": "mailto:beratung@proasyl.de",
+      "verificationSources": [
+        "https://www.proasyl.de/asylberatung/"
+      ],
+      "lastChecked": "2026-08-12",
+      "nextCheck": "2026-11-12",
+      "reachabilityStatus": "reachable",
+      "emergency": false,
+      "emergencyEvidence": [],
+      "officialDomains": [
+        "www.proasyl.de",
+        "proasyl.de"
+      ],
+      "fieldEvidence": {
+        "identity": [
+          "https://www.proasyl.de/asylberatung/"
+        ],
+        "serviceScope": [
+          "https://www.proasyl.de/asylberatung/"
+        ],
+        "audiencesAndRequirements": [
+          "https://www.proasyl.de/asylberatung/"
+        ],
+        "limits": [
+          "https://www.proasyl.de/asylberatung/"
+        ],
+        "contact": [
+          "https://www.proasyl.de/asylberatung/"
+        ],
+        "emergency": [
+          "https://www.proasyl.de/asylberatung/"
+        ]
+      },
+      "locations": [],
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "queer-base-vienna",
+      "name": "Queer Base – Welcome and Support for LGBTIQ Refugees",
+      "officialOperator": "Queer Base",
+      "regions": [
+        "AT-W"
+      ],
+      "confirmedCounsellingLanguages": [],
+      "informationLanguages": [
+        "en",
+        "de",
+        "fa",
+        "fr",
+        "tr",
+        "ku",
+        "ru",
+        "uk",
+        "ar"
+      ],
+      "helpTopics": [
+        "flight-asylum",
+        "queer-trans-inter",
+        "housing-food-health"
+      ],
+      "audiences": [
+        "LGBTIQ Geflüchtete in Wien"
+      ],
+      "canHelpWith": [
+        "Erst- und Sozialberatung",
+        "Coming-out-Beratung",
+        "Unterstützung in Krisensituationen",
+        "Rechtsberatung im Asylkontext"
+      ],
+      "notResponsibleFor": [
+        "allgemeine Beratung ohne Bezug zu LGBTIQ-Flucht oder -Asyl"
+      ],
+      "requirements": [
+        "Kontakt zur Beratungsstelle",
+        "Bedarfs- und Zuständigkeitsabklärung",
+        "konkrete Beratungs- und Dolmetschverfügbarkeit für die gewünschte Sprache vor dem Termin bestätigen"
+      ],
+      "officialWebsite": "https://friends.queerbase.at/queer-base-service/",
+      "officialContact": "https://friends.queerbase.at/kontakt/",
+      "verificationSources": [
+        "https://friends.queerbase.at/",
+        "https://friends.queerbase.at/queer-base-service/"
+      ],
+      "lastChecked": "2026-08-12",
+      "nextCheck": "2026-11-12",
+      "reachabilityStatus": "reachable",
+      "emergency": false,
+      "emergencyEvidence": [],
+      "officialDomains": [
+        "friends.queerbase.at",
+        "queerbase.at"
+      ],
+      "fieldEvidence": {
+        "identity": [
+          "https://friends.queerbase.at/"
+        ],
+        "serviceScope": [
+          "https://friends.queerbase.at/queer-base-service/"
+        ],
+        "audiencesAndRequirements": [
+          "https://friends.queerbase.at/queer-base-service/"
+        ],
+        "limits": [
+          "https://friends.queerbase.at/queer-base-service/"
+        ],
+        "contact": [
+          "https://friends.queerbase.at/kontakt/"
+        ],
+        "emergency": [
+          "https://friends.queerbase.at/queer-base-service/"
+        ]
+      },
+      "locations": [],
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "transinterqueer",
+      "name": "TransInterQueer e. V. (TrIQ)",
+      "officialOperator": "TransInterQueer e. V.",
+      "regions": [
+        "DE-BE"
+      ],
+      "confirmedCounsellingLanguages": [
+        "de",
+        "en",
+        "hr"
+      ],
+      "informationLanguages": [
+        "de",
+        "en",
+        "hr"
+      ],
+      "helpTopics": [
+        "queer-trans-inter",
+        "flight-asylum"
+      ],
+      "audiences": [
+        "volljährige Menschen mit Wohnort Berlin",
+        "Angehörige",
+        "Fachpersonen, die mit TIN arbeiten"
+      ],
+      "canHelpWith": [
+        "psychosoziale und fachliche Peer-Beratung zu Trans*, Inter* und Nichtbinarität",
+        "Coming-out",
+        "Transition oder Detransition",
+        "TIN-sensible Weitervermittlung"
+      ],
+      "notResponsibleFor": [
+        "Minderjährige in der allgemeinen Beratung",
+        "Menschen ohne Wohnort Berlin in der allgemeinen Beratung",
+        "akute Krisenberatung",
+        "Unterstützung bei Rechtsprozessen",
+        "Unterstützung bei Krankenkassen-Widersprüchen",
+        "Antidiskriminierungsberatung",
+        "Unterstützung bei der Jobsuche",
+        "Unterstützung bei der Wohnungssuche",
+        "Tipps oder Unterstützung bei Forschungsvorhaben, Semester- oder Abschlussarbeiten"
+      ],
+      "requirements": [
+        "volljährig",
+        "Wohnort Berlin",
+        "Termin per E-Mail oder offene Beratung"
+      ],
+      "officialWebsite": "https://www.transinterqueer.org/angebote/beratung/",
+      "officialContact": "mailto:beratung@transinterqueer.org",
+      "verificationSources": [
+        "https://www.transinterqueer.org/angebote/beratung/"
+      ],
+      "lastChecked": "2026-08-12",
+      "nextCheck": "2026-11-12",
+      "reachabilityStatus": "limited",
+      "emergency": false,
+      "emergencyEvidence": [],
+      "officialDomains": [
+        "www.transinterqueer.org",
+        "transinterqueer.org"
+      ],
+      "fieldEvidence": {
+        "identity": [
+          "https://www.transinterqueer.org/angebote/beratung/"
+        ],
+        "serviceScope": [
+          "https://www.transinterqueer.org/angebote/beratung/"
+        ],
+        "audiencesAndRequirements": [
+          "https://www.transinterqueer.org/angebote/beratung/"
+        ],
+        "limits": [
+          "https://www.transinterqueer.org/angebote/beratung/"
+        ],
+        "contact": [
+          "https://www.transinterqueer.org/angebote/beratung/"
+        ],
+        "emergency": [
+          "https://www.transinterqueer.org/angebote/beratung/"
+        ]
+      },
+      "locations": [],
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "alarm-phone",
+      "name": "Watch The Med Alarm Phone",
+      "officialOperator": "Watch The Med Alarm Phone",
+      "regions": [
+        "MED-AEGEAN",
+        "MED-CENTRAL",
+        "MED-WESTERN"
+      ],
+      "confirmedCounsellingLanguages": [],
+      "informationLanguages": [
+        "en",
+        "fr",
+        "de",
+        "ar"
+      ],
+      "helpTopics": [
+        "flight-asylum"
+      ],
+      "audiences": [
+        "Menschen in Seenot oder von Pushback im Mittelmeer Betroffene"
+      ],
+      "canHelpWith": [
+        "Seenotmeldung dokumentieren",
+        "Küstenwache informieren",
+        "Druck auf zuständige Rettungsstellen erzeugen"
+      ],
+      "notResponsibleFor": [
+        "keine Rettungsnummer",
+        "keine eigenen Boote oder Hubschrauber",
+        "kann selbst niemanden retten"
+      ],
+      "requirements": [
+        "bei Seenot zuerst Küstenwache anrufen, dann Alarm Phone",
+        "betrifft Ägäis sowie zentrales und westliches Mittelmeer"
+      ],
+      "officialWebsite": "https://alarmphone.org/en/about/",
+      "officialContact": "tel:+4930220119540",
+      "verificationSources": [
+        "https://alarmphone.org/en/about/",
+        "https://alarmphone.org/en/"
+      ],
+      "lastChecked": "2026-08-12",
+      "nextCheck": "2026-09-12",
+      "reachabilityStatus": "reachable",
+      "emergency": true,
+      "emergencyEvidence": [
+        "https://alarmphone.org/en/",
+        "https://alarmphone.org/en/about/"
+      ],
+      "officialDomains": [
+        "alarmphone.org"
+      ],
+      "fieldEvidence": {
+        "identity": [
+          "https://alarmphone.org/en/about/"
+        ],
+        "serviceScope": [
+          "https://alarmphone.org/en/about/"
+        ],
+        "audiencesAndRequirements": [
+          "https://alarmphone.org/en/about/"
+        ],
+        "limits": [
+          "https://alarmphone.org/en/about/"
+        ],
+        "contact": [
+          "https://alarmphone.org/en/"
+        ],
+        "emergency": [
+          "https://alarmphone.org/en/",
+          "https://alarmphone.org/en/about/"
+        ]
+      },
+      "locations": [],
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "opferhilfe-schweiz-142",
+      "name": "Opferhilfe Schweiz – 142",
+      "officialOperator": "Konferenz der kantonalen Sozialdirektorinnen und Sozialdirektoren (SODK)",
+      "regions": [
+        "CH"
+      ],
+      "locations": [
+        "Schweizweit"
+      ],
+      "confirmedCounsellingLanguages": [],
+      "informationLanguages": [
+        "de",
+        "fr",
+        "it",
+        "en",
+        "rm"
+      ],
+      "helpTopics": [
+        "violence-victim-support",
+        "feminist-help",
+        "housing-food-health"
+      ],
+      "audiences": [
+        "Menschen, die in der Schweiz durch eine Straftat körperlich, psychisch oder sexuell beeinträchtigt wurden",
+        "Angehörige und nahestehende Personen",
+        "von Gewalt mitbetroffene Kinder"
+      ],
+      "canHelpWith": [
+        "kostenlose, vertrauliche und auf Wunsch anonyme Beratung",
+        "Information über Rechte",
+        "Vermittlung rechtlicher, psychologischer oder medizinischer Hilfe",
+        "Unterstützung bei einem geschützten Ort",
+        "in dringenden Fällen finanzielle Soforthilfe"
+      ],
+      "notResponsibleFor": [
+        "Die nationale Nummer 142 ist ausdrücklich kein Notruf",
+        "bei akuter Gefahr verweist die offizielle Seite auf Polizei 117 und Rettung 144"
+      ],
+      "requirements": [
+        "Beeinträchtigung durch eine Straftat in der Schweiz",
+        "keine Strafanzeige erforderlich",
+        "bei Unsicherheit darf trotzdem Kontakt aufgenommen werden"
+      ],
+      "officialWebsite": "https://www.opferhilfe-schweiz.ch/de/was-ist-opferhilfe/beratung/",
+      "officialContact": "tel:142",
+      "verificationSources": [
+        "https://www.opferhilfe-schweiz.ch/de/",
+        "https://www.opferhilfe-schweiz.ch/de/was-ist-opferhilfe/beratung/",
+        "https://www.opferhilfe-schweiz.ch/de/wo-finde-ich-hilfe/"
+      ],
+      "lastChecked": "2026-08-16",
+      "nextCheck": "2026-11-16",
+      "reachabilityStatus": "reachable",
+      "emergency": false,
+      "emergencyEvidence": [],
+      "officialDomains": [
+        "www.opferhilfe-schweiz.ch",
+        "opferhilfe-schweiz.ch"
+      ],
+      "fieldEvidence": {
+        "identity": [
+          "https://www.opferhilfe-schweiz.ch/de/"
+        ],
+        "serviceScope": [
+          "https://www.opferhilfe-schweiz.ch/de/was-ist-opferhilfe/beratung/"
+        ],
+        "audiencesAndRequirements": [
+          "https://www.opferhilfe-schweiz.ch/de/was-ist-opferhilfe/beratung/"
+        ],
+        "limits": [
+          "https://www.opferhilfe-schweiz.ch/de/"
+        ],
+        "contact": [
+          "https://www.opferhilfe-schweiz.ch/de/"
+        ],
+        "emergency": [
+          "https://www.opferhilfe-schweiz.ch/de/"
+        ]
+      },
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "dargebotene-hand-143",
+      "name": "Die Dargebotene Hand – 143",
+      "officialOperator": "Die Dargebotene Hand",
+      "regions": [
+        "CH",
+        "LI"
+      ],
+      "locations": [
+        "Schweizweit",
+        "Liechtenstein"
+      ],
+      "confirmedCounsellingLanguages": [
+        "de",
+        "fr",
+        "it",
+        "en"
+      ],
+      "informationLanguages": [
+        "de",
+        "fr",
+        "it",
+        "en"
+      ],
+      "helpTopics": [
+        "crisis-support",
+        "mental-health"
+      ],
+      "audiences": [
+        "alle Menschen aus der Schweiz und dem Fürstentum Liechtenstein",
+        "hauptsächlich Erwachsene"
+      ],
+      "canHelpWith": [
+        "anonymes und vertrauliches Gespräch",
+        "emotionale Erste Hilfe und Hilfe zur Selbsthilfe",
+        "Telefon rund um die Uhr",
+        "Chat täglich von 10 bis 22 Uhr",
+        "Mailantwort nach offizieller Angabe innerhalb von 48 Stunden"
+      ],
+      "notResponsibleFor": [
+        "Minderjährige werden an 147 Pro Juventute verwiesen",
+        "bei belegter Auslastung kann ein späterer Anruf nötig sein"
+      ],
+      "requirements": [
+        "143 gilt nur in der Schweiz und im Fürstentum Liechtenstein",
+        "Englisch über die separate Nummer 0800 143 000 und nur abends",
+        "je nach Telefonanbieter können Verbindungsgebühren anfallen"
+      ],
+      "officialWebsite": "https://www.143.ch/hilfesuchende/hilfesuchende-kontakt/",
+      "officialContact": "tel:143",
+      "verificationSources": [
+        "https://www.143.ch/",
+        "https://www.143.ch/hilfesuchende/hilfesuchende-kontakt/",
+        "https://www.143.ch/faq/"
+      ],
+      "lastChecked": "2026-08-16",
+      "nextCheck": "2026-09-15",
+      "reachabilityStatus": "reachable",
+      "emergency": true,
+      "emergencyEvidence": [
+        "https://www.143.ch/faq/",
+        "https://www.143.ch/hilfesuchende/hilfesuchende-kontakt/"
+      ],
+      "officialDomains": [
+        "www.143.ch",
+        "143.ch"
+      ],
+      "fieldEvidence": {
+        "identity": [
+          "https://www.143.ch/kontakt/"
+        ],
+        "serviceScope": [
+          "https://www.143.ch/hilfesuchende/hilfesuchende-kontakt/"
+        ],
+        "audiencesAndRequirements": [
+          "https://www.143.ch/faq/"
+        ],
+        "limits": [
+          "https://www.143.ch/hilfesuchende/hilfesuchende-kontakt/",
+          "https://www.143.ch/faq/"
+        ],
+        "contact": [
+          "https://www.143.ch/hilfesuchende/hilfesuchende-kontakt/"
+        ],
+        "emergency": [
+          "https://www.143.ch/faq/"
+        ]
+      },
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "pro-juventute-147",
+      "name": "Pro Juventute Beratung + Hilfe 147",
+      "officialOperator": "Pro Juventute",
+      "regions": [
+        "CH"
+      ],
+      "locations": [
+        "Schweizweit"
+      ],
+      "confirmedCounsellingLanguages": [
+        "de",
+        "fr",
+        "it"
+      ],
+      "informationLanguages": [
+        "de",
+        "fr",
+        "it"
+      ],
+      "helpTopics": [
+        "crisis-support",
+        "mental-health",
+        "violence-victim-support"
+      ],
+      "audiences": [
+        "Kinder und Jugendliche in der Schweiz",
+        "junge Menschen mit kleinen oder grossen Sorgen, Problemen oder Fragen"
+      ],
+      "canHelpWith": [
+        "vertrauliche und kostenlose Telefonberatung rund um die Uhr",
+        "bei akuter Notlage Weiterleitung über Taste 1",
+        "WhatsApp täglich von 7.30 bis 22 Uhr",
+        "E-Mail",
+        "Vermittlung weiterer Fachstellen"
+      ],
+      "notResponsibleFor": [
+        "Peer-Chat ist nur zu den auf der offiziellen Seite genannten Zeiten verfügbar",
+        "schriftliche Kanäle ersetzen bei Dringlichkeit nicht den Anruf auf 147"
+      ],
+      "requirements": [
+        "Angebot für Kinder und Jugendliche",
+        "für schnelle oder dringende Hilfe telefonisch 147 nutzen"
+      ],
+      "officialWebsite": "https://www.147.ch/de/info/so-beraten-wir-dich/",
+      "officialContact": "tel:147",
+      "verificationSources": [
+        "https://www.147.ch/de/",
+        "https://www.147.ch/de/info/so-beraten-wir-dich/",
+        "https://www.147.ch/de/beratung/147/"
+      ],
+      "lastChecked": "2026-08-16",
+      "nextCheck": "2026-09-15",
+      "reachabilityStatus": "reachable",
+      "emergency": true,
+      "emergencyEvidence": [
+        "https://www.147.ch/de/info/so-beraten-wir-dich/",
+        "https://www.147.ch/de/beratung/147/"
+      ],
+      "officialDomains": [
+        "www.147.ch",
+        "147.ch"
+      ],
+      "fieldEvidence": {
+        "identity": [
+          "https://www.147.ch/de/"
+        ],
+        "serviceScope": [
+          "https://www.147.ch/de/beratung/147/"
+        ],
+        "audiencesAndRequirements": [
+          "https://www.147.ch/de/",
+          "https://www.147.ch/de/info/so-beraten-wir-dich/"
+        ],
+        "limits": [
+          "https://www.147.ch/de/beratung/147/"
+        ],
+        "contact": [
+          "https://www.147.ch/de/beratung/147/"
+        ],
+        "emergency": [
+          "https://www.147.ch/de/info/so-beraten-wir-dich/",
+          "https://www.147.ch/de/beratung/147/"
+        ]
+      },
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "access-now-digital-security-helpline",
+      "name": "Access Now Digital Security Helpline",
+      "officialOperator": "Access Now",
+      "regions": [
+        "worldwide"
+      ],
+      "locations": [],
+      "confirmedCounsellingLanguages": [
+        "en",
+        "es",
+        "fr",
+        "de",
+        "pt",
+        "ru",
+        "tl",
+        "ar",
+        "it",
+        "uk"
+      ],
+      "informationLanguages": [
+        "en"
+      ],
+      "helpTopics": [
+        "digital-security"
+      ],
+      "audiences": [
+        "civil society",
+        "activists",
+        "media makers",
+        "human rights defenders"
+      ],
+      "canHelpWith": [
+        "technical support for accounts, devices, attacks and digital prevention"
+      ],
+      "notResponsibleFor": [
+        "direct legal representation",
+        "medical or psychosocial treatment",
+        "evacuation",
+        "general internet funding"
+      ],
+      "requirements": [
+        "the service checks whether a request is within its remit before support"
+      ],
+      "officialWebsite": "https://www.accessnow.org/help/",
+      "officialContact": "https://www.accessnow.org/help/",
+      "verificationSources": [
+        "https://www.accessnow.org/help/",
+        "https://www.accessnow.org/help/helpline-faq/"
+      ],
+      "lastChecked": "2026-09-09",
+      "nextCheck": "2026-10-09",
+      "reachabilityStatus": "unknown",
+      "emergency": false,
+      "emergencyEvidence": [
+        "https://www.accessnow.org/help/helpline-faq/"
+      ],
+      "officialDomains": [
+        "accessnow.org"
+      ],
+      "fieldEvidence": {
+        "identity": [
+          "https://www.accessnow.org/help/"
+        ],
+        "serviceScope": [
+          "https://www.accessnow.org/help/",
+          "https://www.accessnow.org/help/helpline-faq/"
+        ],
+        "audiencesAndRequirements": [
+          "https://www.accessnow.org/help/",
+          "https://www.accessnow.org/help/helpline-faq/"
+        ],
+        "limits": [
+          "https://www.accessnow.org/help/helpline-faq/"
+        ],
+        "contact": [
+          "https://www.accessnow.org/help/"
+        ],
+        "emergency": [
+          "https://www.accessnow.org/help/helpline-faq/"
+        ]
+      },
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    }
+  ],
+  "personSources": [
+    {
+      "id": "nycabc-guide-19-5",
+      "name": "NYC Anarchist Black Cross – Illustrated Guide 19.5",
+      "url": "https://nycabc.wordpress.com/2026/06/27/guide_19_5/",
+      "kind": "primary-support-group",
+      "checkedAt": "2026-07-27",
+      "directoryRights": "public-directory-metadata"
+    },
+    {
+      "id": "nycabc-write",
+      "name": "NYC Anarchist Black Cross – Write A Letter",
+      "url": "https://nycabc.wordpress.com/write-a-letter/",
+      "kind": "letter-writing-guidance",
+      "checkedAt": "2026-07-27",
+      "directoryRights": "public-directory-metadata"
+    },
+    {
+      "id": "abcf-updates",
+      "name": "Anarchist Black Cross Federation – current updates",
+      "url": "https://www.abcf.net/",
+      "kind": "support-network",
+      "checkedAt": "2026-07-27",
+      "directoryRights": "public-directory-metadata"
+    },
+    {
+      "id": "nycabc-guide-19-6",
+      "name": "NYC Anarchist Black Cross – Illustrated Guide 19.6",
+      "url": "https://nycabc.wordpress.com/2026/07/25/guide_19_6/",
+      "kind": "primary-support-group",
+      "checkedAt": "2026-08-09",
+      "directoryRights": "public-directory-metadata"
+    },
+    {
+      "id": "abc-dresden-prisoners",
+      "name": "Anarchist Black Cross Dresden – Gefangenenliste",
+      "url": "https://abcdd.org/gefangene/",
+      "kind": "primary-support-group",
+      "checkedAt": "2026-08-04",
+      "directoryRights": "public-directory-metadata"
+    },
+    {
+      "id": "abc-dresden-letter-writing",
+      "name": "Anarchist Black Cross Dresden – Briefeschreiben",
+      "url": "https://abcdd.org/en/letter-writing/",
+      "kind": "letter-writing-guidance",
+      "checkedAt": "2026-08-04",
+      "directoryRights": "public-directory-metadata"
+    },
+    {
+      "id": "prisoners-for-palestine-writing",
+      "name": "Prisoners for Palestine – Writing to Prisoners",
+      "url": "https://prisonersforpalestine.org/writing-to-prisoners/",
+      "kind": "primary-support-group",
+      "checkedAt": "2026-07-29",
+      "directoryRights": "public-directory-metadata"
+    },
+    {
+      "id": "govuk-prison-letters",
+      "name": "GOV.UK – Staying in touch with someone in prison",
+      "url": "https://www.gov.uk/staying-in-touch-with-someone-in-prison",
+      "kind": "official-mail-guidance",
+      "checkedAt": "2026-07-29",
+      "directoryRights": "public-directory-metadata"
+    },
+    {
+      "id": "abcf-support-guide",
+      "name": "Anarchist Black Cross Federation – Support Guide",
+      "url": "https://www.abcf.net/support-guide/",
+      "kind": "letter-writing-guidance",
+      "checkedAt": "2026-08-05",
+      "directoryRights": "public-directory-metadata"
+    },
+    {
+      "id": "abc-belarus-prisoners",
+      "name": "Anarchist Black Cross Belarus – Prisoners",
+      "url": "https://abc-belarus.org/en/prisoners/",
+      "kind": "primary-support-group",
+      "checkedAt": "2026-08-05",
+      "directoryRights": "public-directory-metadata"
+    },
+    {
+      "id": "london-abc",
+      "name": "London Anarchist Black Cross – Prison abolition and letter support",
+      "url": "https://network23.org/londonabc/about/",
+      "kind": "support-network",
+      "checkedAt": "2026-08-05",
+      "directoryRights": "public-directory-metadata"
+    },
+    {
+      "id": "secours-rouge-geneve",
+      "name": "Secours Rouge Genève – Prisoner and repression solidarity",
+      "url": "https://secoursrouge.org/orga/secours-rouge-geneve/",
+      "kind": "support-network",
+      "checkedAt": "2026-08-05",
+      "directoryRights": "public-directory-metadata"
+    }
+  ],
+  "persons": [
+    {
+      "id": "hridindu-roychowdhury",
+      "publicName": "Hridindu Roychowdhury",
+      "country": "United States",
+      "region": "North America",
+      "contextDe": "Wird von NYC ABC als anarchistischer politischer Gefangener geführt. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "nycabc-guide-19-5",
+        "abcf-updates"
+      ],
+      "profileUrl": "https://www.abcf.net/blog/2026/06/",
+      "verifiedAt": "2026-06-29",
+      "nextReviewAt": "2026-08-13",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "malik-muhammed",
+      "publicName": "Malik Muhammed",
+      "country": "United States",
+      "region": "North America",
+      "contextDe": "Wird von NYC ABC und ABCF als anarchistische, antifaschistische und abolitionistische gefangene Person unterstützt. Die Darstellung folgt den Solidaritätsquellen.",
+      "sourceIds": [
+        "nycabc-guide-19-5",
+        "abcf-updates"
+      ],
+      "profileUrl": "https://www.abcf.net/blog/2026/06/",
+      "verifiedAt": "2026-06-28",
+      "nextReviewAt": "2026-08-12",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "casey-goonan",
+      "publicName": "Casey Goonan",
+      "country": "United States",
+      "region": "North America",
+      "contextDe": "Wird von NYC ABC als anarchistische und antiimperialistische gefangene Person unterstützt. Die Darstellung folgt der Solidaritätsquelle.",
+      "sourceIds": [
+        "nycabc-guide-19-5",
+        "abcf-updates"
+      ],
+      "profileUrl": "https://www.abcf.net/blog/2026/06/",
+      "verifiedAt": "2026-06-27",
+      "nextReviewAt": "2026-08-11",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "bill-dunne",
+      "publicName": "Bill Dunne",
+      "country": "United States",
+      "region": "North America",
+      "contextDe": "Langjähriger anarchistischer politischer Gefangener, der von NYC ABC und ABCF unterstützt wird. Die Darstellung folgt den Solidaritätsquellen.",
+      "sourceIds": [
+        "nycabc-guide-19-5",
+        "abcf-updates"
+      ],
+      "profileUrl": "https://www.abcf.net/blog/2026/06/",
+      "verifiedAt": "2026-06-25",
+      "nextReviewAt": "2026-08-09",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "oso-blanco",
+      "publicName": "Byron Chubbuck (Oso Blanco)",
+      "country": "United States",
+      "region": "North America",
+      "contextDe": "Indigener Gefangener und Aktivist, der von ABCF und NYC ABC unterstützt wird. Der Name und die Adresse entsprechen dem öffentlich verbreiteten Solidaritätsaufruf.",
+      "sourceIds": [
+        "abcf-updates",
+        "nycabc-guide-19-5"
+      ],
+      "profileUrl": "https://www.abcf.net/blog/2026/07/",
+      "verifiedAt": "2026-07-05",
+      "nextReviewAt": "2026-08-19",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "mohammed-umer-khalid",
+      "publicName": "Mohammed Umer Khalid",
+      "country": "United Kingdom",
+      "region": "Europe",
+      "contextDe": "Wird von Prisoners for Palestine als inhaftierter Aktivist der Palästina-Solidarität unterstützt. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "prisoners-for-palestine-writing",
+        "govuk-prison-letters"
+      ],
+      "profileUrl": "https://prisonersforpalestine.org/writing-to-prisoners/",
+      "verifiedAt": "2026-07-29",
+      "nextReviewAt": "2026-09-12",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "qesser-zuhrah",
+      "publicName": "Qesser Zuhrah",
+      "country": "United Kingdom",
+      "region": "Europe",
+      "contextDe": "Wird von Prisoners for Palestine als inhaftierte Aktivistin der Palästina-Solidarität unterstützt. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "prisoners-for-palestine-writing",
+        "govuk-prison-letters"
+      ],
+      "profileUrl": "https://prisonersforpalestine.org/prisoner/qesser-zuhrah/",
+      "verifiedAt": "2026-07-29",
+      "nextReviewAt": "2026-09-12",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "amu-gib",
+      "publicName": "Amu Gib",
+      "country": "United Kingdom",
+      "region": "Europe",
+      "contextDe": "Wird von Prisoners for Palestine als inhaftierte Person der Palästina-Solidarität unterstützt. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "prisoners-for-palestine-writing",
+        "govuk-prison-letters"
+      ],
+      "profileUrl": "https://prisonersforpalestine.org/prisoner/amu-gib/",
+      "verifiedAt": "2026-07-29",
+      "nextReviewAt": "2026-09-12",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "heba-muraisi",
+      "publicName": "Heba Muraisi",
+      "country": "United Kingdom",
+      "region": "Europe",
+      "contextDe": "Wird von Prisoners for Palestine als inhaftierte Aktivistin der Palästina-Solidarität unterstützt. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "prisoners-for-palestine-writing",
+        "govuk-prison-letters"
+      ],
+      "profileUrl": "https://prisonersforpalestine.org/prisoner/heba-muraisi/",
+      "verifiedAt": "2026-07-29",
+      "nextReviewAt": "2026-09-12",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "jon-cink",
+      "publicName": "Jon Cink",
+      "country": "United Kingdom",
+      "region": "Europe",
+      "contextDe": "Wird von Prisoners for Palestine als inhaftierter Aktivist der Palästina-Solidarität unterstützt. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "prisoners-for-palestine-writing",
+        "govuk-prison-letters"
+      ],
+      "profileUrl": "https://prisonersforpalestine.org/prisoner/jon-cink/",
+      "verifiedAt": "2026-07-29",
+      "nextReviewAt": "2026-09-12",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "teuta-hoxha",
+      "publicName": "Teuta Hoxha",
+      "country": "United Kingdom",
+      "region": "Europe",
+      "contextDe": "Wird von Prisoners for Palestine als inhaftierte Aktivistin der Palästina-Solidarität unterstützt. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "prisoners-for-palestine-writing",
+        "govuk-prison-letters"
+      ],
+      "profileUrl": "https://prisonersforpalestine.org/prisoner/teuta-hoxha/",
+      "verifiedAt": "2026-07-29",
+      "nextReviewAt": "2026-09-12",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "kamran-ahmed",
+      "publicName": "Kamran Ahmed",
+      "country": "United Kingdom",
+      "region": "Europe",
+      "contextDe": "Wird von Prisoners for Palestine als inhaftierter Aktivist der Palästina-Solidarität unterstützt. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "prisoners-for-palestine-writing",
+        "govuk-prison-letters"
+      ],
+      "profileUrl": "https://prisonersforpalestine.org/prisoner/kamran-ahmed/",
+      "verifiedAt": "2026-07-29",
+      "nextReviewAt": "2026-09-12",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "paul-muentnich",
+      "publicName": "Paul Müntnich",
+      "country": "Germany",
+      "region": "Europe",
+      "contextDe": "Wird in der aktuellen Gefangenenliste von ABC Dresden für Briefsolidarität geführt. Die Aufnahme dokumentiert die veröffentlichte Solidaritätsinformation und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "abc-dresden-prisoners",
+        "abc-dresden-letter-writing"
+      ],
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "verifiedAt": "2026-08-04",
+      "nextReviewAt": "2026-09-18",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "emilie-dieckmann",
+      "publicName": "Emilie Dieckmann (Emmi)",
+      "country": "Germany",
+      "region": "Europe",
+      "contextDe": "Wird in der aktuellen Gefangenenliste von ABC Dresden für Briefsolidarität geführt. Die Darstellung folgt dieser Solidaritätsquelle.",
+      "sourceIds": [
+        "abc-dresden-prisoners",
+        "abc-dresden-letter-writing"
+      ],
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "verifiedAt": "2026-08-04",
+      "nextReviewAt": "2026-09-18",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "hanna-nuernberg",
+      "publicName": "Hanna",
+      "country": "Germany",
+      "region": "Europe",
+      "contextDe": "Wird über die von ABC Dresden veröffentlichte Kontaktadresse der Roten Hilfe Nürnberg für Briefsolidarität geführt. Keine juristische Bewertung des Verfahrens.",
+      "sourceIds": [
+        "abc-dresden-prisoners",
+        "abc-dresden-letter-writing"
+      ],
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "verifiedAt": "2026-08-04",
+      "nextReviewAt": "2026-09-18",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "luca-amelie-schaller",
+      "publicName": "Luca Amelie Schaller",
+      "country": "Germany",
+      "region": "Europe",
+      "contextDe": "Wird in der aktuellen Gefangenenliste von ABC Dresden für Briefsolidarität geführt. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "abc-dresden-prisoners",
+        "abc-dresden-letter-writing"
+      ],
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "verifiedAt": "2026-08-04",
+      "nextReviewAt": "2026-09-18",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "mumia-abu-jamal",
+      "publicName": "Mumia Abu-Jamal",
+      "country": "United States",
+      "region": "North America",
+      "contextDe": "Wird im aktuellen NYC-ABC-Leitfaden als politischer Gefangener aus der Schwarzen Befreiungsbewegung geführt. Diese Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "nycabc-guide-19-6",
+        "nycabc-write"
+      ],
+      "profileUrl": "https://nycabc.wordpress.com/2026/07/25/guide_19_6/",
+      "verifiedAt": "2026-08-09",
+      "nextReviewAt": "2026-09-23",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "joe-joe-bowen",
+      "publicName": "Joe-Joe Bowen",
+      "country": "United States",
+      "region": "North America",
+      "contextDe": "Wird im aktuellen NYC-ABC-Leitfaden der Schwarzen Befreiungsbewegung zugeordnet. Diese Darstellung dokumentiert die öffentliche Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "nycabc-guide-19-6",
+        "nycabc-write"
+      ],
+      "profileUrl": "https://nycabc.wordpress.com/2026/07/25/guide_19_6/",
+      "verifiedAt": "2026-08-09",
+      "nextReviewAt": "2026-09-23",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "ronald-reed",
+      "publicName": "Ronald Reed",
+      "country": "United States",
+      "region": "North America",
+      "contextDe": "Wird im aktuellen NYC-ABC-Leitfaden als ehemaliger Bürgerrechtsaktivist und politischer Gefangener geführt. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "nycabc-guide-19-6",
+        "nycabc-write"
+      ],
+      "profileUrl": "https://nycabc.wordpress.com/2026/07/25/guide_19_6/",
+      "verifiedAt": "2026-08-09",
+      "nextReviewAt": "2026-09-23",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "fred-muhammad-burton",
+      "publicName": "Fred “Muhammad” Burton",
+      "country": "United States",
+      "region": "North America",
+      "contextDe": "Wird im aktuellen NYC-ABC-Leitfaden der Schwarzen Befreiungsbewegung zugeordnet. Diese Kurzbeschreibung folgt der öffentlichen Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "nycabc-guide-19-6",
+        "nycabc-write"
+      ],
+      "profileUrl": "https://nycabc.wordpress.com/2026/07/25/guide_19_6/",
+      "verifiedAt": "2026-08-09",
+      "nextReviewAt": "2026-09-23",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "kojo-bomani-sababu",
+      "publicName": "Kojo Bomani Sababu",
+      "country": "United States",
+      "region": "North America",
+      "contextDe": "Wird im aktuellen NYC-ABC-Leitfaden als Gefangener der New-Afrikan-Befreiungsbewegung geführt. Diese Einordnung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "nycabc-guide-19-6",
+        "nycabc-write"
+      ],
+      "profileUrl": "https://nycabc.wordpress.com/2026/07/25/guide_19_6/",
+      "verifiedAt": "2026-08-09",
+      "nextReviewAt": "2026-09-23",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "kamau-sadiki",
+      "publicName": "Kamau Sadiki",
+      "country": "United States",
+      "region": "North America",
+      "contextDe": "Wird im aktuellen NYC-ABC-Leitfaden als früheres Mitglied der Black Panther Party und politischer Gefangener geführt. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "nycabc-guide-19-6",
+        "nycabc-write"
+      ],
+      "profileUrl": "https://nycabc.wordpress.com/2026/07/25/guide_19_6/",
+      "verifiedAt": "2026-08-09",
+      "nextReviewAt": "2026-09-23",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "xinachtli",
+      "publicName": "Xinachtli",
+      "country": "United States",
+      "region": "North America",
+      "contextDe": "Wird im aktuellen NYC-ABC-Leitfaden als Community-Organizer und Gefangener im Kontext nationaler Befreiungsbewegungen geführt. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "nycabc-guide-19-6",
+        "nycabc-write"
+      ],
+      "profileUrl": "https://nycabc.wordpress.com/2026/07/25/guide_19_6/",
+      "verifiedAt": "2026-08-09",
+      "nextReviewAt": "2026-09-23",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "joy-powell",
+      "publicName": "Joy Powell",
+      "country": "United States",
+      "region": "North America",
+      "contextDe": "Wird im aktuellen NYC-ABC-Leitfaden im Zusammenhang mit Organisierung gegen Polizeigewalt geführt. Diese Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "nycabc-guide-19-6",
+        "nycabc-write"
+      ],
+      "profileUrl": "https://nycabc.wordpress.com/2026/07/25/guide_19_6/",
+      "verifiedAt": "2026-08-09",
+      "nextReviewAt": "2026-09-23",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "nele-aschoff",
+      "publicName": "Nele Aschoff",
+      "country": "Germany",
+      "region": "Europe",
+      "contextDe": "Wird in der aktuellen Gefangenenliste von ABC Dresden für Briefsolidarität geführt. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "abc-dresden-prisoners",
+        "abc-dresden-letter-writing"
+      ],
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "verifiedAt": "2026-08-04",
+      "nextReviewAt": "2026-09-18",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "finn-siebers",
+      "publicName": "Finn Siebers",
+      "country": "Germany",
+      "region": "Europe",
+      "contextDe": "Wird von ABC Dresden mit öffentlicher Briefadresse geführt und setzt sich laut Quelle gegen Missstände im Gefängnis ein. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "abc-dresden-prisoners",
+        "abc-dresden-letter-writing"
+      ],
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "verifiedAt": "2026-08-11",
+      "nextReviewAt": "2026-09-25",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "nico-stuttgart",
+      "publicName": "Nico",
+      "country": "Germany",
+      "region": "Europe",
+      "contextDe": "Wird von ABC Dresden als antifaschistischer Gefangener mit einer öffentlichen Kontaktadresse über die Rote Hilfe geführt. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "abc-dresden-prisoners",
+        "abc-dresden-letter-writing"
+      ],
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "verifiedAt": "2026-08-11",
+      "nextReviewAt": "2026-09-25",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "andreas-krebs",
+      "publicName": "Andreas Krebs",
+      "country": "Germany",
+      "region": "Europe",
+      "contextDe": "Wird von ABC Dresden als rebellischer Gefangener und Mitorganisator der Gefangenengewerkschaft GG/BO geführt. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "abc-dresden-prisoners",
+        "abc-dresden-letter-writing"
+      ],
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "verifiedAt": "2026-08-11",
+      "nextReviewAt": "2026-09-25",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "daniela-klette",
+      "publicName": "Daniela Klette",
+      "country": "Germany",
+      "region": "Europe",
+      "contextDe": "Wird in der aktuellen Gefangenenliste von ABC Dresden mit öffentlicher Briefadresse geführt. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "abc-dresden-prisoners",
+        "abc-dresden-letter-writing"
+      ],
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "verifiedAt": "2026-08-11",
+      "nextReviewAt": "2026-09-25",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    },
+    {
+      "id": "carmen-forderer",
+      "publicName": "Carmen Forderer",
+      "country": "Germany",
+      "region": "Europe",
+      "contextDe": "Wird von ABC Dresden mit öffentlicher Adresse im Kontext langjähriger Isolation und Sicherungsverwahrung geführt. Die Darstellung folgt der Solidaritätsquelle und ist keine juristische Bewertung.",
+      "sourceIds": [
+        "abc-dresden-prisoners",
+        "abc-dresden-letter-writing"
+      ],
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "verifiedAt": "2026-08-11",
+      "nextReviewAt": "2026-09-25",
+      "status": "historical-directory-entry",
+      "directoryRights": "public-directory-metadata",
+      "editorialRights": "user-supplied-editorial-text"
+    }
+  ],
+  "withdrawnOrganizationIds": [],
+  "withdrawnPersonSourceIds": [],
+  "withdrawnPersonIds": []
+}

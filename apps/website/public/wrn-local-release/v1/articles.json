@@ -1,0 +1,79 @@
+{
+  "articles": [
+    {
+      "id": "wrn-test-art-cedar",
+      "title": "Lokale Testmeldung zur gemeinsamen Leseliste",
+      "teaser": "Diese selbst erstellte Meldung prueft ausschliesslich die lokale Darstellung eines vollstaendigen ersten Satzes.",
+      "publishedAt": "2026-08-23T10:00:00.000Z",
+      "originalUrl": "https://fixture.invalid/articles/cedar",
+      "source": {
+        "id": "wrn-test-source-local",
+        "name": "Lokale Testquelle"
+      },
+      "originalLanguage": "de",
+      "tags": ["lokal", "fixture"],
+      "rights": {
+        "status": "fixture-authored-no-third-party-media",
+        "reference": "wrn-g3-002-local-fixture"
+      },
+      "transformation": {
+        "status": "original",
+        "reference": "self-authored-fixture"
+      },
+      "translation": {
+        "status": "not-requested",
+        "reference": "not-applicable"
+      }
+    },
+    {
+      "id": "wrn-test-art-ember",
+      "title": "Local fixture note for responsive reading",
+      "teaser": "This self-authored fixture checks that the same neutral metadata remains readable in a second language.",
+      "publishedAt": "2026-08-22T14:30:00.000Z",
+      "originalUrl": "https://fixture.invalid/articles/ember",
+      "source": {
+        "id": "wrn-test-source-local",
+        "name": "Lokale Testquelle"
+      },
+      "originalLanguage": "en",
+      "tags": ["local", "fixture"],
+      "rights": {
+        "status": "fixture-authored-no-third-party-media",
+        "reference": "wrn-g3-002-local-fixture"
+      },
+      "transformation": {
+        "status": "original",
+        "reference": "self-authored-fixture"
+      },
+      "translation": {
+        "status": "not-requested",
+        "reference": "not-applicable"
+      }
+    },
+    {
+      "id": "wrn-test-art-fern",
+      "title": "Nota local de prueba para la vista de noticias",
+      "teaser": "Esta nota creada para pruebas comprueba una tercera tarjeta sin afirmar hechos sobre personas reales.",
+      "publishedAt": "2026-08-21T08:15:00.000Z",
+      "originalUrl": "https://fixture.invalid/articles/fern",
+      "source": {
+        "id": "wrn-test-source-local",
+        "name": "Lokale Testquelle"
+      },
+      "originalLanguage": "es",
+      "tags": ["local", "fixture"],
+      "rights": {
+        "status": "fixture-authored-no-third-party-media",
+        "reference": "wrn-g3-002-local-fixture"
+      },
+      "transformation": {
+        "status": "original",
+        "reference": "self-authored-fixture"
+      },
+      "translation": {
+        "status": "not-requested",
+        "reference": "not-applicable"
+      }
+    }
+  ]
+}

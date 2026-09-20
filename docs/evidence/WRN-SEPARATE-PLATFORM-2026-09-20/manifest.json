@@ -1,0 +1,26 @@
+{
+  "files": [
+    {
+      "path": "app-sport.png",
+      "sha256": "c3d943e5909d6d75f7bbe3fed9399b6903458b4a803d8c2853c6c7639bd255be",
+      "bytes": 23876
+    },
+    {
+      "path": "REPORT.md",
+      "sha256": "6d7bcdacc818c796c1da9744ff19e12090a29047346fb765b7ea7a00f6b52afa",
+      "bytes": 3445
+    },
+    {
+      "path": "SERVICES.md",
+      "sha256": "f12c32a176911e634b5323ce704ad59c9466f78a734eee80b35f82e7ca62e027",
+      "bytes": 3964
+    },
+    {
+      "path": "website-sport.png",
+      "sha256": "014e7bf8fac0aa8d63eb64698e301c4d68ce6c0790ce90aa8f96dd547f3985ab",
+      "bytes": 317009
+    }
+  ],
+  "date": "2026-09-20",
+  "schema": "wrn.package-evidence.v1"
+}
