@@ -12,13 +12,23 @@
     },
     {
       "path": "SERVICES.md",
-      "sha256": "f12c32a176911e634b5323ce704ad59c9466f78a734eee80b35f82e7ca62e027",
-      "bytes": 3964
+      "sha256": "02b9eeea813009b8411e5e0318007a3e755aaff3f6c9aafd35fc633eee9ee639",
+      "bytes": 4469
     },
     {
       "path": "website-sport.png",
       "sha256": "014e7bf8fac0aa8d63eb64698e301c4d68ce6c0790ce90aa8f96dd547f3985ab",
       "bytes": 317009
+    },
+    {
+      "path": "NATIVE-TRANSLATION.md",
+      "sha256": "1b3a316308bb89d0059478013440064c1cc0cc8cef3f0c9da228d8172f1b8fa2",
+      "bytes": 3742
+    },
+    {
+      "path": "GEMINI-QUOTAS.md",
+      "sha256": "22f5b87529bd88e40fcdd02afebd9af97be693b7ee480f5725412f822d77fee4",
+      "bytes": 3248
     }
   ],
   "date": "2026-09-20",

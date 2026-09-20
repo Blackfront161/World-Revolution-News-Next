@@ -1,0 +1,28 @@
+{
+  "observedDate": "2026-09-20",
+  "scope": "Greek, Turkish and Portuguese primary-source gap check",
+  "candidates": [],
+  "reviewedLeads": [
+    {
+      "name": "Asteras Exarchion 1928",
+      "language": "el",
+      "url": "https://asteras-exarchion.gr/",
+      "status": "not_admitted",
+      "reason": "Official site was not accessible in the bounded check; available descriptions were secondary or video sources."
+    },
+    {
+      "name": "Çarşı / Forza Beşiktaş",
+      "language": "tr",
+      "url": "https://www.forzabesiktas.com/",
+      "status": "not_admitted",
+      "reason": "Official site verifies the Beşiktaş supporter identity and 1982 origin, but the accessible text does not make an explicit antifascist, antisexist, left or anarchist claim."
+    },
+    {
+      "name": "GARA",
+      "language": "pt",
+      "url": "https://gara.pt/",
+      "status": "not_admitted",
+      "reason": "Official site explicitly self-describes an antifascist Portuguese collective, but provides no concrete supporter-group or sports-collective connection in the reviewed pages."
+    }
+  ]
+}

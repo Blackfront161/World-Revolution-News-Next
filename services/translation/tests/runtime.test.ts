@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+import worker from '../src/worker.js';
 
 import {
   createTranslationRuntimeFetch,
@@ -63,6 +64,47 @@ function environment(overrides = {}) {
 }
 
 describe('explicit translation runtime bindings', () => {
+  it('coalesces equivalent environment objects, binds native fetch and isolates model cache keys', async () => {
+    const keys: string[] = [];
+    const shared = environment({
+      TRANSLATION_CACHE: {
+        get: async (key: string) => {
+          keys.push(key);
+          return undefined;
+        },
+        put: async () => {},
+      },
+    });
+    const nativeFetch = vi.fn(async function (this: unknown) {
+      expect(this).toBe(globalThis);
+      await new Promise((resolve) => setTimeout(resolve, 10));
+      return new Response(
+        JSON.stringify({
+          candidates: [{ finishReason: 'STOP', content: { parts: [{ text: 'Übersetzt.' }] } }],
+        }),
+      );
+    });
+    vi.stubGlobal('fetch', nativeFetch);
+    try {
+      const responses = await Promise.all([
+        worker.fetch(request(), { ...shared }),
+        worker.fetch(request(), { ...shared }),
+      ]);
+      expect(responses.map((response) => response.status)).toEqual([200, 200]);
+      expect(nativeFetch).toHaveBeenCalledTimes(1);
+      expect(
+        (await worker.fetch(request(), { ...shared, TRANSLATION_MODEL: 'different-model' })).status,
+      ).toBe(200);
+      expect(nativeFetch).toHaveBeenCalledTimes(2);
+      expect(keys[0]).not.toBe(keys.at(-1));
+      expect(
+        (await worker.fetch(request(), { ...shared, TRANSLATION_V2_ENABLED: 'false' })).status,
+      ).toBe(503);
+      expect(nativeFetch).toHaveBeenCalledTimes(2);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
   it('defaults to the existing disabled worker without provider dispatch', async () => {
     const fetch = vi.fn();
     const response = await createTranslationRuntimeFetch(bindings({ enabled: false, fetch }))(

@@ -173,7 +173,8 @@ export function createGeminiTranslationAdapter(
     ) {
       if (options.noFallback !== true) fail();
       options.signal.throwIfAborted();
-      const response = await configuration.fetch(
+      const response = await configuration.fetch.call(
+        globalThis,
         `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(configuration.model)}:generateContent`,
         {
           method: 'POST',

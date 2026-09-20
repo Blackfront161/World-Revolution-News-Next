@@ -143,6 +143,7 @@ export function createTranslationRuntimeFetchFromEnvironment(
     !supportedSourceLanguages ||
     cacheTtlSeconds === undefined ||
     typeof environment.TRANSLATION_MODEL !== 'string' ||
+    !/^[a-zA-Z0-9._-]{1,120}$/u.test(environment.TRANSLATION_MODEL) ||
     typeof environment.GEMINI_API_KEY !== 'string' ||
     !isCachePort(environment.TRANSLATION_CACHE) ||
     !isQuotaPort(environment.TRANSLATION_READ_QUOTA) ||
@@ -153,7 +154,7 @@ export function createTranslationRuntimeFetchFromEnvironment(
   return createTranslationRuntimeFetch({
     enabled: true,
     allowedOrigins,
-    adapter: geminiAdapterIdentity,
+    adapter: { ...geminiAdapterIdentity, version: `v1:${environment.TRANSLATION_MODEL}` },
     model: environment.TRANSLATION_MODEL,
     apiKey: environment.GEMINI_API_KEY,
     fetch: fetchImplementation,

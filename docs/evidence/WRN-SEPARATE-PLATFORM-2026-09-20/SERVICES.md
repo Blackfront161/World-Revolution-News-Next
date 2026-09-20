@@ -74,3 +74,12 @@ cost follows from this local code.
 
 Focused local tests cover disabled, malformed/incomplete, and fully injected
 runtime environments; provider dispatch in those tests is mocked.
+
+## Native adapter follow-up
+
+The initially missing native resource adapters are now implemented and tested:
+`TRANSLATION_KV`, `TRANSLATION_QUOTAS`, and explicit `TRANSLATION_QUOTA_POLICY`
+compose the above runtime ports. See [native proof](NATIVE-TRANSLATION.md) and
+[observed Gemini limits](GEMINI-QUOTAS.md). Actual cloud resources, credential to
+free-project mapping, deployment and sustained operation remain open. The old
+service stays unchanged; no paid setting or provider fallback was activated.
