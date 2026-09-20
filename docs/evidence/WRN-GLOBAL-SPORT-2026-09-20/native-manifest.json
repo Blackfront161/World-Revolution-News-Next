@@ -1,0 +1,34 @@
+{
+  "sourceCommit": "de8b641e7725dea8990fa337c332c3427a092355",
+  "schemaVersion": 1,
+  "files": [
+    {
+      "path": "tools/prepare-android-release.mjs",
+      "sha256": "50c35c99c9858648c7c88421d6bab223885f033bd3c1b011974390ae5ac18f1e"
+    },
+    {
+      "path": "tools/prepare-android-release.test.mjs",
+      "sha256": "bec9ea9a649020f415eec58c3c143b8001732010960b6f8e1f52d82fc34d85f8"
+    },
+    {
+      "path": "apps/mobile/android/app/build.gradle",
+      "sha256": "1aafb12edcaf42a8539fbcf29fa67ccb73d6b2e61f654ea0afa783a2044eddb8"
+    },
+    {
+      "path": "apps/mobile/android/app/src/test/java/com/getcapacitor/myapp/ExampleUnitTest.java",
+      "sha256": "56b0e07a6467f4c34c2dda09b756c5a08e4cba0f21e1d590516860b1fa58fc0e"
+    },
+    {
+      "path": "docs/evidence/WRN-GLOBAL-SPORT-2026-09-20/PUBLICATION-AND-TTS.md",
+      "sha256": "af72a48001c830bc319c10808581a47549dc527946761ba9c33b96be5b2c4fd3"
+    },
+    {
+      "path": "docs/evidence/WRN-GLOBAL-SPORT-2026-09-20/aab-verification.json",
+      "sha256": "efb54909638324352f7ecd258d74a2958b730b8e2ccfc9507695c1819a501809"
+    },
+    {
+      "path": "docs/evidence/WRN-GLOBAL-SPORT-2026-09-20/verify-aab.ps1",
+      "sha256": "85871598f57147bdeab54d501e09d3f55b915fbf8a88bc203e1aad666fdbbbd8"
+    }
+  ]
+}

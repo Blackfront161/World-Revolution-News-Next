@@ -10,9 +10,9 @@ import org.junit.Test;
 public class ExampleUnitTest {
 
     @Test
-    public void packageAndVersionMatchTheBoundBaseline() {
+    public void packageAndVersionMatchThePreparedUpdate() {
         assertEquals("com.world.revolution", BuildConfig.APPLICATION_ID);
-        assertEquals(26, BuildConfig.VERSION_CODE);
-        assertEquals("2.1.1", BuildConfig.VERSION_NAME);
+        assertEquals(27, BuildConfig.VERSION_CODE);
+        assertEquals("2.2.0", BuildConfig.VERSION_NAME);
     }
 }

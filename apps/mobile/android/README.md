@@ -2,8 +2,11 @@
 
 Native owner: `apps/mobile`. This project wraps only the Mobile client.
 The checked-in source comes from the installed Capacitor 8.5.0 template.
-It preserves the reference app's `com.world.revolution`, version code 26,
-version name 2.1.1 and SDK 24/36 binding. This is not yet an upgrade candidate.
+It preserves the reference app's `com.world.revolution` and SDK 24/36 binding.
+The local unsigned candidate is version code 27 / version name 2.2.0, following
+the Play Console's observed highest bundle 26 / 2.1.1 on 20 September 2026.
+Signing with the existing app's upload identity and an actual upgrade test remain
+required; changing these local numbers does not publish or install an update.
 
 ## Prepare from an existing dependency installation
 
@@ -38,6 +41,23 @@ The only permitted artifact in this foundation task is
 is supplied. Debug builds are not part of the approved verification, because
 they can create or use a debug signing key. Do not use `clean` against historical
 outputs. Bind the web asset hashes, source revision and APK hash before review.
+
+## Unsigned bundle staging
+
+From the repository root, `node tools/prepare-android-release.mjs` creates one new ignored directory
+under repository `work/wrn-android-release-*`. It copies and hashes the current
+`apps/mobile/dist` plus the checked native Capacitor bridge/config assets, records
+the Git commit and relevant dirty-source rejection in `receipt.json`, and writes
+`unsigned-bundle.init.gradle`. It does not run Gradle, sign, change a version, or
+upload anything. Until a separately bound fresh-build manifest is supplied, the
+receipt labels the copied `dist` provenance as `unverified`; its hash list alone
+does not prove the source build that produced those bytes.
+
+Only after separate review, run the receipt's displayed `:app:bundleRelease`
+command with the staged init script and assets. The init script rejects a release
+signing configuration and Debug/install/test tasks. The resulting `.aab` remains
+unsigned and local; Play Console access and any signing operation are separate
+external steps.
 
 ## Privacy and remaining work
 
