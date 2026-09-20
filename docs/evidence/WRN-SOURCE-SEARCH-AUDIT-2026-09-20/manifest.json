@@ -1,0 +1,36 @@
+{
+  "files": [
+    {
+      "sha256": "ecd2f8f8c94d5cac1b53d8c67074130bb2d89270960f9906801195b84c976c04",
+      "path": "packages/browser-content/src/source-search.ts"
+    },
+    {
+      "sha256": "6728cacaef2caeef4f424f3979365032d743b50d1cbc79ff8b69d5183f620c2a",
+      "path": "apps/mobile/src/features/directory/MobileContentDirectoryRoute.tsx"
+    },
+    {
+      "sha256": "60213d12427e83bc48935aa46875b925d59260f857637623b47798a6c0381e1f",
+      "path": "apps/mobile/src/features/directory/MobileContentDirectoryRoute.test.tsx"
+    },
+    {
+      "sha256": "e9534400e3a57774d1e56605a3de54f83f137e70246fef55dc196ce280a494aa",
+      "path": "apps/website/src/features/directory/WebsiteContentDirectoryRoute.tsx"
+    },
+    {
+      "sha256": "40677e0c97e8d2166ee806977f191b84c4b902c45dcd5fb871405624b17e06dc",
+      "path": "apps/website/src/features/directory/WebsiteContentDirectoryRoute.test.tsx"
+    },
+    {
+      "sha256": "314bce610554d5fa4be40a34fb44c56521ffbcd3476a8b1b6dd38bd38587c5fa",
+      "path": "docs/evidence/WRN-SOURCE-SEARCH-AUDIT-2026-09-20/REPORT.md"
+    },
+    {
+      "sha256": "01be4da96c625ba7225dabd43fca91dc56011016551d1aec64d6557c308b9ff1",
+      "path": "docs/evidence/WRN-SOURCE-SEARCH-AUDIT-2026-09-20/app.png"
+    },
+    {
+      "sha256": "6f57603a903c324b2cd5f576aa6713e6419ca10c8c75aeda774aba3a955c0087",
+      "path": "docs/evidence/WRN-SOURCE-SEARCH-AUDIT-2026-09-20/website.png"
+    }
+  ]
+}

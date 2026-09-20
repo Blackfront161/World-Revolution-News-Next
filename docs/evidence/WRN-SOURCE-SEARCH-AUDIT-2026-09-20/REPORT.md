@@ -1,0 +1,13 @@
+# Vollständige Prüfung der Quellen-Suche
+
+Auftrag: alle Quellen auf den bei Direkte Aktion gefundenen Suchfehler prüfen.
+
+532 Quelleneinträge je Client, 318 unterschiedliche Endpoint-Hosts. Beide unveränderten Snapshots geprüft; zehn historische HTTP-Einträge bleiben auffindbar, aber nicht anklickbar. Mehrere Endpunkte derselben Quelle sind keine versehentlich neu angelegten Duplikate.
+
+Befunde: Die Website berücksichtigte zwei aufgezeichnete Namensvarianten nicht (CrimethInc. (Global), ZNet (Global)). Bei 99 Einträgen unterschied sich mindestens ein aufgezeichneter Homepage-Host vom Endpoint-Host, häufig durch www; diese Angaben fehlten in beiden Suchfeldern. Ein gemeinsamer lokaler Matcher berücksichtigt jetzt kanonischen Namen, URL und Sprachen sowie alle beobachteten Namen, Homepages und Sprachen. Keine Quellen-/Rechte-/Aktualitätsdaten geändert und keine neuen externen Anfragen. Sportverzeichnisse haben keine entsprechende Texteingabe und werden unverändert separat angezeigt.
+
+Prüfung: Jeder der 532 Einträge pro Client wird gegen seinen Namen, vollständige URL, Host in Großschreibung und alle beobachteten Namen/Homepage-Hosts geprüft, jeweils mit umgebenden Leerzeichen. Unbekannte Domain liefert keinen Treffer. Route-Regressionen prüfen die tatsächliche UI für die drei genannten Fälle sowie Direkte Aktion. Mobile5/5 und Website3/3 fokussierte Tests bestanden; beide Typprüfungen, gezielter ESLint und Importgrenzen bestanden. Unabhängiger Abschlussreview PASS ohne Findings.
+
+Gesamtsuiten: Website154/154 plus65/65 Node-Tests bestanden. Mobile924/925 im parallelen Lauf; ein bestehender Events-/Medien-Dialogtest erreichte seinen Dialog nicht rechtzeitig. Der anschließende isolierte Lauf dieses unveränderten Testmoduls bestand6/6. Kein pauschaler fehlerfreier Gesamtlauf behauptet. pnpm verweigerte wegen des neu hinzugekommenen Podcast-Workspace-Pakets die Ausführung vor erneuter Installation; Tests wurden direkt mit der bereits installierten Vitest-/Node-Version ausgeführt, keine Installation vorgenommen.
+
+Beide Produktionsbuilds und Website-Landing-/Offlineintegration bestanden. Websitegraph8.300.943 Bytes, SHA256535ef1083846b01f1339615ca7a8565ee1827a10ac61d8b31171d1c4e660ee1d. Echter Chrome prüfte ZNet (Global) in beiden gebauten Vorschauen; Website nach Schließen des normalen Spendenhinweises. Zwei finale Screenshots beigefügt. Vorschauen: App http://127.0.0.1:43234/?theme=violet#discover/sources und Website http://127.0.0.1:43235/?theme=violet&lang=de#discover/sources . Dies ist ein Suchaudit, keine Prüfung der externen Erreichbarkeit aller Websites und keine neue Gesamt-Releasefreigabe.

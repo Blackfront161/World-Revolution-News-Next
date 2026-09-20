@@ -16,6 +16,7 @@ import {
   SourcePreferencesNotice,
 } from '../../../../../packages/browser-content/src/source-preferences-ui';
 import { SportSources } from '../../../../../packages/browser-content/src/sport-sources';
+import { matchesDirectorySource } from '../../../../../packages/browser-content/src/source-search';
 const external = {
   target: '_blank',
   rel: 'noopener noreferrer',
@@ -71,9 +72,7 @@ export function WebsiteContentDirectoryRoute({
             ? projectSourcePreferences(
                 data.projection.sources.filter(
                   (x) =>
-                    `${x.name} ${x.url} ${x.languages.join(' ')}`
-                      .toLocaleLowerCase()
-                      .includes(query.trim().toLocaleLowerCase()) &&
+                    matchesDirectorySource(x, query) &&
                     (!contentLanguage || x.languages.includes(contentLanguage)),
                 ),
                 sourcePreferences.state,

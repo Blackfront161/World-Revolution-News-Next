@@ -18,6 +18,7 @@ import {
   SourcePreferencesNotice,
 } from '../../../../../packages/browser-content/src/source-preferences-ui';
 import { SportSources } from '../../../../../packages/browser-content/src/sport-sources';
+import { matchesDirectorySource } from '../../../../../packages/browser-content/src/source-search';
 
 export type MobileContentDirectoryRouteProps = Readonly<{
   language: UiLanguage;
@@ -97,10 +98,7 @@ export function MobileContentDirectoryRoute({
           (entry) =>
             (!sourceLanguage ||
               entry.observations.some((o) => o.languages.includes(sourceLanguage))) &&
-            [entry.url, ...entry.observations.map((o) => `${o.name} ${o.languages.join(' ')}`)]
-              .join(' ')
-              .toLocaleLowerCase()
-              .includes(query.trim().toLocaleLowerCase()),
+            matchesDirectorySource(entry, query),
         ) ?? [],
         sourcePreferences.state,
         'directory',
