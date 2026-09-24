@@ -99,7 +99,7 @@ jobs:
             'utf8',
           );
           NODE
-      - name: Prepare reviewed directory snapshot when the source commit matches
+      - name: Prepare current metadata-only directory review packet
         env:
           UPSTREAM_COMMIT: ${{ steps.upstream.outputs.commit }}
         shell: bash
@@ -108,15 +108,33 @@ jobs:
           mobile='apps/mobile/src/features/directory/data/content-directory-v1.json'
           website='apps/website/src/features/directory/data/content-directory-v1.json'
           cmp --silent "$mobile" "$website"
-          directory_commit="$(node --input-type=module -e "import { readFile } from 'node:fs/promises'; const value=JSON.parse(await readFile(process.argv[1], 'utf8')); if(value?.schema!=='wrn.mobile-content-directory.v1'||!/^([a-f0-9]{40})$/.test(value?.sourceCommit??'')) process.exit(2); process.stdout.write(value.sourceCommit);" "$mobile")"
-          if [[ "$directory_commit" != "$UPSTREAM_COMMIT" ]]; then
-            printf '\n## WRN directory refresh\n\n- Outcome: awaiting reviewed directory regeneration\n- Bundled source commit: `%s`\n- Current upstream commit: `%s`\n- Publication performed: false\n' "$directory_commit" "$UPSTREAM_COMMIT" >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
           sequence="$(date -u +%Y%m%d%H%M)"
           target="$GITHUB_WORKSPACE/.wrn-actions-output/directory-refresh"
-          node tools/directory/prepare-content-directory-refresh.mjs "$mobile" "$target" "$sequence"
-          printf '\n## WRN directory refresh\n\n- Outcome: reviewed packet prepared\n- Sequence: `%s`\n- Publication performed: false\n' "$sequence" >> "$GITHUB_STEP_SUMMARY"
+          node tools/directory/prepare-live-content-directory.mjs \
+            --baseline "$mobile" \
+            --commit "$UPSTREAM_COMMIT" \
+            --output "$target" \
+            --sequence "$sequence" >/dev/null
+          receipt="$target-receipt.json"
+          node --input-type=module - "$receipt" <<'NODE'
+          import { appendFile, readFile } from 'node:fs/promises';
+
+          const receipt = JSON.parse(await readFile(process.argv[2], 'utf8'));
+          if (
+            receipt?.schema !== 'wrn.live-content-directory-receipt.v1' ||
+            receipt?.dryRun !== true ||
+            receipt?.publicationPerformed !== false ||
+            receipt?.commit !== process.env.UPSTREAM_COMMIT ||
+            !Number.isSafeInteger(receipt?.manifest?.sequence) ||
+            receipt.manifest.sequence < 1
+          )
+            throw new Error('invalid metadata-only directory receipt');
+          await appendFile(
+            process.env.GITHUB_STEP_SUMMARY,
+            `\n## WRN directory refresh\n\n- Outcome: current metadata-only review packet prepared\n- Commit: \`${receipt.commit}\`\n- Sequence: \`${receipt.manifest.sequence}\`\n- Articles: ${receipt.articles}\n- Sources: ${receipt.sources}\n- Publication performed: false\n`,
+            'utf8',
+          );
+          NODE
       - name: Retain review packet briefly
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:

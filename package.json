@@ -11,7 +11,7 @@
   },
   "scripts": {
     "check:sport-feeds": "node tools/check-sport-feeds.mjs",
-    "test:content-operations": "node --test tools/check-sport-feeds.test.mjs tools/verify-wrn-content-supply-workflow.test.mjs tools/run-legacy-news-supply.test.mjs",
+    "test:content-operations": "node --test tools/check-sport-feeds.test.mjs tools/verify-wrn-content-supply-workflow.test.mjs tools/run-legacy-news-supply.test.mjs tools/directory/prepare-live-content-directory.test.mjs",
     "build": "pnpm run build:mobile && pnpm run build:website",
     "build:mobile": "pnpm --filter @wrn/mobile build",
     "build:website": "pnpm --filter @wrn/website build",
@@ -24,7 +24,7 @@
     "format": "prettier --check .",
     "format:write": "prettier --write .",
     "lint": "eslint . --max-warnings=0 && pnpm run check:boundaries",
-    "test": "pnpm run test:unit && node --test tools/check-sport-feeds.test.mjs tools/verify-wrn-content-supply-workflow.test.mjs tools/verify-production-content-delivery.test.mjs tools/prepare-production-content-delivery.test.mjs tools/build-production-content-release.test.mjs tools/build-production-content-release-v2.test.mjs tools/build-production-content-release-v3.test.mjs tools/legacy-news-ingestion.test.mjs tools/prepare-legacy-news-supply.test.mjs tools/run-legacy-news-supply.test.mjs && pnpm run test:boundaries",
+    "test": "pnpm run test:unit && node --test tools/check-sport-feeds.test.mjs tools/verify-wrn-content-supply-workflow.test.mjs tools/verify-production-content-delivery.test.mjs tools/prepare-production-content-delivery.test.mjs tools/build-production-content-release.test.mjs tools/build-production-content-release-v2.test.mjs tools/build-production-content-release-v3.test.mjs tools/legacy-news-ingestion.test.mjs tools/prepare-legacy-news-supply.test.mjs tools/run-legacy-news-supply.test.mjs tools/directory/prepare-live-content-directory.test.mjs && pnpm run test:boundaries",
     "test:boundaries": "pnpm run check:boundaries",
     "test:e2e": "playwright test",
     "test:unit": "pnpm -r --if-present test:unit",

@@ -1,7 +1,7 @@
 {
   "schema": "wrn.clean-platform-snapshot.v1",
-  "sourceCommit": "b288872bd18db0963c7109206f982aaad5d71725",
-  "generatedAt": "2026-09-24T16:06:03.124Z",
+  "sourceCommit": "34d87ee21e4aa17118b3fd07ff55729a4a7fac2e",
+  "generatedAt": "2026-09-24T16:30:48.440Z",
   "excluded": [
     "Local agent settings",
     "Historical build/QA archive (preserved locally)",
@@ -15,8 +15,8 @@
     },
     {
       "path": ".github/workflows/wrn-content-supply.yml",
-      "bytes": 6760,
-      "sha256": "b69be6aba030e687cef349b89c0b79be8bc86fc47457e9bb9206f15d01838229"
+      "bytes": 7068,
+      "sha256": "38b1228adb5437f385713761dfaddc5311d6d6d2f4b477ee54bbf4672a19e09c"
     },
     {
       "path": ".gitignore",
@@ -2365,8 +2365,8 @@
     },
     {
       "path": "docs/PROJECT-STATE.md",
-      "bytes": 24222,
-      "sha256": "95314ace9a6105e1d4c8a68d946798e49669efd70d733a10f8078617d135e8b7"
+      "bytes": 25103,
+      "sha256": "32a2b16f5bd3b1b2bd6675fe3f6866e302083ee3a8505bd86de96189ae8e2295"
     },
     {
       "path": "docs/WRN-G3-014-DELEGATION-REGISTER.md",
@@ -2634,6 +2634,21 @@
       "sha256": "8536dac362100173b2c613bb418be08fe81d00387441abda4a0cdf6c360de54f"
     },
     {
+      "path": "docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/REPORT.md",
+      "bytes": 2623,
+      "sha256": "d57e740658ef97011fd027ac8257a233aedd503330a70b138ab4496661175bad"
+    },
+    {
+      "path": "docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/hash-manifest.json",
+      "bytes": 1568,
+      "sha256": "7184e11cc41ca2f40839d57792304f2d7c7a54ff7c34dbf9a1aab0715976c20a"
+    },
+    {
+      "path": "docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/manifest.json",
+      "bytes": 1165,
+      "sha256": "0dd45d0da63895e58b25e00c56220d16d69f52e62464e3680d62dc801debafd6"
+    },
+    {
       "path": "docs/evidence/WRN-NEWS-SIX-ARTICLE-INPUT-2026-09-11/candidate-1789065672080/production-build-input-v3.json",
       "bytes": 719994,
       "sha256": "d61e33e15f4dda44e1774bbbae8324588e5b8d1e116309cc0d465425450dd8b9"
@@ -2645,8 +2660,8 @@
     },
     {
       "path": "docs/evidence/WRN-PO-SCOPE-STATUS-2026-09-10.md",
-      "bytes": 17266,
-      "sha256": "04489b85abaa89818cb17e4b3b80ea5528cb013bd8ef6631ab904ebc300a2c57"
+      "bytes": 17470,
+      "sha256": "2724ee04861ab6f52e115b9606ddfea689e576cb0309dc16c9ae5575cd82a19d"
     },
     {
       "path": "docs/evidence/WRN-PRODUCTION-ARTICLE-PILOT-2026-09-10/generated-core-e8506a4/current.json",
@@ -7575,8 +7590,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 3208,
-      "sha256": "28819fe4e2006c194359c0184e8a8785a753f24bd04f6793e66ac0bc46327973"
+      "bytes": 3320,
+      "sha256": "c03bfb1eb5f34673fef35f3beea65eab4f74bbeec2eb979c4160a1331bd5e33d"
     },
     {
       "path": "packages/api-contracts/package.json",
@@ -9449,9 +9464,19 @@
       "sha256": "b531e7026a293e43ffd1599b67fa3d0756009b1290c76299b3ca63c763dea26c"
     },
     {
+      "path": "tools/directory/prepare-live-content-directory.mjs",
+      "bytes": 17413,
+      "sha256": "c9aadb193a7cdf29cf88a720779de6b32842a621535f7cdc917216319a1b474c"
+    },
+    {
+      "path": "tools/directory/prepare-live-content-directory.test.mjs",
+      "bytes": 7018,
+      "sha256": "b3f426a9aceed68d718e36473d89f3c01e297370e425c10e39a0b194771639b4"
+    },
+    {
       "path": "tools/export-platform-repository.mjs",
-      "bytes": 5948,
-      "sha256": "0ed55b14c8e79ca89b26b1b73abfd068e363cff6fa37052316e40089941c0067"
+      "bytes": 5991,
+      "sha256": "ee57f3a776917a657aecbae6fd84dcd19991230d4017465f0317b541ddcf05d1"
     },
     {
       "path": "tools/import-legacy-knowledge.mjs",
@@ -9550,8 +9575,8 @@
     },
     {
       "path": "tools/verify-wrn-content-supply-workflow.test.mjs",
-      "bytes": 5159,
-      "sha256": "c1c4ea6edb6459080b3c12547c582f9ecc3e5586cb3800f393bca96ca632ee19"
+      "bytes": 5695,
+      "sha256": "b7153b1540acd5f201296845ba431a4cfcac9e6a2d57e2d771465df758b5259d"
     },
     {
       "path": "tsconfig.base.json",

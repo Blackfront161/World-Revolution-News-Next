@@ -1,5 +1,17 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu25.09. – aktuelle Metadatenversorgung: Der sechsstündliche, weiterhin
+nicht veröffentlichende GitHub-Lauf erzeugt nun bei jedem gültigen Alt-Backend-
+Commit ein vollständig validiertes Verzeichnis-Prüfpaket. Historische App-
+Beobachtungen bleiben erhalten; bisherige GitHub-Beobachtungen werden durch den
+exakt gebundenen aktuellen Commit ersetzt. Die reale lokale Probe gegen
+936b3bae erzeugte 958 Nachrichtenverweise, 532 Quellen und drei Sportnotizen;
+16 HTTP-Nachrichten, neun HTTP-Quellen und fünf problematische Metadatensätze
+wurden abgewiesen. 37/37 betroffene Tests, ESLint, Format und der echte
+Netzwerk-Dry-run sind grün. Volltexte/Bilder wurden nicht übernommen und
+`publicationPerformed` blieb false. Produktionshosting und der authentisierte,
+rollbackfähige Transfer bleiben offen. [Nachweis](evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/REPORT.md).
+
 Neu24.09. – lokaler Android-RC: Artikelvorlesen über lokale Gerätestimmen und die
 freiwillige, standardmäßig deaktivierte Online-Podcast-Oberfläche sind in App und
 Website integriert. Eine trackerfreie Datenschutzerklärung liegt in neun Sprachen

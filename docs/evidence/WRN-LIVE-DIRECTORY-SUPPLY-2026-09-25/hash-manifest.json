@@ -1,0 +1,43 @@
+{
+  "schema": "wrn.live-directory-supply-hash-manifest.v1",
+  "version": 1,
+  "sourceCommit": "ce4fa0e6a925f01dee1bd4ec58aa1add972b27fb",
+  "files": [
+    {
+      "path": ".github/workflows/wrn-content-supply.yml",
+      "sha256": "38b1228adb5437f385713761dfaddc5311d6d6d2f4b477ee54bbf4672a19e09c"
+    },
+    {
+      "path": "package.json",
+      "sha256": "c03bfb1eb5f34673fef35f3beea65eab4f74bbeec2eb979c4160a1331bd5e33d"
+    },
+    {
+      "path": "tools/legacy-news-ingestion.mjs",
+      "sha256": "1f64595bb48bf67428583500f9ad010317df5afac5062df7cff75466bef38be1"
+    },
+    {
+      "path": "tools/run-legacy-news-supply.mjs",
+      "sha256": "243fe062ba95c8746c2e2ec10e09ff4fdfb02efc65066f0f5829e51554f7de8c"
+    },
+    {
+      "path": "tools/directory/prepare-content-directory-refresh.mjs",
+      "sha256": "024da72d5788a5863896b6d3fd9bc94d2b088beeb4a65c8a6b8e25c3096aea48"
+    },
+    {
+      "path": "tools/directory/prepare-live-content-directory.mjs",
+      "sha256": "c9aadb193a7cdf29cf88a720779de6b32842a621535f7cdc917216319a1b474c"
+    },
+    {
+      "path": "tools/directory/prepare-live-content-directory.test.mjs",
+      "sha256": "b3f426a9aceed68d718e36473d89f3c01e297370e425c10e39a0b194771639b4"
+    },
+    {
+      "path": "tools/verify-wrn-content-supply-workflow.test.mjs",
+      "sha256": "b7153b1540acd5f201296845ba431a4cfcac9e6a2d57e2d771465df758b5259d"
+    },
+    {
+      "path": "docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/manifest.json",
+      "sha256": "0dd45d0da63895e58b25e00c56220d16d69f52e62464e3680d62dc801debafd6"
+    }
+  ]
+}

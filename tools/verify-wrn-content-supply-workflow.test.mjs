@@ -12,13 +12,13 @@ const workflow = await readFile(
 );
 const manifest = JSON.parse(
   await readFile(
-    path.join(workspace, 'docs/evidence/WRN-SCHEDULED-SUPPLY-2026-09-20/manifest.json'),
+    path.join(workspace, 'docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/manifest.json'),
     'utf8',
   ),
 );
 const hashManifest = JSON.parse(
   await readFile(
-    path.join(workspace, 'docs/evidence/WRN-SCHEDULED-SUPPLY-2026-09-20/hash-manifest.json'),
+    path.join(workspace, 'docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/hash-manifest.json'),
     'utf8',
   ),
 );
@@ -54,10 +54,12 @@ test('scheduled content supply is bounded, private-repository compatible, and do
   assert.match(workflow, /retention-days: 3/u);
   assert.match(workflow, /include-hidden-files: true/u);
   assert.doesNotMatch(workflow, /actions\/cache|wrangler|deploy|activate|gh\s+api|GITHUB_TOKEN/u);
-  assert.match(workflow, /prepare-content-directory-refresh\.mjs/u);
+  assert.match(workflow, /prepare-live-content-directory\.mjs/u);
   assert.match(workflow, /cmp --silent "\$mobile" "\$website"/u);
-  assert.match(workflow, /directory_commit" != "\$UPSTREAM_COMMIT"/u);
-  assert.match(workflow, /awaiting reviewed directory regeneration/u);
+  assert.match(workflow, /wrn\.live-content-directory-receipt\.v1/u);
+  assert.match(workflow, /current metadata-only review packet prepared/u);
+  assert.match(workflow, /receipt\?\.publicationPerformed !== false/u);
+  assert.doesNotMatch(workflow, /directory_commit" != "\$UPSTREAM_COMMIT"/u);
 });
 
 test('the default resolves main then produces awaiting-admission without a reviewed batch', () => {
@@ -78,43 +80,49 @@ test('the default resolves main then produces awaiting-admission without a revie
 
 test('the versioned operations manifest describes the same local-only dry-run contract', () => {
   assert.deepEqual(manifest, {
-    schema: 'wrn.scheduled-content-supply-manifest.v1',
+    schema: 'wrn.live-directory-supply-manifest.v1',
     version: 1,
     workflowPath: '.github/workflows/wrn-content-supply.yml',
     schedule: '17 */6 * * *',
-    mode: 'dry-run-only',
+    mode: 'dry-run-review-artifact-only',
+    rights: 'metadata-and-links',
     upstream: {
       repository: 'Blackfront161/Revolution-News-Data',
       ref: 'main',
       commitBinding: 'resolved-40-hex-commit',
     },
+    baselinePolicy: 'preserve-validated-app-observations',
+    currentPolicy: 'replace-github-observations-at-exact-commit',
     localPipeline: [
-      'bounded-snapshot',
-      'review-bound-admission',
-      'v3-build',
-      'v6-delivery',
-      'source-bound-directory-refresh',
-      'pointer-last-local-package',
+      'bounded-status-feed-and-source-registry',
+      'freshness-and-publication-validation',
+      'metadata-only-directory-reconciliation',
+      'stable-id-and-contract-validation',
+      'immutable-snapshot-and-pointer-last-package',
+      'short-lived-review-artifact',
     ],
     guards: [
       'contents-read-only',
-      'credential-free-checkout',
-      'single-concurrency-group',
-      'eight-minute-timeout',
-      'three-day-review-artifact-no-cache',
+      'credential-free-no-redirect-fetch',
+      'single-shared-thirty-second-deadline',
+      'three-mebibyte-directory-limit',
+      'no-full-text-or-image-copy',
       'no-publication-or-client-pointer-transfer',
     ],
-    statusReceipt: 'wrn.continuous-legacy-news-supply-run.v1',
+    statusReceipts: [
+      'wrn.continuous-legacy-news-supply-run.v1',
+      'wrn.live-content-directory-receipt.v1',
+    ],
   });
 });
 
 test('the hash manifest binds the packet to its source commit and exact SHA-256 entries', async () => {
   assert.match(hashManifest.sourceCommit, /^[a-f0-9]{40}$/u);
-  assert.equal(hashManifest.schema, 'wrn.scheduled-content-supply-hash-manifest.v1');
+  assert.equal(hashManifest.schema, 'wrn.live-directory-supply-hash-manifest.v1');
   assert.equal(hashManifest.version, 1);
-  assert.equal(hashManifest.files.length, 11);
+  assert.equal(hashManifest.files.length, 9);
   for (const entry of hashManifest.files) {
-    assert.match(entry.path, /^(?:\.github|tools|docs\/evidence)\//u);
+    assert.match(entry.path, /^(?:package\.json$|(?:\.github|tools|docs\/evidence)\/)/u);
     assert.match(entry.sha256, /^[a-f0-9]{64}$/u);
     const bytes = await readFile(path.join(workspace, entry.path));
     assert.equal(createHash('sha256').update(bytes).digest('hex'), entry.sha256, entry.path);

@@ -1,0 +1,35 @@
+{
+  "schema": "wrn.live-directory-supply-manifest.v1",
+  "version": 1,
+  "workflowPath": ".github/workflows/wrn-content-supply.yml",
+  "schedule": "17 */6 * * *",
+  "mode": "dry-run-review-artifact-only",
+  "rights": "metadata-and-links",
+  "upstream": {
+    "repository": "Blackfront161/Revolution-News-Data",
+    "ref": "main",
+    "commitBinding": "resolved-40-hex-commit"
+  },
+  "baselinePolicy": "preserve-validated-app-observations",
+  "currentPolicy": "replace-github-observations-at-exact-commit",
+  "localPipeline": [
+    "bounded-status-feed-and-source-registry",
+    "freshness-and-publication-validation",
+    "metadata-only-directory-reconciliation",
+    "stable-id-and-contract-validation",
+    "immutable-snapshot-and-pointer-last-package",
+    "short-lived-review-artifact"
+  ],
+  "guards": [
+    "contents-read-only",
+    "credential-free-no-redirect-fetch",
+    "single-shared-thirty-second-deadline",
+    "three-mebibyte-directory-limit",
+    "no-full-text-or-image-copy",
+    "no-publication-or-client-pointer-transfer"
+  ],
+  "statusReceipts": [
+    "wrn.continuous-legacy-news-supply-run.v1",
+    "wrn.live-content-directory-receipt.v1"
+  ]
+}
