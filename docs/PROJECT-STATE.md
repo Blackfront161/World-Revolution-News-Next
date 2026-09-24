@@ -1,5 +1,16 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu25.09. – Vorab-Release-Hostingpaket: Der aktuelle 9-Artikel-Webauftritt und
+das im öffentlichen GitHub-Lauf geprüfte Verzeichnis mit 958 Nachrichtenlinks,
+532 Quellen und drei Sportnotizen sind nun als ein 36-Dateien-Paket mit
+verifizierter Closure, Headern sowie expliziter Aktivierungs- und
+Rollbackreihenfolge vorbereitet. Die beiden `current.json`-Zeiger werden zuletzt
+aktiviert; vorherige Serverwurzel und Zeigerbytes müssen erhalten bleiben. 12/12
+gezielte Tests, ESLint, Format und die reale Paketprüfung sind grün. Keine
+Veröffentlichung erfolgte. Offen bleiben authentisierter Produktionshost-
+Transfer, HTTPS-Liveprobe, Produktionssignatur sowie Play-interner Upgrade- und
+Pre-Launch-Test. [Nachweis](evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/REPORT.md).
+
 Neu25.09. – aktuelle Metadatenversorgung: Der sechsstündliche, weiterhin
 nicht veröffentlichende GitHub-Lauf erzeugt nun bei jedem gültigen Alt-Backend-
 Commit ein vollständig validiertes Verzeichnis-Prüfpaket. Historische App-

@@ -1,0 +1,40 @@
+{
+  "schema": "wrn.pre-play-hosting-packet-hash-manifest.v1",
+  "version": 1,
+  "sourceCommit": "ab3596619d78a22004a30730955fb1e39aadc72c",
+  "files": [
+    {
+      "path": "tools/prepare-production-hosting-packet.mjs",
+      "sha256": "e8cbb0cd0e16feb9416ab7c8fca088ac6379f3d2119a6de35777974212860ae6"
+    },
+    {
+      "path": "apps/website/tools/production-site-package.test.mjs",
+      "sha256": "fb29cfec09d1a46ba47432a7896b90f9ecd883daafe3be0a4e81eb711fd8f77f"
+    },
+    {
+      "path": "tools/export-platform-repository.mjs",
+      "sha256": "71b188b0808beea5b9d1f9184790b95a7c5c2d7c04e4f015ce42bba03bec592e"
+    },
+    {
+      "path": "docs/PROJECT-STATE.md",
+      "sha256": "477048d98ae439acd64ff68c2c1c8198a64d721cfb65e6efe80f283dbaabcab9"
+    },
+    {
+      "path": "docs/evidence/WRN-PO-SCOPE-STATUS-2026-09-10.md",
+      "sha256": "138f1f9d72914e17c79fd415a6c45d73e429262d17f545330889d1424709d6a3"
+    },
+    {
+      "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/manifest.json",
+      "sha256": "2cbe51cd317d73d0a6eeb400a18213f86fd5ce5b5d4d73a74f922e29ac2cc58c"
+    },
+    {
+      "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/hosting-packet.manifest.json",
+      "sha256": "629a17ee3346ad3be06dcd1bf232af21243b6a4ae3f78b12cfca6718097c4edd"
+    },
+    {
+      "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/REPORT.md",
+      "sha256": "9df86666888c13c63cf6bce75bb6060f4023def9c5ed16ca66ecb6299dbb9d46"
+    }
+  ]
+}
+

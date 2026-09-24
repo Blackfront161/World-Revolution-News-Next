@@ -14,6 +14,11 @@ import {
   prepareProductionWebsitePackage as prepare,
   verifyProductionWebsitePackage as verify,
 } from './production-site-package.mjs';
+import { writePreparedDirectoryRefresh } from '../../../tools/directory/prepare-content-directory-refresh.mjs';
+import {
+  prepareProductionHostingPacket,
+  verifyProductionHostingPacket,
+} from '../../../tools/prepare-production-hosting-packet.mjs';
 const run = promisify(execFile);
 const workspace = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const base = path.join(
@@ -40,6 +45,24 @@ const check = (directory, manifest) =>
   verify({ directory, manifest, trustedWorkspaceRoot: workspace });
 const one = await prepare(options(path.join(base, 'one')));
 const manifest = JSON.parse(await readFile(one.manifestPath, 'utf8'));
+const directoryDocument = JSON.parse(
+  await readFile(
+    path.join(workspace, 'apps/mobile/src/features/directory/data/content-directory-v1.json'),
+    'utf8',
+  ),
+);
+const directoryRefresh = path.join(base, 'directory-refresh');
+await writePreparedDirectoryRefresh({
+  document: directoryDocument,
+  sequence: 202609250001,
+  output: directoryRefresh,
+});
+const hostingOptions = (outputDirectory) => ({
+  websiteDirectory: one.outputDirectory,
+  directoryRefreshDirectory: directoryRefresh,
+  outputDirectory,
+  trustedWorkspaceRoot: workspace,
+});
 async function clonePackage(name, skip = '') {
   const output = path.join(base, name);
   await mkdir(output);
@@ -172,6 +195,96 @@ test('Apache and per-resource profiles bind CSP, credentialless CORS and exact c
   );
   for (const [p, headers] of Object.entries(h))
     if (p.startsWith('assets/')) assert(headers['cache-control'].includes('immutable'));
+});
+test('combined hosting packet is deterministic, complete and activates both pointers last', async () => {
+  const first = await prepareProductionHostingPacket(
+    hostingOptions(path.join(base, 'hosting-one')),
+  );
+  const second = await prepareProductionHostingPacket(
+    hostingOptions(path.join(base, 'hosting-two')),
+  );
+  assert.deepEqual(await readFile(first.manifestPath), await readFile(second.manifestPath));
+  assert.deepEqual(
+    await verifyProductionHostingPacket({
+      directory: first.outputDirectory,
+      trustedWorkspaceRoot: workspace,
+    }),
+    await verifyProductionHostingPacket({
+      directory: second.outputDirectory,
+      trustedWorkspaceRoot: workspace,
+    }),
+  );
+  const hostingManifest = JSON.parse(await readFile(first.manifestPath, 'utf8'));
+  assert.equal(hostingManifest.schema, 'wrn.production-hosting-packet.v1');
+  assert.equal(hostingManifest.files.length, manifest.files.length + 3);
+  assert.equal(hostingManifest.website.revision, manifest.revision);
+  assert.equal(hostingManifest.directory.sequence, 202609250001);
+  assert.deepEqual(hostingManifest.activationOrder.slice(-2), [
+    'wrn-production-content/current.json',
+    'wrn-content-directory/current.json',
+  ]);
+  assert.deepEqual(hostingManifest.rollback.retainBeforeActivation, [
+    'wrn-production-content/current.json',
+    'wrn-content-directory/current.json',
+  ]);
+  assert.equal(
+    hostingManifest.headers['wrn-content-directory/current.json']['cache-control'],
+    'no-store',
+  );
+  assert.equal(
+    hostingManifest.headers[hostingManifest.directory.artifactPath]['cache-control'],
+    'public, max-age=31536000, immutable',
+  );
+  const policy = await readFile(
+    path.join(first.outputDirectory, 'wrn-content-directory/.htaccess'),
+    'utf8',
+  );
+  assert.match(policy, /Access-Control-Allow-Origin "\*"/);
+  assert.match(policy, /<Files "current\.json">[\s\S]*Cache-Control "no-store"/);
+});
+
+test('combined hosting verification rejects changed, missing and extra bytes', async () => {
+  const prepared = await prepareProductionHostingPacket(
+    hostingOptions(path.join(base, 'hosting-valid')),
+  );
+  const hostingManifest = JSON.parse(await readFile(prepared.manifestPath, 'utf8'));
+  async function cloneHosting(name, skip = '') {
+    const output = path.join(base, name);
+    await mkdir(output);
+    for (const item of hostingManifest.files) {
+      if (item.path === skip) continue;
+      const target = path.join(output, item.path);
+      await mkdir(path.dirname(target), { recursive: true });
+      await writeFile(target, await readFile(path.join(prepared.outputDirectory, item.path)), {
+        flag: 'wx',
+      });
+    }
+    await writeFile(`${output}.manifest.json`, await readFile(prepared.manifestPath), {
+      flag: 'wx',
+    });
+    return output;
+  }
+  const tampered = await cloneHosting('hosting-tampered');
+  await writeFile(path.join(tampered, 'wrn-content-directory/current.json'), '{}');
+  await assert.rejects(
+    () => verifyProductionHostingPacket({ directory: tampered, trustedWorkspaceRoot: workspace }),
+    /hosting-byte-mismatch/,
+  );
+  const missing = await cloneHosting('hosting-missing', 'robots.txt');
+  await assert.rejects(
+    () => verifyProductionHostingPacket({ directory: missing, trustedWorkspaceRoot: workspace }),
+    /hosting-closure-mismatch/,
+  );
+  const extra = await cloneHosting('hosting-extra');
+  await writeFile(path.join(extra, 'unexpected.txt'), 'unexpected', { flag: 'wx' });
+  await assert.rejects(
+    () => verifyProductionHostingPacket({ directory: extra, trustedWorkspaceRoot: workspace }),
+    /hosting-closure-mismatch/,
+  );
+  await verifyProductionHostingPacket({
+    directory: prepared.outputDirectory,
+    trustedWorkspaceRoot: workspace,
+  });
 });
 test('verification rejects changed bytes, missing file and extra file with unmodified originals retained', async () => {
   const tampered = await clonePackage('tampered');

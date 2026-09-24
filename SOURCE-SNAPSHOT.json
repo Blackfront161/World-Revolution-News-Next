@@ -1,7 +1,7 @@
 {
   "schema": "wrn.clean-platform-snapshot.v1",
-  "sourceCommit": "f69ba1287b76c514a13fcceef9eaf75dac6cd20c",
-  "generatedAt": "2026-09-24T16:38:51.878Z",
+  "sourceCommit": "6cf8ea65b2fdea4d223c09e3f01c00195c25893d",
+  "generatedAt": "2026-09-24T17:04:07.846Z",
   "excluded": [
     "Local agent settings",
     "Historical build/QA archive (preserved locally)",
@@ -2260,8 +2260,8 @@
     },
     {
       "path": "apps/website/tools/production-site-package.test.mjs",
-      "bytes": 14056,
-      "sha256": "be8f9edc8e7116be3cc78aa502daf87fe111184826022997de27813c49ee5cb6"
+      "bytes": 18623,
+      "sha256": "fb29cfec09d1a46ba47432a7896b90f9ecd883daafe3be0a4e81eb711fd8f77f"
     },
     {
       "path": "apps/website/tools/staging-package.mjs",
@@ -2365,8 +2365,8 @@
     },
     {
       "path": "docs/PROJECT-STATE.md",
-      "bytes": 25405,
-      "sha256": "77e1476a9471ccb5b140cc6c3b84d90cad80a94b84817c9c5b1a35fa44b914b9"
+      "bytes": 26189,
+      "sha256": "144a65fd80302d6565131a70007f9eae1a2c0f10b8b8a91ebaef3ee880e659a9"
     },
     {
       "path": "docs/WRN-G3-014-DELEGATION-REGISTER.md",
@@ -2660,8 +2660,28 @@
     },
     {
       "path": "docs/evidence/WRN-PO-SCOPE-STATUS-2026-09-10.md",
-      "bytes": 17609,
-      "sha256": "3c770b15587e53b1bba3d6121f6d6e84e0f45d9dbfbfd0ca30937bba7728fa3e"
+      "bytes": 18012,
+      "sha256": "138f1f9d72914e17c79fd415a6c45d73e429262d17f545330889d1424709d6a3"
+    },
+    {
+      "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/REPORT.md",
+      "bytes": 2800,
+      "sha256": "9df86666888c13c63cf6bce75bb6060f4023def9c5ed16ca66ecb6299dbb9d46"
+    },
+    {
+      "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/hash-manifest.json",
+      "bytes": 1478,
+      "sha256": "f7746a26b4cf8f0becc45092539a174252bd5a26a4a2431afed6f7164895ca25"
+    },
+    {
+      "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/hosting-packet.manifest.json",
+      "bytes": 53876,
+      "sha256": "629a17ee3346ad3be06dcd1bf232af21243b6a4ae3f78b12cfca6718097c4edd"
+    },
+    {
+      "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/manifest.json",
+      "bytes": 1139,
+      "sha256": "2cbe51cd317d73d0a6eeb400a18213f86fd5ce5b5d4d73a74f922e29ac2cc58c"
     },
     {
       "path": "docs/evidence/WRN-PRODUCTION-ARTICLE-PILOT-2026-09-10/generated-core-e8506a4/current.json",
@@ -9475,8 +9495,8 @@
     },
     {
       "path": "tools/export-platform-repository.mjs",
-      "bytes": 5991,
-      "sha256": "ee57f3a776917a657aecbae6fd84dcd19991230d4017465f0317b541ddcf05d1"
+      "bytes": 6036,
+      "sha256": "71b188b0808beea5b9d1f9184790b95a7c5c2d7c04e4f015ce42bba03bec592e"
     },
     {
       "path": "tools/import-legacy-knowledge.mjs",
@@ -9527,6 +9547,11 @@
       "path": "tools/prepare-production-content-delivery.test.mjs",
       "bytes": 17008,
       "sha256": "880714f991a2308f04256b9129c5b1c44138189803b316754ac36d74376aac89"
+    },
+    {
+      "path": "tools/prepare-production-hosting-packet.mjs",
+      "bytes": 14789,
+      "sha256": "e8cbb0cd0e16feb9416ab7c8fca088ac6379f3d2119a6de35777974212860ae6"
     },
     {
       "path": "tools/run-legacy-news-supply.mjs",

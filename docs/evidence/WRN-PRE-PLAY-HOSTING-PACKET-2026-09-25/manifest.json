@@ -1,0 +1,40 @@
+{
+  "schema": "wrn.pre-play-hosting-packet-evidence.v1",
+  "version": 1,
+  "codeCommit": "ab359661",
+  "website": {
+    "sourceCommit": "f69ba1287b76c514a13fcceef9eaf75dac6cd20c",
+    "revision": "wrn-production-news-2026-09-20-v6",
+    "articles": 9,
+    "files": 33,
+    "bytes": 9906055
+  },
+  "directory": {
+    "workflowRun": 36028488433,
+    "upstreamCommit": "936b3bae95465fb4e683b1391e112e74ee7ce727",
+    "sequence": 202609241636,
+    "articles": 958,
+    "sources": 532,
+    "sportsNotes": 3,
+    "artifactBytes": 1928624,
+    "artifactSha256": "42e5fc54bd80b9241787e21494954f66584aaca6cbd74d5c89f116a6a45024ac"
+  },
+  "hostingPacket": {
+    "schema": "wrn.production-hosting-packet.v1",
+    "files": 36,
+    "bytes": 11836005,
+    "manifestBytes": 53876,
+    "manifestSha256": "629a17ee3346ad3be06dcd1bf232af21243b6a4ae3f78b12cfca6718097c4edd",
+    "activationTail": [
+      "wrn-production-content/current.json",
+      "wrn-content-directory/current.json"
+    ],
+    "publicationPerformed": false
+  },
+  "verification": {
+    "focusedTests": 12,
+    "eslint": "pass",
+    "prettier": "pass",
+    "packetVerifier": "pass"
+  }
+}
