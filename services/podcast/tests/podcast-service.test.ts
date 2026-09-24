@@ -61,10 +61,12 @@ function portsFor(): PodcastServicePorts & {
       }),
     },
     quota: {
-      reserve: vi.fn(async (value) => {
-        calls.push(`reserve:${value.sharedResourceId}`);
-        return true;
+      acquire: vi.fn(async (value) => {
+        calls.push(`acquire:${value.sharedResourceId}`);
+        return 'leader' as const;
       }),
+      beginDispatch: vi.fn(async () => 'proceed' as const),
+      beginStorageCommit: vi.fn(async () => 'proceed' as const),
       releaseDefinitePreDispatch: vi.fn(async () => {
         calls.push('release');
       }),
@@ -102,7 +104,7 @@ describe('podcast service', () => {
       status: 'not-admitted',
     });
     expect(ports.cache.get).not.toHaveBeenCalled();
-    expect(ports.quota.reserve).not.toHaveBeenCalled();
+    expect(ports.quota.acquire).not.toHaveBeenCalled();
     expect(ports.synthesis.synthesize).not.toHaveBeenCalled();
     expect(ports.storage.putPrivate).not.toHaveBeenCalled();
   });
@@ -118,7 +120,7 @@ describe('podcast service', () => {
         status: 'failed',
       });
       expect(ports.canonicalArticles.resolve).not.toHaveBeenCalled();
-      expect(ports.quota.reserve).not.toHaveBeenCalled();
+      expect(ports.quota.acquire).not.toHaveBeenCalled();
       expect(ports.synthesis.synthesize).not.toHaveBeenCalled();
     },
   );
@@ -158,7 +160,7 @@ describe('podcast service', () => {
     expect(ports.synthesis.synthesize).not.toHaveBeenCalled();
   });
 
-  it('releases an atomic reservation only for a definite pre-dispatch failure', async () => {
+  it('never releases characters after the dispatch fence has committed', async () => {
     const ports = portsFor();
     vi.mocked(ports.synthesis.synthesize).mockRejectedValueOnce(
       new PodcastDefinitePreDispatchFailure(),
@@ -166,12 +168,12 @@ describe('podcast service', () => {
     await expect(createPodcastService(ports).generate(request)).resolves.toEqual({
       status: 'failed',
     });
-    expect(ports.quota.releaseDefinitePreDispatch).toHaveBeenCalledTimes(1);
+    expect(ports.quota.releaseDefinitePreDispatch).not.toHaveBeenCalled();
     vi.mocked(ports.synthesis.synthesize).mockRejectedValueOnce(new PodcastAzureAdapterError());
     await expect(createPodcastService(ports).generate(request)).resolves.toEqual({
       status: 'failed',
     });
-    expect(ports.quota.releaseDefinitePreDispatch).toHaveBeenCalledTimes(1);
+    expect(ports.quota.releaseDefinitePreDispatch).not.toHaveBeenCalled();
   });
 
   it('rechecks all gates after synthesis and does not store revoked output', async () => {
@@ -195,10 +197,10 @@ describe('podcast service', () => {
     vi.mocked(ports.consent.authorize)
       .mockResolvedValueOnce(allowed)
       .mockResolvedValueOnce({ allowed: false, reason: 'revoked' });
-    const quotaCalls = vi.mocked(ports.quota.reserve).mock.calls.length;
+    const quotaCalls = vi.mocked(ports.quota.acquire).mock.calls.length;
     const synthesisCalls = vi.mocked(ports.synthesis.synthesize).mock.calls.length;
     await expect(service.generate(request)).resolves.toEqual({ status: 'not-admitted' });
-    expect(ports.quota.reserve).toHaveBeenCalledTimes(quotaCalls);
+    expect(ports.quota.acquire).toHaveBeenCalledTimes(quotaCalls);
     expect(ports.synthesis.synthesize).toHaveBeenCalledTimes(synthesisCalls);
     expect(ports.storage.putPrivate).toHaveBeenCalledTimes(1);
   });
@@ -236,6 +238,100 @@ describe('podcast service', () => {
     await expect(createPodcastService(ports).generate(request)).resolves.toEqual({
       status: 'not-admitted',
     });
+    expect(ports.synthesis.synthesize).not.toHaveBeenCalled();
+  });
+
+  it('asks the canonical resolver for the requested approved language and mode', async () => {
+    const ports = portsFor();
+    await expect(
+      createPodcastService(ports).generate({
+        ...request,
+        language: 'de',
+        voiceId: 'de-DE-KatjaNeural',
+      }),
+    ).resolves.toEqual({ status: 'not-admitted' });
+    expect(ports.canonicalArticles.resolve).toHaveBeenCalledWith(
+      'article-1',
+      expect.objectContaining({ language: 'de', mode: 'short' }),
+    );
+  });
+
+  it('coalesces identical concurrent cache misses into one reservation and synthesis attempt', async () => {
+    const ports = portsFor();
+    let complete: ((audio: Uint8Array) => void) | undefined;
+    vi.mocked(ports.synthesis.synthesize).mockImplementationOnce(
+      async () =>
+        new Promise<Uint8Array>((resolve) => {
+          complete = resolve;
+        }),
+    );
+    const service = createPodcastService(ports);
+    const first = service.generate(request);
+    await vi.waitFor(() => expect(ports.synthesis.synthesize).toHaveBeenCalledTimes(1));
+    const second = service.generate(request);
+    await vi.waitFor(() => expect(ports.cache.get).toHaveBeenCalledTimes(2));
+    complete?.(new Uint8Array([1, 2, 3]));
+    await expect(Promise.all([first, second])).resolves.toEqual([
+      expect.objectContaining({ status: 'generated' }),
+      expect.objectContaining({ status: 'generated' }),
+    ]);
+    expect(ports.quota.acquire).toHaveBeenCalledTimes(1);
+    expect(ports.synthesis.synthesize).toHaveBeenCalledTimes(1);
+  });
+
+  it('uses the shared lease to prevent provider dispatch across two service instances', async () => {
+    const firstPorts = portsFor();
+    const secondPorts = portsFor();
+    let heldLease = '';
+    const sharedQuota: PodcastServicePorts['quota'] = {
+      acquire: vi.fn(async (value) => {
+        if (heldLease === '') {
+          heldLease = value.leaseKey;
+          return 'leader';
+        }
+        return heldLease === value.leaseKey ? 'busy' : 'denied';
+      }),
+      beginDispatch: vi.fn(async () => 'proceed' as const),
+      beginStorageCommit: vi.fn(async () => 'proceed' as const),
+      releaseDefinitePreDispatch: vi.fn(async () => undefined),
+    };
+    let complete: ((audio: Uint8Array) => void) | undefined;
+    const sharedSynthesis: PodcastServicePorts['synthesis'] = {
+      synthesize: vi.fn(
+        async () =>
+          new Promise<Uint8Array>((resolve) => {
+            complete = resolve;
+          }),
+      ),
+    };
+    (firstPorts as { quota: PodcastServicePorts['quota'] }).quota = sharedQuota;
+    (secondPorts as { quota: PodcastServicePorts['quota'] }).quota = sharedQuota;
+    (firstPorts as { synthesis: PodcastServicePorts['synthesis'] }).synthesis = sharedSynthesis;
+    (secondPorts as { synthesis: PodcastServicePorts['synthesis'] }).synthesis = sharedSynthesis;
+
+    const first = createPodcastService(firstPorts).generate(request);
+    await vi.waitFor(() => expect(sharedSynthesis.synthesize).toHaveBeenCalledTimes(1));
+    await expect(createPodcastService(secondPorts).generate(request)).resolves.toEqual({
+      status: 'unavailable',
+    });
+    complete?.(new Uint8Array([1, 2, 3]));
+    await expect(first).resolves.toMatchObject({ status: 'generated' });
+    expect(sharedQuota.acquire).toHaveBeenCalledTimes(2);
+    expect(sharedSynthesis.synthesize).toHaveBeenCalledTimes(1);
+  });
+
+  it('releases an acquired lease when the caller aborts after the commit response', async () => {
+    const ports = portsFor();
+    const caller = new AbortController();
+    vi.mocked(ports.quota.acquire).mockImplementationOnce(async () => {
+      caller.abort();
+      return 'leader';
+    });
+    await expect(createPodcastService(ports).generate(request, caller.signal)).resolves.toEqual({
+      status: 'failed',
+    });
+    expect(ports.quota.releaseDefinitePreDispatch).toHaveBeenCalledTimes(1);
+    expect(ports.quota.beginDispatch).not.toHaveBeenCalled();
     expect(ports.synthesis.synthesize).not.toHaveBeenCalled();
   });
 });

@@ -1674,7 +1674,8 @@ export function App({
       sourceConfirmationSnapshotIdentity === activeSnapshotIdentity
     )
       return;
-    setSourceConfirmation(null);
+    const timeout = window.setTimeout(() => setSourceConfirmation(null), 0);
+    return () => window.clearTimeout(timeout);
   }, [activeSnapshotIdentity, fixtureMode, sourceConfirmation, sourceConfirmationSnapshotIdentity]);
   useEffect(() => {
     if (contentResult?.active?.expiresAt === undefined || contentAction === null) return;
@@ -1697,31 +1698,33 @@ export function App({
     };
   }, [contentAction, contentResult?.active?.expiresAt]);
   useEffect(() => {
-    if (fixtureMode) {
-      setContentRouteAllowed(true);
-      return;
-    }
-    if (readerArticleId === null && archiveRoute === undefined) {
-      setContentRouteAllowed(true);
-      return;
-    }
-    if (contentAction === null) return;
     let active = true;
-    setContentRouteAllowed(false);
-    void contentAction('guard').then((access) => {
-      if (active && access?.readAccess === 'allowed' && access.runtime !== null)
+    const timeout = window.setTimeout(() => {
+      if (fixtureMode || (readerArticleId === null && archiveRoute === undefined)) {
         setContentRouteAllowed(true);
-    });
+        return;
+      }
+      if (contentAction === null) return;
+      setContentRouteAllowed(false);
+      void contentAction('guard').then((access) => {
+        if (active && access?.readAccess === 'allowed' && access.runtime !== null)
+          setContentRouteAllowed(true);
+      });
+    }, 0);
     return () => {
       active = false;
+      window.clearTimeout(timeout);
     };
   }, [archiveRoute, contentAction, fixtureMode, navigationEpoch, readerArticleId]);
   useEffect(() => {
     if (fixtureMode || contentResult === null || runtime !== null) return;
-    setSourceConfirmation(null);
-    setReaderArticleId(null);
-    setArchiveRoute(undefined);
-    setContentRouteAllowed(false);
+    const timeout = window.setTimeout(() => {
+      setSourceConfirmation(null);
+      setReaderArticleId(null);
+      setArchiveRoute(undefined);
+      setContentRouteAllowed(false);
+    }, 0);
+    return () => window.clearTimeout(timeout);
   }, [contentResult, fixtureMode, runtime]);
   const navigate = (nextTarget: NavigationTargetId, trigger?: HTMLElement | null) => {
     if (
@@ -1989,6 +1992,14 @@ export function App({
       {label}
     </a>
   );
+  const privacyPolicyLink = (
+    <a
+      href={`/privacy.html?lang=${encodeURIComponent(uiLanguage)}&return=app`}
+      rel="privacy-policy"
+    >
+      {copy.privacyPolicy}
+    </a>
+  );
   const navigateDirectory = (section: 'news' | 'sources' | 'sport') => {
     window.history.pushState({ wrnNavigationTarget: 'discover' }, '', `#discover/${section}`);
     targetRef.current = 'discover';
@@ -2183,7 +2194,7 @@ export function App({
                     referrerPolicy="no-referrer"
                     aria-label={copy.moreAboutProject}
                   >
-                    solinaridao.com â†—
+                    solinaridao.com ↗
                   </a>
                 </div>
                 <div className="compact-site-tools">
@@ -2270,6 +2281,7 @@ export function App({
                 {routeLink('events')}
                 {routeLink('solidarity')}
                 {routeLink('help')}
+                {privacyPolicyLink}
               </div>
             </div>
           </header>
@@ -2370,6 +2382,7 @@ export function App({
                       {routeLink('solidarity')}
                       {routeLink('knowledge')}
                       {routeLink('events')}
+                      {privacyPolicyLink}
                     </nav>
                   </>
                 )}

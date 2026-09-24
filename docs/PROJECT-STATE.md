@@ -1,5 +1,22 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu24.09. – lokaler Android-RC: Artikelvorlesen über lokale Gerätestimmen und die
+freiwillige, standardmäßig deaktivierte Online-Podcast-Oberfläche sind in App und
+Website integriert. Eine trackerfreie Datenschutzerklärung liegt in neun Sprachen
+vor. Der Podcastdienst bleibt ohne geprüfte Cloudflare-/Azure-F0-Bindungen auf503.
+Der Inhaltsverzeichnis-Refresh prüft Herkunft, Hash, Sequenz, Rollback und eine
+8-Sekunden-Grenze; der geplante GitHub-Lauf veröffentlicht weiterhin nicht.
+Regionaltermine laden nun die exakt gehashten JSON-Rohbytes und sind bis
+28.09.2026 gültig. Workspace-Test, Lint/Paketgrenzen, Format, Typprüfung und beide
+Produktionsbuilds sind grün. Das neue AAB aus d5ef6b6a bindet91/91 Assets; der
+unabhängige TTS-Abschlussreview ist PASS. Reales API36-Upgrade26→27 erhielt
+Installationsidentität und gespeicherten Artikel; lokale Stimme sowie
+Play/Pause/Fortsetzen/Stopp sind bestanden. Artikel-TTS ist damit nicht mehr als
+späterer Wunsch offen. Das getrennte GitHub-Repository ist nach vollständigem
+48-Commit-Secret-Audit öffentlich und erhält den sauberen Export dieses RC;
+laufender Inhaltsbetrieb, Hosting und Play-Console-Schritte bleiben extern offen.
+Zine, World Revolution Map und Action Radar bleiben vorgemerkt.
+
 Neu20.09. – vollständiger Quellen-Suchaudit: alle532 Einträge in beiden Clients geprüft; beobachtete Namen und Homepage-Domains jetzt gemeinsam durchsuchbar. Fokussierte8 Tests, Typprüfung, Builds, Chrome und unabhängiger Review PASS. Website154+65; Mobile924/925, unveränderter Dialogtest im isolierten Modul6/6 bestanden. Vorschauen43234/43235. [Nachweis](evidence/WRN-SOURCE-SEARCH-AUDIT-2026-09-20/REPORT.md).
 
 Neu20.09. – Azure-Podcast und Quellensuche: F0 durch PO bestätigt. Direkte Aktion war bereits in beiden Quellenlisten; Domainsuche korrigiert und in beiden Vorschauen geprüft. Mobile923/Website152+65 Tests bestanden. Separater Azure-Dienst für18 Stimmen/neun Sprachen lokal vorbereitet; echter Workerd-Test ohne externe Provideranfrage bestanden. Gemeinsame Livequoten, Ressourcen-/Speicherbindung und Erstellungsoberfläche noch offen, Dienst deaktiviert. MEDIA-03 bleibt in Arbeit. Vorschauen App43232/Website43233. [Paketbericht](evidence/WRN-PODCAST-AZURE-2026-09-20/REPORT.md).
@@ -38,7 +55,7 @@ Alle WÃ¼nsche bleiben erhalten; Architektur und SicherheitsvertrÃ¤ge unverÃ
 Neuester direkter PO-Auftrag: alle im letzten Restabgleich genannten Ã„nderungen
 sind zur Umsetzung freigegeben. Schlanke Pakete ohne Funktions-/Bedienabbau;
 deutsche eigene Produkttexte geschlechtergerecht. Root fÃ¼hrt bestehende Versorgung
-weiter; UI-03 Editorial-Theme und UI-04 SprachÃ¼bergabe geschlossen. Zine, Artikel-TTS, World Revolution Map und
+weiter; UI-03 Editorial-Theme und UI-04 SprachÃ¼bergabe geschlossen. Zine, World Revolution Map und
 Action Radar bleiben ausdrÃ¼cklich spÃ¤ter offen und werden gelegentlich erwÃ¤hnt.
 Abschlussantworten wieder mit `:)`; ein neuer Task ist nicht erforderlich.
 PO-ZielgruppenprÃ¤zisierung vom13.09. im [Product Charter](00-PRODUCT-CHARTER.md)
@@ -181,5 +198,5 @@ bleibt pending: Zusammenfassung ist kein Volltext und Kalenderdatum keine
 belegte Uhrzeit. Die bestehenden Sportquellen und Lesenotizen bleiben erhalten.
 Offen: echtes Hosting/Veröffentlichung, konkrete PR38-Mergefreigabe,
 Gratisprojekt-/Secret-/Cache-/Quotabindung, konkrete Emulatorinstallation und
-finale RC-Gesamtmatrix. Zine, Artikel-TTS, World Revolution Map und Action Radar
+finale RC-Gesamtmatrix. Zine, World Revolution Map und Action Radar
 bleiben ebenfalls offen. Kein Release-GREEN aus lokalen Teilprüfungen.

@@ -34,16 +34,19 @@ export function MobileHomeDirectory({
   const [attempt, setAttempt] = useState(0);
   useEffect(() => {
     let active = true;
-    setFailed(false);
-    load()
-      .then((result) => {
-        if (active) setData(result);
-      })
-      .catch(() => {
-        if (active) setFailed(true);
-      });
+    const timeout = window.setTimeout(() => {
+      setFailed(false);
+      load()
+        .then((result) => {
+          if (active) setData(result);
+        })
+        .catch(() => {
+          if (active) setFailed(true);
+        });
+    }, 0);
     return () => {
       active = false;
+      window.clearTimeout(timeout);
     };
   }, [load, attempt]);
   const articles = useMemo(

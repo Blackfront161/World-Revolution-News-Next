@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
 import { createHash, randomUUID } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
@@ -22,6 +23,7 @@ const commit = 'b'.repeat(40);
 const observedAt = Date.parse('2026-09-14T00:00:00.000Z');
 const generatedAt = '2026-09-14T00:00:01.000Z';
 const hash = (value) => createHash('sha256').update(value).digest('hex');
+const tool = path.join(workspace, 'tools/run-legacy-news-supply.mjs');
 
 async function fresh(label) {
   await mkdir(path.join(workspace, 'test-results'), { recursive: true });
@@ -101,10 +103,15 @@ async function request(root, files, fetchSnapshot, extra = {}) {
 test('reuses the bounded snapshot and existing atomic supply builder for an admitted batch', async (t) => {
   const root = await fresh('continuous-supply-prepared');
   t.after(() => rm(root, { recursive: true, force: true }));
-  const { batch, files, fetchSnapshot } = await fixture(root);
-  const result = await runLegacyNewsSupply(await request(root, files, fetchSnapshot));
+  const { files, fetchSnapshot } = await fixture(root);
+  const result = await runLegacyNewsSupply(
+    await request(root, files, fetchSnapshot, { dryRun: true }),
+  );
   assert.equal(result.state, 'prepared');
+  assert.equal(result.receipt.schema, 'wrn.continuous-legacy-news-supply-run.v1');
+  assert.equal(result.receipt.state, 'prepared');
   assert.equal(result.receipt.publicationPerformed, false);
+  assert.equal(result.receipt.dryRun, true);
   assert.deepEqual((await readdir(path.join(root, 'run'))).sort(), [
     'delivery',
     'merged-input.json',
@@ -112,6 +119,10 @@ test('reuses the bounded snapshot and existing atomic supply builder for an admi
     'receipt.json',
   ]);
   assert.equal(existsSync(path.join(root, 'run', 'delivery-work')), false);
+  assert.deepEqual(
+    JSON.parse(await readFile(path.join(root, 'run', 'receipt.json'), 'utf8')),
+    result.receipt,
+  );
 });
 
 test('records awaiting admission without calling the publisher or delivery builder', async (t) => {
@@ -123,11 +134,13 @@ test('records awaiting admission without calling the publisher or delivery build
     outputDirectory: path.join(root, 'run'),
     trustedWorkspaceRoot: workspace,
     generatedAt,
+    dryRun: true,
     fetchSnapshot,
   });
   assert.equal(result.state, 'awaiting-admission');
   assert.deepEqual(await readdir(path.join(root, 'run')), ['receipt.json']);
   assert.equal(result.receipt.publicationPerformed, false);
+  assert.equal(result.receipt.dryRun, true);
 });
 
 test('returns no-change for an exact repeated reviewed batch without a second bundle', async (t) => {
@@ -136,11 +149,16 @@ test('returns no-change for an exact repeated reviewed batch without a second bu
   const { batch, files, fetchSnapshot } = await fixture(root);
   const first = await runLegacyNewsSupply(await request(root, files, fetchSnapshot));
   const repeated = await runLegacyNewsSupply(
-    await request(root, {
-      ...files,
-      previous: path.join(first.outputDirectory, 'merged-input.json'),
-      ledger: path.join(first.outputDirectory, 'delivery', 'next-ledger.json'),
-    }, fetchSnapshot, { outputDirectory: path.join(root, 'repeat') }),
+    await request(
+      root,
+      {
+        ...files,
+        previous: path.join(first.outputDirectory, 'merged-input.json'),
+        ledger: path.join(first.outputDirectory, 'delivery', 'next-ledger.json'),
+      },
+      fetchSnapshot,
+      { outputDirectory: path.join(root, 'repeat') },
+    ),
   );
   assert.equal(repeated.state, 'no-change');
   assert.deepEqual(await readdir(path.join(root, 'repeat')), ['receipt.json']);
@@ -153,7 +171,9 @@ test('returns no-change for an exact repeated reviewed batch without a second bu
       articleIds: repeated.receipt.articleIds,
     },
     {
-      previousInputSha256: hash(canonicalJson(JSON.parse(await readFile(first.buildInputPath, 'utf8')))),
+      previousInputSha256: hash(
+        canonicalJson(JSON.parse(await readFile(first.buildInputPath, 'utf8'))),
+      ),
       reviewedInputSha256: hash(canonicalJson(JSON.parse(await readFile(files.reviewed, 'utf8')))),
       bindingsSha256: hash(canonicalJson(JSON.parse(await readFile(files.bindings, 'utf8')))),
       articleIds: [batch.documents.articles.articles[0].id],
@@ -200,15 +220,45 @@ test('rejects a corrupt admission for a repeated article before no-change output
   assert.equal(existsSync(path.join(root, 'repeat')), false);
 });
 
-test('rejects corrupt reviewed details, admission, discover metadata and lifecycle history', async (t) => {
+test('rejects corrupt reviewed details, admission, discover metadata and lifecycle history', async () => {
   const corruptions = [
-    ['reader', (batch, article) => { batch.documents.readerDetails.entries.find((entry) => entry.articleId === article.id).blocks[0].text = 'changed'; }],
-    ['admission', (batch, article) => { batch.documents.admission.entries.find((entry) => entry.articleId === article.id).admittedContentSha256 = '0'.repeat(64); }],
-    ['discover', (batch, article) => { batch.documents.discoverIndex.entries.find((entry) => entry.articleId === article.id).title = 'changed'; }],
-    ['lifecycle', (batch, article) => { batch.documents.archiveLifecycle.activeArticleIds = batch.documents.archiveLifecycle.activeArticleIds.filter((id) => id !== article.id); batch.documents.archiveLifecycle.aliases = [{ sourceId: article.id, targetId: article.id }]; }],
+    [
+      'r',
+      (batch, article) => {
+        batch.documents.readerDetails.entries.find(
+          (entry) => entry.articleId === article.id,
+        ).blocks[0].text = 'changed';
+      },
+    ],
+    [
+      'a',
+      (batch, article) => {
+        batch.documents.admission.entries.find(
+          (entry) => entry.articleId === article.id,
+        ).admittedContentSha256 = '0'.repeat(64);
+      },
+    ],
+    [
+      'd',
+      (batch, article) => {
+        batch.documents.discoverIndex.entries.find(
+          (entry) => entry.articleId === article.id,
+        ).title = 'changed';
+      },
+    ],
+    [
+      'l',
+      (batch, article) => {
+        batch.documents.archiveLifecycle.activeArticleIds =
+          batch.documents.archiveLifecycle.activeArticleIds.filter((id) => id !== article.id);
+        batch.documents.archiveLifecycle.aliases = [{ sourceId: article.id, targetId: article.id }];
+      },
+    ],
   ];
   for (const [label, corrupt] of corruptions) {
-    const root = await fresh(`continuous-supply-corrupt-reviewed-${label}`);
+    // Keep this nested atomic-publish path below the legacy Windows MAX_PATH
+    // boundary while preserving the four independent corruption probes.
+    const root = await fresh(`csr-${label}`);
     const { batch, files, fetchSnapshot } = await fixture(root);
     const first = await runLegacyNewsSupply(await request(root, files, fetchSnapshot));
     const changed = JSON.parse(await readFile(files.reviewed, 'utf8'));
@@ -255,4 +305,24 @@ test('rejects an unpaired review input before it can fetch or write', async (t) 
   );
   assert.equal(fetched, false);
   assert.equal(existsSync(path.join(root, 'run')), false);
+});
+
+test('CLI accepts the standalone dry-run flag before rejecting an invalid commit without fetching', () => {
+  const run = spawnSync(
+    process.execPath,
+    [
+      tool,
+      '--commit',
+      'invalid',
+      '--output',
+      path.join(workspace, 'test-results', 'never-created'),
+      '--workspace',
+      workspace,
+      '--dry-run',
+    ],
+    { encoding: 'utf8' },
+  );
+  assert.notEqual(run.status, 0);
+  assert.match(run.stderr, /commit ist ungueltig/u);
+  assert.doesNotMatch(run.stderr, /CLI-Option/u);
 });

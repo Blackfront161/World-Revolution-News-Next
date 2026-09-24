@@ -1091,6 +1091,21 @@ describe('mobile local newsfeed', () => {
     expect(screen.queryByText(/PayPal/i)).not.toBeInTheDocument();
   });
 
+  it('exposes the current privacy notice from More in the selected language', async () => {
+    const user = userEvent.setup();
+    render(<App initialState="loading" />);
+
+    await user.click(screen.getByTestId('header-more-trigger'));
+    const privacy = screen.getByRole('link', { name: 'Privacy' });
+    expect(privacy).toHaveAttribute(
+      'href',
+      'https://solinaridao.com/privacy.html?lang=en&return=app',
+    );
+    expect(privacy).toHaveAttribute('target', '_blank');
+    expect(privacy).toHaveAttribute('rel', 'noopener noreferrer');
+    expect(privacy).toHaveAttribute('referrerpolicy', 'no-referrer');
+  });
+
   it('keeps the five familiar primary targets ordered and marks the active local target', () => {
     render(<App initialState="loading" />);
 

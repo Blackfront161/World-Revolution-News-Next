@@ -51,3 +51,8 @@ docs/evidence/**/*.stderr.txt
 Thumbs.db
 .idea/
 .vscode/
+
+# Local Codex state and compiler caches
+.codex-remote-attachments/
+.codex/environments/
+*.tsbuildinfo

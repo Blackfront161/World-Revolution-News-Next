@@ -13,6 +13,8 @@ import type { TranslationUpstreamPort, TranslationUpstreamResult } from './handl
 
 const responseByteLimit = 64 * 1024;
 const maxOutputTokens = 4096;
+/** Reviewed stable model. Changing provider models is a code-reviewed release operation. */
+export const approvedGeminiTranslationModel = 'gemini-3.1-flash-lite' as const;
 
 export interface GeminiAdapterConfiguration {
   readonly model: string;
@@ -35,8 +37,7 @@ function fail(): never {
 function validConfiguration(value: GeminiAdapterConfiguration): boolean {
   const validIdentity = validAdapterIdentity(value.adapter);
   return (
-    typeof value.model === 'string' &&
-    /^[a-zA-Z0-9._-]{1,128}$/.test(value.model) &&
+    value.model === approvedGeminiTranslationModel &&
     typeof value.apiKey === 'string' &&
     value.apiKey.length > 0 &&
     value.apiKey.length <= 512 &&

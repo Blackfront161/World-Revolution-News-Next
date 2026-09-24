@@ -247,6 +247,7 @@ export const turkishUiCopy: UiCopy = Object.freeze({
   voluntarySupport: 'Gönüllü destek:',
   externalPaymentNotice: 'Etkinleştirilirse harici bir ödeme sayfası açılır.',
   support: 'Destekle',
+  privacyPolicy: 'Gizlilik',
   localContent: 'Yerel içerik',
   localContentDetail: 'Bu tarayıcıdaki doğrulanmış yerel içeriği yönetin.',
   contentActiveRevision: 'Etkin revizyon: {revision}',

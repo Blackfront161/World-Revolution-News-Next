@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
+import path from 'node:path';
 import { createBrowserContentAliases } from '../../tools/browser-content-aliases.mjs';
 import { productionMediaInitialCsp } from '../../packages/browser-content/src/production-media-profile';
 
@@ -26,6 +27,6 @@ export default defineConfig({
   resolve: { alias: createBrowserContentAliases(import.meta.dirname) },
   test: {
     environment: 'jsdom',
-    setupFiles: './src/test/setup.ts',
+    setupFiles: path.resolve(import.meta.dirname, 'src/test/setup.ts'),
   },
 });

@@ -1,6 +1,26 @@
 # Source-of-Truth-Register
 
-Stand: 9. September 2026; historische Baselinewerte bleiben als solche erhalten.
+Stand: 21. September 2026; historische Baselinewerte bleiben als solche erhalten.
+
+## Aktuelle operative Bindung
+
+Der letzte vollständig eingecheckte lokale Integrationsstand vor dem laufenden
+Releaseprogramm ist `c03f3fd5`. Der getrennte, sauber übertragene GitHub-Stand
+ist `d49efa3` auf `main`. Neuere nicht eingecheckte Arbeit ist bis zu ihrem
+Paketcommit kein Releasekandidat. Maßgebliche operative Statusquellen sind
+`docs/PROJECT-STATE.md` und
+`docs/evidence/WRN-PO-SCOPE-STATUS-2026-09-10.md`; die folgenden älteren
+Übernahmebasen bleiben Herkunftsnachweise und dürfen nicht als aktueller HEAD
+interpretiert werden.
+
+Android-Ziel für die nächste Version ist `com.world.revolution`,
+`versionCode 27`, `versionName 2.2.0`, Target SDK 36. Der zuletzt geprüfte
+unsignierte AAB vor den Änderungen vom 20./21. September gehört zu
+`85b8a6dc`, SHA-256
+`70c9cf4b937152ea5f56bc32e9f54ea5cd7d4d066e2f146e5f8a5b0fef19b76a`.
+Er ist nur eine erhaltene Zwischenbasis: Die final freizugebende AAB muss nach
+allen Produktänderungen neu gebaut, eindeutig an einen späteren Commit gebunden,
+signiert und als echtes Upgrade von Version 26 geprüft werden.
 
 Aktueller Head Chief ist seit dem ausdrücklichen PO-Auftrag vom 8. September
 der Main im Task `01a08163-50a9-7d10-aa40-0f9e9cc1f3c3`.
@@ -18,7 +38,7 @@ historische Artefakte als aktuelle Quelle verwendet werden.
 | Pfad | `C:\Users\patri\Documents\ChatGPT\Sauberes Wo Rev Ne` |
 | Status | G3-016 bis G3-020 lokal akzeptiert; G3-020-Korrektur technisch GREEN mit enger Sichtprobe offen. G3-021 P2/P3-A und sichtbares P4-B einschließlich R1 unabhängig technisch GREEN (aaba48e); Headerfix310ebfa ebenfalls unabhängig GREEN. Lokale PO-Sichtprobe offen. Einzelbelege in PROJECT-STATE und G3-021-Register; kein Release-GREEN |
 | Branch | `codex/g3-015-website-offline-shell`; Name ist historisch und bezeichnet nicht die aktuelle Phase |
-| GitHub-Neubau | https://github.com/Blackfront161/World-Revolution-News-Next (privat, am20.09.2026 ausdrücklich beauftragt und erstellt) |
+| GitHub-Neubau | https://github.com/Blackfront161/World-Revolution-News-Next (öffentlich, am20.09.2026 ausdrücklich beauftragt und erstellt; am25.09.2026 nach 48-Commit-Secret-Audit öffentlich geschaltet) |
 | Übertragung | Separater sauberer Quellsnapshot; lokales Vollarchiv bleibt erhalten. Kein Push der alten Live-App oder ihrer Dienste. SOURCE-SNAPSHOT.json bindet den übertragenen Quellcommit. |
 
 Der sichtbare Task `WRN G2 – Zielarchitektur & ADRs` wurde vor der

@@ -81,7 +81,7 @@ export function MobileSupportRoute({
   const pendingNavigation = useRef<(() => void) | null>(null);
   const createdUrls = useRef(new Set<string>());
   const runRef = useRef(0);
-  const reviewProjector = useRef(createMobileSupportReviewProjector());
+  const reviewProjector = useMemo(() => createMobileSupportReviewProjector(), []);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const continueEditingRef = useRef<HTMLButtonElement>(null);
   const draft = [greeting, body, closing].join('\n').trim();
@@ -97,14 +97,19 @@ export function MobileSupportRoute({
   useEffect(() => {
     const abort = new AbortController();
     const run = ++runRef.current;
-    reviewProjector.current.reset();
-    setState({ kind: 'loading' });
-    void loadMobileSupport(abort.signal, loader).then((result) => {
-      if (abort.signal.aborted || run !== runRef.current || result.kind === 'aborted') return;
-      setState(result.kind === 'ready' ? result : { kind: result.kind });
-    });
-    return () => abort.abort();
-  }, [loader, retryEpoch]);
+    const timeout = window.setTimeout(() => {
+      reviewProjector.reset();
+      setState({ kind: 'loading' });
+      void loadMobileSupport(abort.signal, loader).then((result) => {
+        if (abort.signal.aborted || run !== runRef.current || result.kind === 'aborted') return;
+        setState(result.kind === 'ready' ? result : { kind: result.kind });
+      });
+    }, 0);
+    return () => {
+      window.clearTimeout(timeout);
+      abort.abort();
+    };
+  }, [loader, retryEpoch, reviewProjector]);
 
   useEffect(() => {
     if (state.kind !== 'ready') return;
@@ -194,8 +199,8 @@ export function MobileSupportRoute({
   );
 
   const projection = useMemo(
-    () => (state.kind === 'ready' ? reviewProjector.current.project(state.value, clock) : null),
-    [clock, state],
+    () => (state.kind === 'ready' ? reviewProjector.project(state.value, clock) : null),
+    [clock, reviewProjector, state],
   );
   const resetFilters = useCallback(() => {
     setQuery('');
@@ -234,13 +239,13 @@ export function MobileSupportRoute({
   const recheckDirectContact = useCallback(
     (organizationId: string) => {
       if (state.kind !== 'ready') return false;
-      const fresh = reviewProjector.current.project(state.value, now());
+      const fresh = reviewProjector.project(state.value, now());
       setClock(now());
       return fresh.organizations.some(
         (item) => item.id === organizationId && item.directContactAllowed,
       );
     },
-    [now, state],
+    [now, reviewProjector, state],
   );
 
   if (state.kind === 'loading')

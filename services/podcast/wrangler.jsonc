@@ -4,6 +4,10 @@
   "compatibility_date": "2026-09-20",
   "workers_dev": false,
   "preview_urls": false,
+  "durable_objects": {
+    "bindings": [{ "name": "PODCAST_QUOTA", "class_name": "PodcastQuotaDurableObject" }],
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["PodcastQuotaDurableObject"] }],
   "vars": {
     "WRN_PODCAST_GENERATION_ENABLED": "false",
     "PODCAST_RESOURCE_VERIFICATION": "unverified",

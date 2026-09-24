@@ -5,7 +5,10 @@ import {
   type TranslationSourceLanguage,
 } from '@wrn/api-contracts/translation-v1';
 
-import { createGeminiTranslationAdapter } from './gemini-adapter.js';
+import {
+  approvedGeminiTranslationModel,
+  createGeminiTranslationAdapter,
+} from './gemini-adapter.js';
 import type { TranslationCachePort, TranslationClock, TranslationQuotaPort } from './handler.js';
 import { createTranslationWorkerFetch, systemTranslationClock } from './index.js';
 
@@ -142,8 +145,7 @@ export function createTranslationRuntimeFetchFromEnvironment(
     !allowedOrigins ||
     !supportedSourceLanguages ||
     cacheTtlSeconds === undefined ||
-    typeof environment.TRANSLATION_MODEL !== 'string' ||
-    !/^[a-zA-Z0-9._-]{1,120}$/u.test(environment.TRANSLATION_MODEL) ||
+    environment.TRANSLATION_MODEL !== approvedGeminiTranslationModel ||
     typeof environment.GEMINI_API_KEY !== 'string' ||
     !isCachePort(environment.TRANSLATION_CACHE) ||
     !isQuotaPort(environment.TRANSLATION_READ_QUOTA) ||

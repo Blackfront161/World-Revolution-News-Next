@@ -1,4 +1,4 @@
-import { legacyAzureVoices, PodcastDefinitePreDispatchFailure } from './azure-speech-adapter.js';
+import { legacyAzureVoices } from './azure-speech-adapter.js';
 import type {
   CanonicalPodcastArticle,
   PodcastAuthorization,
@@ -142,12 +142,16 @@ export interface PodcastService {
 }
 
 export function createPodcastService(ports: PodcastServicePorts): PodcastService {
+  const inFlight = new Map<string, Promise<PodcastGenerationResult>>();
   return {
     async generate(request, callerSignal) {
       if (!ports.configuration.enabled) return { status: 'disabled' };
       if (
         ports.configuration.resourceVerification !== 'verified' ||
-        !validId(ports.configuration.sharedResourceId)
+        !validId(ports.configuration.sharedResourceId) ||
+        !Number.isSafeInteger(ports.configuration.privateRetentionSeconds) ||
+        ports.configuration.privateRetentionSeconds < 60 ||
+        ports.configuration.privateRetentionSeconds > 2_592_000
       )
         return { status: 'unavailable' };
       const controller = new AbortController();
@@ -158,7 +162,11 @@ export function createPodcastService(ports: PodcastServicePorts): PodcastService
       const mayCommit = () => !signal.aborted;
       try {
         if (signal.aborted || !validRequest(request)) return { status: 'failed' };
-        const article = await ports.canonicalArticles.resolve(request.articleId, { signal });
+        const article = await ports.canonicalArticles.resolve(request.articleId, {
+          signal,
+          language: request.language,
+          mode: request.mode,
+        });
         if (
           !article ||
           !validId(article.id) ||
@@ -183,59 +191,115 @@ export function createPodcastService(ports: PodcastServicePorts): PodcastService
           validCached(cached, article, request, textSha256) &&
           cached.audioSha256 === (await sha256(cached.audio))
         )
-          return { status: 'cached', cacheKey, audioSha256: cached.audioSha256 };
-        const reservation: PodcastQuotaReservation = {
-          sharedResourceId: ports.configuration.sharedResourceId,
-          operationId: crypto.randomUUID(),
-          utf16CodeUnits: article.title.length + text.length,
-          storageBytes: maximumAudioBytes,
-        };
-        if (!(await ports.quota.reserve(reservation, { signal })))
-          return { status: 'quota-denied' };
-        let audio: Uint8Array;
-        try {
-          audio = await ports.synthesis.synthesize(
-            { language: request.language, voiceId: request.voiceId, title: article.title, text },
-            { signal },
-          );
-        } catch (error) {
-          if (error instanceof PodcastDefinitePreDispatchFailure)
+          return {
+            status: 'cached',
+            cacheKey,
+            audioSha256: cached.audioSha256,
+            privateAudio: {
+              key: cacheKey,
+              articleId: article.id,
+              articleRevision: article.revision,
+              mode: request.mode,
+              voiceId: request.voiceId,
+            },
+          };
+        const duplicate = inFlight.get(cacheKey);
+        if (duplicate) return duplicate;
+        const attempt = (async (): Promise<PodcastGenerationResult> => {
+          const reservation: PodcastQuotaReservation = {
+            sharedResourceId: ports.configuration.sharedResourceId,
+            operationId: crypto.randomUUID(),
+            leaseKey: cacheKey,
+            utf16CodeUnits: article.title.length + text.length,
+            storageBytes: maximumAudioBytes,
+          };
+          const acquired = await ports.quota.acquire(reservation, { signal });
+          if (acquired === 'denied') return { status: 'quota-denied' };
+          if (acquired !== 'leader') return { status: 'unavailable' };
+          // No provider work began. A late caller abort after a committed acquire is therefore
+          // a definite pre-dispatch release, never a silent quota leak.
+          if (signal.aborted) {
             await ports.quota.releaseDefinitePreDispatch(reservation);
-          return { status: 'failed' };
-        }
-        if (audio.byteLength === 0 || audio.byteLength > maximumAudioBytes)
-          return { status: 'failed' };
-        // A provider call may have consumed quota. Never release after this point.
-        if (!(await admitted(ports, context, signal)) || !mayCommit())
-          return { status: 'not-admitted' };
-        const audioSha256 = await sha256(audio);
-        const entry: PodcastCacheEntry = {
-          schema: 'wrn.podcast-cache-entry.v1',
-          articleId: article.id,
-          articleRevision: article.revision,
-          mode: request.mode,
-          language: request.language,
-          voiceId: request.voiceId,
-          textSha256,
-          audio,
-          audioSha256,
-          createdAt: ports.clock.now().toISOString(),
-        };
-        await ports.storage.putPrivate(
-          {
+            return { status: 'failed' };
+          }
+          const dispatch = await ports.quota.beginDispatch(reservation, { signal });
+          if (dispatch !== 'proceed') return { status: 'unavailable' };
+          let audio: Uint8Array;
+          try {
+            audio = await ports.synthesis.synthesize(
+              { language: request.language, voiceId: request.voiceId, title: article.title, text },
+              { signal },
+            );
+          } catch {
+            // The dispatch fence has committed. Even a locally classified adapter failure cannot
+            // prove to another isolate that Azure saw no request, so characters are never refunded.
+            return { status: 'failed' };
+          }
+          if (audio.byteLength === 0 || audio.byteLength > maximumAudioBytes)
+            return { status: 'failed' };
+          // A provider call may have consumed quota. Never release after this point.
+          if (!(await admitted(ports, context, signal)) || !mayCommit())
+            return { status: 'not-admitted' };
+          const audioSha256 = await sha256(audio);
+          const entry: PodcastCacheEntry = {
+            schema: 'wrn.podcast-cache-entry.v1',
+            articleId: article.id,
+            articleRevision: article.revision,
+            mode: request.mode,
+            language: request.language,
+            voiceId: request.voiceId,
+            textSha256,
+            audio,
+            audioSha256,
+            createdAt: ports.clock.now().toISOString(),
+          };
+          const privateObject = {
             key: cacheKey,
             bytes: audio,
             sha256: audioSha256,
-            contentType: 'audio/mpeg',
+            contentType: 'audio/mpeg' as const,
             articleId: article.id,
             articleRevision: article.revision,
             mode: request.mode,
             voiceId: request.voiceId,
-          },
-          { signal, mayCommit },
-        );
-        await ports.cache.put(cacheKey, entry, { signal, mayCommit });
-        return { status: 'generated', cacheKey, audioSha256 };
+            operationId: reservation.operationId,
+            actualBytes: audio.byteLength,
+            expiresAt: new Date(
+              ports.clock.now().valueOf() + ports.configuration.privateRetentionSeconds * 1000,
+            ).toISOString(),
+          };
+          // This is the final asynchronous fence before the R2 call. All hashing and metadata
+          // preparation is complete, which bounds no-object reconciliation to the lease windows.
+          const storageCommit = await ports.quota.beginStorageCommit(reservation, { signal });
+          if (storageCommit !== 'proceed' || !mayCommit()) return { status: 'unavailable' };
+          await ports.storage.putPrivate(privateObject, { signal, mayCommit });
+          // Azure characters remain charged after dispatch. Storage can safely settle only after a private write.
+          // A settlement failure leaves the conservative reservation intact; it must not retry synthesis.
+          try {
+            await ports.quota.settleStorage?.(reservation, audio.byteLength);
+          } catch {
+            // The DO remains the source of truth and retains the larger reservation.
+          }
+          await ports.cache.put(cacheKey, entry, { signal, mayCommit });
+          return {
+            status: 'generated',
+            cacheKey,
+            audioSha256,
+            privateAudio: {
+              key: cacheKey,
+              articleId: article.id,
+              articleRevision: article.revision,
+              mode: request.mode,
+              voiceId: request.voiceId,
+            },
+          };
+        })();
+        inFlight.set(cacheKey, attempt);
+        try {
+          return await attempt;
+        } finally {
+          if (inFlight.get(cacheKey) === attempt) inFlight.delete(cacheKey);
+        }
       } catch {
         return { status: 'failed' };
       } finally {

@@ -1,5 +1,5 @@
-import { createHash, randomUUID } from 'node:crypto';
-import { access, lstat, mkdir, readFile, realpath, rename, rm, writeFile } from 'node:fs/promises';
+import { createHash, randomBytes } from 'node:crypto';
+import { access, lstat, mkdir, readFile, realpath, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -11,6 +11,7 @@ import {
 import { buildProductionContentRelease } from './build-production-content-release.mjs';
 import { prepareLegacyNewsSupply } from './prepare-legacy-news-supply.mjs';
 import { canonicalJson } from '../packages/content-contracts/src/index.ts';
+import { atomicRename } from './atomic-rename.mjs';
 
 const maxInputBytes = legacyNewsLimits.feedBytes;
 const maxBindingsBytes = 64 * 1024;
@@ -112,9 +113,17 @@ function intakeSummary(intake) {
   };
 }
 
-async function writeStoppedReceipt({ workspace, outputDirectory, generatedAt, state, intake, review }) {
+async function writeStoppedReceipt({
+  workspace,
+  outputDirectory,
+  generatedAt,
+  dryRun,
+  state,
+  intake,
+  review,
+}) {
   const finalOutput = await inspectFreshOutput(workspace, outputDirectory);
-  const staging = path.join(path.dirname(finalOutput), `.wrn-continuous-supply-staging-${randomUUID()}`);
+  const staging = path.join(path.dirname(finalOutput), `.wrn-c-${randomBytes(4).toString('hex')}`);
   await mkdir(staging, { recursive: false });
   let promoted = false;
   try {
@@ -123,6 +132,7 @@ async function writeStoppedReceipt({ workspace, outputDirectory, generatedAt, st
       version: 1,
       state,
       preparedAt: generatedAt,
+      dryRun,
       publicationPerformed: false,
       intake: intakeSummary(intake),
       ...(review ?? {}),
@@ -131,7 +141,7 @@ async function writeStoppedReceipt({ workspace, outputDirectory, generatedAt, st
       encoding: 'utf8',
       flag: 'wx',
     });
-    await rename(staging, finalOutput);
+    await atomicRename(staging, finalOutput);
     promoted = true;
     return Object.freeze({ state, outputDirectory: finalOutput, receipt: Object.freeze(receipt) });
   } finally {
@@ -139,9 +149,31 @@ async function writeStoppedReceipt({ workspace, outputDirectory, generatedAt, st
   }
 }
 
+async function writePreparedReceipt({ directory, generatedAt, dryRun, intake, preparedReceipt }) {
+  const receipt = {
+    schema: 'wrn.continuous-legacy-news-supply-run.v1',
+    version: 1,
+    state: 'prepared',
+    preparedAt: generatedAt,
+    dryRun,
+    publicationPerformed: false,
+    intake: intakeSummary(intake),
+    previousInputSha256: preparedReceipt.previousInputSha256,
+    mergedInputSha256: preparedReceipt.mergedInputSha256,
+    release: preparedReceipt.release,
+    delivery: preparedReceipt.delivery,
+  };
+  await writeFile(path.join(directory, 'receipt.json'), `${canonicalJson(receipt)}\n`, {
+    encoding: 'utf8',
+    flag: 'w',
+  });
+  return Object.freeze(receipt);
+}
+
 function reviewedArticles(value) {
   const articles = value?.documents?.articles?.articles;
-  if (!Array.isArray(articles) || articles.length === 0) fail('gepruefter Batch enthaelt keine Artikel');
+  if (!Array.isArray(articles) || articles.length === 0)
+    fail('gepruefter Batch enthaelt keine Artikel');
   return articles;
 }
 
@@ -233,8 +265,11 @@ function hasArticleOverlap(previous, reviewedInput) {
 }
 
 function noChangeReviewBinding(previousInputSha256, reviewed, bindings) {
-  const articleIds = reviewedArticles(reviewed).map((article) => article.id).sort();
-  if (new Set(articleIds).size !== articleIds.length) fail('gepruefter Batch hat doppelte Artikelidentitaeten');
+  const articleIds = reviewedArticles(reviewed)
+    .map((article) => article.id)
+    .sort();
+  if (new Set(articleIds).size !== articleIds.length)
+    fail('gepruefter Batch hat doppelte Artikelidentitaeten');
   return {
     previousInputSha256,
     reviewedInputSha256: hash(canonicalJson(reviewed)),
@@ -270,9 +305,11 @@ export async function runLegacyNewsSupply({
   reviewedBatchPath,
   bindingsPath,
   generatedAt,
+  dryRun = false,
   fetchSnapshot = fetchLegacyNewsSnapshot,
   now = Date.now,
 } = {}) {
+  if (typeof dryRun !== 'boolean') fail('dryRun ist ungueltig');
   if (!/^[a-f0-9]{40}$/u.test(commit ?? '')) fail('commit ist ungueltig');
   if (typeof trustedWorkspaceRoot !== 'string' || trustedWorkspaceRoot.length === 0)
     fail('trustedWorkspaceRoot fehlt');
@@ -290,7 +327,8 @@ export async function runLegacyNewsSupply({
   const intake = snapshot.intake;
   if (intake?.commit !== commit) fail('Snapshot ist nicht an den angeforderten Commit gebunden');
   const observedAt = Date.parse(intake?.observedAt ?? '');
-  if (!Number.isSafeInteger(observedAt) || observedAt < 0) fail('Intake-Beobachtungszeit ist ungueltig');
+  if (!Number.isSafeInteger(observedAt) || observedAt < 0)
+    fail('Intake-Beobachtungszeit ist ungueltig');
   const preparedAt = generatedAt ?? new Date(now()).toISOString();
   if (!isUtc(preparedAt) || Date.parse(preparedAt) < observedAt)
     fail('generatedAt muss ein UTC-Millisekundenwert nach der Intake-Beobachtung sein');
@@ -300,6 +338,7 @@ export async function runLegacyNewsSupply({
       workspace,
       outputDirectory,
       generatedAt: preparedAt,
+      dryRun,
       state: 'awaiting-admission',
       intake,
     });
@@ -321,7 +360,7 @@ export async function runLegacyNewsSupply({
   const finalOutput = await inspectFreshOutput(workspace, outputDirectory);
   const transient = path.join(
     path.dirname(finalOutput),
-    `.wrn-continuous-snapshot-${randomUUID()}`,
+    `.wrn-n-${randomBytes(4).toString('hex')}`,
   );
   await mkdir(transient, { recursive: false });
   try {
@@ -333,6 +372,7 @@ export async function runLegacyNewsSupply({
           workspace,
           outputDirectory,
           generatedAt: preparedAt,
+          dryRun,
           state: 'no-change',
           intake,
           review: noChangeReviewBinding(previousInputSha256, reviewed.value, bindings.value),
@@ -344,6 +384,7 @@ export async function runLegacyNewsSupply({
       writeFile(feedPath, snapshot.feedBytes, { flag: 'wx' }),
       writeFile(statusPath, snapshot.statusBytes, { flag: 'wx' }),
     ]);
+    const preparedOutput = path.join(transient, 'prepared-output');
     const prepared = await prepareLegacyNewsSupply({
       previousInputPath: previous.path,
       previousInputSha256,
@@ -354,11 +395,34 @@ export async function runLegacyNewsSupply({
       commit,
       observedAt,
       generatedAt: preparedAt,
+      dryRun,
       previousLedgerPath,
-      outputDirectory,
+      outputDirectory: preparedOutput,
       trustedWorkspaceRoot: workspace,
     });
-    return Object.freeze({ state: 'prepared', ...prepared });
+    const preparedReceipt = await writePreparedReceipt({
+      directory: prepared.outputDirectory,
+      generatedAt: preparedAt,
+      dryRun,
+      intake,
+      preparedReceipt: prepared.receipt,
+    });
+    await atomicRename(prepared.outputDirectory, finalOutput);
+    return Object.freeze({
+      state: 'prepared',
+      ...prepared,
+      outputDirectory: finalOutput,
+      buildInputPath: path.join(finalOutput, 'merged-input.json'),
+      publisher: Object.freeze({
+        ...prepared.publisher,
+        outputPath: path.join(finalOutput, 'publisher'),
+      }),
+      delivery: Object.freeze({
+        ...prepared.delivery,
+        outputDirectory: path.join(finalOutput, 'delivery'),
+      }),
+      receipt: preparedReceipt,
+    });
   } finally {
     await rm(transient, { recursive: true, force: true });
   }
@@ -377,23 +441,37 @@ function cliOptions(args) {
     '--bindings',
     '--generated-at',
   ]);
-  for (let index = 0; index < args.length; index += 2) {
+  let dryRun = false;
+  for (let index = 0; index < args.length;) {
     const name = args[index];
+    if (name === '--dry-run') {
+      if (dryRun) fail('ungueltige CLI-Option');
+      dryRun = true;
+      index += 1;
+      continue;
+    }
     const value = args[index + 1];
-    if (!names.has(name) || !value || value.startsWith('--') || values.has(name))
+    if (
+      name === '--dry-run' ||
+      !names.has(name) ||
+      !value ||
+      value.startsWith('--') ||
+      values.has(name)
+    )
       fail('ungueltige CLI-Option');
     values.set(name, value);
+    index += 2;
   }
   for (const required of ['--commit', '--output', '--workspace']) {
     if (!values.has(required)) fail('unvollstaendige CLI-Optionen');
   }
-  return values;
+  return { values, dryRun };
 }
 
 const thisFile = fileURLToPath(import.meta.url);
 if (process.argv[1] && path.resolve(process.argv[1]) === thisFile) {
   try {
-    const values = cliOptions(process.argv.slice(2));
+    const { values, dryRun } = cliOptions(process.argv.slice(2));
     const result = await runLegacyNewsSupply({
       commit: values.get('--commit'),
       outputDirectory: values.get('--output'),
@@ -404,12 +482,14 @@ if (process.argv[1] && path.resolve(process.argv[1]) === thisFile) {
       reviewedBatchPath: values.get('--reviewed'),
       bindingsPath: values.get('--bindings'),
       generatedAt: values.get('--generated-at'),
+      dryRun,
     });
     process.stdout.write(
       `${canonicalJson({
         state: result.state,
         outputDirectory: result.outputDirectory,
         publicationPerformed: false,
+        dryRun,
       })}\n`,
     );
   } catch (error) {

@@ -1,9 +1,12 @@
 import {
-  projectMobileContentDirectory,
   validateMobileContentDirectory,
   validateMobileContentDirectoryIds,
   type MobileContentDirectory,
 } from '@wrn/content-contracts/mobile-content-directory-v1';
+import {
+  contentDirectoryManifestUrl,
+  loadContentDirectoryWithRefresh,
+} from '../../../../../packages/browser-content/src/content-directory-refresh';
 
 export type LoadedMobileContentDirectory = Readonly<{
   document: MobileContentDirectory;
@@ -58,7 +61,22 @@ export async function loadMobileContentDirectory(): Promise<LoadedMobileContentD
       if (!validateMobileContentDirectory(document)) throw new Error('directory contract');
       if (!(await validateMobileContentDirectoryIds(document)))
         throw new Error('directory identity');
-      successful = Object.freeze({ document, projection: projectMobileContentDirectory(document) });
+      const controller = new AbortController();
+      let storage: Storage | undefined;
+      try {
+        storage = window.localStorage;
+      } catch {
+        storage = undefined;
+      }
+      const loaded = await loadContentDirectoryWithRefresh({
+        bundled: document,
+        endpoint: import.meta.env.PROD
+          ? contentDirectoryManifestUrl
+          : import.meta.env.VITE_WRN_DIRECTORY_MANIFEST_ENDPOINT,
+        signal: controller.signal,
+        ...(storage ? { storage } : {}),
+      });
+      successful = loaded;
       return successful;
     })
     .finally(() => {

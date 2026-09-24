@@ -187,10 +187,18 @@ export function useMobileRegionalEventsController({
     activeRunRef.current = Object.freeze({ id: runId, controller });
     const referenceInstant = new Date(now()).toISOString();
     mutationDisabledRef.current = false;
-    setModel(loadingViewModel(referenceInstant));
-    setDraftContinentId('');
-    setDraftCountryId('');
-    setDraftRegionId('');
+    queueMicrotask(() => {
+      if (
+        runRef.current !== runId ||
+        activeRunRef.current?.id !== runId ||
+        controller.signal.aborted
+      )
+        return;
+      setModel(loadingViewModel(referenceInstant));
+      setDraftContinentId('');
+      setDraftCountryId('');
+      setDraftRegionId('');
+    });
     void (async () => {
       let store!: EventStore;
       let selectionStore!: SelectionStore;
@@ -473,7 +481,7 @@ export function useMobileRegionalEventsController({
     }
   }, [model.selectionGeneration]);
 
-  return Object.freeze({
+  return {
     model,
     draftContinentId,
     draftCountryId,
@@ -491,7 +499,7 @@ export function useMobileRegionalEventsController({
     saveSelection: () => void saveSelection(),
     clearSelection: () => void clearSelection(),
     reload: run,
-  });
+  };
 }
 
 function contentCopy(copy: UiCopy, status: ContentStatus) {

@@ -37,7 +37,12 @@ export type PodcastAuthorization =
 export interface CanonicalArticleResolverPort {
   readonly resolve: (
     articleId: string,
-    options: { readonly signal: AbortSignal },
+    options: {
+      readonly signal: AbortSignal;
+      /** Selects one server-approved language edition; it never translates browser text. */
+      readonly language: PodcastLanguage;
+      readonly mode: PodcastMode;
+    },
   ) => Promise<CanonicalPodcastArticle | null>;
 }
 
@@ -79,18 +84,72 @@ export interface PodcastQuotaReservation {
   /** Identifies the one cross-deployment Azure F0 budget; it must be resource-bound globally. */
   readonly sharedResourceId: string;
   readonly operationId: string;
+  /** Deterministic private cache identity. The coordinator enforces one live attempt per key. */
+  readonly leaseKey: string;
   readonly utf16CodeUnits: number;
   readonly storageBytes: number;
 }
 
+export type PodcastLeaseAcquireStatus = 'leader' | 'busy' | 'denied' | 'ambiguous';
+export type PodcastLeaseBarrierStatus = 'proceed' | 'ambiguous';
+/** Internal DO status; only a caller reconciling its own lost response may accept `committed`. */
+export type PodcastStorageCommitStatus = PodcastLeaseBarrierStatus | 'committed';
+export type PodcastStorageDeleteStatus = 'proceed' | 'released' | 'ambiguous';
+export type PodcastLeaseRecoveryStatus =
+  'released-pre-dispatch' | 'released-post-dispatch-storage' | 'busy' | 'ambiguous';
+export interface PodcastStorageDeletion {
+  readonly leaseKey: string;
+  readonly operationId: string;
+  readonly actualBytes: number;
+}
+export interface PodcastLeaseRecoverySummary {
+  readonly releasedPreDispatch: number;
+  readonly releasedPostDispatchStorage: number;
+  /** Exact persisted attempts needing an R2-bound reconciliation; characters remain charged. */
+  readonly reviewRequired: readonly PodcastQuotaReservation[];
+}
+
 /** Reservation must be atomic across character and storage counters. */
 export interface PodcastQuotaPort {
-  readonly reserve: (
+  readonly acquire: (
     reservation: PodcastQuotaReservation,
     options: { readonly signal: AbortSignal },
-  ) => Promise<boolean>;
-  /** This may be called only after a proved no-dispatch adapter failure. */
+  ) => Promise<PodcastLeaseAcquireStatus>;
+  /** One-shot fence immediately before provider dispatch. A repeated/uncertain call is ambiguous. */
+  readonly beginDispatch: (
+    reservation: PodcastQuotaReservation,
+    options: { readonly signal: AbortSignal },
+  ) => Promise<PodcastLeaseBarrierStatus>;
+  /** One-shot fence before private storage. Recovery can reject a stale provider result here. */
+  readonly beginStorageCommit: (
+    reservation: PodcastQuotaReservation,
+    options: { readonly signal: AbortSignal },
+  ) => Promise<PodcastLeaseBarrierStatus>;
+  /** This may be called only before the dispatch fence committed. */
   readonly releaseDefinitePreDispatch: (reservation: PodcastQuotaReservation) => Promise<void>;
+  /** Frees only unused private-storage reservation after a successful provider attempt/storage write. */
+  readonly settleStorage?: (
+    reservation: PodcastQuotaReservation,
+    actualBytes: number,
+  ) => Promise<void>;
+  /** Persists a deletion intent only after exact R2 metadata has been observed. */
+  readonly beginStorageDelete?: (
+    deletion: PodcastStorageDeletion,
+  ) => Promise<PodcastStorageDeleteStatus>;
+  /** Completes or idempotently resolves a previously persisted deletion intent. */
+  readonly completeStorageDelete?: (
+    deletion: PodcastStorageDeletion,
+  ) => Promise<Exclude<PodcastStorageDeleteStatus, 'proceed'>>;
+  /** Operator/scheduler recovery; never refunds characters once dispatch may have happened. */
+  readonly recoverExpiredLease?: (
+    reservation: PodcastQuotaReservation,
+  ) => Promise<PodcastLeaseRecoveryStatus>;
+  /** Bounded internal scheduler operation over exact persisted expired leases. */
+  readonly recoverExpiredLeases?: (limit?: number) => Promise<PodcastLeaseRecoverySummary>;
+  /** Called only after an R2-bound recovery observes no object beyond the second lease window. */
+  readonly releaseAmbiguousStorageAfterNoObject?: (
+    reservation: PodcastQuotaReservation,
+  ) => Promise<PodcastLeaseRecoveryStatus>;
 }
 
 export interface PodcastStoragePort {
@@ -105,9 +164,18 @@ export interface PodcastStoragePort {
       readonly articleRevision: string;
       readonly mode: PodcastMode;
       readonly voiceId: string;
+      /** Binds R2 expiry/revocation deletion to the exact, reserved synthesis attempt. */
+      readonly operationId: string;
+      readonly actualBytes: number;
+      readonly expiresAt: string;
     },
     options: { readonly signal: AbortSignal; readonly mayCommit: () => boolean },
   ) => Promise<void>;
+}
+
+/** Only a reviewed, authenticated revocation/expiry worker may obtain this port. */
+export interface PodcastPrivateDeletionPort {
+  readonly deletePrivate: (key: string, options: { readonly signal: AbortSignal }) => Promise<void>;
 }
 
 export interface PodcastSynthesisPort {
@@ -131,12 +199,14 @@ export interface PodcastRuntimeConfiguration {
   /** F0 is intentionally not usable until a bound resource/quota has been verified. */
   readonly resourceVerification: 'unverified' | 'verified';
   readonly sharedResourceId: string;
+  readonly privateRetentionSeconds: number;
 }
 
 export const disabledPodcastRuntimeConfiguration: PodcastRuntimeConfiguration = Object.freeze({
   enabled: false,
   resourceVerification: 'unverified',
   sharedResourceId: 'azure-speech-f0-shared-podcast-v1',
+  privateRetentionSeconds: 2_592_000,
 });
 
 export interface PodcastServicePorts {
@@ -159,4 +229,12 @@ export type PodcastGenerationResult =
       readonly status: 'cached' | 'generated';
       readonly cacheKey: string;
       readonly audioSha256: string;
+      /** Private object identity only. It is never an R2 URL or a public catalogue key. */
+      readonly privateAudio: {
+        readonly key: string;
+        readonly articleId: string;
+        readonly articleRevision: string;
+        readonly mode: PodcastMode;
+        readonly voiceId: string;
+      };
     };

@@ -93,14 +93,19 @@ function useData() {
   const [retryEpoch, setRetryEpoch] = useState(0);
   useEffect(() => {
     const controller = new AbortController();
-    setData(null);
-    setFailed(false);
-    loadWebsiteSupport(controller.signal)
-      .then(setData)
-      .catch((error: unknown) => {
-        if (!(error instanceof DOMException && error.name === 'AbortError')) setFailed(true);
-      });
-    return () => controller.abort();
+    const timeout = window.setTimeout(() => {
+      setData(null);
+      setFailed(false);
+      loadWebsiteSupport(controller.signal)
+        .then(setData)
+        .catch((error: unknown) => {
+          if (!(error instanceof DOMException && error.name === 'AbortError')) setFailed(true);
+        });
+    }, 0);
+    return () => {
+      window.clearTimeout(timeout);
+      controller.abort();
+    };
   }, [retryEpoch]);
   return { data, failed, retry: () => setRetryEpoch((value) => value + 1) };
 }

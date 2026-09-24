@@ -36,6 +36,21 @@ describe('native Cloudflare boundaries', () => {
     ).toBe('false');
   });
 
+  it('keeps the combined reservation policy below the free SQLite row-write budget', () => {
+    const productionRevision = JSON.stringify({
+      read: { ...policy, requestsPerDay: 20000 },
+      provider: { ...policy, requestsPerDay: 450 },
+      write: { ...policy, requestsPerDay: 900 },
+    });
+    const overBudgetRevision = JSON.stringify({
+      read: { ...policy, requestsPerDay: 50000 },
+      provider: { ...policy, requestsPerDay: 450 },
+      write: { ...policy, requestsPerDay: 900 },
+    });
+    expect(parseQuotaPolicies(productionRevision)).toBeDefined();
+    expect(parseQuotaPolicies(overBudgetRevision)).toBeUndefined();
+  });
+
   it('guards native KV writes against stale runs, invalid keys and unsupported TTL', async () => {
     const kv = { get: vi.fn(async () => null), put: vi.fn(async () => {}) };
     const port = createKvCachePort(kv);

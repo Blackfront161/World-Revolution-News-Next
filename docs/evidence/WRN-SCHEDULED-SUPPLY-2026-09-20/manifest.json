@@ -1,0 +1,29 @@
+{
+  "schema": "wrn.scheduled-content-supply-manifest.v1",
+  "version": 1,
+  "workflowPath": ".github/workflows/wrn-content-supply.yml",
+  "schedule": "17 */6 * * *",
+  "mode": "dry-run-only",
+  "upstream": {
+    "repository": "Blackfront161/Revolution-News-Data",
+    "ref": "main",
+    "commitBinding": "resolved-40-hex-commit"
+  },
+  "localPipeline": [
+    "bounded-snapshot",
+    "review-bound-admission",
+    "v3-build",
+    "v6-delivery",
+    "source-bound-directory-refresh",
+    "pointer-last-local-package"
+  ],
+  "guards": [
+    "contents-read-only",
+    "credential-free-checkout",
+    "single-concurrency-group",
+    "eight-minute-timeout",
+    "three-day-review-artifact-no-cache",
+    "no-publication-or-client-pointer-transfer"
+  ],
+  "statusReceipt": "wrn.continuous-legacy-news-supply-run.v1"
+}

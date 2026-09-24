@@ -106,11 +106,16 @@ test('prepares a review-bound V3 append, publisher, delivery chain, and portable
   const previousInputSha256 = hash(
     canonicalJson(JSON.parse(await readFile(files.previous, 'utf8'))),
   );
-  const result = await prepareLegacyNewsSupply({ ...request(root, files), previousInputSha256 });
+  const result = await prepareLegacyNewsSupply({
+    ...request(root, files),
+    previousInputSha256,
+    dryRun: true,
+  });
   const receipt = JSON.parse(await readFile(path.join(root, 'run', 'receipt.json'), 'utf8'));
   assert.equal(result.publisher.sequence, 4);
   assert.equal(receipt.schema, 'wrn.legacy-news-supply-receipt.v1');
   assert.equal(receipt.publicationPerformed, false);
+  assert.equal(receipt.dryRun, true);
   assert.equal(receipt.release.articleCount, 7);
   assert.equal(receipt.delivery.pointerLast, true);
   assert.equal(receipt.intake.commit, commit);

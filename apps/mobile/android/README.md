@@ -59,6 +59,19 @@ signing configuration and Debug/install/test tasks. The resulting `.aab` remains
 unsigned and local; Play Console access and any signing operation are separate
 external steps.
 
+Verify the unsigned bundle against the receipt-bound stage before any signing:
+
+```powershell
+pwsh -NoProfile -File tools/verify-android-aab-assets.ps1 `
+  -StageDirectory <stage>/native-assets `
+  -ReceiptPath <stage>/receipt.json `
+  -AabPath apps/mobile/android/app/build/outputs/bundle/release/app-release.aab
+```
+
+The verifier reads the AAB as a ZIP and rejects missing, extra, duplicate or
+byte-different `base/assets/**` entries. It prints the final AAB and manifest
+SHA-256 values; `-OutputPath` can persist that JSON in the final evidence packet.
+
 ## Privacy and remaining work
 
 The manifest declares Internet access, denies cleartext traffic and disables
@@ -67,9 +80,11 @@ cloud backup and device transfer. Tests guard the exclusions. They do not prove
 OEM behavior or provide user data migration. A deliberate migration/export path
 and its consent/loss protection must be validated separately.
 
-Launcher icons and splash resources are still template assets and require the
-approved WRN branding plus native visual evidence. FileProvider paths, native
-sharing, system Back behavior, deep links, lifecycle, audio interruptions,
-WebView storage, device accessibility and upgrade preservation require their
-own integration/device checks. No emulator/device test, signing, upload or
-Play release is implied by a successful compilation.
+Launcher icons and splash resources use the checked-in black/red/violet WRN
+mark, including an Android 13 monochrome icon. Existing visual evidence covers
+the launcher and startup screen; the final candidate still requires a fresh
+native capture. FileProvider paths, native sharing, system Back behavior, deep
+links, lifecycle, audio interruptions, WebView storage, device accessibility
+and upgrade preservation require their own integration/device checks. No
+emulator/device test, signing, upload or Play release is implied by a successful
+compilation.

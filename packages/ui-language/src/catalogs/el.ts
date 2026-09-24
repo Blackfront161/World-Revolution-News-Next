@@ -255,6 +255,7 @@ export const greekUiCopy: UiCopy = Object.freeze({
   externalPaymentNotice:
     'Με την ενεργοποίηση ανοίγει η εφαρμογή και μεταβαίνετε σε εξωτερική σελίδα πληρωμής.',
   support: 'Υποστήριξη',
+  privacyPolicy: 'Απόρρητο',
   localContent: 'Τοπικό περιεχόμενο',
   localContentDetail:
     'Διαχειριστείτε το επικυρωμένο τοπικό περιεχόμενο αυτού του προγράμματος περιήγησης.',

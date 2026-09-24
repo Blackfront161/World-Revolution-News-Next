@@ -1,7 +1,9 @@
-import { access, lstat, mkdir, readFile, realpath, rename, writeFile } from 'node:fs/promises';
-import { createHash, randomUUID } from 'node:crypto';
+import { access, lstat, mkdir, readFile, realpath, writeFile } from 'node:fs/promises';
+import { createHash, randomBytes } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+
+import { atomicRename } from './atomic-rename.mjs';
 
 import { buildProductionContentRelease } from './build-production-content-release.mjs';
 import {
@@ -337,7 +339,7 @@ export async function prepareProductionContentDelivery({
   await readBoundFile(input, 'Buildeingabe');
   const previous = await readLedger(previousLedgerPath, workspace);
   const parent = path.dirname(output);
-  const staging = path.join(parent, `.wrn-production-delivery-staging-${randomUUID()}`);
+  const staging = path.join(parent, `.wrn-d-${randomBytes(4).toString('hex')}`);
   await mkdir(staging, { recursive: false });
   await inspectFromRoot(workspace, staging, 'Staging');
   const core = path.join(staging, 'core');
@@ -456,7 +458,7 @@ export async function prepareProductionContentDelivery({
   if (await exists(output))
     fail('Ausgabeziel entstand waehrend der Vorbereitung und bleibt unveraendert');
   await inspectFromRoot(workspace, path.dirname(output), 'Ausgabeeltern');
-  await rename(readyOutput, output);
+  await atomicRename(readyOutput, output);
   return Object.freeze({
     outputDirectory: output,
     manifest: Object.freeze(manifest),

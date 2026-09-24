@@ -42,6 +42,8 @@ import {
 } from './production-content-view';
 import { ProductionReaderBlocks } from './production-reader-blocks';
 import type { ProductionTranslationAdapter } from './production-translation';
+import { ProductionPodcastPanel, type ProductionDeviceSpeechAdapter } from './production-podcast';
+import type { ProductionOnlinePodcastAdapter } from './production-podcast-online';
 import { ProductionHome, type ProductionHomeDirectory } from './production-home';
 import { ProductionSelectionExplanation } from './production-selection-explanation';
 import { useProductionUserActivity } from './production-user-activity/use-activity';
@@ -157,6 +159,8 @@ type ProductionContentAreaDependencies = Readonly<{
   archiveTriggerId: string;
   embeddedCardHeadingLevel?: 3 | 4;
   translationAdapter?: ProductionTranslationAdapter | null;
+  deviceSpeechAdapter?: ProductionDeviceSpeechAdapter | null;
+  onlinePodcastAdapter?: ProductionOnlinePodcastAdapter | null;
   activityClient?: ActivityClient | null;
   activityNotificationsEnabled?: () => boolean;
 }>;
@@ -168,6 +172,8 @@ export function createProductionContentArea({
   archiveTriggerId,
   embeddedCardHeadingLevel = 4,
   translationAdapter = null,
+  deviceSpeechAdapter = null,
+  onlinePodcastAdapter = null,
   activityClient = null,
   activityNotificationsEnabled = () => true,
 }: ProductionContentAreaDependencies) {
@@ -973,6 +979,23 @@ export function createProductionContentArea({
                     </button>
                   )}
                 </div>
+                <ProductionPodcastPanel
+                  title={view.article.title}
+                  blocks={view.blocks}
+                  contentLanguage={view.article.originalLanguage}
+                  language={language}
+                  adapter={deviceSpeechAdapter}
+                  onlineAdapter={onlinePodcastAdapter}
+                  authority={
+                    view.translationAuthority
+                      ? {
+                          articleId: view.translationAuthority.articleId,
+                          articleRevision: view.translationAuthority.articleRevision,
+                          expiresAt: view.translationAuthority.expiresAt,
+                        }
+                      : null
+                  }
+                />
                 <div className="production-reader-blocks" ref={blocksRef}>
                   <ProductionReaderBlocks
                     blocks={view.blocks}

@@ -253,6 +253,7 @@ export const portugueseUiCopy: UiCopy = Object.freeze({
   voluntarySupport: 'Apoio voluntário:',
   externalPaymentNotice: 'Ao ativar, isto abre uma página de pagamento externa.',
   support: 'Apoiar',
+  privacyPolicy: 'Privacidade',
   localContent: 'Conteúdo local',
   localContentDetail: 'Gira o conteúdo local validado disponível neste navegador.',
   contentActiveRevision: 'Revisão ativa: {revision}',

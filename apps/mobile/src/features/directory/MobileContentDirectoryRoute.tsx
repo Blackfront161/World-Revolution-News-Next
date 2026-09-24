@@ -55,16 +55,19 @@ export function MobileContentDirectoryRoute({
   const load = () => setAttempt((value) => value + 1);
   useEffect(() => {
     let active = true;
-    setFailed(false);
-    loadMobileContentDirectory()
-      .then((result) => {
-        if (active) setData(result);
-      })
-      .catch(() => {
-        if (active) setFailed(true);
-      });
+    const timeout = window.setTimeout(() => {
+      setFailed(false);
+      loadMobileContentDirectory()
+        .then((result) => {
+          if (active) setData(result);
+        })
+        .catch(() => {
+          if (active) setFailed(true);
+        });
+    }, 0);
     return () => {
       active = false;
+      window.clearTimeout(timeout);
     };
   }, [attempt]);
   useEffect(() => {

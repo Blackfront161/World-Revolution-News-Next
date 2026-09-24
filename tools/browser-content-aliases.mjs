@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const publicSources = Object.freeze({
+  '@wrn/ui-language/production-podcast': 'packages/ui-language/src/production-podcast.ts',
   '@wrn/ui-language/production-regional': 'packages/ui-language/src/production-regional.ts',
   '@wrn/content-contracts/production-media-offline-v1':
     'packages/content-contracts/src/production-media-offline-v1.ts',
@@ -21,6 +22,8 @@ const publicSources = Object.freeze({
   '@wrn/content-contracts/mobile-reader-v2': 'packages/content-contracts/src/mobile-reader-v2.ts',
   '@wrn/content-contracts/mobile-content-directory-v1':
     'packages/content-contracts/src/directory/mobile-content-directory-v1.ts',
+  '@wrn/content-contracts/content-directory-refresh-v1':
+    'packages/content-contracts/src/directory/content-directory-refresh-v1.ts',
   '@wrn/content-contracts/production-events-media-v1':
     'packages/content-contracts/src/directory/production-events-media-v1.ts',
   '@wrn/domain': 'packages/domain/src/index.ts',

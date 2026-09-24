@@ -19,7 +19,7 @@ import {
 import { ProductionHome } from '../../../packages/browser-content/src/production-home';
 import { ProductionEventsMediaDirectory } from '../../../packages/browser-content/src/events-media-directory';
 
-const now = Date.parse('2026-09-12T14:00:00.000Z');
+const now = Date.parse('2026-09-21T14:00:00.000Z');
 beforeEach(() => {
   vi.spyOn(Date, 'now').mockReturnValue(now);
 });
@@ -30,13 +30,11 @@ afterEach(() => {
 describe('actual regional client', () => {
   it('pins the reviewed actual input and projects only the explicitly chosen region', async () => {
     expect(regionalInputSha256).toBe(
-      'fa62d54dfaf562f41b4a4a5f54e6338985e2d84d9e9dc92b0e21d894ff17174b',
+      'ecf594f9d8269ed4503f517954993fd2e760191313e5e755bab92ed994af1014',
     );
     const catalog = await loadCurrentRegionalEvents();
-    expect(catalog?.events).toHaveLength(5);
-    expect(
-      catalog?.sources.find((source) => source.id === 'source-noticias-anarquistas')?.checkedOn,
-    ).toBe('2026-09-11');
+    expect(catalog?.events).toHaveLength(4);
+    expect(catalog?.sources.every((source) => source.checkedOn === '2026-09-21')).toBe(true);
     expect(projectProductionRegionalEventsV1(catalog!, emptyRegionalSelection, now).status).toBe(
       'unselected',
     );
@@ -48,16 +46,27 @@ describe('actual regional client', () => {
       ).events.map((event) => event.id),
     ).toEqual(['event-london-anarchist-bookfair-2026']);
   });
-  it('preserves date-only precision and London summer time', async () => {
+  it('preserves date-only precision and exact source-local times', async () => {
     const catalog = (await loadCurrentRegionalEvents())!;
-    expect(formatRegionalSchedule(catalog.events[0]!.schedule, 'de')).toContain(
-      'Uhrzeit nicht angegeben',
+    const london = catalog.events.find(
+      (event) => event.id === 'event-london-anarchist-bookfair-2026',
+    )!;
+    expect(formatRegionalSchedule(london.schedule, 'de')).toContain('Uhrzeit nicht angegeben');
+    expect(formatRegionalSchedule(london.schedule, 'de')).not.toContain('00:00');
+    const nyc = formatRegionalSchedule(
+      catalog.events.find((event) => event.id === 'event-nyc-anarchist-bookfair-2026')!.schedule,
+      'de',
     );
-    expect(formatRegionalSchedule(catalog.events[0]!.schedule, 'de')).not.toContain('00:00');
-    const london = formatRegionalSchedule(catalog.events[1]!.schedule, 'de');
-    expect(london).toContain('10:00');
-    expect(london).toContain('18:00');
-    expect(london).toContain('GMT+1');
+    expect(nyc).toContain('11:00');
+    expect(nyc).toContain('19:00');
+    const manchester = formatRegionalSchedule(
+      catalog.events.find(
+        (event) => event.id === 'event-manchester-salford-anarchist-bookfair-2026',
+      )!.schedule,
+      'de',
+    );
+    expect(manchester).toContain('10:00');
+    expect(manchester).toContain('16:00');
   });
   it('validates minimal selection without accepting extra location or history fields', async () => {
     expect(isRegionalSelection(emptyRegionalSelection)).toBe(true);
@@ -89,7 +98,7 @@ describe('actual regional client', () => {
     fireEvent.change(continent, { target: { value: 'continent-south-america' } });
     expect(screen.getByLabelText('Land')).toHaveValue('');
     expect(screen.getByLabelText('Region')).toHaveValue('');
-    expect(screen.getAllByRole('article')).toHaveLength(2);
+    expect(screen.getAllByRole('article')).toHaveLength(1);
   });
   it('removes the current event list when the clock reaches validUntil', async () => {
     render(<CurrentRegionalEvents client="website" language="de" />);
@@ -97,7 +106,7 @@ describe('actual regional client', () => {
       target: { value: 'continent-europe' },
     });
     expect(screen.getAllByRole('article')).toHaveLength(2);
-    vi.mocked(Date.now).mockReturnValue(Date.parse('2026-09-19T00:00:00.000Z'));
+    vi.mocked(Date.now).mockReturnValue(Date.parse('2026-09-28T00:00:00.000Z'));
     fireEvent.focus(window);
     expect(screen.queryAllByRole('article')).toHaveLength(0);
     expect(screen.getByText(/Dieser Stand ist nicht mehr aktuell/)).toBeVisible();

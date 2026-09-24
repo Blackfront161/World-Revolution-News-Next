@@ -14,6 +14,11 @@ on:
         required: false
         default: false
         type: boolean
+      dry_run:
+        description: Required safety mode. Builds local V3/V6 delivery material only; never transfers a client pointer.
+        required: false
+        default: true
+        type: boolean
 
 permissions:
   contents: read
@@ -24,15 +29,14 @@ concurrency:
 
 jobs:
   prepare:
-    if: github.event.repository.private == false
     runs-on: ubuntu-24.04
     timeout-minutes: 8
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           fetch-depth: 1
           persist-credentials: false
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24.19.0
           check-latest: false
@@ -53,14 +57,16 @@ jobs:
         env:
           UPSTREAM_COMMIT: ${{ steps.upstream.outputs.commit }}
           INCLUDE_REVIEWED_V5: ${{ inputs.include_reviewed_v5 || 'false' }}
+          DRY_RUN: ${{ github.event_name != 'workflow_dispatch' && 'true' || inputs.dry_run && 'true' || 'false' }}
           REQUESTED_COMMIT: ${{ inputs.upstream_commit }}
         shell: bash
         run: |
           set -euo pipefail
+          [[ "$DRY_RUN" == "true" ]]
           output_parent="$GITHUB_WORKSPACE/.wrn-actions-output"
           output_directory="$output_parent/$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
           mkdir -p "$output_parent"
-          command=(node tools/run-legacy-news-supply.mjs --commit "$UPSTREAM_COMMIT" --output "$output_directory" --workspace "$GITHUB_WORKSPACE")
+          command=(node tools/run-legacy-news-supply.mjs --commit "$UPSTREAM_COMMIT" --output "$output_directory" --workspace "$GITHUB_WORKSPACE" --dry-run)
           if [[ "$INCLUDE_REVIEWED_V5" == "true" ]]; then
             [[ "$REQUESTED_COMMIT" =~ ^[a-f0-9]{40}$ ]]
             previous='docs/evidence/WRN-ARTICLE-INTAKE-2026-09-20/candidate/production-build-input-v3.json'
@@ -81,6 +87,7 @@ jobs:
           const receipt = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes));
           if (
             receipt?.schema !== 'wrn.continuous-legacy-news-supply-run.v1' ||
+            receipt?.dryRun !== true ||
             receipt?.publicationPerformed !== false ||
             !['awaiting-admission', 'no-change', 'prepared'].includes(receipt?.state)
           )
@@ -88,7 +95,33 @@ jobs:
           const sha256 = createHash('sha256').update(bytes).digest('hex');
           await appendFile(
             process.env.GITHUB_STEP_SUMMARY,
-            `## WRN content supply\n\n- Outcome: ${receipt.state}\n- Publication performed: false\n- Receipt SHA-256: ${sha256}\n`,
+            `## WRN content supply\n\n- Mode: dry-run\n- Outcome: ${receipt.state}\n- Publication performed: false\n- Client pointer transfer: false\n- Receipt SHA-256: ${sha256}\n`,
             'utf8',
           );
           NODE
+      - name: Prepare reviewed directory snapshot when the source commit matches
+        env:
+          UPSTREAM_COMMIT: ${{ steps.upstream.outputs.commit }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mobile='apps/mobile/src/features/directory/data/content-directory-v1.json'
+          website='apps/website/src/features/directory/data/content-directory-v1.json'
+          cmp --silent "$mobile" "$website"
+          directory_commit="$(node --input-type=module -e "import { readFile } from 'node:fs/promises'; const value=JSON.parse(await readFile(process.argv[1], 'utf8')); if(value?.schema!=='wrn.mobile-content-directory.v1'||!/^([a-f0-9]{40})$/.test(value?.sourceCommit??'')) process.exit(2); process.stdout.write(value.sourceCommit);" "$mobile")"
+          if [[ "$directory_commit" != "$UPSTREAM_COMMIT" ]]; then
+            printf '\n## WRN directory refresh\n\n- Outcome: awaiting reviewed directory regeneration\n- Bundled source commit: `%s`\n- Current upstream commit: `%s`\n- Publication performed: false\n' "$directory_commit" "$UPSTREAM_COMMIT" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          sequence="$(date -u +%Y%m%d%H%M)"
+          target="$GITHUB_WORKSPACE/.wrn-actions-output/directory-refresh"
+          node tools/directory/prepare-content-directory-refresh.mjs "$mobile" "$target" "$sequence"
+          printf '\n## WRN directory refresh\n\n- Outcome: reviewed packet prepared\n- Sequence: `%s`\n- Publication performed: false\n' "$sequence" >> "$GITHUB_STEP_SUMMARY"
+      - name: Retain review packet briefly
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: wrn-content-review-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .wrn-actions-output
+          if-no-files-found: error
+          retention-days: 3
+          include-hidden-files: true

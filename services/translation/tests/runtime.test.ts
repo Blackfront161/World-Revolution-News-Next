@@ -27,7 +27,7 @@ function bindings(overrides = {}) {
     enabled: true,
     allowedOrigins: [origin],
     adapter: { id: 'gemini-rest', version: 'v1', provider: 'google' },
-    model: 'gemini-3.1-flash-lite-preview',
+    model: 'gemini-3.1-flash-lite',
     apiKey: 'test-key-not-a-secret',
     fetch: vi.fn(
       async () =>
@@ -51,7 +51,7 @@ function environment(overrides = {}) {
   return {
     TRANSLATION_V2_ENABLED: 'true',
     TRANSLATION_ALLOWED_ORIGINS: JSON.stringify([origin]),
-    TRANSLATION_MODEL: 'gemini-3.1-flash-lite-preview',
+    TRANSLATION_MODEL: 'gemini-3.1-flash-lite',
     GEMINI_API_KEY: 'test-key-not-a-secret',
     TRANSLATION_CACHE_TTL_SECONDS: '60',
     TRANSLATION_SUPPORTED_SOURCE_LANGUAGES: JSON.stringify(['en']),
@@ -64,7 +64,7 @@ function environment(overrides = {}) {
 }
 
 describe('explicit translation runtime bindings', () => {
-  it('coalesces equivalent environment objects, binds native fetch and isolates model cache keys', async () => {
+  it('coalesces equivalent environments, binds native fetch and rejects a retired model', async () => {
     const keys: string[] = [];
     const shared = environment({
       TRANSLATION_CACHE: {
@@ -92,15 +92,20 @@ describe('explicit translation runtime bindings', () => {
       ]);
       expect(responses.map((response) => response.status)).toEqual([200, 200]);
       expect(nativeFetch).toHaveBeenCalledTimes(1);
+      expect(new Set(keys).size).toBe(1);
       expect(
-        (await worker.fetch(request(), { ...shared, TRANSLATION_MODEL: 'different-model' })).status,
-      ).toBe(200);
-      expect(nativeFetch).toHaveBeenCalledTimes(2);
-      expect(keys[0]).not.toBe(keys.at(-1));
+        (
+          await worker.fetch(request(), {
+            ...shared,
+            TRANSLATION_MODEL: 'gemini-3.1-flash-lite-preview',
+          })
+        ).status,
+      ).toBe(503);
+      expect(nativeFetch).toHaveBeenCalledTimes(1);
       expect(
         (await worker.fetch(request(), { ...shared, TRANSLATION_V2_ENABLED: 'false' })).status,
       ).toBe(503);
-      expect(nativeFetch).toHaveBeenCalledTimes(2);
+      expect(nativeFetch).toHaveBeenCalledTimes(1);
     } finally {
       vi.unstubAllGlobals();
     }
@@ -119,6 +124,15 @@ describe('explicit translation runtime bindings', () => {
     const response = await createTranslationRuntimeFetch(value)(request());
     expect(response.status).toBe(200);
     expect(value.fetch).toHaveBeenCalledTimes(1);
+  });
+
+  it('rejects a retired directly injected model without provider dispatch', async () => {
+    const fetch = vi.fn();
+    const response = await createTranslationRuntimeFetch(
+      bindings({ model: 'gemini-3.1-flash-lite-preview', fetch }),
+    )(request());
+    expect(response.status).toBe(503);
+    expect(fetch).not.toHaveBeenCalled();
   });
 
   it('fails closed for malformed adapter bindings without provider dispatch', async () => {

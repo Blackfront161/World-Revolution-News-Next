@@ -25,6 +25,10 @@ interface Policy {
 type Policies = Record<Lane, Policy>;
 const lanes: readonly Lane[] = ['read', 'provider', 'write'];
 const keyPattern = /^translation:v2:[a-f0-9]{64}$/u;
+// Each accepted reservation writes one recent row and one day counter row. The
+// recent row is later deleted, which Cloudflare also bills as a row write.
+const quotaRowsWrittenPerReservation = 3;
+const quotaRowsWrittenDailySafetyLimit = 75000;
 
 export function parseQuotaPolicies(input: unknown): Policies | undefined {
   if (typeof input !== 'string' || input.length > 2048) return undefined;
@@ -48,6 +52,9 @@ export function parseQuotaPolicies(input: unknown): Policies | undefined {
       )
         return undefined;
     }
+    const dailyReservations = lanes.reduce((total, lane) => total + value[lane].requestsPerDay, 0);
+    if (dailyReservations * quotaRowsWrittenPerReservation > quotaRowsWrittenDailySafetyLimit)
+      return undefined;
     return value;
   } catch {
     return undefined;

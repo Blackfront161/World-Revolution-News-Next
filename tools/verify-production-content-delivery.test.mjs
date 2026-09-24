@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { mkdtemp, mkdir, writeFile, readFile, rm } from 'node:fs/promises';
+import { mkdtemp, mkdir, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -181,10 +181,18 @@ test('rejects malformed identity and a valid ledger bound to another revision', 
   );
 });
 
-test('rejects a hash-consistent pointer targeting a different revision directory', async t => {
- const f=await fixture(t);
- const bytes=JSON.stringify({...JSON.parse(f.entries.at(-1)[1]),descriptorPath:'other/release-descriptor.json'});
- await writeFile(path.join(f.root,pointer),bytes);
- const entry=f.manifest.files.find(e=>e.path===pointer);entry.bytes=Buffer.byteLength(bytes);entry.sha256=hash(bytes);
- await assert.rejects(verifyProductionDelivery({directory:f.root,manifestSha256:await f.save()}),/release identity mismatch/);
+test('rejects a hash-consistent pointer targeting a different revision directory', async (t) => {
+  const f = await fixture(t);
+  const bytes = JSON.stringify({
+    ...JSON.parse(f.entries.at(-1)[1]),
+    descriptorPath: 'other/release-descriptor.json',
+  });
+  await writeFile(path.join(f.root, pointer), bytes);
+  const entry = f.manifest.files.find((e) => e.path === pointer);
+  entry.bytes = Buffer.byteLength(bytes);
+  entry.sha256 = hash(bytes);
+  await assert.rejects(
+    verifyProductionDelivery({ directory: f.root, manifestSha256: await f.save() }),
+    /release identity mismatch/,
+  );
 });

@@ -1,9 +1,9 @@
 import { validateProductionRegionalEventsV1 } from '@wrn/content-contracts/production-regional-events-v1';
-import input from './events.json';
+import input from './events.json?raw';
 
 // Generated from the reviewed input; rebuilds must not refresh its source dates.
 export const regionalInputSha256 =
-  'fa62d54dfaf562f41b4a4a5f54e6338985e2d84d9e9dc92b0e21d894ff17174b';
+  'ecf594f9d8269ed4503f517954993fd2e760191313e5e755bab92ed994af1014';
 export function loadCurrentRegionalEvents() {
-  return validateProductionRegionalEventsV1(JSON.stringify(input), regionalInputSha256);
+  return validateProductionRegionalEventsV1(input, regionalInputSha256);
 }

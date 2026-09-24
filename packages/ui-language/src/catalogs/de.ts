@@ -253,6 +253,7 @@ export const germanUiCopy: UiCopy = Object.freeze({
   externalPaymentNotice:
     'Beim Öffnen verlässt du die App und gelangst auf eine externe Zahlungsseite.',
   support: 'Unterstützung',
+  privacyPolicy: 'Datenschutz',
   localContent: 'Lokale Inhalte',
   localContentDetail: 'Verwalte die in diesem Browser sicher geprüften lokalen Inhalte.',
   contentActiveRevision: 'Aktive Revision: {revision}',

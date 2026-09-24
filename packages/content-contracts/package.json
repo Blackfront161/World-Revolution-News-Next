@@ -60,6 +60,10 @@
       "types": "./src/directory/mobile-content-directory-v1.ts",
       "default": "./src/directory/mobile-content-directory-v1.ts"
     },
+    "./content-directory-refresh-v1": {
+      "types": "./src/directory/content-directory-refresh-v1.ts",
+      "default": "./src/directory/content-directory-refresh-v1.ts"
+    },
     "./production-events-media-v1": {
       "types": "./src/directory/production-events-media-v1.ts",
       "default": "./src/directory/production-events-media-v1.ts"

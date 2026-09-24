@@ -4,6 +4,10 @@
   "private": true,
   "type": "module",
   "exports": {
+    "./production-podcast": {
+      "types": "./src/production-podcast.ts",
+      "default": "./src/production-podcast.ts"
+    },
     "./sport-sources": {
       "types": "./src/sport-sources.ts",
       "default": "./src/sport-sources.ts"

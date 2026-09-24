@@ -134,6 +134,21 @@ const MobileHomeDirectory = lazy(() =>
     default: module.MobileHomeDirectory,
   })),
 );
+const MobileKnowledgeRoute = lazy(() =>
+  import('./features/knowledge/MobileKnowledgeRoute').then((module) => ({
+    default: module.MobileKnowledgeRoute,
+  })),
+);
+const MobileSupportRoute = lazy(() =>
+  import('./features/support/MobileSupportRoute').then((module) => ({
+    default: module.MobileSupportRoute,
+  })),
+);
+const MobileDirectoryRoute = lazy(() =>
+  import('./features/directory/MobileContentDirectoryRoute').then((module) => ({
+    default: module.MobileContentDirectoryRoute,
+  })),
+);
 
 class KnowledgeRouteBoundary extends Component<
   Readonly<{
@@ -1683,34 +1698,7 @@ export function App({
   const [systemPrefersDark, setSystemPrefersDark] = useState(readSystemPrefersDark);
   const [target, setTarget] = useState<NavigationTargetId>(readNavigationTargetFromLocation);
   const [searchRequested, setSearchRequested] = useState(false);
-  const KnowledgeRoute = useMemo(
-    () =>
-      lazy(() =>
-        import('./features/knowledge/MobileKnowledgeRoute').then((module) => ({
-          default: module.MobileKnowledgeRoute,
-        })),
-      ),
-    [],
-  );
-  const SupportRoute = useMemo(
-    () =>
-      lazy(() =>
-        import('./features/support/MobileSupportRoute').then((module) => ({
-          default: module.MobileSupportRoute,
-        })),
-      ),
-    [],
-  );
   const supportClock = useCallback(() => new Date(now()), [now]);
-  const DirectoryRoute = useMemo(
-    () =>
-      lazy(() =>
-        import('./features/directory/MobileContentDirectoryRoute').then((module) => ({
-          default: module.MobileContentDirectoryRoute,
-        })),
-      ),
-    [],
-  );
   const supportGuardRef = useRef<MobileSupportNavigationGuard | null>(null);
   const registerSupportGuard = useCallback((guard: MobileSupportNavigationGuard | null) => {
     supportGuardRef.current = guard;
@@ -1893,10 +1881,10 @@ export function App({
   useEffect(() => {
     const store = createMobilePersonalizationStore();
     const runtime = Object.freeze({ store, loaded: store.load() });
-    setPersonalizationRuntime(runtime);
+    const timeout = window.setTimeout(() => setPersonalizationRuntime(runtime), 0);
     return () => {
+      window.clearTimeout(timeout);
       store.dispose();
-      setPersonalizationRuntime((current) => (current?.store === store ? null : current));
     };
   }, []);
 
@@ -2165,7 +2153,8 @@ export function App({
       sourceConfirmationSnapshotIdentity === activeSnapshotIdentity
     )
       return;
-    setSourceConfirmation(null);
+    const timeout = window.setTimeout(() => setSourceConfirmation(null), 0);
+    return () => window.clearTimeout(timeout);
   }, [activeSnapshotIdentity, fixtureMode, sourceConfirmation, sourceConfirmationSnapshotIdentity]);
   useEffect(() => {
     if (contentResult?.active?.expiresAt === undefined || contentAction === null) return;
@@ -2188,31 +2177,33 @@ export function App({
     };
   }, [contentAction, contentResult?.active?.expiresAt]);
   useEffect(() => {
-    if (fixtureMode) {
-      setContentRouteAllowed(true);
-      return;
-    }
-    if (readerArticleId === null && archiveRoute === undefined) {
-      setContentRouteAllowed(true);
-      return;
-    }
-    if (contentAction === null) return;
     let active = true;
-    setContentRouteAllowed(false);
-    void contentAction('guard').then((access) => {
-      if (active && access?.readAccess === 'allowed' && access.runtime !== null)
+    const timeout = window.setTimeout(() => {
+      if (fixtureMode || (readerArticleId === null && archiveRoute === undefined)) {
         setContentRouteAllowed(true);
-    });
+        return;
+      }
+      if (contentAction === null) return;
+      setContentRouteAllowed(false);
+      void contentAction('guard').then((access) => {
+        if (active && access?.readAccess === 'allowed' && access.runtime !== null)
+          setContentRouteAllowed(true);
+      });
+    }, 0);
     return () => {
       active = false;
+      window.clearTimeout(timeout);
     };
   }, [archiveRoute, contentAction, fixtureMode, navigationEpoch, readerArticleId]);
   useEffect(() => {
     if (fixtureMode || contentResult === null || runtime !== null) return;
-    setSourceConfirmation(null);
-    setReaderArticleId(null);
-    setArchiveRoute(undefined);
-    setContentRouteAllowed(false);
+    const timeout = window.setTimeout(() => {
+      setSourceConfirmation(null);
+      setReaderArticleId(null);
+      setArchiveRoute(undefined);
+      setContentRouteAllowed(false);
+    }, 0);
+    return () => window.clearTimeout(timeout);
   }, [contentResult, fixtureMode, runtime]);
   const navigate = (nextTarget: NavigationTargetId) => {
     if (
@@ -2479,6 +2470,16 @@ export function App({
         </a>
       ))}
     </nav>
+  );
+  const privacyPolicyLink = (
+    <a
+      href={`https://solinaridao.com/privacy.html?lang=${encodeURIComponent(uiLanguage)}&return=app`}
+      target="_blank"
+      rel="noopener noreferrer"
+      referrerPolicy="no-referrer"
+    >
+      {copy.privacyPolicy}
+    </a>
   );
   const selectTheme = (value: string) => {
     const nextPreference = normalizeThemePreference(value);
@@ -2774,6 +2775,7 @@ export function App({
                     {routeLink('solidarity')}
                     {routeLink('knowledge')}
                     {routeLink('events')}
+                    {privacyPolicyLink}
                     {routeLink('home', copy.returnHome)}
                   </nav>
                 )}
@@ -3008,7 +3010,7 @@ export function App({
                 onRetry={() => window.location.reload()}
               >
                 <Suspense fallback={<p role="status">{directoryCopy.loading}</p>}>
-                  <DirectoryRoute
+                  <MobileDirectoryRoute
                     key={directorySection}
                     language={uiLanguage}
                     section={directorySection}
@@ -3095,7 +3097,7 @@ export function App({
                     </section>
                   }
                 >
-                  <KnowledgeRoute language={uiLanguage} headingRef={pageHeadingRef} />
+                  <MobileKnowledgeRoute language={uiLanguage} headingRef={pageHeadingRef} />
                 </Suspense>
               </KnowledgeRouteBoundary>
             ) : target === 'help' || target === 'solidarity' ? (
@@ -3113,7 +3115,7 @@ export function App({
                     </section>
                   }
                 >
-                  <SupportRoute
+                  <MobileSupportRoute
                     key={target}
                     section={target}
                     language={uiLanguage}
@@ -3212,6 +3214,7 @@ export function App({
                       {routeLink('solidarity')}
                       {routeLink('knowledge')}
                       {routeLink('events')}
+                      {privacyPolicyLink}
                       {routeLink('home', copy.returnHome)}
                     </nav>
                     {directoryLinks}

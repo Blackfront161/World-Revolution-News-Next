@@ -17,6 +17,7 @@
     "strict": true,
     "target": "ES2024",
     "paths": {
+      "@wrn/ui-language/production-podcast": ["./packages/ui-language/src/production-podcast.ts"],
       "@wrn/ui-language/production-regional": ["./packages/ui-language/src/production-regional.ts"],
       "@wrn/content-contracts/production-media-v1": [
         "./packages/content-contracts/src/production-media-v1.ts"
@@ -43,6 +44,9 @@
       ],
       "@wrn/content-contracts/mobile-content-directory-v1": [
         "./packages/content-contracts/src/directory/mobile-content-directory-v1.ts"
+      ],
+      "@wrn/content-contracts/content-directory-refresh-v1": [
+        "./packages/content-contracts/src/directory/content-directory-refresh-v1.ts"
       ],
       "@wrn/content-contracts/production-events-media-v1": [
         "./packages/content-contracts/src/directory/production-events-media-v1.ts"

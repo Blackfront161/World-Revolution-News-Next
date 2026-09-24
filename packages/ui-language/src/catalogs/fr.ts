@@ -257,6 +257,7 @@ export const frenchUiCopy: UiCopy = Object.freeze({
   externalPaymentNotice:
     'En l’activant, vous quittez l’application et ouvrez une page de paiement externe.',
   support: 'Soutien',
+  privacyPolicy: 'Confidentialité',
   localContent: 'Contenu local',
   localContentDetail: 'Gérez le contenu local validé disponible dans ce navigateur.',
   contentActiveRevision: 'Révision active : {revision}',

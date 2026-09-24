@@ -1,15 +1,5 @@
-import { createHash, randomUUID } from 'node:crypto';
-import {
-  access,
-  lstat,
-  mkdir,
-  readFile,
-  readdir,
-  realpath,
-  rename,
-  rm,
-  writeFile,
-} from 'node:fs/promises';
+import { createHash, randomBytes } from 'node:crypto';
+import { access, lstat, mkdir, readFile, readdir, realpath, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -21,6 +11,7 @@ import {
 import { buildProductionContentRelease } from './build-production-content-release.mjs';
 import { prepareProductionContentDelivery } from './prepare-production-content-delivery.mjs';
 import { canonicalJson } from '../packages/content-contracts/src/index.ts';
+import { atomicRename } from './atomic-rename.mjs';
 
 const maxInputBytes = legacyNewsLimits.feedBytes;
 const maxBindingsBytes = 64 * 1024;
@@ -120,6 +111,7 @@ function parseJson(bytes, label) {
 
 function receipt({
   generatedAt,
+  dryRun,
   intake,
   previousInputSha256,
   mergedInputSha256,
@@ -130,6 +122,7 @@ function receipt({
     schema: 'wrn.legacy-news-supply-receipt.v1',
     version: 1,
     preparedAt: generatedAt,
+    dryRun,
     publicationPerformed: false,
     intake: {
       commit: intake.commit,
@@ -172,10 +165,12 @@ export async function prepareLegacyNewsSupply({
   commit,
   observedAt,
   generatedAt,
+  dryRun = false,
   previousLedgerPath,
   outputDirectory,
   trustedWorkspaceRoot,
 } = {}) {
+  if (typeof dryRun !== 'boolean') fail('dryRun ist ungueltig');
   if (!isUtc(generatedAt)) fail('generatedAt muss ein expliziter UTC-Millisekundenwert sein');
   if (!Number.isSafeInteger(observedAt) || observedAt < 0) fail('observedAt ist ungueltig');
   if (Date.parse(generatedAt) < observedAt) fail('generatedAt liegt vor observedAt');
@@ -217,10 +212,7 @@ export async function prepareLegacyNewsSupply({
   const mergedSerialized = `${canonicalJson(merged)}\n`;
   if (Buffer.byteLength(mergedSerialized) > maxInputBytes)
     fail('zusammengefuehrte Eingabe ueberschreitet das Limit');
-  const staging = path.join(
-    path.dirname(finalOutput),
-    `.wrn-legacy-news-supply-staging-${randomUUID()}`,
-  );
+  const staging = path.join(path.dirname(finalOutput), `.wrn-l-${randomBytes(4).toString('hex')}`);
   await mkdir(staging, { recursive: false });
   let promoted = false;
   try {
@@ -228,7 +220,7 @@ export async function prepareLegacyNewsSupply({
     const buildInputOutput = path.join(staging, 'merged-input.json');
     const publisherOutput = path.join(staging, 'publisher');
     const deliveryOutput = path.join(staging, 'delivery');
-    const deliveryWorkDirectory = path.join(staging, 'delivery-work');
+    const deliveryWorkDirectory = path.join(staging, 'd');
     const deliveryWorkOutput = path.join(deliveryWorkDirectory, 'ready');
     const receiptOutput = path.join(staging, 'receipt.json');
     await writeFile(buildInputOutput, mergedSerialized, { encoding: 'utf8', flag: 'wx' });
@@ -246,7 +238,7 @@ export async function prepareLegacyNewsSupply({
         outputDirectory: deliveryWorkOutput,
         trustedWorkspaceRoot: workspace,
       });
-      await rename(deliveryWorkOutput, deliveryOutput);
+      await atomicRename(deliveryWorkOutput, deliveryOutput);
     } finally {
       await rm(deliveryWorkDirectory, { recursive: true, force: true });
     }
@@ -256,6 +248,7 @@ export async function prepareLegacyNewsSupply({
     const deliveryLedgerBytes = await readFile(path.join(deliveryOutput, 'next-ledger.json'));
     const runReceipt = receipt({
       generatedAt,
+      dryRun,
       intake,
       previousInputSha256,
       mergedInputSha256: hash(mergedSerialized),
@@ -279,7 +272,7 @@ export async function prepareLegacyNewsSupply({
     });
     await assertRunBundleClosure(staging);
     await inspectFreshOutput(workspace, finalOutput, 'Run-Bundle-Ausgabe');
-    await rename(staging, finalOutput);
+    await atomicRename(staging, finalOutput);
     promoted = true;
     return Object.freeze({
       outputDirectory: finalOutput,

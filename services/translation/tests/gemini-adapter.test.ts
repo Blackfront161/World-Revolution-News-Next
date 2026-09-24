@@ -21,7 +21,7 @@ function response(value: unknown, options: ResponseInit = {}): Response {
 
 function adapter(fetch = vi.fn()): ReturnType<typeof createGeminiTranslationAdapter> {
   return createGeminiTranslationAdapter({
-    model: 'gemini-3.1-flash-lite-preview',
+    model: 'gemini-3.1-flash-lite',
     apiKey: 'test-key-not-a-secret',
     fetch,
     adapter: identity,
@@ -51,7 +51,7 @@ describe('Gemini REST translation adapter', () => {
     expect(fetch).toHaveBeenCalledTimes(1);
     const [url, init] = fetch.mock.calls[0] as unknown as [string, RequestInit];
     expect(url).toBe(
-      'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent',
     );
     expect(url).not.toContain('test-key-not-a-secret');
     expect(init).toMatchObject({
@@ -141,13 +141,26 @@ describe('Gemini REST translation adapter', () => {
     const fetch = vi.fn();
     expect(() =>
       createGeminiTranslationAdapter({
-        model: 'gemini-3.1-flash-lite-preview',
+        model: 'gemini-3.1-flash-lite',
         apiKey: 'test-key-not-a-secret',
         fetch,
         adapter: {
           ...identity,
           unexpected: 'field',
         } as unknown as typeof identity,
+      }),
+    ).toThrow(GeminiAdapterError);
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it('rejects the retired preview model before provider dispatch', () => {
+    const fetch = vi.fn();
+    expect(() =>
+      createGeminiTranslationAdapter({
+        model: 'gemini-3.1-flash-lite-preview',
+        apiKey: 'test-key-not-a-secret',
+        fetch,
+        adapter: identity,
       }),
     ).toThrow(GeminiAdapterError);
     expect(fetch).not.toHaveBeenCalled();

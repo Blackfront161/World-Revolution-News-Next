@@ -19,13 +19,28 @@ input, its canonical JSON hash, a bounded copy of the V5 delivery
 the one reviewed EFF batch/bindings. It therefore retains the existing no-change and
 fail-closed contracts; no sport draft or metadata-only note can enter it.
 
-The job has public-repository-only guard, read-only `contents` permission,
-credential-free checkout, an eight-minute timeout, and one concurrent run. It
-does not use an Actions artifact or cache. The runner bundle exists only in the
-ephemeral job workspace. After a successful run, the bounded step summary
-contains only its outcome, `publicationPerformed: false`, and the receipt
-SHA-256; it contains no article content, URL, snapshot, or provider credential.
-The public-runner/billing and merge decision remain an external Root decision;
-this local workflow has incurred no Actions usage.
+The job is compatible with the target repository, has read-only `contents`
+permission, credential-free checkout, an eight-minute timeout, and one concurrent
+run. Every scheduled and manual run
+requires `dry_run: true`; the runner records that in its bounded receipt and the
+workflow rejects any other mode. The V3/V6 delivery pointer remains only in the
+ephemeral local bundle: no client pointer is transferred or activated. The bounded
+step summary contains only mode, outcome, `publicationPerformed: false`, pointer
+transfer status, and receipt SHA-256; it contains no article content, URL, snapshot,
+or provider credential. A SHA-pinned official upload action retains the review bundle
+for three days and does not cache it. A source-bound directory refresh is added only
+when both bundled clients are byte-identical and their reviewed `sourceCommit` equals
+the resolved upstream commit; otherwise the run reports that a reviewed directory
+regeneration is required. Neither path publishes content. GitHub Actions availability
+and any future merge decision remain external; this packet does not assert a workflow
+run that has not occurred.
 
 Validation: `node --test tools/verify-wrn-content-supply-workflow.test.mjs`.
+`hash-manifest.json` binds this operations packet's workflow, runner, focused
+tests, reviewed V5 ledger, and contract manifest to the recorded source commit.
+
+Windows reliability follow-up, 21 September 2026: nested atomic staging names
+were shortened and atomic directory renames now retry only bounded transient
+`EPERM`, `EBUSY`, and `ENOTEMPTY` failures. The output contract, fail-closed
+validation, pointer-last order, and final directory names are unchanged. The
+eight continuous-supply cases pass with the real nested V3/V6 preparation path.

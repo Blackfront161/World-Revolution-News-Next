@@ -334,6 +334,10 @@ describe('website local newsfeed', () => {
     await user.click(menu);
     expect(window.location.hash).toBe('#more');
     expect(menu).toHaveAccessibleName('Back');
+    expect(screen.getByRole('link', { name: 'Privacy' })).toHaveAttribute(
+      'href',
+      '/privacy.html?lang=en&return=app',
+    );
     await user.click(menu);
     await waitFor(() => expect(window.location.hash).toBe('#discover/sport'));
     expect(window.location.search).toBe('?theme=violet');

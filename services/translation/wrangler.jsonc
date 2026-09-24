@@ -3,9 +3,15 @@
   "name": "wrn-next-translation",
   "main": "src/worker.ts",
   "compatibility_date": "2026-09-11",
+  "workers_dev": false,
+  "preview_urls": false,
   "observability": { "enabled": true, "head_sampling_rate": 0 },
   "vars": {
     "TRANSLATION_V2_ENABLED": "false",
+    "TRANSLATION_MODEL": "gemini-3.1-flash-lite",
+    "TRANSLATION_CACHE_TTL_SECONDS": "604800",
+    "TRANSLATION_SUPPORTED_SOURCE_LANGUAGES": "[\"en\",\"de\",\"es\",\"fr\",\"it\",\"pt\",\"ru\",\"el\",\"tr\"]",
+    "TRANSLATION_QUOTA_POLICY": "{\"read\":{\"requestsPerMinute\":60,\"requestsPerDay\":20000,\"utf16PerMinute\":1,\"utf16PerDay\":1},\"provider\":{\"requestsPerMinute\":10,\"requestsPerDay\":450,\"utf16PerMinute\":60000,\"utf16PerDay\":2700000},\"write\":{\"requestsPerMinute\":10,\"requestsPerDay\":900,\"utf16PerMinute\":1,\"utf16PerDay\":1}}",
   },
-  // Activation must add reviewed binding names/types, origins, model, secret and route evidence separately.
+  // Activation must add reviewed KV/SQLite-DO bindings, exact origins, secret and route evidence separately.
 }

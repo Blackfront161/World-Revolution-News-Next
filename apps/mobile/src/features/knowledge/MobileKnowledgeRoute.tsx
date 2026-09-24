@@ -61,7 +61,10 @@ function Library({ data, language }: { data: LoadedMobileKnowledge; language: Ui
       }),
     [data, format, query, selectedLanguage, source],
   );
-  useEffect(() => setShown(pageSize), [query, selectedLanguage, source, format]);
+  useEffect(() => {
+    const timeout = window.setTimeout(() => setShown(pageSize), 0);
+    return () => window.clearTimeout(timeout);
+  }, [query, selectedLanguage, source, format]);
   const languages = [...new Set(data.projection.books.flatMap((book) => book.languages))].sort();
   const formats = [...new Set(data.projection.books.flatMap((book) => book.formats))].sort();
   const reset = () => {
@@ -299,16 +302,19 @@ export function MobileKnowledgeRoute({
   const [retryEpoch, setRetryEpoch] = useState(0);
   useEffect(() => {
     let active = true;
-    setFailed(false);
-    loadMobileKnowledge()
-      .then((value) => {
-        if (active) setData(value);
-      })
-      .catch(() => {
-        if (active) setFailed(true);
-      });
+    const timeout = window.setTimeout(() => {
+      setFailed(false);
+      loadMobileKnowledge()
+        .then((value) => {
+          if (active) setData(value);
+        })
+        .catch(() => {
+          if (active) setFailed(true);
+        });
+    }, 0);
     return () => {
       active = false;
+      window.clearTimeout(timeout);
     };
   }, [retryEpoch]);
   useLayoutEffect(() => {

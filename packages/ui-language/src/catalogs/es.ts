@@ -253,6 +253,7 @@ export const spanishUiCopy: UiCopy = Object.freeze({
   voluntarySupport: 'Apoyo voluntario:',
   externalPaymentNotice: 'Al activar esto, se sale de la app y se abre una página de pago externa.',
   support: 'Apoyar',
+  privacyPolicy: 'Privacidad',
   localContent: 'Contenido local',
   localContentDetail: 'Gestiona el contenido local validado disponible en este navegador.',
   contentActiveRevision: 'Revisión activa: {revision}',

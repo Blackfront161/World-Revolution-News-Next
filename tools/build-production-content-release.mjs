@@ -1,7 +1,9 @@
-import { access, mkdir, readFile, rename, stat, writeFile } from 'node:fs/promises';
+import { access, mkdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { randomUUID } from 'node:crypto';
+import { randomBytes } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+
+import { atomicRename } from './atomic-rename.mjs';
 
 import {
   productionContractVersionV1,
@@ -281,7 +283,7 @@ export async function buildProductionContentRelease({ inputPath, outputPath }) {
   if (!validation.ok) fail(`invalid admission package (${validation.errors.join(', ')})`);
   const parent = path.dirname(resolvedOutput);
   await mkdir(parent, { recursive: true });
-  const staging = path.join(parent, `.wrn-production-content-staging-${randomUUID()}`);
+  const staging = path.join(parent, `.wrn-b-${randomBytes(4).toString('hex')}`);
   await mkdir(staging, { recursive: false });
   const revisionDirectory = path.join(staging, input.releaseRevision);
   await mkdir(revisionDirectory, { recursive: false });
@@ -307,7 +309,7 @@ export async function buildProductionContentRelease({ inputPath, outputPath }) {
     descriptorPath: `${input.releaseRevision}/release-descriptor.json`,
     descriptorSha256: descriptorFile.sha256,
   });
-  await rename(staging, resolvedOutput);
+  await atomicRename(staging, resolvedOutput);
   return Object.freeze({
     outputPath: resolvedOutput,
     releaseRevision: input.releaseRevision,

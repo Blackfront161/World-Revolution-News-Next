@@ -14,6 +14,7 @@ public class MainActivity extends BridgeActivity {
     public void onCreate(android.os.Bundle savedInstanceState) {
         SplashScreen.installSplashScreen(this);
         registerPlugin(WRNPlatformPlugin.class);
+        registerPlugin(WRNTtsPlugin.class);
         super.onCreate(savedInstanceState);
         try { appUpdates = new WRNAppUpdateController(this); }
         catch (RuntimeException error) { Log.w("WRNPlayUpdates", "Play update support unavailable"); }

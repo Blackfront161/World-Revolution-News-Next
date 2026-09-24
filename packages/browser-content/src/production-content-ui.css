@@ -316,6 +316,56 @@
   overflow-wrap: anywhere;
 }
 
+.production-podcast {
+  margin-block: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--raised);
+}
+
+.production-podcast summary {
+  min-height: var(--control);
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.production-podcast label {
+  display: grid;
+  gap: var(--space-1);
+  margin-block: var(--space-2);
+}
+
+.production-podcast select {
+  min-height: var(--control);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.production-podcast__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.production-podcast__privacy {
+  color: var(--muted);
+}
+
+.production-podcast__online {
+  margin-block-end: var(--space-3);
+  padding-block-end: var(--space-3);
+  border-block-end: 1px solid var(--border);
+}
+
+.production-podcast audio {
+  width: 100%;
+  margin-block-start: var(--space-2);
+}
+
 .production-translation button {
   min-width: 44px;
   min-height: 44px;

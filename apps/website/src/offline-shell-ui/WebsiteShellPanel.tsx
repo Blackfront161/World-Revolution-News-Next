@@ -253,12 +253,15 @@ export function WebsiteShellPanel({
     [adapter],
   );
   const snapshot = useSyncExternalStore(subscribe, getSnapshot, getInitialSnapshot);
-  const settledReadinessRef = useRef<WebsiteShellStatus>(initialSnapshot);
-  if (snapshot.kind !== 'initializing' && snapshot.kind !== 'pending')
-    settledReadinessRef.current = snapshot;
+  const [settledReadiness, setSettledReadiness] = useState<WebsiteShellStatus>(initialSnapshot);
+  useEffect(() => {
+    if (snapshot.kind === 'initializing' || snapshot.kind === 'pending') return;
+    const timeout = window.setTimeout(() => setSettledReadiness(snapshot), 0);
+    return () => window.clearTimeout(timeout);
+  }, [snapshot]);
   const readinessSnapshot =
-    snapshot.kind === 'pending' && settledReadinessRef.current.kind !== 'initializing'
-      ? settledReadinessRef.current
+    snapshot.kind === 'pending' && settledReadiness.kind !== 'initializing'
+      ? settledReadiness
       : snapshot;
   const actionLabels: Readonly<Record<ShellAction, string>> = {
     enable: copy.websiteShellEnable,
@@ -272,7 +275,9 @@ export function WebsiteShellPanel({
 
   useEffect(() => {
     if (confirmation === null) return;
-    if (confirmation.fingerprint !== snapshotFingerprint(snapshot)) closeConfirmation();
+    if (confirmation.fingerprint === snapshotFingerprint(snapshot)) return;
+    const timeout = window.setTimeout(closeConfirmation, 0);
+    return () => window.clearTimeout(timeout);
   }, [confirmation, snapshot]);
 
   useEffect(() => {
@@ -283,12 +288,17 @@ export function WebsiteShellPanel({
       snapshot.kind === 'pending'
     )
       return;
-    setUpdateAttempt({
-      kind: 'indeterminate',
-      operation: 'update',
-      epoch: updateAttempt.epoch,
-      code: 'native-outcome-unbound',
-    });
+    const timeout = window.setTimeout(
+      () =>
+        setUpdateAttempt({
+          kind: 'indeterminate',
+          operation: 'update',
+          epoch: updateAttempt.epoch,
+          code: 'native-outcome-unbound',
+        }),
+      0,
+    );
+    return () => window.clearTimeout(timeout);
   }, [invoking, snapshot.kind, updateAttempt]);
 
   const invoke = async (action: ShellAction) => {
@@ -378,7 +388,7 @@ export function WebsiteShellPanel({
           </p>
           {snapshot.kind === 'pending' &&
           snapshot.operation !== 'update' &&
-          settledReadinessRef.current.kind !== 'initializing' ? (
+          settledReadiness.kind !== 'initializing' ? (
             <p
               className="website-shell-status website-shell-action-status"
               role="status"

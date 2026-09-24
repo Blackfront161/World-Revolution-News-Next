@@ -38,7 +38,10 @@ function Library({ data, language }: { data: WebsiteKnowledge; language: UiLangu
       }),
     [bookLanguage, data, format, query, source],
   );
-  useEffect(() => setShown(pageSize), [bookLanguage, format, query, source]);
+  useEffect(() => {
+    const timeout = window.setTimeout(() => setShown(pageSize), 0);
+    return () => window.clearTimeout(timeout);
+  }, [bookLanguage, format, query, source]);
   const reset = () => {
     setQuery('');
     setBookLanguage('');
@@ -261,14 +264,19 @@ export function WebsiteKnowledgeRoute({
   const [retry, setRetry] = useState(0);
   useEffect(() => {
     const controller = new AbortController();
-    setFailed(false);
-    setData(null);
-    loadWebsiteKnowledge(controller.signal)
-      .then(setData)
-      .catch((error: unknown) => {
-        if (!(error instanceof DOMException && error.name === 'AbortError')) setFailed(true);
-      });
-    return () => controller.abort();
+    const timeout = window.setTimeout(() => {
+      setFailed(false);
+      setData(null);
+      loadWebsiteKnowledge(controller.signal)
+        .then(setData)
+        .catch((error: unknown) => {
+          if (!(error instanceof DOMException && error.name === 'AbortError')) setFailed(true);
+        });
+    }, 0);
+    return () => {
+      window.clearTimeout(timeout);
+      controller.abort();
+    };
   }, [retry]);
   useLayoutEffect(() => {
     if (document.activeElement === document.body) headingRef.current?.focus();

@@ -1,4 +1,11 @@
-import { createElement as h, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import {
+  createElement as h,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from 'react';
 import type {
   LocalArticle,
   LocalReaderContentBlock,
@@ -24,6 +31,18 @@ type TranslationState = Readonly<{
   adapter?: string;
 }>;
 const initialTranslationState: TranslationState = Object.freeze({ kind: 'disabled' });
+type ControllerScope = Readonly<{ id: symbol }>;
+const controllerScopes = new WeakMap<ControllerScope, Map<string, AbortController>>();
+function createControllerScope(): ControllerScope {
+  const scope = Object.freeze({ id: Symbol('reader-v2-translation') });
+  controllerScopes.set(scope, new Map());
+  return scope;
+}
+function controllersFor(scope: ControllerScope): Map<string, AbortController> {
+  const controllers = controllerScopes.get(scope);
+  if (controllers === undefined) throw new Error('translation controller scope is unavailable');
+  return controllers;
+}
 
 function serializeBlocks(blocks: readonly LocalReaderContentBlock[]): string {
   return blocks
@@ -98,25 +117,26 @@ export function MobileReaderV2Presentation({
     ? matchingSidecar?.document.sources.find((item) => item.sourceId === article.source.id)
     : undefined;
   const [states, setStates] = useState<Readonly<Record<string, TranslationState>>>({});
-  const controllers = useRef(new Map<string, AbortController>());
+  const [controllerScope] = useState(createControllerScope);
   const identity =
     snapshot === null
       ? ''
       : `${article.id}:${snapshot.releaseRevision}:${snapshot.manifestSha256}:${snapshot.readerDetailsRevision}:${snapshot.readerDetailsWholeDocumentSha256}:${snapshot.readerDetailsIntegritySha256}:${targetLanguage}`;
-  const identityRef = useRef(identity);
-  identityRef.current = identity;
   useEffect(
     () => () => {
-      controllers.current.forEach((item) => item.abort());
-      controllers.current.clear();
+      const controllers = controllersFor(controllerScope);
+      controllers.forEach((item) => item.abort());
+      controllers.clear();
     },
-    [],
+    [controllerScope],
   );
   useEffect(() => {
-    controllers.current.forEach((item) => item.abort());
-    controllers.current.clear();
-    setStates({});
-  }, [identity]);
+    const controllers = controllersFor(controllerScope);
+    controllers.forEach((item) => item.abort());
+    controllers.clear();
+    const timeout = window.setTimeout(() => setStates({}), 0);
+    return () => window.clearTimeout(timeout);
+  }, [controllerScope, identity]);
   const sections = useMemo(
     () =>
       !valid || projection === undefined
@@ -143,60 +163,72 @@ export function MobileReaderV2Presentation({
       );
     return result;
   }, [article.id, matchingSidecar, mediaSafety, valid]);
-  const translate = (
-    sectionId: string,
-    blockId: string,
-    sourceFragmentSha256: string,
-    blocks: readonly LocalReaderContentBlock[],
-  ) => {
-    if (snapshot === null) return;
-    const key = `${sectionId}:${blockId}:${sourceFragmentSha256}`;
-    controllers.current.get(key)?.abort();
-    const controller = new AbortController();
-    controllers.current.set(key, controller);
-    const requestIdentity = identity;
-    if (isOffline) {
-      setStates((old) => ({ ...old, [key]: { kind: 'offline' } }));
-      return;
-    }
-    setStates((old) => ({ ...old, [key]: { kind: 'loading' } }));
-    const request = {
-      snapshot,
-      articleId: article.id,
-      sectionId,
-      sourceFragmentSha256,
-      sourceLanguage: article.originalLanguage,
-      targetLanguage,
-      input: serializeBlocks(blocks),
-    };
-    void (async () => {
-      const adapter = translationAdapter;
-      const resultIdentity =
-        adapter === null ? null : await mobileReaderV2TranslationResultIdentity(request, adapter);
-      const result: MobileReaderV2TranslationResult = await translateMobileReaderV2Section(
-        request,
-        controller.signal,
-        adapter,
-        () => identityRef.current === requestIdentity,
-      );
-      if (
-        identityRef.current !== requestIdentity ||
-        controllers.current.get(key) !== controller ||
-        (result.kind === 'translated' && (adapter === null || resultIdentity === null))
-      )
+  const translate = useCallback(
+    (
+      sectionId: string,
+      blockId: string,
+      sourceFragmentSha256: string,
+      blocks: readonly LocalReaderContentBlock[],
+    ) => {
+      if (snapshot === null) return;
+      const controllers = controllersFor(controllerScope);
+      const key = `${identity}:${sectionId}:${blockId}:${sourceFragmentSha256}`;
+      controllers.get(key)?.abort();
+      const controller = new AbortController();
+      controllers.set(key, controller);
+      if (isOffline) {
+        setStates((old) => ({ ...old, [key]: { kind: 'offline' } }));
         return;
-      const next: TranslationState =
-        result.kind === 'translated'
-          ? {
-              kind: 'translated',
-              text: result.text,
-              adapter: `${resultIdentity!.adapterId}/${resultIdentity!.adapterVersion}`,
-            }
-          : { kind: result.kind };
-      setStates((old) => ({ ...old, [key]: next }));
-      controllers.current.delete(key);
-    })();
-  };
+      }
+      setStates((old) => ({ ...old, [key]: { kind: 'loading' } }));
+      const request = {
+        snapshot,
+        articleId: article.id,
+        sectionId,
+        sourceFragmentSha256,
+        sourceLanguage: article.originalLanguage,
+        targetLanguage,
+        input: serializeBlocks(blocks),
+      };
+      void (async () => {
+        const adapter = translationAdapter;
+        const resultIdentity =
+          adapter === null ? null : await mobileReaderV2TranslationResultIdentity(request, adapter);
+        const result: MobileReaderV2TranslationResult = await translateMobileReaderV2Section(
+          request,
+          controller.signal,
+          adapter,
+          () => !controller.signal.aborted,
+        );
+        if (
+          controller.signal.aborted ||
+          controllers.get(key) !== controller ||
+          (result.kind === 'translated' && (adapter === null || resultIdentity === null))
+        )
+          return;
+        const next: TranslationState =
+          result.kind === 'translated'
+            ? {
+                kind: 'translated',
+                text: result.text,
+                adapter: `${resultIdentity!.adapterId}/${resultIdentity!.adapterVersion}`,
+              }
+            : { kind: result.kind };
+        setStates((old) => ({ ...old, [key]: next }));
+        controllers.delete(key);
+      })();
+    },
+    [
+      article.id,
+      article.originalLanguage,
+      controllerScope,
+      identity,
+      isOffline,
+      snapshot,
+      targetLanguage,
+      translationAdapter,
+    ],
+  );
   const readerContent =
     sections === null
       ? detail.blocks.map((block, index) => renderBlock(block, `v1:${index}`))
@@ -214,7 +246,7 @@ export function MobileReaderV2Presentation({
             references.map(({ reference, blocks }) => {
               const anchor = `${section.sectionId}:${reference.blockId}`;
               const resolved = media.get(anchor);
-              const key = `${section.sectionId}:${reference.blockId}:${reference.sourceFragmentSha256}`;
+              const key = `${identity}:${section.sectionId}:${reference.blockId}:${reference.sourceFragmentSha256}`;
               const state = states[key] ?? initialTranslationState;
               const status =
                 state.kind === 'disabled'

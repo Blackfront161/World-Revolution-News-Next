@@ -44,7 +44,6 @@ export function WebsiteContentDirectoryRoute({
   const [shown, setShown] = useState(30);
   useEffect(() => {
     const c = new AbortController();
-    setFailed(false);
     loadWebsiteContentDirectory(c.signal)
       .then(setData)
       .catch(() => setFailed(true));

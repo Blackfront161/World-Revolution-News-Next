@@ -252,6 +252,7 @@ export const russianUiCopy: UiCopy = Object.freeze({
   voluntarySupport: 'Добровольная поддержка:',
   externalPaymentNotice: 'Активация откроет приложение и перейдёт на внешнюю страницу платежа.',
   support: 'Поддержать',
+  privacyPolicy: 'Конфиденциальность',
   localContent: 'Локальные материалы',
   localContentDetail: 'Управляйте проверенными локальными материалами в этом браузере.',
   contentActiveRevision: 'Активная ревизия: {revision}',

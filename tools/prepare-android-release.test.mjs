@@ -28,7 +28,7 @@ async function fixture() {
     file(root, 'apps/mobile/capacitor.config.ts', 'export default {};\n'),
     file(root, 'pnpm-lock.yaml', 'lockfileVersion: 9\n'),
     file(root, 'apps/mobile/android/app/build.gradle', 'android {}\n'),
-    file(root, 'apps/mobile/android/capacitor.settings.gradle', 'include \'fixture\'\n'),
+    file(root, 'apps/mobile/android/capacitor.settings.gradle', "include 'fixture'\n"),
     file(root, 'apps/mobile/android/app/src/main/assets/capacitor.config.json', '{}\n'),
     file(root, 'apps/mobile/android/app/src/main/assets/capacitor.plugins.json', '[]\n'),
     file(root, 'apps/mobile/android/app/src/main/assets/public/cordova.js', 'cordova\n'),
@@ -39,14 +39,27 @@ async function fixture() {
   ]);
   git(root, ['init', '-q']);
   git(root, ['add', '.']);
-  git(root, ['-c', 'user.name=WRN Test', '-c', 'user.email=wrn-test@example.invalid', 'commit', '-qm', 'fixture']);
+  git(root, [
+    '-c',
+    'user.name=WRN Test',
+    '-c',
+    'user.email=wrn-test@example.invalid',
+    'commit',
+    '-qm',
+    'fixture',
+  ]);
   return root;
+}
+
+async function prepare(root, options = {}) {
+  const capacitorBridgePath = path.join(root, 'fixture-dependencies/native-bridge.js');
+  await file(root, 'fixture-dependencies/native-bridge.js', 'capacitor native bridge\n');
+  return prepareAndroidRelease({ workspaceRoot: root, capacitorBridgePath, ...options });
 }
 
 test('prepares a fresh hash-bound unsigned bundle stage without invoking Gradle', async () => {
   const root = await fixture();
-  const prepared = await prepareAndroidRelease({
-    workspaceRoot: root,
+  const prepared = await prepare(root, {
     now: () => new Date('2026-09-20T12:00:00.000Z'),
   });
   assert.equal(prepared.receipt.dirty.rejected, false);
@@ -58,8 +71,18 @@ test('prepares a fresh hash-bound unsigned bundle stage without invoking Gradle'
   assert.ok(prepared.receipt.sourcePaths.includes('apps/mobile/public'));
   assert.ok(prepared.receipt.sourcePaths.includes('tools/prepare-android-release.mjs'));
   assert.match(prepared.receipt.sourceCommit, /^[a-f0-9]{40}$/);
-  assert.equal(await readFile(path.join(prepared.output, 'native-assets/public/index.html'), 'utf8'), '<main>bound current dist</main>');
-  assert.equal(await readFile(path.join(prepared.output, 'native-assets/public/cordova.js'), 'utf8'), 'cordova\n');
+  assert.equal(
+    await readFile(path.join(prepared.output, 'native-assets/public/index.html'), 'utf8'),
+    '<main>bound current dist</main>',
+  );
+  assert.equal(
+    await readFile(path.join(prepared.output, 'native-assets/public/cordova.js'), 'utf8'),
+    'cordova\n',
+  );
+  assert.equal(
+    await readFile(path.join(prepared.output, 'native-assets/native-bridge.js'), 'utf8'),
+    'capacitor native bridge\n',
+  );
   const init = await readFile(path.join(prepared.output, 'unsigned-bundle.init.gradle'), 'utf8');
   assert.match(init, /Release signing configuration must remain unset/);
   assert.match(init, /writereleasesigningconfigversions/);
@@ -80,18 +103,27 @@ test('prepares a fresh hash-bound unsigned bundle stage without invoking Gradle'
   assert.match(init, /Bound release receipt does not match the prepared snapshot/);
   assert.match(init, /Stage assets differ from the receipt manifest/);
   assert.match(prepared.receipt.laterGradleCommand, /:app:bundleRelease/);
-  assert.deepEqual((await readdir(prepared.output)).sort(), ['native-assets', 'native-assets.json', 'receipt.json', 'unsigned-bundle.init.gradle']);
+  assert.deepEqual((await readdir(prepared.output)).sort(), [
+    'native-assets',
+    'native-assets.json',
+    'receipt.json',
+    'unsigned-bundle.init.gradle',
+  ]);
 });
 
 test('records and rejects dirty tracked Android inputs before staging assets', async () => {
   const root = await fixture();
   await file(root, 'apps/mobile/android/app/build.gradle', 'android { dirty true }\n');
-  await assert.rejects(() => prepareAndroidRelease({ workspaceRoot: root }), /tracked Android source is dirty/);
+  await assert.rejects(() => prepare(root), /tracked Android source is dirty/);
   const work = await readdir(path.join(root, 'work'));
   assert.equal(work.length, 1);
-  const receipt = JSON.parse(await readFile(path.join(root, 'work', work[0], 'receipt.json'), 'utf8'));
+  const receipt = JSON.parse(
+    await readFile(path.join(root, 'work', work[0], 'receipt.json'), 'utf8'),
+  );
   assert.equal(receipt.dirty.rejected, true);
-  assert.ok(receipt.dirty.entries.some((entry) => entry.includes('apps/mobile/android/app/build.gradle')));
+  assert.ok(
+    receipt.dirty.entries.some((entry) => entry.includes('apps/mobile/android/app/build.gradle')),
+  );
   await assert.rejects(() => readdir(path.join(root, 'work', work[0], 'native-assets')));
 });
 
@@ -105,7 +137,7 @@ test('rejects a symlink in the current dist before copying it into the stage', a
     t.skip(`symlink creation unavailable: ${error instanceof Error ? error.code : 'unknown'}`);
     return;
   }
-  await assert.rejects(() => prepareAndroidRelease({ workspaceRoot: root }), /link or junction|non-regular file/);
+  await assert.rejects(() => prepare(root), /link or junction|non-regular file/);
 });
 
 test('rejects public and tool mutations that would make the staged dist stale', async () => {
@@ -115,9 +147,11 @@ test('rejects public and tool mutations that would make the staged dist stale', 
   ]) {
     const root = await fixture();
     await file(root, relative, changed);
-    await assert.rejects(() => prepareAndroidRelease({ workspaceRoot: root }), /tracked Android source is dirty/);
+    await assert.rejects(() => prepare(root), /tracked Android source is dirty/);
     const [output] = await readdir(path.join(root, 'work'));
-    const receipt = JSON.parse(await readFile(path.join(root, 'work', output, 'receipt.json'), 'utf8'));
+    const receipt = JSON.parse(
+      await readFile(path.join(root, 'work', output, 'receipt.json'), 'utf8'),
+    );
     assert.ok(receipt.dirty.entries.some((entry) => entry.includes(relative)));
   }
 });
@@ -125,5 +159,5 @@ test('rejects public and tool mutations that would make the staged dist stale', 
 test('requires the web entry before any native bridge file can make a stage appear non-empty', async () => {
   const root = await fixture();
   await writeFile(path.join(root, 'apps/mobile/dist/index.html'), '');
-  await assert.rejects(() => prepareAndroidRelease({ workspaceRoot: root }), /public\/index\.html/);
+  await assert.rejects(() => prepare(root), /public\/index\.html/);
 });

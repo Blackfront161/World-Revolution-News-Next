@@ -30,18 +30,20 @@ export function WebsitePersonalizationArea({
   const [unavailable, setUnavailable] = useState(false);
   const [reloadAttempt, setReloadAttempt] = useState(0);
   useEffect(() => {
-    let store: WebsitePersonalizationStore;
-    try {
-      store = createStore();
-    } catch {
-      setUnavailable(true);
-      return;
-    }
-    setUnavailable(false);
-    setRuntime({ store, loaded: store.load() });
+    let store: WebsitePersonalizationStore | null = null;
+    const timeout = window.setTimeout(() => {
+      try {
+        store = createStore();
+      } catch {
+        setUnavailable(true);
+        return;
+      }
+      setUnavailable(false);
+      setRuntime({ store, loaded: store.load() });
+    }, 0);
     return () => {
-      store.dispose();
-      setRuntime((current) => (current?.store === store ? null : current));
+      window.clearTimeout(timeout);
+      store?.dispose();
     };
   }, [createStore, reloadAttempt]);
   const store = runtime?.store;

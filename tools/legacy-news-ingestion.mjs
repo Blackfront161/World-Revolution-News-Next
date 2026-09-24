@@ -17,8 +17,7 @@ const fail = (reason) => {
   throw new Error(`WRN legacy ingestion: ${reason}`);
 };
 const isRecord = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
-const nonNegativeInteger = (value) =>
-  Number.isSafeInteger(value) && value >= 0 ? value : null;
+const nonNegativeInteger = (value) => (Number.isSafeInteger(value) && value >= 0 ? value : null);
 function originalUrl(value) {
   if (
     typeof value !== 'string' ||

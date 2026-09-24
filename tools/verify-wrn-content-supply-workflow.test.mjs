@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
@@ -9,23 +10,54 @@ const workflow = await readFile(
   path.join(workspace, '.github/workflows/wrn-content-supply.yml'),
   'utf8',
 );
+const manifest = JSON.parse(
+  await readFile(
+    path.join(workspace, 'docs/evidence/WRN-SCHEDULED-SUPPLY-2026-09-20/manifest.json'),
+    'utf8',
+  ),
+);
+const hashManifest = JSON.parse(
+  await readFile(
+    path.join(workspace, 'docs/evidence/WRN-SCHEDULED-SUPPLY-2026-09-20/hash-manifest.json'),
+    'utf8',
+  ),
+);
 
-test('scheduled content supply is bounded, public-only, and does not publish', () => {
+test('scheduled content supply is bounded, private-repository compatible, and does not publish', () => {
   assert.match(workflow, /schedule:\s*\n\s*- cron: '17 \*\/6 \* \* \*'/u);
   assert.match(workflow, /workflow_dispatch:/u);
   assert.match(workflow, /permissions:\s*\n\s*contents: read/u);
-  assert.match(workflow, /if: github\.event\.repository\.private == false/u);
+  assert.doesNotMatch(workflow, /github\.event\.repository\.private == false/u);
   assert.match(workflow, /timeout-minutes: 8/u);
   assert.match(workflow, /GITHUB_STEP_SUMMARY/u);
   assert.match(workflow, /Receipt SHA-256/u);
   assert.match(workflow, /publicationPerformed !== false/u);
+  assert.match(workflow, /receipt\?\.dryRun !== true/u);
+  assert.match(workflow, /DRY_RUN/u);
+  assert.match(workflow, /github\.event_name != 'workflow_dispatch'/u);
+  assert.match(workflow, /\[\[ "\$DRY_RUN" == "true" \]\]/u);
+  assert.match(workflow, /--dry-run/u);
+  assert.match(workflow, /Client pointer transfer: false/u);
   assert.match(workflow, /cancel-in-progress: false/u);
   assert.match(workflow, /persist-credentials: false/u);
-  assert.match(workflow, /tools\/run-legacy-news-supply\.mjs/u);
-  assert.doesNotMatch(
+  assert.match(workflow, /actions\/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4\.4\.0/u);
+  assert.match(
     workflow,
-    /upload-artifact|actions\/cache|retention-days|wrangler|deploy|activate|gh\s+api|GITHUB_TOKEN/u,
+    /actions\/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7\.0\.0/u,
   );
+  assert.doesNotMatch(workflow, /actions\/(?:checkout|setup-node)@v\d/u);
+  assert.match(workflow, /tools\/run-legacy-news-supply\.mjs/u);
+  assert.match(
+    workflow,
+    /actions\/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7\.0\.1/u,
+  );
+  assert.match(workflow, /retention-days: 3/u);
+  assert.match(workflow, /include-hidden-files: true/u);
+  assert.doesNotMatch(workflow, /actions\/cache|wrangler|deploy|activate|gh\s+api|GITHUB_TOKEN/u);
+  assert.match(workflow, /prepare-content-directory-refresh\.mjs/u);
+  assert.match(workflow, /cmp --silent "\$mobile" "\$website"/u);
+  assert.match(workflow, /directory_commit" != "\$UPSTREAM_COMMIT"/u);
+  assert.match(workflow, /awaiting reviewed directory regeneration/u);
 });
 
 test('the default resolves main then produces awaiting-admission without a reviewed batch', () => {
@@ -42,4 +74,49 @@ test('the default resolves main then produces awaiting-admission without a revie
   );
   assert.match(workflow, /\[\[ "\$REQUESTED_COMMIT" =~ \^\[a-f0-9\]\{40\}\$ \]\]/u);
   assert.doesNotMatch(workflow, /\$\{\{ inputs\.upstream_commit \}\}" =~/u);
+});
+
+test('the versioned operations manifest describes the same local-only dry-run contract', () => {
+  assert.deepEqual(manifest, {
+    schema: 'wrn.scheduled-content-supply-manifest.v1',
+    version: 1,
+    workflowPath: '.github/workflows/wrn-content-supply.yml',
+    schedule: '17 */6 * * *',
+    mode: 'dry-run-only',
+    upstream: {
+      repository: 'Blackfront161/Revolution-News-Data',
+      ref: 'main',
+      commitBinding: 'resolved-40-hex-commit',
+    },
+    localPipeline: [
+      'bounded-snapshot',
+      'review-bound-admission',
+      'v3-build',
+      'v6-delivery',
+      'source-bound-directory-refresh',
+      'pointer-last-local-package',
+    ],
+    guards: [
+      'contents-read-only',
+      'credential-free-checkout',
+      'single-concurrency-group',
+      'eight-minute-timeout',
+      'three-day-review-artifact-no-cache',
+      'no-publication-or-client-pointer-transfer',
+    ],
+    statusReceipt: 'wrn.continuous-legacy-news-supply-run.v1',
+  });
+});
+
+test('the hash manifest binds the packet to its source commit and exact SHA-256 entries', async () => {
+  assert.match(hashManifest.sourceCommit, /^[a-f0-9]{40}$/u);
+  assert.equal(hashManifest.schema, 'wrn.scheduled-content-supply-hash-manifest.v1');
+  assert.equal(hashManifest.version, 1);
+  assert.equal(hashManifest.files.length, 11);
+  for (const entry of hashManifest.files) {
+    assert.match(entry.path, /^(?:\.github|tools|docs\/evidence)\//u);
+    assert.match(entry.sha256, /^[a-f0-9]{64}$/u);
+    const bytes = await readFile(path.join(workspace, entry.path));
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), entry.sha256, entry.path);
+  }
 });
