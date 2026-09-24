@@ -46,6 +46,32 @@ Die lokale Probe liegt als ignoriertes Arbeitsartefakt unter
 `work/live-directory-20260925-a`; sie wird nicht als Produktionsinhalt
 versioniert.
 
+## Oeffentlicher GitHub-Nachweis
+
+Der secret-gefilterte Plattform-Snapshot wurde als Commit
+[`47429c3416d9506f7fc7d1bc76f449c1c0471110`](https://github.com/Blackfront161/World-Revolution-News-Next/commit/47429c3416d9506f7fc7d1bc76f449c1c0471110)
+in das oeffentliche, getrennte Repository uebertragen. Der kostenlose,
+nicht veroeffentlichende
+[Workflow-Lauf 36028488433](https://github.com/Blackfront161/World-Revolution-News-Next/actions/runs/36028488433)
+bestand am 25. September vollstaendig. Checkout v7.0.1, Node24, Commitbindung,
+Supply-Bundle, Metadatenverzeichnis und der kurzlebige Artefakt-Upload waren
+gruen.
+
+Das wieder heruntergeladene Verzeichnis-Receipt bestaetigt:
+
+- Alt-Backend-Commit `936b3bae95465fb4e683b1391e112e74ee7ce727`;
+- Sequenz `202609241636`;
+- 958 Nachrichtenverweise, 532 Quellen und drei Sportnotizen;
+- 1.928.624 Snapshot-Bytes;
+- Snapshot-SHA-256
+  `42e5fc54bd80b9241787e21494954f66584aaca6cbd74d5c89f116a6a45024ac`;
+- erneute vollstaendige Vertrags- und ID-Pruefung bestanden;
+- `dryRun: true` und `publicationPerformed: false`.
+
+Der parallele Volltextpfad blieb nachvollziehbar bei `awaiting-admission`.
+Damit ist die wiederkehrende Vorbereitung real betriebsfaehig, ohne die
+redaktionelle Rechtepruefung zu umgehen.
+
 ## Noch offene Produktionsgrenze
 
 Der erzeugte Review-Paketpfad muss nach finaler Hostingwahl ueber einen

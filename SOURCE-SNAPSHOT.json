@@ -1,7 +1,7 @@
 {
   "schema": "wrn.clean-platform-snapshot.v1",
-  "sourceCommit": "cf656d397e472d75ed6745afcf9dcd9842c30011",
-  "generatedAt": "2026-09-24T16:35:11.073Z",
+  "sourceCommit": "f69ba1287b76c514a13fcceef9eaf75dac6cd20c",
+  "generatedAt": "2026-09-24T16:38:51.878Z",
   "excluded": [
     "Local agent settings",
     "Historical build/QA archive (preserved locally)",
@@ -2365,8 +2365,8 @@
     },
     {
       "path": "docs/PROJECT-STATE.md",
-      "bytes": 25103,
-      "sha256": "32a2b16f5bd3b1b2bd6675fe3f6866e302083ee3a8505bd86de96189ae8e2295"
+      "bytes": 25405,
+      "sha256": "77e1476a9471ccb5b140cc6c3b84d90cad80a94b84817c9c5b1a35fa44b914b9"
     },
     {
       "path": "docs/WRN-G3-014-DELEGATION-REGISTER.md",
@@ -2635,8 +2635,8 @@
     },
     {
       "path": "docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/REPORT.md",
-      "bytes": 2623,
-      "sha256": "d57e740658ef97011fd027ac8257a233aedd503330a70b138ab4496661175bad"
+      "bytes": 3877,
+      "sha256": "b628cf290a5da8b423a649361b5973b0ad23d1294fc3086beb2a5855e6ce620a"
     },
     {
       "path": "docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/hash-manifest.json",
@@ -2660,8 +2660,8 @@
     },
     {
       "path": "docs/evidence/WRN-PO-SCOPE-STATUS-2026-09-10.md",
-      "bytes": 17470,
-      "sha256": "2724ee04861ab6f52e115b9606ddfea689e576cb0309dc16c9ae5575cd82a19d"
+      "bytes": 17609,
+      "sha256": "3c770b15587e53b1bba3d6121f6d6e84e0f45d9dbfbfd0ca30937bba7728fa3e"
     },
     {
       "path": "docs/evidence/WRN-PRODUCTION-ARTICLE-PILOT-2026-09-10/generated-core-e8506a4/current.json",

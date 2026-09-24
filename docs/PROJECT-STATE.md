@@ -10,7 +10,11 @@ exakt gebundenen aktuellen Commit ersetzt. Die reale lokale Probe gegen
 wurden abgewiesen. 37/37 betroffene Tests, ESLint, Format und der echte
 Netzwerk-Dry-run sind grün. Volltexte/Bilder wurden nicht übernommen und
 `publicationPerformed` blieb false. Produktionshosting und der authentisierte,
-rollbackfähige Transfer bleiben offen. [Nachweis](evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/REPORT.md).
+rollbackfähige Transfer bleiben offen. Der korrigierte öffentliche GitHub-Lauf
+[36028488433](https://github.com/Blackfront161/World-Revolution-News-Next/actions/runs/36028488433)
+bestand einschließlich Commitbindung, Metadatenverzeichnis und Artefakt-Upload;
+das heruntergeladene 1.928.624-Byte-Paket bestand erneut Vertrag, IDs und Hash.
+[Nachweis](evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/REPORT.md).
 
 Neu24.09. – lokaler Android-RC: Artikelvorlesen über lokale Gerätestimmen und die
 freiwillige, standardmäßig deaktivierte Online-Podcast-Oberfläche sind in App und
