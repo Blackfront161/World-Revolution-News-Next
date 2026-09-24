@@ -1,7 +1,7 @@
 {
   "schema": "wrn.clean-platform-snapshot.v1",
-  "sourceCommit": "34d87ee21e4aa17118b3fd07ff55729a4a7fac2e",
-  "generatedAt": "2026-09-24T16:30:48.440Z",
+  "sourceCommit": "cf656d397e472d75ed6745afcf9dcd9842c30011",
+  "generatedAt": "2026-09-24T16:35:11.073Z",
   "excluded": [
     "Local agent settings",
     "Historical build/QA archive (preserved locally)",
@@ -16,7 +16,7 @@
     {
       "path": ".github/workflows/wrn-content-supply.yml",
       "bytes": 7068,
-      "sha256": "38b1228adb5437f385713761dfaddc5311d6d6d2f4b477ee54bbf4672a19e09c"
+      "sha256": "4b03a52153d259ac3bc53e39029b323b85c956ca19b82834914ca2a48d4df0eb"
     },
     {
       "path": ".gitignore",
@@ -2641,7 +2641,7 @@
     {
       "path": "docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/hash-manifest.json",
       "bytes": 1568,
-      "sha256": "7184e11cc41ca2f40839d57792304f2d7c7a54ff7c34dbf9a1aab0715976c20a"
+      "sha256": "0bca024ee79665258fbbe9706d518385979ade96ddba04b97c4f37917ece4010"
     },
     {
       "path": "docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/manifest.json",
@@ -9576,7 +9576,7 @@
     {
       "path": "tools/verify-wrn-content-supply-workflow.test.mjs",
       "bytes": 5695,
-      "sha256": "b7153b1540acd5f201296845ba431a4cfcac9e6a2d57e2d771465df758b5259d"
+      "sha256": "a6d68c36db933e16dcc68d3473f03bda10ce6d4918c1378c40067fa1b4f85d41"
     },
     {
       "path": "tsconfig.base.json",
