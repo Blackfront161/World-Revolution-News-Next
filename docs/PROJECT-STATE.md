@@ -1,5 +1,8 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 26.09. - Betriebsabgleich: Der öffentliche GitHub-Stand liegt hinter dem lokalen RC; die erfolgreiche 6h-Action ist ausdrücklich ein Dry-run ohne Veröffentlichung. Drei Live-Content-/Widerrufszeiger zeigen „This Page Does Not Exist“. Hostinger leitet zur Anmeldung weiter. Die laufende Inhaltsauslieferung und der vorige Host-Widerrufsstand sind damit weiter offen.
+[Beleg](evidence/WRN-RC-HOSTING-CURRENT-2026-09-26/REPORT.md).
+
 Neu 26.09. - Neuer lokaler Hostingkandidat: Produktcommit cdd7c94 und Daten-Commit 50d8a49 bilden 958 aktuelle Nachrichtenlinks, 532 Quellen und drei Sportnotizen ab. 899 gemeinsame Links behalten ihre IDs. Website 41/41 und Hostingpaket 44/44 Dateien byteweise verifiziert; Pointer zuletzt. Nur Dry-run, kein Live-Transfer. Der vorige Host-Widerrufsstand ist weiter unbewiesen.
 [Beleg](evidence/WRN-RC-HOSTING-CURRENT-2026-09-26/REPORT.md).
 

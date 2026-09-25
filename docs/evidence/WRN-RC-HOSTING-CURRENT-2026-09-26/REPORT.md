@@ -41,3 +41,23 @@ am authentisierten Host zu prüfen. Die alte Live-Website bleibt unverändert.
 Ungeprüfte Volltexte und Bilder werden durch diesen Metadatenlauf nicht
 aufgenommen. Vollständige Browser-/Gerätematrix, Produktionssignatur und
 Play-interner Test bleiben eigene Release-Bedingungen.
+
+**Betriebsabgleich am 26.09.2026, nur lesend:** Das öffentliche neue
+GitHub-Repository stand auf `8be0fae28b555ff9080efc6af7dbc59f68dcd53b`,
+also vor diesem lokalen Kandidaten. Der dort vorhandene Workflow
+`wrn-content-supply.yml` läuft alle sechs Stunden, verlangt aber ausdrücklich
+`dry_run` und besitzt nur `contents: read`. Die letzten drei eingesehenen
+Läufe waren erfolgreich. Die Workflow-Definition erzwingt
+`publicationPerformed: false` und enthält keinen Pointer-Transfer.
+Ein grüner Workflow-Lauf belegt daher keine Live-Aktualisierung.
+Der zuletzt eingesehene Lauf war
+[`36165282791`](https://github.com/Blackfront161/World-Revolution-News-Next/actions/runs/36165282791).
+
+Die drei separat im Browser geöffneten Live-Adressen
+`/wrn-content-directory/current.json`,
+`/wrn-production-content/current.json` und
+`/wrn-source-pass-revocations/current.json` zeigten jeweils
+„This Page Does Not Exist“. Ein HTTP-Statuscode wurde dabei nicht ermittelt.
+Der Hostinger-hPanel-Aufruf leitete zur Anmeldung weiter; ein
+authentisierter Host-Root und seine vorherigen Pointerbytes sind somit noch
+nicht geprüft oder gesichert. Weder Upload noch Aktivierung wurden ausgeführt.
