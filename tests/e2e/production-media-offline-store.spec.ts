@@ -3,12 +3,13 @@ import { expect, test } from '@playwright/test';
 const harnessUrl = `/@fs/${process.cwd().replaceAll('\\', '/')}/tests/e2e/production-media-offline-harness.ts`;
 const contractUrl = `/@fs/${process.cwd().replaceAll('\\', '/')}/packages/content-contracts/src/production-media-v1.ts`;
 const playerUrl = `/@fs/${process.cwd().replaceAll('\\', '/')}/packages/browser-content/src/production-media-player.ts`;
+const offlineHarnessPage = 'http://127.0.0.1:43177/__media-idb';
 
 test.describe('production media offline IndexedDB isolation', () => {
   test('creates only the media-specific stores and clears mobile without touching website', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(offlineHarnessPage);
     const result = await page.evaluate(async () => {
       const mobile = await import('/src/production-media-offline-store.ts');
       let arbitraryNameCode = '';
@@ -58,7 +59,7 @@ test.describe('production media offline IndexedDB isolation', () => {
   test('preserves the reciprocal client and all existing content, resume and V1 databases', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(offlineHarnessPage);
     const result = await page.evaluate(async (harnessUrl) => {
       const harness = await import(harnessUrl);
       const media = await import('/src/production-media-offline-store.ts');
@@ -149,7 +150,7 @@ test.describe('production media offline identity durability', () => {
   test('supports exact-highest restage and active refresh while 513 fails without eviction', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(offlineHarnessPage);
     const result = await page.evaluate(async (harnessUrl) => {
       const harness = await import(harnessUrl);
       const media = await import('/src/production-media-offline-store.ts');
@@ -312,7 +313,7 @@ test.describe('production media offline populated durability', () => {
   test('activates A/B/A, retains monotone safety and blocks rollback after current revocation', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(offlineHarnessPage);
     const result = await page.evaluate(async (harnessUrl) => {
       const { makeProductionMediaOfflinePacket } = await import(harnessUrl);
       const { openProductionMediaOfflineStore } =
@@ -388,7 +389,7 @@ test.describe('production media offline populated durability', () => {
       if (new URL(request.url()).hostname === 'publisher.invalid')
         providerRequests.push(request.url());
     });
-    await page.goto('/');
+    await page.goto(offlineHarnessPage);
     const result = await page.evaluate(
       async ({ contractUrl, harnessUrl, playerUrl }) => {
         const harness = await import(harnessUrl);
@@ -555,7 +556,7 @@ test.describe('production media offline populated durability', () => {
   test('applies the shared 0/8/9/malformed origin boundary to activate, read and rollback', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(offlineHarnessPage);
     const result = await page.evaluate(async (harnessUrl) => {
       const harness = await import(harnessUrl);
       const media = await import('/src/production-media-offline-store.ts');
@@ -700,7 +701,7 @@ test.describe('production media offline populated durability', () => {
   test('keeps provider history while current policy removal rejects activate read and rollback byte-identically', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(offlineHarnessPage);
     const result = await page.evaluate(
       async ({ harnessUrl, playerUrl }) => {
         const harness = await import(harnessUrl);
@@ -923,7 +924,7 @@ test.describe('production media offline populated durability', () => {
   test('persists safety before payload, across restart and clear without lowering the ledger', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(offlineHarnessPage);
     const result = await page.evaluate(async (harnessUrl) => {
       const harness = await import(harnessUrl);
       const media = await import('/src/production-media-offline-store.ts');
@@ -989,7 +990,7 @@ test.describe('production media offline populated durability', () => {
   test('blocks rollback at expiry and removes releases below a later safety floor', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(offlineHarnessPage);
     const result = await page.evaluate(async (harnessUrl) => {
       const harness = await import(harnessUrl);
       const media = await import('/src/production-media-offline-store.ts');
@@ -1029,7 +1030,7 @@ test.describe('production media offline corruption protection', () => {
   test('rejects hash, identity, slot, control and schema corruption without changing raw state', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(offlineHarnessPage);
     const results = await page.evaluate(async (harnessUrl) => {
       const harness = await import(harnessUrl);
       const media = await import('/src/production-media-offline-store.ts');
@@ -1194,7 +1195,7 @@ test.describe('production media offline corruption protection', () => {
   });
 
   test('rejects exact cap-plus-one raw states and preserves every byte', async ({ page }) => {
-    await page.goto('/');
+    await page.goto(offlineHarnessPage);
     const result = await page.evaluate(async (harnessUrl) => {
       const harness = await import(harnessUrl);
       const media = await import('/src/production-media-offline-store.ts');
@@ -1309,7 +1310,7 @@ test.describe('production media offline corruption protection', () => {
   });
 
   test('rejects a cyclic stored bundle without repairing or deleting it', async ({ page }) => {
-    await page.goto('/');
+    await page.goto(offlineHarnessPage);
     const result = await page.evaluate(async (harnessUrl) => {
       const harness = await import(harnessUrl);
       const media = await import('/src/production-media-offline-store.ts');
@@ -1387,7 +1388,7 @@ test.describe('production media offline corruption protection', () => {
 
 test.describe('production media offline race and failure durability', () => {
   test('snapshots caller input and origins across hashing awaits', async ({ page }) => {
-    await page.goto('/');
+    await page.goto(offlineHarnessPage);
     const result = await page.evaluate(async (harnessUrl) => {
       const harness = await import(harnessUrl);
       const media = await import('/src/production-media-offline-store.ts');
@@ -1507,7 +1508,7 @@ test.describe('production media offline race and failure durability', () => {
   test('prevents a late hash from writing after clear, concurrent state change, abort or close', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(offlineHarnessPage);
     const result = await page.evaluate(async (harnessUrl) => {
       const harness = await import(harnessUrl);
       const media = await import('/src/production-media-offline-store.ts');
@@ -1600,7 +1601,7 @@ test.describe('production media offline race and failure durability', () => {
   });
 
   test('detects same-generation raw changes in the precommit readback', async ({ page }) => {
-    await page.goto('/');
+    await page.goto(offlineHarnessPage);
     const result = await page.evaluate(async (harnessUrl) => {
       const harness = await import(harnessUrl);
       const media = await import('/src/production-media-offline-store.ts');
@@ -1672,7 +1673,7 @@ test.describe('production media offline race and failure durability', () => {
   test('maps quota abort atomically and refuses success when postcommit readback fails', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(offlineHarnessPage);
     const result = await page.evaluate(async () => {
       const media = await import('/src/production-media-offline-store.ts');
       const store = await media.openProductionMediaOfflineStore();

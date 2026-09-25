@@ -44,3 +44,14 @@ Produktionsmedien-Controller-Fälle im getrennten Checkout durch portable
 Harness-Importe wieder ausführbar gemacht: 5/5 PASS. ESLint und Prettier für
 beide Testdateien PASS. Dies ist eine Test-/Belegkorrektur; die alte Live-Seite
 und die Produktdateien wurden nicht verändert.
+
+Weiterer Nachtrag 26.09.: Die Medien-Erststartprobe wurde vom ignorierten
+Einzel-HTML und zwei manuell gestarteten Ports auf die bereits im globalen
+Browser-Setup vorhandenen Vite-Server verlegt. Die Offline-IDB-Proben starten
+nun auf einer leeren Testseite derselben Mobile-Runtime; sie lassen die
+Produkt-App nicht vor dem Anlegen ihrer Markerdatenbanken initialisieren.
+Damit bestanden Erststart 2/2, Offline-Speicher 16/16 und das kombinierte
+Controller-/Erststart-/Offline-/Resume-Paket 30/30 in Chrome. Der
+Global-Setup-Grenztest 1/1 sowie gezieltes ESLint/Prettier bestanden.
+Produktquellen, Live-Dienste und das vorhandene AAB bleiben unverändert;
+die vollständige Browsermatrix ist weiterhin offen.

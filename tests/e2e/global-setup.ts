@@ -135,15 +135,17 @@ export default async function globalSetup() {
       cacheDir: path.join(cacheRoot, 'mobile-production'),
       plugins: [
         {
-          name: 'wrn-empty-regional-idb-harness',
+          name: 'wrn-empty-idb-harness',
           configureServer(server) {
-            server.middlewares.use('/__regional-idb', (_request, response) => {
-              response.statusCode = 200;
-              response.setHeader('content-type', 'text/html; charset=utf-8');
-              response.end(
-                '<!doctype html><html><head><meta charset="utf-8"></head><body></body></html>',
-              );
-            });
+            for (const route of ['/__regional-idb', '/__media-idb', '/__media-first-boot']) {
+              server.middlewares.use(route, (_request, response) => {
+                response.statusCode = 200;
+                response.setHeader('content-type', 'text/html; charset=utf-8');
+                response.end(
+                  '<!doctype html><html><head><meta charset="utf-8"></head><body><div id="root"></div></body></html>',
+                );
+              });
+            }
           },
         },
       ],
@@ -218,6 +220,20 @@ export default async function globalSetup() {
       root: path.resolve(websiteHarness.root),
       resolve: { alias: createBrowserContentAliases(path.resolve(websiteHarness.root)) },
       cacheDir: path.join(cacheRoot, 'website-harness'),
+      plugins: [
+        {
+          name: 'wrn-empty-website-media-first-boot-harness',
+          configureServer(server) {
+            server.middlewares.use('/__media-first-boot', (_request, response) => {
+              response.statusCode = 200;
+              response.setHeader('content-type', 'text/html; charset=utf-8');
+              response.end(
+                '<!doctype html><html><head><meta charset="utf-8"></head><body><div id="root"></div></body></html>',
+              );
+            });
+          },
+        },
+      ],
       server: { host: '127.0.0.1', port: websiteHarness.port, strictPort: true },
     });
     await websiteHarnessServer.listen();

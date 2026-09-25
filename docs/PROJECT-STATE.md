@@ -1,4 +1,105 @@
 # WRN â€“ aktueller Arbeitsstand
+
+Neu 26.09. - Medien-Browserpaket im getrennten Release-Checkout: Erststart und Offline-IDB nutzen jetzt die vorhandenen leeren Vite-Testseiten. Controller/Erststart/Offline/Resume 30/30 PASS; Header-Scroll 4/4 PASS; Setup-Grenze 1/1, Lint und Format PASS. Nur Test- und Belegdateien wurden geaendert, Produktbytes und AAB bleiben gleich. Volle Browsermatrix, Live-Host und Play sind offen.
+[Beleg](evidence/WRN-BROWSER-MATRIX-FOLLOWUP-2026-09-26/REPORT.md).
+
+Neu 26.09. – Browsermatrix-Fortsetzung am getrennten Checkout `4aef200`:
+historische Home-/Sport-Uhren, Theme-Bedienung unter „Mehr“, Regional-Harness-
+Pfad und eindeutiger Medienstatus wurden in E2E-Tests an den tatsächlichen
+Produktvertrag angepasst. Gezielte Home-, Legacy-, Personalisierungs-,
+Discover-, Reader-, Regional- und Medienfälle bestanden; Regional 3/3,
+Medien 15/15. `pnpm check` auf diesem Stand PASS (Mobile952/952, Website70/70,
+Node-Betrieb81/81). Die Release-Quellpfade sind seit dem bytegeprüften
+`cdd7c94`-AAB unverändert. Vollständige3.682-Fälle-Browsermatrix, Host,
+exakter neuer Emulator-Upgrade und Play bleiben offen.
+[Beleg](evidence/WRN-BROWSER-MATRIX-FOLLOWUP-2026-09-26/REPORT.md).
+
+Neu 26.09. – aktuelles unsigniertes Android-Bundle aus `cdd7c94`: Der
+receiptgebundene Offline-Build enthält94/94 bytegleiche Webassets einschließlich
+der Header-Korrektur. AAB2.2.0/27/Target36, SHA-256
+`819bcd20266255fc12e520d9d3c42f35fea3efe338854843137c81bea1d81bb8`;
+`jarsigner` bestätigt unsigniert. Vollständiger `pnpm check` für denselben
+Commit PASS (Mobile952/952, Node-Betrieb81/81). Exakter Emulator-/Play-Upgrade
+dieses neuen AAB, Produktionssignatur, neue Website-Hostbindung und finale
+RC-Matrix bleiben offen. [Beleg](evidence/WRN-HEADER-RC-AAB-2026-09-26/REPORT.md).
+
+Neu 26.09. – lokale Header-/Großtext-Korrektur `e1444b38` (separates Repo
+`cc6721c`): kurzer Scroll verändert die Kopfzeilenhöhe der neuen App/Website
+nicht; bei 390 px und 200 % Schriftgröße ordnen sich Marke und Werkzeuge ohne
+Überlappung, die Bibliothek ohne horizontalen Überlauf. Beide Builds,
+Typprüfung, Grenzen25/25 und gezielte Browserproben bestanden; unabhängiger
+Review PASS. Vier Sichtproben sind versioniert, lokale Vorschauen auf
+`127.0.0.1:43330/43331` erreichbar. Das zuvor gebaute Android-AAB aus
+`c8c0450` enthält diese CSS-Korrektur nicht; neuer Bundle-/Geräteabgleich,
+volle RC-Matrix, Live-Hosting und Play-interner Test bleiben offen.
+[Beleg](evidence/WRN-HEADER-REFLOW-2026-09-26/REPORT.md).
+
+Neu 26.09. – exakter Android-Upgrade-Test des lokalen RC `c8c0450`: Eine
+universelle, nur lokal test-signierte APK aus dem aktuellen AAB enthielt
+94/94 bytegleiche Webassets. Auf neuem isoliertem API36-AVD wurde 2.1.1/26
+ohne Deinstallation auf 2.2.0/27 aktualisiert. Erstinstallationszeit, Deutsch,
+Violett/Rot und ein gemerkter EFF-Artikel blieben erhalten. Nach Offline-
+Neustart öffnete sein Reader; 0 FATAL/ANR in letzten5.000 Logzeilen. Die
+bestehende Emulatorinstanz blieb unverändert. Unabhängiger Read-only-Review
+PASS für genau diesen lokalen Smoke. Play-Signaturkette, weitere
+Datentypen, vollständige Browser-/Gerätematrix, Host-Aktivierung und
+Play-interner Test sind offen.
+[Exakter Upgradebeleg](evidence/WRN-RC-EXACT-ANDROID-UPGRADE-2026-09-26/REPORT.md).
+
+Neu 25.09. – Header-/Home-Korrektur und neuer lokaler RC `c8c0450`: Das auf
+der alten Live-Seite gemeldete Wackeln kommt von einer `sticky`-Kopfzeile mit
+animierter Höhe (bei kurzem Scroll ca. 163,33→160,78 px). Die neue App-/Website-
+Kopfzeile bleibt im 40-px-Scrolltest 2/2 höhenstabil. Der Sportvolltext erscheint
+nur noch im Sportabschnitt; die allgemeine Startseite zählt 1+5+2 Artikel.
+Fokussierte Home-Probe14/14, unabhängiger Review und vollständiger `pnpm check`
+(Mobile952/952) PASS. Neuer Websitebuild41/41, frisches Hostingpaket44/44 und
+unsigniertes AAB2.2.0/27 mit94/94 Assets byteweise geprüft; AAB-SHA-256
+`ad7cafa2f7f55d7c5993bcad563edaf0186a6cf8487f3ddb63b359745541f49a`.
+Die alte Live-Seite ist noch nicht ersetzt. Volle Browser-/Gerätematrix,
+Host-Aktivierung, Produktionssignatur und Play-Test bleiben offen.
+[Buildbeleg](evidence/WRN-HOME-HEADER-RC-2026-09-25/REPORT.md).
+
+Neu 25.09. – frischer Datenlauf für den Hostingkandidaten: Der bestehende
+Metadaten-Dry-run band Status, Feed und Quellenregister an Daten-Commit
+`7d873a68` und beobachtete um 14:53 UTC 968 Nachrichtenlinks, 532 Quellen und
+3 Sportnotizen. Der neue Snapshot mit Sequenz `202609251453` bestand Hash-,
+Vertrags- und Fortschrittsprüfung. Website 41/41 und kombiniertes Paket 44/44
+Dateien wurden anschließend aus dem aktuellen Produktbuild rückverifiziert.
+Das ist keine automatische Volltext-/Bildaufnahme oder Live-Veröffentlichung.
+[Frischer Hostingbeleg](evidence/WRN-RC-HOSTING-FRESH-301EC96-2026-09-25/REPORT.md).
+
+Neu 25.09. – aktuelles lokales Hostingpaket: Der Website-Produktionsbuild aus
+`301ec96` enthält den Videopiloten und wurde mit41/41 Dateien rückverifiziert.
+Das kombinierte Paket umfasst44/44 bytegeprüfte Dateien und setzt die beiden
+Inhalts-/Verzeichniszeiger zuletzt. Der wiederverwendete Verzeichnissnapshot
+beobachtete Inhalte zuletzt am09.09.; ein frischer gebundener Lauf und die
+tatsächliche Host-/Widerrufsprovenienz sind vor Aktivierung nötig. Es wurde
+nichts veröffentlicht.
+[Hostingbeleg](evidence/WRN-RC-HOSTING-301EC96-2026-09-25/REPORT.md).
+
+Neu 25.09. – RC-Check und aktuelles Bundle: Im getrennten, weiterhin nicht
+gepushten Repo-Checkout `301ec96` bestand der vollständige `pnpm check`.
+Mobile951/951, Website und Node-Betrieb81/81 sind grün; die testseitige
+Worker-Grenze und das exakte Archiv des historischen 12-Dateien-Belegs
+verhindern falsche Zeit-/Gegenwartsvergleiche ohne gelockerte Orakel. Das
+neu gebaute unsignierte 2.2.0/27-AAB bindet94/94 Assets an diesen Commit,
+SHA-256 `7aeef1e86b2dacdb7b90c130040943a5d35c571d395179391ffa9e3b7cbe0a14`.
+Es ist bytegleich mit dem zuvor nativ geprüften Build. Live-Hosting,
+Produktionssignatur, echtes Upgrade dieses Kandidaten, Play-Pre-Launch und
+finale Browser-/Gerätematrix fehlen weiterhin.
+[Check-/Bundlebeleg](evidence/WRN-RC-CHECK-STABILITY-2026-09-25/REPORT.md).
+
+Neu 25.09. – aktueller nativer Videopilot: Der öffentliche, lokal noch nicht
+gepushte Repo-Commit `7397ffa` lieferte ein receiptgebundenes unsigniertes
+2.2.0/27-AAB mit 94/94 Assets (SHA-256
+`7aeef1e86b2dacdb7b90c130040943a5d35c571d395179391ffa9e3b7cbe0a14`).
+Die webassetgleiche, nur lokal testsignierte APK wurde auf einem isolierten
+API36-Emulator frisch installiert und offline gestartet. Beide neuen
+Videopilotkarten sind nativ erreichbar, 0 FATAL/ANR in den letzten 5.000
+Logzeilen. Das ist noch kein datenerhaltendes Upgrade des exakten Kandidaten,
+keine Produktionssignatur und keine vollständige finale RC-Matrix.
+[Nativer Beleg](evidence/WRN-VIDEO-02-NATIVE-2026-09-25/REPORT.md).
+
 Neu 25.09. – VIDEO-02-Linkpilot: Zwei konkrete Originalverweise (Dara-Short,
 Andrewism-Erklärvideo) erscheinen in App und Website mit Sprachfilter. Titel,
 Kanal und Format sind am Original geprüft; der fehlende redaktionelle
