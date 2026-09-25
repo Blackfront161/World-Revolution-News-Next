@@ -174,11 +174,11 @@ test('S12 clear cancels a download and preserves populated reading, theme and la
   await page.getByRole('button', { name: 'Save for later', exact: true }).click();
   await page.getByRole('button', { name: 'Mark as read', exact: true }).click();
   await page.getByRole('button', { name: 'Save 50% reading progress', exact: true }).click();
+  await page.goto('/#more');
   await page.getByTestId('theme-selector').selectOption('pink');
   // Select English deliberately so the language key is genuinely populated.
   await page.getByTestId('ui-language-selector').selectOption('de');
   await page.getByTestId('ui-language-selector').selectOption('en');
-  await page.goto('/#more');
   const keys = [
     `wrn.${client}-local-reading-state.v1`,
     `wrn.${client}-ui-language.v1`,

@@ -2,6 +2,10 @@ import { expect, test } from '@playwright/test';
 import { mkdtemp } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
+import { workspaceFsUrl } from './workspace-fs-url';
+
+const fixtureModule = workspaceFsUrl('packages/test-support/src/g3-014-offline-fixtures.ts');
+const websiteStoreModule = workspaceFsUrl('apps/website/src/content-offline-store.ts');
 
 // Source-only store probes must not mount the integrated React controller.
 test.beforeEach(async ({ context }) => {
@@ -145,10 +149,9 @@ test.describe('WRN-G3-014 real IndexedDB control storage', () => {
     const isWebsite = testInfo.project.name === 'website-390x844';
     test.skip(!isMobile && !isWebsite, 'One real-IDB projection per client is sufficient.');
     await page.goto(isMobile ? 'http://127.0.0.1:43173' : 'http://127.0.0.1:43175');
-    const result = await page.evaluate(async () => {
+    const result = await page.evaluate(async (fixtureModule) => {
       const module = await import('/src/content-offline-store.ts');
-      const fixturesModule =
-        await import('/@fs/C:/Users/patri/Documents/ChatGPT/Sauberes Wo Rev Ne/packages/test-support/src/g3-014-offline-fixtures.ts');
+      const fixturesModule = await import(fixtureModule);
       const dbName =
         module.mobileContentOfflineDatabaseName ?? module.websiteContentOfflineDatabaseName;
       await new Promise<void>((resolve) => {
@@ -195,7 +198,7 @@ test.describe('WRN-G3-014 real IndexedDB control storage', () => {
       const final = await store.snapshot();
       store.close();
       return { refreshedA, rollbackCode, final };
-    });
+    }, fixtureModule);
     expect(result.refreshedA.lastSuccessfulSourceCheckAt).toBe(2_000);
     expect(result.final.bundles).toEqual(
       expect.arrayContaining([expect.objectContaining({ checkedAt: 2_000 })]),
@@ -210,10 +213,9 @@ test.describe('WRN-G3-014 real IndexedDB control storage', () => {
     const isWebsite = testInfo.project.name === 'website-390x844';
     test.skip(!isMobile && !isWebsite, 'One real-IDB projection per client is sufficient.');
     await page.goto(isMobile ? 'http://127.0.0.1:43173' : 'http://127.0.0.1:43175');
-    const result = await page.evaluate(async () => {
+    const result = await page.evaluate(async (fixtureModule) => {
       const storeModule = await import('/src/content-offline-store.ts');
-      const fixturesModule =
-        await import('/@fs/C:/Users/patri/Documents/ChatGPT/Sauberes Wo Rev Ne/packages/test-support/src/g3-014-offline-fixtures.ts');
+      const fixturesModule = await import(fixtureModule);
       const dbName =
         storeModule.mobileContentOfflineDatabaseName ??
         storeModule.websiteContentOfflineDatabaseName;
@@ -256,7 +258,7 @@ test.describe('WRN-G3-014 real IndexedDB control storage', () => {
       });
       store.close();
       return { activeA, checked, stagedB, activatedB };
-    });
+    }, fixtureModule);
     expect(result.checked.activeKey).toBe(result.activeA.activeKey);
     expect(result.stagedB.activeKey).toBe(result.activeA.activeKey);
     expect(result.stagedB.candidateKey).not.toBeNull();
@@ -841,10 +843,9 @@ test.describe('WRN-G3-014 real IndexedDB control storage', () => {
       'The shared-origin import harness runs once.',
     );
     await page.goto('http://127.0.0.1:43173');
-    const result = await page.evaluate(async () => {
+    const result = await page.evaluate(async (websiteStoreModule) => {
       const mobile = await import('/src/content-offline-store.ts');
-      const website =
-        await import('/@fs/C:/Users/patri/Documents/ChatGPT/Sauberes Wo Rev Ne/apps/website/src/content-offline-store.ts');
+      const website = await import(websiteStoreModule);
       const deleteDatabase = (name: string) =>
         new Promise<void>((resolve) => {
           const request = indexedDB.deleteDatabase(name);
@@ -902,7 +903,7 @@ test.describe('WRN-G3-014 real IndexedDB control storage', () => {
           localStorage.getItem('wrn.reading-state'),
         ],
       };
-    });
+    }, websiteStoreModule);
     expect(result.mobileName).not.toBe(result.websiteName);
     expect(result.websiteAfterMobileClear.control.clearEpoch).toBe(
       result.websiteFresh.control.clearEpoch,
@@ -918,10 +919,9 @@ test.describe('WRN-G3-014 real IndexedDB control storage', () => {
     const isWebsite = testInfo.project.name === 'website-390x844';
     test.skip(!isMobile && !isWebsite, 'One real-IDB projection per client is sufficient.');
     await page.goto(isMobile ? 'http://127.0.0.1:43173' : 'http://127.0.0.1:43175');
-    const result = await page.evaluate(async () => {
+    const result = await page.evaluate(async (fixtureModule) => {
       const module = await import('/src/content-offline-store.ts');
-      const fixturesModule =
-        await import('/@fs/C:/Users/patri/Documents/ChatGPT/Sauberes Wo Rev Ne/packages/test-support/src/g3-014-offline-fixtures.ts');
+      const fixturesModule = await import(fixtureModule);
       const dbName =
         module.mobileContentOfflineDatabaseName ?? module.websiteContentOfflineDatabaseName;
       await new Promise<void>((resolve) => {
@@ -954,7 +954,7 @@ test.describe('WRN-G3-014 real IndexedDB control storage', () => {
       const final = await store.snapshot();
       store.close();
       return { code, final };
-    });
+    }, fixtureModule);
     expect(result.code).toBe('invalid-bundle');
     expect(result.final.bundles).toHaveLength(1);
   });

@@ -2,14 +2,23 @@ import { expect, test } from '@playwright/test';
 
 for (const client of ['mobile', 'website'] as const) {
   test(`${client} header keeps its height after a small scroll`, async ({ page }, info) => {
-    test.skip(info.project.name !== 'mobile-390x844', 'One focused Chrome viewport per client.');
+    test.skip(info.project.name !== `${client}-390x844`, 'One focused Chrome viewport per client.');
     const mobile = client === 'mobile';
-    await page.goto(`http://127.0.0.1:${mobile ? 43177 : 43178}/?theme=violet#home`);
-    if (!mobile) {
-      await expect(page.locator('.website-support-welcome[open]')).toBeVisible();
+    await page.goto('/?state=ready&theme=violet#home');
+    await expect(page.locator(mobile ? '#mobile-main' : '#website-main')).toBeVisible();
+    if (!mobile && (await page.locator('.website-support-welcome[open]').isVisible())) {
       await page.keyboard.press('Escape');
     }
-    await expect(page.locator('.production-home .production-card').first()).toBeVisible();
+    await expect
+      .poll(() =>
+        page.evaluate((isMobile) => {
+          const scroller = isMobile
+            ? document.querySelector('#mobile-main')
+            : document.scrollingElement;
+          return scroller!.scrollHeight - scroller!.clientHeight;
+        }, mobile),
+      )
+      .toBeGreaterThan(40);
     const selector = mobile ? '.mobile-header' : '.site-header';
     const before = await page.locator(selector).evaluate((header) => {
       const rect = header.getBoundingClientRect();
