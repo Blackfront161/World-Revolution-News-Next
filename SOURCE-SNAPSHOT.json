@@ -1,7 +1,7 @@
 {
   "schema": "wrn.clean-platform-snapshot.v1",
-  "sourceCommit": "a31f2b46041a9465f8464e4cd31962d97ac3d383",
-  "generatedAt": "2026-09-25T13:01:41.311Z",
+  "sourceCommit": "5789b37959403fe7bfd50817521dc33fd2fa5526",
+  "generatedAt": "2026-09-25T13:37:16.382Z",
   "excluded": [
     "Local agent settings",
     "Historical build/QA archive (preserved locally)",
@@ -1480,8 +1480,8 @@
     },
     {
       "path": "apps/mobile/src/video-sources-ui.tsx",
-      "bytes": 2377,
-      "sha256": "21cbd670c63730bd48ac351d9a6e2189344a49e2a3f773ca3cf317af5562436b"
+      "bytes": 3624,
+      "sha256": "b422a9fc2e9b18416fa0e897e8bba4cf1335cdddf9080c9495d13caa28abc3d1"
     },
     {
       "path": "apps/mobile/src/vite-env.d.ts",
@@ -2170,8 +2170,8 @@
     },
     {
       "path": "apps/website/src/video-sources-ui.tsx",
-      "bytes": 2564,
-      "sha256": "5d45719556d0ee12b032c76e3fe6c6585ea225b45071bdaa221019c074ae2c44"
+      "bytes": 3974,
+      "sha256": "519ae9638e5cd2dbd09fbe54ce5b14023442ca506daed99c63a165c10908021f"
     },
     {
       "path": "apps/website/src/vite-env.d.ts",
@@ -2390,8 +2390,8 @@
     },
     {
       "path": "docs/PROJECT-STATE.md",
-      "bytes": 33941,
-      "sha256": "45d01601ad07a369e42dda98332c44f6c9aabdde231f356cec6c627456d6406a"
+      "bytes": 34611,
+      "sha256": "a5bae01788f6d0ed73769289c0dc3601367e277cebe9f3f2c7c0288293c0b737"
     },
     {
       "path": "docs/WRN-G3-014-DELEGATION-REGISTER.md",
@@ -2685,8 +2685,8 @@
     },
     {
       "path": "docs/evidence/WRN-PO-SCOPE-STATUS-2026-09-10.md",
-      "bytes": 21014,
-      "sha256": "7415c091df4a80c39b84a80bc2917eff2e130b8cd374afd9f0e5a1313fa90f21"
+      "bytes": 21321,
+      "sha256": "d5d5bdc072e619b89136f70ad817729d9eaaa07232364e90faec93e869d4d531"
     },
     {
       "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/REPORT.md",
@@ -2967,6 +2967,26 @@
       "path": "docs/evidence/WRN-SRC04-HOSTING-CANDIDATE-2026-09-25/website-package.manifest.json",
       "bytes": 65641,
       "sha256": "03eacdfd34849f7146d98d41d0cba542afd1e9427a691cc2a0e1166da15eb0c2"
+    },
+    {
+      "path": "docs/evidence/WRN-VIDEO-02-LINK-PILOT-2026-09-25/MANIFEST.json",
+      "bytes": 1956,
+      "sha256": "e4e04ad905fdfc1c1f2ce3cfb502c5bbd6b76342471ad1107dc2cde56e7b9cda"
+    },
+    {
+      "path": "docs/evidence/WRN-VIDEO-02-LINK-PILOT-2026-09-25/REPORT.md",
+      "bytes": 3637,
+      "sha256": "d2117d91a9ae40d6cb22adc692238eaf3537ac485bb02211de27769848168347"
+    },
+    {
+      "path": "docs/evidence/WRN-VIDEO-02-LINK-PILOT-2026-09-25/mobile-de-violet.png",
+      "bytes": 45285,
+      "sha256": "c25e4077a1fa1e99f3442ae14ab477a52d59a48552c7839f033189c9b27fe69c"
+    },
+    {
+      "path": "docs/evidence/WRN-VIDEO-02-LINK-PILOT-2026-09-25/website-de-violet.png",
+      "bytes": 93844,
+      "sha256": "ffda4f917b52cd791a96e4bc716cef07126c81b851c10774a5518d1ca5a32c64"
     },
     {
       "path": "docs/handoffs/README.md",
@@ -7810,8 +7830,8 @@
     },
     {
       "path": "packages/brand-tokens/src/styles.css",
-      "bytes": 10502,
-      "sha256": "495d162f591c15113f811fb5e115128f26fc2ef5eb14a47ae42ac9fa3cbf5316"
+      "bytes": 10526,
+      "sha256": "b7f18b49089d14a0d0f64384d89e1df64b23256b228f35866dda56688a6e07a3"
     },
     {
       "path": "packages/browser-content/README.md",
@@ -8325,8 +8345,8 @@
     },
     {
       "path": "packages/content-contracts/src/video-sources-v1.ts",
-      "bytes": 3280,
-      "sha256": "0cc63fd23967cadc059ef98d6e4710509d63b02cc4500c5efeabc21632aa5c7c"
+      "bytes": 4545,
+      "sha256": "5f208b9935371caf9e39d5daa22ae4e02d3a858526e74b5ab1ae407814a0b048"
     },
     {
       "path": "packages/content-contracts/tests/archive-lifecycle-v1.test.ts",
@@ -8480,8 +8500,8 @@
     },
     {
       "path": "packages/content-contracts/tests/video-sources-v1.test.ts",
-      "bytes": 2050,
-      "sha256": "fa4aa99aca95769d104dd2d01007cb9b44047c7af0baa9aceac003fadc51820b"
+      "bytes": 3089,
+      "sha256": "876cdc26883b386c6aee4954ea796f27abd14ca4cf87e1553e9b5fbb2d739f2a"
     },
     {
       "path": "packages/content-contracts/tsconfig.json",
@@ -8855,8 +8875,8 @@
     },
     {
       "path": "packages/ui-language/src/video-sources.ts",
-      "bytes": 6996,
-      "sha256": "a93cf0094f72b6689a7fad81c17773dd244fe810a849cadf4061f8733badc5c9"
+      "bytes": 10284,
+      "sha256": "64410fe316acf16b0689d1ad7f26c67c5573cc4ad63ad11dd638b7e3a62f90f6"
     },
     {
       "path": "packages/ui-language/src/website-support.ts",
@@ -9350,8 +9370,8 @@
     },
     {
       "path": "tests/e2e/video-sources.spec.ts",
-      "bytes": 5104,
-      "sha256": "af34eed0f039a4336203f8674618b17a812fe7dd69e0738335cfc517c4afce45"
+      "bytes": 6012,
+      "sha256": "7a4b2f9cec100e039469dbe5ce80eb6bacd76eaf0064e2212d9df52cce9f6d29"
     },
     {
       "path": "tests/e2e/violet-red-theme.spec.ts",
@@ -9705,8 +9725,8 @@
     },
     {
       "path": "tools/export-platform-repository.mjs",
-      "bytes": 6243,
-      "sha256": "f0571f3632fc52941cacfad52e6e3c0aa9473d4a33aa803eadbf690b7173baae"
+      "bytes": 6284,
+      "sha256": "98314f5684e2fd7566a87845e0a4939cac9fb5fa43d5eb2885543587ec96b0f1"
     },
     {
       "path": "tools/import-legacy-knowledge.mjs",

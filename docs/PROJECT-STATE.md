@@ -1,4 +1,14 @@
 # WRN â€“ aktueller Arbeitsstand
+Neu 25.09. – VIDEO-02-Linkpilot: Zwei konkrete Originalverweise (Dara-Short,
+Andrewism-Erklärvideo) erscheinen in App und Website mit Sprachfilter. Titel,
+Kanal und Format sind am Original geprüft; der fehlende redaktionelle
+Inhaltscheck ist in allen neun UI-Sprachen sichtbar. Keine YouTube-Anfrage vor
+dem Klick, keine Einbettungs- oder Offlinezusage. 39/39 Unit-Tests, Typprüfung,
+Lint, beide Builds, 3/3 Browserfälle und unabhängiger Korrekturreview PASS.
+VIDEO-02 bleibt für Inhaltsaufnahme und laufende Versorgung offen. Die
+Website-Offline-Shell bleibt mit 8.383.039 Byte unter 8 MiB.
+[Pilotbeleg](evidence/WRN-VIDEO-02-LINK-PILOT-2026-09-25/REPORT.md).
+
 Neu 25.09. – Hosting-/Kostenkontrolle: Das angemeldete Cloudflare-Konto nutzt
 Workers Free und enthält drei bestehende Worker, aber kein Pages-Projekt.
 Alte Proxy-/Cache-Bindungen für Gemini, Hugging Face und Azure sind vorhanden;
