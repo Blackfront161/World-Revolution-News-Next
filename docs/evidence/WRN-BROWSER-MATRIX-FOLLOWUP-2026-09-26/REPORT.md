@@ -32,3 +32,15 @@ Website-Unit-Tests 70/70 und Node-Betrieb 81/81. Die vollständige
 3.682-Fälle-/Sieben-Projekte-Browsermatrix wurde noch nicht durchlaufen;
 weitere alte absolute Harness-Pfade, die Geräte- und Live-Website-Matrix
 sowie das Host-/Play-Gate bleiben offen. Kein Push oder Deployment.
+
+Nachtrag 26.09.: Das gemeldete Wackeln wurde auf der unveränderten Live-Seite
+`solinaridao.com` bei 822 px reproduziert. Dort schaltet `website-scrolled`
+bereits oberhalb von 36 px um; der `sticky`-Header schrumpft mit 180-ms-
+Transition von rund 163 auf 135 px, während die Scrollposition von rund 61 auf
+35 px zurückspringt. Der neue Header besitzt diese scrollabhängige Größe nicht.
+Sein Regressionstest prüft nun auch 800 und 1440 px nach Ablauf der alten
+Transition: 4/4 Chrome-Fälle PASS. Zusätzlich wurden die fünf
+Produktionsmedien-Controller-Fälle im getrennten Checkout durch portable
+Harness-Importe wieder ausführbar gemacht: 5/5 PASS. ESLint und Prettier für
+beide Testdateien PASS. Dies ist eine Test-/Belegkorrektur; die alte Live-Seite
+und die Produktdateien wurden nicht verändert.

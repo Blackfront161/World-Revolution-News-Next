@@ -2,8 +2,11 @@ import { expect, test } from '@playwright/test';
 
 for (const client of ['mobile', 'website'] as const) {
   test(`${client} header keeps its height after a small scroll`, async ({ page }, info) => {
-    test.skip(info.project.name !== `${client}-390x844`, 'One focused Chrome viewport per client.');
     const mobile = client === 'mobile';
+    const coveredProjects = mobile
+      ? ['mobile-390x844']
+      : ['website-390x844', 'website-800x1280', 'website-1440x900'];
+    test.skip(!coveredProjects.includes(info.project.name), 'Focused Chrome widths per client.');
     await page.goto('/?state=ready&theme=violet#home');
     await expect(page.locator(mobile ? '#mobile-main' : '#website-main')).toBeVisible();
     if (!mobile && (await page.locator('.website-support-welcome[open]').isVisible())) {
@@ -37,6 +40,9 @@ for (const client of ['mobile', 'website'] as const) {
         ),
       )
       .toBeGreaterThan(20);
+    // The old live website animated a sticky header for 180 ms. Check after
+    // that interval so a delayed height change cannot evade this regression.
+    await page.waitForTimeout(250);
     const after = await page.locator(selector).evaluate((header) => {
       const rect = header.getBoundingClientRect();
       return { top: rect.top, height: rect.height, position: getComputedStyle(header).position };
