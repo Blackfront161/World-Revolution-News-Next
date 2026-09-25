@@ -2633,20 +2633,22 @@ export function App({
                 </svg>
               </a>
               <div className="compact-header-brand">
-                <a
-                  className="compact-header-title"
-                  href="#home"
-                  aria-label={formatUiCopy(copy.brandHomeName, {
-                    brand: shellCopy.brandName,
-                    product: shellCopy.productName,
-                  })}
-                  onClick={(event) => {
-                    event.preventDefault();
-                    navigate('home');
-                  }}
-                >
-                  World <span>Revolution</span> News
-                </a>
+                <h1 className="compact-header-brand-heading">
+                  <a
+                    className="compact-header-title"
+                    href="#home"
+                    aria-label={formatUiCopy(copy.brandHomeName, {
+                      brand: shellCopy.brandName,
+                      product: shellCopy.productName,
+                    })}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      navigate('home');
+                    }}
+                  >
+                    World <span>Revolution</span> News
+                  </a>
+                </h1>
                 <a
                   className="header-website-link"
                   href={`https://solinaridao.com/?lang=${encodeURIComponent(uiLanguage)}`}

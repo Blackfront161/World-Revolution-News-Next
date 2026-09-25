@@ -114,7 +114,6 @@ export function ProductionHome({
   const [sportCategory, setSportCategory] = useState<'all' | 'football' | 'fan-culture' | 'women'>(
     'all',
   );
-  const selection = useMemo(() => selectProductionHomeArticles(articles), [articles]);
   const [directory, setDirectory] = useState<Readonly<{
     loader: NonNullable<typeof loadDirectory>;
     value: ProductionHomeDirectory;
@@ -144,6 +143,15 @@ export function ProductionHome({
   }, [attempt, loadDirectory]);
   const currentDirectory =
     directory !== null && directory.loader === loadDirectory ? directory.value : null;
+  const selection = useMemo(
+    () =>
+      selectProductionHomeArticles(
+        currentDirectory
+          ? articles.filter((article) => !article.tags.includes('sports'))
+          : articles,
+      ),
+    [articles, currentDirectory],
+  );
   const archive = useMemo(
     () =>
       currentDirectory

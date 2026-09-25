@@ -1760,6 +1760,12 @@
   text-align: center;
 }
 
+.compact-header-brand-heading {
+  margin: 0;
+  font: inherit;
+  line-height: 1;
+}
+
 .compact-header-title {
   color: var(--wrn-color-text);
   font-family: var(--wrn-font-editorial);

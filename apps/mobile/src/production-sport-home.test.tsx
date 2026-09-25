@@ -91,4 +91,27 @@ describe('productive sport entry point', () => {
     expect(screen.queryByText(document.sports[0]!.title)).toBeNull();
     expect(screen.queryByText(document.sports[1]!.title)).toBeNull();
   });
+
+  it('places a full sport article only in the sport section once the directory loads', async () => {
+    const result = await productionTestResult();
+    const original = result.runtime!.documents.articles.articles[0]!;
+    const sportArticle = { ...original, tags: [...original.tags, 'sports'] };
+    const { container } = render(
+      <ProductionHome
+        {...base}
+        articles={[sportArticle]}
+        language="en"
+        renderCard={(article, role) => (
+          <article data-testid="sport-article-card" data-home-role={role} key={article.id}>
+            {article.title}
+          </article>
+        )}
+      />,
+    );
+    await screen.findByText(document.sports[0]!.title);
+    expect(container.querySelectorAll('[data-testid="sport-article-card"]')).toHaveLength(1);
+    expect(
+      container.querySelector('.production-home__sport [data-testid="sport-article-card"]'),
+    ).toBeTruthy();
+  });
 });
