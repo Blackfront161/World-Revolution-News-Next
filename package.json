@@ -18,7 +18,7 @@
     "build:website": "pnpm --filter @wrn/website build",
     "check": "pnpm run toolchain:check && pnpm run check:release-boundaries && pnpm run format && pnpm run lint && pnpm run typecheck && pnpm run check:fixture-provenance && pnpm run check:brand-assets && pnpm run test",
     "check:brand-assets": "node tools/check-brand-assets.mjs",
-    "check:boundaries": "node tools/check-boundaries.mjs && node tools/check-public-fixture-parity.mjs && node --test tools/check-boundaries.test.mjs tools/check-fixture-provenance.test.mjs tools/check-public-fixture-parity.test.mjs tools/check-local-preview-boundary.test.mjs tools/check-brand-assets.test.mjs",
+    "check:boundaries": "node tools/check-boundaries.mjs && node tools/check-public-fixture-parity.mjs && node --test tools/check-boundaries.test.mjs tools/check-fixture-provenance.test.mjs tools/check-public-fixture-parity.test.mjs tools/check-local-preview-boundary.test.mjs tools/check-brand-assets.test.mjs tests/e2e/global-setup-boundary.test.mjs",
     "check:local-preview": "node tools/check-local-preview-boundary.mjs",
     "check:release-boundaries": "node tools/check-local-preview-boundary.mjs --release",
     "check:fixture-provenance": "node tools/check-fixture-provenance.mjs",
