@@ -77,10 +77,7 @@ redaktionelle Rechtepruefung zu umgehen.
 Der aktuelle Quellstand ergänzt den sechsstündlichen Dry-run um einen
 fail-closed Regionaltermin-Guard. Er prüft den kompilierten SHA-256-Pin, den
 vollständigen bestehenden V1-Vertrag, fünf Quellen und Termine sowie mindestens
-48 Stunden redaktionellen Vorlauf. 3/3 Grenztests bestanden. Der oben genannte
-öffentliche Lauf 36028488433 lief vor dieser Erweiterung; der neue Guard ist
-lokal und im Release-Kandidaten geprüft und wird mit dem nächsten öffentlichen
-Lauf ausgeführt. Er veröffentlicht weiterhin nichts.
+48 Stunden redaktionellen Vorlauf. 3/3 Grenztests bestanden. Der kostenfreie öffentliche [Workflow-Lauf 36094858429](https://github.com/Blackfront161/World-Revolution-News-Next/actions/runs/36094858429) am Plattformcommit `3694399c5ebef4cd0b3dc3751e8808f5b7def130` bestand anschließend alle Schritte einschließlich Regional-Freshness, Commitbindung, Supply-Bundle, Metadatenverzeichnis und kurzlebigem Artefakt. Er veröffentlichte weiterhin nichts.
 
 ## Noch offene Produktionsgrenze
 

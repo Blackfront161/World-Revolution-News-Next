@@ -17,15 +17,15 @@
     },
     {
       "path": "docs/evidence/WRN-PRE-PLAY-RC-2026-09-25/REPORT.md",
-      "sha256": "dbd1fa44868e679ef72d84b22ef9106ba2c6424dc8b774c3414e30f9498c06c3"
+      "sha256": "2dd60f9fcdb5a8db51f300c8203c0f6903387e621a5c7d14f1aeb97eacba5a0b"
     },
     {
       "path": "docs/evidence/WRN-REGIONAL-EVENTS-REFRESH-2026-09-25/hash-manifest.json",
-      "sha256": "fd62c58eec2fffa15f4e4992c22a156fde95f24d276c30318c183bccc2c82d2f"
+      "sha256": "3ee92edab43603d2444093edba638175be6686a860460caa271e0e1a7af3083d"
     },
     {
       "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/hash-manifest.json",
-      "sha256": "5fc17ddc12337513a7b02306790aba5da6861a6c26cea67d5aa7e63934d3a058"
+      "sha256": "64d679bb6206ee3630ec0dd390497fecaaafaff961704cd3c7f12fe680095560"
     },
     {
       "path": "docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/hash-manifest.json",
@@ -37,7 +37,7 @@
     },
     {
       "path": "docs/evidence/WRN-PO-SCOPE-STATUS-2026-09-10.md",
-      "sha256": "c47b827164c225d619f74c18a1f3c858bd1bbb731d90263db6915c99837c5295"
+      "sha256": "5ba35a5e72517829c499cdb7f33d02b5b6f43dddd4b5703496cc9253ecf296a0"
     }
   ]
 }

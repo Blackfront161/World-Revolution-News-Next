@@ -1,7 +1,7 @@
 {
   "schema": "wrn.clean-platform-snapshot.v1",
-  "sourceCommit": "82febf4bffa96662a27d741810d34e7124115a39",
-  "generatedAt": "2026-09-25T04:27:12.638Z",
+  "sourceCommit": "6999affbbc7134375dbd67295ef4548d17734576",
+  "generatedAt": "2026-09-25T04:35:49.361Z",
   "excluded": [
     "Local agent settings",
     "Historical build/QA archive (preserved locally)",
@@ -2635,8 +2635,8 @@
     },
     {
       "path": "docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/REPORT.md",
-      "bytes": 4448,
-      "sha256": "84e7c79e0355de984a5c46d15e382dbe7acc6bdb7888e16b373b29e01d5abc5d"
+      "bytes": 4607,
+      "sha256": "1a36ee63fa6a702bad1a7b5bde6e2e80e206227d6b6be3612f83f114eb02a2f6"
     },
     {
       "path": "docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/hash-manifest.json",
@@ -2660,8 +2660,8 @@
     },
     {
       "path": "docs/evidence/WRN-PO-SCOPE-STATUS-2026-09-10.md",
-      "bytes": 17623,
-      "sha256": "c47b827164c225d619f74c18a1f3c858bd1bbb731d90263db6915c99837c5295"
+      "bytes": 17637,
+      "sha256": "5ba35a5e72517829c499cdb7f33d02b5b6f43dddd4b5703496cc9253ecf296a0"
     },
     {
       "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/REPORT.md",
@@ -2671,7 +2671,7 @@
     {
       "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/hash-manifest.json",
       "bytes": 1477,
-      "sha256": "5fc17ddc12337513a7b02306790aba5da6861a6c26cea67d5aa7e63934d3a058"
+      "sha256": "64d679bb6206ee3630ec0dd390497fecaaafaff961704cd3c7f12fe680095560"
     },
     {
       "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/hosting-packet.manifest.json",
@@ -2685,8 +2685,8 @@
     },
     {
       "path": "docs/evidence/WRN-PRE-PLAY-RC-2026-09-25/REPORT.md",
-      "bytes": 2496,
-      "sha256": "dbd1fa44868e679ef72d84b22ef9106ba2c6424dc8b774c3414e30f9498c06c3"
+      "bytes": 2638,
+      "sha256": "2dd60f9fcdb5a8db51f300c8203c0f6903387e621a5c7d14f1aeb97eacba5a0b"
     },
     {
       "path": "docs/evidence/WRN-PRE-PLAY-RC-2026-09-25/aab-verification.json",
@@ -2701,7 +2701,7 @@
     {
       "path": "docs/evidence/WRN-PRE-PLAY-RC-2026-09-25/hash-manifest.json",
       "bytes": 1695,
-      "sha256": "157bac328311ee19e4b2e67783cee3fcd19999379ad97f9fcb9a32c6c2c00038"
+      "sha256": "422812308ba07cb823f553b1f2f261c47f7b437b8e7a77be00e9d46e131073dd"
     },
     {
       "path": "docs/evidence/WRN-PRE-PLAY-RC-2026-09-25/manifest.json",
@@ -2766,7 +2766,7 @@
     {
       "path": "docs/evidence/WRN-REGIONAL-EVENTS-REFRESH-2026-09-25/hash-manifest.json",
       "bytes": 3239,
-      "sha256": "fd62c58eec2fffa15f4e4992c22a156fde95f24d276c30318c183bccc2c82d2f"
+      "sha256": "3ee92edab43603d2444093edba638175be6686a860460caa271e0e1a7af3083d"
     },
     {
       "path": "docs/evidence/WRN-REGIONAL-EVENTS-REFRESH-2026-09-25/manifest.json",

@@ -37,6 +37,7 @@ Mobile 939/939, Website 154/154 plus 68/68 Paket-/Offlinefälle, 16/16
 Regionalbrowserfälle, beide Typprüfungen und beide Produktionsbuilds sind grün.
 Die fünf aktuellen Regionaltermine und der 48-Stunden-Freshness-Guard sind im
 [Regionalbeleg](../WRN-REGIONAL-EVENTS-REFRESH-2026-09-25/REPORT.md) gebunden.
+Der kostenfreie öffentliche Dry-run 36094858429 bestand den neuen Guard und alle nachfolgenden Versorgungsschritte am exportierten RC-Stand.
 
 ## Noch außerhalb dieses lokalen Kandidaten
 
