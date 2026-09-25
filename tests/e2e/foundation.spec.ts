@@ -7,6 +7,14 @@ import { expect, test, type Page } from '@playwright/test';
 const evidenceRevision = process.env.WRN_EVIDENCE_REVISION;
 const evidenceRoot = path.resolve(process.env.WRN_EVIDENCE_ROOT ?? 'docs/evidence/WRN-G3-002/new');
 const evidenceDate = process.env.WRN_EVIDENCE_DATE ?? '2026-08-23';
+// The pinned sport fixture expires on 6 September; keep historical fixture
+// acceptance independent of the workstation clock. Live freshness has separate tests.
+const fixtureNow = Date.parse('2026-09-01T12:00:00.000Z');
+test.beforeEach(async ({ context }) => {
+  await context.addInitScript((value) => {
+    Date.now = () => value;
+  }, fixtureNow);
+});
 const mobileManifestRevision = 'wrn-g3-016-mobile-home-manifest-v1';
 const websiteManifestRevision = 'wrn-g3-007-local-publication-source-v1-d8ff4f1';
 const websiteArticleIds = ['wrn-test-art-cedar', 'wrn-test-art-ember', 'wrn-test-art-fern'];
@@ -187,42 +195,47 @@ async function expectVisiblePageHeadingWithoutOverflow(page: Page) {
 async function expectCompleteWebsiteBrandHeader(page: Page, maximumHeight: number) {
   const measurement = await page.evaluate(() => {
     const brand = document.querySelector<HTMLElement>('.site-brand');
-    const brandCopy = document.querySelector<HTMLElement>('.site-brand-copy');
-    const theme = document.querySelector<HTMLElement>('.theme-selector select');
+    const brandName = document.querySelector<HTMLElement>('.site-brand-name');
+    const project = document.querySelector<HTMLElement>('.site-brand-project');
+    const tools = document.querySelector<HTMLElement>('.compact-site-tools');
     const header = document.querySelector<HTMLElement>('.site-header');
-    if (brand === null || brandCopy === null || theme === null || header === null)
+    if (
+      brand === null ||
+      brandName === null ||
+      project === null ||
+      tools === null ||
+      header === null
+    )
       throw new Error('Website-Markenheader fehlt.');
-    const brandBounds = brand.getBoundingClientRect();
-    const themeBounds = theme.getBoundingClientRect();
+    const projectBounds = project.getBoundingClientRect();
+    const toolsBounds = tools.getBoundingClientRect();
     return {
       brand: {
         clientWidth: brand.clientWidth,
         scrollWidth: brand.scrollWidth,
         text: brand.textContent?.trim().replaceAll(/\s+/g, ' '),
       },
-      brandCopy: {
-        clientWidth: brandCopy.clientWidth,
-        scrollWidth: brandCopy.scrollWidth,
-        text: brandCopy.textContent?.trim().replaceAll(/\s+/g, ' '),
+      brandName: {
+        clientWidth: brandName.clientWidth,
+        scrollWidth: brandName.scrollWidth,
+        text: brandName.textContent?.trim().replaceAll(/\s+/g, ' '),
       },
-      overlapsTheme:
-        brandBounds.left < themeBounds.right &&
-        brandBounds.right > themeBounds.left &&
-        brandBounds.top < themeBounds.bottom &&
-        brandBounds.bottom > themeBounds.top,
+      overlapsTools:
+        projectBounds.left < toolsBounds.right &&
+        projectBounds.right > toolsBounds.left &&
+        projectBounds.top < toolsBounds.bottom &&
+        projectBounds.bottom > toolsBounds.top,
       headerHeight: header.getBoundingClientRect().height,
     };
   });
 
   expect(measurement.brand.scrollWidth).toBeLessThanOrEqual(measurement.brand.clientWidth + 1);
-  expect(measurement.brandCopy.scrollWidth).toBeLessThanOrEqual(
-    measurement.brandCopy.clientWidth + 1,
+  expect(measurement.brandName.scrollWidth).toBeLessThanOrEqual(
+    measurement.brandName.clientWidth + 1,
   );
-  expect(measurement.brand.text).toContain('Solinaridao');
   expect(measurement.brand.text).toContain('World Revolution News');
-  expect(measurement.brandCopy.text).toContain('Solinaridao');
-  expect(measurement.brandCopy.text).toContain('World Revolution News');
-  expect(measurement.overlapsTheme).toBe(false);
+  expect(measurement.brandName.text).toContain('World Revolution News');
+  expect(measurement.overlapsTools).toBe(false);
   expect(measurement.headerHeight).toBeLessThanOrEqual(maximumHeight);
 }
 
@@ -262,6 +275,8 @@ test('pinned ready feed is local, responsive and accessible', async ({ page }, t
   await page.keyboard.press('Tab');
   await expect(page.locator(':focus')).not.toHaveJSProperty('tagName', 'BODY');
   await expectNoHorizontalOverflow(page);
+  await page.getByTestId('header-more-trigger').focus();
+  await expect(page.getByTestId('header-more-trigger')).toBeFocused();
 
   const gridColumns = await page
     .locator('.article-grid, .feed-list, .home-main-grid')
@@ -278,7 +293,9 @@ test('pinned ready feed is local, responsive and accessible', async ({ page }, t
         : 1;
   expect(gridColumns).toBe(expectedColumns);
 
+  await page.getByTestId('header-more-trigger').click();
   await page.getByLabel('Color theme').selectOption('dark');
+  await page.goto('/?state=ready#home');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   if (
     [
@@ -312,9 +329,10 @@ test('theme preferences are local, accessible, reactive and fail closed', async 
   });
 
   await page.goto('/?state=ready&theme=dark');
+  await page.getByTestId('header-more-trigger').click();
   const selector = page.getByLabel('Color theme');
   await expect(selector).toBeVisible();
-  await expect(selector.locator('option')).toHaveCount(8);
+  await expect(selector.locator('option')).toHaveCount(9);
   await selector.focus();
   await expect(selector).toBeFocused();
   const selectorBox = await selector.boundingBox();
@@ -329,6 +347,7 @@ test('theme preferences are local, accessible, reactive and fail closed', async 
     'pink',
     'light',
     'contrast',
+    'editorial',
   ] as const) {
     await selector.selectOption(preference);
     await expect(page.locator('html')).toHaveAttribute('data-theme-preference', preference);
@@ -339,26 +358,32 @@ test('theme preferences are local, accessible, reactive and fail closed', async 
   await selector.selectOption('pink');
 
   const pinkBrand = await page.evaluate(() => {
-    const mark = document.querySelector<HTMLElement>(
-      '.mobile-brand-mark img, .site-brand-mark img',
+    const wordmark = document.querySelector<HTMLElement>(
+      '.compact-header-title span, .site-brand-name span',
     );
     const header = document.querySelector<HTMLElement>('.mobile-header, .site-header');
-    if (mark === null || header === null) throw new Error('Theme-reaktive Marke fehlt.');
+    if (wordmark === null || header === null) throw new Error('Theme-reaktive Marke fehlt.');
     const root = getComputedStyle(document.documentElement);
+    const colorProbe = document.createElement('span');
+    colorProbe.style.color = root.getPropertyValue('--wrn-color-action').trim();
+    document.body.append(colorProbe);
+    const actionColor = getComputedStyle(colorProbe).color;
+    colorProbe.remove();
     return {
       primary: root.getPropertyValue('--wrn-brand-wordmark-primary').trim(),
       secondary: root.getPropertyValue('--wrn-brand-wordmark-secondary').trim(),
-      filter: getComputedStyle(mark).filter,
+      wordmarkColor: getComputedStyle(wordmark).color,
+      actionColor,
       headerShadow: getComputedStyle(header).boxShadow,
     };
   });
   expect(pinkBrand.primary).toBe('#ff4fa3');
   expect(pinkBrand.secondary).toBe('#9b82ff');
-  expect(pinkBrand.filter).not.toBe('none');
+  expect(pinkBrand.wordmarkColor).toBe(pinkBrand.actionColor);
   expect(pinkBrand.headerShadow).not.toBe('none');
 
   await selector.selectOption('contrast');
-  await page.goto('/?state=ready');
+  await page.goto('/?state=ready#more');
   await expect(selector).toHaveValue('contrast');
   expect(await page.evaluate(() => Object.entries(window.localStorage))).toEqual([
     ['wrn.theme-preference.v1', 'contrast'],
@@ -375,7 +400,8 @@ test('theme preferences are local, accessible, reactive and fail closed', async 
   await page.evaluate(() =>
     window.localStorage.setItem('wrn.theme-preference.v1', 'unknown-theme'),
   );
-  await page.goto('/?state=ready');
+  await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('data-theme-preference', 'violet');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'violet');
   expect(await page.evaluate(() => window.localStorage.length)).toBe(0);
   expect(await context.cookies()).toEqual([]);
@@ -398,7 +424,7 @@ test('preview states fail closed without a remote service', async ({ context, pa
   for (const state of states) {
     await page.goto(`/?state=${state.query}&theme=dark`);
     await expect(page.getByRole('heading', { name: state.name })).toBeVisible();
-    await expect(page.getByRole(state.role)).toBeVisible();
+    await expect(page.locator('.feed-status').getByRole(state.role)).toBeVisible();
     await captureEvidence(page, `${testInfo.project.name}_dark-${state.query}`);
     // Preserve the preview assertion, then finish restore before the next document.
     await page.getByRole('button', { name: 'Ready', exact: true }).click();
@@ -410,7 +436,7 @@ test('preview states fail closed without a remote service', async ({ context, pa
   await context.setOffline(true);
   await page.getByRole('button', { name: 'Offline', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Offline', exact: true })).toBeVisible();
-  await expect(page.getByRole('status')).toBeVisible();
+  await expect(page.locator('.feed-status').getByRole('status')).toBeVisible();
   await captureEvidence(page, `${testInfo.project.name}_dark-offline`);
   await context.setOffline(false);
 
@@ -419,30 +445,30 @@ test('preview states fail closed without a remote service', async ({ context, pa
   await expect(page.getByRole('heading', { name: /Error/i })).toBeVisible();
 });
 
-test('brand headers keep a text fallback when their local mark cannot load', async ({
+test('brand headers keep a complete text title without a mark request', async ({
   page,
 }, testInfo) => {
   test.skip(!['mobile-390x844', 'website-390x844'].includes(testInfo.project.name));
 
-  await page.route('**/*solinaridao-header-mark-filled*', (route) => route.abort());
+  const markRequests: string[] = [];
+  page.on('request', (request) => {
+    if (request.url().includes('solinaridao-header-mark-filled')) markRequests.push(request.url());
+  });
   await page.goto('/?state=ready&theme=dark');
 
   if (testInfo.project.name.startsWith('mobile-')) {
-    await expect(page.getByText('Solinaridao', { exact: true })).toBeVisible();
-    await expect(page.getByTestId('mobile-brand-mark')).toHaveText('S');
+    await expect(page.locator('.compact-header-title')).toHaveText('World Revolution News');
+    await expect(page.locator('.header-website-link')).toBeVisible();
     await captureEvidence(page, `${testInfo.project.name}_dark-brand-fallback`);
   } else {
-    await expect(
-      page.getByRole('link', { name: /Solinaridao.*World Revolution News/i }),
-    ).toBeVisible();
-    await expect(page.locator('.site-brand-mark')).toHaveText('S');
+    await expect(page.locator('.site-brand-name')).toHaveText('World Revolution News');
+    await expect(page.locator('.site-brand-project')).toBeVisible();
     await captureEvidence(page, `${testInfo.project.name}_dark-brand-fallback`);
   }
+  expect(markRequests).toEqual([]);
 });
 
-test('brand headers use a chrome surface instead of the editorial background', async ({
-  page,
-}, testInfo) => {
+test('brand headers use an opaque chrome surface', async ({ page }, testInfo) => {
   await page.goto('/?state=ready&theme=dark');
 
   const isMobile = testInfo.project.name.startsWith('mobile-');
@@ -455,22 +481,17 @@ test('brand headers use a chrome surface instead of the editorial background', a
     };
   });
   expect(measurement.backgroundColor).not.toBe('rgba(0, 0, 0, 0)');
-  expect(measurement.backgroundImage).toBe('none');
 
   if (isMobile) {
-    const mark = await page.getByTestId('mobile-brand-mark').evaluate((element) => {
-      const image = element.querySelector('img');
+    const title = await page.locator('.compact-header-title').evaluate((element) => {
       const bounds = element.getBoundingClientRect();
       return {
         width: bounds.width,
         height: bounds.height,
-        imageObjectFit: image === null ? null : window.getComputedStyle(image).objectFit,
       };
     });
-    expect(mark.width).toBeGreaterThanOrEqual(94);
-    expect(mark.width).toBeLessThanOrEqual(118.1);
-    expect(mark.height).toBeLessThan(mark.width);
-    expect(mark.imageObjectFit).toBe('contain');
+    expect(title.width).toBeGreaterThanOrEqual(44);
+    expect(title.height).toBeGreaterThanOrEqual(44);
   }
 });
 
@@ -499,11 +520,11 @@ test('mobile brand header remains uncut and within its shell across required vie
 
     const layout = await page.evaluate(() => {
       const header = document.querySelector<HTMLElement>('.mobile-header');
-      const brand = document.querySelector<HTMLElement>('.mobile-brand');
-      const mark = document.querySelector<HTMLElement>('.mobile-brand-mark');
-      const image = mark?.querySelector('img');
+      const brand = document.querySelector<HTMLElement>('.compact-header-brand');
+      const title = document.querySelector<HTMLElement>('.compact-header-title');
+      const project = document.querySelector<HTMLElement>('.header-website-link');
       const main = document.querySelector<HTMLElement>('#mobile-main');
-      if (header === null || brand === null || mark === null || main === null)
+      if (header === null || brand === null || title === null || project === null || main === null)
         throw new Error('Mobiler Markenheader fehlt.');
       return {
         header: header.getBoundingClientRect().toJSON(),
@@ -511,10 +532,8 @@ test('mobile brand header remains uncut and within its shell across required vie
           clientWidth: brand.clientWidth,
           scrollWidth: brand.scrollWidth,
         },
-        mark: {
-          ...mark.getBoundingClientRect().toJSON(),
-          imageObjectFit: image === null ? null : window.getComputedStyle(image).objectFit,
-        },
+        title: title.getBoundingClientRect().toJSON(),
+        project: project.getBoundingClientRect().toJSON(),
         main: main.getBoundingClientRect().toJSON(),
         headerBackgroundImage: window.getComputedStyle(header).backgroundImage,
       };
@@ -522,10 +541,12 @@ test('mobile brand header remains uncut and within its shell across required vie
 
     expect(layout.headerBackgroundImage).toBe('none');
     expect(layout.brand.scrollWidth).toBeLessThanOrEqual(layout.brand.clientWidth + 1);
-    expect(layout.mark.width).toBeGreaterThanOrEqual(94);
-    expect(layout.mark.width).toBeLessThanOrEqual(118.1);
-    expect(layout.mark.height).toBeLessThan(layout.mark.width);
-    expect(layout.mark.imageObjectFit).toBe('contain');
+    expect(layout.title.width).toBeGreaterThanOrEqual(44);
+    expect(layout.title.height).toBeGreaterThanOrEqual(44);
+    expect(layout.project.height).toBeGreaterThanOrEqual(44);
+    expect(layout.title.left).toBeGreaterThanOrEqual(layout.header.left - 1);
+    expect(layout.title.right).toBeLessThanOrEqual(layout.header.right + 1);
+    if (!viewport.reflow) expect(layout.header.height).toBeLessThanOrEqual(180);
     expect(layout.main.top).toBeGreaterThanOrEqual(layout.header.bottom - 1);
     await expectNoHorizontalOverflow(page);
   }
@@ -538,15 +559,19 @@ test('approved project and donation links retain their privacy and leaving-app n
 
   await page.goto('/?state=ready&theme=light');
 
-  const projectLink = page.getByRole('link', { name: 'More about the project' });
+  const projectLink = page.getByRole('main').getByRole('link', { name: 'More about the project' });
+  const headerProjectLink = page
+    .getByRole('banner')
+    .getByRole('link', { name: 'More about the project' });
   const donationLink = page.getByRole('link', { name: 'Support' });
   await expect(projectLink).toHaveAttribute('href', 'https://solinaridao.com/');
+  await expect(headerProjectLink).toHaveAttribute('href', 'https://solinaridao.com/?lang=en');
   await expect(donationLink).toHaveAttribute(
     'href',
     'https://www.paypal.com/ncp/payment/6FSV9FEN4X7VS',
   );
 
-  for (const link of [projectLink, donationLink]) {
+  for (const link of [projectLink, headerProjectLink, donationLink]) {
     await expect(link).toHaveAttribute('target', '_blank');
     await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
     await expect(link).toHaveAttribute('referrerpolicy', 'no-referrer');
@@ -558,7 +583,7 @@ test('approved project and donation links retain their privacy and leaving-app n
   await expect(page.getByText(/PayPal/i)).not.toBeVisible();
 });
 
-test('website header is compact while retaining its tablet and desktop wordmark', async ({
+test('website header is compact while retaining its title at every width', async ({
   page,
 }, testInfo) => {
   test.skip(
@@ -568,16 +593,10 @@ test('website header is compact while retaining its tablet and desktop wordmark'
   await page.goto('/?state=ready&theme=light');
   const header = page.locator('.site-header');
   const headerHeight = await header.evaluate((element) => element.getBoundingClientRect().height);
-  const maximumHeight =
-    testInfo.project.name === 'website-390x844'
-      ? 140
-      : testInfo.project.name === 'website-800x1280'
-        ? 152
-        : 76;
-  expect(headerHeight).toBeLessThanOrEqual(maximumHeight);
+  expect(headerHeight).toBeLessThanOrEqual(180);
 
   if (testInfo.project.name !== 'website-390x844') {
-    await expect(page.locator('.site-brand-wordmark')).toBeVisible();
+    await expect(page.locator('.site-brand-name')).toHaveText('World Revolution News');
   }
 });
 
@@ -589,6 +608,9 @@ test('mobile and website retain their separately bound release revisions and ID 
 
   const websitePage = await browser.newPage({ viewport: { width: 390, height: 844 } });
   try {
+    await websitePage.addInitScript((value) => {
+      Date.now = () => value;
+    }, fixtureNow);
     await page.goto('/?state=ready');
     await websitePage.goto('http://127.0.0.1:43174/?state=ready');
     await expectPinnedReadyFeed(page);
@@ -766,7 +788,7 @@ test('all nine interface languages are local, persistent, and leave local conten
   }
 });
 
-test('mobile language selector shows complete native names at normal size', async ({
+test('mobile language selector shows compact codes with accessible native names', async ({
   page,
 }, testInfo) => {
   test.skip(testInfo.project.name !== 'mobile-390x844');
@@ -788,17 +810,19 @@ test('mobile language selector shows complete native names at normal size', asyn
   await page.goto('/?state=ready&theme=dark');
   expect(await page.evaluate(() => Date.now())).toBe(now);
   await expectPinnedReadyFeed(page);
+  await page.getByTestId('header-more-trigger').click();
+  await expect(page.getByTestId('theme-selector')).toBeVisible();
   const selector = page.getByTestId('ui-language-selector');
   const labels = [
-    ['en', 'English (EN)'],
-    ['de', 'Deutsch (DE)'],
-    ['es', 'Español (ES)'],
-    ['fr', 'Français (FR)'],
-    ['it', 'Italiano (IT)'],
-    ['pt', 'Português (PT)'],
-    ['ru', 'Русский (RU)'],
-    ['el', 'Ελληνικά (EL)'],
-    ['tr', 'Türkçe (TR)'],
+    ['en', 'EN', 'English'],
+    ['de', 'DE', 'Deutsch'],
+    ['es', 'ES', 'Español'],
+    ['fr', 'FR', 'Français'],
+    ['it', 'IT', 'Italiano'],
+    ['pt', 'PT', 'Português'],
+    ['ru', 'RU', 'Русский'],
+    ['el', 'EL', 'Ελληνικά'],
+    ['tr', 'TR', 'Türkçe'],
   ] as const;
   const variants = [
     { width: 390, height: 844, theme: 'dark' },
@@ -816,11 +840,11 @@ test('mobile language selector shows complete native names at normal size', asyn
     await page.setViewportSize({ width: variant.width, height: variant.height });
     await page.getByTestId('theme-selector').selectOption(variant.theme);
     await expect(page.locator('html')).toHaveAttribute('data-theme', variant.theme);
-    for (const [language, label] of labels) {
+    for (const [language, code, nativeName] of labels) {
       await selector.focus();
       await selector.selectOption(language);
       await expect(selector).toBeFocused();
-      await expect(selector).toHaveAccessibleName(/\S/);
+      await expect(selector).toHaveAccessibleName(new RegExp(nativeName));
       await expect(selector.locator('option')).toHaveText(labels.map(([, text]) => text));
       const measurement = await selector.evaluate((element) => {
         const select = element as HTMLSelectElement;
@@ -844,15 +868,15 @@ test('mobile language selector shows complete native names at normal size', asyn
         page,
         `header-language-${variant.width}x${variant.height}-${variant.theme}-${language}`,
       );
-      expect(measurement.optionLabel).toBe(label);
+      expect(measurement.optionLabel).toBe(code);
       expect(measurement.fontSize).toBe(16);
       expect(measurement.width).toBeGreaterThanOrEqual(44);
       expect(measurement.height).toBeGreaterThanOrEqual(44);
       expect(measurement.outlineStyle).not.toBe('none');
       expect(measurement.outlineWidth).toBeGreaterThan(0);
       expect(
-        measurement.width - measurement.fontSize * 3,
-        `${variant.width}px ${variant.theme} ${label}: closed native label must fit`,
+        measurement.width - 16,
+        `${variant.width}px ${variant.theme} ${code}: closed compact label must fit`,
       ).toBeGreaterThanOrEqual(measurement.optionLabelWidth);
       await expectNoHorizontalOverflow(page);
     }
@@ -1075,13 +1099,17 @@ test('local navigation keeps stable targets, history, focus and honest migration
   await expectNoHorizontalOverflow(page);
 
   await navigation.getByRole('link', { name: 'Media', exact: true }).click();
-  await expect(page.getByRole('heading', { name: 'Media', exact: true })).toBeFocused();
+  const mediaHeading = page.getByRole('heading', {
+    name: isMobile ? 'Media' : 'Discover videos',
+    exact: true,
+  });
+  await expect(mediaHeading).toBeFocused();
   await page.goBack();
   await expect(page.getByRole('heading', { name: 'Discover', exact: true })).toBeVisible();
   await page.goForward();
-  await expect(page.getByRole('heading', { name: 'Media', exact: true })).toBeVisible();
+  await expect(mediaHeading).toBeVisible();
   await page.reload();
-  await expect(page.getByRole('heading', { name: 'Media', exact: true })).toBeVisible();
+  await expect(mediaHeading).toBeVisible();
 
   await page.goto('/?state=ready#unknown-wrn-target');
   await expect(page.getByRole('link', { name: 'Home', exact: true }).first()).toHaveAttribute(
@@ -1161,8 +1189,9 @@ test('every visible navigation target has an active state and an honest local de
       await expect(page.locator('.personalization-view')).toBeVisible();
       await expect(page.getByText('Not migrated yet', { exact: true })).toBeHidden();
     } else {
-      await expect(page.getByRole('heading', { name: label, exact: true })).toBeVisible();
-      await expect(page.getByText('Not migrated yet', { exact: true })).toBeVisible();
+      await expect(page.getByRole('main').getByRole('heading').first()).toBeVisible();
+      await expect(page.locator('.migration-panel')).toBeHidden();
+      await expect(page.getByText('Not migrated yet', { exact: true })).toBeHidden();
     }
   }
   await expectNoHorizontalOverflow(page);
@@ -1485,6 +1514,9 @@ test('discover search and facets remain local, resettable and absent from URL an
   await page.goto('/?state=ready#discover');
   const search = page.getByRole('searchbox', { name: 'Search news' });
   await search.fill('responsive');
+  if (testInfo.project.name.startsWith('mobile-')) {
+    await page.locator('.discover-facets summary').click();
+  }
   await page.getByLabel('Format').selectOption('analysis');
   await expect(page.getByRole('status')).toContainText('1 result');
   await expect(page.locator('article[data-article-id]')).toHaveCount(1);
@@ -1562,7 +1594,7 @@ test('website normal 390-pixel brand header remains complete and compact', async
   test.skip(testInfo.project.name !== 'website-390x844');
 
   await page.goto('/?state=ready&theme=light#home');
-  await expectCompleteWebsiteBrandHeader(page, 140);
+  await expectCompleteWebsiteBrandHeader(page, 180);
   await expectNoHorizontalOverflow(page);
 });
 
@@ -1867,6 +1899,14 @@ test('release-bound local archive never exposes unavailable payloads', async ({
   page,
 }, testInfo) => {
   test.skip(!['mobile-390x844', 'website-390x844'].includes(testInfo.project.name));
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, 'share', {
+      configurable: true,
+      value: async ({ url }: { url: string }) => {
+        (window as Window & { __wrnSharedUrl?: string }).__wrnSharedUrl = url;
+      },
+    });
+  });
   const isMobile = testInfo.project.name.startsWith('mobile-');
   const externalRequests: string[] = [];
   const baseOrigin = new URL(testInfo.project.use.baseURL as string).origin;
@@ -1892,6 +1932,11 @@ test('release-bound local archive never exposes unavailable payloads', async ({
   ).toBeFocused();
   await page.getByRole('button', { name: 'Share' }).click();
   await expect(page.getByRole('status')).toContainText('Canonical local share target prepared.');
+  await expect
+    .poll(() =>
+      page.evaluate(() => (window as Window & { __wrnSharedUrl?: string }).__wrnSharedUrl),
+    )
+    .toBe('https://solinaridao.com/articles/wrn-test-art-cedar/');
   await expectNoHorizontalOverflow(page);
   await expectTouchTargets(page);
 

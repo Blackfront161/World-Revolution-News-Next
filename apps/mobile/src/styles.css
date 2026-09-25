@@ -1762,19 +1762,23 @@
 
 .compact-header-brand-heading {
   margin: 0;
+  max-width: 100%;
   font: inherit;
   line-height: 1;
 }
 
 .compact-header-title {
+  display: inline-block;
+  max-width: 100%;
+  min-height: var(--wrn-control-min-size);
   color: var(--wrn-color-text);
   font-family: var(--wrn-font-editorial);
   font-size: clamp(1rem, 5.2vw, 1.65rem);
   font-weight: 800;
   letter-spacing: -0.035em;
-  line-height: 1;
+  line-height: var(--wrn-control-min-size);
   text-decoration: none;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 
 .compact-header-title span {
@@ -1782,10 +1786,11 @@
 }
 
 .header-website-link {
-  min-height: 1.25rem;
+  display: inline-block;
+  min-height: var(--wrn-control-min-size);
   color: var(--wrn-color-muted);
   font-size: 0.68rem;
-  line-height: 1.1;
+  line-height: var(--wrn-control-min-size);
   text-decoration: none;
 }
 

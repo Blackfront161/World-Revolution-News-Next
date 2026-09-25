@@ -1603,10 +1603,11 @@
 }
 
 .site-brand-project {
-  min-height: 1.25rem;
+  display: inline-block;
+  min-height: var(--wrn-control-min-size);
   color: var(--wrn-color-muted);
   font-size: 0.68rem;
-  line-height: 1.1;
+  line-height: var(--wrn-control-min-size);
   text-decoration: none;
 }
 
