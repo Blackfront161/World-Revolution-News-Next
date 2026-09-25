@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "wrn-evidence-manifest-v1",
+  "packet": "WRN-RC-HOSTING-CURRENT-2026-09-26",
+  "sourceCommit": "cdd7c946f9b00314760a90acad5fab6789a77750",
+  "upstreamCommit": "50d8a4905815c5fb1fecfbc1ec84793d14c82d56",
+  "files": [
+    {
+      "path": "docs/evidence/WRN-RC-HOSTING-CURRENT-2026-09-26/REPORT.md",
+      "bytes": 2585,
+      "sha256": "301f17f4ced7d95dbbd97301341671890e8721896beb5687fc4a04d28a639d95"
+    },
+    {
+      "path": "docs/evidence/WRN-RC-HOSTING-CURRENT-2026-09-26/directory-receipt.json",
+      "bytes": 1359,
+      "sha256": "2fc9d20116f6ebfc80c2a32b9a4c2fe49d87bf028f5def89083a4ddd7691b18a"
+    },
+    {
+      "path": "docs/evidence/WRN-RC-HOSTING-CURRENT-2026-09-26/website-package.manifest.json",
+      "bytes": 65641,
+      "sha256": "d8b029e0b81d7a0b3d07f604dff855438a07842575ae2f92ffa71da40241b49c"
+    },
+    {
+      "path": "docs/evidence/WRN-RC-HOSTING-CURRENT-2026-09-26/hosting-packet.manifest.json",
+      "bytes": 64591,
+      "sha256": "707400b3b0cae1354b4075a03e95fb5aeffa70eb7c89c181f4539765fe654f9e"
+    }
+  ]
+}

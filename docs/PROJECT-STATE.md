@@ -1,5 +1,9 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 26.09. - Neuer lokaler Hostingkandidat: Produktcommit cdd7c94 und Daten-Commit 50d8a49 bilden 958 aktuelle Nachrichtenlinks, 532 Quellen und drei Sportnotizen ab. 899 gemeinsame Links behalten ihre IDs. Website 41/41 und Hostingpaket 44/44 Dateien byteweise verifiziert; Pointer zuletzt. Nur Dry-run, kein Live-Transfer. Der vorige Host-Widerrufsstand ist weiter unbewiesen.
+[Beleg](evidence/WRN-RC-HOSTING-CURRENT-2026-09-26/REPORT.md).
+
+
 Neu 26.09. - Medien-Browserpaket im getrennten Release-Checkout: Erststart und Offline-IDB nutzen jetzt die vorhandenen leeren Vite-Testseiten. Controller/Erststart/Offline/Resume 30/30 PASS; Header-Scroll 4/4 PASS; Setup-Grenze 1/1, Lint und Format PASS. Nur Test- und Belegdateien wurden geaendert, Produktbytes und AAB bleiben gleich. Volle Browsermatrix, Live-Host und Play sind offen.
 [Beleg](evidence/WRN-BROWSER-MATRIX-FOLLOWUP-2026-09-26/REPORT.md).
 
