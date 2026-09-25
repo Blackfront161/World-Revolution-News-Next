@@ -24,6 +24,10 @@
       "types": "./src/source-preferences.ts",
       "default": "./src/source-preferences.ts"
     },
+    "./source-pass": {
+      "types": "./src/source-pass.ts",
+      "default": "./src/source-pass.ts"
+    },
     "./events-media": {
       "types": "./src/events-media.ts",
       "default": "./src/events-media.ts"

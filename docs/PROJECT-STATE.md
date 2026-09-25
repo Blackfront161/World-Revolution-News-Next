@@ -1,4 +1,105 @@
 # WRN â€“ aktueller Arbeitsstand
+Neu 25.09. – Hosting-/Kostenkontrolle: Das angemeldete Cloudflare-Konto nutzt
+Workers Free und enthält drei bestehende Worker, aber kein Pages-Projekt.
+Alte Proxy-/Cache-Bindungen für Gemini, Hugging Face und Azure sind vorhanden;
+ihre aktiven Altschalter sind kein Beleg für ein kostenfreies neues Kontingent.
+Der Hostinger-Dateimanager für `solinaridao.com` fordert weiterhin Login.
+Das verifizierte neue Hostingpaket ist daher noch nicht auf dem Live-Host;
+drei Produktionszeiger lieferten HTTP404. Die RC-MUST-Matrix zeigt nun auch
+den aktuellen 94-Asset-AAB-Stand und trennt dessen frischen Emulatorstart
+vom älteren datenerhaltenden Upgradebeleg. Es gab keine externe Änderung.
+[Hostingbeleg](evidence/WRN-SRC04-HOSTING-CANDIDATE-2026-09-25/REPORT.md).
+
+Neu 25.09. – SRC-04-Teilpaket: 16 internationale, nur als Metadatenlinks
+aufgenommene Profile ergänzen die drei bisherigen Quellenpässe. Beide Clients
+haben jetzt 19 Profile/22 Endpunkte bei unveränderten 532 Verzeichnis-IDs.
+Der kumulative Widerruf ist mehrtabfest; Online-Erstrender zeigt Direktlinks
+erst nach dem Widerrufsversuch. Der Website-Packager verlangt den vorher
+ausgelieferten Widerrufs-Snapshot und weist rev2→rev1 ab; rev2→rev3 besteht.
+Unabhängiger Korrekturreview PASS, Mobile-Loader9/9 und Route8/8,
+Website4/4, Paket13/13, Asset-Parität2/2, Android-Release/Lint/Build PASS.
+Die finale unsignierte APK 2.2.0/27 hat SHA-256
+`02173dbbdbadb2a7f4bc7b1dbb0a8c623c685edc2f4ee50d748379088ebf249d`;
+ein frisch test-signierter API36-Emulatorstart zeigt alle neuen Karten bereits
+offline, danach online, ohne FATAL/ANR. Die Website hat frisch offline weiter
+nur drei Profile bei unverändertem 8-MiB-Shell-Limit. SRC-04 und Gesamt-RC
+bleiben offen; Live-Host/Widerrufszeiger, Produktionssignatur und Play-internes
+Pre-Launch bleiben ausstehend. [Paketbeleg](evidence/WRN-SRC04-GLOBAL-SOURCES-2026-09-25/REPORT.md).
+
+Neu25.09. – aktueller Android-Kandidat `4dc1ad8e`: Das frisch erzeugte
+2.2.0/27-AAB bindet 92/92 Assets, ist 8.147.511 Byte groß und hat SHA-256
+`30560592ce6e6fee4aca1f02b9eccfac1cc027a9e6ba66eeefa9d5d193a7c77e`.
+Android-Release-Tests und `lintRelease` bestanden. Das reale API36-Upgrade der
+testsignierten 2.1.1/26 erhielt Paketidentität, Deutsch, Violett/Rot und den
+gespeicherten EFF-Artikel. Danach waren die neue Quellenroute, Filter und der
+kanonische EFF-Quellenpass im installierten Kandidaten erreichbar. 0
+FATAL-/ANR-Treffer. Produktions-/Uploadschlüssel wurden nicht verwendet.
+Das dazugehörige Websitepaket mit 38 Dateien/9.952.035 Byte und das kombinierte
+Hostingpaket mit 41 Dateien/11.881.985 Byte wurden anschließend vollständig
+rekonstruiert und bytegeprüft. Offen bleiben die authentisierte
+Live-Aktivierung/HTTPS-/CORS-/Header-/Rollbackprüfung, Produktionssignatur und
+Play-interner Pre-Launch. SRC-04 bleibt bis zu einem separaten sicheren
+Widerrufsvertrag für direkte Quellen offen.
+[Aktueller Emulatorbeleg](evidence/WRN-CURRENT-RC-EMULATOR-2026-09-25/REPORT.md).
+[Aktueller Hostingbeleg](evidence/WRN-CURRENT-RC-HOSTING-PACKET-2026-09-25/REPORT.md).
+
+Neu25.09. – kanonische Quellenpässe: EFF, C4SS und Africa Is a Country stehen
+in App und Website als drei belegte Profile vor der getrennten vollständigen
+Liste mit 532 unveränderten Endpunkt-IDs. Sechs kombinierbare Filter,
+stabile IDs/Aliasse, getrennte Selbst-/Redaktionsbeschreibung, zeitlich
+gebundener Endpunktstatus, lokalisierte Rechte mit Einzelprüfungsvorbehalt,
+neutrale Initialen und sichere öffentliche Kontaktwege sind erreichbar.
+475/475 Vertrags-, 33/33 Sprach-, 944/944 Mobile- und 155/155+69/69
+Websiteprüfungen sowie beide Produktionsbuilds bestanden; unabhängiger
+Korrekturreview PASS. SRC-01 bis SRC-03 sind geschlossen. Die internationale
+PO-092-Kandidatenaufnahme bleibt als SRC-04 offen; keine Kandidatenadmission
+oder Gesamtfreigabe abgeleitet.
+[Quellenpass-Beleg](evidence/WRN-SOURCE-PASS-OVERLAY-2026-09-25/REPORT.md).
+
+Neu25.09. – echter API36-Upgrade-/Erststarttest für `52109b09`: Die
+testsignierte 2.1.1/26 wurde ohne Deinstallation auf 2.2.0/27 aktualisiert;
+Paketidentität, Deutsch, Violett/Rot und der gespeicherte Artikel blieben
+erhalten. Offline-Deep-Link, vollständiger Reader und lokale Gerätestimme sind
+bestanden; das Menü führt mit Android-Zurück wieder zur Startseite. Ein
+getrennter frischer 2.2.0-Start aktivierte v6 und dekodierte das zugelassene
+EFF-Bild auf Karte und im Reader. 0 FATAL-/ANR-Treffer. Reale Sperre: Die
+Produktionszeiger für Inhalte und Verzeichnis antworten weiterhin mit HTTP 404;
+der explizite Aktualisierungsversuch einer erhaltenen v1 schlägt deshalb fehl.
+Vor Play intern sind Hostingaktivierung samt HTTPS/CORS/Header/Rollback,
+Produktionssignatur und Play-Pre-Launch offen.
+[Emulatorbeleg](evidence/WRN-PRE-PLAY-EMULATOR-2026-09-25/REPORT.md).
+
+Neu25.09. – unabhängiger RC-MUST-Abgleich: HOME-01, SPORT-02 und DISC-01
+sind nach Prüfung des tatsächlich erreichbaren Produkts geschlossen. V6 zeigt
+1 Aufmacher, 5 kompakte und 3 weitere Nachrichten sowie Sport vor fünf
+aktuellen Regionalterminen. Das lokale Sportverzeichnis umfasst 9 Haupt- und
+31 zusätzliche Fan-/Netzwerkquellen in 7 Sprachen aus allen 6 bewohnten
+Kontinenten; `directoryOnly` bleibt ohne Feed-/Volltextclaim. Entdecken erfüllt
+Suche und alle 5 kombinierten Facetten. Fokussierte Reproduktion:
+22/22 Domain/Discover, 27/27 Mobile Home/Sport/Directory, 3/3 Website
+Directory, 44/44 Vertrag, 7/7 Termine und 4/4+1/1 Sportquellen. DATA-01,
+SPORT-01 und SRC-01 bis SRC-04 blieben zu diesem Prüfzeitpunkt wegen realer
+Inhalts-, Bildrechte- und Quellenpasslücken offen. SRC-01 bis SRC-03 wurden im
+nachfolgenden Quellenpass-Paket geschlossen; SRC-04 bleibt offen. Kein
+Gesamt-GREEN.
+[Audit](evidence/WRN-RC-MATRIX-CLOSURE-AUDIT-2026-09-25/REPORT.md).
+
+Neu25.09. – Pre-Play-RC V2 `52109b09`: Die bisherigen Startdateien wurden in
+statische, vollständig gebundene Produktionschunks geteilt; größter Chunk
+395.006 Byte in Mobile und 400.293 Byte auf der Website, mit hartem
+500.000-Byte-Buildgate. Der 14-Dateien-Offline-Shell bleibt mit 8.334.212 Byte
+unter 8 MiB und bestand 4/4 echte Chrome-Offlinetests. Das Android-Receipt
+erzeugt und bindet nun selbst einen frischen Build mit bereinigter, vollständig
+dokumentierter Providerumgebung; das unsignierte AAB umfasst 92/92 bytegleiche
+Assets, 8.137.292 Byte und SHA-256
+`811add1d76b18068e62f89cb0e79ee7995bf26fd1b42a1ce1cf813eac612a160`.
+Websitepaket 38 Dateien, kombiniertes Hostingpaket 41 Dateien, beide vollständig
+rückverifiziert; unabhängiger Abschlussreview PASS ohne offene Findings.
+Mobile939/939, Website154/154+69/69, Android16/16+Lint,
+Workspace-Typechecks und Produktionsbuilds grün. Offen bleiben Signierung,
+freigegebene Installation/Upgrade, Play-interner Pre-Launch-Test sowie
+authentisiertes Hosting mit HTTPS-/Rollbackprobe. [RC-V2-Nachweis](evidence/WRN-PRE-PLAY-RC-2026-09-25-V2/REPORT.md).
+
 Neu25.09. – Pre-Play-RC b981c676: Die fünf aktuellen Regionaltermine sind
 lokal, barrierefrei und ohne Standorterfassung in beiden Clients erreichbar;
 der 48-Stunden-Guard ist 3/3 und die Browsermatrix 16/16 grün. Das neue
@@ -104,7 +205,7 @@ Funktionsumfang oder Frontend-/Backendauftrag daraus abgeleitet.
 | 1 Mediencontroller | **Geschlossen als technische Grundlage.** A7 unabhÃ¤ngig PASS nach drei korrigierten Findings: exaktes 30s-Handle-Ende, echte A5-Konfliktbelege und keine Arbeit nach dispose.32 fokussierte MobilefÃ¤lle,1 Websitefall,5 echte IDB-BrowserfÃ¤lle; unverÃ¤nderte unabhÃ¤ngige Fehlerprobes bestanden. A1â€“A6 bleiben geprÃ¼ft. Sichtbare Medienintegration gehÃ¶rt weiter zu RC2. |
 | 2 Produktive Medien | **In Arbeit.** EFF-Folge, gemeinsame Medien-UI, lokaler Erststart, Providerpolicy und CSP in beiden Builds integriert. Quelle/Provider unabhÃ¤ngig PASS; First-Boot2/2 echte IDB-BrowserfÃ¤lle und beide ProduktoberflÃ¤chen mit neun Sprachen/Consent/Clear bestanden. Echter Browser-MP3-Stream und Pausieren am13.09. in beiden Clients bestÃ¤tigt; Native und laufende Metadatenversorgung bleiben offen. [Paketbericht](evidence/WRN-RC-MEDIA-2026-09-12/REPORT.md). |
 | 3 Nutzerfunktionen | **In Arbeit.** Browserpaket ab9371f1 unabhÃ¤ngig PASS und sichtbar: BesuchsÃ¼bersicht, exakte FassungsÃ¤nderungshinweise und freiwillige lokale Benachrichtigungen,31 fokussierte/6 echte IDB-BrowserfÃ¤lle. Belegte wesentliche Korrekturmetadaten und native Hintergrundzustellung bleiben offen. |
-| 4 Laufende Inhalte | **In Arbeit.** Acht Artikel/vier Originalbilder, historische Verzeichnisse und fÃ¼nf aktuelle Regionalverweise aktiv. Bestehendes Backend anbinden, neue QuellenpÃ¤sse/Sportauswahl und wiederholbare Versorgung abschlieÃŸen. |
+| 4 Laufende Inhalte | **In Arbeit.** Neun Artikel/vier Originalbilder, historische Verzeichnisse, fünf aktuelle Regionalverweise und drei kanonische Quellenpässe aktiv. Bestehendes Backend produktiv anbinden, SRC-04, Sportbilder/-auswahl und wiederholbare Volltextversorgung abschließen. |
 | 5 App und Website | **In Arbeit.** Gemeinsame Funktionen, neun Sprachen, Themes, Offline und native Darstellung vollstÃ¤ndig zusammenfÃ¼hren; Leistungs-/Accessibility-/ParitÃ¤tslÃ¼cken schlieÃŸen. |
 | 6 Finaler RC | **Offen.** Ein Kandidat, vollstÃ¤ndige MUST-Matrix, GesamtprÃ¼fungen, Offline/Upgrade/GerÃ¤t, Websitepaket, Rechte/Privacy und PO-Sichtabnahme. Externe Releaseoperationen separat genehmigen. |
 

@@ -157,7 +157,7 @@ export function createShellProtocol() {
     ['status', 'remove', 'prepare'].includes(m.type) &&
     requestId(m.requestId) &&
     epoch(m.epoch);
-  const currentGraph = (manifest) => {
+  const legacyCurrentGraph = (manifest) => {
     const families = [
       [/^\/index\.html$/, 'text/html; charset=utf-8', maxBytes],
       [/^\/assets\/index-[A-Za-z0-9_-]+\.js$/, 'text/javascript; charset=utf-8', maxBytes],
@@ -208,10 +208,81 @@ export function createShellProtocol() {
       manifest.totalBytes === total
     );
   };
+  const splitCurrentGraph = (manifest) => {
+    const fixedFamilies = [
+      [/^\/index\.html$/, 'text/html; charset=utf-8', maxBytes],
+      [/^\/assets\/solinaridao-header-mark-filled-[A-Za-z0-9_-]+\.png$/, 'image/png', maxBytes],
+      [/^\/assets\/wrn-future-header-white-[A-Za-z0-9_-]+\.png$/, 'image/png', maxBytes],
+      [
+        /^\/assets\/legacy-knowledge-v1-[A-Za-z0-9_-]+\.json$/,
+        'application/json; charset=utf-8',
+        3 * 1024 * 1024,
+      ],
+      [
+        /^\/assets\/legacy-support-v1-[A-Za-z0-9_-]+\.json$/,
+        'application/json; charset=utf-8',
+        1024 * 1024,
+      ],
+      [
+        /^\/assets\/content-directory-v1-[A-Za-z0-9_-]+\.json$/,
+        'application/json; charset=utf-8',
+        3 * 1024 * 1024,
+      ],
+      [
+        /^\/assets\/production-events-media-v1-[A-Za-z0-9_-]+\.json$/,
+        'application/json; charset=utf-8',
+        4 * 1024 * 1024,
+      ],
+    ];
+    const javascript =
+      /^\/assets\/(?:index|react-vendor|rolldown-runtime|wrn-language|wrn-content-core|wrn-browser-runtime)-[A-Za-z0-9_-]+\.js$/;
+    const stylesheet = /^\/assets\/(?:index|wrn-browser-runtime)-[A-Za-z0-9_-]+\.css$/;
+    const fixed = new Set();
+    const paths = new Set();
+    let javascriptCount = 0;
+    let stylesheetCount = 0;
+    let indexJavascriptCount = 0;
+    let indexStylesheetCount = 0;
+    let total = 0;
+    for (const entry of manifest.entries) {
+      if (!keys(entry, 'path,mime,bytes,sha256') || paths.has(entry.path)) return false;
+      paths.add(entry.path);
+      if (!id(entry.sha256) || !Number.isSafeInteger(entry.bytes) || entry.bytes < 1) return false;
+      const family = fixedFamilies.findIndex(([pattern]) => pattern.test(entry.path));
+      if (family >= 0) {
+        if (fixed.has(family)) return false;
+        const [, mime, limit] = fixedFamilies[family];
+        if (entry.mime !== mime || entry.bytes > limit) return false;
+        fixed.add(family);
+      } else if (javascript.test(entry.path)) {
+        if (entry.mime !== 'text/javascript; charset=utf-8' || entry.bytes > 500_000) return false;
+        javascriptCount += 1;
+        if (/^\/assets\/index-/.test(entry.path)) indexJavascriptCount += 1;
+      } else if (stylesheet.test(entry.path)) {
+        if (entry.mime !== 'text/css; charset=utf-8' || entry.bytes > 256 * 1024) return false;
+        stylesheetCount += 1;
+        if (/^\/assets\/index-/.test(entry.path)) indexStylesheetCount += 1;
+      } else return false;
+      total += entry.bytes;
+    }
+    return (
+      [0, 1, 2, 3, 4, 5].every((family) => fixed.has(family)) &&
+      (fixed.size === 6 || (fixed.size === 7 && fixed.has(6))) &&
+      javascriptCount >= 2 &&
+      javascriptCount <= 12 &&
+      stylesheetCount >= 1 &&
+      stylesheetCount <= 3 &&
+      indexJavascriptCount === 1 &&
+      indexStylesheetCount === 1 &&
+      total <= maxBytes &&
+      manifest.totalBytes === total
+    );
+  };
   const metadata = (manifest) =>
     object(manifest) &&
     Array.isArray(manifest.entries) &&
-    [5, 8, 9].includes(manifest.entries.length) &&
+    (manifest.entries.length === 5 ||
+      (manifest.entries.length >= 8 && manifest.entries.length <= 20)) &&
     manifest.entries.every(
       (entry) =>
         object(entry) &&
@@ -220,7 +291,7 @@ export function createShellProtocol() {
     ) &&
     new TextEncoder().encode(JSON.stringify(manifest)).byteLength <= maxManifestMetadata &&
     // Historical five-file generations retain their original read contract.
-    (manifest.entries.length === 5 || currentGraph(manifest));
+    (manifest.entries.length === 5 || legacyCurrentGraph(manifest) || splitCurrentGraph(manifest));
   const inventory = async (storage, c) => {
     const names = await storage.keys();
     const known = new Set(c.generations.map((g) => prefix + g.id));

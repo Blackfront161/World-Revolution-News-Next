@@ -1,8 +1,23 @@
 # WRN-CONTENT-SOURCES-001 – Globale Quellenaufnahme mit Schwarzer Befreiung und Westasien
 
-Stand: 30. August 2026
+Stand: 25. September 2026
 
-Status: **VORGEMERKT, NICHT GESTARTET**
+Status: **IN ARBEIT**
+
+## Aktueller Startstand
+
+Der spaetere Gesamtauftrag und die wiederholte PO-Freigabe zur vollstaendigen
+Umsetzung haben den historischen Nicht-Start-Vermerk ersetzt. Der erste
+additive Quellenpass ist in App und Website erreichbar: EFF, C4SS und Africa Is
+a Country besitzen kanonische stabile Profil-IDs, getrennte Selbst- und
+Redaktionsbeschreibung, Facetten, Endpunktzustand, Rechte je Medium, neutrale
+Logo-Fallbacks und verifizierte oeffentliche Korrekturwege. Die 532 bestehenden
+Endpunkte und ihre IDs bleiben unveraendert. Der Abschlussbeleg liegt unter
+`docs/evidence/WRN-SOURCE-PASS-OVERLAY-2026-09-25/REPORT.md`.
+
+Die PO-092-Inventur ist weiterhin eine Kandidatenliste. Fuer die dort genannten
+Quellen wurde keine Admission behauptet; ihre aktuelle und reproduzierbare
+Pruefung bleibt der offene SRC-04-Anteil dieses Pakets.
 
 ## Produktentscheidung
 
@@ -13,10 +28,10 @@ anarchistische Quellen aus Westasien. Die Aufnahme einer Quelle ist keine
 politische Etikettierung aller von ihr behandelten Personen, Regionen oder
 Bewegungen.
 
-Die PO-Entscheidung PO-088 erweitert dieses vorgemerkte Paket zu einem
+Die PO-Entscheidung PO-088 erweitert dieses Paket zu einem
 globalen, versionierten Quellenvertrag. Neu recherchierte geeignete
-anarchistische und angrenzende Quellen duerfen erst nach dem spaeteren
-Startgate anhand der folgenden Aufnahmeklassen eingeordnet werden:
+anarchistische und angrenzende Quellen werden anhand der folgenden
+Aufnahmeklassen eingeordnet:
 
 - aktive, zuverlaessige Quellen: Kandidaten fuer Nachrichten- oder Medienfeed;
 - selten publizierende Quellen: sichtbar im verifizierten Quellenverzeichnis,
@@ -66,7 +81,7 @@ Quellenpass und keine Importfreigabe:
   arabischsprachige Quellen erfolgen.
 
 Snapshotzahlen und Online-Aktualitaetsaussagen aus der Uebergabe sind vor
-einem spaeteren Start erneut zeitgestempelt und reproduzierbar zu verifizieren.
+jeder Admission erneut zeitgestempelt und reproduzierbar zu verifizieren.
 
 ## PO-092 – erweiterte globale Kandidateninventur
 
@@ -126,7 +141,7 @@ Quellen in die lokalen G3-016-/G3-017-Fixtures.
   Takedownbewertung;
 - reproduzierbare Quellen und Zeitstempel fuer jede redaktionelle Behauptung.
 
-## Sequenz fuer einen spaeteren Start
+## Sequenz fuer weitere Admissions
 
 1. read-only aktuelles Quellen-, Alias- und Lizenzinventar;
 2. redaktioneller Verifikations- und Stable-ID-Vertrag;
@@ -134,12 +149,12 @@ Quellen in die lokalen G3-016-/G3-017-Fixtures.
 4. erst danach Datenvertrag und getrennte Produktoberflaechen;
 5. unabhaengige Content-, Accessibility-, Security- und Architekturpruefung.
 
-## Nicht freigegeben
+## Weiterhin gebundene Operationen
 
-Kein Feedabruf, Import, Scraping, Hotlinking, Assetkopieren, Klassifizieren,
-Produkt-/Testcode, Agentenstart fuer Recherche oder Implementierung, Provider,
-neue Kosten, Hosting, Live, Android, AAB, Google Play oder Release. Ein eigener
-sichtbarer `START WRN-CONTENT-SOURCES-001` und die jeweils betroffenen
-Produktgates sind vor Ausfuehrung erforderlich.
+Die Produktumsetzung und lokale Verifikation sind freigegeben. Feedabruf,
+Import, Assetkopieren und Klassifizieren brauchen weiterhin den jeweiligen
+Rechte-, Privacy-, Sicherheits- und Admissionbeleg. Neue Kosten, Provider,
+Hosting, Livebetrieb, Produktionssignatur, Google-Play-Upload und Release
+bleiben an ihre bestehenden externen Freigaben und Produktgates gebunden.
 
 END-CHECK: :)

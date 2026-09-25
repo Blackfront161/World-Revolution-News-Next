@@ -45,13 +45,20 @@ outputs. Bind the web asset hashes, source revision and APK hash before review.
 ## Unsigned bundle staging
 
 From the repository root, `node tools/prepare-android-release.mjs` creates one new ignored directory
-under repository `work/wrn-android-release-*`. It copies and hashes the current
-`apps/mobile/dist` plus the checked native Capacitor bridge/config assets, records
-the Git commit and relevant dirty-source rejection in `receipt.json`, and writes
-`unsigned-bundle.init.gradle`. It does not run Gradle, sign, change a version, or
-upload anything. Until a separately bound fresh-build manifest is supplied, the
-receipt labels the copied `dist` provenance as `unverified`; its hash list alone
-does not prove the source build that produced those bytes.
+under repository `work/wrn-android-release-*`. The CLI performs a fresh local
+Vite build from the clean receipt-bound commit, enforces the 500,000-byte
+JavaScript chunk limit, and copies and hashes that output plus the checked native
+Capacitor bridge/config assets. It records the build provenance and Git commit in
+`receipt.json` and writes `unsigned-bundle.init.gradle`. The build starts with a
+small allowlist of operating-system variables, fixes `NODE_ENV=production`, and
+sets every supported `VITE_WRN_*` endpoint/provider variable to an empty value.
+It rejects Vite's `.env`, `.env.local`, `.env.production` and
+`.env.production.local` files in the workspace and mobile app, including ignored
+files. This keeps remote podcast and translation providers disabled unless a
+later, separately reviewed release contract deliberately enables them. It does not run Gradle,
+sign, change a version, install, or upload anything. The exported preparation
+function still labels a caller-supplied existing `apps/mobile/dist` as
+`unverified`, so tests and tooling cannot silently claim a fresh build.
 
 Only after separate review, run the receipt's displayed `:app:bundleRelease`
 command with the staged init script and assets. The init script rejects a release

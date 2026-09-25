@@ -64,6 +64,14 @@
       "types": "./src/directory/content-directory-refresh-v1.ts",
       "default": "./src/directory/content-directory-refresh-v1.ts"
     },
+    "./source-pass-overlay-v1": {
+      "types": "./src/directory/source-pass-overlay-v1.ts",
+      "default": "./src/directory/source-pass-overlay-v1.ts"
+    },
+    "./source-pass-revocations-v1": {
+      "types": "./src/directory/source-pass-revocations-v1.ts",
+      "default": "./src/directory/source-pass-revocations-v1.ts"
+    },
     "./production-events-media-v1": {
       "types": "./src/directory/production-events-media-v1.ts",
       "default": "./src/directory/production-events-media-v1.ts"

@@ -24,6 +24,9 @@ const evidenceInputs = [
   'WRN-SPORT-FULLTEXT-2026-09-20/candidate/',
   'WRN-FAN-SOURCES-2026-09-20/',
   'WRN-SEPARATE-PLATFORM-2026-09-20/',
+  'WRN-SRC04-GLOBAL-SOURCES-2026-09-25/',
+  'WRN-SRC04-HOSTING-CANDIDATE-2026-09-25/',
+  'WRN-SRC04-ANDROID-BUNDLE-2026-09-25/',
 ];
 
 function git(args, options = {}) {

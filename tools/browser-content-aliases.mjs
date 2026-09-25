@@ -24,6 +24,10 @@ const publicSources = Object.freeze({
     'packages/content-contracts/src/directory/mobile-content-directory-v1.ts',
   '@wrn/content-contracts/content-directory-refresh-v1':
     'packages/content-contracts/src/directory/content-directory-refresh-v1.ts',
+  '@wrn/content-contracts/source-pass-overlay-v1':
+    'packages/content-contracts/src/directory/source-pass-overlay-v1.ts',
+  '@wrn/content-contracts/source-pass-revocations-v1':
+    'packages/content-contracts/src/directory/source-pass-revocations-v1.ts',
   '@wrn/content-contracts/production-events-media-v1':
     'packages/content-contracts/src/directory/production-events-media-v1.ts',
   '@wrn/domain': 'packages/domain/src/index.ts',
@@ -33,6 +37,7 @@ const publicSources = Object.freeze({
   '@wrn/ui-language/directory': 'packages/ui-language/src/directory-copy.ts',
   '@wrn/ui-language/events-media': 'packages/ui-language/src/events-media.ts',
   '@wrn/ui-language/source-preferences': 'packages/ui-language/src/source-preferences.ts',
+  '@wrn/ui-language/source-pass': 'packages/ui-language/src/source-pass.ts',
   '@wrn/ui-language/sport-sources': 'packages/ui-language/src/sport-sources.ts',
 });
 

@@ -40,6 +40,10 @@ const options = (outputDirectory) => ({
   trustedWorkspaceRoot: workspace,
   sourceCommit,
   generatedAtUTC: '2026-09-10T16:55:00.000Z',
+  previousRevocationsFile: path.join(
+    workspace,
+    'packages/browser-content/src/data/source-pass-revocations-v1.json',
+  ),
 });
 const check = (directory, manifest) =>
   verify({ directory, manifest, trustedWorkspaceRoot: workspace });
@@ -91,7 +95,7 @@ test('two packages have deterministic bytes, exact real closure and immutable in
   const two = await prepare(options(path.join(base, 'two')));
   assert.deepEqual(await readFile(one.manifestPath), await readFile(two.manifestPath));
   assert.deepEqual(await check(one.outputDirectory), await check(two.outputDirectory));
-  assert.equal(manifest.files.length, 33);
+  assert.equal(manifest.files.length, 41);
   assert.deepEqual(
     manifest.files.filter((e) => e.path.startsWith('articles/')).map((e) => e.path),
     [
@@ -106,7 +110,9 @@ test('two packages have deterministic bytes, exact real closure and immutable in
       'articles/wrn-art-f2ad391804423c87773b3351eb79c802/index.html',
     ],
   );
-  assert.equal(manifest.sourceInput.files.length, 31);
+  assert.equal(manifest.sourceInput.files.length, 38);
+  assert(manifest.files.some((entry) => entry.path === 'wrn-source-passes/current.json'));
+  assert(manifest.files.some((entry) => entry.path === 'wrn-source-pass-revocations/current.json'));
   assert(
     !manifest.files.some((e) => /\.vite|wrn-local-release|staging|authored|test-only/.test(e.path)),
   );
@@ -124,6 +130,60 @@ test('two packages have deterministic bytes, exact real closure and immutable in
   );
 });
 
+test('a validated higher revocation snapshot is packaged with its actual hash', async () => {
+  const buildDirectory = await cloneInput('revocation-v2-input');
+  const relativePath = 'wrn-source-pass-revocations/current.json';
+  const target = path.join(buildDirectory, relativePath);
+  const value = {
+    schema: 'wrn.source-pass-revocations.v1',
+    contractVersion: '1.0.0',
+    revision: 2,
+    observedAt: '2026-09-25T20:00:00.000Z',
+    endpointIds: [`source-${'1'.repeat(64)}`],
+  };
+  const bytes = Buffer.from(JSON.stringify(value));
+  await writeFile(target, bytes);
+  const prepared = await prepare({
+    ...options(path.join(base, 'revocation-v2-package')),
+    buildDirectory,
+  });
+  const updated = JSON.parse(await readFile(prepared.manifestPath, 'utf8'));
+  assert.equal(
+    updated.files.find((entry) => entry.path === relativePath).sha256,
+    createHash('sha256').update(bytes).digest('hex'),
+  );
+  await check(prepared.outputDirectory);
+  const delivered = path.join(base, 'delivered-revocation-v2.json');
+  await writeFile(delivered, bytes, { flag: 'wx' });
+  const rollbackInput = await cloneInput('revocation-rollback-input');
+  await assert.rejects(
+    prepare({
+      ...options(path.join(base, 'revocation-rollback-package')),
+      buildDirectory: rollbackInput,
+      previousRevocationsFile: delivered,
+    }),
+    /Source pass revocation snapshot is not cumulative/,
+  );
+  const rev3 = {
+    ...value,
+    revision: 3,
+    observedAt: '2026-09-26T20:00:00.000Z',
+    endpointIds: [...value.endpointIds, `source-${'2'.repeat(64)}`],
+  };
+  await writeFile(path.join(rollbackInput, relativePath), JSON.stringify(rev3));
+  const advanced = await prepare({
+    ...options(path.join(base, 'revocation-v3-package')),
+    buildDirectory: rollbackInput,
+    previousRevocationsFile: delivered,
+  });
+  await check(advanced.outputDirectory);
+  await writeFile(target, JSON.stringify({ ...value, endpointIds: ['source-invalid'] }));
+  await assert.rejects(
+    prepare({ ...options(path.join(base, 'revocation-invalid-package')), buildDirectory }),
+    /Source pass revocation snapshot is not cumulative/,
+  );
+});
+
 test('actual six-article V3 publication packages deterministically with the unchanged eight MiB shell cap', async () => {
   const inputPath = path.join(
     workspace,
@@ -138,7 +198,8 @@ test('actual six-article V3 publication packages deterministically with the unch
     if (
       entry.path !== 'index.html' &&
       entry.path !== '.vite/manifest.json' &&
-      !entry.path.startsWith('assets/')
+      !entry.path.startsWith('assets/') &&
+      !entry.path.startsWith('wrn-source-pass')
     )
       continue;
     const target = path.join(buildDirectory, entry.path);
@@ -188,6 +249,12 @@ test('Apache and per-resource profiles bind CSP, credentialless CORS and exact c
   assert.equal(h['website-shell-sw.js']['service-worker-allowed'], '/');
   assert.equal(h['wrn-production-content/current.json']['cache-control'], 'no-store');
   assert.equal(h['wrn-production-content/current.json']['access-control-allow-origin'], '*');
+  assert.equal(h['wrn-source-passes/current.json']['access-control-allow-origin'], undefined);
+  assert.equal(h['wrn-source-pass-revocations/current.json']['access-control-allow-origin'], '*');
+  assert.equal(
+    h['wrn-source-pass-revocations/current.json']['cross-origin-resource-policy'],
+    'cross-origin',
+  );
   assert(
     h['wrn-production-content/' + manifest.revision + '/articles.json']['cache-control'].includes(
       'immutable',
@@ -383,13 +450,13 @@ test('unsafe Vite resource path and extra source assets never enter a package', 
   await writeFile(file, JSON.stringify(vite));
   await assert.rejects(
     () => prepare({ ...options(path.join(base, 'no-vite-output')), buildDirectory: unsafe }),
-    /Unsafe relative path/,
+    /Vite shell chunk path is invalid/,
   );
   const extra = await cloneInput('extra-input');
   await writeFile(path.join(extra, 'assets/unexpected.js'), 'globalThis.bad=true;', { flag: 'wx' });
   await assert.rejects(
     () => prepare({ ...options(path.join(base, 'no-extra-output')), buildDirectory: extra }),
-    /extra or missing assets/,
+    /Unapproved shell asset class or orphaned build chunk/,
   );
 });
 test('CLI succeeds from non-root cwd and rejects full-length unknown, duplicate, bare and flag-as-value arguments', async () => {
@@ -405,9 +472,11 @@ test('CLI succeeds from non-root cwd and rejects full-length unknown, duplicate,
     options('').sourceCommit,
     '--generated',
     options('').generatedAtUTC,
+    '--previous-revocations',
+    options('').previousRevocationsFile,
   ];
   const success = await run(process.execPath, [script, ...args], { cwd: base });
-  assert.equal(JSON.parse(success.stdout).files, 33);
+  assert.equal(JSON.parse(success.stdout).files, 41);
   for (const invalid of [
     ['--unknown', ...args.slice(1)],
     [...args.slice(0, 8), '--build', input],
