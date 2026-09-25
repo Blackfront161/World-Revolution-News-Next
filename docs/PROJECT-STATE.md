@@ -1,5 +1,18 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 26.09. – Header-Scroll und Website-RC: Die alte Live-Seite verkleinert ihren
+`sticky`-Header ab 36 px Scrollweg mit einer 180-ms-Animation; sie bleibt als
+Baseline unverändert. Im Neubau ist der Header statisch. Der Regressionstest
+überquert die Schwelle in beide Richtungen bei vier Client-/Viewportfällen:
+4/4 PASS. Website-Fix, gezielte Tests und Privacy-Review sind in `4ba9561`
+eingecheckt. Die vollständige `website-390x844`-Matrix endete mit 361 PASS,
+165 vorgesehenen Skips und 0 Fehlern; sechs weitere Playwright-Projekte
+bleiben offen. Website- und Hostingpaket aus diesem Commit wurden mit 41/41
+beziehungsweise 44/44 Dateien rückverifiziert; der Hosttransfer ist wegen
+fehlendem letzten Live-Widerrufssnapshot weiter offen. Frische lokale
+[Website-Vorschau](http://127.0.0.1:43233/?theme=violet&lang=de#home),
+[Beleg](evidence/WRN-WEBSITE-RC-2026-09-26/REPORT.md).
+
 Neu 26.09. - Betriebsabgleich: Der öffentliche GitHub-Stand liegt hinter dem lokalen RC; die erfolgreiche 6h-Action ist ausdrücklich ein Dry-run ohne Veröffentlichung. Drei Live-Content-/Widerrufszeiger zeigen „This Page Does Not Exist“. Hostinger leitet zur Anmeldung weiter. Die laufende Inhaltsauslieferung und der vorige Host-Widerrufsstand sind damit weiter offen.
 [Beleg](evidence/WRN-RC-HOSTING-CURRENT-2026-09-26/REPORT.md).
 
