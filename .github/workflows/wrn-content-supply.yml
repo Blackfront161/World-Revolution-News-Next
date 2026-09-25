@@ -40,6 +40,32 @@ jobs:
         with:
           node-version: 24.19.0
           check-latest: false
+      - name: Check curated regional-event freshness
+        shell: bash
+        run: |
+          set -euo pipefail
+          output_parent="$GITHUB_WORKSPACE/.wrn-actions-output"
+          mkdir -p "$output_parent"
+          status="$output_parent/regional-events-status.json"
+          node tools/check-current-regional-events.mjs --minimum-hours 48 > "$status"
+          node --input-type=module - "$status" <<'NODE'
+          import { appendFile, readFile } from 'node:fs/promises';
+
+          const status = JSON.parse(await readFile(process.argv[2], 'utf8'));
+          if (
+            status?.schema !== 'wrn.regional-events-freshness-check.v1' ||
+            status?.publicationPerformed !== false ||
+            status?.minimumHours !== 48 ||
+            status?.events !== 5 ||
+            status?.sources !== 5
+          )
+            throw new Error('invalid regional-events freshness status');
+          await appendFile(
+            process.env.GITHUB_STEP_SUMMARY,
+            `## WRN regional events\n\n- Revision: ${status.revision}\n- Valid until: ${status.validUntil}\n- Remaining hours: ${status.remainingHours}\n- Renewal lead time: ${status.minimumHours} hours\n- Publication performed: false\n`,
+            'utf8',
+          );
+          NODE
       - id: upstream
         name: Resolve bound upstream commit
         env:

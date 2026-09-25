@@ -3,12 +3,12 @@ import AxeBuilder from '@axe-core/playwright';
 import path from 'node:path';
 
 const moduleUrl = `/@fs/${path.resolve('packages/browser-content/src/regional-events/selection-store.ts').replaceAll('\\', '/')}`;
-const now = new Date('2026-09-12T14:00:00.000Z');
+const now = new Date('2026-09-25T14:00:00.000Z');
 
 for (const [client, port, sizes] of [
   [
     'mobile',
-    43192,
+    43177,
     [
       [320, 568],
       [360, 800],
@@ -23,7 +23,7 @@ for (const [client, port, sizes] of [
   ],
   [
     'website',
-    43193,
+    43175,
     [
       [320, 568],
       [390, 844],
@@ -46,6 +46,8 @@ for (const [client, port, sizes] of [
     let neutral: string[] | null = null;
     for (const theme of ['violet', 'dark']) {
       await page.goto(`http://127.0.0.1:${port}/?theme=${theme}#events`);
+      if (client === 'website' && (await page.locator('.website-support-welcome[open]').count()))
+        await page.keyboard.press('Escape');
       await page.getByTestId('ui-language-selector').selectOption('ru');
       const region = page.getByTestId('current-regional-events');
       await region.getByRole('combobox').nth(0).selectOption('continent-europe');
@@ -72,9 +74,31 @@ for (const [client, port, sizes] of [
           document.documentElement.style.fontSize = reflow ? '200%' : '100%';
         }, reflow);
         await region.scrollIntoViewIfNeeded();
+        const overflow = await page.evaluate(() => ({
+          fits: document.documentElement.scrollWidth <= innerWidth + 1,
+          viewport: innerWidth,
+          documentWidth: document.documentElement.scrollWidth,
+          offenders: [...document.querySelectorAll<HTMLElement>('*')]
+            .map((node) => {
+              const rect = node.getBoundingClientRect();
+              return {
+                tag: node.tagName,
+                className: node.className,
+                left: rect.left,
+                right: rect.right,
+                width: rect.width,
+                scrollWidth: node.scrollWidth,
+              };
+            })
+            .filter((item) => item.left < -1 || item.right > innerWidth + 1)
+            .slice(0, 12),
+        }));
         expect(
-          await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1),
-        ).toBe(true);
+          overflow,
+          JSON.stringify({ client, theme, width, height, reflow, overflow }),
+        ).toMatchObject({
+          fits: true,
+        });
         const controlSizes = await region.locator('button,select,summary').evaluateAll((nodes) =>
           nodes.map((node) => {
             const rect = node.getBoundingClientRect();
@@ -129,7 +153,7 @@ for (const [client, port, sizes] of [
 test('actual IDB version changes close old handles, and postcommit mismatch never reports success', async ({
   page,
 }) => {
-  await page.goto('http://127.0.0.1:43192/__regional-idb');
+  await page.goto('http://127.0.0.1:43177/__regional-idb');
   const result = await page.evaluate(async (url) => {
     const mod = await import(url);
     const store = await mod.openRegionalSelectionStore('mobile');
@@ -194,7 +218,7 @@ test('actual IDB version changes close old handles, and postcommit mismatch neve
 test('actual IDB saves only the explicit choice, survives restart and isolates both clients', async ({
   page,
 }) => {
-  await page.goto('http://127.0.0.1:43192/__regional-idb');
+  await page.goto('http://127.0.0.1:43177/__regional-idb');
   const result = await page.evaluate(async (url) => {
     const mod = await import(url);
     const choice = {
@@ -239,7 +263,7 @@ test('actual IDB saves only the explicit choice, survives restart and isolates b
 test('actual IDB snapshots caller values and rejects competing and pre-clear generations', async ({
   page,
 }) => {
-  await page.goto('http://127.0.0.1:43192/__regional-idb');
+  await page.goto('http://127.0.0.1:43177/__regional-idb');
   const result = await page.evaluate(async (url) => {
     const mod = await import(url);
     const left = await mod.openRegionalSelectionStore('mobile');
@@ -283,7 +307,7 @@ for (const kind of [
   'future',
 ] as const) {
   test(`actual IDB protects ${kind} storage without repair or byte changes`, async ({ page }) => {
-    await page.goto('http://127.0.0.1:43192/__regional-idb');
+    await page.goto('http://127.0.0.1:43177/__regional-idb');
     const result = await page.evaluate(
       async ({ url, kind }) => {
         const mod = await import(url);
@@ -351,7 +375,7 @@ for (const kind of [
 test('actual IDB abort, close, quota and failed precommit readback cannot leave a late choice', async ({
   page,
 }) => {
-  await page.goto('http://127.0.0.1:43192/__regional-idb');
+  await page.goto('http://127.0.0.1:43177/__regional-idb');
   const result = await page.evaluate(async (url) => {
     const mod = await import(url);
     const choice = { continentId: 'continent-europe', countryId: null, regionId: null };
@@ -400,8 +424,8 @@ test('actual IDB abort, close, quota and failed precommit readback cannot leave 
 });
 
 for (const [client, port] of [
-  ['mobile', 43192],
-  ['website', 43193],
+  ['mobile', 43177],
+  ['website', 43175],
 ] as const) {
   test(`${client} actual Home and Events save, restore, clear and retain source precision`, async ({
     page,
@@ -410,6 +434,7 @@ for (const [client, port] of [
     page.on('pageerror', (error) => errors.push(error.message));
     await page.clock.setFixedTime(now);
     await page.goto(`http://127.0.0.1:${port}/?theme=violet`);
+    if (client === 'website') await page.keyboard.press('Escape');
     await page.getByTestId('ui-language-selector').selectOption('de');
     const region = page.getByTestId('current-regional-events');
     await expect(region.getByRole('combobox', { name: 'Kontinent', exact: true })).toHaveValue('');
@@ -421,8 +446,7 @@ for (const [client, port] of [
       .getByRole('combobox', { name: 'Region', exact: true })
       .selectOption('region-london');
     await expect(region.getByRole('article')).toHaveCount(1);
-    await expect(region).toContainText('10:00');
-    await expect(region).toContainText('18:00');
+    await expect(region).toContainText('Uhrzeit nicht angegeben');
     await region.getByRole('button', { name: 'Auswahl auf diesem Gerät speichern' }).click();
     await expect(region).toContainText('Auswahl auf diesem Gerät gespeichert.');
     await region.scrollIntoViewIfNeeded();
@@ -444,7 +468,7 @@ for (const [client, port] of [
     const links = region.getByRole('link', { name: 'Originalankündigung öffnen' });
     await expect(links).toHaveAttribute(
       'href',
-      'https://www.oxfordhouse.org.uk/event/2026-london-anarchist-bookfair-2/',
+      'https://mailinglist.isrf.org/p/isrf-book-launch-announcement-constitutionalisin',
     );
     await expect(links).toHaveAttribute('referrerpolicy', 'no-referrer');
     await page.screenshot({ path: info.outputPath(`${client}-events-london-de.png`) });

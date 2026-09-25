@@ -8,14 +8,14 @@ führt noch keine Veröffentlichung durch.
 ## Konkreter Kandidat
 
 - Website-Revision: `wrn-production-news-2026-09-20-v6`
-- Website: 33 Dateien und 9.906.055 Bytes
+- Website: 33 Dateien und 9.907.203 Bytes
 - Verzeichnis: Sequenz `202609241636`, 958 Nachrichtenverweise, 532 Quellen
   und drei Sportnotizen
 - Verzeichnis-Snapshot: 1.928.624 Bytes, SHA-256
   `42e5fc54bd80b9241787e21494954f66584aaca6cbd74d5c89f116a6a45024ac`
-- Kombiniertes Hostingpaket: 36 Dateien und 11.836.005 Bytes
+- Kombiniertes Hostingpaket: 36 Dateien und 11.837.153 Bytes
 - Paketmanifest: SHA-256
-  `629a17ee3346ad3be06dcd1bf232af21243b6a4ae3f78b12cfca6718097c4edd`
+  `50a6d71568465b58350a58a36844af384881916029c77067dea0d0c82e184f04`
 
 Der Paketprüfer rekonstruiert die erwarteten Dateien aus dem bereits
 verifizierten Websitepaket und dem validierten Verzeichnis-Refresh. Er lehnt

@@ -1,4 +1,14 @@
 # WRN â€“ aktueller Arbeitsstand
+Neu25.09. – Pre-Play-RC b981c676: Die fünf aktuellen Regionaltermine sind
+lokal, barrierefrei und ohne Standorterfassung in beiden Clients erreichbar;
+der 48-Stunden-Guard ist 3/3 und die Browsermatrix 16/16 grün. Das neue
+unsignierte Android-AAB (2.2.0/27, Target SDK 36) bindet 91/91 Assets, hat
+SHA-256 `ea5c730bfc7a5c5de4e0b014b9ea15ee525dacab70192109ad571360492c8892`
+und bestand 16/16 Android-Tests sowie `lintRelease`. Das aktualisierte
+36-Dateien-Hostingpaket umfasst 11.837.153 Bytes und wurde vollständig
+rekonstruiert und bytegeprüft. Offen sind Produktionssignatur, Play-interner
+Upgrade-/Pre-Launch-Test, authentisierte Hostingaktivierung/HTTPS-Probe sowie
+der abschließende Performance-/Geräteabgleich. [RC-Nachweis](evidence/WRN-PRE-PLAY-RC-2026-09-25/REPORT.md).
 
 Neu25.09. – Vorab-Release-Hostingpaket: Der aktuelle 9-Artikel-Webauftritt und
 das im öffentlichen GitHub-Lauf geprüfte Verzeichnis mit 958 Nachrichtenlinks,

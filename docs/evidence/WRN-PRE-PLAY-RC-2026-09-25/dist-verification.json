@@ -1,0 +1,11 @@
+{
+  "schema": "wrn.android-dist-stage-verification.v1",
+  "status": "PASS",
+  "files": 86,
+  "bytes": 11717941.0,
+  "excludedBridgeFiles": [
+    "cordova.js",
+    "cordova_plugins.js"
+  ],
+  "sourceCommit": "b981c676b9d0a8e0df785dddac9e2ec0181e313d"
+}

@@ -133,6 +133,20 @@ export default async function globalSetup() {
       root: path.resolve('apps/mobile'),
       resolve: { alias: createBrowserContentAliases(path.resolve('apps/mobile')) },
       cacheDir: path.join(cacheRoot, 'mobile-production'),
+      plugins: [
+        {
+          name: 'wrn-empty-regional-idb-harness',
+          configureServer(server) {
+            server.middlewares.use('/__regional-idb', (_request, response) => {
+              response.statusCode = 200;
+              response.setHeader('content-type', 'text/html; charset=utf-8');
+              response.end(
+                '<!doctype html><html><head><meta charset="utf-8"></head><body></body></html>',
+              );
+            });
+          },
+        },
+      ],
       server: { host: '127.0.0.1', port: 43_177, strictPort: true },
     });
     await productionMobile.listen();

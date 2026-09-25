@@ -72,6 +72,16 @@ Der parallele Volltextpfad blieb nachvollziehbar bei `awaiting-admission`.
 Damit ist die wiederkehrende Vorbereitung real betriebsfaehig, ohne die
 redaktionelle Rechtepruefung zu umgehen.
 
+## Lokale Erweiterung des laufenden Guards
+
+Der aktuelle Quellstand ergänzt den sechsstündlichen Dry-run um einen
+fail-closed Regionaltermin-Guard. Er prüft den kompilierten SHA-256-Pin, den
+vollständigen bestehenden V1-Vertrag, fünf Quellen und Termine sowie mindestens
+48 Stunden redaktionellen Vorlauf. 3/3 Grenztests bestanden. Der oben genannte
+öffentliche Lauf 36028488433 lief vor dieser Erweiterung; der neue Guard ist
+lokal und im Release-Kandidaten geprüft und wird mit dem nächsten öffentlichen
+Lauf ausgeführt. Er veröffentlicht weiterhin nichts.
+
 ## Noch offene Produktionsgrenze
 
 Der erzeugte Review-Paketpfad muss nach finaler Hostingwahl ueber einen

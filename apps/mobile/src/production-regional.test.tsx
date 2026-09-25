@@ -19,7 +19,7 @@ import {
 import { ProductionHome } from '../../../packages/browser-content/src/production-home';
 import { ProductionEventsMediaDirectory } from '../../../packages/browser-content/src/events-media-directory';
 
-const now = Date.parse('2026-09-21T14:00:00.000Z');
+const now = Date.parse('2026-09-25T14:00:00.000Z');
 beforeEach(() => {
   vi.spyOn(Date, 'now').mockReturnValue(now);
 });
@@ -30,11 +30,11 @@ afterEach(() => {
 describe('actual regional client', () => {
   it('pins the reviewed actual input and projects only the explicitly chosen region', async () => {
     expect(regionalInputSha256).toBe(
-      'ecf594f9d8269ed4503f517954993fd2e760191313e5e755bab92ed994af1014',
+      '4ccb0da681444a8970e16113c7160c840f4cc9d777aafaba82923478ad9672a3',
     );
     const catalog = await loadCurrentRegionalEvents();
-    expect(catalog?.events).toHaveLength(4);
-    expect(catalog?.sources.every((source) => source.checkedOn === '2026-09-21')).toBe(true);
+    expect(catalog?.events).toHaveLength(5);
+    expect(catalog?.sources.every((source) => source.checkedOn === '2026-09-25')).toBe(true);
     expect(projectProductionRegionalEventsV1(catalog!, emptyRegionalSelection, now).status).toBe(
       'unselected',
     );
@@ -44,21 +44,21 @@ describe('actual regional client', () => {
         { continentId: 'continent-europe', countryId: 'country-gb', regionId: 'region-london' },
         now,
       ).events.map((event) => event.id),
-    ).toEqual(['event-london-anarchist-bookfair-2026']);
+    ).toEqual(['event-london-constitutionalising-anarchy-launch-2026']);
   });
   it('preserves date-only precision and exact source-local times', async () => {
     const catalog = (await loadCurrentRegionalEvents())!;
     const london = catalog.events.find(
-      (event) => event.id === 'event-london-anarchist-bookfair-2026',
+      (event) => event.id === 'event-london-constitutionalising-anarchy-launch-2026',
     )!;
     expect(formatRegionalSchedule(london.schedule, 'de')).toContain('Uhrzeit nicht angegeben');
     expect(formatRegionalSchedule(london.schedule, 'de')).not.toContain('00:00');
     const nyc = formatRegionalSchedule(
-      catalog.events.find((event) => event.id === 'event-nyc-anarchist-bookfair-2026')!.schedule,
+      catalog.events.find((event) => event.id === 'event-ewoc-workers-circle-2026-10-06')!.schedule,
       'de',
     );
-    expect(nyc).toContain('11:00');
-    expect(nyc).toContain('19:00');
+    expect(nyc).toContain('18:30');
+    expect(nyc).toContain('20:30');
     const manchester = formatRegionalSchedule(
       catalog.events.find(
         (event) => event.id === 'event-manchester-salford-anarchist-bookfair-2026',
@@ -86,10 +86,9 @@ describe('actual regional client', () => {
     fireEvent.change(screen.getByLabelText('Land'), { target: { value: 'country-gb' } });
     fireEvent.change(screen.getByLabelText('Region'), { target: { value: 'region-london' } });
     expect(screen.getAllByRole('article')).toHaveLength(1);
-    expect(screen.getByRole('heading', { name: 'London Anarchist Bookfair 2026' })).toHaveAttribute(
-      'lang',
-      'en',
-    );
+    expect(
+      screen.getByRole('heading', { name: 'Constitutionalising Anarchy: Book Launch' }),
+    ).toHaveAttribute('lang', 'en');
     expect(screen.getByRole('link', { name: 'Originalankündigung öffnen' })).toHaveAttribute(
       'referrerpolicy',
       'no-referrer',
@@ -98,7 +97,7 @@ describe('actual regional client', () => {
     fireEvent.change(continent, { target: { value: 'continent-south-america' } });
     expect(screen.getByLabelText('Land')).toHaveValue('');
     expect(screen.getByLabelText('Region')).toHaveValue('');
-    expect(screen.getAllByRole('article')).toHaveLength(1);
+    expect(screen.getAllByRole('article')).toHaveLength(2);
   });
   it('removes the current event list when the clock reaches validUntil', async () => {
     render(<CurrentRegionalEvents client="website" language="de" />);
@@ -106,7 +105,7 @@ describe('actual regional client', () => {
       target: { value: 'continent-europe' },
     });
     expect(screen.getAllByRole('article')).toHaveLength(2);
-    vi.mocked(Date.now).mockReturnValue(Date.parse('2026-09-28T00:00:00.000Z'));
+    vi.mocked(Date.now).mockReturnValue(Date.parse('2026-10-02T00:00:00.000Z'));
     fireEvent.focus(window);
     expect(screen.queryAllByRole('article')).toHaveLength(0);
     expect(screen.getByText(/Dieser Stand ist nicht mehr aktuell/)).toBeVisible();
@@ -149,7 +148,10 @@ describe('actual regional client', () => {
       screen.getByRole('heading', { name: 'Termine in deiner Region', level: 3 }),
     ).toBeVisible();
     expect(
-      screen.getByRole('heading', { name: 'London Anarchist Bookfair 2026', level: 4 }),
+      screen.getByRole('heading', {
+        name: 'Constitutionalising Anarchy: Book Launch',
+        level: 4,
+      }),
     ).toBeVisible();
   });
 });

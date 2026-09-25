@@ -54,6 +54,10 @@ test('scheduled content supply is bounded, private-repository compatible, and do
   assert.match(workflow, /retention-days: 3/u);
   assert.match(workflow, /include-hidden-files: true/u);
   assert.doesNotMatch(workflow, /actions\/cache|wrangler|deploy|activate|gh\s+api|GITHUB_TOKEN/u);
+  assert.match(workflow, /tools\/check-current-regional-events\.mjs --minimum-hours 48/u);
+  assert.match(workflow, /wrn\.regional-events-freshness-check\.v1/u);
+  assert.match(workflow, /regional-events-status\.json/u);
+  assert.match(workflow, /Renewal lead time/u);
   assert.match(workflow, /prepare-live-content-directory\.mjs/u);
   assert.match(workflow, /cmp --silent "\$mobile" "\$website"/u);
   assert.match(workflow, /wrn\.live-content-directory-receipt\.v1/u);
@@ -99,6 +103,7 @@ test('the versioned operations manifest describes the same local-only dry-run co
       'metadata-only-directory-reconciliation',
       'stable-id-and-contract-validation',
       'immutable-snapshot-and-pointer-last-package',
+      'pinned-regional-events-freshness-gate',
       'short-lived-review-artifact',
     ],
     guards: [
@@ -107,11 +112,13 @@ test('the versioned operations manifest describes the same local-only dry-run co
       'single-shared-thirty-second-deadline',
       'three-mebibyte-directory-limit',
       'no-full-text-or-image-copy',
+      'forty-eight-hour-regional-renewal-window',
       'no-publication-or-client-pointer-transfer',
     ],
     statusReceipts: [
       'wrn.continuous-legacy-news-supply-run.v1',
       'wrn.live-content-directory-receipt.v1',
+      'wrn.regional-events-freshness-check.v1',
     ],
   });
 });
@@ -120,7 +127,7 @@ test('the hash manifest binds the packet to its source commit and exact SHA-256 
   assert.match(hashManifest.sourceCommit, /^[a-f0-9]{40}$/u);
   assert.equal(hashManifest.schema, 'wrn.live-directory-supply-hash-manifest.v1');
   assert.equal(hashManifest.version, 1);
-  assert.equal(hashManifest.files.length, 9);
+  assert.equal(hashManifest.files.length, 12);
   for (const entry of hashManifest.files) {
     assert.match(entry.path, /^(?:package\.json$|(?:\.github|tools|docs\/evidence)\/)/u);
     assert.match(entry.sha256, /^[a-f0-9]{64}$/u);

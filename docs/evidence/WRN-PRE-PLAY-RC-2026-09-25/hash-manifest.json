@@ -1,0 +1,43 @@
+{
+  "schema": "wrn.pre-play-release-candidate-hash-manifest.v1",
+  "version": 1,
+  "sourceCommit": "b981c676b9d0a8e0df785dddac9e2ec0181e313d",
+  "files": [
+    {
+      "path": "docs/evidence/WRN-PRE-PLAY-RC-2026-09-25/aab-verification.json",
+      "sha256": "1b33c09845f79f1e92e2f90e04567f845baa684d82060a9fed7af3548e794a47"
+    },
+    {
+      "path": "docs/evidence/WRN-PRE-PLAY-RC-2026-09-25/dist-verification.json",
+      "sha256": "5365ec3d1fd08c959dab19d41d853dc4cf94db0e3894f7c3893bbcf56a16b08c"
+    },
+    {
+      "path": "docs/evidence/WRN-PRE-PLAY-RC-2026-09-25/manifest.json",
+      "sha256": "c49990f16095dd55e69bd9ec45b1fe694aa4902749d8841f5b63a7d9edd28342"
+    },
+    {
+      "path": "docs/evidence/WRN-PRE-PLAY-RC-2026-09-25/REPORT.md",
+      "sha256": "dbd1fa44868e679ef72d84b22ef9106ba2c6424dc8b774c3414e30f9498c06c3"
+    },
+    {
+      "path": "docs/evidence/WRN-REGIONAL-EVENTS-REFRESH-2026-09-25/hash-manifest.json",
+      "sha256": "fd62c58eec2fffa15f4e4992c22a156fde95f24d276c30318c183bccc2c82d2f"
+    },
+    {
+      "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/hash-manifest.json",
+      "sha256": "5fc17ddc12337513a7b02306790aba5da6861a6c26cea67d5aa7e63934d3a058"
+    },
+    {
+      "path": "docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/hash-manifest.json",
+      "sha256": "def95bc3b437c06ac78de97bd7152f5d451c55048cd1328cf3121cbbe00d879f"
+    },
+    {
+      "path": "docs/PROJECT-STATE.md",
+      "sha256": "7efba572215f6f96f41bf39e63faed7094f706463e5cc88f3a518e34bf828822"
+    },
+    {
+      "path": "docs/evidence/WRN-PO-SCOPE-STATUS-2026-09-10.md",
+      "sha256": "c47b827164c225d619f74c18a1f3c858bd1bbb731d90263db6915c99837c5295"
+    }
+  ]
+}

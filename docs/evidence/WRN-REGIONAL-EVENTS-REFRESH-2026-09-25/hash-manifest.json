@@ -1,0 +1,83 @@
+{
+  "schema": "wrn.regional-events-refresh-hash-manifest.v1",
+  "version": 1,
+  "sourceCommit": "b981c676b9d0a8e0df785dddac9e2ec0181e313d",
+  "files": [
+    {
+      "path": "packages/browser-content/src/regional-events/events.json",
+      "sha256": "4ccb0da681444a8970e16113c7160c840f4cc9d777aafaba82923478ad9672a3"
+    },
+    {
+      "path": "packages/browser-content/src/regional-events/data.ts",
+      "sha256": "fdbf964a1edb9f2e67b3ca0cddb273e6c207fdfb3f5ef2afa44bcbff56b94374"
+    },
+    {
+      "path": "apps/mobile/src/production-regional.test.tsx",
+      "sha256": "ad1ca483c141e9e4dd9a91afbb8e9277d56eea4ee91225791abeffb022ce6d1b"
+    },
+    {
+      "path": "apps/website/src/styles.css",
+      "sha256": "8515eaf9782b037dd8c75f693a67af224013da011742cbf0febc6cbda9429974"
+    },
+    {
+      "path": "tests/e2e/global-setup.ts",
+      "sha256": "c5dd12c3c10f71bf788d93df9153bf704e6e3210cab74c43f72d06e64a26de37"
+    },
+    {
+      "path": "tests/e2e/production-regional.spec.ts",
+      "sha256": "de0bfbbc0a0e3561effd925928c8f9d3825075af051b8c670e92b84300879b61"
+    },
+    {
+      "path": ".github/workflows/wrn-content-supply.yml",
+      "sha256": "e4d40028e9a7a7a9145bc63453540dd0356f55f3a8dded031e0d9926d21a70db"
+    },
+    {
+      "path": "tools/check-current-regional-events.mjs",
+      "sha256": "f674fd3aedf7e87315e9bfa7a782823b8b60368dbad51dd50c9820b6774a2079"
+    },
+    {
+      "path": "tools/check-current-regional-events.test.mjs",
+      "sha256": "68fa8df0114d4fb8c77a0980f4102835f490db8c9680295a4693bf499678600b"
+    },
+    {
+      "path": "tools/node-ts-source-loader.mjs",
+      "sha256": "66ce09952628764cbfd1ea3bb7f27a074b4eba0b0d42101d42270c34e298bad2"
+    },
+    {
+      "path": "tools/verify-wrn-content-supply-workflow.test.mjs",
+      "sha256": "ba89adc49f83f6695feaaf6b5fcd41957788f81c09f6c45475efba8875815a08"
+    },
+    {
+      "path": "package.json",
+      "sha256": "43cf9f356f3bcd2365d21cb7c90165a4db05cd1efb9c070ba06804e5cb60a6c5"
+    },
+    {
+      "path": "docs/evidence/WRN-REGIONAL-EVENTS-REFRESH-2026-09-25/REPORT.md",
+      "sha256": "321c81888d0bd2fd843563f1ae7ee43aefe1db5cf27de74c478cbb2edf1c2710"
+    },
+    {
+      "path": "docs/evidence/WRN-REGIONAL-EVENTS-REFRESH-2026-09-25/manifest.json",
+      "sha256": "aa5307b443def8551307ae4e047c49b23a60ea021a59af8c9c9991113aaf26b7"
+    },
+    {
+      "path": "docs/evidence/WRN-REGIONAL-EVENTS-REFRESH-2026-09-25/mobile-sao-paulo-390x844.png",
+      "sha256": "7f6de22644b8343c23915058151239bb40f5c98867a57763538c8a9cb045ab69"
+    },
+    {
+      "path": "docs/evidence/WRN-REGIONAL-EVENTS-REFRESH-2026-09-25/website-header-200-percent-390x844.png",
+      "sha256": "2288567d863cf574a4b4fc0eabeb5b385332d5a2ee99080c9d1ef0490b7f1b12"
+    },
+    {
+      "path": "docs/evidence/WRN-REGIONAL-EVENTS-REFRESH-2026-09-25/website-london-200-percent-390x844.png",
+      "sha256": "c180c4b694e5ac328ae1f2dbc0c8ec46408dd63646ab817e12f0bf842b1e6e91"
+    },
+    {
+      "path": "docs/PROJECT-STATE.md",
+      "sha256": "7efba572215f6f96f41bf39e63faed7094f706463e5cc88f3a518e34bf828822"
+    },
+    {
+      "path": "docs/evidence/WRN-PO-SCOPE-STATUS-2026-09-10.md",
+      "sha256": "c47b827164c225d619f74c18a1f3c858bd1bbb731d90263db6915c99837c5295"
+    }
+  ]
+}

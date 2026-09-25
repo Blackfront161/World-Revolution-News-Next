@@ -1,0 +1,33 @@
+{
+  "schema": "wrn.regional-events-refresh-evidence.v1",
+  "version": 1,
+  "sourceCommit": "b981c676b9d0a8e0df785dddac9e2ec0181e313d",
+  "snapshot": {
+    "schema": "wrn.production-regional-events.v1",
+    "revision": 3,
+    "generatedAt": "2026-09-25T00:00:00.000Z",
+    "validUntil": "2026-10-02T00:00:00.000Z",
+    "sha256": "4ccb0da681444a8970e16113c7160c840f4cc9d777aafaba82923478ad9672a3",
+    "rights": "metadata-references-only",
+    "events": 5,
+    "sources": 5,
+    "regions": 5,
+    "countries": 4,
+    "continents": 3
+  },
+  "freshnessGuard": {
+    "schedule": "17 */6 * * *",
+    "minimumReviewHours": 48,
+    "publicationPerformed": false
+  },
+  "verification": {
+    "mobileUnit": "939/939",
+    "websiteUnit": "154/154",
+    "websiteNode": "68/68",
+    "regionalBrowser": "16/16",
+    "freshness": "3/3",
+    "typecheck": "pass",
+    "productionBuilds": "pass",
+    "contentAudit": "GREEN-exact-scope"
+  }
+}

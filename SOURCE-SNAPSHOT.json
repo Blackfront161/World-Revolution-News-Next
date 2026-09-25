@@ -1,7 +1,7 @@
 {
   "schema": "wrn.clean-platform-snapshot.v1",
-  "sourceCommit": "6cf8ea65b2fdea4d223c09e3f01c00195c25893d",
-  "generatedAt": "2026-09-24T17:04:07.846Z",
+  "sourceCommit": "82febf4bffa96662a27d741810d34e7124115a39",
+  "generatedAt": "2026-09-25T04:27:12.638Z",
   "excluded": [
     "Local agent settings",
     "Historical build/QA archive (preserved locally)",
@@ -15,8 +15,8 @@
     },
     {
       "path": ".github/workflows/wrn-content-supply.yml",
-      "bytes": 7068,
-      "sha256": "4b03a52153d259ac3bc53e39029b323b85c956ca19b82834914ca2a48d4df0eb"
+      "bytes": 8336,
+      "sha256": "e4d40028e9a7a7a9145bc63453540dd0356f55f3a8dded031e0d9926d21a70db"
     },
     {
       "path": ".gitignore",
@@ -1395,8 +1395,8 @@
     },
     {
       "path": "apps/mobile/src/production-regional.test.tsx",
-      "bytes": 6869,
-      "sha256": "3b21aab9404b2722465e9ca24070ec315b2b572457d2d026e4685d9fc454749d"
+      "bytes": 6941,
+      "sha256": "ad1ca483c141e9e4dd9a91afbb8e9277d56eea4ee91225791abeffb022ce6d1b"
     },
     {
       "path": "apps/mobile/src/production-selection-explanation.test.tsx",
@@ -2125,8 +2125,8 @@
     },
     {
       "path": "apps/website/src/styles.css",
-      "bytes": 38068,
-      "sha256": "66816150c2040201aafa9369b4f49eeb9929549624ec3ff1d0c679bbcf0a03b6"
+      "bytes": 38165,
+      "sha256": "8515eaf9782b037dd8c75f693a67af224013da011742cbf0febc6cbda9429974"
     },
     {
       "path": "apps/website/src/test/setup.ts",
@@ -2365,8 +2365,8 @@
     },
     {
       "path": "docs/PROJECT-STATE.md",
-      "bytes": 26189,
-      "sha256": "144a65fd80302d6565131a70007f9eae1a2c0f10b8b8a91ebaef3ee880e659a9"
+      "bytes": 26976,
+      "sha256": "7efba572215f6f96f41bf39e63faed7094f706463e5cc88f3a518e34bf828822"
     },
     {
       "path": "docs/WRN-G3-014-DELEGATION-REGISTER.md",
@@ -2635,18 +2635,18 @@
     },
     {
       "path": "docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/REPORT.md",
-      "bytes": 3877,
-      "sha256": "b628cf290a5da8b423a649361b5973b0ad23d1294fc3086beb2a5855e6ce620a"
+      "bytes": 4448,
+      "sha256": "84e7c79e0355de984a5c46d15e382dbe7acc6bdb7888e16b373b29e01d5abc5d"
     },
     {
       "path": "docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/hash-manifest.json",
-      "bytes": 1568,
-      "sha256": "0bca024ee79665258fbbe9706d518385979ade96ddba04b97c4f37917ece4010"
+      "bytes": 2024,
+      "sha256": "def95bc3b437c06ac78de97bd7152f5d451c55048cd1328cf3121cbbe00d879f"
     },
     {
       "path": "docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/manifest.json",
-      "bytes": 1165,
-      "sha256": "0dd45d0da63895e58b25e00c56220d16d69f52e62464e3680d62dc801debafd6"
+      "bytes": 1304,
+      "sha256": "58776b2ce44b973dff2e4109df65f5b8f0f491656d28d7ea4ab5e81555dc968e"
     },
     {
       "path": "docs/evidence/WRN-NEWS-SIX-ARTICLE-INPUT-2026-09-11/candidate-1789065672080/production-build-input-v3.json",
@@ -2660,28 +2660,53 @@
     },
     {
       "path": "docs/evidence/WRN-PO-SCOPE-STATUS-2026-09-10.md",
-      "bytes": 18012,
-      "sha256": "138f1f9d72914e17c79fd415a6c45d73e429262d17f545330889d1424709d6a3"
+      "bytes": 17623,
+      "sha256": "c47b827164c225d619f74c18a1f3c858bd1bbb731d90263db6915c99837c5295"
     },
     {
       "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/REPORT.md",
       "bytes": 2800,
-      "sha256": "9df86666888c13c63cf6bce75bb6060f4023def9c5ed16ca66ecb6299dbb9d46"
+      "sha256": "b35542b8577fa60d8d9464dfaac2f9df8f9c12b72f0bb1050e5458c72b169712"
     },
     {
       "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/hash-manifest.json",
-      "bytes": 1478,
-      "sha256": "f7746a26b4cf8f0becc45092539a174252bd5a26a4a2431afed6f7164895ca25"
+      "bytes": 1477,
+      "sha256": "5fc17ddc12337513a7b02306790aba5da6861a6c26cea67d5aa7e63934d3a058"
     },
     {
       "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/hosting-packet.manifest.json",
-      "bytes": 53876,
-      "sha256": "629a17ee3346ad3be06dcd1bf232af21243b6a4ae3f78b12cfca6718097c4edd"
+      "bytes": 53877,
+      "sha256": "50a6d71568465b58350a58a36844af384881916029c77067dea0d0c82e184f04"
     },
     {
       "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/manifest.json",
       "bytes": 1139,
-      "sha256": "2cbe51cd317d73d0a6eeb400a18213f86fd5ce5b5d4d73a74f922e29ac2cc58c"
+      "sha256": "6c01665b52ef3a295825506ee7d3b447717360e175257047f09197fc041b7dc3"
+    },
+    {
+      "path": "docs/evidence/WRN-PRE-PLAY-RC-2026-09-25/REPORT.md",
+      "bytes": 2496,
+      "sha256": "dbd1fa44868e679ef72d84b22ef9106ba2c6424dc8b774c3414e30f9498c06c3"
+    },
+    {
+      "path": "docs/evidence/WRN-PRE-PLAY-RC-2026-09-25/aab-verification.json",
+      "bytes": 349,
+      "sha256": "1b33c09845f79f1e92e2f90e04567f845baa684d82060a9fed7af3548e794a47"
+    },
+    {
+      "path": "docs/evidence/WRN-PRE-PLAY-RC-2026-09-25/dist-verification.json",
+      "bytes": 252,
+      "sha256": "5365ec3d1fd08c959dab19d41d853dc4cf94db0e3894f7c3893bbcf56a16b08c"
+    },
+    {
+      "path": "docs/evidence/WRN-PRE-PLAY-RC-2026-09-25/hash-manifest.json",
+      "bytes": 1695,
+      "sha256": "157bac328311ee19e4b2e67783cee3fcd19999379ad97f9fcb9a32c6c2c00038"
+    },
+    {
+      "path": "docs/evidence/WRN-PRE-PLAY-RC-2026-09-25/manifest.json",
+      "bytes": 1001,
+      "sha256": "c49990f16095dd55e69bd9ec45b1fe694aa4902749d8841f5b63a7d9edd28342"
     },
     {
       "path": "docs/evidence/WRN-PRODUCTION-ARTICLE-PILOT-2026-09-10/generated-core-e8506a4/current.json",
@@ -2732,6 +2757,36 @@
       "path": "docs/evidence/WRN-PRODUCTION-IMAGES-ADMISSION-2026-09-10/production-build-input-v2.json",
       "bytes": 230878,
       "sha256": "e0bf215477a9951f3dbef9174175b8f9f7c337422b15cbdba9d5fbf9ea1a0c7a"
+    },
+    {
+      "path": "docs/evidence/WRN-REGIONAL-EVENTS-REFRESH-2026-09-25/REPORT.md",
+      "bytes": 3856,
+      "sha256": "321c81888d0bd2fd843563f1ae7ee43aefe1db5cf27de74c478cbb2edf1c2710"
+    },
+    {
+      "path": "docs/evidence/WRN-REGIONAL-EVENTS-REFRESH-2026-09-25/hash-manifest.json",
+      "bytes": 3239,
+      "sha256": "fd62c58eec2fffa15f4e4992c22a156fde95f24d276c30318c183bccc2c82d2f"
+    },
+    {
+      "path": "docs/evidence/WRN-REGIONAL-EVENTS-REFRESH-2026-09-25/manifest.json",
+      "bytes": 924,
+      "sha256": "aa5307b443def8551307ae4e047c49b23a60ea021a59af8c9c9991113aaf26b7"
+    },
+    {
+      "path": "docs/evidence/WRN-REGIONAL-EVENTS-REFRESH-2026-09-25/mobile-sao-paulo-390x844.png",
+      "bytes": 29194,
+      "sha256": "7f6de22644b8343c23915058151239bb40f5c98867a57763538c8a9cb045ab69"
+    },
+    {
+      "path": "docs/evidence/WRN-REGIONAL-EVENTS-REFRESH-2026-09-25/website-header-200-percent-390x844.png",
+      "bytes": 10583,
+      "sha256": "2288567d863cf574a4b4fc0eabeb5b385332d5a2ee99080c9d1ef0490b7f1b12"
+    },
+    {
+      "path": "docs/evidence/WRN-REGIONAL-EVENTS-REFRESH-2026-09-25/website-london-200-percent-390x844.png",
+      "bytes": 179200,
+      "sha256": "c180c4b694e5ac328ae1f2dbc0c8ec46408dd63646ab817e12f0bf842b1e6e91"
     },
     {
       "path": "docs/evidence/WRN-SCHEDULED-SUPPLY-2026-09-20/REPORT.md",
@@ -7610,8 +7665,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 3320,
-      "sha256": "c03bfb1eb5f34673fef35f3beea65eab4f74bbeec2eb979c4160a1331bd5e33d"
+      "bytes": 3410,
+      "sha256": "43cf9f356f3bcd2365d21cb7c90165a4db05cd1efb9c070ba06804e5cb60a6c5"
     },
     {
       "path": "packages/api-contracts/package.json",
@@ -7941,12 +7996,12 @@
     {
       "path": "packages/browser-content/src/regional-events/data.ts",
       "bytes": 455,
-      "sha256": "7df54220ab7ff973d1e4299e8d5be168958a90205d39c2278be7bb18fb678bff"
+      "sha256": "fdbf964a1edb9f2e67b3ca0cddb273e6c207fdfb3f5ef2afa44bcbff56b94374"
     },
     {
       "path": "packages/browser-content/src/regional-events/events.json",
-      "bytes": 4850,
-      "sha256": "ecf594f9d8269ed4503f517954993fd2e760191313e5e755bab92ed994af1014"
+      "bytes": 5894,
+      "sha256": "4ccb0da681444a8970e16113c7160c840f4cc9d777aafaba82923478ad9672a3"
     },
     {
       "path": "packages/browser-content/src/regional-events/regional-events.css",
@@ -9025,8 +9080,8 @@
     },
     {
       "path": "tests/e2e/global-setup.ts",
-      "bytes": 8379,
-      "sha256": "c10e43b481adea802bcd81f7a228012f83741c9a56e95871df0f44d255e6851f"
+      "bytes": 8881,
+      "sha256": "c5dd12c3c10f71bf788d93df9153bf704e6e3210cab74c43f72d06e64a26de37"
     },
     {
       "path": "tests/e2e/mobile-knowledge.spec.ts",
@@ -9105,8 +9160,8 @@
     },
     {
       "path": "tests/e2e/production-regional.spec.ts",
-      "bytes": 17714,
-      "sha256": "da74ced97d4fa4ebcfa1dcccab0c4db6278a6b240c696f7fddaa4c292abf6504"
+      "bytes": 18722,
+      "sha256": "de0bfbbc0a0e3561effd925928c8f9d3825075af051b8c670e92b84300879b61"
     },
     {
       "path": "tests/e2e/production-selection-explanation.spec.ts",
@@ -9349,6 +9404,16 @@
       "sha256": "e9a67fab0a40fd4971ca26271c5125e23cbde9a0038ac4efe97f30798a279d94"
     },
     {
+      "path": "tools/check-current-regional-events.mjs",
+      "bytes": 3428,
+      "sha256": "f674fd3aedf7e87315e9bfa7a782823b8b60368dbad51dd50c9820b6774a2079"
+    },
+    {
+      "path": "tools/check-current-regional-events.test.mjs",
+      "bytes": 2120,
+      "sha256": "68fa8df0114d4fb8c77a0980f4102835f490db8c9680295a4693bf499678600b"
+    },
+    {
       "path": "tools/check-fixture-provenance.mjs",
       "bytes": 5804,
       "sha256": "209750468957558678839ca42edbf4993b05f21bca4746a4575ca04d33f020bf"
@@ -9495,8 +9560,8 @@
     },
     {
       "path": "tools/export-platform-repository.mjs",
-      "bytes": 6036,
-      "sha256": "71b188b0808beea5b9d1f9184790b95a7c5c2d7c04e4f015ce42bba03bec592e"
+      "bytes": 6114,
+      "sha256": "e2693c08f3c3963933895064439d20bbd0561b58615c0af0da022e1986f0c1c9"
     },
     {
       "path": "tools/import-legacy-knowledge.mjs",
@@ -9517,6 +9582,11 @@
       "path": "tools/legacy-news-ingestion.test.mjs",
       "bytes": 19492,
       "sha256": "9a50c7160fb065463717a56424345a2561bb662ef906c11885275d19808a4f88"
+    },
+    {
+      "path": "tools/node-ts-source-loader.mjs",
+      "bytes": 419,
+      "sha256": "66ce09952628764cbfd1ea3bb7f27a074b4eba0b0d42101d42270c34e298bad2"
     },
     {
       "path": "tools/prepare-android-release.mjs",
@@ -9600,8 +9670,8 @@
     },
     {
       "path": "tools/verify-wrn-content-supply-workflow.test.mjs",
-      "bytes": 5695,
-      "sha256": "a6d68c36db933e16dcc68d3473f03bda10ce6d4918c1378c40067fa1b4f85d41"
+      "bytes": 6110,
+      "sha256": "ba89adc49f83f6695feaaf6b5fcd41957788f81c09f6c45475efba8875815a08"
     },
     {
       "path": "tsconfig.base.json",

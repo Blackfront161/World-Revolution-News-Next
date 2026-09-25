@@ -1579,10 +1579,14 @@
 .site-brand {
   display: block;
   width: auto;
+  min-width: 0;
+  max-width: 100%;
   color: var(--wrn-color-text);
 }
 
 .site-brand-name {
+  display: block;
+  max-width: 100%;
   margin: 0;
   color: var(--wrn-color-text);
   font-family: var(--wrn-font-editorial);
@@ -1591,7 +1595,7 @@
   letter-spacing: -0.035em;
   line-height: 1;
   text-transform: none;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .site-brand-name span {
@@ -1653,6 +1657,7 @@
 
   .site-brand-name {
     font-size: clamp(0.8rem, 4.8vw, 1rem);
+    white-space: normal;
   }
 }
 

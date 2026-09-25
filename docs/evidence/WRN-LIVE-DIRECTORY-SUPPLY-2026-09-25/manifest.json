@@ -18,6 +18,7 @@
     "metadata-only-directory-reconciliation",
     "stable-id-and-contract-validation",
     "immutable-snapshot-and-pointer-last-package",
+    "pinned-regional-events-freshness-gate",
     "short-lived-review-artifact"
   ],
   "guards": [
@@ -26,10 +27,12 @@
     "single-shared-thirty-second-deadline",
     "three-mebibyte-directory-limit",
     "no-full-text-or-image-copy",
+    "forty-eight-hour-regional-renewal-window",
     "no-publication-or-client-pointer-transfer"
   ],
   "statusReceipts": [
     "wrn.continuous-legacy-news-supply-run.v1",
-    "wrn.live-content-directory-receipt.v1"
+    "wrn.live-content-directory-receipt.v1",
+    "wrn.regional-events-freshness-check.v1"
   ]
 }

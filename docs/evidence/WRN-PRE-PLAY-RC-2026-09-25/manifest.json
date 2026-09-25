@@ -1,0 +1,32 @@
+{
+  "schema": "wrn.pre-play-release-candidate-evidence.v1",
+  "version": 1,
+  "sourceCommit": "b981c676b9d0a8e0df785dddac9e2ec0181e313d",
+  "android": {
+    "applicationId": "com.world.revolution",
+    "versionName": "2.2.0",
+    "versionCode": 27,
+    "targetSdk": 36,
+    "aabPath": "apps/mobile/android/app/build/outputs/bundle/release/app-release.aab",
+    "aabBytes": 8144389,
+    "aabSha256": "ea5c730bfc7a5c5de4e0b014b9ea15ee525dacab70192109ad571360492c8892",
+    "assets": 91,
+    "signatureEntries": 0,
+    "unitTests": "16/16",
+    "lintRelease": "pass"
+  },
+  "website": {
+    "revision": "wrn-production-news-2026-09-20-v6",
+    "files": 33,
+    "bytes": 9907203,
+    "sourceCommit": "b981c676b9d0a8e0df785dddac9e2ec0181e313d"
+  },
+  "hostingPacket": {
+    "files": 36,
+    "bytes": 11837153,
+    "manifestBytes": 53877,
+    "manifestSha256": "50a6d71568465b58350a58a36844af384881916029c77067dea0d0c82e184f04",
+    "directorySequence": 202609241636,
+    "publicationPerformed": false
+  }
+}

@@ -3,7 +3,7 @@ import input from './events.json?raw';
 
 // Generated from the reviewed input; rebuilds must not refresh its source dates.
 export const regionalInputSha256 =
-  'ecf594f9d8269ed4503f517954993fd2e760191313e5e755bab92ed994af1014';
+  '4ccb0da681444a8970e16113c7160c840f4cc9d777aafaba82923478ad9672a3';
 export function loadCurrentRegionalEvents() {
   return validateProductionRegionalEventsV1(input, regionalInputSha256);
 }

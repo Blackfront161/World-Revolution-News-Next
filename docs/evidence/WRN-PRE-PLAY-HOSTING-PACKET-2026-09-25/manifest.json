@@ -3,11 +3,11 @@
   "version": 1,
   "codeCommit": "ab359661",
   "website": {
-    "sourceCommit": "f69ba1287b76c514a13fcceef9eaf75dac6cd20c",
+    "sourceCommit": "b981c676b9d0a8e0df785dddac9e2ec0181e313d",
     "revision": "wrn-production-news-2026-09-20-v6",
     "articles": 9,
     "files": 33,
-    "bytes": 9906055
+    "bytes": 9907203
   },
   "directory": {
     "workflowRun": 36028488433,
@@ -22,9 +22,9 @@
   "hostingPacket": {
     "schema": "wrn.production-hosting-packet.v1",
     "files": 36,
-    "bytes": 11836005,
-    "manifestBytes": 53876,
-    "manifestSha256": "629a17ee3346ad3be06dcd1bf232af21243b6a4ae3f78b12cfca6718097c4edd",
+    "bytes": 11837153,
+    "manifestBytes": 53877,
+    "manifestSha256": "50a6d71568465b58350a58a36844af384881916029c77067dea0d0c82e184f04",
     "activationTail": [
       "wrn-production-content/current.json",
       "wrn-content-directory/current.json"
