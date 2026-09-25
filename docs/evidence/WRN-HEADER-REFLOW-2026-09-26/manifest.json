@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "capturedFromCommit": "cc6721c",
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 2409,
+      "sha256": "f22fc7a78b7413d07b8caf16a140a71898ae9a54ea8dc42cc829ffeb97531971"
+    },
+    {
+      "path": "mobile-normal.png",
+      "bytes": 46394,
+      "sha256": "4e7a123af1cf9a64e0170db5823571416d94699ca3e0e310219bd5bf750710a4"
+    },
+    {
+      "path": "mobile-reflow.png",
+      "bytes": 48451,
+      "sha256": "7ac13dfdbdbb11fba53b65cd5939aab1102d7afbecb5ae927ca55a929b5a1f5a"
+    },
+    {
+      "path": "website-reflow.png",
+      "bytes": 86599,
+      "sha256": "2b409f11b7dd7705854c889cebb2d8d138f3f4b945b67b6ed2fa1c37c88b714d"
+    },
+    {
+      "path": "website-knowledge-reflow.png",
+      "bytes": 87469,
+      "sha256": "ace3f0a5fe99afcbf66ec3f561d192c89201755bf96d5dd91b4206f1aaf999fa"
+    }
+  ]
+}
