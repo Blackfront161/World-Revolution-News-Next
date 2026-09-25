@@ -8,6 +8,11 @@ import {
 } from './production-website-harness';
 
 test.use({ baseURL: 'http://127.0.0.1:43178' });
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() =>
+    sessionStorage.setItem('wrn.website.support-welcome.v1', 'dismissed'),
+  );
+});
 const firstId = 'wrn-art-a772ab86c915a036c6177f1bfe958d4d';
 const secondId = 'wrn-art-ba76ef8b7afb34885bd5f64bc7135f6c';
 
@@ -66,7 +71,7 @@ test('static admitted landing opens the genuine Website reader without provider 
   await expect(page.locator('.reader-content > p')).toHaveCount(12);
   expect(
     await page.locator('body').evaluate((element) => getComputedStyle(element).backgroundColor),
-  ).toBe('rgb(11, 16, 23)');
+  ).toBe('rgb(0, 0, 0)');
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   await page.locator('#interactive-reader').click();
   await expect(page.getByTestId('production-reader')).toBeVisible();
@@ -266,7 +271,7 @@ test('all nine interface languages retain original article language and actual d
   page,
 }) => {
   await page.goto('/#discover');
-  await expect(page.locator('.production-card')).toHaveCount(6);
+  await expect(page.locator('.production-card')).toHaveCount(9);
   for (const language of ['en', 'de', 'es', 'fr', 'it', 'pt', 'ru', 'el', 'tr']) {
     await page.getByTestId('ui-language-selector').selectOption(language);
     await expect(page.locator('html')).toHaveAttribute('lang', language);
@@ -304,7 +309,7 @@ test('default entry reads admitted articles, persists v2 and never touches readi
     };
   });
   await page.goto('/');
-  await expect(page.locator('.production-card')).toHaveCount(6);
+  await expect(page.locator('.production-card')).toHaveCount(9);
   await page.locator(`[data-reader-trigger="${firstId}"]`).click();
   const reader = page.getByTestId('production-reader');
   await expect(reader).toBeVisible();

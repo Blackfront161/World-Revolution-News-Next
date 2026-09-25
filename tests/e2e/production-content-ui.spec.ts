@@ -96,7 +96,7 @@ test('all nine interface languages retain original article language and actual d
   page,
 }) => {
   await page.goto('/#discover');
-  await expect(page.locator('.production-card')).toHaveCount(6);
+  await expect(page.locator('.production-card')).toHaveCount(9);
   for (const language of ['en', 'de', 'es', 'fr', 'it', 'pt', 'ru', 'el', 'tr']) {
     await page.getByTestId('ui-language-selector').selectOption(language);
     await expect(page.locator('html')).toHaveAttribute('lang', language);
@@ -168,7 +168,7 @@ test('default entry reads admitted articles, persists v2 and never touches readi
     };
   });
   await page.goto('/');
-  await expect(page.locator('.production-card')).toHaveCount(6);
+  await expect(page.locator('.production-card')).toHaveCount(9);
   await page.locator(`[data-reader-trigger="${firstId}"]`).click();
   const reader = page.getByTestId('production-reader');
   await expect(reader).toBeVisible();

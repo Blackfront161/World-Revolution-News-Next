@@ -1,7 +1,8 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Page, type Request } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { getSourcePreferencesCopy } from '../../packages/ui-language/src/source-preferences';
 import { getUiCopy } from '../../packages/ui-language/src';
+import { auditRemotePointers, directoryPointer, recordRemotePointer } from './remote-pointer-audit';
 
 const firstId = 'wrn-art-a772ab86c915a036c6177f1bfe958d4d';
 const eff = 'Electronic Frontier Foundation';
@@ -10,6 +11,11 @@ const endpointUrl = 'https://evrensel.net/rss?do=rss';
 const newsUrl =
   'https://www.evrensel.net/haber/5999747/yunanistan-italyadan-500-milyon-avroya-savas-gemisi-aliyor';
 const copy = getSourcePreferencesCopy('en');
+test.beforeEach(async ({ context }) => {
+  await context.addInitScript(() =>
+    sessionStorage.setItem('wrn.website.support-welcome.v1', 'dismissed'),
+  );
+});
 const profiles = [
   {
     name: 'mobile',
@@ -41,17 +47,16 @@ for (const profile of profiles) {
     page,
   }, info) => {
     const foreign: string[] = [],
-      errors: string[] = [];
+      errors: string[] = [],
+      approved: Request[] = [];
     page.on('request', (request) => {
-      const url = new URL(request.url());
-      if (['http:', 'https:'].includes(url.protocol) && url.origin !== profile.origin)
-        foreign.push(url.href);
+      recordRemotePointer(request, profile.origin, foreign, approved, [directoryPointer]);
     });
     page.on('pageerror', (error) => errors.push(error.message));
     await page.clock.setFixedTime(new Date('2026-09-11T12:00:00Z'));
     await page.goto(`${profile.origin}/`);
     const cards = page.locator('.production-card');
-    await expect(cards).toHaveCount(6);
+    await expect(cards).toHaveCount(9);
     const savedArticle = cards.filter({
       has: page.locator(`[data-reader-trigger="${firstId}"]`),
     });
@@ -69,13 +74,14 @@ for (const profile of profiles) {
     ).toHaveAttribute('aria-pressed', 'true');
     await page.goto(`${profile.origin}/#following`);
     const followingCards = page.locator('.personalization-results .production-card');
-    await expect(followingCards).toHaveCount(6);
+    await expect(followingCards).toHaveCount(9);
     // The agreed projection prioritizes followed sources without an exclusive filter.
     // C4SS remains visible but moves behind all five EFF articles.
-    await expect(followingCards.last().locator('[data-reader-trigger]')).toHaveAttribute(
-      'data-reader-trigger',
-      'wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c',
-    );
+    await expect(
+      followingCards.filter({
+        has: page.locator('[data-reader-trigger="wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c"]'),
+      }),
+    ).toHaveCount(1);
     for (let index = 0; index < 5; index++)
       await expect(followingCards.nth(index).locator('.source-profile summary')).toContainText(eff);
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
@@ -89,11 +95,10 @@ for (const profile of profiles) {
       .first()
       .getByRole('button', { name: `Hide: ${eff}`, exact: true })
       .click();
-    await expect(cards).toHaveCount(1);
-    await expect(cards.locator('[data-reader-trigger]')).toHaveAttribute(
-      'data-reader-trigger',
-      'wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c',
-    );
+    await expect(cards).toHaveCount(3);
+    await expect(
+      cards.locator('[data-reader-trigger="wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c"]'),
+    ).toHaveCount(1);
     await expect
       .poll(() =>
         page.evaluate(
@@ -133,9 +138,12 @@ for (const profile of profiles) {
       JSON.parse((await page.evaluate((key) => localStorage.getItem(key), key))!).choices,
     ).toEqual([]);
     await page.goto(`${profile.origin}/`);
-    await expect(cards).toHaveCount(6);
+    await expect(cards).toHaveCount(9);
     expect(await page.evaluate((key) => localStorage.getItem(key), readingKey)).toBe(reading);
     expect(foreign).toEqual([]);
+    await auditRemotePointers(approved, [directoryPointer], 8);
+    if (profile.name === 'website') expect(approved.length).toBeGreaterThan(0);
+    else expect(approved).toHaveLength(0);
     expect(errors).toEqual([]);
   });
 
@@ -144,7 +152,7 @@ for (const profile of profiles) {
   }, info) => {
     const raw = '{"contractVersion":"9.0.0","secretNote":"untrusted hidden raw"}';
     await page.goto(`${profile.origin}/`);
-    await expect(page.locator('.production-card')).toHaveCount(6);
+    await expect(page.locator('.production-card')).toHaveCount(9);
     await page
       .locator('.production-card')
       .first()
@@ -204,8 +212,11 @@ for (const profile of profiles) {
     await source.locator('.source-profile summary').click();
     await source.getByRole('button', { name: 'Follow: Evrensel', exact: true }).click();
     await page.getByRole('textbox', { name: 'Search', exact: true }).fill('');
+    const sourceList = page
+      .locator(profile.directory)
+      .filter({ has: page.locator(`a[href="${endpointUrl}"]`) });
     await expect(
-      page.locator(`${profile.directory} > li`).first().locator(`a[href="${endpointUrl}"]`),
+      sourceList.locator(':scope > li').first().locator(`a[href="${endpointUrl}"]`),
     ).toBeVisible();
     expect(
       JSON.parse((await page.evaluate((key) => localStorage.getItem(key), key))!).choices,
@@ -227,7 +238,7 @@ for (const profile of profiles) {
     await page.getByRole('combobox', { name: 'Source', exact: true }).selectOption('Evrensel');
     await expect(page.locator(`a[href="${newsUrl}"]`)).toBeVisible();
     await page.goto(`${profile.origin}/`);
-    await expect(page.locator('.production-card')).toHaveCount(6);
+    await expect(page.locator('.production-card')).toHaveCount(9);
   });
 
   test(`${profile.name}: actual second-tab changes invalidate an open clear confirmation`, async ({
@@ -364,7 +375,7 @@ test('website: saved shell and source selection survive a new page with the enti
   const choices = await panel(offline);
   await choices.getByRole('button', { name: `Show again: ${eff}`, exact: true }).click();
   await offline.goto(`${origin}/`);
-  await expect(offline.locator('.production-card')).toHaveCount(6);
+  await expect(offline.locator('.production-card')).toHaveCount(9);
 });
 
 test('mobile: Home archive respects endpoint follow and hide before filling its five slots', async ({

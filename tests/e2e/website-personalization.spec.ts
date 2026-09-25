@@ -9,6 +9,11 @@ const clients = [
 ] as const;
 const copy = getUiCopy('en');
 const firstId = 'wrn-art-a772ab86c915a036c6177f1bfe958d4d';
+test.beforeEach(async ({ context }) => {
+  await context.addInitScript(() =>
+    sessionStorage.setItem('wrn.website.support-welcome.v1', 'dismissed'),
+  );
+});
 
 test('actual Mobile and Website personalization adapters keep one-origin saves and clears separate', async ({
   page,
@@ -102,8 +107,8 @@ for (const client of clients) {
     await area.getByRole('checkbox', { name: 'English', exact: true }).check();
     expect(await page.evaluate((k) => localStorage.getItem(k), key(client.name))).toBeNull();
     await confirm(page, copy.personalizationSave);
-    await expect(area.locator('.production-card')).toHaveCount(6);
-    await expect(area.locator(`.production-card ${client.card}`)).toHaveCount(6);
+    await expect(area.locator('.production-card')).toHaveCount(8);
+    await expect(area.locator(`.production-card ${client.card}`)).toHaveCount(8);
     await expect(area.locator(`.production-card ${client.card}`).first()).toHaveAttribute(
       'lang',
       'en',
@@ -116,10 +121,10 @@ for (const client of clients) {
     await area.locator(`[data-reader-trigger="${firstId}"]`).click();
     await expect(page.getByTestId('production-reader')).toBeVisible();
     await page.goBack();
-    await expect(area.locator('.production-card')).toHaveCount(6);
+    await expect(area.locator('.production-card')).toHaveCount(8);
     await page.reload();
     await expect(area.getByRole('checkbox', { name: 'English', exact: true })).toBeChecked();
-    await expect(area.locator('.production-card')).toHaveCount(6);
+    await expect(area.locator('.production-card')).toHaveCount(8);
     await area.getByRole('checkbox', { name: 'English', exact: true }).uncheck();
     await area
       .getByRole('checkbox', { name: copy.personalizationInterestSport, exact: true })
@@ -185,7 +190,7 @@ for (const client of clients) {
       await page.keyboard.press('Escape');
       await expect(trigger).toBeFocused();
       await confirm(page, text.personalizationSave);
-      await expect(area.locator('.production-card')).toHaveCount(6);
+      await expect(area.locator('.production-card')).toHaveCount(8);
       await page.evaluate(() => window.scrollTo(0, 0));
       expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
       await page.screenshot({
@@ -248,6 +253,6 @@ test('Website refuses a stale confirmation after a second tab changes the select
   expect(await page.evaluate((k) => localStorage.getItem(k), key('website'))).toBe(selected);
   await page.getByRole('button', { name: copy.personalizationReload, exact: true }).click();
   await expect(page.getByRole('checkbox', { name: 'English', exact: true })).toBeChecked();
-  await expect(page.locator('.production-card')).toHaveCount(6);
+  await expect(page.locator('.production-card')).toHaveCount(8);
   await other.close();
 });

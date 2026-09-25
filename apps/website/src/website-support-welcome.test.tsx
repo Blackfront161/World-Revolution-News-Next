@@ -63,9 +63,13 @@ it('has complete copy in all nine UI languages', () => {
 it('remains readable and dismissible without native dialog methods', () => {
   Reflect.deleteProperty(HTMLDialogElement.prototype, 'showModal');
   Reflect.deleteProperty(HTMLDialogElement.prototype, 'close');
+  const backgroundEscape = vi.fn();
+  window.addEventListener('keydown', backgroundEscape);
   render(<WebsiteSupportWelcome language="de" />);
   expect(screen.getByRole('dialog')).toHaveAttribute('open');
   expect(screen.getByRole('button', { name: 'Weiterlesen' })).toHaveFocus();
   fireEvent.keyDown(screen.getByRole('dialog'), { key: 'Escape' });
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  expect(backgroundEscape).not.toHaveBeenCalled();
+  window.removeEventListener('keydown', backgroundEscape);
 });

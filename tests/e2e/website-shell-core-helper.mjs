@@ -78,6 +78,7 @@ export async function coreHarness(label) {
       JSON.stringify({
         'index.html': {
           file: 'assets/index-a.js',
+          src: 'index.html',
           isEntry: true,
           css: ['assets/index-a.css'],
           assets: [
@@ -86,6 +87,7 @@ export async function coreHarness(label) {
             'assets/legacy-knowledge-v1-a.json',
             'assets/legacy-support-v1-a.json',
             'assets/content-directory-v1-a.json',
+            'assets/production-events-media-v1-a.json',
           ],
         },
       }),
@@ -99,6 +101,7 @@ export async function coreHarness(label) {
       'assets/legacy-knowledge-v1-a.json': '{}',
       'assets/legacy-support-v1-a.json': '{}',
       'assets/content-directory-v1-a.json': '{}',
+      'assets/production-events-media-v1-a.json': '{}',
     };
     for (const [file, value] of Object.entries(files))
       await writeFile(path.join(directory, file), value);

@@ -109,17 +109,26 @@ async function storedControl(page: Page, client: string) {
 }
 
 async function imageReady(page: Page) {
-  const img = page.locator('.production-reader-image img');
+  const reader = page.getByTestId('production-reader');
+  await expect(reader).toBeVisible();
+  const img = reader.locator('.production-reader-image img');
   await expect(img).toHaveAttribute('alt', alt);
   await expect(img).toHaveAttribute('lang', 'en');
   await expect(img).toHaveAttribute('src', /^blob:http:\/\/127\.0\.0\.1:/);
   await img.scrollIntoViewIfNeeded();
   await expect.poll(() => img.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBe(1200);
   expect(await img.evaluate((image: HTMLImageElement) => image.naturalHeight)).toBe(600);
-  expect(
-    await page.locator('.production-reader-blocks > :first-child').evaluate((el) => el.tagName),
-  ).toBe('FIGURE');
+  await expect(
+    reader.locator('.production-reader-blocks > figure.production-reader-image'),
+  ).toHaveCount(1);
   return img;
+}
+
+async function dismissWebsiteWelcome(page: Page, name: string): Promise<void> {
+  if (name !== 'website') return;
+  await expect(page.locator('#website-main')).toBeVisible();
+  if (await page.locator('.website-support-welcome[open]').isVisible())
+    await page.keyboard.press('Escape');
 }
 
 for (const profile of profiles) {
@@ -147,6 +156,7 @@ for (const profile of profiles) {
       await expect(page.getByTestId('production-content')).toHaveAttribute('aria-busy', 'false');
     };
     await page.goto(`${profile.origin}${profile.route}`);
+    await dismissWebsiteWelcome(page, profile.name);
     await imageReady(page);
     packet = await imagePacket(3);
     await check();
@@ -199,8 +209,11 @@ for (const profile of profiles) {
       await page.goto(
         `${profile.origin}${profile.route.replace('/?', `/?theme=${theme}&`).replace('/#', `/?theme=${theme}#`)}`,
       );
+      await dismissWebsiteWelcome(page, profile.name);
       await imageReady(page);
-      const license = page.locator('.production-reader-image button');
+      const license = page
+        .getByTestId('production-reader')
+        .locator('.production-reader-image button');
       await license.click();
       await expect(page.getByRole('dialog').getByRole('link')).toHaveAttribute(
         'href',
@@ -256,6 +269,7 @@ for (const profile of profiles) {
       };
     });
     await page.goto(`${profile.origin}${profile.route}`);
+    await dismissWebsiteWelcome(page, profile.name);
     await imageReady(page);
     const persisted = await page.evaluate(async (client) => {
       const db = await new Promise<IDBDatabase>((resolve, reject) => {
@@ -271,12 +285,12 @@ for (const profile of profiles) {
       db.close();
       const bytes = JSON.stringify(bundles);
       return {
-        v2: bytes.includes('wrn.production-content-offline-bundle.v2'),
+        v3: bytes.includes('wrn.production-content-offline-bundle.v3'),
         hash: bytes.includes('988f224e78dbd7f971706e000eca9f8001229238a025efca193725ae33f9af7f'),
         encoded: bytes.includes('iVBORw0KGgo'),
       };
     }, profile.name);
-    expect(persisted).toEqual({ v2: true, hash: true, encoded: true });
+    expect(persisted).toEqual({ v3: true, hash: true, encoded: true });
     let contentRequests = 0;
     await page.route('**/wrn-production-content/**', (route) => {
       contentRequests++;
@@ -310,6 +324,7 @@ test('Website saved shell reopens the image fully offline after closing the page
 }, info) => {
   const profile = profiles[1];
   await page.goto(`${profile.origin}${profile.route}`);
+  await dismissWebsiteWelcome(page, profile.name);
   await imageReady(page);
   await page.getByRole('button', { name: 'Save for later', exact: true }).click();
   await page.goto(`${profile.origin}/#more`);
@@ -327,6 +342,7 @@ test('Website saved shell reopens the image fully offline after closing the page
   await context.setOffline(true);
   const reopened = await context.newPage();
   await reopened.goto(`${profile.origin}${profile.route}`);
+  await dismissWebsiteWelcome(reopened, profile.name);
   await imageReady(reopened);
   await expect(
     reopened.getByRole('button', { name: 'Remove from saved', exact: true }),

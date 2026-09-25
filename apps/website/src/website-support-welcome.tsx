@@ -49,6 +49,7 @@ export function WebsiteSupportWelcome({ language }: { language: UiLanguage }) {
       onKeyDown={(event) => {
         if (event.key === 'Escape') {
           event.preventDefault();
+          event.stopPropagation();
           dismiss();
         } else if (event.key === 'Tab') {
           const targets = event.currentTarget.querySelectorAll<HTMLElement>('button,a[href]');

@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 const firstId = 'wrn-art-a772ab86c915a036c6177f1bfe958d4d';
@@ -9,6 +9,13 @@ const profiles = [
   { name: 'website', origin: 'http://127.0.0.1:43182', reader: `/?article=${firstId}#home` },
 ] as const;
 const hash = (text: string) => createHash('sha256').update(text).digest('hex');
+
+async function dismissWebsiteWelcome(page: Page, name: string): Promise<void> {
+  if (name !== 'website') return;
+  await expect(page.locator('#website-main')).toBeVisible();
+  if (await page.locator('.website-support-welcome[open]').isVisible())
+    await page.keyboard.press('Escape');
+}
 
 for (const profile of profiles) {
   test(`${profile.name}: bounded timeout and safety revocation discard pending translations`, async ({
@@ -30,6 +37,7 @@ for (const profile of profiles) {
       profile.name,
     );
     await page.goto(profile.origin + profile.reader);
+    await dismissWebsiteWelcome(page, profile.name);
     const paragraph = page.locator('.production-translatable-paragraph').first();
     await paragraph.locator('[data-translation-action]').click();
     await expect.poll(() => called).toBe(1);
@@ -132,6 +140,7 @@ for (const profile of profiles) {
       );
       await page.setViewportSize({ width: 320, height: 844 });
       await page.goto(profile.origin + profile.reader);
+      await dismissWebsiteWelcome(page, profile.name);
       const reader = page.getByTestId('production-reader');
       await expect(reader).toBeVisible();
       const paragraph = reader.locator('.production-translatable-paragraph').first();
@@ -252,6 +261,7 @@ for (const profile of profiles) {
       profile.name,
     );
     await page.goto(profile.origin + profile.reader);
+    await dismissWebsiteWelcome(page, profile.name);
     const paragraph = page.locator('.production-translatable-paragraph').first();
     await paragraph.locator('[data-translation-action]').click();
     await expect.poll(() => called).toBe(1);
