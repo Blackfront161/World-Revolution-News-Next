@@ -3,6 +3,7 @@ import { join, resolve } from 'node:path';
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page, type TestInfo } from '@playwright/test';
 import { getUiCopy, uiLanguageIds } from '../../packages/ui-language/src';
+import { selectMobileThemeFromMore } from './mobile-theme-helper';
 
 const themes = ['dark', 'light', 'pink', 'contrast'] as const;
 const baseOrigin = 'http://127.0.0.1:43173';
@@ -156,7 +157,7 @@ test('G3-018 covers nine languages, four themes and responsive discover reflow',
   await page.goto('/?state=ready#discover');
   const summary = page.locator('.discover-facets summary');
   for (const theme of themes) {
-    await page.getByTestId('theme-selector').selectOption(theme);
+    await selectMobileThemeFromMore(page, theme);
     await expectDiscoverGeometry(page);
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
     await capture(page, info, `g3-018-ready-${theme}`);
@@ -170,7 +171,7 @@ test('G3-018 covers nine languages, four themes and responsive discover reflow',
     await capture(page, info, `g3-018-language-${language}`);
   }
   await page.setViewportSize({ width: 600, height: 960 });
-  await page.getByTestId('theme-selector').selectOption('dark');
+  await selectMobileThemeFromMore(page, 'dark');
   await expectDiscoverGeometry(page);
   await capture(page, info, 'g3-018-tablet-dark');
 
@@ -183,7 +184,7 @@ test('G3-018 covers nine languages, four themes and responsive discover reflow',
     document.documentElement.style.fontSize = '32px';
   });
   for (const theme of themes) {
-    await page.getByTestId('theme-selector').selectOption(theme);
+    await selectMobileThemeFromMore(page, theme);
     await expectDiscoverGeometry(page);
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
     await capture(page, info, `g3-018-200pct-${theme}`);

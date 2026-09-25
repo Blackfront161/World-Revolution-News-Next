@@ -7,6 +7,8 @@ import { expect, test, type Page, type TestInfo } from '@playwright/test';
 import { canonicalJson } from '../../packages/content-contracts/src';
 
 const themes = ['dark', 'light', 'pink', 'contrast'] as const;
+const fixtureNow = Date.parse('2026-09-01T12:00:00.000Z');
+const revocationUrl = 'https://solinaridao.com/wrn-source-pass-revocations/current.json';
 const expectedIds = [
   'wrn-test-art-cedar',
   'wrn-test-art-ember',
@@ -36,6 +38,10 @@ function collectRuntimeSignals(page: Page) {
     if (message.type() === 'error') errors.push(message.text());
   });
   return { external, errors };
+}
+
+function expectOnlyRevocationRequests(external: string[]) {
+  expect(external.filter((url) => url !== revocationUrl)).toEqual([]);
 }
 
 async function capture(page: Page, info: TestInfo, name: string) {
@@ -140,6 +146,9 @@ test('S5-Q1 independently verifies legacy Home order, Reader, Save/Remove, EN/DE
   for (const language of ['en', 'de'] as const) {
     for (const theme of themes) {
       const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
+      await context.addInitScript((now) => {
+        Date.now = () => now;
+      }, fixtureNow);
       const page = await context.newPage();
       const signals = collectRuntimeSignals(page);
       await page.addInitScript(
@@ -190,7 +199,7 @@ test('S5-Q1 independently verifies legacy Home order, Reader, Save/Remove, EN/DE
       await expectGeometry(page);
       expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
       await capture(page, info, `legacy-${language}-${theme}-reflow-200pct`);
-      expect(signals.external).toEqual([]);
+      expectOnlyRevocationRequests(signals.external);
       expect(signals.errors).toEqual([]);
       expect(await context.cookies()).toEqual([]);
       await context.close();
@@ -203,6 +212,9 @@ test('S5-Q1 keeps an invalid present Home contract fail-closed and the current c
 }) => {
   test.setTimeout(120_000);
   const invalidContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  await invalidContext.addInitScript((now) => {
+    Date.now = () => now;
+  }, fixtureNow);
   const invalidPage = await invalidContext.newPage();
   const invalidSignals = collectRuntimeSignals(invalidPage);
   await routeManifestVariant(invalidPage, 'invalid');
@@ -211,12 +223,15 @@ test('S5-Q1 keeps an invalid present Home contract fail-closed and the current c
   await expect(invalidPage.locator('article[data-article-id]')).toHaveCount(0);
   await expect(invalidPage.locator('[data-home-mode="legacy"]')).toHaveCount(0);
   await expect(invalidPage.getByRole('link', { name: /all sport news/i })).toHaveCount(0);
-  expect(invalidSignals.external).toEqual([]);
+  expectOnlyRevocationRequests(invalidSignals.external);
   expect(invalidSignals.errors).toEqual([]);
   expect(await invalidContext.cookies()).toEqual([]);
   await invalidContext.close();
 
   const currentContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  await currentContext.addInitScript((now) => {
+    Date.now = () => now;
+  }, fixtureNow);
   const currentPage = await currentContext.newPage();
   const currentSignals = collectRuntimeSignals(currentPage);
   await currentPage.goto('/?state=ready&theme=dark');
@@ -227,7 +242,7 @@ test('S5-Q1 keeps an invalid present Home contract fail-closed and the current c
   await expect(currentPage.locator('[data-home-mode="legacy"]')).toHaveCount(0);
   await expectGeometry(currentPage);
   expect((await new AxeBuilder({ page: currentPage }).analyze()).violations).toEqual([]);
-  expect(currentSignals.external).toEqual([]);
+  expectOnlyRevocationRequests(currentSignals.external);
   expect(currentSignals.errors).toEqual([]);
   expect(await currentContext.cookies()).toEqual([]);
   await currentContext.close();
