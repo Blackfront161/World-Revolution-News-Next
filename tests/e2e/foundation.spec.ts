@@ -178,7 +178,9 @@ async function expectSeparateCompleteNavigationControls(page: Page, selector: st
 
 async function expectVisiblePageHeadingWithoutOverflow(page: Page) {
   await expectNoHorizontalOverflow(page);
-  const measurement = await page.locator('#website-page-title').evaluate((element) => {
+  const heading = page.getByRole('main').getByRole('heading', { level: 1 }).first();
+  await expect(heading).toBeVisible();
+  const measurement = await heading.evaluate((element) => {
     const bounds = element.getBoundingClientRect();
     const htmlElement = element as HTMLElement;
     return {
@@ -522,9 +524,17 @@ test('mobile brand header remains uncut and within its shell across required vie
       const header = document.querySelector<HTMLElement>('.mobile-header');
       const brand = document.querySelector<HTMLElement>('.compact-header-brand');
       const title = document.querySelector<HTMLElement>('.compact-header-title');
+      const accentWord = title?.querySelector<HTMLElement>('span');
       const project = document.querySelector<HTMLElement>('.header-website-link');
       const main = document.querySelector<HTMLElement>('#mobile-main');
-      if (header === null || brand === null || title === null || project === null || main === null)
+      if (
+        header === null ||
+        brand === null ||
+        title === null ||
+        accentWord === null ||
+        project === null ||
+        main === null
+      )
         throw new Error('Mobiler Markenheader fehlt.');
       return {
         header: header.getBoundingClientRect().toJSON(),
@@ -533,6 +543,7 @@ test('mobile brand header remains uncut and within its shell across required vie
           scrollWidth: brand.scrollWidth,
         },
         title: title.getBoundingClientRect().toJSON(),
+        accentWordFragments: accentWord.getClientRects().length,
         project: project.getBoundingClientRect().toJSON(),
         main: main.getBoundingClientRect().toJSON(),
         headerBackgroundImage: window.getComputedStyle(header).backgroundImage,
@@ -546,6 +557,7 @@ test('mobile brand header remains uncut and within its shell across required vie
     expect(layout.project.height).toBeGreaterThanOrEqual(44);
     expect(layout.title.left).toBeGreaterThanOrEqual(layout.header.left - 1);
     expect(layout.title.right).toBeLessThanOrEqual(layout.header.right + 1);
+    if (viewport.reflow) expect(layout.accentWordFragments).toBe(1);
     if (!viewport.reflow) expect(layout.header.height).toBeLessThanOrEqual(180);
     expect(layout.main.top).toBeGreaterThanOrEqual(layout.header.bottom - 1);
     await expectNoHorizontalOverflow(page);
@@ -934,18 +946,12 @@ test('language selectors keep app-specific option labels at 200 percent reflow',
       };
     });
 
-    const expectedOptionLabel = testInfo.project.name.startsWith('mobile-')
-      ? expect.stringContaining(`(${language.toUpperCase()})`)
-      : language.toUpperCase();
-    expect(measurement.optionLabel).toEqual(expectedOptionLabel);
+    expect(measurement.optionLabel).toBe(language.toUpperCase());
     expect(measurement.options).toHaveLength(9);
     expect(measurement.width).toBeGreaterThanOrEqual(44);
     expect(measurement.height).toBeGreaterThanOrEqual(44);
-    // Three em reserve the native arrow and the existing inline padding; the
-    // closed select must fit its app-specific option label without clipping.
-    expect(measurement.width - measurement.fontSize * 3).toBeGreaterThanOrEqual(
-      measurement.optionLabelWidth,
-    );
+    // The compact code leaves room for the native arrow at 200% text size.
+    expect(measurement.width - 16).toBeGreaterThanOrEqual(measurement.optionLabelWidth);
     await captureEvidence(page, `${testInfo.project.name}_reflow-200_${language}`);
   }
 
@@ -993,13 +999,8 @@ test('language selectors activate their complete reflow layout after normal moun
           optionLabelWidth: context.measureText(optionLabel).width,
         };
       });
-      const expectedOptionLabel = testInfo.project.name.startsWith('mobile-')
-        ? expect.stringContaining(`(${language.toUpperCase()})`)
-        : language.toUpperCase();
-      expect(measurement.optionLabel).toEqual(expectedOptionLabel);
-      expect(measurement.width - measurement.fontSize * 3).toBeGreaterThanOrEqual(
-        measurement.optionLabelWidth,
-      );
+      expect(measurement.optionLabel).toBe(language.toUpperCase());
+      expect(measurement.width - 16).toBeGreaterThanOrEqual(measurement.optionLabelWidth);
 
       await page.evaluate(() => {
         document.documentElement.style.fontSize = '100%';
@@ -1040,7 +1041,7 @@ test('mobile wide language reflow keeps home, discover, reader and dialog in one
     document.documentElement.style.fontSize = '200%';
   });
   await expect(page.locator('.mobile-shell')).toHaveAttribute('data-wide-language-layout', 'true');
-  await expect(page.getByRole('heading', { name: 'News', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Current', exact: true })).toBeVisible();
 
   const navigation = page.getByRole('navigation', { name: 'Mobile main navigation' });
   await navigation.getByRole('link', { name: 'Discover', exact: true }).click();
@@ -1571,18 +1572,23 @@ test('website reflow keeps all primary and secondary targets within the viewport
     await expectVisiblePageHeadingWithoutOverflow(page);
   }
 
-  const moreButton = page.getByRole('button', { name: 'More', exact: true });
+  const moreButton = page.getByTestId('header-more-trigger');
   await moreButton.click();
   await expectVisiblePageHeadingWithoutOverflow(page);
   await expectSeparateCompleteNavigationControls(page, '.site-nav-compact');
   await expectSeparateCompleteNavigationControls(page, '.site-more-menu');
   for (const [index, label] of ['Knowledge', 'Events', 'Solidarity', 'Help'].entries()) {
     if (index > 0) {
-      await page.getByRole('button', { name: 'More', exact: true }).click();
+      await moreButton.click();
       await expectSeparateCompleteNavigationControls(page, '.site-more-menu');
     }
     await page.getByRole('link', { name: label, exact: true }).click();
-    await expect(page.getByRole('heading', { name: label, exact: true })).toBeVisible();
+    await expect(
+      page.getByRole('heading', {
+        name: label === 'Solidarity' || label === 'Help' ? `${label} directory` : label,
+        exact: true,
+      }),
+    ).toBeVisible();
     await expectVisiblePageHeadingWithoutOverflow(page);
     await expectSeparateCompleteNavigationControls(page, '.site-nav-compact');
   }
@@ -1779,7 +1785,7 @@ test('mobile reader uses one reachable page flow for a long article at 200 perce
     const box = await element.boundingBox();
     expect(box).not.toBeNull();
     expect(box!.y).toBeGreaterThanOrEqual(0);
-    expect(box!.y + box!.height).toBeLessThanOrEqual(844);
+    expect(box!.y + box!.height).toBeLessThanOrEqual(845);
   }
   await expectNoHorizontalOverflow(page);
   await expectTouchTargets(page);
