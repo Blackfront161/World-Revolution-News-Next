@@ -11,6 +11,8 @@ const sizes = [
   [844, 390],
 ] as const;
 const themes = ['dark', 'light', 'pink', 'contrast'] as const;
+const fixtureNow = Date.parse('2026-09-01T12:00:00.000Z');
+const revocationUrl = 'https://solinaridao.com/wrn-source-pass-revocations/current.json';
 
 async function persistCapture(info: TestInfo, name: string, path: string) {
   await info.attach(name, { path, contentType: 'image/png' });
@@ -107,8 +109,11 @@ async function assertGeometry(page: Page) {
   );
 }
 
-test.beforeEach(async ({ browserName }, info) => {
+test.beforeEach(async ({ browserName, context }, info) => {
   test.skip(browserName !== 'chromium' || info.project.name !== 'mobile-390x844');
+  await context.addInitScript((now) => {
+    Date.now = () => now;
+  }, fixtureNow);
 });
 
 test('G3-016 Home visual matrix keeps the nine bound roles responsive in four themes', async ({
@@ -125,10 +130,13 @@ test('G3-016 Home visual matrix keeps the nine bound roles responsive in four th
   await page.goto('/?state=ready');
   await assertHome(page);
 
-  for (const [width, height] of sizes) {
-    await page.setViewportSize({ width, height });
-    for (const theme of themes) {
-      await page.getByTestId('theme-selector').selectOption(theme);
+  for (const theme of themes) {
+    await page.getByTestId('header-more-trigger').click();
+    await page.getByTestId('theme-selector').selectOption(theme);
+    await page.getByTestId('header-more-trigger').click();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
+    for (const [width, height] of sizes) {
+      await page.setViewportSize({ width, height });
       await assertGeometry(page);
       expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
       await capture(page, info, `g3-016-home-${width}x${height}-${theme}`);
@@ -152,7 +160,7 @@ test('G3-016 Home visual matrix keeps the nine bound roles responsive in four th
   }
 
   expect(errors).toEqual([]);
-  expect(external).toEqual([]);
+  expect(external.filter((url) => url !== revocationUrl)).toEqual([]);
   expect(await context.cookies()).toEqual([]);
 });
 
