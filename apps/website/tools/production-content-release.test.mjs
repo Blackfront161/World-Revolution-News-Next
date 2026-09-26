@@ -25,16 +25,16 @@ const v3Candidate = path.join(
   'docs/evidence/WRN-NEWS-SIX-ARTICLE-INPUT-2026-09-11/candidate-1789065672080/production-build-input-v3.json',
 );
 
-test('the bundled sport fulltext and its licensed photograph load identically in both clients', async () => {
+test('the bundled sport fulltexts and their licensed photographs load identically in both clients', async () => {
   const websiteRoot = path.join(workspaceRoot, 'apps/website/public/wrn-production-content');
   const mobileRoot = path.join(workspaceRoot, 'apps/mobile/public/wrn-production-content');
   const { ready, publication } = await loadWebsiteProductionContentReleaseFromDisk({
     root: websiteRoot,
   });
   const revision = ready.descriptor.releaseRevision;
-  assert.equal(revision, 'wrn-production-news-2026-09-26-v7');
+  assert.equal(revision, 'wrn-production-news-2026-09-26-v8');
   assert.equal(publication.revision, revision);
-  assert.equal(ready.documents.articles.articles.length, 10);
+  assert.equal(ready.documents.articles.articles.length, 12);
   const article = ready.documents.articles.articles.find(
     (entry) =>
       entry.originalUrl === 'https://africasacountry.com/2026/06/the-indelible-african-superfan',
@@ -55,6 +55,34 @@ test('the bundled sport fulltext and its licensed photograph load identically in
     'https://www.pexels.com/photo/nigerian-fan-with-face-paint-celebrating-29804183/',
   );
   assert.match(image.attribution, /Jonathan Shembere/);
+  for (const [url, count, licenseId, author] of [
+    [
+      'https://africasacountry.com/2026/07/what-cabo-verdes-world-cup-debut-means-for-african-football',
+      28,
+      'CC0-1.0',
+      'Lonzay',
+    ],
+    [
+      'https://africasacountry.com/2026/06/how-moroccos-diaspora-is-remaking-the-nation',
+      23,
+      'CC-BY-4.0',
+      'Abdelali Bentarki',
+    ],
+  ]) {
+    const admitted = ready.documents.articles.articles.find((entry) => entry.originalUrl === url);
+    assert.ok(admitted);
+    assert.equal(admitted.contentCompleteness, 'full');
+    const candidate = ready.documents.readerDetails.entries.find(
+      (entry) => entry.articleId === admitted.id,
+    );
+    assert.ok(candidate);
+    assert.equal(candidate.blocks.filter((block) => block.kind === 'paragraph').length, count);
+    const photo = candidate.blocks.find((block) => block.kind === 'image');
+    assert.ok(photo);
+    assert.equal(photo.sourcePageUrl, url);
+    assert.equal(photo.licenseId, licenseId);
+    assert.match(photo.attribution, new RegExp(author));
+  }
   for (const relative of [
     'current.json',
     ...[

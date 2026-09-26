@@ -87,6 +87,7 @@ export function ProductionHome({
   language,
   sourcePreferences,
   renderCard,
+  hasOriginalImage,
   loadDirectory,
   onBrowseDirectory,
   onBrowseSport,
@@ -96,6 +97,7 @@ export function ProductionHome({
   language: UiLanguage;
   sourcePreferences: LocalSourcePreferencesV1;
   renderCard: HomeCard;
+  hasOriginalImage?: ((article: ProductionArticleV1) => boolean) | undefined;
   loadDirectory?: ((signal: AbortSignal) => Promise<ProductionHomeDirectory>) | undefined;
   onBrowseDirectory?: (() => void) | undefined;
   onBrowseSport?: (() => void) | undefined;
@@ -168,6 +170,12 @@ export function ProductionHome({
       : [];
     return [...fullArticles, ...notes].sort((left, right) => {
       if (left.kind !== right.kind) return left.kind === 'article' ? -1 : 1;
+      if (left.kind === 'article' && right.kind === 'article') {
+        const imagePriority =
+          Number(hasOriginalImage?.(right.article) ?? false) -
+          Number(hasOriginalImage?.(left.article) ?? false);
+        if (imagePriority) return imagePriority;
+      }
       const leftDate = left.kind === 'article' ? left.article.publishedAt : left.note.publishedAt;
       const rightDate =
         right.kind === 'article' ? right.article.publishedAt : right.note.publishedAt;
@@ -178,7 +186,7 @@ export function ProductionHome({
         )
       );
     });
-  }, [currentDirectory, sourcePreferences, articles]);
+  }, [currentDirectory, sourcePreferences, articles, hasOriginalImage]);
   const visibleSport = sport
     .filter(
       (item) =>

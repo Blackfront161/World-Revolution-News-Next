@@ -1,5 +1,21 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 26.09. – Lokaler V8-Sportkandidat: zwölf vollständige Artikel und sieben
+einzeln belegte Bilder in App und Website. Drei bebilderte Sportvolltexte bilden
+auf Home jetzt 1 großen + 2 kleine Einträge; der bisherige bildlose Beitrag
+bleibt erreichbar. Zwei neue AIAC-Volltexte mit 28+23 Absätzen und separat
+lizenzierten Commons-Fotos wurden aufgenommen. Builds, Typecheck, fokussierte
+Website-Paketfälle12/12 und Home-/Offline-Browserfälle14/14 PASS. Der erste
+Gesamtcheck traf einen Windows-`EPERM` beim parallelen temporären Paket-Rename;
+der isolierte Paketnachlauf bestand13/13. Die bestehende `atomicRename`-Routine
+behebt diese Race; der erneute vollständige `pnpm check` ist PASS
+(Mobile952/952, Website155/155 + 71/71 Paketfälle, Content-Betrieb81/81).
+Unabhängiger Rechte-/Inhaltsreview nach Hashkorrektur PASS; exakter V8-Android-Upgrade, Live-Hostbindung und Play
+bleiben offen. Die Website-Shell bleibt mit8.384.091/8.388.608 Byte innerhalb
+der festen Grenze. [V8-Beleg](evidence/WRN-SPORT-1PLUS2-2026-09-26/REPORT.md),
+[App-Vorschau](http://127.0.0.1:43354/?theme=violet#home),
+[Website-Vorschau](http://127.0.0.1:43355/?theme=violet&lang=de#home).
+
 Neu 26.09. – Unsigniertes V7-Android-Bundle aus Produktcommit `a2d9c5a`:
 Version2.2.0/Code27/Target36, 101/101 receiptgebundene Assets und
 `lintVitalRelease` PASS, SHA-256

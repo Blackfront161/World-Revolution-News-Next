@@ -1163,6 +1163,12 @@ export function createProductionContentArea({
                     language={language}
                     sourcePreferences={sourcePreferences.state}
                     renderCard={renderArticleCard}
+                    hasOriginalImage={(article) => {
+                      const view = resolveProductionArticleView(visible, article.id);
+                      return (
+                        view.kind === 'ready' && view.blocks.some((block) => block.kind === 'image')
+                      );
+                    }}
                     loadDirectory={homeDirectory?.load}
                     onBrowseDirectory={homeDirectory?.onBrowse}
                     onBrowseSport={homeDirectory?.onBrowseSport}

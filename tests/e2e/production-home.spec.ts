@@ -117,12 +117,12 @@ for (const profile of profiles) {
           home.locator('section[aria-labelledby="production-home-main"] [data-home-role="main"]'),
         ).toHaveCount(5);
         await expect(home.locator('[data-home-role="further"]')).toHaveCount(2);
-        await expect(home.locator('[data-home-sport-note]')).toHaveCount(1);
+        await expect(home.locator('[data-home-sport-note]')).toHaveCount(0);
         await expect(home.locator('.production-home__sport [data-home-role="lead"]')).toHaveCount(
           1,
         );
         await expect(home.locator('.production-home__sport [data-home-role="main"]')).toHaveCount(
-          1,
+          2,
         );
         await expect(home.locator('[data-home-directory-article]')).toHaveCount(5);
         const mainImages = home.locator(
@@ -143,11 +143,20 @@ for (const profile of profiles) {
           )
           .toEqual([1200, 1200, 1200]);
         const sportImage = home.locator('.production-home__sport .production-home-image img');
-        await expect(sportImage).toHaveCount(1);
-        await sportImage.scrollIntoViewIfNeeded();
+        await expect(sportImage).toHaveCount(3);
+        for (const item of await sportImage.all()) {
+          await item.scrollIntoViewIfNeeded();
+          await expect
+            .poll(() => item.evaluate((node: HTMLImageElement) => node.naturalWidth))
+            .toBeGreaterThan(0);
+        }
         await expect
-          .poll(() => sportImage.evaluate((node: HTMLImageElement) => node.naturalWidth))
-          .toBe(600);
+          .poll(() =>
+            sportImage.evaluateAll((nodes: HTMLImageElement[]) =>
+              nodes.map((node) => node.naturalWidth),
+            ),
+          )
+          .toEqual([960, 600, 960]);
         for (const id of mainImageIds)
           await expect(
             home
@@ -240,7 +249,7 @@ for (const profile of profiles) {
         ).toHaveCount(0);
         await expect(
           home.locator('.production-home__sport .production-home-image img'),
-        ).toHaveCount(1);
+        ).toHaveCount(3);
         expect(escapedExternalRequests).toEqual([]);
         expect(pageErrors).toEqual([]);
       });
@@ -287,12 +296,19 @@ test('Website Home restarts from its saved offline shell without requesting an e
     )
     .toEqual([1200, 1200, 1200]);
   const sportImage = offline.locator('.production-home__sport .production-home-image img');
-  await expect(sportImage).toHaveCount(1);
-  await sportImage.scrollIntoViewIfNeeded();
+  await expect(sportImage).toHaveCount(3);
+  for (const item of await sportImage.all()) {
+    await item.scrollIntoViewIfNeeded();
+    await expect
+      .poll(() => item.evaluate((node: HTMLImageElement) => node.naturalWidth))
+      .toBeGreaterThan(0);
+  }
   await expect
-    .poll(() => sportImage.evaluate((node: HTMLImageElement) => node.naturalWidth))
-    .toBe(600);
-  await expect(offline.locator('[data-home-sport-note]')).toHaveCount(1);
+    .poll(() =>
+      sportImage.evaluateAll((nodes: HTMLImageElement[]) => nodes.map((node) => node.naturalWidth)),
+    )
+    .toEqual([960, 600, 960]);
+  await expect(offline.locator('[data-home-sport-note]')).toHaveCount(0);
   await expect(offline.locator('[data-home-directory-article]')).toHaveCount(5);
   await offline.screenshot({
     path: info.outputPath('website-home-offline-restart.png'),

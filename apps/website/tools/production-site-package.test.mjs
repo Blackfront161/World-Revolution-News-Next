@@ -95,23 +95,25 @@ test('two packages have deterministic bytes, exact real closure and immutable in
   const two = await prepare(options(path.join(base, 'two')));
   assert.deepEqual(await readFile(one.manifestPath), await readFile(two.manifestPath));
   assert.deepEqual(await check(one.outputDirectory), await check(two.outputDirectory));
-  assert.equal(manifest.files.length, 42);
+  assert.equal(manifest.files.length, 44);
   assert.deepEqual(
     manifest.files.filter((e) => e.path.startsWith('articles/')).map((e) => e.path),
     [
       'articles/wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c/index.html',
+      'articles/wrn-art-612a467e3e256a336d6bb635ba3516d0/index.html',
       'articles/wrn-art-67bca5d4b29dab78f8ae26ccd996a9d8/index.html',
       'articles/wrn-art-8a5c375e96abe85721e4ba918c3f73e2/index.html',
       'articles/wrn-art-a772ab86c915a036c6177f1bfe958d4d/index.html',
       'articles/wrn-art-ba76ef8b7afb34885bd5f64bc7135f6c/index.html',
       'articles/wrn-art-bdb90712e1c72ee72293c70904b50889/index.html',
+      'articles/wrn-art-c273494fad3a4c822cb7655ec5e157ef/index.html',
       'articles/wrn-art-c6c6c2fd56d7a3965b4da062d0f73981/index.html',
       'articles/wrn-art-d96004b71171145d4aab1c6e37eb28ca/index.html',
       'articles/wrn-art-e9c523735fe8b7a61922b09d2bcc84fb/index.html',
       'articles/wrn-art-f2ad391804423c87773b3351eb79c802/index.html',
     ],
   );
-  assert.equal(manifest.sourceInput.files.length, 39);
+  assert.equal(manifest.sourceInput.files.length, 41);
   assert(manifest.files.some((entry) => entry.path === 'wrn-source-passes/current.json'));
   assert(manifest.files.some((entry) => entry.path === 'wrn-source-pass-revocations/current.json'));
   assert(
@@ -477,7 +479,7 @@ test('CLI succeeds from non-root cwd and rejects full-length unknown, duplicate,
     options('').previousRevocationsFile,
   ];
   const success = await run(process.execPath, [script, ...args], { cwd: base });
-  assert.equal(JSON.parse(success.stdout).files, 42);
+  assert.equal(JSON.parse(success.stdout).files, 44);
   for (const invalid of [
     ['--unknown', ...args.slice(1)],
     [...args.slice(0, 8), '--build', input],
