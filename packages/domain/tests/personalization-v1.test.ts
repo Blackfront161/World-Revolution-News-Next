@@ -114,6 +114,65 @@ describe('WRN-G3-017 local personalization domain', () => {
     ).toEqual([]);
   });
 
+  it('matches admitted canonical topics and regions while unknown metadata stays unmatched', () => {
+    const canonicalArticles = [
+      article('wrn-test-art-canonical-sport', 'en'),
+      article('wrn-test-art-canonical-fans', 'en'),
+      article('wrn-test-art-canonical-unknown', 'en'),
+    ];
+    const canonicalIndex = index([
+      { articleId: canonicalArticles[0]!.id, region: 'africa', topics: ['sports'], format: 'news' },
+      {
+        articleId: canonicalArticles[1]!.id,
+        region: 'north-america',
+        topics: ['football', 'fan-culture'],
+        format: 'news',
+      },
+      {
+        articleId: canonicalArticles[2]!.id,
+        region: 'unknown-region',
+        topics: ['unknown-topic'],
+        format: 'news',
+      },
+    ]);
+    const sport = createLocalPersonalizationState({
+      interestIds: ['sport'],
+      regionIds: ['africa'],
+      contentLanguageIds: [],
+    })!;
+    const fans = createLocalPersonalizationState({
+      interestIds: ['football', 'fan-culture'],
+      regionIds: ['north-america'],
+      contentLanguageIds: [],
+    })!;
+    const global = createLocalPersonalizationState({
+      interestIds: ['sport'],
+      regionIds: ['global'],
+      contentLanguageIds: [],
+    })!;
+    expect(
+      projectLocalPersonalizedArticles({
+        state: sport,
+        articles: canonicalArticles,
+        discoverIndex: canonicalIndex,
+      }),
+    ).toEqual([canonicalArticles[0]]);
+    expect(
+      projectLocalPersonalizedArticles({
+        state: fans,
+        articles: canonicalArticles,
+        discoverIndex: canonicalIndex,
+      }),
+    ).toEqual([canonicalArticles[1]]);
+    expect(
+      projectLocalPersonalizedArticles({
+        state: global,
+        articles: canonicalArticles,
+        discoverIndex: canonicalIndex,
+      }),
+    ).toEqual([]);
+  });
+
   it('fails closed when the supplied active local article/index binding is incomplete or duplicate', () => {
     const state = createLocalPersonalizationState({
       interestIds: ['movement-news'],

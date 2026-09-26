@@ -1,0 +1,7 @@
+69947b6bb2579af0f1cf4152eeba5702d25df7e736b4b8ed12c9f06242a4feb1  apps/mobile/src/production-selection-explanation.test.tsx
+3e641ddff6eaf308f71b0862439d5eb8f66e50bee84ce7778577f2ed6a827408  packages/browser-content/src/production-content-view.ts
+40a87a4b744455f7a6f4c31cf45a90af6838db25cb41bdb057760317ef886465  packages/domain/src/index.ts
+94e0b739f05e18d669de79539b9445e2de4cb9cbc3f2a3bd9760ae7cae32ebdf  packages/domain/tests/personalization-v1.test.ts
+8d6fe086e8a197c8dd5a810d78b0d9cb1f160705fb7801b9e45a8f640292fceb  tests/e2e/website-personalization.spec.ts
+3fed3d63bbaaec67225efc7c4bc79a3a92b1696175e7c7258ec465076d6da279  docs/evidence/WRN-V10-PERSONALIZATION-2026-09-26/website-following-results.png
+6e485c0c6776dded3b0d897fb75a66f24ae3c85ac6b2ad8bee06a42e38cce598  docs/evidence/WRN-V10-PERSONALIZATION-2026-09-26/mobile-following-results.png

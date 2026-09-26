@@ -1,5 +1,15 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 26.09. – Die lokale Sport-Personalisierung erkennt jetzt das im
+aufgenommenen Discover-Index belegte Thema `sports` als Nutzerwahl `sport`;
+kanonische Themen-/Regions-IDs bleiben in der Domain-Projektion erhalten.
+Unbekannte Werte matchen nicht. Browser-Personalisierung11/11, gezielter
+Nachlauf der übrigen Reader-/Home-/Medien-/Quellenfälle62/62, `pnpm check`
+und beide Builds PASS; unabhängiger Review ohne Findings. Der bisherige
+JKS-signierte AAB aus `4cfaafd` enthält diesen Fix noch nicht. Vollständige
+neue RC-Matrix, exakter Android-Build/Upgrade, Host-/Providerbindung und Play
+bleiben offen. [Beleg](evidence/WRN-V10-PERSONALIZATION-2026-09-26/REPORT.md).
+
 Neu 26.09. – Der V8-Testkandidat ist wegen fehlender Übernahme alter
 Merkliste/Offline-Texte und Theme-Wahl **ersetzt**. Das neue Android-AAB aus
 `4cfaafd` ist offline gebaut, 108/108 Assets und `pnpm check` PASS. Auf einem

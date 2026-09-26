@@ -9,6 +9,14 @@ const clients = [
 ] as const;
 const copy = getUiCopy('en');
 const firstId = 'wrn-art-a772ab86c915a036c6177f1bfe958d4d';
+// Bound to the admitted 2026-09-26-v8 article and discover-index release.
+const englishArticleCount = 11;
+const sportArticleIds = [
+  'wrn-art-612a467e3e256a336d6bb635ba3516d0',
+  'wrn-art-8a5c375e96abe85721e4ba918c3f73e2',
+  'wrn-art-c273494fad3a4c822cb7655ec5e157ef',
+  'wrn-art-e9c523735fe8b7a61922b09d2bcc84fb',
+] as const;
 test.beforeEach(async ({ context }) => {
   await context.addInitScript(() =>
     sessionStorage.setItem('wrn.website.support-welcome.v1', 'dismissed'),
@@ -84,7 +92,7 @@ async function confirm(page: Page, label: string) {
 }
 
 for (const client of clients) {
-  test(`${client.name} saved selection yields the six real articles and survives reader return and reload`, async ({
+  test(`${client.name} saved selection yields the admitted English articles and survives reader return and reload`, async ({
     page,
   }, info) => {
     const errors: string[] = [],
@@ -107,8 +115,8 @@ for (const client of clients) {
     await area.getByRole('checkbox', { name: 'English', exact: true }).check();
     expect(await page.evaluate((k) => localStorage.getItem(k), key(client.name))).toBeNull();
     await confirm(page, copy.personalizationSave);
-    await expect(area.locator('.production-card')).toHaveCount(8);
-    await expect(area.locator(`.production-card ${client.card}`)).toHaveCount(8);
+    await expect(area.locator('.production-card')).toHaveCount(englishArticleCount);
+    await expect(area.locator(`.production-card ${client.card}`)).toHaveCount(englishArticleCount);
     await expect(area.locator(`.production-card ${client.card}`).first()).toHaveAttribute(
       'lang',
       'en',
@@ -121,14 +129,20 @@ for (const client of clients) {
     await area.locator(`[data-reader-trigger="${firstId}"]`).click();
     await expect(page.getByTestId('production-reader')).toBeVisible();
     await page.goBack();
-    await expect(area.locator('.production-card')).toHaveCount(8);
+    await expect(area.locator('.production-card')).toHaveCount(englishArticleCount);
     await page.reload();
     await expect(area.getByRole('checkbox', { name: 'English', exact: true })).toBeChecked();
-    await expect(area.locator('.production-card')).toHaveCount(8);
+    await expect(area.locator('.production-card')).toHaveCount(englishArticleCount);
     await area.getByRole('checkbox', { name: 'English', exact: true }).uncheck();
     await area
       .getByRole('checkbox', { name: copy.personalizationInterestSport, exact: true })
       .check();
+    await confirm(page, copy.personalizationSave);
+    await expect(area.locator('.production-card')).toHaveCount(sportArticleIds.length);
+    for (const id of sportArticleIds) {
+      await expect(area.locator(`[data-reader-trigger="${id}"]`)).toHaveCount(1);
+    }
+    await area.getByRole('checkbox', { name: 'Deutsch', exact: true }).check();
     await confirm(page, copy.personalizationSave);
     await expect(area.locator('.production-card')).toHaveCount(0);
     await expect(area.getByText(copy.personalizationNoMatches, { exact: true })).toBeVisible();
@@ -190,7 +204,7 @@ for (const client of clients) {
       await page.keyboard.press('Escape');
       await expect(trigger).toBeFocused();
       await confirm(page, text.personalizationSave);
-      await expect(area.locator('.production-card')).toHaveCount(8);
+      await expect(area.locator('.production-card')).toHaveCount(englishArticleCount);
       await page.evaluate(() => window.scrollTo(0, 0));
       expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
       await page.screenshot({
@@ -253,6 +267,8 @@ test('Website refuses a stale confirmation after a second tab changes the select
   expect(await page.evaluate((k) => localStorage.getItem(k), key('website'))).toBe(selected);
   await page.getByRole('button', { name: copy.personalizationReload, exact: true }).click();
   await expect(page.getByRole('checkbox', { name: 'English', exact: true })).toBeChecked();
-  await expect(page.locator('.production-card')).toHaveCount(8);
+  await expect(page.locator('.production-card')).toHaveCount(englishArticleCount, {
+    timeout: 15_000,
+  });
   await other.close();
 });
