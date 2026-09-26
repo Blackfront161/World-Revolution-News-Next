@@ -98,6 +98,7 @@ import {
   SourceOnlyResults,
 } from '../../../packages/browser-content/src/source-preferences-ui';
 import { loadMobileUiLanguage, persistMobileUiLanguage } from './ui-language-preference';
+import { importLegacyTheme } from './legacy-upgrade-theme';
 import { loadLocalContentRelease, type LocalContentReleaseRuntime } from './local-content-release';
 import type { ContentOfflineControllerResult } from './content-offline-controller';
 import { useContentOfflineController } from './content-offline-ui';
@@ -449,7 +450,9 @@ function readThemePreference(
       window.localStorage.removeItem(themeStorageKey);
       return 'violet';
     }
-    return normalizeThemePreference(storedPreference);
+    return storedPreference === null
+      ? (importLegacyTheme(window.localStorage) ?? 'violet')
+      : normalizeThemePreference(storedPreference);
   } catch {
     return 'violet';
   }

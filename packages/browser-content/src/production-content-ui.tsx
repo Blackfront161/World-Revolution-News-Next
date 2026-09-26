@@ -6,6 +6,7 @@ import {
   useRef,
   useState,
   type ReactNode,
+  type ComponentType,
   type RefObject,
 } from 'react';
 import { createPortal } from 'react-dom';
@@ -163,6 +164,8 @@ type ProductionContentAreaDependencies = Readonly<{
   onlinePodcastAdapter?: ProductionOnlinePodcastAdapter | null;
   activityClient?: ActivityClient | null;
   activityNotificationsEnabled?: () => boolean;
+  LegacySavedContent?: ComponentType<{ language: UiLanguage }>;
+  hasLegacySavedArticles?: () => boolean;
 }>;
 export function createProductionContentArea({
   useProductionContentOfflineController,
@@ -176,6 +179,8 @@ export function createProductionContentArea({
   onlinePodcastAdapter = null,
   activityClient = null,
   activityNotificationsEnabled = () => true,
+  LegacySavedContent,
+  hasLegacySavedArticles = () => false,
 }: ProductionContentAreaDependencies) {
   return function ProductionContentArea({
     target,
@@ -1037,7 +1042,7 @@ export function createProductionContentArea({
               </h2>
             )}
             {target === 'home' && <p>{text.intro}</p>}
-            {target === 'saved' && <p>{copy.savedIntro}</p>}
+            {target === 'saved' && !hasLegacySavedArticles() && <p>{copy.savedIntro}</p>}
             {(target === 'more' || target === 'following') && (
               <SourcePreferencesPanel
                 knownSources={allArticles.map((article) => ({
@@ -1179,11 +1184,13 @@ export function createProductionContentArea({
                     {articles.map((article) => renderArticleCard(article))}
                   </div>
                 )}
-                {allowed && articles.length === 0 && (
-                  <p role="status">
-                    {target === 'saved' ? copy.savedEmpty : copy.personalizationNoMatches}
-                  </p>
-                )}
+                {allowed &&
+                  articles.length === 0 &&
+                  !(target === 'saved' && hasLegacySavedArticles()) && (
+                    <p role="status">
+                      {target === 'saved' ? copy.savedEmpty : copy.personalizationNoMatches}
+                    </p>
+                  )}
                 {target === 'saved' &&
                   reading.state.entries
                     .filter(
@@ -1270,6 +1277,7 @@ export function createProductionContentArea({
           )}
         </div>
         {children}
+        {target === 'saved' && LegacySavedContent && <LegacySavedContent language={language} />}
         {dialog !== null && (dialog.kind !== 'external' || dialog.identity === identity) && (
           <ProductionDialog
             title={

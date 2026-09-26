@@ -27,6 +27,9 @@ beforeEach(() => {
 });
 afterEach(() => {
   localStorage.removeItem(productionReadingStateStorageKey);
+  localStorage.removeItem('wrn_bookmarks');
+  localStorage.removeItem('wrn_read_list');
+  localStorage.removeItem('wrn_read_positions');
   vi.restoreAllMocks();
   for (const [key, value] of dialogDescriptors) {
     if (value) Object.defineProperty(HTMLDialogElement.prototype, key, value);
@@ -48,6 +51,29 @@ const props = () => ({
 });
 
 describe('production reader component', () => {
+  it('keeps the normal Saved privacy copy only when no legacy archive is visible', async () => {
+    const result = await productionTestResult();
+    vi.mocked(useProductionContentOfflineController).mockReturnValue({
+      result,
+      operation: null,
+      operationResult: result,
+      invoke: vi.fn(async () => result),
+    });
+    const input = { ...props(), target: 'saved', articleId: null };
+    const first = render(<ProductionContentArea {...input} />);
+    expect(screen.getByText(getUiCopy('en').savedIntro)).toBeTruthy();
+    first.unmount();
+
+    localStorage.setItem(
+      'wrn_bookmarks',
+      JSON.stringify([
+        { link: 'https://anred.org/a', title: 'Old offline article', content: 'Old full text' },
+      ]),
+    );
+    render(<ProductionContentArea {...input} />);
+    expect(screen.queryByText(getUiCopy('en').savedIntro)).toBeNull();
+    expect(screen.getByText('Old offline article')).toBeTruthy();
+  });
   it('filters Discover by admitted metadata and clears criteria outside Discover', async () => {
     const base = await productionTestResult();
     const runtime = base.runtime!;
