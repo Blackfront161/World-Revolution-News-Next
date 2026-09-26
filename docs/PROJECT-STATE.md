@@ -1,5 +1,15 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 26.09. – Test vor Veröffentlichung: Die getrennte App **WRN Test** mit
+`com.world.revolution.rc` liegt als AAB und APK bereit und wurde auf einem
+Emulator neben der Haupt-App gestartet, ohne diese zu ersetzen. Auf einer
+zusätzlich neu angelegten isolierten AVD blieb das in der alten 2.1.1-App
+ausdrücklich gewählte Französisch nach Prozessneustart und direktem lokalen
+Update auf 2.2.0/Code27 erhalten; `firstInstallTime` blieb unverändert.
+Der frühere unklare DE-Befund gilt nicht als reproduzierter Fehler. Vollständige
+Datenmigration, echter Play-signierter Upgradepfad und PO-Sichttest bleiben
+offen. Kein Play-Upload oder Live-Ersatz. [Beleg](evidence/WRN-SIDE-BY-SIDE-TEST-2026-09-26/REPORT.md).
+
 Neu 26.09. – Die lokale Sport-Personalisierung erkennt jetzt das im
 aufgenommenen Discover-Index belegte Thema `sports` als Nutzerwahl `sport`;
 kanonische Themen-/Regions-IDs bleiben in der Domain-Projektion erhalten.

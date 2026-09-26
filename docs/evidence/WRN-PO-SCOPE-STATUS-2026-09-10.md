@@ -70,6 +70,14 @@ Action Radar; Status jeweils **offen**. Artikel-TTS ist als MEDIA-04 umgesetzt.
 Die bestehende spätere Einstufung der übrigen Wünsche bleibt bestehen. Konten, Kommentare und
 Gamification werden ohne neue PO-Entscheidung nicht hinzugefügt.
 
+Testnachtrag 26.09.: **WRN Test** (`com.world.revolution.rc`) liegt als
+separates AAB und APK bereit; Emulator-Parallelbetrieb ersetzt die Haupt-App
+nicht. Der kontrollierte lokale 2.1.1→2.2.0-Upgrade-Test erhielt die zuvor
+ausdrücklich gewählte Sprache FR und die ursprüngliche `firstInstallTime`.
+AND-01, QA-01 und RELEASE-01 bleiben **in Arbeit/offen** wie oben beschrieben:
+vollständige Datenmigration, Play-signierter Upgradepfad und PO-Sichttest sind
+damit nicht abgeschlossen. [Testbeleg](WRN-SIDE-BY-SIDE-TEST-2026-09-26/REPORT.md).
+
 Aktuell erreichbar: [App43358](http://127.0.0.1:43358/?theme=violet#home) und
 [Website43359](http://127.0.0.1:43359/?theme=violet&lang=de#home), lokaler V8-Inhaltsstand mit zwölf Artikeln. Themes unter Mehr,
 App-Headerlink und freiwilliger Website-Unterstützungshinweis unabhängig PASS.
