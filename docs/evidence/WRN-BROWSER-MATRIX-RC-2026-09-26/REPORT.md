@@ -33,6 +33,14 @@ Arbeitsartefakte unter `test-results/`; `HASHES.sha256` bindet sie und die
 korrigierte Testdatei. Prettier, ESLint und `git diff --check` für die Änderung
 bestanden. Es gab keine Produktänderung und keine neue externe Veröffentlichung.
 
+Nach der Belegintegration `4ca5846` bestand auch `pnpm check` vollständig:
+Format, Lint, Typen, Provenienz, Mobile 952/952, Website 155/155 plus 70/70
+Node-Tests und die übrigen Vertrags-/Betriebssuiten. Der erste Anlauf ohne
+Git-`safe.directory` stoppte an zwei Provenienztests wegen der isolierten
+Windows-Checkout-Eigentümerschaft; die Wiederholung setzte den Wert nur für
+den aktuellen Prozess und endete mit Exit 0. Das ignorierte Rohlog ist durch
+`HASHES.sha256` gebunden.
+
 Dies ist ein Browser-Matrix-Beleg, kein Gesamt-Release-PASS. Der aktuelle
 Android-Kandidat braucht noch den datenerhaltenden Upgrade-Test genau dieses
 AABs; Produktionssignatur und Play-Pre-Launch sind offen. Die drei öffentlichen

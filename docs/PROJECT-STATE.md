@@ -7,7 +7,9 @@ Ein gezielter 2-Worker-Nachlauf bestand 62/62 und deckte alle 24 zuvor
 fehlgeschlagenen Kombinationen ab. Insgesamt sind 2.084 unterschiedliche
 Kombinationen mindestens einmal grün; 1.598 projektspezifische Skips waren
 vorgesehen. Die Ursache der zeitweiligen Ladezustände unter vier Workern ist
-nicht bewiesen. Produktbytes, Hostingpaket und AAB blieben unverändert.
+nicht bewiesen. `pnpm check` am Checkout `4ca5846` ist vollständig grün
+(Mobile 952/952, Website 155/155 + Node 70/70). Produktbytes, Hostingpaket
+und AAB blieben unverändert.
 Android-Upgrade des exakten Kandidaten, Live-Hostbindung, Provider und Play
 bleiben offen. [Matrixbeleg](evidence/WRN-BROWSER-MATRIX-RC-2026-09-26/REPORT.md).
 
