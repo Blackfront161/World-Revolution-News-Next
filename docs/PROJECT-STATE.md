@@ -1,5 +1,16 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 26.09. – Alle sieben Browserprojekte des lokalen RC wurden ausgeführt.
+Die erste 4-Worker-Matrix zeigte 24 Fehler bei 1.214 bestandenen Fällen;
+ein reproduzierbarer Fixture-/Events-Testwiderspruch wurde korrigiert.
+Ein gezielter 2-Worker-Nachlauf bestand 62/62 und deckte alle 24 zuvor
+fehlgeschlagenen Kombinationen ab. Insgesamt sind 2.084 unterschiedliche
+Kombinationen mindestens einmal grün; 1.598 projektspezifische Skips waren
+vorgesehen. Die Ursache der zeitweiligen Ladezustände unter vier Workern ist
+nicht bewiesen. Produktbytes, Hostingpaket und AAB blieben unverändert.
+Android-Upgrade des exakten Kandidaten, Live-Hostbindung, Provider und Play
+bleiben offen. [Matrixbeleg](evidence/WRN-BROWSER-MATRIX-RC-2026-09-26/REPORT.md).
+
 Neu 26.09. – Header-Scroll und Website-RC: Die alte Live-Seite verkleinert ihren
 `sticky`-Header ab 36 px Scrollweg mit einer 180-ms-Animation; sie bleibt als
 Baseline unverändert. Im Neubau ist der Header statisch. Der Regressionstest

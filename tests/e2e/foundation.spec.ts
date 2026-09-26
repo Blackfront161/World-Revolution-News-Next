@@ -1185,6 +1185,12 @@ test('every visible navigation target has an active state and an honest local de
       await expect(page.getByRole('heading', { name: label, exact: true })).toBeVisible();
       await expect(page.locator('.content-offline-panel')).toBeVisible();
       await expect(page.getByText('Not migrated yet', { exact: true })).toBeHidden();
+    } else if (!isMobile && label === 'Events') {
+      // This navigation matrix deliberately opens the local fixture (?state=ready).
+      // The genuine production Events route is covered by production-events-media.spec.ts.
+      await expect(page.getByRole('heading', { name: label, exact: true })).toBeVisible();
+      await expect(page.locator('.migration-panel')).toBeVisible();
+      await expect(page.getByText('Not migrated yet', { exact: true })).toBeVisible();
     } else if (isMobile && label === 'For me') {
       await expect(page.getByRole('heading', { name: 'For me', exact: true })).toBeVisible();
       await expect(page.locator('.personalization-view')).toBeVisible();
