@@ -95,7 +95,7 @@ test('two packages have deterministic bytes, exact real closure and immutable in
   const two = await prepare(options(path.join(base, 'two')));
   assert.deepEqual(await readFile(one.manifestPath), await readFile(two.manifestPath));
   assert.deepEqual(await check(one.outputDirectory), await check(two.outputDirectory));
-  assert.equal(manifest.files.length, 41);
+  assert.equal(manifest.files.length, 42);
   assert.deepEqual(
     manifest.files.filter((e) => e.path.startsWith('articles/')).map((e) => e.path),
     [
@@ -107,10 +107,11 @@ test('two packages have deterministic bytes, exact real closure and immutable in
       'articles/wrn-art-bdb90712e1c72ee72293c70904b50889/index.html',
       'articles/wrn-art-c6c6c2fd56d7a3965b4da062d0f73981/index.html',
       'articles/wrn-art-d96004b71171145d4aab1c6e37eb28ca/index.html',
+      'articles/wrn-art-e9c523735fe8b7a61922b09d2bcc84fb/index.html',
       'articles/wrn-art-f2ad391804423c87773b3351eb79c802/index.html',
     ],
   );
-  assert.equal(manifest.sourceInput.files.length, 38);
+  assert.equal(manifest.sourceInput.files.length, 39);
   assert(manifest.files.some((entry) => entry.path === 'wrn-source-passes/current.json'));
   assert(manifest.files.some((entry) => entry.path === 'wrn-source-pass-revocations/current.json'));
   assert(
@@ -476,7 +477,7 @@ test('CLI succeeds from non-root cwd and rejects full-length unknown, duplicate,
     options('').previousRevocationsFile,
   ];
   const success = await run(process.execPath, [script, ...args], { cwd: base });
-  assert.equal(JSON.parse(success.stdout).files, 41);
+  assert.equal(JSON.parse(success.stdout).files, 42);
   for (const invalid of [
     ['--unknown', ...args.slice(1)],
     [...args.slice(0, 8), '--build', input],

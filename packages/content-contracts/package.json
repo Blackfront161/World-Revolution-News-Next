@@ -79,6 +79,6 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",
-    "test:unit": "vitest run"
+    "test:unit": "vitest run --maxWorkers=2"
   }
 }

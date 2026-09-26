@@ -95,7 +95,11 @@ describe('productive sport entry point', () => {
   it('places a full sport article only in the sport section once the directory loads', async () => {
     const result = await productionTestResult();
     const original = result.runtime!.documents.articles.articles[0]!;
-    const sportArticle = { ...original, tags: [...original.tags, 'sports'] };
+    const sportArticle = {
+      ...original,
+      publishedAt: '2020-01-01T00:00:00.000Z',
+      tags: [...original.tags, 'sports'],
+    };
     const { container } = render(
       <ProductionHome
         {...base}
@@ -112,6 +116,13 @@ describe('productive sport entry point', () => {
     expect(container.querySelectorAll('[data-testid="sport-article-card"]')).toHaveLength(1);
     expect(
       container.querySelector('.production-home__sport [data-testid="sport-article-card"]'),
+    ).toBeTruthy();
+    expect(container.querySelector('[data-testid="sport-article-card"]')).toHaveAttribute(
+      'data-home-role',
+      'lead',
+    );
+    expect(
+      container.querySelector('[data-home-sport-note][data-sport-role="secondary"]'),
     ).toBeTruthy();
   });
 });

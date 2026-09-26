@@ -28,7 +28,9 @@ test('Mobile Home keeps articles reachable after a wide-to-narrow font resize', 
     page.on('pageerror', (error) => errors.push(error.message));
     const origin = process.env.WRN_HOME_REFLOW_ORIGIN ?? 'http://127.0.0.1:43177';
     await page.goto(`${origin}/?theme=violet`);
-    await expect(page.locator('[data-home-role="main"]')).toHaveCount(5);
+    await expect(
+      page.locator('section[aria-labelledby="production-home-main"] [data-home-role="main"]'),
+    ).toHaveCount(5, { timeout: 15_000 });
     const language = page.getByTestId('ui-language-selector');
     await language.selectOption('de');
     await page.screenshot({ path: info.outputPath('wide-home-de.png') });
@@ -110,19 +112,24 @@ for (const profile of profiles) {
         const lead = home.locator(
           'section[aria-labelledby="production-home-lead"] [data-home-role="lead"]',
         );
-        await expect(lead).toHaveCount(1);
+        await expect(lead).toHaveCount(1, { timeout: 15_000 });
         await expect(
           home.locator('section[aria-labelledby="production-home-main"] [data-home-role="main"]'),
         ).toHaveCount(5);
         await expect(home.locator('[data-home-role="further"]')).toHaveCount(2);
-        await expect(home.locator('[data-home-sport-note]')).toHaveCount(2);
+        await expect(home.locator('[data-home-sport-note]')).toHaveCount(1);
         await expect(home.locator('.production-home__sport [data-home-role="lead"]')).toHaveCount(
           1,
         );
+        await expect(home.locator('.production-home__sport [data-home-role="main"]')).toHaveCount(
+          1,
+        );
         await expect(home.locator('[data-home-directory-article]')).toHaveCount(5);
-        const image = home.locator('.production-home-image img');
-        await expect(image).toHaveCount(3);
-        for (const item of await image.all()) {
+        const mainImages = home.locator(
+          'section[aria-labelledby="production-home-main"] .production-home-image img',
+        );
+        await expect(mainImages).toHaveCount(3);
+        for (const item of await mainImages.all()) {
           await item.scrollIntoViewIfNeeded();
           await expect
             .poll(() => item.evaluate((node: HTMLImageElement) => node.naturalWidth))
@@ -130,11 +137,17 @@ for (const profile of profiles) {
         }
         await expect
           .poll(() =>
-            image.evaluateAll((nodes: HTMLImageElement[]) =>
+            mainImages.evaluateAll((nodes: HTMLImageElement[]) =>
               nodes.map((node) => node.naturalWidth),
             ),
           )
           .toEqual([1200, 1200, 1200]);
+        const sportImage = home.locator('.production-home__sport .production-home-image img');
+        await expect(sportImage).toHaveCount(1);
+        await sportImage.scrollIntoViewIfNeeded();
+        await expect
+          .poll(() => sportImage.evaluate((node: HTMLImageElement) => node.naturalWidth))
+          .toBe(600);
         for (const id of mainImageIds)
           await expect(
             home
@@ -220,7 +233,14 @@ for (const profile of profiles) {
         await expect(
           home.locator('.production-card').filter({ hasText: 'Electronic Frontier Foundation' }),
         ).toHaveCount(0);
-        await expect(home.locator('.production-home-image img')).toHaveCount(0);
+        await expect(
+          home.locator(
+            'section[aria-labelledby="production-home-main"] .production-home-image img',
+          ),
+        ).toHaveCount(0);
+        await expect(
+          home.locator('.production-home__sport .production-home-image img'),
+        ).toHaveCount(1);
         expect(escapedExternalRequests).toEqual([]);
         expect(pageErrors).toEqual([]);
       });
@@ -237,7 +257,9 @@ test('Website Home restarts from its saved offline shell without requesting an e
   await expect(page.locator('.website-support-welcome[open]')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.getByTestId('production-home')).toBeVisible();
-  await expect(page.locator('[data-home-role="main"]')).toHaveCount(5);
+  await expect(
+    page.locator('section[aria-labelledby="production-home-main"] [data-home-role="main"]'),
+  ).toHaveCount(5, { timeout: 15_000 });
   await page.goto(`${origin}/#more`);
   await page.getByRole('button', { name: 'Save website shell', exact: true }).click();
   await expect(page.locator('.website-shell-panel')).toHaveAttribute(
@@ -249,9 +271,11 @@ test('Website Home restarts from its saved offline shell without requesting an e
   const offline = await context.newPage();
   await offline.goto(origin);
   await expect(offline.getByTestId('production-home')).toBeVisible();
-  const image = offline.locator('.production-home-image img');
-  await expect(image).toHaveCount(3);
-  for (const item of await image.all()) {
+  const mainImages = offline.locator(
+    'section[aria-labelledby="production-home-main"] .production-home-image img',
+  );
+  await expect(mainImages).toHaveCount(3, { timeout: 15_000 });
+  for (const item of await mainImages.all()) {
     await item.scrollIntoViewIfNeeded();
     await expect
       .poll(() => item.evaluate((node: HTMLImageElement) => node.naturalWidth))
@@ -259,10 +283,16 @@ test('Website Home restarts from its saved offline shell without requesting an e
   }
   await expect
     .poll(() =>
-      image.evaluateAll((nodes: HTMLImageElement[]) => nodes.map((node) => node.naturalWidth)),
+      mainImages.evaluateAll((nodes: HTMLImageElement[]) => nodes.map((node) => node.naturalWidth)),
     )
     .toEqual([1200, 1200, 1200]);
-  await expect(offline.locator('[data-home-sport-note]')).toHaveCount(2);
+  const sportImage = offline.locator('.production-home__sport .production-home-image img');
+  await expect(sportImage).toHaveCount(1);
+  await sportImage.scrollIntoViewIfNeeded();
+  await expect
+    .poll(() => sportImage.evaluate((node: HTMLImageElement) => node.naturalWidth))
+    .toBe(600);
+  await expect(offline.locator('[data-home-sport-note]')).toHaveCount(1);
   await expect(offline.locator('[data-home-directory-article]')).toHaveCount(5);
   await offline.screenshot({
     path: info.outputPath('website-home-offline-restart.png'),

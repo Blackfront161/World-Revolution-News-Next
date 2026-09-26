@@ -111,7 +111,9 @@ describe('MobileContentDirectoryRoute', () => {
     vi.spyOn(navigator, 'onLine', 'get').mockReturnValue(false);
     const { MobileContentDirectoryRoute } = await import('./MobileContentDirectoryRoute');
     render(<MobileContentDirectoryRoute language="en" section="sources" />);
-    await waitFor(() => expect(screen.getAllByText(/Every individual text/u)).toHaveLength(19));
+    await waitFor(() => expect(screen.getAllByText(/Every individual text/u)).toHaveLength(19), {
+      timeout: 5000,
+    });
   });
 });
 

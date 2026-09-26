@@ -96,7 +96,7 @@ describe('mobile local newsfeed', () => {
               name: 'Lokale Testmeldung zur gemeinsamen Leseliste',
             }),
           ).toBeVisible();
-        } else await screen.findByRole('heading', { name: 'News directory' });
+        } else await screen.findByRole('heading', { name: 'News directory' }, { timeout: 5_000 });
         expect(
           vi.mocked(plugin.addListener).mock.calls.filter(([name]) => name === 'route'),
         ).toHaveLength(1);

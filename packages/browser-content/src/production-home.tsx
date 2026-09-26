@@ -167,6 +167,7 @@ export function ProductionHome({
           .map((note) => ({ kind: 'note' as const, note, category: note.category }))
       : [];
     return [...fullArticles, ...notes].sort((left, right) => {
+      if (left.kind !== right.kind) return left.kind === 'article' ? -1 : 1;
       const leftDate = left.kind === 'article' ? left.article.publishedAt : left.note.publishedAt;
       const rightDate =
         right.kind === 'article' ? right.article.publishedAt : right.note.publishedAt;

@@ -25,6 +25,56 @@ const v3Candidate = path.join(
   'docs/evidence/WRN-NEWS-SIX-ARTICLE-INPUT-2026-09-11/candidate-1789065672080/production-build-input-v3.json',
 );
 
+test('the bundled sport fulltext and its licensed photograph load identically in both clients', async () => {
+  const websiteRoot = path.join(workspaceRoot, 'apps/website/public/wrn-production-content');
+  const mobileRoot = path.join(workspaceRoot, 'apps/mobile/public/wrn-production-content');
+  const { ready, publication } = await loadWebsiteProductionContentReleaseFromDisk({
+    root: websiteRoot,
+  });
+  const revision = ready.descriptor.releaseRevision;
+  assert.equal(revision, 'wrn-production-news-2026-09-26-v7');
+  assert.equal(publication.revision, revision);
+  assert.equal(ready.documents.articles.articles.length, 10);
+  const article = ready.documents.articles.articles.find(
+    (entry) =>
+      entry.originalUrl === 'https://africasacountry.com/2026/06/the-indelible-african-superfan',
+  );
+  assert.ok(article);
+  assert.equal(article.contentCompleteness, 'full');
+  const detail = ready.documents.readerDetails.entries.find(
+    (entry) => entry.articleId === article.id,
+  );
+  assert.ok(detail);
+  assert.equal(detail.blocks.filter((block) => block.kind === 'paragraph').length, 20);
+  const image = detail.blocks.find((block) => block.kind === 'image');
+  assert.ok(image);
+  assert.equal(image.sourcePageUrl, article.originalUrl);
+  assert.equal(image.licenseId, 'Pexels-License');
+  assert.equal(
+    image.evidenceUrl,
+    'https://www.pexels.com/photo/nigerian-fan-with-face-paint-celebrating-29804183/',
+  );
+  assert.match(image.attribution, /Jonathan Shembere/);
+  for (const relative of [
+    'current.json',
+    ...[
+      'admission.json',
+      'archive-lifecycle.json',
+      'articles.json',
+      'discover-index.json',
+      'manifest.json',
+      'reader-details.json',
+      'release-descriptor.json',
+    ].map((file) => `${revision}/${file}`),
+  ]) {
+    assert.deepEqual(
+      await readFile(path.join(mobileRoot, relative)),
+      await readFile(path.join(websiteRoot, relative)),
+      `client bytes differ: ${relative}`,
+    );
+  }
+});
+
 test('unknown descriptors fail before any manifest or article payload is read', async () => {
   await withRoot(async (root) => {
     const source = JSON.parse(await readFile(v3Candidate, 'utf8'));

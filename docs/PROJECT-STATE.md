@@ -1,5 +1,18 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 26.09. – Lokaler V7-Sportkandidat im RC-Checkout: Zehn statt neun
+vollständige Artikel sind in App und Website gebündelt. Der zweite AIAC-
+Sportbeitrag hat 20 Originalabsätze und ein lokal ausgeliefertes, einzeln
+belegtes Pexels-Originalfoto. Der Home-Sportabschnitt zeigt nun zwei
+Volltextkarten und eine klar abgegrenzte Linknotiz; eine der Volltextkarten
+hat das neue Bild. `pnpm build` und der vollständige `pnpm check` sind grün
+(Mobile 952/952, Website 155/155 + 71/71 Paketfälle, Übersetzung 52/52).
+Gezielte Home-Browserfälle nach Testkorrektur 6/6 und Website-Offline-Neustart
+1/1. V7-Dateien und zwei Sichtproben sind in einem 19-Dateien-SHA-Manifest
+gebunden. Ein unabhängiger Rechte-/Inhaltsreview, die 1+2-Bildanforderung,
+die komplette Browser-/Android-/Hostingmatrix und Live-Versorgung bleiben
+offen; kein Push oder Deployment. [V7-Beleg](evidence/WRN-SPORT-SUPERFAN-2026-09-26/REPORT.md).
+
 Neu 26.09. – Alle sieben Browserprojekte des lokalen RC wurden ausgeführt.
 Die erste 4-Worker-Matrix zeigte 24 Fehler bei 1.214 bestandenen Fällen;
 ein reproduzierbarer Fixture-/Events-Testwiderspruch wurde korrigiert.
