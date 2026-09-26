@@ -70,6 +70,16 @@ stimmt mit den verfügbaren alten Upload-AABs überein. Ob Play diesen Schlüsse
 aktuell registriert hat, bleibt unbestätigt; kein Upload oder Release-GREEN.
 [Signaturbeleg](WRN-V11-SIGNED-AAB-2026-09-26/REPORT.md).
 
+Hostingnachtrag 26.09. für OPS-02, WEB-01, QA-01 und RELEASE-01: Der aktuelle
+Produktstand `a4cbbff` ergab eine frische Website mit zwölf Artikellandings,
+44/44 rückverifizierte Webdateien und ein kombiniertes Paket mit 47/47 Dateien;
+die beiden Pointer stehen zuletzt. Der vorige Widerruf ist weiterhin nur lokal
+belegt und der Verzeichnisstand stammt vom 25.09. Deshalb bleibt der Status
+**in Arbeit/offen**: kein Live-Transfer, keine laufende Volltextversorgung,
+keine finale Host-/Rollbackprobe. Alle drei festen öffentlichen Pointer lieferten
+am26.09. beim GET HTTP404/HTML. Die Offline-Shell hat nur 4.308 Byte Spielraum
+unter dem derzeitigen Limit. [Aktueller Dry-run](WRN-V11-HOSTING-LOCAL-2026-09-26/REPORT.md).
+
 Die ausdrücklich entfernte **„Globale Lage“ bleibt entfernt** (PO092).
 Ausdrücklich später vorgemerkte Wünsche bleiben sichtbar erhalten, ohne sie
 unbemerkt in ein bestehendes MVP hineinzudeuten: World Revolution Map, Zine und

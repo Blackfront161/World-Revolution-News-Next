@@ -1,5 +1,13 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 26.09. – Für `a4cbbff` ist die Website frisch gebaut: zwölf Artikel-
+Landings, Offline-Shell 8.384.300/8.388.608 Byte, Websitepaket 44/44 und
+kombiniertes Hostingpaket 47/47 Dateien rückverifiziert. Der letzte lokal
+gebundene Verzeichnisstand bleibt `202609251928`; der vorherige Widerruf stammt
+nur aus lokalem Snapshot. Drei öffentliche Pointer-GETs lieferten am26.09.
+gegen11:08 UTC HTTP404/HTML. Kein Hosttransfer oder laufende Veröffentlichung.
+[Hostingbeleg](evidence/WRN-V11-HOSTING-LOCAL-2026-09-26/REPORT.md).
+
 Neu 26.09. – Für den aktuellen Produktstand `a4cbbff` liegt jetzt auch ein
 lokal mit der PO-JKS signiertes AAB `com.world.revolution` 2.2.0/Code27 vor.
 Dateisignatur Exit0, Fingerabdruck wie die verfügbaren alten Upload-AABs,
