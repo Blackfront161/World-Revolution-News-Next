@@ -16,6 +16,15 @@ der festen Grenze. [V8-Beleg](evidence/WRN-SPORT-1PLUS2-2026-09-26/REPORT.md),
 [App-Vorschau](http://127.0.0.1:43354/?theme=violet#home),
 [Website-Vorschau](http://127.0.0.1:43355/?theme=violet&lang=de#home).
 
+Neu 26.09. – Das exakte **unsignierte** V8-Android-Bundle aus `d03f966` ist
+strikt offline gebaut. `lintVitalRelease` und die byteweise Prüfung aller
+108/108 receiptgebundenen Assets sind PASS; SHA-256
+`30088120b24a1053cf1a68ba5300b0d4105147622a8272890b23e981573032cd`.
+Das vorhandene SDK war nur durch die Dateisandbox zunächst unsichtbar; der
+Build nutzte eine prozessgebundene Git-Vertrauensausnahme. Exakte
+Testsignierung/Upgrade, finale Matrix, Host-Provenienz und Play bleiben offen.
+[V8-Bundlebeleg](evidence/WRN-V8-ANDROID-AAB-2026-09-26/REPORT.md).
+
 Neu 26.09. – Unsigniertes V7-Android-Bundle aus Produktcommit `a2d9c5a`:
 Version2.2.0/Code27/Target36, 101/101 receiptgebundene Assets und
 `lintVitalRelease` PASS, SHA-256
