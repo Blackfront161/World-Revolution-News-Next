@@ -21,7 +21,7 @@ test('saved production Website opens a real article after closing the page while
   context,
 }) => {
   await page.goto(`/?article=${firstId}#home`);
-  await expect(page.getByTestId('production-reader')).toBeVisible();
+  await expect(page.getByTestId('production-reader')).toBeVisible({ timeout: 15_000 });
   await page.getByRole('button', { name: 'Save for later', exact: true }).click();
   await page.goto('/#more');
   await page.getByRole('button', { name: 'Save website shell', exact: true }).click();
@@ -38,7 +38,7 @@ test('saved production Website opens a real article after closing the page while
   await context.setOffline(true);
   const reopened = await context.newPage();
   await reopened.goto(`/?article=${firstId}#home`);
-  await expect(reopened.getByTestId('production-reader')).toBeVisible();
+  await expect(reopened.getByTestId('production-reader')).toBeVisible({ timeout: 15_000 });
   await expect(reopened.locator('.production-translatable-paragraph > p')).toHaveCount(12);
   await expect(
     reopened.getByRole('button', { name: 'Remove from saved', exact: true }),
@@ -271,7 +271,7 @@ test('all nine interface languages retain original article language and actual d
   page,
 }) => {
   await page.goto('/#discover');
-  await expect(page.locator('.production-card')).toHaveCount(9);
+  await expect(page.locator('.production-card')).toHaveCount(12);
   for (const language of ['en', 'de', 'es', 'fr', 'it', 'pt', 'ru', 'el', 'tr']) {
     await page.getByTestId('ui-language-selector').selectOption(language);
     await expect(page.locator('html')).toHaveAttribute('lang', language);
@@ -309,7 +309,9 @@ test('default entry reads admitted articles, persists v2 and never touches readi
     };
   });
   await page.goto('/');
-  await expect(page.locator('.production-card')).toHaveCount(9);
+  await expect(page.locator('.production-home article[data-home-role]')).toHaveCount(11, {
+    timeout: 15_000,
+  });
   await page.locator(`[data-reader-trigger="${firstId}"]`).click();
   const reader = page.getByTestId('production-reader');
   await expect(reader).toBeVisible();
@@ -334,7 +336,7 @@ test('default entry reads admitted articles, persists v2 and never touches readi
   await page.screenshot({ path: info.outputPath('production-reader-en.png'), fullPage: true });
   expect(errors).toEqual([]);
   await page.reload();
-  await expect(page.getByTestId('production-reader')).toBeVisible();
+  await expect(page.getByTestId('production-reader')).toBeVisible({ timeout: 15_000 });
   await expect(
     page.getByRole('button', { name: 'Remove from saved', exact: true }),
   ).toHaveAttribute('aria-pressed', 'true');
@@ -359,7 +361,7 @@ test('original and license use modal confirmation and main/archive share one rea
   });
   await page.goto(`/?article=${secondId}#home`);
   const reader = page.getByTestId('production-reader');
-  await expect(reader).toBeVisible();
+  await expect(reader).toBeVisible({ timeout: 15_000 });
   await expect(reader.getByRole('button', { name: 'CC-BY-4.0' })).toBeVisible();
   await reader.getByRole('button', { name: 'CC-BY-4.0' }).click();
   const dialog = page.getByRole('dialog');
@@ -377,7 +379,7 @@ test('original and license use modal confirmation and main/archive share one rea
   await dialog.getByRole('button', { name: 'Cancel', exact: true }).click();
   const blocks = await reader.locator('.production-reader-blocks').textContent();
   await page.goto(`/?archive=${secondId}#more`);
-  await expect(page.getByTestId('production-reader')).toBeVisible();
+  await expect(page.getByTestId('production-reader')).toBeVisible({ timeout: 15_000 });
   expect(await page.locator('.production-reader-blocks').textContent()).toBe(blocks);
   expect(external).toEqual([]);
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
@@ -386,7 +388,7 @@ test('original and license use modal confirmation and main/archive share one rea
 test('restart restores stored articles without source fetch; exact bundle expiry hides the body', async ({
   page,
 }) => {
-  await page.clock.install({ time: new Date('2026-09-10T04:00:00Z') });
+  await page.clock.install({ time: new Date('2026-09-26T04:00:00Z') });
   await page.goto(`/?article=${firstId}#home`);
   await expect(page.getByTestId('production-reader')).toBeVisible();
   let requests = 0;

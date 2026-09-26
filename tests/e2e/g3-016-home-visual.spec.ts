@@ -77,7 +77,7 @@ async function assertHome(page: Page) {
   await expect(page.getByTestId('manifest-revision')).toContainText(
     'wrn-g3-016-mobile-home-manifest-v1',
   );
-  await expect(page.locator('article[data-home-role]')).toHaveCount(9);
+  await expect(page.locator('.home-feed article[data-home-role]')).toHaveCount(9);
   await expect(page.locator('[data-home-role="lead"]')).toHaveCount(1);
   await expect(page.locator('[data-home-role="main"]')).toHaveCount(5);
   await expect(page.locator('[data-home-role="sport-feature"]')).toHaveCount(1);

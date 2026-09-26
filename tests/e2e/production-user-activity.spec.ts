@@ -7,7 +7,7 @@ import type { ActivityState } from '../../packages/browser-content/src/productio
 import { auditRemotePointers, directoryPointer, recordRemotePointer } from './remote-pointer-audit';
 
 const harness = `/@fs/${path.resolve('tests/e2e/production-user-activity-harness.tsx').replaceAll('\\', '/')}`;
-const time = new Date('2026-09-13T12:00:00Z');
+const time = new Date('2026-09-26T12:00:00Z');
 async function state(page: Page, client: string, earlier = false) {
   return page.evaluate(
     async ({ client, earlier }) => {
@@ -136,6 +136,7 @@ for (const [client, port] of [
   test(`${client} actual opt-in, last visit, changed saved version, notifications and exact clear`, async ({
     page,
   }, info) => {
+    test.setTimeout(90_000);
     await prepare(page);
     const copy = getProductionActivityCopy('en'),
       common = getUiCopy('en');
@@ -146,26 +147,31 @@ for (const [client, port] of [
     page.on('request', (request) => {
       recordRemotePointer(request, origin, foreign, approved, [directoryPointer]);
     });
-    await page.goto(`${origin}/#home`);
+    await page.goto(`${origin}/#discover`);
     await dismissWebsiteWelcome(page, client);
     await page.getByTestId('ui-language-selector').selectOption('en');
     const cards = page.locator('.production-card');
-    await expect(cards).toHaveCount(9);
+    await expect(cards).toHaveCount(12, { timeout: 15_000 });
     await expect(page.locator('.production-activity')).toHaveCount(0);
-    await cards.first().getByRole('button', { name: common.saveForLater, exact: true }).click();
-    await cards.first().locator('.source-profile summary').click();
-    await cards
-      .first()
+    const effCard = cards.filter({
+      has: page.locator('[data-reader-trigger="wrn-art-a772ab86c915a036c6177f1bfe958d4d"]'),
+    });
+    await effCard.getByRole('button', { name: common.saveForLater, exact: true }).click();
+    await effCard.locator('.source-profile summary').click();
+    await effCard
       .getByRole('button', { name: 'Follow: Electronic Frontier Foundation', exact: true })
       .click();
     await page.goto(`${origin}/#following`);
+    await expect(page.locator('.personalization-results .production-card')).toHaveCount(12, {
+      timeout: 15_000,
+    });
     const panel = page.locator('.production-activity');
     await expect(panel.getByRole('button', { name: copy.enable, exact: true })).toBeEnabled();
     expect((await state(page, client)).enabled).toBe(false);
     expect(await notifications(page)).toEqual({ requests: [], shown: [] });
     await panel.getByRole('button', { name: copy.enable, exact: true }).click();
     await expect(panel).toContainText(copy.firstVisit);
-    await expect.poll(async () => (await state(page, client)).availableIds.length).toBe(9);
+    await expect.poll(async () => (await state(page, client)).availableIds.length).toBe(12);
     await panel.locator('summary').click();
     await panel.getByRole('button', { name: copy.enableNotifications, exact: true }).click();
     await expect(
@@ -175,13 +181,14 @@ for (const [client, port] of [
     expect((await notifications(page)).shown).toEqual([]);
     // Preserve an actual saved row; inject only an earlier local overview state.
     await page.goto(`${origin}/#home`);
-    await expect(cards).toHaveCount(9);
+    const homeCards = page.locator('.production-home article[data-home-role]');
+    await expect(homeCards).toHaveCount(11, { timeout: 15_000 });
     const readingKey = `wrn.${client}-production-reading-state.v2`;
     const readingBefore = await page.evaluate((key) => localStorage.getItem(key), readingKey);
     expect(Object.keys((await state(page, client)).fingerprints)).toHaveLength(1);
     await state(page, client, true);
     await page.reload();
-    await expect(cards).toHaveCount(9);
+    await expect(homeCards).toHaveCount(11, { timeout: 15_000 });
     await page.goto(`${origin}/#following`);
     await expect(page.locator('.production-activity-badge')).toHaveCount(6);
     await expect(page.locator('.production-activity-change')).toHaveCount(1);

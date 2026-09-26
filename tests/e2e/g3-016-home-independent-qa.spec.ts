@@ -78,7 +78,7 @@ async function expectRoles(page: Page) {
   await expect(page.getByTestId('manifest-revision')).toContainText(
     'wrn-g3-016-mobile-home-manifest-v1',
   );
-  const articles = page.locator('article[data-home-role]');
+  const articles = page.locator('.home-feed article[data-home-role]');
   await expect(articles).toHaveCount(9);
   expect(
     await articles.evaluateAll((nodes) =>
