@@ -1,5 +1,15 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 27.09. – Hostinger-hPanel war angemeldet; `public_html` als Live-Wurzel
+gesehen und vor dem Wechsel ein manuelles Website-Backup erfolgreich erstellt.
+Das 47-Dateien-Paket ist lokal in drei Archivschritte getrennt und nach
+Dekompression 47/47 hashgeprüft. Nur das erste Archiv wurde in die Webwurzel
+hochgeladen und durch erneuten Download hashgleich bestätigt. Vor dem
+Entpacken brach die Browsersteuerung ab. Alte Startseite blieb aktiv, drei
+neue Inhaltszeiger weiterhin 404, kein Play-Upload. Das öffentliche
+Staging-ZIP muss nach erfolgreicher Fortsetzung entfernt werden.
+[Hostinger-Staging](evidence/WRN-V11-HOSTINGER-STAGING-2026-09-26/REPORT.md).
+
 Neu 27.09. – Der PO meldet einen nicht mehr aktualisierten Live-Feed und
 priorisiert den neuen Release. Lesend geprüft: Das Altbackend veröffentlichte
 zuletzt am 26.09. 19:48 UTC erfolgreich 500 Feedeinträge; geplante Läufe
