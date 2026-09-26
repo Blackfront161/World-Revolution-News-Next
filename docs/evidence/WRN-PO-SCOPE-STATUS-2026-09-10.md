@@ -74,9 +74,14 @@ Testnachtrag 26.09.: **WRN Test** (`com.world.revolution.rc`) liegt als
 separates AAB und APK bereit; Emulator-Parallelbetrieb ersetzt die Haupt-App
 nicht. Der kontrollierte lokale 2.1.1→2.2.0-Upgrade-Test erhielt die zuvor
 ausdrücklich gewählte Sprache FR und die ursprüngliche `firstInstallTime`.
+Ein zweiter frischer AVD-Test des aktuellen AAB erhielt einen in 2.1.1
+gemerkten Offline-Volltext und das Pink-Theme; mehrere spätere Absätze blieben
+nach Neustart im Flugmodus lesbar.
 AND-01, QA-01 und RELEASE-01 bleiben **in Arbeit/offen** wie oben beschrieben:
-vollständige Datenmigration, Play-signierter Upgradepfad und PO-Sichttest sind
-damit nicht abgeschlossen. [Testbeleg](WRN-SIDE-BY-SIDE-TEST-2026-09-26/REPORT.md).
+vollständige Datenmigration, Play-signierter Upgradepfad, finale Matrix und
+PO-Sichttest sind damit nicht abgeschlossen.
+[Paralleltest](WRN-SIDE-BY-SIDE-TEST-2026-09-26/REPORT.md),
+[Datenupgrade](WRN-V11-ANDROID-DATA-UPGRADE-2026-09-26/REPORT.md).
 
 Aktuell erreichbar: [App43358](http://127.0.0.1:43358/?theme=violet#home) und
 [Website43359](http://127.0.0.1:43359/?theme=violet&lang=de#home), lokaler V8-Inhaltsstand mit zwölf Artikeln. Themes unter Mehr,

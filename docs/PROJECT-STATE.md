@@ -6,9 +6,14 @@ Emulator neben der Haupt-App gestartet, ohne diese zu ersetzen. Auf einer
 zusätzlich neu angelegten isolierten AVD blieb das in der alten 2.1.1-App
 ausdrücklich gewählte Französisch nach Prozessneustart und direktem lokalen
 Update auf 2.2.0/Code27 erhalten; `firstInstallTime` blieb unverändert.
-Der frühere unklare DE-Befund gilt nicht als reproduzierter Fehler. Vollständige
-Datenmigration, echter Play-signierter Upgradepfad und PO-Sichttest bleiben
-offen. Kein Play-Upload oder Live-Ersatz. [Beleg](evidence/WRN-SIDE-BY-SIDE-TEST-2026-09-26/REPORT.md).
+Eine zweite frische AVD bestätigte beim aktuellen AAB zusätzlich die Übernahme
+eines echten 2.1.1-Merklistenartikels mit Offline-Volltext und Pink-Theme; der
+Text blieb nach Neustart im Flugmodus über mehrere Absätze lesbar. Der frühere
+unklare DE-Befund gilt nicht als reproduzierter Fehler. Vollständige
+Datenmigration, echter Play-signierter Upgradepfad, finale Matrix und
+PO-Sichttest bleiben offen. Kein Play-Upload oder Live-Ersatz.
+[Paralleltest](evidence/WRN-SIDE-BY-SIDE-TEST-2026-09-26/REPORT.md),
+[Datenupgrade](evidence/WRN-V11-ANDROID-DATA-UPGRADE-2026-09-26/REPORT.md).
 
 Neu 26.09. – Die lokale Sport-Personalisierung erkennt jetzt das im
 aufgenommenen Discover-Index belegte Thema `sports` als Nutzerwahl `sport`;

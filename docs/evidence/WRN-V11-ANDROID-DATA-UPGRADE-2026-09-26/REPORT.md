@@ -1,0 +1,15 @@
+# Android-Datenupgrade des aktuellen Testkandidaten · 26.09.2026
+
+Nur lokaler Test auf der neu angelegten API-36-AVD `WRN_RC_UPGRADE_DATA` (`emulator-5586`). Kein Play-Upload, keine Änderung an der Live-App und keine Veröffentlichung.
+
+Die alte Version 2.1.1/Code 26 wurde mit einem lokalen Testzertifikat installiert. In ihrem echten Reader wurde **„Mother seeks answers for 29 years“** von ANF English (Kurdistan) vollständig geladen und gemerkt. Die alte Merkliste zeigte **„Fully available offline“**. Im Menü wurde **Pink** ausdrücklich gewählt. Nach einem Prozessneustart waren Merkliste, Offline-Kennzeichnung und Pink weiterhin sichtbar ([Vorzustand](before-saved-pink-offline.png)). `firstInstallTime` war `2026-09-26 10:43:22`.
+
+Danach wurde ausschließlich auf dieser AVD die aus dem aktuellen Produktstand `a4cbbff92b08219e28f4f84894fea3bcb1fa91b6` abgeleitete, lokal testsignierte 2.2.0/Code-27-APK mit derselben Paketkennung `com.world.revolution` per `adb install -r` installiert. Installation erfolgreich; `firstInstallTime` blieb `2026-09-26 10:43:22`, `lastUpdateTime` wurde `2026-09-26 10:47:44`. Die neue Oberfläche behielt **Pink** und zeigte den alten Artikel unter **„Saved articles from version 2.1.1“** ([Nachzustand](after-saved-pink.png)). Nach Öffnen des Archiveintrags waren Titel, Quelle, Original-URL und gespeicherter Text sichtbar ([Archiv](after-legacy-article-open.png)).
+
+Mit `cmd connectivity airplane-mode enable`, deaktiviertem WLAN und Mobilfunk sowie `airplane_mode_on=1` wurde die App beendet und neu gestartet. Der Archivtext blieb im Flugmodus lesbar, auch mehrere spätere Absätze nach dem Anfang ([Offline-Nachzustand](after-airplane-restart-later-paragraphs.png)). Die letzten 5.000 Logcat-Zeilen enthielten 0 Treffer für `FATAL EXCEPTION` oder `ANR in com.world.revolution`. Die AVD wurde nach dem Test beendet.
+
+Getestete lokale Dateien (SHA-256): alte Test-APK `4bd45487a4980c3953d646975807fd321f57177f98298c215ac8cc67a7a8961c`, neue Test-APK `6cd635eed171fdc3442f62995637bf485fa3c092f84a9fe5427dcee01fd3cb35`, zugehöriges neues AAB `70830a948bd7b8cf3a0666c06f788ec5c881dcdc1b075c0db9c56883953931df`. Beide APKs nutzen für den isolierten Upgradepfad ein passendes lokales Testzertifikat. Die geprüfte separate **WRN Test** für den PO hat dagegen bewusst eine andere Paketkennung und ersetzt keine bestehende App.
+
+**Ergebnis: PASS** für genau diesen lokalen 2.1.1→2.2.0-Pfad mit einem gemerkten Offline-Volltext und Pink-Theme. Es ist kein Byte-für-Byte-Vergleich des gesamten alten Artikelarchivs, keine Prüfung aller lokalen Datentypen und kein Play-signierter Upgradepfad auf einem echten Gerät. Diese Releasepunkte bleiben offen.
+
+Ein zusätzlicher gezielter Browsernachlauf der Verzeichnisroute bestand 22/22 ausgeführte Fälle über die sieben konfigurierten Projekte, bei 132 planmäßigen Skips (1,5 Minuten). Die zuvor im begonnenen Gesamtlauf sichtbare dynamische Vite-Importmeldung wurde dabei nicht reproduziert. Der vollständige Browserlauf wurde wegen seines Umfangs vor Abschluss bewusst beendet; er ist **kein** Matrix-PASS. Die vollständige Browser-/Android-/Website-Matrix folgt am eingefrorenen RC.
