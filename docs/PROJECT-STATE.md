@@ -1,5 +1,14 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 26.09. – Unsigniertes V7-Android-Bundle aus Produktcommit `a2d9c5a`:
+Version2.2.0/Code27/Target36, 101/101 receiptgebundene Assets und
+`lintVitalRelease` PASS, SHA-256
+`08137e18b3f5438c9ca7d0a1aae676acb30347f9156c4975044f1716a9a1cb80`.
+Der Build lief strikt offline ohne Providerbindung. Dieses exakte AAB wurde
+noch nicht test-signiert oder auf einem Gerät als datenerhaltendes Upgrade
+geprüft. Produktionssignatur, Play-Pre-Launch und Host-Aktivierung bleiben
+offen. [Bundlebeleg](evidence/WRN-V7-ANDROID-AAB-2026-09-26/REPORT.md).
+
 Neu 26.09. – Lokaler V7-Sportkandidat im RC-Checkout: Zehn statt neun
 vollständige Artikel sind in App und Website gebündelt. Der zweite AIAC-
 Sportbeitrag hat 20 Originalabsätze und ein lokal ausgeliefertes, einzeln
