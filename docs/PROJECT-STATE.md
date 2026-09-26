@@ -5,9 +5,11 @@ aufgenommenen Discover-Index belegte Thema `sports` als Nutzerwahl `sport`;
 kanonische Themen-/Regions-IDs bleiben in der Domain-Projektion erhalten.
 Unbekannte Werte matchen nicht. Browser-Personalisierung11/11, gezielter
 Nachlauf der übrigen Reader-/Home-/Medien-/Quellenfälle62/62, `pnpm check`
-und beide Builds PASS; unabhängiger Review ohne Findings. Der bisherige
+und beide Builds PASS; unabhängiger Review ohne Findings. Ein neues strikt
+offline gebautes AAB aus `a4cbbff` enthält108/108 geprüfte Assets; eine
+getrennte Kopie ist für Interne App-Freigabe test-signiert. Der bisherige
 JKS-signierte AAB aus `4cfaafd` enthält diesen Fix noch nicht. Vollständige
-neue RC-Matrix, exakter Android-Build/Upgrade, Host-/Providerbindung und Play
+neue RC-Matrix, exakter Android-Upgrade, Host-/Providerbindung und Play
 bleiben offen. [Beleg](evidence/WRN-V10-PERSONALIZATION-2026-09-26/REPORT.md).
 
 Neu 26.09. – Der V8-Testkandidat ist wegen fehlender Übernahme alter

@@ -5,3 +5,5 @@
 8d6fe086e8a197c8dd5a810d78b0d9cb1f160705fb7801b9e45a8f640292fceb  tests/e2e/website-personalization.spec.ts
 3fed3d63bbaaec67225efc7c4bc79a3a92b1696175e7c7258ec465076d6da279  docs/evidence/WRN-V10-PERSONALIZATION-2026-09-26/website-following-results.png
 6e485c0c6776dded3b0d897fb75a66f24ae3c85ac6b2ad8bee06a42e38cce598  docs/evidence/WRN-V10-PERSONALIZATION-2026-09-26/mobile-following-results.png
+e187e9f32d54ec198b25fb298ad29c9ec3ce2d607d12e1756723e7fc1a7faffc  work/wrn-android-release-jIHM2Q/wrn-a4cbbff-unsigned.aab
+70830a948bd7b8cf3a0666c06f788ec5c881dcdc1b075c0db9c56883953931df  work/wrn-android-release-jIHM2Q/WorldRevolutionNews-2.2.0-code27-internal-sharing-a4cbbff.aab
