@@ -1,5 +1,17 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 26.09. – Der V8-Testkandidat ist wegen fehlender Übernahme alter
+Merkliste/Offline-Texte und Theme-Wahl **ersetzt**. Das neue Android-AAB aus
+`4cfaafd` ist offline gebaut, 108/108 Assets und `pnpm check` PASS. Auf einem
+frisch geleerten Test-AVD blieb das in 2.1.1 ausdrücklich gewählte Theme
+„Pink“ beim direkten `install -r` auf 2.2.0/Code27 erhalten. Ein getrennt
+testsigniertes AAB für **Interne App-Freigabe** liegt lokal bereit. Das vom PO
+bereitgestellte JKS signierte zusätzlich eine getrennte AAB; Zertifikat wie
+2.1.1, Signatur und 108/108 Assets PASS, Play-Akzeptanz noch unbestätigt.
+Der vollständige frühere Browserlauf endete
+mit 83 FAIL bei 2001 PASS/1598 SKIP; daher kein Release-GREEN und kein
+Play-Upload. [V10-Android-Beleg](evidence/WRN-V10-ANDROID-UPGRADE-2026-09-26/REPORT.md).
+
 Neu 26.09. – Auf ausdrücklichen PO-Wunsch liegt das V8-AAB als lokal
 testsignierte Datei **nur für die interne App-Freigabe** bereit: Version
 2.2.0/Code 27, SHA-256
