@@ -1,5 +1,12 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 26.09. – Für den aktuellen Produktstand `a4cbbff` liegt jetzt auch ein
+lokal mit der PO-JKS signiertes AAB `com.world.revolution` 2.2.0/Code27 vor.
+Dateisignatur Exit0, Fingerabdruck wie die verfügbaren alten Upload-AABs,
+108/108 receiptgebundene Assets erneut PASS. Play-Registrierung und Upload
+sind nicht geprüft; die getrennte **WRN Test** bleibt die erste Testoption.
+[Signaturbeleg](evidence/WRN-V11-SIGNED-AAB-2026-09-26/REPORT.md).
+
 Neu 26.09. – Test vor Veröffentlichung: Die getrennte App **WRN Test** mit
 `com.world.revolution.rc` liegt als AAB und APK bereit und wurde auf einem
 Emulator neben der Haupt-App gestartet, ohne diese zu ersetzen. Auf einer
@@ -23,7 +30,8 @@ Nachlauf der übrigen Reader-/Home-/Medien-/Quellenfälle62/62, `pnpm check`
 und beide Builds PASS; unabhängiger Review ohne Findings. Ein neues strikt
 offline gebautes AAB aus `a4cbbff` enthält108/108 geprüfte Assets; eine
 getrennte Kopie ist für Interne App-Freigabe test-signiert. Der bisherige
-JKS-signierte AAB aus `4cfaafd` enthält diesen Fix noch nicht. Vollständige
+JKS-signierte AAB aus `4cfaafd` enthält diesen Fix noch nicht; der neuere
+signierte Kandidat ist oben dokumentiert. Vollständige
 neue RC-Matrix, exakter Android-Upgrade, Host-/Providerbindung und Play
 bleiben offen. [Beleg](evidence/WRN-V10-PERSONALIZATION-2026-09-26/REPORT.md).
 

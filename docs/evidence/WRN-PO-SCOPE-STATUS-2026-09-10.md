@@ -63,6 +63,13 @@ App-Freigabe ist vorhanden. Der ältere JKS-signierte AAB enthält den Fix noch
 nicht. Die 83 Fehler stammen aus dem vorherigen Browserlauf; die volle neue
 Matrix ist weiter offen. [Aktueller Beleg](WRN-V10-PERSONALIZATION-2026-09-26/REPORT.md).
 
+Signaturnachtrag 26.09.: Ein **neueres** mit der PO-JKS lokal signiertes AAB
+enthält `a4cbbff` einschließlich Sport-Fix: `com.world.revolution`, 2.2.0/
+Code27, 108/108 Assetprüfung und `jarsigner -verify` Exit0. Der Fingerabdruck
+stimmt mit den verfügbaren alten Upload-AABs überein. Ob Play diesen Schlüssel
+aktuell registriert hat, bleibt unbestätigt; kein Upload oder Release-GREEN.
+[Signaturbeleg](WRN-V11-SIGNED-AAB-2026-09-26/REPORT.md).
+
 Die ausdrücklich entfernte **„Globale Lage“ bleibt entfernt** (PO092).
 Ausdrücklich später vorgemerkte Wünsche bleiben sichtbar erhalten, ohne sie
 unbemerkt in ein bestehendes MVP hineinzudeuten: World Revolution Map, Zine und
