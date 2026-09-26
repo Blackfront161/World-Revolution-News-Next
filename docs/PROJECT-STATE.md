@@ -1,5 +1,17 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 26.09. – Auf ausdrücklichen PO-Wunsch liegt das V8-AAB als lokal
+testsignierte Datei **nur für die interne App-Freigabe** bereit: Version
+2.2.0/Code 27, SHA-256
+`5b72585e54e7d70a5356a4c06d2d676c2c175aff0a791268925c11fc457978ea`.
+Die 557 ursprünglichen Bundle-Einträge blieben bytegleich, Signaturprüfung
+PASS und temporärer privater Testschlüssel entfernt. Die V8-E2E-Korrektur
+`24689e0` bestand 91/91 Inhalts-/Personalisierungsfälle, 5/5 Home-Fälle und
+10/10 wiederholte IndexedDB-Schutzfälle. Frische [App-Vorschau](http://127.0.0.1:43356/?theme=violet#home)
+und [Website-Vorschau](http://127.0.0.1:43357/?theme=violet#home) zeigen beide
+zwölf Artikel. Die vollständige Browser-Matrix läuft; ein echtes
+Play-Upgrade ist damit noch nicht nachgewiesen. [AAB-Beleg](evidence/WRN-V8-INTERNAL-SHARING-2026-09-26/REPORT.md).
+
 Neu 26.09. – Lokaler V8-Sportkandidat: zwölf vollständige Artikel und sieben
 einzeln belegte Bilder in App und Website. Drei bebilderte Sportvolltexte bilden
 auf Home jetzt 1 großen + 2 kleine Einträge; der bisherige bildlose Beitrag
