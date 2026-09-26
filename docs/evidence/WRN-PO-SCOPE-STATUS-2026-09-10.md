@@ -55,6 +55,14 @@ deren frühere Taskstände ersetzen keine Prüfung des tatsächlichen RC.
 | QA-01 / 6 | Ein unveränderlicher RC mit vollständiger Workspace-/Browser-/Android-/Website-Matrix, Privacy/Rechten, Performance und Accessibility | in Arbeit | Für V8 sind `pnpm check` (Mobile 952/952, Website 155/155 + 71/71 Paketfälle, Content 81/81), beide Builds, Home-/Offlinefälle 14/14, zusätzliche Inhalts-/Personalisierungsfälle 91/91, Home-Matrix 5/5, IndexedDB-Schutz-Wiederholung 10/10, Hosting-Pakettests 13/13 und unabhängige Rechteprüfung PASS; Original-AAB 108/108 Assets verifiziert. Frühere sieben-Projekte-Browser- und Geräteproben betreffen ältere Produktstände. Die vollständige finale V8-Browsermatrix läuft; datenerhaltender Upgrade-Test, Live-Host-/Providerproben und PO-Sichtabnahme fehlen. Kein Gesamt-GREEN. [V8-Inhalt](WRN-SPORT-1PLUS2-2026-09-26/REPORT.md), [AAB-Testfreigabe](WRN-V8-INTERNAL-SHARING-2026-09-26/REPORT.md). |
 | RELEASE-01 / 6 | Erreichbare Sichtprobe/PO-Abnahme, signiertes Release, echtes Play-Upgrade, Hosting/Headers/Rollback | offen | V8-AAB ist durch den korrigierten Kandidaten `4cfaafd` ersetzt. Ein lokal testsigniertes AAB für **Interne App-Freigabe** und eine getrennte mit der PO-JKS signierte AAB sind bereit, nicht hochgeladen; Zertifikat wie 2.1.1, Play-Akzeptanz unbestätigt. Der direkte 2.1.1→2.2.0-Test auf einem frisch geleerten AVD belegt Theme-Persistenz und unveränderte `firstInstallTime`, noch nicht die ganze Daten-/Gerätematrix. Der frühere vollständige Browserlauf hat 83 FAIL bei 2001 PASS/1598 SKIP. Das V8-Website-/Hostingpaket ist mit 44/44 und 47/47 Dateien rückverifiziert, verwendet jedoch nur den lokalen vorigen Widerrufssnapshot; aktiver Live-Zeiger und zuletzt ausgelieferter Host-Widerrufsstand sind nicht belegt. Finale RC-Matrix, PO-Sichtabnahme, Play-Pre-Launch und Veröffentlichung bleiben offen. Kein Push, Hosttransfer oder Play-Upload. [V10-AAB-Test](WRN-V10-ANDROID-UPGRADE-2026-09-26/REPORT.md), [V8-Hosting](WRN-V8-HOSTING-LOCAL-2026-09-26/REPORT.md). |
 
+Aktualisierung 26.09. für QA-01 und RELEASE-01: Der Sport-Personalisierungsfix
+`a4cbbff` bestand `pnpm check`, beide Builds, 11/11 Personalisierungs- und
+62/62 gezielte weitere Browserfälle. Das neue offline gebaute AAB enthält
+108/108 receiptgebundene Assets; eine getrennte Testsignatur für Interne
+App-Freigabe ist vorhanden. Der ältere JKS-signierte AAB enthält den Fix noch
+nicht. Die 83 Fehler stammen aus dem vorherigen Browserlauf; die volle neue
+Matrix ist weiter offen. [Aktueller Beleg](WRN-V10-PERSONALIZATION-2026-09-26/REPORT.md).
+
 Die ausdrücklich entfernte **„Globale Lage“ bleibt entfernt** (PO092).
 Ausdrücklich später vorgemerkte Wünsche bleiben sichtbar erhalten, ohne sie
 unbemerkt in ein bestehendes MVP hineinzudeuten: World Revolution Map, Zine und
@@ -62,11 +70,11 @@ Action Radar; Status jeweils **offen**. Artikel-TTS ist als MEDIA-04 umgesetzt.
 Die bestehende spätere Einstufung der übrigen Wünsche bleibt bestehen. Konten, Kommentare und
 Gamification werden ohne neue PO-Entscheidung nicht hinzugefügt.
 
-Aktuell erreichbar: [App43222](http://127.0.0.1:43222/?theme=violet#home) und
-[Website43223](http://127.0.0.1:43223/?theme=violet&lang=de#home), lokale Inhaltsversion5. Themes unter Mehr,
+Aktuell erreichbar: [App43358](http://127.0.0.1:43358/?theme=violet#home) und
+[Website43359](http://127.0.0.1:43359/?theme=violet&lang=de#home), lokaler V8-Inhaltsstand mit zwölf Artikeln. Themes unter Mehr,
 App-Headerlink und freiwilliger Website-Unterstützungshinweis unabhängig PASS.
 Medienintegration unabhängig PASS; beide finalen Builds mit neun UI-Sprachen,
-Consent,Reflow und dauerhaftem Clear geprüft. Sechs Artikel/vier Bilder,
+Consent,Reflow und dauerhaftem Clear geprüft. Zwölf Artikel/sieben Bilder,
 Auswahlerklärung und freiwillige Besuchsübersicht unter „Für mich“ erhalten.
 Ältere Buildartefakte bleiben erhalten; deren Vorschauprozesse sind nach der
 Unterbrechung nicht als laufend bestätigt. Ein unabhängiger Test ersetzt deine
