@@ -55,5 +55,6 @@ registrierten Play-Upload-Zertifikats sind offen. Der signierte Testkandidat dar
 Produktionsrelease ausgegeben werden.
 
 [SHA-256-Manifest](SHA256SUMS.txt) bindet die zwei repräsentativen Bilder, das
-unsignierte Original, das Test-AAB und die JKS-signierte AAB-Datei. Temporäre Emulator-APKs, Schlüssel und Logs bleiben
-ignorierte lokale Arbeitsdateien.
+unsignierte Original, das Test-AAB und die JKS-signierte AAB-Datei. Der
+temporäre Emulator-Privatschlüssel samt Passwortdatei wurde nach Abschluss
+entfernt; Emulator-APKs und Logs bleiben ignorierte lokale Arbeitsdateien.
