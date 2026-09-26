@@ -1,5 +1,41 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 27.09. – Der PO meldet einen nicht mehr aktualisierten Live-Feed und
+priorisiert den neuen Release. Lesend geprüft: Das Altbackend veröffentlichte
+zuletzt am 26.09. 19:48 UTC erfolgreich 500 Feedeinträge; geplante Läufe
+waren unregelmäßig. Ein künftiger Artikel vom 01.10. steht fälschlich an
+erster Stelle, der offene PR38 korrigiert bisher nur das Statusdatum.
+Der neue Versorgungs-Dry-run hält 499 Kandidaten wegen Aufnahmeprüfung
+zurück; die drei neuen Host-Zeiger antworten weiterhin 404. Ein Play-Update
+allein stellt deshalb keinen laufenden Feed her. Hostinger-hPanel verlangt in
+der verbundenen Sitzung Anmeldung; authentisierter Widerrufs-/Rollbackabgleich
+und Testtrack bleiben offen.
+[Störungsbericht](evidence/WRN-LIVE-FEED-INCIDENT-2026-09-26/REPORT.md).
+
+Neu 27.09. – Der PO-Testupload der getrennten `.rc`-AAB in einen **geschlossenen
+Testrelease der bestehenden App** wurde erwartungsgemäß abgewiesen: Play
+verlangt den registrierten Uploadschlüssel, die Testdatei trägt ihren eigenen
+Testschlüssel und eine andere Paketkennung. Keine Veröffentlichung. Für den
+ersten Paralleltest ist die getrennte APK geeignet; ein späterer echter
+Play-Tracktest benötigt die JKS-signierte Haupt-AAB und würde die bestehende
+App auf teilnehmenden Testgeräten aktualisieren.
+[Play-Abgleich](evidence/WRN-V11-PLAY-UPLOAD-CERT-2026-09-26/REPORT.md).
+
+Neu 26.09. – Das vollständige Browserprojekt `mobile-390x844` für den aktuellen
+Produktstand bestand mit **485 PASS, 41 vorgesehenen SKIP, 0 FAIL**. Drei
+vorübergehende dynamische Vite-Modulabrufe im Entwicklungsserver wurden von
+Fehlergrenze/Wiederanlauf abgefangen; Produktions-Chunks und die sechs anderen
+Browserprojekte sind damit nicht vollständig bewiesen.
+[Testbeleg](evidence/WRN-V11-MOBILE-BROWSER-2026-09-26/REPORT.md).
+
+Neu 26.09. – Die angemeldete Play Console zeigt für `com.world.revolution`
+denselben registrierten **Uploadzertifikat**-SHA-256 wie das aktuelle lokal
+signierte 2.2.0/Code27-AAB aus `a4cbbff`. Der Play-App-Signaturschlüssel und
+das Zertifikat der Internen App-Freigabe sind davon getrennt. Ein Upload,
+Play-signierter Geräte-Upgrade und die PO-Sichtprobe fehlen weiterhin; die
+Live-App bleibt unverändert.
+[Schreibgeschützter Abgleich](evidence/WRN-V11-PLAY-UPLOAD-CERT-2026-09-26/REPORT.md).
+
 Neu 26.09. – Für `a4cbbff` ist die Website frisch gebaut: zwölf Artikel-
 Landings, Offline-Shell 8.384.300/8.388.608 Byte, Websitepaket 44/44 und
 kombiniertes Hostingpaket 47/47 Dateien rückverifiziert. Der letzte lokal

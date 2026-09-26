@@ -10,4 +10,11 @@ Der öffentliche [sechsstündliche GitHub-Lauf #25](https://github.com/Blackfron
 
 Ein lesender GET auf die drei fest konfigurierten öffentlichen Zeiger antwortete am 26.09.2026 gegen 11:08 UTC jeweils mit **HTTP 404 und `text/html`**: `/wrn-production-content/current.json`, `/wrn-content-directory/current.json` und `/wrn-source-pass-revocations/current.json`. Der laufende GitHub-Dry-run hat diese Hostlücke folglich nicht geschlossen. Diese Beobachtung ersetzt keinen authentisierten Host-Root- und Widerrufsabgleich.
 
+Ein zusätzlicher öffentlicher HEAD auf `https://solinaridao.com/` am selben Tag
+zeigte `platform: hostinger`, `panel: hpanel` und `Server: hcdn`. Die feste
+Content-URL liegt damit nach außen an der bestehenden Hostinger-Auslieferung;
+eine Cloudflare-Worker-Bereitstellung allein würde die drei 404-Zeiger nicht
+beheben. Die tatsächliche Dateiwurzel und der zuletzt ausgelieferte
+Widerrufsstand bleiben ohne authentisierten Hostzugriff unbewiesen.
+
 **Keine Live-Freigabe:** Der hier verwendete vorige Widerrufsstand stammt aus `packages/browser-content/src/data/source-pass-revocations-v1.json`, nicht aus dem zuletzt tatsächlich ausgelieferten Host. Der Verzeichnis-Snapshot ist vom 25.09.2026. Vor einem Transfer müssen der echte Host-Root und die beiden letzten Pointerantworten samt Widerrufsstand gesichert werden; dann sind HTTPS, Header, Cache, CORS, Client-Refresh und Rollback am authentisierten Host zu prüfen. Es gab keinen Upload, Pointerwechsel, Push oder Live-Deployment.

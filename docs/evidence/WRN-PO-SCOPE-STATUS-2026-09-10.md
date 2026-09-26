@@ -67,8 +67,22 @@ Signaturnachtrag 26.09.: Ein **neueres** mit der PO-JKS lokal signiertes AAB
 enthält `a4cbbff` einschließlich Sport-Fix: `com.world.revolution`, 2.2.0/
 Code27, 108/108 Assetprüfung und `jarsigner -verify` Exit0. Der Fingerabdruck
 stimmt mit den verfügbaren alten Upload-AABs überein. Ob Play diesen Schlüssel
-aktuell registriert hat, bleibt unbestätigt; kein Upload oder Release-GREEN.
+aktuell registriert hat, ist jetzt durch schreibgeschützten Play-Console-Abgleich
+bestätigt. Play-Annahme des AAB und Geräte-Upgrade bleiben ungetestet; kein
+Upload oder Release-GREEN.
 [Signaturbeleg](WRN-V11-SIGNED-AAB-2026-09-26/REPORT.md).
+[Play-Abgleich](WRN-V11-PLAY-UPLOAD-CERT-2026-09-26/REPORT.md).
+
+Testnachtrag 26./27.09. für QA-01 und RELEASE-01: Das vollständige
+`mobile-390x844`-Projekt aus dem aktuellen Produktstand bestand 485/485 aktive
+Fälle, mit 41 vorgesehenen Skips; die sechs übrigen Browserprojekte bleiben
+offen. Die separate `.rc`-Test-AAB wurde auf dem geschlossenen Track der
+bestehenden App erwartungsgemäß wegen abweichenden Uploadschlüssels
+abgewiesen. Sie ersetzt die Live-App nicht. Der direkte Paralleltest nutzt die
+separate APK; ein späterer echter Play-Upgrade benötigt die JKS-signierte
+Haupt-AAB und einen kontrollierten Testtrack.
+[Mobiler Testbeleg](WRN-V11-MOBILE-BROWSER-2026-09-26/REPORT.md),
+[Play-Befund](WRN-V11-PLAY-UPLOAD-CERT-2026-09-26/REPORT.md).
 
 Hostingnachtrag 26.09. für OPS-02, WEB-01, QA-01 und RELEASE-01: Der aktuelle
 Produktstand `a4cbbff` ergab eine frische Website mit zwölf Artikellandings,
@@ -79,6 +93,15 @@ belegt und der Verzeichnisstand stammt vom 25.09. Deshalb bleibt der Status
 keine finale Host-/Rollbackprobe. Alle drei festen öffentlichen Pointer lieferten
 am26.09. beim GET HTTP404/HTML. Die Offline-Shell hat nur 4.308 Byte Spielraum
 unter dem derzeitigen Limit. [Aktueller Dry-run](WRN-V11-HOSTING-LOCAL-2026-09-26/REPORT.md).
+
+Störungsnachtrag 27.09. für OPS-01/02 und RELEASE-01: Das alte Backend hatte
+am 26.09. 19:48 UTC noch erfolgreich 500 Meldungen erzeugt, aber der geplante
+Aktualisierungstakt war im beobachteten Fenster unregelmäßig. Ein Artikel mit
+Datum 01.10. steht als vermeintlich neuester Eintrag oben. Der offene PR38
+korrigiert nur das Statusdatum. Der aktuelle neue Versorgungs-Dry-run wartet
+bei 499 Kandidaten auf Aufnahmeprüfung; alle drei neuen Host-Pointer bleiben
+404. Somit keine laufende neue Versorgung und kein Release-GREEN.
+[Live-Feed-Befund](WRN-LIVE-FEED-INCIDENT-2026-09-26/REPORT.md).
 
 Die ausdrücklich entfernte **„Globale Lage“ bleibt entfernt** (PO092).
 Ausdrücklich später vorgemerkte Wünsche bleiben sichtbar erhalten, ohne sie
