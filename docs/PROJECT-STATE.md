@@ -1,5 +1,16 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 27.09. – Der sechs-stündliche Metadaten-Publisher für Hostinger ist als
+getrennter GitHub-Workflow und streng prüfender FTPS-Adapter vorbereitet,
+**aber nicht aktiviert**. Hash, Provenienz, Sequenz, öffentlicher Snapshot
+und Zeiger-Reihenfolge sind lokal getestet (34/34 Content-Betriebsfälle).
+Hostinger Business bietet Cron/FTP, aber keinen Node-Lauf auf diesem
+Webhosting; SSH ist inaktiv. Ein verzeichnisbegrenztes FTP-Konto, die
+vertrauenswürdige FTPS-Verbindung, GitHub-Secrets, Freischalter und der
+erste reale Auto-Durchlauf fehlen. GitHub-CLI-Authentifizierung ist lokal
+abgelaufen, daher liegen diese Änderungen noch nicht im öffentlichen Repo.
+[Publisher-Beleg](evidence/WRN-V12-DIRECTORY-PUBLISHER-2026-09-27/REPORT.md).
+
 Neu 27.09. – Die neue Website ist auf `https://solinaridao.com/` live;
 Produkt- und Quellpass-Zeiger antworten 200. Der aus Alt-Datenrepo-Commit
 `e275db2` manuell veröffentlichte Inhaltsindex zeigt nach Reload **959
