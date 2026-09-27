@@ -165,3 +165,130 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* Code26 front-page density; the current directory keeps its external-link
+ * status and reviewed full texts remain in a separate reader section. */
+.website-production-heading {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.website-production .production-home {
+  gap: 0.85rem;
+}
+.website-production .production-home section > h2 {
+  color: var(--website-code26-red, #ff334f);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+}
+.website-production .production-home__current {
+  padding-block: 0.5rem;
+  border-top-color: color-mix(in srgb, var(--website-code26-cyan, #00f0ff) 32%, transparent);
+}
+.website-production .production-home__current > p {
+  font-size: 0.7rem;
+  line-height: 1.25;
+}
+.website-production .production-home__archive {
+  margin-block: 0.2rem;
+  gap: 0.35rem;
+}
+.website-production .production-home__archive li {
+  padding: 0.2rem 0.35rem;
+  border-bottom-color: color-mix(in srgb, var(--website-code26-cyan, #00f0ff) 25%, transparent);
+}
+.website-production .production-home__archive a {
+  font-size: 0.79rem;
+  line-height: 1.23;
+  text-decoration-color: var(--website-code26-cyan, #00f0ff);
+}
+.website-production .production-home__lead-grid {
+  align-items: start;
+  gap: 0.85rem;
+}
+.website-production .production-home__lead-grid > section {
+  border-top-color: color-mix(in srgb, var(--website-code26-red, #ff334f) 45%, transparent);
+}
+.website-production [data-home-role='lead'] {
+  overflow: hidden;
+  border: 1px solid var(--wrn-color-border);
+  border-radius: 8px;
+  background: var(--wrn-color-surface);
+}
+.website-production [data-home-role='lead'] img {
+  max-height: 21rem;
+}
+.website-production [data-home-role='lead'] h3 {
+  font: 850 clamp(1.55rem, 2.5vw, 2.15rem)/1.12 system-ui, sans-serif;
+}
+.website-production [data-home-role='lead'][data-home-image='unavailable']::before {
+  display: none;
+}
+.website-production .production-home__lead-grid .production-home__compact {
+  gap: 0.1rem;
+}
+.website-production [data-home-role='main'] {
+  padding: 0.4rem 0.1rem;
+  border-bottom: 1px solid var(--wrn-color-border);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.website-production [data-home-role='main'] h3 {
+  font: 750 0.9rem/1.2 system-ui, sans-serif;
+}
+.website-production [data-home-role='main'] .production-actions {
+  margin-block: 0;
+}
+@media (min-width: 64rem) {
+  .website-production .production-home__current {
+    display: grid;
+    grid-template-columns: 10rem minmax(0, 1fr) 12rem;
+    gap: 0.1rem 0.75rem;
+    align-items: start;
+  }
+  .website-production .production-home__current > h2,
+  .website-production .production-home__current > p {
+    grid-column: 1;
+    margin: 0;
+  }
+  .website-production .production-home__current > ul {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-self: stretch;
+  }
+  .website-production .production-home__current > button {
+    grid-column: 3;
+    grid-row: 1 / span 3;
+    width: 100%;
+  }
+  .website-production .production-home__lead-grid {
+    grid-template-columns: minmax(0, 1.85fr) minmax(20rem, 1fr);
+  }
+}
+@media (max-width: 63.99rem) {
+  .website-production .production-home__current > ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 41.99rem) {
+  .website-production .production-home__current > ul {
+    display: flex;
+    scrollbar-width: none;
+  }
+  .website-production .production-home__current > ul::-webkit-scrollbar { display: none; }
+}
+
+/* Keep the Code26 news typography even when an existing user saved Editorial. */
+:root[data-theme='editorial'] .website-production .production-home h2,
+:root[data-theme='editorial'] .website-production .production-home h3,
+:root[data-theme='editorial'] .website-production .production-home h4 {
+  font-family: system-ui, sans-serif;
+  text-transform: none;
+  letter-spacing: normal;
+}

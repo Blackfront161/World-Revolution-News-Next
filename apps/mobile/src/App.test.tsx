@@ -1015,11 +1015,11 @@ describe('mobile local newsfeed', () => {
     expect(window.localStorage.getItem('wrn.theme-preference.v1')).toBeNull();
   });
 
-  it('removes an invalid stored theme before falling back to violet', async () => {
+  it('removes an invalid stored theme before falling back to the Code26 dark shell', async () => {
     window.localStorage.setItem('wrn.theme-preference.v1', 'unknown-theme');
     render(<App initialState="loading" />);
 
-    await waitFor(() => expect(document.documentElement.dataset.theme).toBe('violet'));
+    await waitFor(() => expect(document.documentElement.dataset.theme).toBe('dark'));
     expect(window.localStorage.getItem('wrn.theme-preference.v1')).toBeNull();
   });
 
@@ -1051,12 +1051,12 @@ describe('mobile local newsfeed', () => {
     expect(mediaQuery.removeEventListener).toHaveBeenCalledWith('change', expect.any(Function));
   });
 
-  it('keeps a compact accessible text brand name without a large asset masthead', () => {
+  it('keeps the compact Code26 mark with an accessible text brand name', () => {
     render(<App initialState="loading" />);
 
     const brand = screen.getByRole('link', { name: /Solinaridao.*World Revolution News/i });
     expect(brand).toHaveTextContent('World Revolution News');
-    expect(brand.querySelector('img')).toBeNull();
+    expect(brand.querySelector('img')).toHaveAttribute('alt', '');
   });
 
   it('offers the approved project and voluntary donation links with privacy-preserving attributes', () => {
@@ -1113,7 +1113,7 @@ describe('mobile local newsfeed', () => {
     expect(
       within(navigation)
         .getAllByRole('link')
-        .map((link) => link.textContent),
+        .map((link) => link.querySelector('.primary-nav-label')?.textContent),
     ).toEqual(['Home', 'For me', 'Discover', 'Media', 'Saved']);
     expect(within(navigation).getByRole('link', { name: 'Home' })).toHaveAttribute(
       'aria-current',

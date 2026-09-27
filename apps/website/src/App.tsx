@@ -68,8 +68,6 @@ import {
   type LocalReadingStateV1,
   type ArchiveLifecycleResolution,
   type ArchiveProjection,
-  websiteCompactNavigationIds,
-  websiteExpandedNavigationIds,
   type FeedReadyState,
   type FeedStateKind,
   type NavigationTargetId,
@@ -365,11 +363,11 @@ function readThemePreference(
     const storedPreference = window.localStorage.getItem(themeStorageKey);
     if (storedPreference !== null && !isThemePreference(storedPreference)) {
       window.localStorage.removeItem(themeStorageKey);
-      return 'violet';
+      return 'dark';
     }
-    return normalizeThemePreference(storedPreference);
+    return storedPreference === null ? 'dark' : normalizeThemePreference(storedPreference);
   } catch {
-    return 'violet';
+    return 'dark';
   }
 }
 function readNavigationTargetFromLocation(): NavigationTargetId {
@@ -2183,9 +2181,14 @@ export function App({
                       navigate('home');
                     }}
                   >
-                    <span className="site-brand-name">
-                      World <span>Revolution</span> News
-                    </span>
+                    <img
+                      className="site-brand-code26-mark"
+                      src={brandAssetUrls.solinaridaoMark}
+                      alt=""
+                      width="118"
+                      height="102"
+                      data-testid="code26-brand-mark"
+                    />
                   </a>
                   <a
                     className="site-brand-project"
@@ -2234,7 +2237,7 @@ export function App({
                 </div>
               </div>
               <nav aria-label={copy.websiteMainNavigation} className="site-nav site-nav-compact">
-                {navigationLinks(websiteCompactNavigationIds)}
+                {navigationLinks(['home', 'following', 'discover', 'media', 'saved'])}
                 <button
                   type="button"
                   className="site-more-button"
@@ -2253,7 +2256,7 @@ export function App({
                 aria-label={copy.websiteExpandedNavigation}
                 className="site-nav site-nav-expanded"
               >
-                {navigationLinks(websiteExpandedNavigationIds)}
+                {navigationLinks(['home', 'following', 'discover', 'media', 'events', 'knowledge', 'solidarity', 'saved'])}
                 <button
                   type="button"
                   className="site-more-button"

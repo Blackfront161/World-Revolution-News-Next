@@ -15,6 +15,7 @@ import {
   type RefObject,
 } from 'react';
 import {
+  brandAssetUrls,
   isThemePreference,
   normalizeThemePreference,
   resolveEffectiveTheme,
@@ -449,19 +450,26 @@ function readThemePreference(
     const storedPreference = window.localStorage.getItem(themeStorageKey);
     if (storedPreference !== null && !isThemePreference(storedPreference)) {
       window.localStorage.removeItem(themeStorageKey);
-      return 'violet';
+      return 'dark';
     }
     return storedPreference === null
-      ? (importLegacyTheme(window.localStorage) ?? 'violet')
+      ? (importLegacyTheme(window.localStorage) ?? 'dark')
       : normalizeThemePreference(storedPreference);
   } catch {
-    return 'violet';
+    return 'dark';
   }
 }
 function readNavigationTargetFromLocation(): NavigationTargetId {
   if (parseMobileDirectorySection(window.location.hash) !== null) return 'discover';
   return resolveNavigationTarget(window.location.hash.replace(/^#\/?/, ''));
 }
+const primaryNavigationIcons: Partial<Record<NavigationTargetId, string>> = {
+  home: '⌂',
+  following: '☆',
+  discover: '◎',
+  media: '▷',
+  saved: '▱',
+};
 function readMobileArticleIdFromLocation(): string | null {
   const match = window.location.hash.match(/^#article\/([^/]+)$/u);
   if (match?.[1] === undefined) return null;
@@ -2443,7 +2451,7 @@ export function App({
           return resolution.kind === 'redirected' ? resolution.canonicalId : archiveRoute;
         })()
       : archiveRoute;
-  const routeLink = (id: NavigationTargetId, label = navigationLabel(id)) => (
+  const routeLink = (id: NavigationTargetId, label = navigationLabel(id), primary = false) => (
     <a
       href={`#${id}`}
       aria-current={target === id ? 'page' : undefined}
@@ -2452,7 +2460,12 @@ export function App({
         navigate(id);
       }}
     >
-      {label}
+      {primary ? (
+        <span className="primary-nav-icon" aria-hidden="true">
+          {primaryNavigationIcons[id]}
+        </span>
+      ) : null}
+      <span className={primary ? 'primary-nav-label' : undefined}>{label}</span>
     </a>
   );
   const directoryLinks = (
@@ -2650,7 +2663,8 @@ export function App({
                       navigate('home');
                     }}
                   >
-                    World <span>Revolution</span> News
+                    <img className="compact-header-mark" src={brandAssetUrls.solinaridaoMark} alt="" />
+                    <span className="compact-header-product">World Revolution News</span>
                   </a>
                 </h1>
                 <a
@@ -2665,6 +2679,22 @@ export function App({
                 </a>
               </div>
               <div className="compact-header-tools">
+                <button
+                  type="button"
+                  className="compact-header-media"
+                  aria-label={copy.media}
+                  onClick={() => navigate('media')}
+                >
+                  <span aria-hidden="true">▷</span>
+                </button>
+                <button
+                  type="button"
+                  className="compact-header-support"
+                  aria-label={copy.support}
+                  onClick={() => navigate('solidarity')}
+                >
+                  <span aria-hidden="true">♡</span>
+                </button>
                 <button
                   type="button"
                   className="compact-header-search"
@@ -2759,6 +2789,7 @@ export function App({
                         onBrowse: () => navigateDirectory('news'),
                         onBrowseSport: () => navigateDirectory('sport'),
                         automaticTranslation: true,
+                        prioritizeCurrentLinks: true,
                       }
                     : undefined
                 }
@@ -3264,7 +3295,7 @@ export function App({
           </main>
           <nav aria-label={copy.mobileMainNavigation} className="mobile-primary-nav">
             {mobilePrimaryNavigationIds.map((id) => (
-              <span key={id}>{routeLink(id)}</span>
+              <span key={id}>{routeLink(id, navigationLabel(id), true)}</span>
             ))}
           </nav>
           {sourceConfirmation !== null &&
