@@ -152,7 +152,7 @@ test('restores the exact prior pointer when activation cannot be confirmed', asy
       transport,
       fetchCurrent: async () => {
         reads += 1;
-        if (reads === 3) throw new Error('post-activation-network-error');
+        if (reads === 4) throw new Error('post-activation-network-error');
         return active;
       },
       fetchCurrentBytes: async () => previousBytes,
@@ -186,7 +186,7 @@ test('does not claim rollback success when restoration remains unverified', asyn
       },
       fetchCurrent: async () => {
         reads += 1;
-        return reads < 4 ? previous : fixture.manifest;
+        return reads < 5 ? previous : fixture.manifest;
       },
       fetchCurrentBytes: async () => previousBytes,
       fetchPublic: async () =>
@@ -196,6 +196,43 @@ test('does not claim rollback success when restoration remains unverified', asyn
   );
   assert.equal(activations.length, 2);
   assert.match(activations[1], /\.rollback\.tmp$/u);
+});
+
+test('stops when a newer pointer appears while the backup is uploaded', async (t) => {
+  const fixture = await packet(t);
+  const prepared = await loadPreparedDirectory({
+    output: fixture.output,
+    expectedCommit: fixture.manifest.source.commit,
+    now: fixture.now,
+  });
+  const previous = previousManifest(fixture.manifest);
+  const newerSequence = fixture.manifest.sequence + 1;
+  const newer = {
+    ...fixture.manifest,
+    sequence: newerSequence,
+    artifactPath: `snapshots/directory-${newerSequence}-${fixture.manifest.artifactSha256}.json`,
+  };
+  let active = previous;
+  const activations = [];
+  await assert.rejects(
+    publishPreparedDirectory({
+      prepared,
+      transport: {
+        uploadSnapshot: async () => undefined,
+        uploadPointer: async (path) => {
+          if (path.endsWith('.rollback.tmp')) active = newer;
+        },
+        activatePointer: async (path) => activations.push(path),
+      },
+      fetchCurrent: async () => active,
+      fetchCurrentBytes: async () => Buffer.from(JSON.stringify(previous)),
+      fetchPublic: async () =>
+        new Response(fixture.snapshotBytes, { headers: { 'content-type': 'application/json' } }),
+    }),
+    { message: 'directory-concurrent-publication' },
+  );
+  assert.deepEqual(activations, []);
+  assert.deepEqual(active, newer);
 });
 
 test('stops on rollback, hash mismatch and a concurrent pointer change', async (t) => {

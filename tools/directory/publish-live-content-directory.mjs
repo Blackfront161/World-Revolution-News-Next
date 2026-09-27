@@ -152,6 +152,8 @@ export async function publishPreparedDirectory({
   );
   const rollbackPath = `current.${manifest.sequence}-${manifest.artifactSha256}.rollback.tmp`;
   await transport.uploadPointer(rollbackPath, previousBytes);
+  const preActivation = await fetchCurrent();
+  requireValue(samePublication(preActivation, previous), 'directory-concurrent-publication');
   let activationFailed = false;
   try {
     await transport.activatePointer(pendingPath);
