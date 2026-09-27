@@ -20,7 +20,11 @@ export type ProductionHomeDirectory = Readonly<{
   projection: MobileContentDirectory;
 }>;
 
-type HomeCard = (article: ProductionArticleV1, role: 'lead' | 'main' | 'further') => ReactNode;
+type HomeCard = (
+  article: ProductionArticleV1,
+  role: 'lead' | 'main' | 'further',
+  translateHomeText?: boolean,
+) => ReactNode;
 type SportCategory = 'football' | 'fan-culture' | 'women';
 type SportHomeItem =
   | { kind: 'article'; article: ProductionArticleV1; category: SportCategory | undefined }
@@ -367,7 +371,7 @@ export function ProductionHome({
               <h2 id="production-home-lead">
                 {prioritizeCurrentLinks ? freshnessCopy.featured : copy.featured}
               </h2>
-              {renderCard(frontPage.lead, 'lead')}
+              {renderCard(frontPage.lead, 'lead', true)}
             </section>
           )}
           {frontPage.main.length > 0 && (
@@ -376,7 +380,7 @@ export function ProductionHome({
                 {prioritizeCurrentLinks ? freshnessCopy.latest : copy.latest}
               </h2>
               <div className="production-home__compact">
-                {frontPage.main.map((article) => renderCard(article, 'main'))}
+                {frontPage.main.map((article) => renderCard(article, 'main', true))}
               </div>
             </section>
           )}

@@ -2758,6 +2758,7 @@ export function App({
                         load: loadProductionHomeDirectory,
                         onBrowse: () => navigateDirectory('news'),
                         onBrowseSport: () => navigateDirectory('sport'),
+                        automaticTranslation: true,
                       }
                     : undefined
                 }

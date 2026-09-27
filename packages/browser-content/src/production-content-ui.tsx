@@ -46,6 +46,7 @@ import type { ProductionTranslationAdapter } from './production-translation';
 import { ProductionPodcastPanel, type ProductionDeviceSpeechAdapter } from './production-podcast';
 import type { ProductionOnlinePodcastAdapter } from './production-podcast-online';
 import { ProductionHome, type ProductionHomeDirectory } from './production-home';
+import { AutomaticHomeCardText, getHomeTranslationCopy } from './production-home-translation';
 import { ProductionSelectionExplanation } from './production-selection-explanation';
 import { useProductionUserActivity } from './production-user-activity/use-activity';
 import { ProductionActivityNotice, ProductionActivityPanel } from './production-user-activity/ui';
@@ -223,6 +224,7 @@ export function createProductionContentArea({
           onBrowse(): void;
           onBrowseSport?(): void;
           prioritizeCurrentLinks?: boolean;
+          automaticTranslation?: boolean;
           brandMarkUrl?: string;
         }>
       | undefined;
@@ -741,6 +743,7 @@ export function createProductionContentArea({
     const renderArticleCard = (
       article: ProductionArticleV1,
       role?: 'lead' | 'main' | 'further',
+      translateHomeText = false,
     ) => {
       const readingEntry = reading.state.entries.find((entry) => entry.articleId === article.id);
       const saved = readingEntry?.savedAt !== undefined;
@@ -762,8 +765,25 @@ export function createProductionContentArea({
           data-home-role={role}
           data-home-image={homeImages.length > 0 ? 'available' : 'unavailable'}
         >
-          <Title lang={article.originalLanguage}>{article.title}</Title>
-          {role !== 'main' && <p lang={article.originalLanguage}>{article.teaser}</p>}
+          {homeDirectory?.automaticTranslation &&
+          translateHomeText &&
+          (role === 'lead' || role === 'main') ? (
+            <AutomaticHomeCardText
+              article={article}
+              role={role}
+              headingLevel={embedded && embeddedCardHeadingLevel === 4 ? 4 : 3}
+              authority={
+                homeView?.kind === 'ready' ? (homeView.translationAuthority ?? null) : null
+              }
+              language={language}
+              adapter={translationAdapter}
+            />
+          ) : (
+            <>
+              <Title lang={article.originalLanguage}>{article.title}</Title>
+              {role !== 'main' && <p lang={article.originalLanguage}>{article.teaser}</p>}
+            </>
+          )}
           {homeImages.length > 0 && (
             <div
               className={`production-home-image${role === 'main' ? ' production-home-image--compact' : ''}`}
@@ -1166,24 +1186,34 @@ export function createProductionContentArea({
                   />
                 )}
                 {target === 'home' ? (
-                  <ProductionHome
-                    articles={articles}
-                    language={language}
-                    sourcePreferences={sourcePreferences.state}
-                    renderCard={renderArticleCard}
-                    hasOriginalImage={(article) => {
-                      const view = resolveProductionArticleView(visible, article.id);
-                      return (
-                        view.kind === 'ready' && view.blocks.some((block) => block.kind === 'image')
-                      );
-                    }}
-                    loadDirectory={homeDirectory?.load}
-                    onBrowseDirectory={homeDirectory?.onBrowse}
-                    onBrowseSport={homeDirectory?.onBrowseSport}
-                    prioritizeCurrentLinks={homeDirectory?.prioritizeCurrentLinks}
-                    brandMarkUrl={homeDirectory?.brandMarkUrl}
-                    regionalEvents={regionalEvents}
-                  />
+                  <>
+                    {homeDirectory?.automaticTranslation && (
+                      <p className="production-home-translation-notice" lang={language}>
+                        {translationAdapter
+                          ? getHomeTranslationCopy(language).notice
+                          : getHomeTranslationCopy(language).unavailable}
+                      </p>
+                    )}
+                    <ProductionHome
+                      articles={articles}
+                      language={language}
+                      sourcePreferences={sourcePreferences.state}
+                      renderCard={renderArticleCard}
+                      hasOriginalImage={(article) => {
+                        const view = resolveProductionArticleView(visible, article.id);
+                        return (
+                          view.kind === 'ready' &&
+                          view.blocks.some((block) => block.kind === 'image')
+                        );
+                      }}
+                      loadDirectory={homeDirectory?.load}
+                      onBrowseDirectory={homeDirectory?.onBrowse}
+                      onBrowseSport={homeDirectory?.onBrowseSport}
+                      prioritizeCurrentLinks={homeDirectory?.prioritizeCurrentLinks}
+                      brandMarkUrl={homeDirectory?.brandMarkUrl}
+                      regionalEvents={regionalEvents}
+                    />
+                  </>
                 ) : (
                   <div className="feed-list">
                     {articles.map((article) => renderArticleCard(article))}

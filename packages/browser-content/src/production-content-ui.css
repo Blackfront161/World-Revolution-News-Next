@@ -308,6 +308,27 @@
   font-size: 0.9em;
   overflow-wrap: anywhere;
 }
+.production-home-translation-notice,
+.production-home-translation,
+.production-home-translation-fallback {
+  color: var(--wrn-color-muted, var(--muted));
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+.production-home-translation-notice {
+  margin: 0.25rem 0;
+}
+.production-home-translation small,
+.production-home-translation details,
+.production-home-translation-fallback {
+  display: block;
+}
+.production-home-translation summary {
+  cursor: pointer;
+}
+.production-home-translation details p {
+  margin: 0.25rem 0;
+}
 
 .production-translation {
   border-inline-start: 2px solid var(--wrn-color-action);
