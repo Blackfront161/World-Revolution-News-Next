@@ -5,6 +5,8 @@ import {
 } from '@wrn/content-contracts/mobile-content-directory-v1';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { emptySourcePreferences, setSourcePreference } from '@wrn/domain';
+import { SourcePreferencesProvider } from '../../../../../packages/browser-content/src/source-preferences-ui';
 import snapshot from './data/content-directory-v1.json';
 import fullOverlayRaw from '../../../../../packages/browser-content/src/data/source-pass-overlay-v1.json?raw';
 
@@ -27,6 +29,7 @@ beforeEach(() => {
 });
 afterEach(() => {
   Reflect.deleteProperty(navigator, 'locks');
+  localStorage.removeItem('wrn.mobile.directory-hide-test');
   vi.restoreAllMocks();
 });
 
@@ -65,6 +68,33 @@ describe('MobileContentDirectoryRoute', () => {
 
     expect(screen.getByText('Showing 8 of 8')).toBeInTheDocument();
     expect(screen.getByRole('radio', { name: 'All' })).toBeChecked();
+  });
+  it('hides endpointless articles by default but shows all for an explicitly selected source', async () => {
+    if (!validateMobileContentDirectory(snapshot)) throw new Error('Invalid source snapshot');
+    const projection = projectMobileContentDirectory(snapshot);
+    const source = projection.sources.find((entry) => entry.name === 'Electronic Frontier Foundation')!;
+    const article = projection.articles.find(
+      (entry) =>
+        entry.sourceName === source.name &&
+        entry.endpointIds.length === 0 &&
+        entry.observations.some((observation) => observation.provenance.dataset === 'github'),
+    )!;
+    const storageKey = 'wrn.mobile.directory-hide-test';
+    const preferences = setSourcePreference(emptySourcePreferences(), 'directory', source.id, 'hide')!;
+    localStorage.setItem(storageKey, JSON.stringify(preferences));
+    const { MobileContentDirectoryRoute } = await import('./MobileContentDirectoryRoute');
+    render(
+      <SourcePreferencesProvider storageKey={storageKey} language="en">
+        <MobileContentDirectoryRoute language="en" section="news" />
+      </SourcePreferencesProvider>,
+    );
+    await screen.findByLabelText('Search');
+    fireEvent.change(screen.getByLabelText('Search'), { target: { value: article.title } });
+    expect(screen.getByText('Showing 0 of 0')).toBeInTheDocument();
+    fireEvent.change(screen.getByLabelText('Source'), { target: { value: source.name } });
+    expect(screen.getByText('Showing 1 of 1')).toBeInTheDocument();
+    expect(screen.getByRole('radio', { name: 'All' })).toBeChecked();
+    expect(screen.getByRole('link', { name: article.title })).toHaveAttribute('href', article.url);
   });
   it('keeps source HTTP endpoints nonclickable and exposes each selected section', async () => {
     const { MobileContentDirectoryRoute } = await import('./MobileContentDirectoryRoute');

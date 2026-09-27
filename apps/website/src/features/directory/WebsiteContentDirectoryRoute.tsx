@@ -13,7 +13,7 @@ import type {
 import type { SourcePassRecord } from '@wrn/content-contracts/source-pass-overlay-v1';
 import type { WebsiteDirectorySection } from './directory-navigation';
 import './directory.css';
-import { projectSourcePreferences } from '@wrn/domain';
+import { projectDirectorySourcePreferences, projectSourcePreferences } from '@wrn/domain';
 import {
   useSourcePreferences,
   SourceProfile,
@@ -112,8 +112,8 @@ export function WebsiteContentDirectoryRoute({
       data === null
         ? []
         : section === 'news'
-          ? projectSourcePreferences(
-              data.projection.articles.filter(
+          ? projectDirectorySourcePreferences({
+              articles: data.projection.articles.filter(
                 (x) =>
                   `${x.title} ${x.sourceName}`
                     .toLocaleLowerCase()
@@ -122,11 +122,10 @@ export function WebsiteContentDirectoryRoute({
                   (!source || x.sourceName === source) &&
                   (!selectedSource || matchesSelectedSource(x, selectedSource)),
               ),
-              sourcePreferences.state,
-              'directory',
-              (entry) => entry.endpointIds,
-              { includeHidden: Boolean(source || selectedSource) },
-            )
+              sources: data.projection.sources,
+              preferences: sourcePreferences.state,
+              includeHidden: Boolean(source || selectedSource),
+            })
           : section === 'sources'
             ? projectSourcePreferences(
                 data.projection.sources.filter((x) =>

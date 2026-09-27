@@ -10,7 +10,7 @@ import {
 } from './directory-copy.js';
 import type { MobileDirectorySection } from './directory-navigation.js';
 import './directory.css';
-import { projectSourcePreferences } from '@wrn/domain';
+import { projectDirectorySourcePreferences, projectSourcePreferences } from '@wrn/domain';
 import {
   useSourcePreferences,
   SourceProfile,
@@ -91,8 +91,8 @@ export function MobileContentDirectoryRoute({
   }, [data, headingRef]);
   const articles = useMemo(
     () =>
-      projectSourcePreferences(
-        data?.projection.articles.filter(
+      projectDirectorySourcePreferences({
+        articles: data?.projection.articles.filter(
           (article) =>
             (feed === 'all' ||
               article.observations.some(
@@ -104,10 +104,10 @@ export function MobileContentDirectoryRoute({
               .toLocaleLowerCase()
               .includes(query.toLocaleLowerCase()),
         ) ?? [],
-        sourcePreferences.state,
-        'directory',
-        (article) => article.endpointIds,
-      ),
+        sources: data?.projection.sources ?? [],
+        preferences: sourcePreferences.state,
+        includeHidden: source !== '',
+      }),
     [data, feed, source, articleLanguage, query, sourcePreferences.state],
   );
   const sources = useMemo(

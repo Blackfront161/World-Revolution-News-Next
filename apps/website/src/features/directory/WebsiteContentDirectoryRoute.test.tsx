@@ -3,8 +3,11 @@ import {
   validateMobileContentDirectory,
   projectMobileContentDirectory,
 } from '@wrn/content-contracts/mobile-content-directory-v1';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, expect, it, vi } from 'vitest';
+import { emptySourcePreferences, setSourcePreference } from '@wrn/domain';
+import { SourcePreferencesProvider } from '../../../../../packages/browser-content/src/source-preferences-ui';
+import { createSourcePreferencesStore } from '../../../../../packages/browser-content/src/source-preferences-state';
 import snapshot from './data/content-directory-v1.json';
 import fullOverlayRaw from '../../../../../packages/browser-content/src/data/source-pass-overlay-v1.json?raw';
 import { WebsiteContentDirectoryRoute } from './WebsiteContentDirectoryRoute';
@@ -110,6 +113,40 @@ it('opens every available directory article for a selected source', async () => 
   expect(screen.getByText('Showing 30 of 36')).toBeInTheDocument();
   fireEvent.click(screen.getByRole('button', { name: 'Load 30 more' }));
   expect(screen.getByText('Showing 36 of 36')).toBeInTheDocument();
+});
+
+it('hides a legacy article without endpoint IDs but reveals it for an explicit source filter', async () => {
+  if (!validateMobileContentDirectory(snapshot)) throw new Error('Invalid source snapshot');
+  const projected = projectMobileContentDirectory(snapshot);
+  const article = projected.articles.find(
+    (entry) => entry.sourceName === 'Indymedia Argentina' && entry.endpointIds.length === 0,
+  )!;
+  const source = projected.sources.find((entry) => entry.name === article.sourceName)!;
+  const hidden = setSourcePreference(emptySourcePreferences(), 'directory', source.id, 'hide')!;
+  const storage = {
+    getItem: () => JSON.stringify(hidden),
+    setItem: () => {},
+    removeItem: () => {},
+  };
+  const createStore = (key: string) => createSourcePreferencesStore(key, storage, new EventTarget());
+  mockContentFetch();
+  render(
+    <SourcePreferencesProvider storageKey="website-directory-test" language="en" createStore={createStore}>
+      <WebsiteContentDirectoryRoute
+        language="en"
+        section="news"
+        headingRef={{ current: null }}
+        onSectionChange={() => {}}
+      />
+    </SourcePreferencesProvider>,
+  );
+  await screen.findByText('Snapshot: 2026-09-09');
+  fireEvent.change(screen.getByLabelText('Search'), { target: { value: article.title } });
+  await waitFor(() => expect(screen.getByText('Showing 0 of 0')).toBeVisible());
+  expect(screen.queryByRole('link', { name: article.title })).not.toBeInTheDocument();
+  fireEvent.change(screen.getByLabelText('Source'), { target: { value: article.sourceName } });
+  expect(screen.getByText('Showing 1 of 1')).toBeVisible();
+  expect(screen.getByRole('link', { name: article.title })).toHaveAttribute('href', article.url);
 });
 
 it('opens articles from a curated source pass with different pass and endpoint IDs', async () => {
