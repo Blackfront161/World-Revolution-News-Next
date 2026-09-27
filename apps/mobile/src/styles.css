@@ -1967,6 +1967,12 @@
   color: #00f0ff;
 }
 
+.mobile-shell .personalization-fulltext > h3 {
+  margin-block: 1.25rem 0.5rem;
+  color: var(--wrn-color-accent-cyan);
+  font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+}
+
 .mobile-shell .mobile-header {
   padding: 0.45rem 0.5rem 0.55rem;
   border-bottom-color: #163c43;

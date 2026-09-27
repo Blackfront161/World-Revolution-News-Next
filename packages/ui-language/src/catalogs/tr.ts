@@ -349,7 +349,7 @@ export const turkishUiCopy: UiCopy = Object.freeze({
   personalizationVerificationFailed: 'Yerel seçim değişiklikten sonra doğrulanamadı.',
   personalizationClearFailed: 'Yerel seçim silinemedi.',
   personalizationResults: 'Eşleşen yerel makaleler',
-  personalizationNoMatches: 'Bu seçimle eşleşen doğrulanmış yerel makale yok.',
+  personalizationNoMatches: 'Bu seçimle eşleşen incelenmiş tam metin yok.',
   personalizationReloadRequired: 'Başka bir değişiklikten önce yerel seçimi yeniden yükleyin.',
   personalizationLoading: 'Yerel seçim bu cihazda yükleniyor.',
   readerV2Ambiguous: 'Bu yerel yapı belirsizdir; özgün metin değişmeden kalır.',

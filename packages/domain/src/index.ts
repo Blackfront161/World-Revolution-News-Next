@@ -4,6 +4,10 @@
  */
 export * from './production-content-v1.js';
 export * from './production-reading-state-v2.js';
+export {
+  projectDirectorySourcePreferences,
+  projectPersonalizedDirectoryArticles,
+} from './directory-personalization.js';
 
 import type {
   ArchiveLifecycleValidationResult,

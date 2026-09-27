@@ -325,12 +325,12 @@ describe('mobile local newsfeed', () => {
     await user.click(screen.getByRole('link', { name: 'For me' }));
     expect(await screen.findByRole('heading', { name: 'For me' })).toBeVisible();
     await waitFor(() => {
-      const message = screen.queryByText('No validated local articles match this selection.');
+      const message = screen.queryByText('No reviewed full texts match this selection.');
       expect(message).not.toBeNull();
       expect(message).toBeVisible();
     });
     expect(
-      await screen.findByText('No validated local articles match this selection.'),
+      await screen.findByText('No reviewed full texts match this selection.'),
     ).toBeVisible();
   });
 

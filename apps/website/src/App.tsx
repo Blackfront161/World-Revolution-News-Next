@@ -93,6 +93,7 @@ import { WebsiteShellPanel } from './offline-shell-ui/WebsiteShellPanel';
 import { VideoSources } from './video-sources-ui';
 import { WebsiteProductionEventsMediaRoute } from './features/events-media/WebsiteProductionEventsMediaRoute';
 import { WebsitePersonalizationArea } from './local-personalization-ui';
+import { WebsiteFollowingDirectory } from './features/following/WebsiteFollowingDirectory';
 import { WebsiteProductionContentArea } from './production-content-ui';
 import { CurrentRegionalEvents } from '../../../packages/browser-content/src/regional-events/regional-events';
 import { SourcePreferencesProvider } from '../../../packages/browser-content/src/source-preferences-ui';
@@ -2452,21 +2453,26 @@ export function App({
                 language={uiLanguage}
                 headingRef={pageHeadingRef}
                 results={(preferences) => (
-                  <WebsiteProductionContentArea
-                    target={target}
-                    articleId={null}
-                    archiveRoute={undefined}
-                    language={uiLanguage}
-                    headingRef={pageHeadingRef}
-                    onRead={openReader}
-                    onArchiveRead={openArchiveReader}
-                    onCloseReader={closeReader}
-                    onCloseArchive={closeArchive}
-                    onOpenArchive={openArchive}
-                    shareAdapter={shareAdapter}
-                    preferences={preferences}
-                    embedded
-                  />
+                  <>
+                    <WebsiteProductionContentArea
+                      target={target}
+                      articleId={null}
+                      archiveRoute={undefined}
+                      language={uiLanguage}
+                      headingRef={pageHeadingRef}
+                      onRead={openReader}
+                      onArchiveRead={openArchiveReader}
+                      onCloseReader={closeReader}
+                      onCloseArchive={closeArchive}
+                      onOpenArchive={openArchive}
+                      shareAdapter={shareAdapter}
+                      preferences={preferences}
+                      embedded
+                    />
+                    {preferences && (
+                      <WebsiteFollowingDirectory language={uiLanguage} preferences={preferences} />
+                    )}
+                  </>
                 )}
               />
             ) : archiveRoute !== undefined ? (

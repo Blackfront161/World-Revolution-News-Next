@@ -360,7 +360,7 @@ export const germanUiCopy: UiCopy = Object.freeze({
     'Die lokale Auswahl konnte nach der Änderung nicht geprüft werden.',
   personalizationClearFailed: 'Die lokale Auswahl konnte nicht gelöscht werden.',
   personalizationResults: 'Passende lokale Artikel',
-  personalizationNoMatches: 'Keine validierten lokalen Artikel passen zu dieser Auswahl.',
+  personalizationNoMatches: 'Keine geprüften Volltexte passen zu dieser Auswahl.',
   personalizationReloadRequired: 'Lade die lokale Auswahl neu, bevor du sie erneut änderst.',
   personalizationLoading: 'Die lokale Auswahl auf diesem Gerät wird geladen.',
   readerV2Ambiguous: 'Diese lokale Struktur ist mehrdeutig; der Originaltext bleibt unverändert.',

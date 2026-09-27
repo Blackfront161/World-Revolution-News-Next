@@ -357,7 +357,7 @@ export const russianUiCopy: UiCopy = Object.freeze({
   personalizationVerificationFailed: 'Не удалось проверить локальный выбор после изменения.',
   personalizationClearFailed: 'Не удалось удалить локальный выбор.',
   personalizationResults: 'Подходящие локальные статьи',
-  personalizationNoMatches: 'Нет проверенных локальных статей для этого выбора.',
+  personalizationNoMatches: 'Для этого выбора нет проверенных полных текстов.',
   personalizationReloadRequired: 'Перезагрузите локальный выбор перед следующим изменением.',
   personalizationLoading: 'Загружается локальный выбор на этом устройстве.',
   readerV2Ambiguous: 'Эта локальная структура неоднозначна; исходный текст не изменён.',

@@ -138,6 +138,11 @@ const MobileHomeDirectory = lazy(() =>
     default: module.MobileHomeDirectory,
   })),
 );
+const MobilePersonalizedDirectory = lazy(() =>
+  import('./features/directory/MobilePersonalizedDirectory').then((module) => ({
+    default: module.MobilePersonalizedDirectory,
+  })),
+);
 const MobileKnowledgeRoute = lazy(() =>
   import('./features/knowledge/MobileKnowledgeRoute').then((module) => ({
     default: module.MobileKnowledgeRoute,
@@ -153,6 +158,18 @@ const MobileDirectoryRoute = lazy(() =>
     default: module.MobileContentDirectoryRoute,
   })),
 );
+
+const personalizedFulltextTitle: Readonly<Record<UiLanguage, string>> = {
+  de: 'Geprüfte Volltexte',
+  en: 'Validated full texts',
+  es: 'Textos completos verificados',
+  fr: 'Textes intégraux vérifiés',
+  it: 'Testi integrali verificati',
+  pt: 'Textos integrais verificados',
+  ru: 'Проверенные полные тексты',
+  el: 'Ελεγμένα πλήρη κείμενα',
+  tr: 'Doğrulanmış tam metinler',
+};
 
 class KnowledgeRouteBoundary extends Component<
   Readonly<{
@@ -3229,25 +3246,38 @@ export function App({
                   loaded={personalizationRuntime.loaded}
                   productionResults={
                     productionMode ? (
-                      <ProductionContentArea
-                        target="following"
-                        articleId={null}
-                        archiveRoute={undefined}
-                        language={uiLanguage}
-                        headingRef={pageHeadingRef}
-                        onRead={openReader}
-                        onArchiveRead={openArchiveReader}
-                        onCloseReader={closeReader}
-                        onCloseArchive={closeArchive}
-                        onOpenArchive={openArchive}
-                        shareAdapter={shareAdapter}
-                        preferences={
-                          personalizationRuntime.loaded.kind === 'ready'
-                            ? personalizationRuntime.loaded.state
-                            : undefined
-                        }
-                        embedded
-                      />
+                      <>
+                        <section className="personalization-fulltext" aria-labelledby="personalized-fulltext-title">
+                          <h3 id="personalized-fulltext-title">{personalizedFulltextTitle[uiLanguage]}</h3>
+                          <ProductionContentArea
+                            target="following"
+                            articleId={null}
+                            archiveRoute={undefined}
+                            language={uiLanguage}
+                            headingRef={pageHeadingRef}
+                            onRead={openReader}
+                            onArchiveRead={openArchiveReader}
+                            onCloseReader={closeReader}
+                            onCloseArchive={closeArchive}
+                            onOpenArchive={openArchive}
+                            shareAdapter={shareAdapter}
+                            preferences={
+                              personalizationRuntime.loaded.kind === 'ready'
+                                ? personalizationRuntime.loaded.state
+                                : undefined
+                            }
+                            embedded
+                          />
+                        </section>
+                        {personalizationRuntime.loaded.kind === 'ready' && (
+                          <Suspense fallback={<p role="status">{directoryCopy.loading}</p>}>
+                            <MobilePersonalizedDirectory
+                              language={uiLanguage}
+                              state={personalizationRuntime.loaded.state}
+                            />
+                          </Suspense>
+                        )}
+                      </>
                     ) : undefined
                   }
                   onLoaded={(loaded) =>

@@ -360,7 +360,7 @@ export const spanishUiCopy: UiCopy = Object.freeze({
   personalizationVerificationFailed: 'No se pudo verificar la selección local tras el cambio.',
   personalizationClearFailed: 'No se pudo eliminar la selección local.',
   personalizationResults: 'Artículos locales coincidentes',
-  personalizationNoMatches: 'Ningún artículo local validado coincide con esta selección.',
+  personalizationNoMatches: 'Ningún texto completo revisado coincide con esta selección.',
   personalizationReloadRequired: 'Recarga la selección local antes de otro cambio.',
   personalizationLoading: 'Se está cargando la selección local en este dispositivo.',
   readerV2Ambiguous: 'Esta estructura local es ambigua; el texto original permanece sin cambios.',
