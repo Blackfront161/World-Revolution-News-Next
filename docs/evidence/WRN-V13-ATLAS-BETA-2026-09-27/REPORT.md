@@ -40,6 +40,23 @@ signierte AAB enthält den Atlas nicht.
 Die Paketdateien, der Receipt und das lokale AAB sind im
 [Hashmanifest](hashmanifest.json) bezeichnet; das AAB selbst bleibt aus
 dem öffentlichen Repository ausgeschlossen.
+
+Nachtrag 27.09., 01:56 UTC: Der PO gab das Passwort ausschließlich in das
+lokale Windows-Fenster ein. Die damit signierte aktuelle AAB ist
+`work/wrn-android-release-L683J3/WorldRevolutionNews-2.2.0-code27-atlas-upload-signed-20260927-015551.aab`,
+9.735.118 Byte, SHA-256
+`4e6cfe2b46823c0e4dbdbef617427f1805134a1c9d9dd46ff4a7a0e06b88bcf2`.
+`jarsigner -verify` und `keytool -printcert -jarfile` bestanden mit Exit 0.
+Das Uploadzertifikat trägt SHA-1
+`3C:CA:D7:1D:8B:95:AA:D8:81:B6:C2:07:E7:31:DC:C2:7F:CB:99:F2`
+und SHA-256
+`7E:4E:00:0A:93:69:8A:50:DB:F3:31:A8:C6:93:1A:0A:27:68:30:BF:34:D2:4E:3B:50:F9:73:4D:F8:2D:79:A8`,
+identisch mit dem zuvor in Play gelesenen Uploadzertifikat. **557/557**
+Original-Bundle-Einträge blieben inhaltlich bytegleich; nur drei
+`META-INF`-Signaturdateien kamen hinzu. Der unabhängige
+[Assetnachlauf](signed-aab-verification.json) bestand mit **108/108**
+receiptgebundenen Assets. Keine Anmeldung, kein Play-Upload und keine
+Veröffentlichung erfolgten dabei.
 Zusätzlich wurde die aktualisierte Webansicht in die Android-Quellen
 kopiert und eine lokale Debug-APK gebaut:
 `apps/mobile/android/app/build/outputs/apk/debug/app-debug.apk`,
@@ -55,7 +72,7 @@ den Fund danach als geschlossen. Die schmale Browser-Vorschau unter
 einen beantworteten Quizdurchlauf per Tastatur. Mauskoordinaten im
 In-App-Browser trafen teils andere Navigationsziele; daraus folgt kein
 belastbarer Touch-PASS. Native Installation, Upgrade mit erhaltenen
-App-Daten, finale repräsentative Screenshots, exakte Signaturprüfung,
+App-Daten, finale repräsentative Screenshots,
 Play-Test, Website-Parität und vollständige finale RC-Matrix sind offen.
 Der laufende Verzeichnis-Publisher muss noch mit eng begrenzten
 Zugangsdaten aktiviert und im Betrieb geprüft werden. **Kein

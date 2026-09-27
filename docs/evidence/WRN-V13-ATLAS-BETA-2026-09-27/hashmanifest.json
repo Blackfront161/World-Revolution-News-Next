@@ -5,6 +5,11 @@
     "path": "work/wrn-android-release-L683J3/WorldRevolutionNews-2.2.0-code27-atlas-unsigned.aab",
     "sha256": "6407283937d1172364fcc66bf214444a062c25f5bed205146b48b3e1be8984de"
   },
+  "signedAab": {
+    "path": "work/wrn-android-release-L683J3/WorldRevolutionNews-2.2.0-code27-atlas-upload-signed-20260927-015551.aab",
+    "sha256": "4e6cfe2b46823c0e4dbdbef617427f1805134a1c9d9dd46ff4a7a0e06b88bcf2",
+    "verificationSha256": "0c98f69e7e29de245777c444e8a53d7de38df528c2236a3a32f63a3c7d720476"
+  },
   "files": [
     {
       "path": "apps/mobile/src/App.tsx",

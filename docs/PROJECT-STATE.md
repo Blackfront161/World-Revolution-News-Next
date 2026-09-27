@@ -1,5 +1,18 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 27.09., 01:56 UTC – Das Atlas-AAB für `com.world.revolution`,
+2.2.0/Code27 wurde mit der lokalen PO-JKS signiert. Die 9.735.118-Byte-Datei
+hat SHA-256 `4e6cfe2b46823c0e4dbdbef617427f1805134a1c9d9dd46ff4a7a0e06b88bcf2`;
+`jarsigner`/`keytool`, 557/557 unveränderte Originaleinträge und
+108/108 receiptgebundene Assets bestanden. Das Uploadzertifikat entspricht
+dem zuvor in Play geprüften Zertifikat. Der Release-Branch ist öffentlich,
+[PR #1](https://github.com/Blackfront161/World-Revolution-News-Next/pull/1)
+bleibt ein Entwurf. Kein Play-Upload, kein vollständiger finaler Browser-
+oder nativer Upgrade-PASS und kein aktivierter laufender Publisher.
+Der neue PO-Wunsch nach privat lokal gespeicherten eigenen
+Medienportal-Links ist als spätere offene Funktion in der RC-Matrix
+festgehalten. [Signierbeleg](evidence/WRN-V13-ATLAS-BETA-2026-09-27/REPORT.md).
+
 Neu 27.09. – Der PO hat den World Revolution Atlas als Beta „Länder erkunden
 + Quellen-Quiz“ beauftragt. Die Android-App bindet die Beta unter „Mehr“ an
 das verifizierte lokale Quellenverzeichnis, ohne Standort, Konto, externe

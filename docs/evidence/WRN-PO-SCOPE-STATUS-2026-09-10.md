@@ -108,6 +108,13 @@ Die ausdrücklich entfernte **„Globale Lage“ bleibt entfernt** (PO092).
 Ausdrücklich später vorgemerkte Wünsche bleiben sichtbar erhalten, ohne sie
 unbemerkt in ein bestehendes MVP hineinzudeuten: World Revolution Map, Zine und
 Action Radar; Status jeweils **offen**. Artikel-TTS ist als MEDIA-04 umgesetzt.
+Neu vorgemerkt am 27.09.: **eigene Medienportal-Links lokal auf dem Gerät
+speichern und wieder öffnen**, mit Bearbeiten und Entfernen, ohne Konto oder
+Server-Synchronisierung; Status **offen**, kein Blocker des aktuellen
+Play-AAB. Persönliche Links bleiben von redaktionell geprüften Quellen
+getrennt und dürfen keine automatische Quellen-, Rechte- oder
+Inhaltsprüfbehauptung erzeugen. Die sichere URL-Aufnahme, Persistenz,
+Datenexport/-löschung und Offline-Grenze werden vor Umsetzung gebunden.
 Die bestehende spätere Einstufung der übrigen Wünsche bleibt bestehen. Konten, Kommentare und
 allgemeine Gamification werden ohne neue PO-Entscheidung nicht hinzugefügt.
 Die Atlas-Beta ist seit dem ausdrücklichen PO-Auftrag vom 27.09. die eng
