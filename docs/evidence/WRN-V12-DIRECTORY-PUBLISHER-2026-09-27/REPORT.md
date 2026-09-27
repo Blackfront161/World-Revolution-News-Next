@@ -16,8 +16,15 @@ prüft dessen öffentliche Bytes und vergewissert sich erneut, dass niemand
 den Zeiger inzwischen geändert hat. Erst danach lädt er einen temporären
 Zeiger und versucht dessen Umbenennung auf `current.json`; anschließend
 prüft er den öffentlichen Live-Zeiger. Auch ein identischer Wiederholungslauf
-prüft den bereits veröffentlichten Snapshot. Fehlende Aktivierung oder
-abweichende Bytes werden gemeldet und nicht als Erfolg ausgegeben.
+prüft den bereits veröffentlichten Snapshot. Vor der Aktivierung sichert er
+die exakten Bytes des validierten alten Zeigers und prüft nach dem Upload
+dieser Sicherung noch einmal auf eine parallele Änderung. Bei unbestätigter
+Aktivierung versucht er die alte Version wiederherzustellen und prüft den
+Rückweg; fehlende Bestätigung wird ausdrücklich als Fehler gemeldet.
+FTPS bietet kein serverseitiges Compare-and-Swap: Zwischen letzter Prüfung
+und Umbenennung bleibt eine Konkurrenzlücke. **Live-Aktivierung setzt daher
+nachgewiesenen exklusiven Schreibbesitz für diesen Zeiger voraus.** Die
+GitHub-Workflow-Serialisierung allein genügt dafür nicht.
 
 Der FTPS-Adapter erzwingt TLS, Zertifikatsprüfung und die aus hPanel
 bekannte Hostinger-IP mit einem `*.hstgr.io`-Hostnamen. Ein Kennwort gelangt
@@ -55,13 +62,18 @@ der lokalen Windows-Python-Umgebung noch nicht vertrauenswürdig prüfen.
 Es wurde kein Kennwort gesendet und keine unsichere FTP-Fallbackoption
 eingebaut.
 
-**Prüfstand:** Fünf neue Publisher-Tests bestanden, darunter falscher Hash,
+**Prüfstand:** Acht Publisher-Tests bestanden, darunter falscher Hash,
 veraltetes Paket, Rollback, gleichzeitige Zeigeränderung, identische
-Wiederholung und Standard-Sperre. `pnpm run test:content-operations`
-bestand mit 34/34. Der vollständige `pnpm check` bestand ebenfalls am
-27.09. Die Veröffentlichung bleibt aus, bis das auf ein
+Wiederholung, Backup-Upload-Konkurrenz und Standard-Sperre.
+`pnpm run test:content-operations` bestand nach der Korrektur mit 37/37;
+der frühere vollständige `pnpm check` betraf noch den Stand vor der
+Rollback-Korrektur. Die unabhängige Prüfung ist PASS für den deaktivierten
+Entwurf und FAIL für eine sofortige Live-Aktivierung. Die Veröffentlichung
+bleibt aus, bis das auf ein
 Verzeichnis begrenzte Konto sicher eingerichtet, seine TLS-Verbindung
-verifiziert, die GitHub-Secrets gesetzt und ein erster Live-Durchlauf
-mit öffentlichem Hash- und Browserbeleg bestanden ist. Die lokale
-GitHub-Authentifizierung war bei der Prüfung abgelaufen; der neue
-Workflow ist daher noch nicht im öffentlichen Repository angekommen.
+und die Rename-/Rollback-Semantik verifiziert, exklusiver Schreibbesitz
+für `current.json` nachgewiesen, die GitHub-Secrets gesetzt und ein erster
+Live-Durchlauf mit öffentlichem Hash- und Browserbeleg bestanden ist.
+Der große [Release-Entwurf PR #1](https://github.com/Blackfront161/World-Revolution-News-Next/pull/1)
+ist öffentlich; die getrennte Publisher-Korrektur liegt im deaktivierten
+[Entwurf PR #2](https://github.com/Blackfront161/World-Revolution-News-Next/pull/2).

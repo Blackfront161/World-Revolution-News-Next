@@ -134,6 +134,20 @@ PO-Sichttest sind damit nicht abgeschlossen.
 [Paralleltest](WRN-SIDE-BY-SIDE-TEST-2026-09-26/REPORT.md),
 [Datenupgrade](WRN-V11-ANDROID-DATA-UPGRADE-2026-09-26/REPORT.md).
 
+Release-Nachtrag 27.09.: Für ATLAS-01/AND-01 liegt ein mit dem bei Play
+registrierten Uploadzertifikat signiertes 2.2.0/Code27-AAB vor; Hash,
+Signatur und 108/108 Assets sind geprüft. Play hat diese konkrete Datei
+noch nicht angenommen, und der exakte Geräte-Upgrade- sowie der vollständige
+Browser-/Website-RC-Test fehlen. OPS-02 bleibt **in Arbeit**: Der getrennte
+Metadaten-Publisher ist als öffentlicher Entwurf mit Rollback-Korrektur
+vorhanden und 37/37 betroffene Tests bestanden, aber die unabhängige Prüfung
+erteilt nur für den **deaktivierten** Zustand PASS. Vor Live-Aktivierung
+fehlen exklusiver Hostinger-Zeiger-Schreibbesitz, eine authentisierte
+FTPS-/Rename-/Rollback-Probe, Secrets und ein belegter Live-Durchlauf.
+QA-01 bleibt **in Arbeit**, RELEASE-01 **offen**. Die neue AAB kann zur
+Play-Prüfung hochgeladen werden; ein erfolgreicher Produktionsrelease wird
+damit nicht vorweggenommen.
+
 Aktuell erreichbar: [App43358](http://127.0.0.1:43358/?theme=violet#home) und
 [Website43359](http://127.0.0.1:43359/?theme=violet&lang=de#home), lokaler V8-Inhaltsstand mit zwölf Artikeln. Themes unter Mehr,
 App-Headerlink und freiwilliger Website-Unterstützungshinweis unabhängig PASS.

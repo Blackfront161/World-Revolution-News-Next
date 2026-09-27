@@ -29,12 +29,21 @@ folgen. [Atlas-Bericht](evidence/WRN-V13-ATLAS-BETA-2026-09-27/REPORT.md).
 Neu 27.09. – Der sechs-stündliche Metadaten-Publisher für Hostinger ist als
 getrennter GitHub-Workflow und streng prüfender FTPS-Adapter vorbereitet,
 **aber nicht aktiviert**. Hash, Provenienz, Sequenz, öffentlicher Snapshot
-und Zeiger-Reihenfolge sind lokal getestet (34/34 Content-Betriebsfälle).
+und Zeiger-Reihenfolge sind lokal getestet (37/37 Content-Betriebsfälle).
+Der unbestätigte Aktivierungsfall sichert jetzt die exakten alten Zeigerbytes
+und versucht ein geprüftes Rollback. Eine Konkurrenz während des
+Backup-Uploads stoppt vor der Aktivierung. Unabhängiger Review: PASS nur für
+den deaktivierten Entwurf; Live-Aktivierung bleibt FAIL, weil FTPS keinen
+atomaren bedingten Zeigerwechsel bietet. Dafür muss zuerst exklusiver
+Schreibbesitz für `current.json` nachgewiesen werden.
 Hostinger Business bietet Cron/FTP, aber keinen Node-Lauf auf diesem
 Webhosting; SSH ist inaktiv. Ein verzeichnisbegrenztes FTP-Konto, die
-vertrauenswürdige FTPS-Verbindung, GitHub-Secrets, Freischalter und der
-erste reale Auto-Durchlauf fehlen. GitHub-CLI-Authentifizierung ist lokal
-abgelaufen, daher liegen diese Änderungen noch nicht im öffentlichen Repo.
+vertrauenswürdige FTPS-/Rename-/Rollback-Probe, GitHub-Secrets, Freischalter
+und der erste reale Auto-Durchlauf fehlen. Der öffentliche
+[Publisher-Entwurf PR #2](https://github.com/Blackfront161/World-Revolution-News-Next/pull/2)
+enthält den Fix, bleibt aber deaktiviert; der große
+[Release-Entwurf PR #1](https://github.com/Blackfront161/World-Revolution-News-Next/pull/1)
+erhält denselben korrigierten Code.
 [Publisher-Beleg](evidence/WRN-V12-DIRECTORY-PUBLISHER-2026-09-27/REPORT.md).
 
 Neu 27.09. – Die neue Website ist auf `https://solinaridao.com/` live;

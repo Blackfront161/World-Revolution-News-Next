@@ -83,7 +83,7 @@ export async function loadPreparedDirectory({ output, expectedCommit, now = Date
   return Object.freeze({ manifest, manifestBytes, snapshotBytes, snapshotPath });
 }
 
-export async function readPublicDirectoryManifest(fetchImpl = fetch) {
+async function readPublicDirectoryManifestBytes(fetchImpl = fetch) {
   const response = await fetchImpl(new URL('current.json', directoryPublicBase), {
     credentials: 'omit',
     redirect: 'error',
@@ -92,22 +92,36 @@ export async function readPublicDirectoryManifest(fetchImpl = fetch) {
     headers: { accept: 'application/json' },
     signal: AbortSignal.timeout(10_000),
   });
-  const bytes = await boundedResponse(response, manifestMaxBytes);
+  return boundedResponse(response, manifestMaxBytes);
+}
+
+function parsePublicDirectoryManifest(bytes) {
+  requireValue(
+    bytes instanceof Uint8Array && bytes.byteLength <= manifestMaxBytes,
+    'directory-live-manifest',
+  );
   const manifest = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes));
   requireValue(isContentDirectoryRefreshManifestV1(manifest), 'directory-live-manifest');
   return manifest;
 }
 
+export async function readPublicDirectoryManifest(fetchImpl = fetch) {
+  return parsePublicDirectoryManifest(await readPublicDirectoryManifestBytes(fetchImpl));
+}
+
+const samePublication = (left, right) =>
+  left?.sequence === right.sequence && left?.artifactSha256 === right.artifactSha256;
+
 export async function publishPreparedDirectory({
   prepared,
   transport,
   fetchCurrent = readPublicDirectoryManifest,
+  fetchCurrentBytes = readPublicDirectoryManifestBytes,
   fetchPublic = fetch,
 }) {
   const { manifest, manifestBytes, snapshotBytes, snapshotPath } = prepared;
   const previous = await fetchCurrent();
-  const alreadyCurrent =
-    previous.sequence === manifest.sequence && previous.artifactSha256 === manifest.artifactSha256;
+  const alreadyCurrent = samePublication(previous, manifest);
   if (!alreadyCurrent)
     requireValue(manifest.sequence > previous.sequence, 'directory-rollback-or-sequence-conflict');
   if (!alreadyCurrent) await transport.uploadSnapshot(manifest.artifactPath, snapshotPath);
@@ -128,25 +142,41 @@ export async function publishPreparedDirectory({
   if (alreadyCurrent)
     return Object.freeze({ state: 'already-current', sequence: manifest.sequence });
   const latest = await fetchCurrent();
-  requireValue(
-    latest.sequence === previous.sequence && latest.artifactSha256 === previous.artifactSha256,
-    'directory-concurrent-publication',
-  );
+  requireValue(samePublication(latest, previous), 'directory-concurrent-publication');
   const pendingPath = `current.${manifest.sequence}-${manifest.artifactSha256}.tmp`;
   await transport.uploadPointer(pendingPath, manifestBytes);
-  const beforeActivation = await fetchCurrent();
+  const previousBytes = await fetchCurrentBytes();
   requireValue(
-    beforeActivation.sequence === previous.sequence &&
-      beforeActivation.artifactSha256 === previous.artifactSha256,
+    samePublication(parsePublicDirectoryManifest(previousBytes), previous),
     'directory-concurrent-publication',
   );
-  await transport.activatePointer(pendingPath);
-  const active = await fetchCurrent();
-  requireValue(
-    active.sequence === manifest.sequence && active.artifactSha256 === manifest.artifactSha256,
-    'directory-activation-unverified',
-  );
-  return Object.freeze({ state: 'published', sequence: manifest.sequence });
+  const rollbackPath = `current.${manifest.sequence}-${manifest.artifactSha256}.rollback.tmp`;
+  await transport.uploadPointer(rollbackPath, previousBytes);
+  const preActivation = await fetchCurrent();
+  requireValue(samePublication(preActivation, previous), 'directory-concurrent-publication');
+  let activationFailed = false;
+  try {
+    await transport.activatePointer(pendingPath);
+  } catch {
+    activationFailed = true;
+  }
+  let active;
+  try {
+    active = await fetchCurrent();
+  } catch {
+    active = null;
+  }
+  if (!activationFailed && samePublication(active, manifest))
+    return Object.freeze({ state: 'published', sequence: manifest.sequence });
+  if (active && !samePublication(active, manifest) && !samePublication(active, previous))
+    throw new Error('directory-concurrent-publication');
+  try {
+    await transport.activatePointer(rollbackPath);
+    requireValue(samePublication(await fetchCurrent(), previous), 'directory-rollback-unverified');
+  } catch {
+    throw new Error('directory-rollback-unverified');
+  }
+  throw new Error('directory-activation-unverified-restored');
 }
 
 function curlOption(value) {
@@ -209,7 +239,7 @@ export function createFtpsTransport({ host, ip, user, password, remoteRoot }) {
     });
   const url = (path) => {
     requireValue(
-      /^(?:snapshots\/directory-\d+-[a-f0-9]{64}\.json|current\.\d+-[a-f0-9]{64}\.tmp)$/u.test(
+      /^(?:snapshots\/directory-\d+-[a-f0-9]{64}\.json|current\.\d+-[a-f0-9]{64}\.(?:rollback\.)?tmp)$/u.test(
         path,
       ),
       'directory-ftps-path',
