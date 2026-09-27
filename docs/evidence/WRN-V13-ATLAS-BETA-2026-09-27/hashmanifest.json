@@ -1,0 +1,75 @@
+{
+  "schema": "wrn.atlas-beta-evidence-hashes.v1",
+  "sourceCommit": "446c578b7be5fa0729132d560057c5ba58ae8cde",
+  "unsignedAab": {
+    "path": "work/wrn-android-release-L683J3/WorldRevolutionNews-2.2.0-code27-atlas-unsigned.aab",
+    "sha256": "6407283937d1172364fcc66bf214444a062c25f5bed205146b48b3e1be8984de"
+  },
+  "files": [
+    {
+      "path": "apps/mobile/src/App.tsx",
+      "sha256": "81b2ca7b109c25928df2635d1d3b01defc4113e8eccace5048cc0a40ed725061"
+    },
+    {
+      "path": "apps/mobile/src/atlas-beta.test.tsx",
+      "sha256": "4fb6ae92933abca1b64c461b3ae8dd34174daf0916bbe9297e565894de45eba8"
+    },
+    {
+      "path": "packages/browser-content/src/atlas/AtlasBeta.tsx",
+      "sha256": "7b2d8880ccafe8d71dae5a5e63aac34ada5f093463fd97d333f918b3cc342430"
+    },
+    {
+      "path": "packages/browser-content/src/atlas/atlas-model.ts",
+      "sha256": "a94467ec79f48f89b520c6d286d50bae4055a7b8b24588a8ef862af32127605d"
+    },
+    {
+      "path": "packages/browser-content/src/atlas/atlas.css",
+      "sha256": "cc947e3a4114429bb3b871730951256fbf7e7baedd93d1cf0369083b66017179"
+    },
+    {
+      "path": "packages/ui-language/src/atlas.ts",
+      "sha256": "72ec36f0c4efd082af8bffec440e63835705436bebc93a372647c83e383b0b09"
+    },
+    {
+      "path": "packages/ui-language/package.json",
+      "sha256": "9cff2da24a4eea3e9138e5aa763ada89d96fba68f6497e845395ff0cdadb7d9a"
+    },
+    {
+      "path": "tools/browser-content-aliases.mjs",
+      "sha256": "5c3fd1d85dd4b265e6240c87f99b069a23857b817ebfb9714160298ae9cd8cd7"
+    },
+    {
+      "path": "tsconfig.base.json",
+      "sha256": "4f0938f65b7ff2e73e68cab123cd164158cbd06fc131f0f2ac2b90ebcd98ba3f"
+    },
+    {
+      "path": "docs/architecture/ADR-010-FUTURE-MAP-AND-GAME-BOUNDARY.md",
+      "sha256": "d1e93203dd67c00479cc4c76d819c02994cef21b1d3a84cb8c6fea595302c058"
+    },
+    {
+      "path": "docs/architecture/ADR-011-ATLAS-BETA.md",
+      "sha256": "92ef3611fe5f68d7f1dbccc784f3a39c7f61e045162203a23bbb19437c6f3582"
+    },
+    {
+      "path": "docs/evidence/WRN-PO-SCOPE-STATUS-2026-09-10.md",
+      "sha256": "0f5c827a5a4f65c2770e6641d29ae4600c36624d248e42f5e5d950ef4d620bac"
+    },
+    {
+      "path": "docs/PROJECT-STATE.md",
+      "sha256": "e117f4646843fa8fd7565b027a6a94feba1761b1f64dc7d2f41d694dce3ba19c"
+    },
+    {
+      "path": "docs/evidence/WRN-V13-ATLAS-BETA-2026-09-27/receipt.json",
+      "sha256": "867b12d4b142c49a14682f947b8be8795834d9b1dc90ece4587efa566628ccec"
+    },
+    {
+      "path": "docs/evidence/WRN-V13-ATLAS-BETA-2026-09-27/aab-verification.json",
+      "sha256": "a4ea6f1cbf84c7f68c84acba637bc7cf03c44a5469d68212ae3c51ffee3a5073"
+    }
+  ],
+  "debugApk": {
+    "path": "apps/mobile/android/app/build/outputs/apk/debug/app-debug.apk",
+    "sha256": "428cbf3af64eb5b84b880afbe6c6525a3904b305be2c6598895089ed288bb3fe"
+  },
+  "hashMode": "git-index-bytes"
+}

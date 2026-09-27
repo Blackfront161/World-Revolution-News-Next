@@ -5,10 +5,13 @@ Neu 27.09. – Der PO hat den World Revolution Atlas als Beta „Länder erkunde
 das verifizierte lokale Quellenverzeichnis, ohne Standort, Konto, externe
 Kartenkosten oder gespeicherten Punktestand. Website-Parität bleibt offen:
 der erste gemeinsame Import überschritt das harte 8-MiB-Offline-Shell-Limit;
-die Website wurde deshalb unverändert erfolgreich gebaut. Mobile 992/992
+die Website wurde deshalb unverändert erfolgreich gebaut. Mobile 993/993
 Unit-Tests, Typprüfung, Lint und App-Build bestanden; die Browser-Vorschau
-zeigt 134 eindeutige Quellen. Nativer Geräte-/Upgrade-Test und finale
-RC-Prüfung folgen. [ADR-011](architecture/ADR-011-ATLAS-BETA.md).
+zeigt 134 eindeutige Quellen. Das zu `446c578` gebundene **unsignierte**
+2.2.0/Code27-AAB ist mit 108/108 Assets und SHA-256
+`6407283937d1172364fcc66bf214444a062c25f5bed205146b48b3e1be8984de`
+geprüft. Signierung, nativer Geräte-/Upgrade-Test und finale RC-Prüfung
+folgen. [Atlas-Bericht](evidence/WRN-V13-ATLAS-BETA-2026-09-27/REPORT.md).
 
 Neu 27.09. – Der sechs-stündliche Metadaten-Publisher für Hostinger ist als
 getrennter GitHub-Workflow und streng prüfender FTPS-Adapter vorbereitet,
