@@ -26,13 +26,19 @@ type SportHomeItem =
   | { kind: 'article'; article: ProductionArticleV1; category: SportCategory | undefined }
   | { kind: 'note'; note: DirectorySportNote; category: SportCategory };
 
-function orderDirectoryArticles(articles: readonly DirectoryArticle[], language: UiLanguage) {
+function orderDirectoryArticles(
+  articles: readonly DirectoryArticle[],
+  language: UiLanguage,
+  recentFirst = false,
+) {
   return [...articles].sort((left, right) => {
     const preferred = Number(right.language === language) - Number(left.language === language);
-    if (preferred) return preferred;
     const leftTime = left.publishedAt === null ? -Infinity : Date.parse(left.publishedAt);
     const rightTime = right.publishedAt === null ? -Infinity : Date.parse(right.publishedAt);
-    return rightTime - leftTime || left.id.localeCompare(right.id);
+    const recency = rightTime - leftTime;
+    return recentFirst
+      ? recency || preferred || left.id.localeCompare(right.id)
+      : preferred || recency || left.id.localeCompare(right.id);
   });
 }
 
@@ -40,14 +46,82 @@ function selectArchiveArticles(
   articles: readonly DirectoryArticle[],
   language: UiLanguage,
   preferences: LocalSourcePreferencesV1,
+  recentFirst = false,
 ) {
   return projectSourcePreferences(
-    orderDirectoryArticles(articles, language),
+    orderDirectoryArticles(articles, language, recentFirst),
     preferences,
     'directory',
     (article) => article.endpointIds,
   ).slice(0, 5);
 }
+
+const websiteFreshnessCopy: Readonly<
+  Record<
+    UiLanguage,
+    Readonly<{
+      current: string;
+      featured: string;
+      latest: string;
+      further: string;
+    }>
+  >
+> = {
+  de: {
+    current: 'Aktuelle Meldungen',
+    featured: 'Lesestück im Blickpunkt',
+    latest: 'Geprüfte Lesestücke',
+    further: 'Weitere Lesestücke',
+  },
+  en: {
+    current: 'Current reports',
+    featured: 'Featured reading piece',
+    latest: 'Reviewed reading pieces',
+    further: 'More reading pieces',
+  },
+  es: {
+    current: 'Noticias actuales',
+    featured: 'Lectura destacada',
+    latest: 'Lecturas revisadas',
+    further: 'Más lecturas',
+  },
+  fr: {
+    current: 'Actualités récentes',
+    featured: 'Lecture à la une',
+    latest: 'Lectures vérifiées',
+    further: 'Autres lectures',
+  },
+  it: {
+    current: 'Notizie attuali',
+    featured: 'Lettura in evidenza',
+    latest: 'Letture verificate',
+    further: 'Altre letture',
+  },
+  pt: {
+    current: 'Notícias atuais',
+    featured: 'Leitura em destaque',
+    latest: 'Leituras verificadas',
+    further: 'Mais leituras',
+  },
+  ru: {
+    current: 'Актуальные сообщения',
+    featured: 'Главный материал для чтения',
+    latest: 'Проверенные материалы',
+    further: 'Другие материалы',
+  },
+  el: {
+    current: 'Τρέχουσες ειδήσεις',
+    featured: 'Προτεινόμενο ανάγνωσμα',
+    latest: 'Ελεγμένα αναγνώσματα',
+    further: 'Περισσότερα αναγνώσματα',
+  },
+  tr: {
+    current: 'Güncel haberler',
+    featured: 'Öne çıkan okuma',
+    latest: 'İncelenmiş okumalar',
+    further: 'Diğer okumalar',
+  },
+};
 
 function selectSportNotes(
   notes: readonly DirectorySportNote[],
@@ -92,6 +166,8 @@ export function ProductionHome({
   onBrowseDirectory,
   onBrowseSport,
   regionalEvents,
+  prioritizeCurrentLinks = false,
+  brandMarkUrl,
 }: Readonly<{
   articles: readonly ProductionArticleV1[];
   language: UiLanguage;
@@ -102,8 +178,11 @@ export function ProductionHome({
   onBrowseDirectory?: (() => void) | undefined;
   onBrowseSport?: (() => void) | undefined;
   regionalEvents?: ReactNode;
+  prioritizeCurrentLinks?: boolean | undefined;
+  brandMarkUrl?: string | undefined;
 }>) {
   const copy = getProductionHomeCopy(language);
+  const freshnessCopy = websiteFreshnessCopy[language];
   const directoryCopy = getDirectoryCopy(language);
   const sportLabels = getDirectorySportLabels(language);
   const ui = getUiCopy(language);
@@ -157,9 +236,14 @@ export function ProductionHome({
   const archive = useMemo(
     () =>
       currentDirectory
-        ? selectArchiveArticles(currentDirectory.projection.articles, language, sourcePreferences)
+        ? selectArchiveArticles(
+            currentDirectory.projection.articles,
+            language,
+            sourcePreferences,
+            prioritizeCurrentLinks,
+          )
         : [],
-    [currentDirectory, language, sourcePreferences],
+    [currentDirectory, language, sourcePreferences, prioritizeCurrentLinks],
   );
   const sport = useMemo<SportHomeItem[]>(() => {
     const fullArticles = selectSportArticles(articles, sourcePreferences);
@@ -196,17 +280,89 @@ export function ProductionHome({
           : item.category === sportCategory),
     )
     .slice(0, 3);
+  const directoryNews = currentDirectory && (
+    <section
+      aria-labelledby="production-home-archive"
+      className={prioritizeCurrentLinks ? 'production-home__current' : undefined}
+    >
+      {brandMarkUrl && (
+        <img
+          className="production-home__brand-mark"
+          src={brandMarkUrl}
+          alt=""
+          width="94"
+          height="80"
+        />
+      )}
+      <h2 id="production-home-archive">
+        {prioritizeCurrentLinks ? freshnessCopy.current : copy.archive}
+      </h2>
+      <p>{copy.archiveIntro}</p>
+      <p className="production-home__snapshot">
+        {formatDirectoryCopy(directoryCopy.snapshot, {
+          date: currentDirectory.document.observedAt.slice(0, 10),
+        })}
+      </p>
+      <ul className="production-home__archive">
+        {archive.map((article) => (
+          <li key={article.id} data-home-directory-article={article.id}>
+            <a
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              referrerPolicy="no-referrer"
+              lang={article.language}
+            >
+              {article.title}
+              <span aria-hidden="true"> ↗</span>
+            </a>
+            <span>
+              {' '}
+              · {article.sourceName}
+              {article.publishedAt ? ` · ${article.publishedAt.slice(0, 10)}` : ''} ·{' '}
+              {article.language}
+            </span>
+          </li>
+        ))}
+      </ul>
+      {onBrowseDirectory && (
+        <button type="button" onClick={onBrowseDirectory}>
+          {copy.browseArchive}
+        </button>
+      )}
+    </section>
+  );
   return (
     <div className="production-home" data-testid="production-home">
+      {prioritizeCurrentLinks &&
+        (directoryNews || (
+          <section aria-labelledby="production-home-archive">
+            <h2 id="production-home-archive">{freshnessCopy.current}</h2>
+            {failed ? (
+              <>
+                <p role="alert">{directoryCopy.loadError}</p>
+                <button type="button" onClick={() => setAttempt((value) => value + 1)}>
+                  {directoryCopy.retry}
+                </button>
+              </>
+            ) : (
+              <p role="status">{directoryCopy.loading}</p>
+            )}
+          </section>
+        ))}
       {selection.lead && (
         <section aria-labelledby="production-home-lead">
-          <h2 id="production-home-lead">{copy.featured}</h2>
+          <h2 id="production-home-lead">
+            {prioritizeCurrentLinks ? freshnessCopy.featured : copy.featured}
+          </h2>
           {renderCard(selection.lead, 'lead')}
         </section>
       )}
       {selection.main.length > 0 && (
         <section aria-labelledby="production-home-main">
-          <h2 id="production-home-main">{copy.latest}</h2>
+          <h2 id="production-home-main">
+            {prioritizeCurrentLinks ? freshnessCopy.latest : copy.latest}
+          </h2>
           <div className="production-home__compact">
             {selection.main.map((article) => renderCard(article, 'main'))}
           </div>
@@ -321,50 +477,15 @@ export function ProductionHome({
       {regionalEvents}
       {selection.further.length > 0 && (
         <section aria-labelledby="production-home-further">
-          <h2 id="production-home-further">{copy.further}</h2>
+          <h2 id="production-home-further">
+            {prioritizeCurrentLinks ? freshnessCopy.further : copy.further}
+          </h2>
           <div className="production-home__compact">
             {selection.further.map((article) => renderCard(article, 'further'))}
           </div>
         </section>
       )}
-      {currentDirectory && (
-        <section aria-labelledby="production-home-archive">
-          <h2 id="production-home-archive">{copy.archive}</h2>
-          <p>{copy.archiveIntro}</p>
-          <p className="production-home__snapshot">
-            {formatDirectoryCopy(directoryCopy.snapshot, {
-              date: currentDirectory.document.observedAt.slice(0, 10),
-            })}
-          </p>
-          <ul className="production-home__archive">
-            {archive.map((article) => (
-              <li key={article.id} data-home-directory-article={article.id}>
-                <a
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  referrerPolicy="no-referrer"
-                  lang={article.language}
-                >
-                  {article.title}
-                  <span aria-hidden="true"> ↗</span>
-                </a>
-                <span>
-                  {' '}
-                  · {article.sourceName}
-                  {article.publishedAt ? ` · ${article.publishedAt.slice(0, 10)}` : ''} ·{' '}
-                  {article.language}
-                </span>
-              </li>
-            ))}
-          </ul>
-          {onBrowseDirectory && (
-            <button type="button" onClick={onBrowseDirectory}>
-              {copy.browseArchive}
-            </button>
-          )}
-        </section>
-      )}
+      {!prioritizeCurrentLinks && directoryNews}
     </div>
   );
 }

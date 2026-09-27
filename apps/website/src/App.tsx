@@ -12,6 +12,7 @@ import {
   type RefObject,
 } from 'react';
 import {
+  brandAssetUrls,
   isThemePreference,
   normalizeThemePreference,
   resolveEffectiveTheme,
@@ -2339,6 +2340,8 @@ export function App({
                         load: loadWebsiteContentDirectory,
                         onBrowse: () => navigateDirectory('news'),
                         onBrowseSport: () => navigateDirectory('sport'),
+                        prioritizeCurrentLinks: true,
+                        brandMarkUrl: brandAssetUrls.solinaridaoMark,
                       }
                     : undefined
                 }
