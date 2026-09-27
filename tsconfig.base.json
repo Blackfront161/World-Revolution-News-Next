@@ -17,6 +17,7 @@
     "strict": true,
     "target": "ES2024",
     "paths": {
+      "@wrn/ui-language/atlas": ["./packages/ui-language/src/atlas.ts"],
       "@wrn/ui-language/production-podcast": ["./packages/ui-language/src/production-podcast.ts"],
       "@wrn/ui-language/production-regional": ["./packages/ui-language/src/production-regional.ts"],
       "@wrn/content-contracts/production-media-v1": [

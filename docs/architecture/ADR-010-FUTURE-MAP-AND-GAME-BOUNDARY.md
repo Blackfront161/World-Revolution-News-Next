@@ -2,6 +2,9 @@
 
 - Status: `ACCEPTED` fuer den Vertrag am 23. August 2026; Featurestatus `DEFERRED`
 - Entscheidungseigner: Product Owner fuer jedes spaetere Integrationsgate
+- Nachtrag 27.09.2026: Der PO hat die eng begrenzte Android-Atlas-Beta
+  aus [ADR-011](ADR-011-ATLAS-BETA.md) freigegeben. Die übrigen Map- und
+  Spielgrenzen dieses ADR gelten weiterhin.
 - Betroffene Risiken: R-15, R-17, R-18
 
 ## Kontext

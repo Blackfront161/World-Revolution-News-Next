@@ -1,5 +1,15 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 27.09. – Der PO hat den World Revolution Atlas als Beta „Länder erkunden
++ Quellen-Quiz“ beauftragt. Die Android-App bindet die Beta unter „Mehr“ an
+das verifizierte lokale Quellenverzeichnis, ohne Standort, Konto, externe
+Kartenkosten oder gespeicherten Punktestand. Website-Parität bleibt offen:
+der erste gemeinsame Import überschritt das harte 8-MiB-Offline-Shell-Limit;
+die Website wurde deshalb unverändert erfolgreich gebaut. Mobile 992/992
+Unit-Tests, Typprüfung, Lint und App-Build bestanden; die Browser-Vorschau
+zeigt 134 eindeutige Quellen. Nativer Geräte-/Upgrade-Test und finale
+RC-Prüfung folgen. [ADR-011](architecture/ADR-011-ATLAS-BETA.md).
+
 Neu 27.09. – Der sechs-stündliche Metadaten-Publisher für Hostinger ist als
 getrennter GitHub-Workflow und streng prüfender FTPS-Adapter vorbereitet,
 **aber nicht aktiviert**. Hash, Provenienz, Sequenz, öffentlicher Snapshot

@@ -16,6 +16,7 @@ deren frühere Taskstände ersetzen keine Prüfung des tatsächlichen RC.
 
 | ID / Paket | Dein Wunsch / Abschlussbedingung | Status | Tatsächlicher Stand / offener Teil |
 | --- | --- | --- | --- |
+| ATLAS-01 / Beta | World Revolution Atlas: Länder erkunden und Quellen-Quiz, ohne Tracking oder zusätzliche Kosten | in Arbeit | Neuer PO-Auftrag 27.09.; Android-Beta unter „Mehr“ aus dem geprüften Quellenverzeichnis implementiert, 992/992 mobile Unit-Tests, Typ-/Lintprüfung und lokaler App-Build bestanden. Die Browser-Vorschau zeigte nach Duplikatbereinigung 134 erfasste Quelleneinträge, deutsches UI und ein korrektes Quiz; exakter nativer Installations-/Upgrade-Test, Release-AAB und Website-Parität offen. Die alte Ereigniskarte ist wegen externer Datenflüsse nicht blind eingebettet; Website-Offline-Shell darf 8 MiB nicht überschreiten. [ADR-011](../architecture/ADR-011-ATLAS-BETA.md). |
 | UI-01 / 5 | Schwarzer Hintergrund; Violett/Rot Standard, Rot/Cyan auswählbar; rote Buttonränder und rote Auswahlfüllung | geschlossen | 86751a86 korrigiert die alte #0b1017-Abweichung zu echtem Schwarz in Default/Violett und statischen Landings; beide finalen Clients unabhängig geprüft, Cyan erhalten. |
 | UI-02 / 5 | Themes unter „Mehr“, kleiner Website-Link im App-Header, schließbarer Website-Hinweis auf kostenlose Nutzung und freiwillige Unterstützung | geschlossen | HEADER-SUPPORT-2026-09-13 unabhängig PASS nach zwei korrigierten Findings; beide Clients/neun Sprachen/320px/Theme-Persistenz, Dialog-Fokus und drei axe-Prüfungen bestanden. Keine Vorabverbindung zu Zahlungsanbietern; bestehender freiwilliger Projektlink. |
 | UI-03 / 5 | Besprochene zusätzliche Schwarz/Rot-Magazinansicht nach PO-Bildvorlage unter Erhalt aller Funktionen | geschlossen | 86751a86, EDITORIAL-THEME-2026-09-13 unabhängig PASS; 20 Pfade, beide finale Builds, neun Sprachen, 320/1280px, vier axe-Prüfungen und queryfreie Persistenz2/2. Sechs Artikel/vier Bilder bytegleich, Magazinansicht unter Mehr. |
@@ -108,7 +109,10 @@ Ausdrücklich später vorgemerkte Wünsche bleiben sichtbar erhalten, ohne sie
 unbemerkt in ein bestehendes MVP hineinzudeuten: World Revolution Map, Zine und
 Action Radar; Status jeweils **offen**. Artikel-TTS ist als MEDIA-04 umgesetzt.
 Die bestehende spätere Einstufung der übrigen Wünsche bleibt bestehen. Konten, Kommentare und
-Gamification werden ohne neue PO-Entscheidung nicht hinzugefügt.
+allgemeine Gamification werden ohne neue PO-Entscheidung nicht hinzugefügt.
+Die Atlas-Beta ist seit dem ausdrücklichen PO-Auftrag vom 27.09. die eng
+begrenzte Ausnahme; Konten, Ranglisten und gespeicherte Spielstände bleiben
+ausgeschlossen.
 
 Testnachtrag 26.09.: **WRN Test** (`com.world.revolution.rc`) liegt als
 separates AAB und APK bereit; Emulator-Parallelbetrieb ersetzt die Haupt-App

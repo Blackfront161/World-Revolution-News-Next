@@ -104,6 +104,7 @@ import type { ContentOfflineControllerResult } from './content-offline-controlle
 import { useContentOfflineController } from './content-offline-ui';
 import { ProductionContentArea } from './production-content-ui';
 import { CurrentRegionalEvents } from '../../../packages/browser-content/src/regional-events/regional-events';
+import { AtlasBeta } from '../../../packages/browser-content/src/atlas/AtlasBeta';
 import {
   disabledMobileReaderV2TranslationAdapter,
   loadMobileReaderV2,
@@ -2775,14 +2776,17 @@ export function App({
                   (target === 'home' || target === 'discover' || target === 'more') &&
                   directoryLinks}
                 {target === 'more' && archiveRoute === undefined && (
-                  <nav aria-label={copy.moreAreas} className="secondary-navigation">
-                    {routeLink('help')}
-                    {routeLink('solidarity')}
-                    {routeLink('knowledge')}
-                    {routeLink('events')}
-                    {privacyPolicyLink}
-                    {routeLink('home', copy.returnHome)}
-                  </nav>
+                  <>
+                    <nav aria-label={copy.moreAreas} className="secondary-navigation">
+                      {routeLink('help')}
+                      {routeLink('solidarity')}
+                      {routeLink('knowledge')}
+                      {routeLink('events')}
+                      {privacyPolicyLink}
+                      {routeLink('home', copy.returnHome)}
+                    </nav>
+                    <AtlasBeta language={uiLanguage} load={loadMobileContentDirectory} />
+                  </>
                 )}
               </ProductionContentArea>
             ) : archiveRoute !== undefined ? (

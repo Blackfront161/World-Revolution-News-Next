@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const publicSources = Object.freeze({
+  '@wrn/ui-language/atlas': 'packages/ui-language/src/atlas.ts',
   '@wrn/ui-language/production-podcast': 'packages/ui-language/src/production-podcast.ts',
   '@wrn/ui-language/production-regional': 'packages/ui-language/src/production-regional.ts',
   '@wrn/content-contracts/production-media-offline-v1':

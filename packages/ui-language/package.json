@@ -4,6 +4,10 @@
   "private": true,
   "type": "module",
   "exports": {
+    "./atlas": {
+      "types": "./src/atlas.ts",
+      "default": "./src/atlas.ts"
+    },
     "./production-podcast": {
       "types": "./src/production-podcast.ts",
       "default": "./src/production-podcast.ts"
