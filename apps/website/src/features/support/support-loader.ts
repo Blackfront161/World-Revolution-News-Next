@@ -4,7 +4,7 @@ import {
   validateMobileSupport,
   type MobileSupportV1,
 } from '@wrn/content-contracts/mobile-support-v1';
-import assetUrl from './data/legacy-support-v1.json?url';
+import assetUrl from './packed/legacy-support-v1.json?url';
 import { readLocalJsonAsset } from '../../local-json-asset';
 
 let verified: MobileSupportV1 | null = null;

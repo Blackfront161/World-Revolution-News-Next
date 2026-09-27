@@ -14,6 +14,11 @@ describe('website support snapshot', () => {
     expect(createHash('sha256').update(bytes).digest('hex')).toBe(
       'bbd721dc73f0b67e4065618248a1bcd6c86938beb164684e1ccdf1ad54c2e75f',
     );
+    const packed = await readFile(
+      resolve(process.cwd(), 'src/features/support/packed/legacy-support-v1.json'),
+    );
+    expect(packed.byteLength).toBeLessThan(bytes.byteLength);
+    expect(JSON.parse(packed.toString('utf8'))).toEqual(JSON.parse(bytes.toString('utf8')));
     const validation = validateMobileSupport(JSON.parse(bytes.toString('utf8')));
     expect(validation.ok).toBe(true);
     expect(validation.value).not.toBeNull();

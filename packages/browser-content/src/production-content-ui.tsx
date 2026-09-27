@@ -760,6 +760,7 @@ export function createProductionContentArea({
           key={article.id}
           className={`production-card${role === 'main' || role === 'further' ? ' production-card--compact' : ''}`}
           data-home-role={role}
+          data-home-image={homeImages.length > 0 ? 'available' : 'unavailable'}
         >
           <Title lang={article.originalLanguage}>{article.title}</Title>
           {role !== 'main' && <p lang={article.originalLanguage}>{article.teaser}</p>}

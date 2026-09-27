@@ -233,6 +233,16 @@ export function ProductionHome({
       ),
     [articles, currentDirectory],
   );
+  const frontPage = useMemo(() => {
+    const top = selection.lead ? [selection.lead, ...selection.main] : [...selection.main];
+    const imageIndex = hasOriginalImage ? top.findIndex(hasOriginalImage) : -1;
+    if (imageIndex <= 0) return { lead: selection.lead, main: selection.main };
+    // Keep the same reviewed articles; give the first licensed image the visual lead.
+    return {
+      lead: top[imageIndex] ?? null,
+      main: top.filter((_, index) => index !== imageIndex),
+    };
+  }, [selection, hasOriginalImage]);
   const archive = useMemo(
     () =>
       currentDirectory
@@ -350,23 +360,27 @@ export function ProductionHome({
             )}
           </section>
         ))}
-      {selection.lead && (
-        <section aria-labelledby="production-home-lead">
-          <h2 id="production-home-lead">
-            {prioritizeCurrentLinks ? freshnessCopy.featured : copy.featured}
-          </h2>
-          {renderCard(selection.lead, 'lead')}
-        </section>
-      )}
-      {selection.main.length > 0 && (
-        <section aria-labelledby="production-home-main">
-          <h2 id="production-home-main">
-            {prioritizeCurrentLinks ? freshnessCopy.latest : copy.latest}
-          </h2>
-          <div className="production-home__compact">
-            {selection.main.map((article) => renderCard(article, 'main'))}
-          </div>
-        </section>
+      {(frontPage.lead || frontPage.main.length > 0) && (
+        <div className="production-home__lead-grid">
+          {frontPage.lead && (
+            <section aria-labelledby="production-home-lead">
+              <h2 id="production-home-lead">
+                {prioritizeCurrentLinks ? freshnessCopy.featured : copy.featured}
+              </h2>
+              {renderCard(frontPage.lead, 'lead')}
+            </section>
+          )}
+          {frontPage.main.length > 0 && (
+            <section aria-labelledby="production-home-main">
+              <h2 id="production-home-main">
+                {prioritizeCurrentLinks ? freshnessCopy.latest : copy.latest}
+              </h2>
+              <div className="production-home__compact">
+                {frontPage.main.map((article) => renderCard(article, 'main'))}
+              </div>
+            </section>
+          )}
+        </div>
       )}
       {loadDirectory && (
         <>
