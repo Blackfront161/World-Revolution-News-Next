@@ -2286,7 +2286,12 @@ export function App({
               </div>
             </div>
           </header>
-          <main id="website-main" tabIndex={-1} aria-labelledby="website-page-title">
+          <main
+            id="website-main"
+            tabIndex={-1}
+            aria-labelledby="website-page-title"
+            data-view={target}
+          >
             {target === 'more' && archiveRoute === undefined && (
               <section className="more-theme-settings">
                 <label className="theme-selector">
