@@ -62,6 +62,8 @@ for (const profile of profiles) {
     });
     page.on('pageerror', (error) => errors.push(error.message));
     await page.clock.setFixedTime(new Date('2026-09-26T12:00:00Z'));
+    if (profile.name === 'website')
+      await page.route(directoryPointer, (route) => route.abort('internetdisconnected'));
     await page.goto(`${profile.origin}/#discover`);
     const cards = page.locator('.production-card');
     await expect(cards).toHaveCount(12);
@@ -146,7 +148,9 @@ for (const profile of profiles) {
       // The remote directory pointer is requested by the directory route,
       // not by the saved/following article flows above.
       await page.goto(`${profile.origin}/#discover/news`);
-      await expect(page.getByRole('heading', { name: 'News directory' })).toBeVisible();
+      await expect(page.getByRole('heading', { name: 'News directory' })).toBeVisible({
+        timeout: 15_000,
+      });
     }
     expect(foreign).toEqual([]);
     await auditRemotePointers(approved, [directoryPointer, revocationPointer], 8);
@@ -209,6 +213,8 @@ for (const profile of profiles) {
   test(`${profile.name}: real endpoint follow comes first; exact matched news hides and returns without organization guessing`, async ({
     page,
   }, info) => {
+    if (profile.name === 'website')
+      await page.route(directoryPointer, (route) => route.abort('internetdisconnected'));
     await page.goto(`${profile.origin}/#discover/news`);
     await page.getByRole('combobox', { name: 'Source', exact: true }).selectOption('Evrensel');
     await expect(page.locator(`a[href="${newsUrl}"]`)).toBeVisible();

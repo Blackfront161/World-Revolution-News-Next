@@ -1,5 +1,18 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 27.09. – Die neue Website ist auf `https://solinaridao.com/` live;
+Produkt- und Quellpass-Zeiger antworten 200. Der aus Alt-Datenrepo-Commit
+`e275db2` manuell veröffentlichte Inhaltsindex zeigt nach Reload **959
+Nachrichtenlinks, 532 Quellen und drei Sport-Lesehinweise**, Stand 26.09.
+Die fünf Übertragungsarchive liegen außerhalb von `public_html`. Ein
+Hostinger-Backup ging voraus. Die automatische neue Veröffentlichung ist
+weiterhin Dry-run; nur zwölf aufgenommene Volltexte, offene Provider-
+Decodierung und 25 Fehler im letzten sechsprojektigen Browserlauf bedeuten
+**kein Gesamt-Release-GREEN**. Das korrekt signierte Haupt-AAB ist lokal
+bereit, aber nicht bei Play hochgeladen. Der gezielte Quellwahl-Nachlauf
+bestand 14/14 nach Isolierung vom wechselnden Live-Verzeichnis.
+[Live-Beleg](evidence/WRN-V11-LIVE-HOSTING-2026-09-27/REPORT.md).
+
 Neu 27.09. – Hostinger-hPanel war angemeldet; `public_html` als Live-Wurzel
 gesehen und vor dem Wechsel ein manuelles Website-Backup erfolgreich erstellt.
 Das 47-Dateien-Paket ist lokal in drei Archivschritte getrennt und nach
