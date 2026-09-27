@@ -222,6 +222,8 @@ export function createProductionContentArea({
           load(signal: AbortSignal): Promise<ProductionHomeDirectory>;
           onBrowse(): void;
           onBrowseSport?(): void;
+          prioritizeCurrentLinks?: boolean;
+          brandMarkUrl?: string;
         }>
       | undefined;
   }) {
@@ -1177,6 +1179,8 @@ export function createProductionContentArea({
                     loadDirectory={homeDirectory?.load}
                     onBrowseDirectory={homeDirectory?.onBrowse}
                     onBrowseSport={homeDirectory?.onBrowseSport}
+                    prioritizeCurrentLinks={homeDirectory?.prioritizeCurrentLinks}
+                    brandMarkUrl={homeDirectory?.brandMarkUrl}
                     regionalEvents={regionalEvents}
                   />
                 ) : (
