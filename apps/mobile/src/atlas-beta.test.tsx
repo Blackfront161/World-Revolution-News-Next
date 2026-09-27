@@ -27,6 +27,13 @@ function fixture(): MobileContentDirectory {
 }
 
 describe('World Revolution Atlas beta', () => {
+  it('localizes the visible and accessible atlas title', () => {
+    render(<AtlasBeta language="de" load={async () => ({ projection: fixture() })} />);
+    expect(screen.getByRole('region', { name: 'Atlas der Weltrevolution' })).toContainElement(
+      screen.getByRole('heading', { name: 'Atlas der Weltrevolution' }),
+    );
+  });
+
   it('uses only non-withdrawn, unambiguous source metadata and distinct quiz choices', () => {
     const directory = fixture();
     directory.sources.push({

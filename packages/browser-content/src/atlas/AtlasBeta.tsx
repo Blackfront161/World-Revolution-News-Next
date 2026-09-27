@@ -54,11 +54,11 @@ export function AtlasBeta({
   const country = (code: string) => names?.of(code) ?? code;
 
   return (
-    <section className="wrn-atlas" aria-label="World Revolution Atlas" data-testid="wrn-atlas-beta">
+    <section className="wrn-atlas" aria-label={copy.title} data-testid="wrn-atlas-beta">
       <div className="wrn-atlas__heading">
         <div>
           <p className="wrn-atlas__eyebrow">Beta</p>
-          <h2>World Revolution Atlas</h2>
+          <h2>{copy.title}</h2>
         </div>
         <button type="button" aria-expanded={open} onClick={() => setOpen((value) => !value)}>
           {open ? copy.close : copy.open}

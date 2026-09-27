@@ -12,9 +12,11 @@ type Words = readonly [
   string,
   string,
   string,
+  string,
 ];
 const words: Record<UiLanguage, Words> = {
   en: [
+    'World Revolution Atlas',
     'Open atlas',
     'Close atlas',
     'Explore recorded source countries. Historical labels, not live locations.',
@@ -28,6 +30,7 @@ const words: Record<UiLanguage, Words> = {
     'WRN source metadata · no location, account or saved score.',
   ],
   de: [
+    'Atlas der Weltrevolution',
     'Atlas öffnen',
     'Atlas schließen',
     'Erkunde erfasste Quellenländer. Historische Angaben, keine Live-Standorte.',
@@ -41,6 +44,7 @@ const words: Record<UiLanguage, Words> = {
     'WRN-Quellendaten · kein Standort, Konto oder gespeicherter Punktestand.',
   ],
   es: [
+    'Atlas de la Revolución Mundial',
     'Abrir atlas',
     'Cerrar atlas',
     'Explora los países registrados de las fuentes. Datos históricos, no ubicaciones en directo.',
@@ -54,6 +58,7 @@ const words: Record<UiLanguage, Words> = {
     'Datos de fuentes WRN · sin ubicación, cuenta ni puntuación guardada.',
   ],
   fr: [
+    'Atlas de la révolution mondiale',
     'Ouvrir l’atlas',
     'Fermer l’atlas',
     'Explorez les pays indiqués pour les sources. Données historiques, pas de positions en direct.',
@@ -67,6 +72,7 @@ const words: Record<UiLanguage, Words> = {
     'Données des sources WRN · aucune position, compte ou score enregistré.',
   ],
   it: [
+    'Atlante della rivoluzione mondiale',
     'Apri atlante',
     'Chiudi atlante',
     'Esplora i paesi registrati delle fonti. Dati storici, non posizioni in tempo reale.',
@@ -80,6 +86,7 @@ const words: Record<UiLanguage, Words> = {
     'Dati delle fonti WRN · nessuna posizione, account o punteggio salvato.',
   ],
   pt: [
+    'Atlas da Revolução Mundial',
     'Abrir atlas',
     'Fechar atlas',
     'Explore os países registados das fontes. Dados históricos, não localizações em direto.',
@@ -93,6 +100,7 @@ const words: Record<UiLanguage, Words> = {
     'Dados das fontes WRN · sem localização, conta ou pontuação guardada.',
   ],
   ru: [
+    'Атлас мировой революции',
     'Открыть атлас',
     'Закрыть атлас',
     'Изучайте страны, указанные для источников. Это архивные данные, не текущие местоположения.',
@@ -106,6 +114,7 @@ const words: Record<UiLanguage, Words> = {
     'Данные источников WRN · без геолокации, аккаунта и сохранения счёта.',
   ],
   el: [
+    'Άτλας της Παγκόσμιας Επανάστασης',
     'Άνοιγμα άτλαντα',
     'Κλείσιμο άτλαντα',
     'Εξερευνήστε τις χώρες πηγών. Ιστορικά στοιχεία, όχι ζωντανές τοποθεσίες.',
@@ -119,6 +128,7 @@ const words: Record<UiLanguage, Words> = {
     'Στοιχεία πηγών WRN · χωρίς τοποθεσία, λογαριασμό ή αποθήκευση βαθμολογίας.',
   ],
   tr: [
+    'Dünya Devrimi Atlası',
     'Atlası aç',
     'Atlası kapat',
     'Kaydedilen kaynak ülkelerini keşfedin. Bunlar canlı konum değil, geçmiş bilgilerdir.',
@@ -134,7 +144,32 @@ const words: Record<UiLanguage, Words> = {
 };
 
 export function getAtlasCopy(language: UiLanguage) {
-  const [open, close, intro, explore, quiz, question, correct, incorrect, next, score, evidence] =
-    words[language];
-  return { open, close, intro, explore, quiz, question, correct, incorrect, next, score, evidence };
+  const [
+    title,
+    open,
+    close,
+    intro,
+    explore,
+    quiz,
+    question,
+    correct,
+    incorrect,
+    next,
+    score,
+    evidence,
+  ] = words[language];
+  return {
+    title,
+    open,
+    close,
+    intro,
+    explore,
+    quiz,
+    question,
+    correct,
+    incorrect,
+    next,
+    score,
+    evidence,
+  };
 }
