@@ -13,6 +13,14 @@ import {
 
 const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const baselinePath = 'apps/mobile/src/features/directory/data/content-directory-v1.json';
+const previousManifest = (manifest) => {
+  const sequence = manifest.sequence - 1;
+  return {
+    ...manifest,
+    sequence,
+    artifactPath: `snapshots/directory-${sequence}-${manifest.artifactSha256}.json`,
+  };
+};
 
 async function packet(t) {
   const output = await mkdtemp(join(tmpdir(), 'wrn-directory-publisher-'));
@@ -67,13 +75,17 @@ test('publishes the verified snapshot before changing the pointer', async (t) =>
     expectedCommit: fixture.manifest.source.commit,
     now: fixture.now,
   });
-  const previous = { ...fixture.manifest, sequence: fixture.manifest.sequence - 1 };
+  const previous = previousManifest(fixture.manifest);
+  const previousBytes = Buffer.from(JSON.stringify(previous));
   const calls = [];
   let active = previous;
   const transport = {
     uploadSnapshot: async (path) => calls.push(`snapshot:${path}`),
     uploadPointer: async (path, bytes) => {
-      assert.deepEqual(bytes, prepared.manifestBytes);
+      assert.deepEqual(
+        bytes,
+        path.endsWith('.rollback.tmp') ? previousBytes : prepared.manifestBytes,
+      );
       calls.push(`pending:${path}`);
     },
     activatePointer: async (path) => {
@@ -85,6 +97,7 @@ test('publishes the verified snapshot before changing the pointer', async (t) =>
     prepared,
     transport,
     fetchCurrent: async () => active,
+    fetchCurrentBytes: async () => previousBytes,
     fetchPublic: async () => {
       calls.push('verify-snapshot');
       return new Response(fixture.snapshotBytes, {
@@ -97,8 +110,92 @@ test('publishes the verified snapshot before changing the pointer', async (t) =>
     `snapshot:${fixture.manifest.artifactPath}`,
     'verify-snapshot',
     `pending:current.${fixture.manifest.sequence}-${fixture.manifest.artifactSha256}.tmp`,
+    `pending:current.${fixture.manifest.sequence}-${fixture.manifest.artifactSha256}.rollback.tmp`,
     `activate:current.${fixture.manifest.sequence}-${fixture.manifest.artifactSha256}.tmp`,
   ]);
+});
+
+test('restores the exact prior pointer when activation cannot be confirmed', async (t) => {
+  const fixture = await packet(t);
+  const prepared = await loadPreparedDirectory({
+    output: fixture.output,
+    expectedCommit: fixture.manifest.source.commit,
+    now: fixture.now,
+  });
+  const previous = previousManifest(fixture.manifest);
+  const previousBytes = Buffer.from(`${JSON.stringify(previous)}\n`);
+  const calls = [];
+  let active = previous;
+  let reads = 0;
+  const transport = {
+    uploadSnapshot: async () => calls.push('snapshot'),
+    uploadPointer: async (path, bytes) => {
+      calls.push(path.endsWith('.rollback.tmp') ? 'backup' : 'candidate');
+      assert.deepEqual(
+        bytes,
+        path.endsWith('.rollback.tmp') ? previousBytes : prepared.manifestBytes,
+      );
+    },
+    activatePointer: async (path) => {
+      if (path.endsWith('.rollback.tmp')) {
+        calls.push('restore');
+        active = previous;
+      } else {
+        calls.push('activate');
+        active = fixture.manifest;
+      }
+    },
+  };
+  await assert.rejects(
+    publishPreparedDirectory({
+      prepared,
+      transport,
+      fetchCurrent: async () => {
+        reads += 1;
+        if (reads === 3) throw new Error('post-activation-network-error');
+        return active;
+      },
+      fetchCurrentBytes: async () => previousBytes,
+      fetchPublic: async () =>
+        new Response(fixture.snapshotBytes, { headers: { 'content-type': 'application/json' } }),
+    }),
+    { message: 'directory-activation-unverified-restored' },
+  );
+  assert.deepEqual(calls, ['snapshot', 'candidate', 'backup', 'activate', 'restore']);
+  assert.deepEqual(active, previous);
+});
+
+test('does not claim rollback success when restoration remains unverified', async (t) => {
+  const fixture = await packet(t);
+  const prepared = await loadPreparedDirectory({
+    output: fixture.output,
+    expectedCommit: fixture.manifest.source.commit,
+    now: fixture.now,
+  });
+  const previous = previousManifest(fixture.manifest);
+  const previousBytes = Buffer.from(JSON.stringify(previous));
+  let reads = 0;
+  const activations = [];
+  await assert.rejects(
+    publishPreparedDirectory({
+      prepared,
+      transport: {
+        uploadSnapshot: async () => undefined,
+        uploadPointer: async () => undefined,
+        activatePointer: async (path) => activations.push(path),
+      },
+      fetchCurrent: async () => {
+        reads += 1;
+        return reads < 4 ? previous : fixture.manifest;
+      },
+      fetchCurrentBytes: async () => previousBytes,
+      fetchPublic: async () =>
+        new Response(fixture.snapshotBytes, { headers: { 'content-type': 'application/json' } }),
+    }),
+    { message: 'directory-rollback-unverified' },
+  );
+  assert.equal(activations.length, 2);
+  assert.match(activations[1], /\.rollback\.tmp$/u);
 });
 
 test('stops on rollback, hash mismatch and a concurrent pointer change', async (t) => {
@@ -123,7 +220,7 @@ test('stops on rollback, hash mismatch and a concurrent pointer change', async (
     { message: 'directory-rollback-or-sequence-conflict' },
   );
   assert.deepEqual(calls, []);
-  const previous = { ...fixture.manifest, sequence: fixture.manifest.sequence - 1 };
+  const previous = previousManifest(fixture.manifest);
   await assert.rejects(
     publishPreparedDirectory({
       prepared,
@@ -155,6 +252,7 @@ test('stops on rollback, hash mismatch and a concurrent pointer change', async (
       prepared,
       transport,
       fetchCurrent: async () => (++reads < 3 ? previous : fixture.manifest),
+      fetchCurrentBytes: async () => Buffer.from(JSON.stringify(fixture.manifest)),
       fetchPublic: async () =>
         new Response(fixture.snapshotBytes, { headers: { 'content-type': 'application/json' } }),
     }),

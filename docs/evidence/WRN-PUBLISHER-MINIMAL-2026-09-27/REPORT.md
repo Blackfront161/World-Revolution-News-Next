@@ -14,7 +14,18 @@ Hostinger-Secrets. Der Adapter prüft Schema, Herkunft, Alter, Hashes,
 Bestätigungen stoppen den Lauf. Volltext- und Bildrechte werden dadurch nicht
 erteilt.
 
-Lokal: `node --test` für die betroffenen Content-Betriebsfälle **28/28 PASS**;
+Die unabhängige Erstprüfung fand einen Rollback-Fehler nach einem unbestätigten
+Zeigerwechsel. Der Publisher sichert nun die exakten Bytes des zuvor öffentlich
+gelesenen und validierten Zeigers als separate FTPS-Datei. Kann er den neuen
+Zeiger nach der Aktivierung nicht bestätigen, versucht er die atomare
+Rückbenennung dieser Sicherung auf `current.json` und prüft den vorherigen
+Zeiger erneut. Bei unbestätigter Wiederherstellung meldet er ausdrücklich
+`directory-rollback-unverified`; bei einer erkennbar dritten Publikation stoppt
+er ohne deren Zeiger zu überschreiben. Die lokalen Tests simulieren einen
+fehlenden Readback und eine erfolglose Rücksetzung. Eine echte FTPS-Rename-Probe
+am verzeichnisbegrenzten Hostinger-Konto steht noch aus.
+
+Lokal: `node --test` für die betroffenen Content-Betriebsfälle **30/30 PASS**;
 Prettier für die drei neuen Dateien und `git diff --check` PASS. Kein
 Hostinger-Konto angelegt, kein Secret übertragen, kein Publisher aktiviert und
 keine öffentliche Aktualisierung behauptet. Vor der Aktivierung fehlen ein

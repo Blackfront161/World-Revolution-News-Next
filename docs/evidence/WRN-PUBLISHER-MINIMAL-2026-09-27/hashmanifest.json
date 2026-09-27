@@ -8,15 +8,15 @@
     },
     {
       "path": "tools/directory/publish-live-content-directory.mjs",
-      "sha256": "ab1aadd4e3625668c083efe29723460664faa7af587b743e18538b46a6e58cd0"
+      "sha256": "46747a2f8e7d2ded1c807e84296eaf6a4f77c3553092feade3483921499da07e"
     },
     {
       "path": "tools/directory/publish-live-content-directory.test.mjs",
-      "sha256": "d0472677d765db4840c6f5663541eff28b8b32feb7989d380287a14f5e51c1c5"
+      "sha256": "89a3df0dc95852c7991519a57f99d69d88cf2631334e547bb19a602e70a0b12e"
     },
     {
       "path": "docs/evidence/WRN-PUBLISHER-MINIMAL-2026-09-27/REPORT.md",
-      "sha256": "787593dd5f2ed63e71f2ba0bbbd1894da974e276f630b9e408198c3c5b7d0a16"
+      "sha256": "35d1bb182e237ae9cbabb43d38d47cbb07d124e7731c13eefff274a3d2ad4614"
     }
   ]
 }
