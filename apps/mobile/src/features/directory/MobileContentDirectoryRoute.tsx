@@ -241,6 +241,7 @@ export function MobileContentDirectoryRoute({
                 value={source}
                 onChange={(event) => {
                   setSource(event.target.value);
+                  if (event.target.value) setFeed('all');
                   setShown(30);
                 }}
               >

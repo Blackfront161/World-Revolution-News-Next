@@ -54,6 +54,18 @@ describe('MobileContentDirectoryRoute', () => {
     expect(link).toHaveAttribute('rel', 'noopener noreferrer');
     expect(link).toHaveAttribute('referrerpolicy', 'no-referrer');
   });
+  it('shows all recorded articles when a source is selected from the complete directory', async () => {
+    const { MobileContentDirectoryRoute } = await import('./MobileContentDirectoryRoute');
+    render(<MobileContentDirectoryRoute language="en" section="news" />);
+    expect(await screen.findByText('Showing 30 of 493')).toBeInTheDocument();
+
+    fireEvent.change(screen.getByLabelText('Source'), {
+      target: { value: 'Kodao Productions' },
+    });
+
+    expect(screen.getByText('Showing 8 of 8')).toBeInTheDocument();
+    expect(screen.getByRole('radio', { name: 'All' })).toBeChecked();
+  });
   it('keeps source HTTP endpoints nonclickable and exposes each selected section', async () => {
     const { MobileContentDirectoryRoute } = await import('./MobileContentDirectoryRoute');
     const { rerender } = render(<MobileContentDirectoryRoute language="en" section="sources" />);

@@ -9,6 +9,7 @@ import {
   useRef,
   useState,
   type KeyboardEvent as ReactKeyboardEvent,
+  type TouchEvent as ReactTouchEvent,
   type RefObject,
 } from 'react';
 import {
@@ -60,6 +61,7 @@ import {
   resolveLocalReaderState,
   markLocalArticleRead,
   markLocalArticleUnread,
+  mobilePrimaryNavigationIds,
   reconcileLocalReadingState,
   removeLocalReadingArticle,
   resetLocalReadingProgress,
@@ -1435,6 +1437,7 @@ export function App({
   const contentTriggerRef = useRef<HTMLButtonElement | null>(null);
   const supportNavigationGuardRef = useRef<WebsiteSupportNavigationGuard | null>(null);
   const targetRef = useRef(target);
+  const mainSwipeStartRef = useRef<{ x: number; y: number } | null>(null);
   const setSupportNavigationGuard = useCallback((guard: WebsiteSupportNavigationGuard | null) => {
     supportNavigationGuardRef.current = guard;
   }, []);
@@ -1754,6 +1757,43 @@ export function App({
     };
     if (supportNavigationGuardRef.current?.(continueNavigation, trigger) === false) return;
     continueNavigation();
+  };
+  const onMainTouchStart = (event: ReactTouchEvent<HTMLElement>) => {
+    mainSwipeStartRef.current = null;
+    const origin = event.target instanceof Element ? event.target : null;
+    if (
+      window.innerWidth > 600 ||
+      event.touches.length !== 1 ||
+      readerArticleId !== null ||
+      archiveRoute !== undefined ||
+      document.querySelector('[role="dialog"]') ||
+      origin?.closest(
+        'a, button, input, select, textarea, label, summary, [contenteditable="true"], [role="button"], [role="tab"], [role="slider"]',
+      )
+    )
+      return;
+    for (let node = origin; node && node !== event.currentTarget; node = node.parentElement) {
+      const overflowX = window.getComputedStyle(node).overflowX;
+      if (
+        (overflowX === 'auto' || overflowX === 'scroll') &&
+        node.scrollWidth > node.clientWidth + 1
+      )
+        return;
+    }
+    const touch = event.touches[0]!;
+    mainSwipeStartRef.current = { x: touch.clientX, y: touch.clientY };
+  };
+  const onMainTouchEnd = (event: ReactTouchEvent<HTMLElement>) => {
+    const start = mainSwipeStartRef.current;
+    mainSwipeStartRef.current = null;
+    if (start === null || event.changedTouches.length !== 1) return;
+    const touch = event.changedTouches[0]!;
+    const dx = touch.clientX - start.x;
+    const dy = touch.clientY - start.y;
+    if (Math.abs(dx) < 72 || Math.abs(dx) <= Math.abs(dy) * 1.5) return;
+    const index = mobilePrimaryNavigationIds.findIndex((id) => id === target);
+    const next = mobilePrimaryNavigationIds[index + (dx < 0 ? 1 : -1)];
+    if (index >= 0 && next) navigate(next);
   };
   const menuIsOpen = target === 'more' && readerArticleId === null && archiveRoute === undefined;
   const toggleMoreMenu = () => {
@@ -2294,6 +2334,14 @@ export function App({
             tabIndex={-1}
             aria-labelledby="website-page-title"
             data-view={target}
+            onTouchStart={onMainTouchStart}
+            onTouchEnd={onMainTouchEnd}
+            onTouchMove={(event) => {
+              if (event.touches.length !== 1) mainSwipeStartRef.current = null;
+            }}
+            onTouchCancel={() => {
+              mainSwipeStartRef.current = null;
+            }}
           >
             {target === 'more' && archiveRoute === undefined && (
               <section className="more-theme-settings">

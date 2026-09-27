@@ -317,13 +317,14 @@ describe('website local newsfeed', () => {
     expect(window.localStorage.getItem('wrn.theme-preference.v1')).toBe('editorial');
   });
 
-  it('keeps an accessible compact text brand name without a large asset masthead', () => {
+  it('keeps the compact Code26 image brand accessible by link name', () => {
     render(<App initialState="loading" />);
 
     const brand = screen.getByRole('link', { name: /Solinaridao.*World Revolution News/i });
     expect(brand).toBeVisible();
-    expect(brand).toHaveTextContent('World Revolution News');
-    expect(brand.querySelector('img')).toBeNull();
+    const mark = within(brand).getByTestId('code26-brand-mark');
+    expect(mark).toHaveAttribute('alt', '');
+    expect(mark.getAttribute('src')).toContain('solinaridao-header-mark-filled');
   });
 
   it('closes the header menu back to the exact previous route', async () => {
@@ -385,7 +386,7 @@ describe('website local newsfeed', () => {
       within(compactNavigation)
         .getAllByRole('link')
         .map((link) => link.textContent),
-    ).toEqual(['Home', 'Discover', 'Media', 'Saved']);
+    ).toEqual(['Home', 'For me', 'Discover', 'Media', 'Saved']);
     const moreButton = within(compactNavigation).getByRole('button', { name: 'More' });
     await user.click(moreButton);
     expect(moreButton).toHaveAttribute('aria-expanded', 'true');

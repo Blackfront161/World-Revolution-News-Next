@@ -1121,6 +1121,53 @@ describe('mobile local newsfeed', () => {
     );
   });
 
+  it('moves between adjacent main tabs on a horizontal swipe but ignores vertical gestures', () => {
+    render(<App initialState="loading" />);
+    const main = screen.getByRole('main');
+    const home = screen.getByRole('link', { name: 'Home' });
+    const following = screen.getByRole('link', { name: 'For me' });
+    const articleText = document.createElement('p');
+    articleText.textContent = 'Article excerpt';
+    main.append(articleText);
+    const swipe = (endX: number, endY: number) => {
+      fireEvent.touchStart(articleText, { touches: [{ clientX: 320, clientY: 350 }] });
+      fireEvent.touchEnd(articleText, { changedTouches: [{ clientX: endX, clientY: endY }] });
+    };
+
+    swipe(290, 550);
+    expect(home).toHaveAttribute('aria-current', 'page');
+    fireEvent.touchStart(main, { touches: [{ clientX: 320, clientY: 350 }] });
+    fireEvent.touchMove(main, {
+      touches: [
+        { clientX: 240, clientY: 350 },
+        { clientX: 250, clientY: 360 },
+      ],
+    });
+    fireEvent.touchEnd(main, { changedTouches: [{ clientX: 120, clientY: 360 }] });
+    expect(home).toHaveAttribute('aria-current', 'page');
+    const horizontalList = document.createElement('div');
+    horizontalList.style.overflowX = 'auto';
+    Object.defineProperties(horizontalList, {
+      scrollWidth: { value: 500 },
+      clientWidth: { value: 250 },
+    });
+    main.append(horizontalList);
+    fireEvent.touchStart(horizontalList, { touches: [{ clientX: 320, clientY: 350 }] });
+    fireEvent.touchEnd(horizontalList, { changedTouches: [{ clientX: 120, clientY: 360 }] });
+    expect(home).toHaveAttribute('aria-current', 'page');
+    const preferenceLabel = document.createElement('label');
+    preferenceLabel.textContent = 'For me preference';
+    main.append(preferenceLabel);
+    fireEvent.touchStart(preferenceLabel, { touches: [{ clientX: 320, clientY: 350 }] });
+    fireEvent.touchEnd(preferenceLabel, { changedTouches: [{ clientX: 120, clientY: 360 }] });
+    expect(home).toHaveAttribute('aria-current', 'page');
+    swipe(120, 360);
+    expect(following).toHaveAttribute('aria-current', 'page');
+    fireEvent.touchStart(main, { touches: [{ clientX: 100, clientY: 350 }] });
+    fireEvent.touchEnd(main, { changedTouches: [{ clientX: 310, clientY: 360 }] });
+    expect(home).toHaveAttribute('aria-current', 'page');
+  });
+
   it('shows a named Discover loading state instead of the old migration placeholder', async () => {
     const user = userEvent.setup();
     render(<App initialState="loading" />);

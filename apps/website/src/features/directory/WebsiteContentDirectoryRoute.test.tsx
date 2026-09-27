@@ -89,6 +89,47 @@ it('uses recorded aliases and homepage domains in the rendered source search', a
   }
 });
 
+it('opens every available directory article for a selected source', async () => {
+  expect(
+    snapshot.articles
+      .filter((article) => article.sourceName === 'Indymedia Argentina')
+      .every((article) => article.endpointIds.length === 0),
+  ).toBe(true);
+  mockContentFetch();
+  const onSectionChange = vi.fn();
+  const props = { language: 'en' as const, headingRef: { current: null }, onSectionChange };
+  const view = render(<WebsiteContentDirectoryRoute {...props} section="sources" />);
+  await screen.findByText('Showing 30 of 532');
+  fireEvent.change(screen.getByLabelText('Search'), {
+    target: { value: 'Indymedia Argentina' },
+  });
+  expect(screen.getByText('Showing 2 of 2')).toBeInTheDocument();
+  fireEvent.click(screen.getAllByRole('button', { name: 'All news from this source (36)' })[0]!);
+  expect(onSectionChange).toHaveBeenCalledWith('news');
+  view.rerender(<WebsiteContentDirectoryRoute {...props} section="news" />);
+  expect(screen.getByText('Showing 30 of 36')).toBeInTheDocument();
+  fireEvent.click(screen.getByRole('button', { name: 'Load 30 more' }));
+  expect(screen.getByText('Showing 36 of 36')).toBeInTheDocument();
+});
+
+it('opens articles from a curated source pass with different pass and endpoint IDs', async () => {
+  mockContentFetch();
+  const onSectionChange = vi.fn();
+  const props = { language: 'en' as const, headingRef: { current: null }, onSectionChange };
+  const view = render(<WebsiteContentDirectoryRoute {...props} section="sources" />);
+  const button = await screen.findByRole(
+    'button',
+    { name: 'All news from this source: Electronic Frontier Foundation (10)' },
+    { timeout: 5000 },
+  );
+  fireEvent.click(button);
+  expect(onSectionChange).toHaveBeenCalledWith('news');
+  view.rerender(<WebsiteContentDirectoryRoute {...props} section="news" />);
+  expect(screen.getByText('Showing 10 of 10')).toBeInTheDocument();
+  expect(screen.getByText('Source:')).toBeInTheDocument();
+  expect(screen.getByText('Electronic Frontier Foundation', { selector: 'strong' })).toBeInTheDocument();
+});
+
 it('renders canonical source passes before the complete endpoint list with combined facets', async () => {
   mockContentFetch();
   render(

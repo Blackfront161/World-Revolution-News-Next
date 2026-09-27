@@ -6,6 +6,11 @@ import {
 } from '@wrn/ui-language/directory';
 import type { UiLanguage } from '@wrn/ui-language';
 import { loadWebsiteContentDirectory, type WebsiteContentDirectory } from './directory-loader';
+import type {
+  DirectoryArticle,
+  DirectorySource,
+} from '@wrn/content-contracts/mobile-content-directory-v1';
+import type { SourcePassRecord } from '@wrn/content-contracts/source-pass-overlay-v1';
 import type { WebsiteDirectorySection } from './directory-navigation';
 import './directory.css';
 import { projectSourcePreferences } from '@wrn/domain';
@@ -34,6 +39,42 @@ const external = {
   rel: 'noopener noreferrer',
   referrerPolicy: 'no-referrer',
 } as const;
+type SelectedDirectorySource = Readonly<{
+  ids: ReadonlySet<string>;
+  name: string;
+  names: ReadonlySet<string>;
+}>;
+const selectDirectorySource = (source: DirectorySource): SelectedDirectorySource => ({
+  ids: new Set([source.id]),
+  name: source.name,
+  names: new Set([source.name, ...source.observations.map((entry) => entry.name)]),
+});
+function selectCuratedSource(
+  record: SourcePassRecord,
+  sources: readonly DirectorySource[],
+): SelectedDirectorySource {
+  const ids = new Set(record.endpoints.map((entry) => entry.endpointId));
+  const linkedSources = sources.filter((entry) => ids.has(entry.id));
+  return {
+    ids,
+    name: record.canonicalName,
+    names: new Set([
+      record.canonicalName,
+      ...record.aliasNames,
+      ...linkedSources.flatMap((entry) => [
+        entry.name,
+        ...entry.observations.map((observation) => observation.name),
+      ]),
+    ]),
+  };
+}
+function matchesSelectedSource(article: DirectoryArticle, source: SelectedDirectorySource) {
+  return (
+    article.endpointIds.some((id) => source.ids.has(id)) ||
+    source.names.has(article.sourceName) ||
+    article.observations.some((entry) => source.names.has(entry.sourceName))
+  );
+}
 export function WebsiteContentDirectoryRoute({
   section,
   language,
@@ -53,6 +94,7 @@ export function WebsiteContentDirectoryRoute({
   const [query, setQuery] = useState('');
   const [contentLanguage, setContentLanguage] = useState('');
   const [source, setSource] = useState('');
+  const [selectedSource, setSelectedSource] = useState<SelectedDirectorySource | null>(null);
   const [sourceRegion, setSourceRegion] = useState('');
   const [sourceCountry, setSourceCountry] = useState('');
   const [sourceTopic, setSourceTopic] = useState('');
@@ -77,11 +119,13 @@ export function WebsiteContentDirectoryRoute({
                     .toLocaleLowerCase()
                     .includes(query.toLocaleLowerCase()) &&
                   (!contentLanguage || x.language === contentLanguage) &&
-                  (!source || x.sourceName === source),
+                  (!source || x.sourceName === source) &&
+                  (!selectedSource || matchesSelectedSource(x, selectedSource)),
               ),
               sourcePreferences.state,
               'directory',
               (entry) => entry.endpointIds,
+              { includeHidden: Boolean(source || selectedSource) },
             )
           : section === 'sources'
             ? projectSourcePreferences(
@@ -111,6 +155,7 @@ export function WebsiteContentDirectoryRoute({
       query,
       contentLanguage,
       source,
+      selectedSource,
       sourceRegion,
       sourceCountry,
       sourceTopic,
@@ -171,6 +216,17 @@ export function WebsiteContentDirectoryRoute({
   const mergeFacet = (left: readonly string[], right: readonly string[]) =>
     [...new Set([...left, ...right])].sort((a, b) => a.localeCompare(b));
   const sourcePassCopy = getSourcePassCopy(language);
+  const sourceArticleLabel = language === 'de' ? 'Alle Meldungen dieser Quelle' : 'All news from this source';
+  const sourceArticleCount = (selected: SelectedDirectorySource) =>
+    data.projection.articles.filter((article) => matchesSelectedSource(article, selected)).length;
+  const showSourceNews = (selected: SelectedDirectorySource) => {
+    setSelectedSource(selected);
+    setSource('');
+    setQuery('');
+    setContentLanguage('');
+    setShown(30);
+    onSectionChange('news');
+  };
   return (
     <section className="website-directory" aria-labelledby="website-page-title">
       <SourcePreferencesNotice />
@@ -195,6 +251,7 @@ export function WebsiteContentDirectoryRoute({
               setQuery('');
               setContentLanguage('');
               setSource('');
+              setSelectedSource(null);
               setSourceRegion('');
               setSourceCountry('');
               setSourceTopic('');
@@ -243,6 +300,7 @@ export function WebsiteContentDirectoryRoute({
                 value={source}
                 onChange={(event) => {
                   setSource(event.target.value);
+                  setSelectedSource(null);
                   setShown(30);
                 }}
               >
@@ -303,6 +361,7 @@ export function WebsiteContentDirectoryRoute({
               setQuery('');
               setContentLanguage('');
               setSource('');
+              setSelectedSource(null);
               setSourceRegion('');
               setSourceCountry('');
               setSourceTopic('');
@@ -313,6 +372,11 @@ export function WebsiteContentDirectoryRoute({
             {copy.reset}
           </button>
         </div>
+      )}
+      {section === 'news' && selectedSource && (
+        <p className="website-directory-source-selection">
+          {copy.source}: <strong>{selectedSource.name}</strong>
+        </p>
       )}
       {section === 'sources' && (
         <>
@@ -325,11 +389,30 @@ export function WebsiteContentDirectoryRoute({
           ) : curatedSources.length === 0 ? (
             <p>{copy.noResults}</p>
           ) : (
-            <SourcePassCards
-              records={curatedSources}
-              language={language}
-              endpointUrl={(record, id) => sourcePassEndpointUrl(record, id, data.projection)}
-            />
+            <div className="website-curated-source-list">
+              {curatedSources.map((record) => {
+                const selected = selectCuratedSource(record, data.projection.sources);
+                const count = sourceArticleCount(selected);
+                return (
+                  <div className="website-curated-source" key={record.id}>
+                    <SourcePassCards
+                      records={[record]}
+                      language={language}
+                      endpointUrl={(item, id) => sourcePassEndpointUrl(item, id, data.projection)}
+                    />
+                    {count > 0 && (
+                      <button
+                        type="button"
+                        aria-label={`${sourceArticleLabel}: ${record.canonicalName} (${count})`}
+                        onClick={() => showSourceNews(selected)}
+                      >
+                        {sourceArticleLabel} ({count})
+                      </button>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           )}
           <h2>{sourcePassCopy.completeTitle}</h2>
           <p>{sourcePassCopy.completeIntro}</p>
@@ -381,6 +464,18 @@ export function WebsiteContentDirectoryRoute({
                   )}
                   <p>{entry.sourceName ?? entry.languages?.join(' · ') ?? entry.publisher}</p>
                   {section === 'sources' && (
+                    <>
+                    {(() => {
+                      const directorySource = data.projection.sources.find((item) => item.id === entry.id);
+                      if (!directorySource) return null;
+                      const selected = selectDirectorySource(directorySource);
+                      const count = sourceArticleCount(selected);
+                      return count > 0 ? (
+                        <button type="button" onClick={() => showSourceNews(selected)}>
+                          {sourceArticleLabel} ({count})
+                        </button>
+                      ) : null;
+                    })()}
                     <SourceProfile
                       catalog="directory"
                       sourceId={entry.id}
@@ -411,6 +506,7 @@ export function WebsiteContentDirectoryRoute({
                           </div>
                         ))}
                     </SourceProfile>
+                    </>
                   )}
                   {section === 'sport' && (
                     <>

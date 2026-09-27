@@ -246,6 +246,12 @@ describe('production Home selection', () => {
     async ({ role, imageIndex }) => {
       const base = await productionTestResult();
       const imageArticleId = base.runtime!.documents.articles.articles[imageIndex]!.id;
+      const leadArticleId = base.runtime!.documents.articles.articles[0]!.id;
+      const leadImage: ProductionReaderImageBlockV2 = {
+        ...mixedImage,
+        mediaId: 'wrn-media-test-lead-image',
+        attribution: 'Lead image author',
+      };
       const result: ProductionContentOfflineControllerResult = {
         ...base,
         runtime: {
@@ -257,7 +263,9 @@ describe('production Home selection', () => {
               entries: base.runtime!.documents.readerDetails.entries.map((entry) =>
                 entry.articleId === imageArticleId
                   ? { ...entry, blocks: [mixedImage, ...entry.blocks] }
-                  : entry,
+                  : role === 'main' && entry.articleId === leadArticleId
+                    ? { ...entry, blocks: [leadImage, ...entry.blocks] }
+                    : entry,
               ),
             },
           },

@@ -11,6 +11,7 @@ import {
   useRef,
   useState,
   type KeyboardEvent as ReactKeyboardEvent,
+  type TouchEvent as ReactTouchEvent,
   type ReactNode,
   type RefObject,
 } from 'react';
@@ -1710,6 +1711,7 @@ export function App({
   const [systemPrefersDark, setSystemPrefersDark] = useState(readSystemPrefersDark);
   const [target, setTarget] = useState<NavigationTargetId>(readNavigationTargetFromLocation);
   const [searchRequested, setSearchRequested] = useState(false);
+  const mainSwipeStartRef = useRef<{ x: number; y: number } | null>(null);
   const supportClock = useCallback(() => new Date(now()), [now]);
   const supportGuardRef = useRef<MobileSupportNavigationGuard | null>(null);
   const registerSupportGuard = useCallback((guard: MobileSupportNavigationGuard | null) => {
@@ -2236,6 +2238,42 @@ export function App({
       setDirectorySection(null);
     });
   };
+  const onMainTouchStart = (event: ReactTouchEvent<HTMLElement>) => {
+    mainSwipeStartRef.current = null;
+    const origin = event.target instanceof Element ? event.target : null;
+    if (
+      event.touches.length !== 1 ||
+      readerArticleId !== null ||
+      archiveRoute !== undefined ||
+      document.querySelector('[role="dialog"]') ||
+      origin?.closest(
+        'a, button, input, select, textarea, label, summary, [contenteditable="true"], [role="button"], [role="tab"], [role="slider"]',
+      )
+    )
+      return;
+    for (let node = origin; node && node !== event.currentTarget; node = node.parentElement) {
+      const overflowX = window.getComputedStyle(node).overflowX;
+      if (
+        (overflowX === 'auto' || overflowX === 'scroll') &&
+        node.scrollWidth > node.clientWidth + 1
+      )
+        return;
+    }
+    const touch = event.touches[0]!;
+    mainSwipeStartRef.current = { x: touch.clientX, y: touch.clientY };
+  };
+  const onMainTouchEnd = (event: ReactTouchEvent<HTMLElement>) => {
+    const start = mainSwipeStartRef.current;
+    mainSwipeStartRef.current = null;
+    if (start === null || event.changedTouches.length !== 1) return;
+    const touch = event.changedTouches[0]!;
+    const dx = touch.clientX - start.x;
+    const dy = touch.clientY - start.y;
+    if (Math.abs(dx) < 72 || Math.abs(dx) <= Math.abs(dy) * 1.5) return;
+    const index = mobilePrimaryNavigationIds.findIndex((id) => id === target);
+    const next = mobilePrimaryNavigationIds[index + (dx < 0 ? 1 : -1)];
+    if (index >= 0 && next) navigate(next);
+  };
   const menuIsOpen = target === 'more' && readerArticleId === null && archiveRoute === undefined;
   const toggleMoreMenu = () => {
     if (!menuIsOpen) {
@@ -2734,7 +2772,19 @@ export function App({
               </div>
             </div>
           </header>
-          <main id="mobile-main" tabIndex={-1} aria-labelledby="mobile-page-title">
+          <main
+            id="mobile-main"
+            tabIndex={-1}
+            aria-labelledby="mobile-page-title"
+            onTouchStart={onMainTouchStart}
+            onTouchEnd={onMainTouchEnd}
+            onTouchMove={(event) => {
+              if (event.touches.length !== 1) mainSwipeStartRef.current = null;
+            }}
+            onTouchCancel={() => {
+              mainSwipeStartRef.current = null;
+            }}
+          >
             {target === 'more' && archiveRoute === undefined && (
               <section className="more-theme-settings">
                 <label className="theme-selector">
