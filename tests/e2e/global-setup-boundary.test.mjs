@@ -13,11 +13,22 @@ test('keeps publisher and offline-shell builder outside Playwright transformatio
     source,
     /promisify\(execFile\)\(process\.execPath, \[path\.resolve\(websiteRoot, buildTool\), 'dist'\]/u,
   );
-  assert.match(source, /tools\/integrate-static-article-landings\.mjs/u);
-  assert.match(source, /tools\/build-offline-shell\.mjs/u);
-  assert.ok(
-    source.indexOf('tools/integrate-static-article-landings.mjs') <
-      source.indexOf('tools/build-offline-shell.mjs'),
-    'publisher must finish before the worker is built',
+  assert.match(
+    source,
+    /promisify\(execFile\)\(\s*process\.execPath,\s*\[path\.resolve\(websiteRoot, buildTool\), fixtureOutput\]/u,
+  );
+  assert.deepEqual(
+    [
+      ...source.matchAll(
+        /'tools\/(?:integrate-(?:production-article|static-article)-landings|build-offline-shell)\.mjs'/gu,
+      ),
+    ].map(([name]) => name),
+    [
+      "'tools/integrate-production-article-landings.mjs'",
+      "'tools/build-offline-shell.mjs'",
+      "'tools/integrate-static-article-landings.mjs'",
+      "'tools/build-offline-shell.mjs'",
+    ],
+    'both publishers must finish before their corresponding workers are built',
   );
 });

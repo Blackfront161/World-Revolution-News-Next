@@ -1,0 +1,375 @@
+{
+  "schema": "wrn.source-pass-overlay.v1",
+  "contractVersion": "1.1.0",
+  "revision": "wrn-source-pass-fallback-2026-09-25-v1",
+  "sequence": 1,
+  "reviewedAt": "2026-09-25T00:00:00Z",
+  "records": [
+    {
+      "id": "wrn-source-pass-4f938bf89f0b4fa3a7472161d8b92dc4",
+      "canonicalName": "Electronic Frontier Foundation",
+      "aliasNames": ["EFF"],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "EFF describes itself as a nonprofit defending civil liberties in the digital world through litigation, policy analysis, activism and technology development.",
+        "language": "en",
+        "evidenceIds": ["evidence-eff-about"]
+      },
+      "editorialDescription": {
+        "text": "WRN curates EFF for reporting and analysis on digital rights, privacy, surveillance and freedom of expression.",
+        "language": "en",
+        "evidenceIds": ["evidence-eff-editorial"]
+      },
+      "endpoints": [
+        {
+          "endpointId": "source-ef5503bcda4b70d449148e570edb94205d52574c97eeafe8d5caeedd3654ea15",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-eff-about"],
+          "kind": "directory",
+          "url": null
+        },
+        {
+          "endpointId": "source-f0824f315038ca0e6f5b916b0a17d1b842f33f85bdf818b346b39cbc37f5df7d",
+          "role": "feed",
+          "health": "unchecked",
+          "checkedAt": "2026-09-09T04:37:14.725Z",
+          "lastSuccessfulAt": null,
+          "evidenceIds": ["evidence-eff-feed-snapshot"],
+          "kind": "directory",
+          "url": null
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-ef5503bcda4b70d449148e570edb94205d52574c97eeafe8d5caeedd3654ea15",
+      "originalEndpointId": "source-ef5503bcda4b70d449148e570edb94205d52574c97eeafe8d5caeedd3654ea15",
+      "regions": ["Global", "North America"],
+      "countries": ["United States"],
+      "languages": ["en"],
+      "topics": ["digital rights", "free expression", "privacy", "surveillance"],
+      "tendencies": ["civil liberties"],
+      "mediaTypes": ["news", "analysis"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "allowed",
+          "evidenceIds": ["evidence-eff-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "allowed",
+          "evidenceIds": ["evidence-eff-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "link-only",
+          "evidenceIds": ["evidence-eff-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-eff-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "link-only",
+          "evidenceIds": ["evidence-eff-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://www.eff.org/about/contact",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-eff-contact"]
+      },
+      "evidenceIds": [
+        "evidence-eff-about",
+        "evidence-eff-rights",
+        "evidence-eff-contact",
+        "evidence-eff-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-570fbd67125f4f77b1b584cf98035440",
+      "canonicalName": "Center for a Stateless Society",
+      "aliasNames": ["C4SS"],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "C4SS describes itself as an anarchist think tank and media center producing and distributing left market anarchist media.",
+        "language": "en",
+        "evidenceIds": ["evidence-c4ss-about"]
+      },
+      "editorialDescription": {
+        "text": "WRN curates C4SS as an organization-published source for anarchist commentary and multilingual translations.",
+        "language": "en",
+        "evidenceIds": ["evidence-c4ss-editorial"]
+      },
+      "endpoints": [
+        {
+          "endpointId": "source-ca93c44fa85ee2bf2742023def03e6fc1e54c2536440bba2f55bbcb5a82abfb9",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-c4ss-about"],
+          "kind": "directory",
+          "url": null
+        },
+        {
+          "endpointId": "source-4f41640569ed675e571aa7979edf4ffe84cfdf79d133a0200c59db555a34766b",
+          "role": "feed",
+          "health": "unchecked",
+          "checkedAt": "2026-09-09T04:37:14.725Z",
+          "lastSuccessfulAt": null,
+          "evidenceIds": ["evidence-c4ss-feed-snapshot"],
+          "kind": "directory",
+          "url": null
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-ca93c44fa85ee2bf2742023def03e6fc1e54c2536440bba2f55bbcb5a82abfb9",
+      "originalEndpointId": "source-ca93c44fa85ee2bf2742023def03e6fc1e54c2536440bba2f55bbcb5a82abfb9",
+      "regions": ["Global", "North America"],
+      "countries": ["United States"],
+      "languages": ["ar", "el", "en", "es", "it", "nl", "pt", "ru", "sv", "zh"],
+      "topics": ["anarchism", "free expression", "surveillance"],
+      "tendencies": ["left market anarchism"],
+      "mediaTypes": ["analysis", "news", "translation"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "allowed",
+          "evidenceIds": ["evidence-c4ss-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "allowed",
+          "evidenceIds": ["evidence-c4ss-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "link-only",
+          "evidenceIds": ["evidence-c4ss-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-c4ss-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-c4ss-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://c4ss.org/contact",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-c4ss-contact"]
+      },
+      "evidenceIds": [
+        "evidence-c4ss-about",
+        "evidence-c4ss-rights",
+        "evidence-c4ss-contact",
+        "evidence-c4ss-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-9175a51652444964a513864dd68f3db2",
+      "canonicalName": "Africa Is a Country",
+      "aliasNames": ["AIAC"],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "Africa Is a Country describes its work as an African left perspective on social, political and cultural issues, including sport.",
+        "language": "en",
+        "evidenceIds": ["evidence-aiac-about"]
+      },
+      "editorialDescription": {
+        "text": "WRN curates Africa Is a Country for African left analysis, anticolonial perspectives and its sport and society coverage.",
+        "language": "en",
+        "evidenceIds": ["evidence-aiac-editorial"]
+      },
+      "endpoints": [
+        {
+          "endpointId": "source-d73aa8575b7a52df882b1ad832271f0cca8c779caab576cab9eb32678b6c929d",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-aiac-about"],
+          "kind": "directory",
+          "url": null
+        },
+        {
+          "endpointId": "source-8d47c381dfd8abf4946a0d82c708500a28366051b40ce57b026f3f0440f164fd",
+          "role": "feed",
+          "health": "unchecked",
+          "checkedAt": "2026-09-09T04:37:14.725Z",
+          "lastSuccessfulAt": null,
+          "evidenceIds": ["evidence-aiac-feed-snapshot"],
+          "kind": "directory",
+          "url": null
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-d73aa8575b7a52df882b1ad832271f0cca8c779caab576cab9eb32678b6c929d",
+      "originalEndpointId": "source-d73aa8575b7a52df882b1ad832271f0cca8c779caab576cab9eb32678b6c929d",
+      "regions": ["Africa", "Global"],
+      "countries": [],
+      "languages": ["en"],
+      "topics": ["anticolonialism", "culture", "politics", "sport"],
+      "tendencies": ["African left"],
+      "mediaTypes": ["analysis", "news", "podcast"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "allowed",
+          "evidenceIds": ["evidence-aiac-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "allowed",
+          "evidenceIds": ["evidence-aiac-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "link-only",
+          "evidenceIds": ["evidence-aiac-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-aiac-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-aiac-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://africasacountry.com/contact",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-aiac-contact"]
+      },
+      "evidenceIds": [
+        "evidence-aiac-about",
+        "evidence-aiac-rights",
+        "evidence-aiac-contact",
+        "evidence-aiac-editorial"
+      ]
+    }
+  ],
+  "relations": [],
+  "evidence": [
+    {
+      "id": "evidence-eff-about",
+      "kind": "source-self-description",
+      "url": "https://www.eff.org/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official About page was reachable and supplies the source self-description and homepage observation."
+    },
+    {
+      "id": "evidence-eff-rights",
+      "kind": "rights",
+      "url": "https://www.eff.org/copyright",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official policy permits redistribution of original EFF material under CC BY 4.0 unless otherwise noted; per-item media review remains required."
+    },
+    {
+      "id": "evidence-eff-contact",
+      "kind": "direct-observation",
+      "url": "https://www.eff.org/about/contact",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact page verified; no private contact data copied."
+    },
+    {
+      "id": "evidence-eff-feed-snapshot",
+      "kind": "direct-observation",
+      "url": "https://www.eff.org/rss/updates.xml",
+      "observedAt": "2026-09-09T04:37:14.725Z",
+      "note": "Feed endpoint is retained from the recorded directory snapshot and was not rechecked in this source pass."
+    },
+    {
+      "id": "evidence-eff-editorial",
+      "kind": "editorial-inference",
+      "url": "https://www.eff.org/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN editorial scope based on the official self-description and the admitted local article set."
+    },
+    {
+      "id": "evidence-c4ss-about",
+      "kind": "source-self-description",
+      "url": "https://c4ss.org/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official About page was reachable and supplies the self-description, language links and homepage observation."
+    },
+    {
+      "id": "evidence-c4ss-rights",
+      "kind": "rights",
+      "url": "https://c4ss.org/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official page states site content is available under a Creative Commons Public Domain Dedication; media still receives per-item review."
+    },
+    {
+      "id": "evidence-c4ss-contact",
+      "kind": "direct-observation",
+      "url": "https://c4ss.org/contact",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact page verified; no email address or personal contact data copied into the app."
+    },
+    {
+      "id": "evidence-c4ss-feed-snapshot",
+      "kind": "direct-observation",
+      "url": "https://c4ss.org/feed",
+      "observedAt": "2026-09-09T04:37:14.725Z",
+      "note": "Feed endpoint is retained from the recorded directory snapshot and was not rechecked in this source pass."
+    },
+    {
+      "id": "evidence-c4ss-editorial",
+      "kind": "editorial-inference",
+      "url": "https://c4ss.org/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN editorial scope based on the official self-description and the admitted local article set."
+    },
+    {
+      "id": "evidence-aiac-about",
+      "kind": "source-self-description",
+      "url": "https://africasacountry.com/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official About page was reachable and supplies the source self-description, scope and homepage observation."
+    },
+    {
+      "id": "evidence-aiac-rights",
+      "kind": "rights",
+      "url": "https://africasacountry.com/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official About page states site content is CC BY 4.0 unless otherwise noted; the admitted sport article excludes media without image-specific evidence."
+    },
+    {
+      "id": "evidence-aiac-contact",
+      "kind": "direct-observation",
+      "url": "https://africasacountry.com/contact",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact page verified; no obfuscated email address copied into the app."
+    },
+    {
+      "id": "evidence-aiac-feed-snapshot",
+      "kind": "direct-observation",
+      "url": "https://africasacountry.com/feed",
+      "observedAt": "2026-09-09T04:37:14.725Z",
+      "note": "Feed endpoint is retained from the recorded directory snapshot and was not rechecked in this source pass."
+    },
+    {
+      "id": "evidence-aiac-editorial",
+      "kind": "editorial-inference",
+      "url": "https://africasacountry.com/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN editorial scope based on the official self-description and the admitted local sport article."
+    }
+  ]
+}

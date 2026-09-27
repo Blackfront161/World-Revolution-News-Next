@@ -17,6 +17,7 @@
     "strict": true,
     "target": "ES2024",
     "paths": {
+      "@wrn/ui-language/atlas": ["./packages/ui-language/src/atlas.ts"],
       "@wrn/ui-language/production-podcast": ["./packages/ui-language/src/production-podcast.ts"],
       "@wrn/ui-language/production-regional": ["./packages/ui-language/src/production-regional.ts"],
       "@wrn/content-contracts/production-media-v1": [
@@ -48,6 +49,12 @@
       "@wrn/content-contracts/content-directory-refresh-v1": [
         "./packages/content-contracts/src/directory/content-directory-refresh-v1.ts"
       ],
+      "@wrn/content-contracts/source-pass-overlay-v1": [
+        "./packages/content-contracts/src/directory/source-pass-overlay-v1.ts"
+      ],
+      "@wrn/content-contracts/source-pass-revocations-v1": [
+        "./packages/content-contracts/src/directory/source-pass-revocations-v1.ts"
+      ],
       "@wrn/content-contracts/production-events-media-v1": [
         "./packages/content-contracts/src/directory/production-events-media-v1.ts"
       ],
@@ -58,7 +65,8 @@
       "@wrn/ui-language/production-home": ["./packages/ui-language/src/production-home.ts"],
       "@wrn/ui-language/directory": ["./packages/ui-language/src/directory-copy.ts"],
       "@wrn/ui-language/events-media": ["./packages/ui-language/src/events-media.ts"],
-      "@wrn/ui-language/source-preferences": ["./packages/ui-language/src/source-preferences.ts"]
+      "@wrn/ui-language/source-preferences": ["./packages/ui-language/src/source-preferences.ts"],
+      "@wrn/ui-language/source-pass": ["./packages/ui-language/src/source-pass.ts"]
     },
     "useDefineForClassFields": true,
     "verbatimModuleSyntax": true

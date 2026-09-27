@@ -1,11 +1,18 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Page, type Request } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { getUiCopy } from '../../packages/ui-language/src';
 import { getProductionSelectionCopy } from '../../packages/ui-language/src/source-preferences';
+import { auditRemotePointers, directoryPointer, recordRemotePointer } from './remote-pointer-audit';
 
-const now = new Date('2026-09-12T14:00:00Z');
+const now = new Date('2026-09-26T14:00:00Z');
 const eff = 'Electronic Frontier Foundation';
 const explain = '.production-selection-explanation';
+async function dismissWebsiteWelcome(page: Page, client: string) {
+  if (client !== 'website') return;
+  await expect(page.locator('#website-main')).toBeVisible();
+  if (await page.locator('.website-support-welcome[open]').isVisible())
+    await page.keyboard.press('Escape');
+}
 async function choices(page: Page, client: string) {
   return page.evaluate(
     (client) => ({
@@ -16,32 +23,37 @@ async function choices(page: Page, client: string) {
   );
 }
 for (const [client, port] of [
-  ['mobile', 43174],
-  ['website', 43175],
+  ['mobile', 43177],
+  ['website', 43178],
 ] as const) {
   const origin = `http://127.0.0.1:${port}`;
   test(`${client} explains actual choices, follows and neutral sources only in For me`, async ({
     page,
   }, info) => {
     const errors: string[] = [],
-      foreign: string[] = [];
+      foreign: string[] = [],
+      approved: Request[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     page.on('request', (request) => {
-      if (new URL(request.url()).origin !== origin) foreign.push(request.url());
+      recordRemotePointer(request, origin, foreign, approved, [directoryPointer]);
     });
     await page.clock.setFixedTime(now);
-    await page.goto(`${origin}/#home`);
+    await page.goto(`${origin}/#discover`);
+    await dismissWebsiteWelcome(page, client);
     await page.getByTestId('ui-language-selector').selectOption('en');
     const cards = page.locator('.production-card');
-    await expect(cards).toHaveCount(6);
+    await expect(cards).toHaveCount(12);
     await expect(page.locator(explain)).toHaveCount(0);
-    await cards.first().locator('.source-profile summary').click();
-    await cards
-      .first()
-      .getByRole('button', { name: `Follow: ${eff}`, exact: true })
-      .click();
+    const effCard = cards.filter({
+      has: page.locator('[data-reader-trigger="wrn-art-a772ab86c915a036c6177f1bfe958d4d"]'),
+    });
+    await effCard.locator('.source-profile summary').click();
+    await effCard.getByRole('button', { name: `Follow: ${eff}`, exact: true }).click();
     await page.goto(`${origin}/#following`);
-    await expect(page.locator(explain)).toHaveCount(6);
+    await expect(page.locator('.personalization-results .production-card')).toHaveCount(12, {
+      timeout: 15_000,
+    });
+    await expect(page.locator(explain)).toHaveCount(12);
     const first = page.locator(explain).first();
     const copy = getProductionSelectionCopy('en');
     const before = await choices(page, client);
@@ -76,18 +88,21 @@ for (const [client, port] of [
       route.abort('internetdisconnected'),
     );
     await page.reload();
-    await expect(page.locator(explain)).toHaveCount(6);
+    await expect(page.locator(explain)).toHaveCount(11);
     expect(await choices(page, client)).toEqual(preserved);
     for (const route of ['home', 'discover', 'saved', 'more']) {
       await page.goto(`${origin}/#${route}`);
       await expect(page.locator(explain)).toHaveCount(0);
     }
-    await page.goto(`${origin}/#home`);
+    await page.goto(`${origin}/#discover`);
     await cards.first().getByRole('button', { name: 'Read article', exact: true }).click();
     await expect(page.getByTestId('production-reader')).toBeVisible();
     await expect(page.locator(explain)).toHaveCount(0);
     expect(errors).toEqual([]);
     expect(foreign).toEqual([]);
+    await auditRemotePointers(approved, [directoryPointer], 8);
+    if (client === 'website') expect(approved.length).toBeGreaterThan(0);
+    else expect(approved).toHaveLength(0);
   });
 
   test(`${client} localized explanation reflow, themes and keyboard`, async ({ page }, info) => {
@@ -133,6 +148,7 @@ for (const [client, port] of [
           ];
     for (const theme of ['violet', 'dark']) {
       await page.goto(`${origin}/?theme=${theme}#following`);
+      await dismissWebsiteWelcome(page, client);
       await page.getByTestId('ui-language-selector').selectOption('ru');
       const first = page.locator(explain).first();
       await expect(first).toBeVisible();

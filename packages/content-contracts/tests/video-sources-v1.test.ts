@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
+  filterSelectedVideosV1,
   filterVideoSourcesV1,
+  selectedVideosV1,
   videoSourceCatalogV1,
   videoSourceLanguagesV1,
 } from '../src/video-sources-v1';
@@ -48,5 +50,26 @@ describe('approved video source directory v1', () => {
     expect(filterVideoSourcesV1('unknown')).toEqual([]);
     expect(filterVideoSourcesV1('DE')).toEqual([]);
     expect(filterVideoSourcesV1('all')).toHaveLength(11);
+  });
+
+  it('keeps individually checked videos linked to accepted sources and original HTTPS pages', () => {
+    expect(selectedVideosV1).toHaveLength(2);
+    expect(selectedVideosV1.map((video) => video.originalUrl)).toEqual([
+      'https://www.youtube.com/shorts/3SUzjmdDORU',
+      'https://www.youtube.com/watch?v=lrTzjaXskUU',
+    ]);
+    for (const video of selectedVideosV1) {
+      expect(videoSourceCatalogV1.sources.some((source) => source.id === video.sourceId)).toBe(
+        true,
+      );
+      const url = new URL(video.originalUrl);
+      expect(url.protocol).toBe('https:');
+      expect(url.hostname).toBe('www.youtube.com');
+      expect(Object.isFrozen(video)).toBe(true);
+    }
+    expect(filterSelectedVideosV1('de').map((video) => video.format)).toEqual(['short']);
+    expect(filterSelectedVideosV1('en').map((video) => video.format)).toEqual(['video']);
+    expect(filterSelectedVideosV1('fr')).toEqual([]);
+    expect(filterSelectedVideosV1('unknown')).toEqual([]);
   });
 });

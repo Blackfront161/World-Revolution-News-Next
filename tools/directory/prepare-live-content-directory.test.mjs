@@ -178,6 +178,44 @@ test('fetches the exact commit with credential-free, non-redirecting bounded tra
   );
 });
 
+test('excludes future-dated feed metadata from the current directory', async () => {
+  const futureRows = [
+    ...rows,
+    {
+      link: 'https://example.net/future',
+      title: 'Future-dated item',
+      quelleName: 'Example News',
+      language: 'en',
+      pubDate: '2026-10-01T13:00:00Z',
+    },
+  ];
+  const futureFeedBytes = Buffer.from(JSON.stringify(futureRows));
+  const futureStatusBytes = Buffer.from(
+    JSON.stringify({
+      ok: true,
+      lastSuccessfulFetchAt: '2026-09-24T23:00:00.000Z',
+      lastPublishedAt: '2026-09-24T23:01:00.000Z',
+      publication: { pending: false },
+      news: { feedCount: futureRows.length, bytes: futureFeedBytes.length },
+    }),
+  );
+  const futureIntake = inspectLegacyNewsSnapshot({
+    feedBytes: futureFeedBytes,
+    statusBytes: futureStatusBytes,
+    commit,
+    observedAt: Date.parse(observedAt),
+  });
+  const document = await buildLiveContentDirectory({
+    baseline,
+    feedBytes: futureFeedBytes,
+    sourceBytes,
+    intake: futureIntake,
+    commit,
+  });
+  assert.ok(!document.articles.some((article) => article.title === 'Future-dated item'));
+  assert.equal(document.reconciliation.news.github.rejected.metadata, 2);
+});
+
 test('writes an immutable review packet and a non-publication receipt', async () => {
   const root = await mkdtemp(join(tmpdir(), 'wrn-live-directory-'));
   const output = join(root, 'directory-refresh');

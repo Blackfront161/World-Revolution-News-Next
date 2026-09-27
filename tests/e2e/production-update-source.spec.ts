@@ -1,17 +1,33 @@
 import { expect, test } from '@playwright/test';
+import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
-const harness = `/@fs/${path.resolve('tests/e2e/production-content-offline-harness.ts').replaceAll('\\', '/')}`;
-const website = `/@fs/${path.resolve('apps/website/src').replaceAll('\\', '/')}`;
+const harness = `/@fs/${encodeURI(path.resolve('tests/e2e/production-content-offline-harness.ts').replaceAll('\\', '/'))}`;
+const website = `/@fs/${encodeURI(path.resolve('apps/website/src').replaceAll('\\', '/'))}`;
 const remoteOrigin = 'https://solinaridao.com';
+const bundledCurrent = JSON.parse(
+  await readFile(
+    new URL('../../apps/mobile/public/wrn-production-content/current.json', import.meta.url),
+    'utf8',
+  ),
+) as { releaseRevision: string; sequence: number };
+const bundledManifest = JSON.parse(
+  await readFile(
+    new URL(
+      `../../apps/mobile/public/wrn-production-content/${bundledCurrent.releaseRevision}/manifest.json`,
+      import.meta.url,
+    ),
+    'utf8',
+  ),
+) as { articleIds: string[] };
 
 test.beforeEach(async ({ page }) => {
   // A faulty adapter must fail locally instead of reaching the real future endpoint.
   await page.route('https://**/*', (route) => route.abort('blockedbyclient'));
-  await page.goto('/');
+  await page.goto('http://127.0.0.1:43177/__content-idb');
 });
 
-test('actual bundled pilot bootstraps once; updates, remount and Clear use only the fixed remote origin', async ({
+test('actual bundled release bootstraps once; updates, remount and Clear use only the fixed remote origin', async ({
   page,
 }) => {
   const escapes: string[] = [];
@@ -19,14 +35,14 @@ test('actual bundled pilot bootstraps once; updates, remount and Clear use only 
     if (request.url().startsWith('https://')) escapes.push(request.url());
   });
   const result = await page.evaluate(
-    async ({ harness, remoteOrigin }) => {
+    async ({ harness, remoteOrigin, baselineSequence }) => {
       const { makeProductionOfflinePacket } = await import(harness);
       const { createProductionContentOfflineController } =
         await import('/src/production-content-offline-controller.ts');
       const { openProductionContentOfflineStore } =
         await import('/src/production-content-offline-store.ts');
       const original = window.fetch;
-      let packet = await makeProductionOfflinePacket({ sequence: 3 });
+      let packet = await makeProductionOfflinePacket({ sequence: baselineSequence + 1 });
       const requests: string[] = [];
       window.fetch = async (input, options) => {
         if (typeof input !== 'string' || !input.includes('/wrn-production-content/'))
@@ -57,11 +73,14 @@ test('actual bundled pilot bootstraps once; updates, remount and Clear use only 
         observer.close();
         controller.dispose();
         controller = createProductionContentOfflineController({ now: () => 3000 });
-        packet = await makeProductionOfflinePacket({ sequence: 2 });
+        packet = await makeProductionOfflinePacket({ sequence: baselineSequence });
         const lower = await controller.check();
-        packet = await makeProductionOfflinePacket({ sequence: 3, revision: 'authored-collision' });
+        packet = await makeProductionOfflinePacket({
+          sequence: baselineSequence + 1,
+          revision: 'authored-collision',
+        });
         const collision = await controller.check();
-        packet = await makeProductionOfflinePacket({ sequence: 4 });
+        packet = await makeProductionOfflinePacket({ sequence: baselineSequence + 2 });
         const higher = await controller.check();
         return {
           first: first.runtime?.descriptor.releaseRevision,
@@ -84,20 +103,17 @@ test('actual bundled pilot bootstraps once; updates, remount and Clear use only 
         window.fetch = original;
       }
     },
-    { harness, remoteOrigin },
+    { harness, remoteOrigin, baselineSequence: bundledCurrent.sequence },
   );
-  expect(result.first).toBe('wrn-production-eff-2026-09-10-v2');
-  expect(result.firstSequence).toBe(2);
-  expect(result.firstArticles).toEqual([
-    'wrn-art-a772ab86c915a036c6177f1bfe958d4d',
-    'wrn-art-ba76ef8b7afb34885bd5f64bc7135f6c',
-  ]);
-  expect(result.update).toBe(3);
-  expect(result.remount).toBe(3);
-  expect(result.afterClear).toEqual({ floor: 3, bundles: 0, epoch: 1 });
+  expect(result.first).toBe(bundledCurrent.releaseRevision);
+  expect(result.firstSequence).toBe(bundledCurrent.sequence);
+  expect(result.firstArticles).toEqual(bundledManifest.articleIds);
+  expect(result.update).toBe(bundledCurrent.sequence + 1);
+  expect(result.remount).toBe(bundledCurrent.sequence + 1);
+  expect(result.afterClear).toEqual({ floor: bundledCurrent.sequence + 1, bundles: 0, epoch: 1 });
   expect(result.lower).toBe('identity-conflict');
   expect(result.collision).toBe('identity-conflict');
-  expect(result.higher).toBe(4);
+  expect(result.higher).toBe(bundledCurrent.sequence + 2);
   expect(result.requests).toHaveLength(48);
   expect(
     result.requests.slice(0, 8).every((url) => url.startsWith('/wrn-production-content/')),
@@ -114,6 +130,7 @@ for (const client of ['mobile', 'website'] as const) {
   test(`${client}: failed refresh preserves exact active bytes, check time and inclusive TTL across remount`, async ({
     page,
   }) => {
+    if (client === 'website') await page.goto('http://127.0.0.1:43175/__content-idb');
     const result = await page.evaluate(
       async ({ client, website, remoteOrigin }) => {
         const prefix = client === 'mobile' ? '/src' : website;

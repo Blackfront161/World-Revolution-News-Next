@@ -12,6 +12,12 @@ export type VideoSourcesCopy = Readonly<{
   channel: string;
   collection: string;
   creator: string;
+  selected: string;
+  pilotNote: string;
+  selectedEmpty: string;
+  short: string;
+  video: string;
+  openVideo: string;
 }>;
 
 const copy: Readonly<Record<UiLanguage, VideoSourcesCopy>> = {
@@ -29,6 +35,12 @@ const copy: Readonly<Record<UiLanguage, VideoSourcesCopy>> = {
     channel: 'Videokanal',
     collection: 'Videosammlung & Redaktion',
     creator: 'Creator & Hintergründe',
+    selected: 'Video-Links im Pilot',
+    pilotNote: 'Titel, Kanal und Format geprüft; die redaktionelle Inhaltsprüfung steht noch aus.',
+    selectedEmpty: 'Noch keine Video-Links in dieser Sprache.',
+    short: 'Kurzvideo',
+    video: 'Erklärvideo',
+    openVideo: 'Originalvideo öffnen',
   },
   en: {
     title: 'Discover videos',
@@ -44,6 +56,12 @@ const copy: Readonly<Record<UiLanguage, VideoSourcesCopy>> = {
     channel: 'Video channel',
     collection: 'Video collection & editorial',
     creator: 'Creator & background',
+    selected: 'Pilot video links',
+    pilotNote: 'Title, channel and format checked; editorial content review is still pending.',
+    selectedEmpty: 'No video links in this language yet.',
+    short: 'Short video',
+    video: 'Explainer video',
+    openVideo: 'Open original video',
   },
   es: {
     title: 'Descubrir vídeos',
@@ -59,6 +77,12 @@ const copy: Readonly<Record<UiLanguage, VideoSourcesCopy>> = {
     channel: 'Canal de vídeo',
     collection: 'Videoteca y redacción',
     creator: 'Creación y contexto',
+    selected: 'Enlaces de vídeo en prueba',
+    pilotNote: 'Título, canal y formato comprobados; aún falta revisar el contenido.',
+    selectedEmpty: 'Aún no hay enlaces de vídeo en este idioma.',
+    short: 'Vídeo corto',
+    video: 'Vídeo explicativo',
+    openVideo: 'Abrir vídeo original',
   },
   fr: {
     title: 'Découvrir des vidéos',
@@ -74,6 +98,12 @@ const copy: Readonly<Record<UiLanguage, VideoSourcesCopy>> = {
     channel: 'Chaîne vidéo',
     collection: 'Vidéothèque et rédaction',
     creator: 'Création et contexte',
+    selected: 'Liens vidéo pilotes',
+    pilotNote: 'Titre, chaîne et format vérifiés ; l’examen éditorial du contenu reste à faire.',
+    selectedEmpty: 'Aucun lien vidéo dans cette langue pour le moment.',
+    short: 'Vidéo courte',
+    video: 'Vidéo explicative',
+    openVideo: 'Ouvrir la vidéo originale',
   },
   it: {
     title: 'Scopri i video',
@@ -89,6 +119,12 @@ const copy: Readonly<Record<UiLanguage, VideoSourcesCopy>> = {
     channel: 'Canale video',
     collection: 'Videoteca e redazione',
     creator: 'Autori e contesto',
+    selected: 'Link video pilota',
+    pilotNote: 'Titolo, canale e formato verificati; la revisione dei contenuti è ancora in corso.',
+    selectedEmpty: 'Nessun link video in questa lingua per ora.',
+    short: 'Video breve',
+    video: 'Video esplicativo',
+    openVideo: 'Apri il video originale',
   },
   pt: {
     title: 'Descobrir vídeos',
@@ -104,6 +140,13 @@ const copy: Readonly<Record<UiLanguage, VideoSourcesCopy>> = {
     channel: 'Canal de vídeo',
     collection: 'Videoteca e redação',
     creator: 'Criação e contexto',
+    selected: 'Links de vídeo em teste',
+    pilotNote:
+      'Título, canal e formato verificados; a revisão editorial do conteúdo ainda está pendente.',
+    selectedEmpty: 'Ainda não há links de vídeo neste idioma.',
+    short: 'Vídeo curto',
+    video: 'Vídeo explicativo',
+    openVideo: 'Abrir vídeo original',
   },
   ru: {
     title: 'Открывайте видео',
@@ -119,6 +162,13 @@ const copy: Readonly<Record<UiLanguage, VideoSourcesCopy>> = {
     channel: 'Видеоканал',
     collection: 'Видеотека и редакция',
     creator: 'Авторы и контекст',
+    selected: 'Пилотные ссылки на видео',
+    pilotNote:
+      'Название, канал и формат проверены; редакционная проверка содержания ещё не завершена.',
+    selectedEmpty: 'Пока нет ссылок на видео на этом языке.',
+    short: 'Короткое видео',
+    video: 'Объясняющее видео',
+    openVideo: 'Открыть оригинал видео',
   },
   el: {
     title: 'Ανακάλυψε βίντεο',
@@ -134,6 +184,13 @@ const copy: Readonly<Record<UiLanguage, VideoSourcesCopy>> = {
     channel: 'Κανάλι βίντεο',
     collection: 'Βιντεοθήκη και σύνταξη',
     creator: 'Δημιουργοί και πλαίσιο',
+    selected: 'Πιλοτικοί σύνδεσμοι βίντεο',
+    pilotNote:
+      'Ο τίτλος, το κανάλι και η μορφή ελέγχθηκαν· εκκρεμεί ο συντακτικός έλεγχος περιεχομένου.',
+    selectedEmpty: 'Δεν υπάρχουν ακόμη σύνδεσμοι βίντεο σε αυτή τη γλώσσα.',
+    short: 'Σύντομο βίντεο',
+    video: 'Επεξηγηματικό βίντεο',
+    openVideo: 'Άνοιγμα αρχικού βίντεο',
   },
   tr: {
     title: 'Videoları keşfet',
@@ -149,6 +206,12 @@ const copy: Readonly<Record<UiLanguage, VideoSourcesCopy>> = {
     channel: 'Video kanalı',
     collection: 'Video arşivi ve yayın',
     creator: 'Üreticiler ve bağlam',
+    selected: 'Pilot video bağlantıları',
+    pilotNote: 'Başlık, kanal ve biçim kontrol edildi; içerik incelemesi henüz tamamlanmadı.',
+    selectedEmpty: 'Bu dilde henüz video bağlantısı yok.',
+    short: 'Kısa video',
+    video: 'Açıklayıcı video',
+    openVideo: 'Özgün videoyu aç',
   },
 };
 

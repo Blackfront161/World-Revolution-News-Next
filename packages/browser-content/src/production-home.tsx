@@ -87,6 +87,7 @@ export function ProductionHome({
   language,
   sourcePreferences,
   renderCard,
+  hasOriginalImage,
   loadDirectory,
   onBrowseDirectory,
   onBrowseSport,
@@ -96,6 +97,7 @@ export function ProductionHome({
   language: UiLanguage;
   sourcePreferences: LocalSourcePreferencesV1;
   renderCard: HomeCard;
+  hasOriginalImage?: ((article: ProductionArticleV1) => boolean) | undefined;
   loadDirectory?: ((signal: AbortSignal) => Promise<ProductionHomeDirectory>) | undefined;
   onBrowseDirectory?: (() => void) | undefined;
   onBrowseSport?: (() => void) | undefined;
@@ -114,7 +116,6 @@ export function ProductionHome({
   const [sportCategory, setSportCategory] = useState<'all' | 'football' | 'fan-culture' | 'women'>(
     'all',
   );
-  const selection = useMemo(() => selectProductionHomeArticles(articles), [articles]);
   const [directory, setDirectory] = useState<Readonly<{
     loader: NonNullable<typeof loadDirectory>;
     value: ProductionHomeDirectory;
@@ -144,6 +145,15 @@ export function ProductionHome({
   }, [attempt, loadDirectory]);
   const currentDirectory =
     directory !== null && directory.loader === loadDirectory ? directory.value : null;
+  const selection = useMemo(
+    () =>
+      selectProductionHomeArticles(
+        currentDirectory
+          ? articles.filter((article) => !article.tags.includes('sports'))
+          : articles,
+      ),
+    [articles, currentDirectory],
+  );
   const archive = useMemo(
     () =>
       currentDirectory
@@ -159,6 +169,13 @@ export function ProductionHome({
           .map((note) => ({ kind: 'note' as const, note, category: note.category }))
       : [];
     return [...fullArticles, ...notes].sort((left, right) => {
+      if (left.kind !== right.kind) return left.kind === 'article' ? -1 : 1;
+      if (left.kind === 'article' && right.kind === 'article') {
+        const imagePriority =
+          Number(hasOriginalImage?.(right.article) ?? false) -
+          Number(hasOriginalImage?.(left.article) ?? false);
+        if (imagePriority) return imagePriority;
+      }
       const leftDate = left.kind === 'article' ? left.article.publishedAt : left.note.publishedAt;
       const rightDate =
         right.kind === 'article' ? right.article.publishedAt : right.note.publishedAt;
@@ -169,7 +186,7 @@ export function ProductionHome({
         )
       );
     });
-  }, [currentDirectory, sourcePreferences, articles]);
+  }, [currentDirectory, sourcePreferences, articles, hasOriginalImage]);
   const visibleSport = sport
     .filter(
       (item) =>

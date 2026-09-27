@@ -3,6 +3,7 @@ import { expect, test } from '@playwright/test';
 test('accepted video sources: nine languages, safe links, no provider requests, keyboard and themes', async ({
   page,
 }, info) => {
+  test.setTimeout(90_000);
   const externalRequests: string[] = [];
   const errors: string[] = [];
   page.on('console', (message) => {
@@ -19,6 +20,7 @@ test('accepted video sources: nine languages, safe links, no provider requests, 
   await page.goto('/?theme=violet#media');
   const section = page.locator('.video-sources');
   await expect(section.locator('[data-video-source]')).toHaveCount(11);
+  await expect(section.locator('[data-video-item]')).toHaveCount(2);
   await expect(section.locator('iframe, img, video, audio')).toHaveCount(0);
   const languages = { de: 2, en: 2, es: 1, fr: 1, it: 1, pt: 1, ru: 1, el: 1, tr: 1 };
   for (const [language, count] of Object.entries(languages)) {
@@ -27,6 +29,9 @@ test('accepted video sources: nine languages, safe links, no provider requests, 
     await filter.click();
     await expect(filter).toHaveAttribute('aria-pressed', 'true');
     await expect(section.locator('[data-video-source]')).toHaveCount(count);
+    await expect(section.locator('[data-video-item]')).toHaveCount(
+      language === 'de' || language === 'en' ? 1 : 0,
+    );
     for (const card of await section.locator('[data-video-source]').all()) {
       await expect(
         card.getByRole('heading', { level: info.project.name.startsWith('mobile-') ? 3 : 2 }),
@@ -41,6 +46,19 @@ test('accepted video sources: nine languages, safe links, no provider requests, 
   await page.getByTestId('ui-language-selector').selectOption('de');
   await section.getByRole('button', { name: 'Alle Sprachen', exact: true }).click();
   await expect(section.locator('[data-video-source]')).toHaveCount(11);
+  await expect(section.locator('[data-video-item]')).toHaveCount(2);
+  for (const [title, url] of [
+    ['Klopp ANSAGE An AfD!', 'https://www.youtube.com/shorts/3SUzjmdDORU'],
+    ['How Anarchy Works', 'https://www.youtube.com/watch?v=lrTzjaXskUU'],
+  ]) {
+    const link = section
+      .locator('[data-video-item]')
+      .getByRole('link', { name: new RegExp(title) });
+    await expect(link).toHaveAttribute('href', url);
+    await expect(link).toHaveAttribute('target', '_blank');
+    await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+    await expect(link).toHaveAttribute('referrerpolicy', 'no-referrer');
+  }
   await expect(section.getByRole('link', { name: /DerDaraUncut/ })).toHaveAttribute(
     'href',
     'https://www.youtube.com/@DerDaraUncut',
@@ -50,7 +68,9 @@ test('accepted video sources: nine languages, safe links, no provider requests, 
   await page.keyboard.press('Space');
   await expect(de).toHaveAttribute('aria-pressed', 'true');
   for (const theme of ['violet', 'dark', 'light']) {
-    await page.getByTestId('theme-selector').selectOption(theme);
+    await page.goto(`/?theme=${theme}#media`);
+    await page.getByTestId('ui-language-selector').selectOption('de');
+    await de.click();
     await section.scrollIntoViewIfNeeded();
     const colors = await de.evaluate((element) => ({
       fill: getComputedStyle(element).backgroundColor,
@@ -66,7 +86,7 @@ test('accepted video sources: nine languages, safe links, no provider requests, 
       await page.screenshot({ path: info.outputPath(`${info.project.name}-de-violet-cards.png`) });
     }
   }
-  await page.getByTestId('theme-selector').selectOption('violet');
+  await page.goto('/?theme=violet#media');
   await page.getByTestId('ui-language-selector').selectOption('ru');
   for (const width of [320, 390, 800, 1440]) {
     await page.setViewportSize({ width, height: 900 });

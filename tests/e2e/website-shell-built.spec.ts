@@ -68,7 +68,9 @@ test('SHELL-01/02/03/09: built shell is opt-in and starts offline with only boun
   expect(stored.payloadPaths).toEqual(
     manifest.entries.map((entry: { path: string }) => entry.path).sort(),
   );
-  expect(stored.payloadPaths).toHaveLength(9);
+  expect(stored.payloadPaths).toHaveLength(14);
+  expect(stored.payloadPaths.filter((pathname) => pathname.endsWith('.js'))).toHaveLength(5);
+  expect(stored.payloadPaths.filter((pathname) => pathname.endsWith('.css'))).toHaveLength(2);
   expect(stored.payloadPaths.filter((pathname) => pathname.endsWith('.json'))).toHaveLength(4);
   for (const family of [
     'legacy-knowledge-v1',

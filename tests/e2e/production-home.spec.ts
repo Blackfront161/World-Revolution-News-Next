@@ -3,9 +3,9 @@ import AxeBuilder from '@axe-core/playwright';
 
 const firstId = 'wrn-art-a772ab86c915a036c6177f1bfe958d4d';
 const mainImageIds = [
+  'wrn-art-a772ab86c915a036c6177f1bfe958d4d',
   'wrn-art-f2ad391804423c87773b3351eb79c802',
   'wrn-art-bdb90712e1c72ee72293c70904b50889',
-  'wrn-art-67bca5d4b29dab78f8ae26ccd996a9d8',
 ] as const;
 const mainWithoutImageIds = [
   'wrn-art-ba76ef8b7afb34885bd5f64bc7135f6c',
@@ -28,7 +28,9 @@ test('Mobile Home keeps articles reachable after a wide-to-narrow font resize', 
     page.on('pageerror', (error) => errors.push(error.message));
     const origin = process.env.WRN_HOME_REFLOW_ORIGIN ?? 'http://127.0.0.1:43177';
     await page.goto(`${origin}/?theme=violet`);
-    await expect(page.locator('[data-home-role="main"]')).toHaveCount(5);
+    await expect(
+      page.locator('section[aria-labelledby="production-home-main"] [data-home-role="main"]'),
+    ).toHaveCount(5, { timeout: 15_000 });
     const language = page.getByTestId('ui-language-selector');
     await language.selectOption('de');
     await page.screenshot({ path: info.outputPath('wide-home-de.png') });
@@ -86,9 +88,14 @@ for (const profile of profiles) {
         const pageErrors: string[] = [];
         page.on('request', (request) => {
           const url = new URL(request.url());
+          const projectDirectory =
+            profile.name === 'website' &&
+            url.origin === 'https://solinaridao.com' &&
+            url.pathname === '/wrn-content-directory/current.json';
           if (
             (url.protocol === 'http:' || url.protocol === 'https:') &&
-            url.origin !== profile.origin
+            url.origin !== profile.origin &&
+            !projectDirectory
           ) {
             escapedExternalRequests.push(request.url());
           }
@@ -96,16 +103,33 @@ for (const profile of profiles) {
         page.on('pageerror', (error) => pageErrors.push(error.message));
         await page.setViewportSize({ width, height: width === 1200 ? 900 : 844 });
         await page.goto(`${profile.origin}/?theme=${theme}`);
+        if (profile.name === 'website') {
+          await expect(page.locator('.website-support-welcome[open]')).toBeVisible();
+          await page.keyboard.press('Escape');
+        }
         const home = page.getByTestId('production-home');
         await expect(home).toBeVisible();
-        await expect(home.locator('[data-home-role="lead"]')).toHaveCount(1);
-        await expect(home.locator('[data-home-role="main"]')).toHaveCount(5);
-        await expect(home.locator('[data-home-role="further"]')).toHaveCount(0);
-        await expect(home.locator('[data-home-sport-note]')).toHaveCount(3);
+        const lead = home.locator(
+          'section[aria-labelledby="production-home-lead"] [data-home-role="lead"]',
+        );
+        await expect(lead).toHaveCount(1, { timeout: 15_000 });
+        await expect(
+          home.locator('section[aria-labelledby="production-home-main"] [data-home-role="main"]'),
+        ).toHaveCount(5);
+        await expect(home.locator('[data-home-role="further"]')).toHaveCount(2);
+        await expect(home.locator('[data-home-sport-note]')).toHaveCount(0);
+        await expect(home.locator('.production-home__sport [data-home-role="lead"]')).toHaveCount(
+          1,
+        );
+        await expect(home.locator('.production-home__sport [data-home-role="main"]')).toHaveCount(
+          2,
+        );
         await expect(home.locator('[data-home-directory-article]')).toHaveCount(5);
-        const image = home.locator('.production-home-image img');
-        await expect(image).toHaveCount(4);
-        for (const item of await image.all()) {
+        const mainImages = home.locator(
+          'section[aria-labelledby="production-home-main"] .production-home-image img',
+        );
+        await expect(mainImages).toHaveCount(3);
+        for (const item of await mainImages.all()) {
           await item.scrollIntoViewIfNeeded();
           await expect
             .poll(() => item.evaluate((node: HTMLImageElement) => node.naturalWidth))
@@ -113,11 +137,26 @@ for (const profile of profiles) {
         }
         await expect
           .poll(() =>
-            image.evaluateAll((nodes: HTMLImageElement[]) =>
+            mainImages.evaluateAll((nodes: HTMLImageElement[]) =>
               nodes.map((node) => node.naturalWidth),
             ),
           )
-          .toEqual([1200, 1200, 1200, 1200]);
+          .toEqual([1200, 1200, 1200]);
+        const sportImage = home.locator('.production-home__sport .production-home-image img');
+        await expect(sportImage).toHaveCount(3);
+        for (const item of await sportImage.all()) {
+          await item.scrollIntoViewIfNeeded();
+          await expect
+            .poll(() => item.evaluate((node: HTMLImageElement) => node.naturalWidth))
+            .toBeGreaterThan(0);
+        }
+        await expect
+          .poll(() =>
+            sportImage.evaluateAll((nodes: HTMLImageElement[]) =>
+              nodes.map((node) => node.naturalWidth),
+            ),
+          )
+          .toEqual([960, 600, 960]);
         for (const id of mainImageIds)
           await expect(
             home
@@ -152,16 +191,6 @@ for (const profile of profiles) {
         );
         await page.keyboard.press('Escape');
         await expect(imageLicence).toBeFocused();
-        const lead = home.locator('[data-home-role="lead"]');
-        const leadLicence = lead.locator('.production-home-image button');
-        await leadLicence.click();
-        await expect(page.getByRole('dialog')).toBeVisible();
-        await expect(page.getByRole('dialog').getByRole('link')).toHaveAttribute(
-          'href',
-          'https://creativecommons.org/licenses/by/4.0/',
-        );
-        await page.keyboard.press('Escape');
-        await expect(leadLicence).toBeFocused();
         await lead.getByRole('button', { name: 'Read article', exact: true }).click();
         await expect(page.getByTestId('production-reader')).toBeVisible();
         await page.getByRole('button', { name: 'Save for later', exact: true }).click();
@@ -186,7 +215,7 @@ for (const profile of profiles) {
             }),
           );
           expect(dateLines.every((lines) => lines > 0 && lines <= 2)).toBe(true);
-          const leadImage = lead.locator('.production-home-image img');
+          const leadImage = home.locator('.production-home-image img').first();
           await leadImage.scrollIntoViewIfNeeded();
           await expect
             .poll(() => leadImage.evaluate((element: HTMLImageElement) => element.naturalWidth))
@@ -206,13 +235,21 @@ for (const profile of profiles) {
         const sourceProfile = lead.locator('.source-profile');
         await sourceProfile.locator('summary').click();
         await sourceProfile.locator('button[aria-label]').nth(1).click();
-        await expect(home.locator('[data-home-role="lead"]')).toHaveCount(1);
-        await expect(home.locator('[data-reader-trigger]')).toHaveCount(1);
-        await expect(home.locator('[data-reader-trigger]')).toHaveAttribute(
-          'data-reader-trigger',
-          'wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c',
-        );
-        await expect(home.locator('.production-home-image img')).toHaveCount(0);
+        await expect(lead).toHaveCount(1);
+        await expect(
+          home.locator('[data-reader-trigger="wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c"]'),
+        ).toHaveCount(1);
+        await expect(
+          home.locator('.production-card').filter({ hasText: 'Electronic Frontier Foundation' }),
+        ).toHaveCount(0);
+        await expect(
+          home.locator(
+            'section[aria-labelledby="production-home-main"] .production-home-image img',
+          ),
+        ).toHaveCount(0);
+        await expect(
+          home.locator('.production-home__sport .production-home-image img'),
+        ).toHaveCount(3);
         expect(escapedExternalRequests).toEqual([]);
         expect(pageErrors).toEqual([]);
       });
@@ -226,8 +263,12 @@ test('Website Home restarts from its saved offline shell without requesting an e
 }, info) => {
   const origin = 'http://127.0.0.1:43178';
   await page.goto(origin);
+  await expect(page.locator('.website-support-welcome[open]')).toBeVisible();
+  await page.keyboard.press('Escape');
   await expect(page.getByTestId('production-home')).toBeVisible();
-  await expect(page.locator('[data-home-role="main"]')).toHaveCount(5);
+  await expect(
+    page.locator('section[aria-labelledby="production-home-main"] [data-home-role="main"]'),
+  ).toHaveCount(5, { timeout: 15_000 });
   await page.goto(`${origin}/#more`);
   await page.getByRole('button', { name: 'Save website shell', exact: true }).click();
   await expect(page.locator('.website-shell-panel')).toHaveAttribute(
@@ -239,9 +280,11 @@ test('Website Home restarts from its saved offline shell without requesting an e
   const offline = await context.newPage();
   await offline.goto(origin);
   await expect(offline.getByTestId('production-home')).toBeVisible();
-  const image = offline.locator('.production-home-image img');
-  await expect(image).toHaveCount(4);
-  for (const item of await image.all()) {
+  const mainImages = offline.locator(
+    'section[aria-labelledby="production-home-main"] .production-home-image img',
+  );
+  await expect(mainImages).toHaveCount(3, { timeout: 15_000 });
+  for (const item of await mainImages.all()) {
     await item.scrollIntoViewIfNeeded();
     await expect
       .poll(() => item.evaluate((node: HTMLImageElement) => node.naturalWidth))
@@ -249,10 +292,23 @@ test('Website Home restarts from its saved offline shell without requesting an e
   }
   await expect
     .poll(() =>
-      image.evaluateAll((nodes: HTMLImageElement[]) => nodes.map((node) => node.naturalWidth)),
+      mainImages.evaluateAll((nodes: HTMLImageElement[]) => nodes.map((node) => node.naturalWidth)),
     )
-    .toEqual([1200, 1200, 1200, 1200]);
-  await expect(offline.locator('[data-home-sport-note]')).toHaveCount(3);
+    .toEqual([1200, 1200, 1200]);
+  const sportImage = offline.locator('.production-home__sport .production-home-image img');
+  await expect(sportImage).toHaveCount(3);
+  for (const item of await sportImage.all()) {
+    await item.scrollIntoViewIfNeeded();
+    await expect
+      .poll(() => item.evaluate((node: HTMLImageElement) => node.naturalWidth))
+      .toBeGreaterThan(0);
+  }
+  await expect
+    .poll(() =>
+      sportImage.evaluateAll((nodes: HTMLImageElement[]) => nodes.map((node) => node.naturalWidth)),
+    )
+    .toEqual([960, 600, 960]);
+  await expect(offline.locator('[data-home-sport-note]')).toHaveCount(0);
   await expect(offline.locator('[data-home-directory-article]')).toHaveCount(5);
   await offline.screenshot({
     path: info.outputPath('website-home-offline-restart.png'),

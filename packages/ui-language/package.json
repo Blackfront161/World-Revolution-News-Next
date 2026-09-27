@@ -4,6 +4,10 @@
   "private": true,
   "type": "module",
   "exports": {
+    "./atlas": {
+      "types": "./src/atlas.ts",
+      "default": "./src/atlas.ts"
+    },
     "./production-podcast": {
       "types": "./src/production-podcast.ts",
       "default": "./src/production-podcast.ts"
@@ -23,6 +27,10 @@
     "./source-preferences": {
       "types": "./src/source-preferences.ts",
       "default": "./src/source-preferences.ts"
+    },
+    "./source-pass": {
+      "types": "./src/source-pass.ts",
+      "default": "./src/source-pass.ts"
     },
     "./events-media": {
       "types": "./src/events-media.ts",

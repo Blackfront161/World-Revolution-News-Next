@@ -73,8 +73,8 @@ test('CLI integrates into a supplied fresh build and reports its landing count',
     path.join(toolsDirectory, 'integrate-production-article-landings.mjs'),
     output,
   ]);
-  assert.match(result.stdout, /9 production article landings integrated/);
-  assert.equal((await readdir(path.join(output, 'articles'))).length, 9);
+  assert.match(result.stdout, /12 production article landings integrated/);
+  assert.equal((await readdir(path.join(output, 'articles'))).length, 12);
   assert.deepEqual((await readdir(output)).sort(), [
     '.wrn-stage-c-publication-staging',
     'article-publication-manifest.json',

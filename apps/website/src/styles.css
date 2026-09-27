@@ -1603,10 +1603,11 @@
 }
 
 .site-brand-project {
-  min-height: 1.25rem;
+  display: inline-block;
+  min-height: var(--wrn-control-min-size);
   color: var(--wrn-color-muted);
   font-size: 0.68rem;
-  line-height: 1.1;
+  line-height: var(--wrn-control-min-size);
   text-decoration: none;
 }
 
@@ -1642,6 +1643,30 @@
   border-color: var(--wrn-color-action);
   border-radius: 999px;
   text-align: center;
+}
+
+.site-header[data-wide-language-layout='true'] .compact-site-masthead {
+  grid-template-areas:
+    'menu tools tools'
+    'brand brand brand';
+}
+
+.site-header[data-wide-language-layout='true'] .compact-site-menu {
+  grid-area: menu;
+}
+
+.site-header[data-wide-language-layout='true'] .compact-site-brand {
+  grid-area: brand;
+}
+
+.site-header[data-wide-language-layout='true'] .compact-site-tools {
+  grid-area: tools;
+  display: flex;
+  justify-self: end;
+}
+
+.site-header[data-wide-language-layout='true'] .compact-site-tools .language-selector {
+  flex: 0 0 var(--wrn-control-min-size);
 }
 
 .site-header-inner .site-nav,

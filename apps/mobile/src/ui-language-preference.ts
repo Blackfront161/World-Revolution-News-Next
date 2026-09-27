@@ -15,7 +15,18 @@ export const mobileUiLanguageStorageKey = 'wrn.mobile-ui-language.v1' as const;
 export function loadMobileUiLanguage(): UiLanguage {
   try {
     const raw = window.localStorage.getItem(mobileUiLanguageStorageKey);
-    return isUiLanguage(raw) && isRegisteredUiLanguage(raw) ? raw : defaultUiLanguage;
+    if (raw !== null)
+      return isUiLanguage(raw) && isRegisteredUiLanguage(raw) ? raw : defaultUiLanguage;
+    const legacy = window.localStorage.getItem('wrn_system_lang');
+    if (isUiLanguage(legacy) && isRegisteredUiLanguage(legacy)) {
+      try {
+        window.localStorage.setItem(mobileUiLanguageStorageKey, legacy);
+      } catch {
+        /* Retain the session choice. */
+      }
+      return legacy;
+    }
+    return defaultUiLanguage;
   } catch {
     return defaultUiLanguage;
   }

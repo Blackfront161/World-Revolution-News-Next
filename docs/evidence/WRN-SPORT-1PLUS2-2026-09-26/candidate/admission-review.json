@@ -1,0 +1,53 @@
+{
+  "schema": "wrn.sport-fulltext-review.v1",
+  "status": "local-candidate-independent-rights-pass-release-review-pending",
+  "checkedAt": "2026-09-26T03:15:42.000Z",
+  "publisherRightsStatement": "https://africasacountry.com/about",
+  "publisherRights": "Original article prose is CC BY 4.0 unless otherwise noted; featured photographs are reviewed separately.",
+  "aboutSnapshotSha256": "328c97b94bd3dd3f193feb37fce334482a2e70a22366c4bd68ba3978795b2578",
+  "articles": [
+    {
+      "url": "https://africasacountry.com/2026/07/what-cabo-verdes-world-cup-debut-means-for-african-football",
+      "title": "What Cabo Verde’s World Cup debut means for African football",
+      "authors": ["Mery Vieira"],
+      "publisherDate": "2026-07-09",
+      "sortKeyOnly": "2026-07-09T00:00:00.000Z",
+      "sourceSnapshotSha256": "8626a97ffbc3c781621a4d1f7878a17bab6c153eeb62100ae706a96401e50d19",
+      "sourceSnapshotBytes": 43027,
+      "proseParagraphs": 28,
+      "sourceImageUrl": "https://media.africasacountry.com/images/2026/7/810258560983.jpg",
+      "sourceImageSha256": "fe6c3d2433241b115a41fe723a4d119b14fa4dcecd6ad6c788b1d49ced0e0317",
+      "imageEvidenceUrl": "https://commons.wikimedia.org/wiki/File:Estadio_Nacional_de_Cabo_Verde.jpg",
+      "imageAuthor": "Lonzay",
+      "imageLicense": "CC0-1.0",
+      "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "localImageBytes": 184525,
+      "localImageDimensions": [960, 540],
+      "localImageSha256": "a32d7bcdb6e12b1dc50637b5fab46e1d9f142e366da6803be131b208528e17ec",
+      "imageMatch": "The publisher's featured image and the credited Commons file show the same stadium scene; their renditions are not byte-identical."
+    },
+    {
+      "url": "https://africasacountry.com/2026/06/how-moroccos-diaspora-is-remaking-the-nation",
+      "title": "How Morocco’s diaspora is remaking the nation",
+      "authors": ["Aomar Boum", "Brahim El Guabli"],
+      "publisherDate": "2026-06-24",
+      "sortKeyOnly": "2026-06-24T00:00:00.000Z",
+      "sourceSnapshotSha256": "fbcabbb2be849b3fdd51c2e7d25313bb6b28fdf45a1ef75b111362c4de1f0756",
+      "sourceSnapshotBytes": 63680,
+      "proseParagraphs": 23,
+      "sourceImageUrl": "https://media.africasacountry.com/images/2026/6/009315614508.jpg",
+      "sourceImageSha256": "fb359286e0221b348677fd677a1d49e907d45590b6be5db60ad670b338604b5e",
+      "imageEvidenceUrl": "https://commons.wikimedia.org/wiki/File:Moroccan_players_during_Moroccan_national_anthem_against_Paraguay.jpg",
+      "imageAuthor": "Abdelali Bentarki",
+      "imageLicense": "CC-BY-4.0",
+      "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "localImageBytes": 105250,
+      "localImageDimensions": [960, 640],
+      "localImageSha256": "0c5127b493ecca44a26f4ef551e51b6d7b85ab3dcfa0e00b0db2ae6690200129",
+      "imageMatch": "The publisher's featured image and the credited Commons file show the same players and child mascots; their renditions are not byte-identical. The Commons page records VRT permission and CC BY 4.0."
+    }
+  ],
+  "transformation": "All source prose paragraphs were kept in order with whitespace normalized. Inline hyperlinks became plain text; each original article remains linked. WRN teasers and image alt text are editorial. Quoted remarks and external factual claims remain attributed to the source authors, not independently verified or separately relicensed by WRN.",
+  "sourceHtmlStoredInPublicRepository": false,
+  "independentRightsReviewComplete": true
+}

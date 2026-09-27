@@ -20,7 +20,7 @@ const expectedArticleFiles = [
   'articles/wrn-test-art-fern/index.html',
 ];
 const expectedHtmlFiles = [...expectedArticleFiles, 'index.html'];
-const expectedActiveFileCount = 21;
+const expectedActiveFileCount = 23;
 
 const sha256Hex = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const sha256Csp = (text) => `sha256-${createHash('sha256').update(text).digest('base64')}`;
@@ -267,6 +267,8 @@ function allowedPublicPath(relativePath) {
       'robots.txt',
       'sitemap.xml',
       'website-staging-shell-sw.js',
+      'wrn-source-passes/current.json',
+      'wrn-source-pass-revocations/current.json',
     ].includes(relativePath)
   )
     return true;
@@ -338,7 +340,7 @@ export async function verifyStagingPackage({
   const diskFiles = await listFiles(directory);
   assertClosedPublicFileSet(diskFiles);
   if (!Array.isArray(manifest.files) || manifest.files.length !== expectedActiveFileCount)
-    throw new Error('External manifest must bind exactly 21 active files');
+    throw new Error('External manifest must bind exactly 23 active files');
   if (JSON.stringify(manifest.files.map((entry) => entry.path)) !== JSON.stringify(diskFiles))
     throw new Error('External manifest file list does not match the package');
   for (const entry of manifest.files) {

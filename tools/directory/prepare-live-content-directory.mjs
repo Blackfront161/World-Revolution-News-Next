@@ -92,6 +92,8 @@ function currentArticleRecord(row, candidate, commit, observedAt, feedSha256, co
   if (!urlWithHttp) return reject(counter, 'url');
   if (urlWithHttp.startsWith('http:')) return reject(counter, 'http');
   if (!candidate || candidate.identityConflict === true) return reject(counter, 'metadata');
+  if (candidate.publishedAt && Date.parse(candidate.publishedAt) > Date.parse(observedAt))
+    return reject(counter, 'metadata');
   const rawLanguage = candidate.originalLanguage;
   const topics = row.categories === undefined ? [] : row.categories;
   const sourceHomepage = optionalUrl(row.sourceHomepage);
