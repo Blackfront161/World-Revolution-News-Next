@@ -1212,6 +1212,9 @@ export function createProductionContentArea({
                       prioritizeCurrentLinks={homeDirectory?.prioritizeCurrentLinks}
                       brandMarkUrl={homeDirectory?.brandMarkUrl}
                       regionalEvents={regionalEvents}
+                      translationAdapter={
+                        homeDirectory?.automaticTranslation ? translationAdapter : null
+                      }
                     />
                   </>
                 ) : (

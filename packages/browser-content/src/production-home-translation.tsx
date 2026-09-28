@@ -5,6 +5,7 @@ import { getProductionTranslationCopy } from '@wrn/ui-language/production-transl
 import type { ProductionArticleV1 } from '@wrn/content-contracts';
 import {
   productionTranslationRenderKey,
+  type DirectoryTitleTranslation,
   type ProductionTranslationAdapter,
   type ProductionTranslationAuthority,
   type ProductionTranslationOutcome,
@@ -14,55 +15,55 @@ const homeCopy: Record<UiLanguage, { original: string; notice: string; unavailab
   de: {
     original: 'Original anzeigen',
     notice:
-      'Anderssprachige Titel der sechs geprüften Lesestücke und der sichtbare Aufmacher-Anreißer werden automatisch an den WRN-Übersetzungsdienst gesendet. Verzeichnismeldungen behalten Originaltitel und Links.',
+      'Anderssprachige Titel der sechs geprüften Lesestücke, der sichtbare Aufmacher-Anreißer und aktuelle Verzeichnistitel mit bekannter Quellsprache werden automatisch an den WRN-Übersetzungsdienst gesendet. Originaltitel und Links bleiben verfügbar.',
     unavailable: 'Übersetzung derzeit nicht verfügbar; Originale bleiben lesbar.',
   },
   en: {
     original: 'Show original',
     notice:
-      'Titles in another language from the six reviewed reading pieces and the visible lead teaser are sent automatically to the WRN translation service. Directory reports retain original titles and links.',
+      'Titles in another language from the six reviewed reading pieces, the visible lead teaser, and current directory headlines with a known source language are sent automatically to the WRN translation service. Original titles and links remain available.',
     unavailable: 'Translation is currently unavailable; originals remain readable.',
   },
   es: {
     original: 'Mostrar original',
     notice:
-      'Los títulos en otro idioma de las seis lecturas revisadas y el avance visible del artículo principal se envían automáticamente al servicio de traducción de WRN. El directorio conserva títulos y enlaces originales.',
+      'Los títulos en otro idioma de las seis lecturas revisadas, el avance principal y los titulares actuales del directorio con idioma de origen conocido se envían automáticamente al servicio de traducción de WRN. Se conservan los títulos y enlaces originales.',
     unavailable: 'La traducción no está disponible; los originales siguen legibles.',
   },
   fr: {
     original: 'Voir l’original',
     notice:
-      'Les titres dans une autre langue des six lectures vérifiées et le résumé visible de l’article principal sont envoyés automatiquement au service de traduction WRN. Le répertoire conserve ses titres et liens originaux.',
+      'Les titres dans une autre langue des six lectures vérifiées, le résumé principal et les titres récents du répertoire dont la langue source est connue sont envoyés automatiquement au service de traduction WRN. Les titres et liens originaux restent disponibles.',
     unavailable: 'La traduction est indisponible ; les originaux restent lisibles.',
   },
   it: {
     original: 'Mostra originale',
     notice:
-      'I titoli in un’altra lingua delle sei letture verificate e l’anteprima visibile dell’articolo principale vengono inviati automaticamente al servizio di traduzione WRN. L’elenco mantiene titoli e link originali.',
+      'I titoli in un’altra lingua delle sei letture verificate, l’anteprima principale e i titoli recenti dell’elenco con lingua di origine nota vengono inviati automaticamente al servizio di traduzione WRN. Titoli e link originali restano disponibili.',
     unavailable: 'Traduzione non disponibile; gli originali restano leggibili.',
   },
   pt: {
     original: 'Mostrar original',
     notice:
-      'Os títulos noutra língua das seis leituras verificadas e o resumo visível do artigo principal são enviados automaticamente ao serviço de tradução WRN. O diretório mantém títulos e ligações originais.',
+      'Os títulos noutra língua das seis leituras verificadas, o resumo principal e os títulos atuais do diretório com língua de origem conhecida são enviados automaticamente ao serviço de tradução WRN. Títulos e ligações originais continuam disponíveis.',
     unavailable: 'Tradução indisponível; os originais continuam legíveis.',
   },
   ru: {
     original: 'Показать оригинал',
     notice:
-      'Иноязычные заголовки шести проверенных материалов и видимый анонс главного материала автоматически отправляются в службу перевода WRN. Каталог сохраняет исходные заголовки и ссылки.',
+      'Иноязычные заголовки шести проверенных материалов, анонс главного материала и текущие заголовки каталога с известным языком оригинала автоматически отправляются в службу перевода WRN. Оригиналы и ссылки остаются доступны.',
     unavailable: 'Перевод недоступен; оригиналы остаются доступными.',
   },
   el: {
     original: 'Προβολή πρωτοτύπου',
     notice:
-      'Οι τίτλοι άλλης γλώσσας των έξι ελεγμένων κειμένων και η ορατή περίληψη του κύριου άρθρου αποστέλλονται αυτόματα στην υπηρεσία μετάφρασης WRN. Ο κατάλογος κρατά αρχικούς τίτλους και συνδέσμους.',
+      'Οι ξενόγλωσσοι τίτλοι των έξι ελεγμένων κειμένων, η κύρια περίληψη και οι τρέχοντες τίτλοι καταλόγου με γνωστή γλώσσα πηγής αποστέλλονται αυτόματα στην υπηρεσία μετάφρασης WRN. Οι αρχικοί τίτλοι και σύνδεσμοι παραμένουν διαθέσιμοι.',
     unavailable: 'Η μετάφραση δεν είναι διαθέσιμη· τα πρωτότυπα παραμένουν αναγνώσιμα.',
   },
   tr: {
     original: 'Özgün metni göster',
     notice:
-      'Altı incelenmiş yazının başka dildeki başlıkları ve ana yazının görünen özeti WRN çeviri hizmetine otomatik gönderilir. Dizin özgün başlıkları ve bağlantıları korur.',
+      'Altı incelenmiş yazının yabancı dildeki başlıkları, ana özet ve kaynak dili bilinen güncel dizin başlıkları WRN çeviri hizmetine otomatik gönderilir. Özgün başlıklar ve bağlantılar erişilebilir kalır.',
     unavailable: 'Çeviri şu anda kullanılamıyor; özgün metinler okunabilir.',
   },
 };
@@ -120,7 +121,7 @@ function drain() {
 
 function queuedTranslation(
   adapter: ProductionTranslationAdapter,
-  paragraph: Parameters<ProductionTranslationAdapter['translate']>[0],
+  paragraph: Parameters<ProductionTranslationAdapter['translate']>[0] | DirectoryTitleTranslation,
   signal: AbortSignal,
   isCurrent: () => boolean,
   priority: number,
@@ -129,7 +130,11 @@ function queuedTranslation(
     const job: Job = {
       priority,
       signal,
-      run: () => adapter.translate(paragraph, signal, isCurrent),
+      run: () =>
+        'kind' in paragraph
+          ? (adapter.translateDirectoryTitle?.(paragraph, signal, isCurrent) ??
+            Promise.resolve({ kind: 'unavailable' }))
+          : adapter.translate(paragraph, signal, isCurrent),
       resolve,
       started: false,
     };
@@ -152,6 +157,17 @@ function queuedTranslation(
       });
     }
   });
+}
+
+/** Shares the reviewed-home rate limit while giving public directory titles lower priority. */
+export function queueDirectoryTitleTranslation(
+  adapter: ProductionTranslationAdapter,
+  title: DirectoryTitleTranslation,
+  signal: AbortSignal,
+  isCurrent: () => boolean,
+  position: number,
+) {
+  return queuedTranslation(adapter, title, signal, isCurrent, 10 + position);
 }
 
 function useAutomaticTranslation(

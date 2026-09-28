@@ -2,6 +2,10 @@ import { createRef } from 'react';
 import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { ProductionArticleV1, ProductionReaderImageBlockV2 } from '@wrn/content-contracts';
+import {
+  projectMobileContentDirectory,
+  type MobileContentDirectory,
+} from '@wrn/content-contracts/mobile-content-directory-v1';
 import { emptySourcePreferences, projectSourcePreferences, setSourcePreference } from '@wrn/domain';
 import { selectProductionHomeArticles } from '../../../packages/browser-content/src/production-home-selection';
 import {
@@ -14,6 +18,11 @@ import type { ProductionContentOfflineControllerResult } from './production-cont
 import { useProductionContentOfflineController } from './content-offline-ui';
 import { productionTestResult } from './production-content-test-data';
 import { SourcePreferencesProvider } from '../../../packages/browser-content/src/source-preferences-ui';
+import type {
+  DirectoryTitleTranslation,
+  ProductionTranslationAdapter,
+} from '../../../packages/browser-content/src/production-translation';
+import directorySnapshot from './features/directory/data/content-directory-v1.json';
 
 vi.mock('./content-offline-ui', () => ({ useProductionContentOfflineController: vi.fn() }));
 
@@ -144,7 +153,7 @@ describe('production Home selection', () => {
   it('removes a prior directory projection as its loader changes, is absent, or throws synchronously', async () => {
     const directory = {
       document: { observedAt: '2026-09-10T00:00:00.000Z' },
-      projection: { articles: [], sports: [] },
+      projection: { articles: [], sources: [], sports: [] },
     } as unknown as ProductionHomeDirectory;
     let resolveReplacement!: (value: ProductionHomeDirectory) => void;
     const replacement = vi.fn(
@@ -190,7 +199,7 @@ describe('production Home selection', () => {
     } satisfies ProductionArticleV1;
     const directory = {
       document: { observedAt: '2026-09-10T00:00:00.000Z' },
-      projection: { articles: [], sports: [] },
+      projection: { articles: [], sources: [], sports: [] },
     } as unknown as ProductionHomeDirectory;
     const renderCard = (value: ProductionArticleV1, role: string) => (
       <div data-testid={`card-${role}-${value.id}`}>{value.title}</div>
@@ -214,6 +223,45 @@ describe('production Home selection', () => {
     expect(within(section).getByText(sportArticle.title)).toBeInTheDocument();
     fireEvent.click(within(section).getByRole('button', { name: 'Women' }));
     expect(within(section).getByText(sportArticle.title)).toBeInTheDocument();
+  });
+
+  it('queues only public, known-language current directory titles on the production Home path', async () => {
+    const document = directorySnapshot as MobileContentDirectory;
+    const translateDirectoryTitle = vi.fn(async (_title: DirectoryTitleTranslation) => {
+      void _title;
+      return { kind: 'unavailable' as const };
+    });
+    const adapter: ProductionTranslationAdapter = {
+      identity: { id: 'test', version: '1', provider: 'test' },
+      translate: vi.fn(async () => ({ kind: 'unavailable' as const })),
+      translateDirectoryTitle,
+    };
+    render(
+      <ProductionHome
+        articles={[]}
+        language="de"
+        sourcePreferences={emptySourcePreferences()}
+        renderCard={() => null}
+        loadDirectory={async () => ({
+          document,
+          projection: projectMobileContentDirectory(document),
+        })}
+        prioritizeCurrentLinks
+        translationAdapter={adapter}
+      />,
+    );
+    await screen.findAllByRole('listitem');
+    const current = screen.getByRole('heading', { name: 'Aktuelle Meldungen' }).closest('section')!;
+    expect(within(current).getAllByRole('listitem')).toHaveLength(5);
+    await waitFor(() => expect(translateDirectoryTitle).toHaveBeenCalled());
+    for (const [title] of translateDirectoryTitle.mock.calls) {
+      expect(title.kind).toBe('directory-title');
+      expect(title.sourceLanguage).toBe('tr');
+      expect(title.targetLanguage).toBe('de');
+      expect(title.text).toBeTruthy();
+    }
+    expect(within(current).getAllByRole('link')).toHaveLength(5);
+    expect(within(current).queryByText(/maschinell übersetzt/i)).toBeNull();
   });
 
   it('permits only original, text licence, or admitted image licence URLs', async () => {

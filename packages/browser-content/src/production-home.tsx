@@ -2,10 +2,11 @@ import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import type { LocalSourcePreferencesV1, ProductionArticleV1 } from '@wrn/content-contracts';
 import type {
   DirectoryArticle,
+  DirectorySource,
   DirectorySportNote,
   MobileContentDirectory,
 } from '@wrn/content-contracts/mobile-content-directory-v1';
-import { projectSourcePreferences } from '@wrn/domain';
+import { projectDirectorySourcePreferences, projectSourcePreferences } from '@wrn/domain';
 import { getUiCopy, type UiLanguage } from '@wrn/ui-language';
 import {
   getDirectoryCopy,
@@ -14,6 +15,8 @@ import {
 } from '@wrn/ui-language/directory';
 import { getProductionHomeCopy } from '@wrn/ui-language/production-home';
 import { selectProductionHomeArticles } from './production-home-selection';
+import { AutomaticDirectoryTitle } from './automatic-directory-title';
+import type { ProductionTranslationAdapter } from './production-translation';
 
 export type ProductionHomeDirectory = Readonly<{
   document: MobileContentDirectory;
@@ -48,16 +51,16 @@ function orderDirectoryArticles(
 
 function selectArchiveArticles(
   articles: readonly DirectoryArticle[],
+  sources: readonly DirectorySource[],
   language: UiLanguage,
   preferences: LocalSourcePreferencesV1,
   recentFirst = false,
 ) {
-  return projectSourcePreferences(
-    orderDirectoryArticles(articles, language, recentFirst),
+  return projectDirectorySourcePreferences({
+    articles: orderDirectoryArticles(articles, language, recentFirst),
+    sources,
     preferences,
-    'directory',
-    (article) => article.endpointIds,
-  ).slice(0, 5);
+  }).slice(0, 5);
 }
 
 const websiteFreshnessCopy: Readonly<
@@ -172,6 +175,7 @@ export function ProductionHome({
   regionalEvents,
   prioritizeCurrentLinks = false,
   brandMarkUrl,
+  translationAdapter = null,
 }: Readonly<{
   articles: readonly ProductionArticleV1[];
   language: UiLanguage;
@@ -184,6 +188,7 @@ export function ProductionHome({
   regionalEvents?: ReactNode;
   prioritizeCurrentLinks?: boolean | undefined;
   brandMarkUrl?: string | undefined;
+  translationAdapter?: ProductionTranslationAdapter | null;
 }>) {
   const copy = getProductionHomeCopy(language);
   const freshnessCopy = websiteFreshnessCopy[language];
@@ -252,6 +257,7 @@ export function ProductionHome({
       currentDirectory
         ? selectArchiveArticles(
             currentDirectory.projection.articles,
+            currentDirectory.projection.sources,
             language,
             sourcePreferences,
             prioritizeCurrentLinks,
@@ -318,16 +324,22 @@ export function ProductionHome({
         })}
       </p>
       <ul className="production-home__archive">
-        {archive.map((article) => (
+        {archive.map((article, position) => (
           <li key={article.id} data-home-directory-article={article.id}>
             <a
               href={article.url}
               target="_blank"
               rel="noopener noreferrer"
               referrerPolicy="no-referrer"
-              lang={article.language}
+              lang={article.language === 'und' ? undefined : article.language}
             >
-              {article.title}
+              <AutomaticDirectoryTitle
+                article={article}
+                directoryRevision={`${currentDirectory.document.sourceCommit}:${currentDirectory.document.observedAt}`}
+                language={language}
+                adapter={translationAdapter}
+                position={position}
+              />
               <span aria-hidden="true"> ↗</span>
             </a>
             <span>

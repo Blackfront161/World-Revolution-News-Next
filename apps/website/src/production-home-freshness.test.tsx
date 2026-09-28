@@ -1,11 +1,16 @@
 import { render, screen, within } from '@testing-library/react';
 import { expect, it, vi } from 'vitest';
 import type { ProductionArticleV1 } from '@wrn/content-contracts';
-import { emptySourcePreferences } from '@wrn/domain';
+import { emptySourcePreferences, setSourcePreference } from '@wrn/domain';
 import {
   ProductionHome,
   type ProductionHomeDirectory,
 } from '../../../packages/browser-content/src/production-home';
+import type {
+  DirectoryTitleTranslation,
+  ProductionTranslationAdapter,
+  ProductionTranslationOutcome,
+} from '../../../packages/browser-content/src/production-translation';
 
 it('puts the newest original-source reports before older full-text reading pieces', async () => {
   const report = (id: string, language: string, day: string) => ({
@@ -16,15 +21,17 @@ it('puts the newest original-source reports before older full-text reading piece
     language,
     publishedAt: `2026-09-${day}T08:00:00.000Z`,
     endpointIds: [],
+    observations: [],
   });
   const directory = {
-    document: { observedAt: '2026-09-27T10:00:00.000Z' },
+    document: { sourceCommit: 'fixture-revision', observedAt: '2026-09-27T10:00:00.000Z' },
     projection: {
       articles: [
         report('older', 'de', '10'),
         report('newest', 'en', '27'),
         report('middle', 'tr', '26'),
       ],
+      sources: [],
       sports: [],
     },
   } as unknown as ProductionHomeDirectory;
@@ -61,4 +68,119 @@ it('puts the newest original-source reports before older full-text reading piece
   expect(screen.getByRole('heading', { name: 'Lesestück im Blickpunkt' })).toBeInTheDocument();
   expect(screen.getByText(olderFullText.title)).toBeInTheDocument();
   expect(document.querySelector('.production-home')?.firstElementChild).toBe(current);
+});
+
+it('translates a known-language current title automatically and keeps unknown language and original links intact', async () => {
+  const report = (id: string, language: string) => ({
+    id,
+    url: `https://source.example/${id}`,
+    title: `Original ${id}`,
+    sourceName: 'Example source',
+    language,
+    publishedAt: '2026-09-27T08:00:00.000Z',
+    endpointIds: [],
+    observations: [],
+  });
+  const directory = {
+    document: { sourceCommit: 'fixture-translation', observedAt: '2026-09-27T10:00:00.000Z' },
+    projection: {
+      articles: [report('known', 'en'), report('unknown', 'und')],
+      sources: [],
+      sports: [],
+    },
+  } as unknown as ProductionHomeDirectory;
+  const identity = { id: 'fixture', version: '1', provider: 'fixture-provider' };
+  const translateDirectoryTitle = vi.fn(async (_title: DirectoryTitleTranslation) => {
+    void _title;
+    return {
+      kind: 'translated',
+      identity: 'fixture',
+      response: {
+        translation: { text: 'Übersetzter Titel' },
+        cache: { expiresAt: new Date(Date.now() + 60_000).toISOString() },
+      },
+    } as ProductionTranslationOutcome;
+  });
+  const adapter: ProductionTranslationAdapter = {
+    identity,
+    translate: async () => ({ kind: 'unavailable' }),
+    translateDirectoryTitle,
+  };
+  render(
+    <ProductionHome
+      articles={[]}
+      language="de"
+      sourcePreferences={emptySourcePreferences()}
+      renderCard={() => null}
+      loadDirectory={vi.fn(async () => directory)}
+      translationAdapter={adapter}
+      prioritizeCurrentLinks
+    />,
+  );
+  expect(await screen.findByText('Übersetzter Titel', {}, { timeout: 5000 })).toBeVisible();
+  expect(screen.getByText('Original known').closest('small')).toHaveTextContent(
+    'Maschinell übersetzt · Original: Original known',
+  );
+  expect(screen.getByRole('link', { name: /Übersetzter Titel/ })).toHaveAttribute(
+    'href',
+    'https://source.example/known',
+  );
+  expect(screen.getByRole('link', { name: /Original unknown/ })).toHaveAttribute(
+    'href',
+    'https://source.example/unknown',
+  );
+  expect(translateDirectoryTitle).toHaveBeenCalledTimes(1);
+  expect(translateDirectoryTitle.mock.calls[0]?.[0]).toMatchObject({
+    kind: 'directory-title',
+    text: 'Original known',
+    sourceLanguage: 'en',
+    targetLanguage: 'de',
+  });
+});
+
+it('keeps a hidden legacy source off the current headline strip without endpoint IDs', async () => {
+  const sourceId = `source-${'a'.repeat(64)}`;
+  const directory = {
+    document: { sourceCommit: 'fixture-hidden', observedAt: '2026-09-27T10:00:00.000Z' },
+    projection: {
+      articles: [
+        {
+          id: 'hidden',
+          url: 'https://source.example/hidden',
+          title: 'Hidden report',
+          sourceName: 'Hidden source',
+          language: 'en',
+          publishedAt: '2026-09-27T08:00:00.000Z',
+          endpointIds: [],
+          observations: [],
+        },
+      ],
+      sources: [
+        {
+          id: sourceId,
+          url: 'https://source.example/',
+          name: 'Hidden source',
+          languages: ['en'],
+          mediaType: null,
+          historicalHttp: false,
+          accessNote: null,
+          observations: [],
+        },
+      ],
+      sports: [],
+    },
+  } as unknown as ProductionHomeDirectory;
+  const preferences = setSourcePreference(emptySourcePreferences(), 'directory', sourceId, 'hide')!;
+  render(
+    <ProductionHome
+      articles={[]}
+      language="de"
+      sourcePreferences={preferences}
+      renderCard={() => null}
+      loadDirectory={vi.fn(async () => directory)}
+      prioritizeCurrentLinks
+    />,
+  );
+  expect(await screen.findByText('Stand: 2026-09-27')).toBeVisible();
+  expect(screen.queryByRole('link', { name: /Hidden report/ })).not.toBeInTheDocument();
 });

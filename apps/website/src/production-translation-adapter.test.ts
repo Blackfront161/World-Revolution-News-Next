@@ -4,7 +4,10 @@ import {
   createWebsiteProductionTranslationAdapter,
   productionTranslationAdapter,
 } from './production-translation-adapter';
-import type { ProductionTranslationParagraph } from '../../../packages/browser-content/src/production-translation';
+import type {
+  DirectoryTitleTranslation,
+  ProductionTranslationParagraph,
+} from '../../../packages/browser-content/src/production-translation';
 
 const now = Date.parse('2026-09-11T00:00:00.000Z');
 const config = {
@@ -88,6 +91,37 @@ describe('website production translation adapter', () => {
       Accept: 'application/json',
     });
     expect(fetch).toHaveBeenCalledTimes(1);
+  });
+  it('translates a directory title without sending its local identity or source choice', async () => {
+    const fetch = vi.fn<typeof globalThis.fetch>().mockResolvedValue(Response.json(await reply()));
+    const adapter = createWebsiteProductionTranslationAdapter(config, {
+      fetch,
+      now: () => now,
+      online: () => true,
+    })!;
+    const title: DirectoryTitleTranslation = {
+      kind: 'directory-title',
+      directoryRevision: 'local-snapshot',
+      articleId: 'private-local-id',
+      sourceLanguage: 'en',
+      targetLanguage: 'de',
+      text: paragraph.text,
+      expiresAt: paragraph.expiresAt,
+    };
+    expect(
+      (await adapter.translateDirectoryTitle!(title, new AbortController().signal, () => true))
+        .kind,
+    ).toBe('translated');
+    const body = JSON.parse(fetch.mock.calls[0]![1]!.body as string);
+    expect(body).toEqual({
+      contractVersion: '1.0.0',
+      mode: 'paragraph',
+      sourceLanguage: 'en',
+      targetLanguage: 'de',
+      text: paragraph.text,
+    });
+    expect(JSON.stringify(body)).not.toContain('private-local-id');
+    expect(JSON.stringify(body)).not.toContain('local-snapshot');
   });
   it('performs no request for same language, offline, cancelled or oversize input', async () => {
     const fetch = vi.fn<typeof globalThis.fetch>();
