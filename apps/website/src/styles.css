@@ -2173,6 +2173,9 @@
 .website-shell main[data-view='home'] {
   width: min(100%, 56rem);
 }
+.website-shell main[data-view='home'] {
+  width: min(100%, 42rem);
+}
 .compact-site-masthead,
 .site-header[data-wide-language-layout='true'] .compact-site-masthead {
   position: relative;
