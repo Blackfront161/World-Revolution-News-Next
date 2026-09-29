@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import type { UiLanguage } from '@wrn/ui-language';
 import { formatUiCopy } from '@wrn/ui-language';
 import { getProductionTranslationCopy } from '@wrn/ui-language/production-translation';
+import { isTranslationSourceLanguage } from '@wrn/api-contracts/translation-v1';
 import type { ProductionArticleV1 } from '@wrn/content-contracts';
 import {
   productionTranslationRenderKey,
@@ -83,9 +84,20 @@ type Job = {
 };
 const jobs: Job[] = [];
 const dispatches: number[] = [];
+const directoryDispatches: number[] = [];
+let reservedHomeRequests = 0;
 let active = 0;
 let wake: ReturnType<typeof setTimeout> | null = null;
 let queuedDrain = false;
+
+function scheduleDrain() {
+  if (queuedDrain) return;
+  queuedDrain = true;
+  queueMicrotask(() => {
+    queuedDrain = false;
+    drain();
+  });
+}
 
 function drain() {
   if (wake !== null) {
@@ -95,19 +107,33 @@ function drain() {
   while (jobs.length && active < 2) {
     const now = Date.now();
     while (dispatches.length && dispatches[0]! <= now - 60_000) dispatches.shift();
+    while (directoryDispatches.length && directoryDispatches[0]! <= now - 60_000)
+      directoryDispatches.shift();
     // Reserve capacity for an explicit Reader request in this tab.
     if (dispatches.length >= 8) {
       wake = setTimeout(drain, Math.max(1, dispatches[0]! + 60_001 - now));
       return;
     }
     jobs.sort((left, right) => left.priority - right.priority);
-    const job = jobs.shift()!;
+    // Home reserves its visible known-language requests before child effects run.
+    // Directory metadata uses only the remaining capacity, even if it loads first.
+    const directoryBudget = 8 - reservedHomeRequests;
+    const next = jobs.findIndex(
+      (job) => job.priority < 10 || directoryDispatches.length < directoryBudget,
+    );
+    if (next < 0) {
+      if (directoryDispatches.length)
+        wake = setTimeout(drain, Math.max(1, directoryDispatches[0]! + 60_001 - now));
+      return;
+    }
+    const job = jobs.splice(next, 1)[0]!;
     if (job.signal.aborted) {
       job.resolve({ kind: 'discarded' });
       continue;
     }
     job.started = true;
     dispatches.push(now);
+    if (job.priority >= 10) directoryDispatches.push(now);
     active += 1;
     void job
       .run()
@@ -117,6 +143,14 @@ function drain() {
         drain();
       });
   }
+}
+
+/** Home sets this before child title effects run; zero releases the budget for directory-only views. */
+export function reserveAutomaticHomeTranslationRequests(count: number) {
+  reservedHomeRequests = Math.max(0, Math.min(7, Math.trunc(count)));
+  // StrictMode may clean up and re-run this effect before the next microtask.
+  // Dispatch only after the final reservation is visible.
+  scheduleDrain();
 }
 
 function queuedTranslation(
@@ -145,17 +179,12 @@ function queuedTranslation(
         const index = jobs.indexOf(job);
         if (index >= 0) jobs.splice(index, 1);
         resolve({ kind: 'discarded' });
+        scheduleDrain();
       },
       { once: true },
     );
     jobs.push(job);
-    if (!queuedDrain) {
-      queuedDrain = true;
-      queueMicrotask(() => {
-        queuedDrain = false;
-        drain();
-      });
-    }
+    scheduleDrain();
   });
 }
 
@@ -178,8 +207,9 @@ function useAutomaticTranslation(
   language: UiLanguage,
   adapter: ProductionTranslationAdapter | null,
 ) {
+  const sourceLanguageKnown = isTranslationSourceLanguage(article.originalLanguage);
   const paragraph =
-    authority && text
+    authority && authority.articleId === article.id && sourceLanguageKnown && text
       ? {
           ...authority,
           route: 'home',
@@ -247,7 +277,7 @@ function useAutomaticTranslation(
     );
     return () => clearTimeout(timer);
   }, [expiry, key]);
-  if (!text || (paragraph && paragraph.sourceLanguage === language))
+  if (!text || !sourceLanguageKnown || (paragraph && paragraph.sourceLanguage === language))
     return { translation: null, fallback: null } as const;
   if (!paragraph) return { translation: null, fallback: 'unavailable' } as const;
   const cached = cache.get(key);

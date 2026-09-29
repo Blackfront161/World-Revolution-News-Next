@@ -253,7 +253,7 @@ describe('production Home selection', () => {
     await screen.findAllByRole('listitem');
     const current = screen.getByRole('heading', { name: 'Aktuelle Meldungen' }).closest('section')!;
     expect(within(current).getAllByRole('listitem')).toHaveLength(5);
-    await waitFor(() => expect(translateDirectoryTitle).toHaveBeenCalled());
+    await waitFor(() => expect(translateDirectoryTitle).toHaveBeenCalledTimes(2));
     for (const [title] of translateDirectoryTitle.mock.calls) {
       expect(title.kind).toBe('directory-title');
       expect(title.sourceLanguage).toBe('tr');

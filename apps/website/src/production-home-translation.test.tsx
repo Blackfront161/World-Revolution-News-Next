@@ -104,6 +104,92 @@ it('discards an obsolete language result and marks a failed request as original'
   expect(screen.queryByText(/Traducción automática/)).toBeNull();
 });
 
+it('translates the visible lead on first mount and requests the new UI language after switching', async () => {
+  const lead = { ...article, id: 'wrn-art-home-translation-lead' as const };
+  const leadAuthority = { ...authority, articleId: lead.id };
+  const translate = vi.fn<ProductionTranslationAdapter['translate']>(async (paragraph) =>
+    translated(`${paragraph.targetLanguage}:${paragraph.blockIndex}`),
+  );
+  const adapter: ProductionTranslationAdapter = { identity, translate };
+  const ui = render(
+    <AutomaticHomeCardText
+      article={lead}
+      role="lead"
+      headingLevel={3}
+      authority={leadAuthority}
+      language="de"
+      adapter={adapter}
+    />,
+  );
+  expect(await screen.findByRole('heading', { name: 'de:0' })).toBeVisible();
+  expect(await screen.findByText('de:1')).toBeVisible();
+  expect(translate.mock.calls.map(([paragraph]) => paragraph.text)).toEqual([
+    lead.title,
+    lead.teaser,
+  ]);
+  ui.rerender(
+    <AutomaticHomeCardText
+      article={lead}
+      role="lead"
+      headingLevel={3}
+      authority={leadAuthority}
+      language="es"
+      adapter={adapter}
+    />,
+  );
+  expect(await screen.findByRole('heading', { name: 'es:0' })).toBeVisible();
+  expect(await screen.findByText('es:1')).toBeVisible();
+  expect(screen.queryByText('de:0')).toBeNull();
+  expect(translate.mock.calls.map(([paragraph]) => paragraph.targetLanguage)).toEqual([
+    'de',
+    'de',
+    'es',
+    'es',
+  ]);
+});
+
+it.each(['und', 'EN'])(
+  'keeps an unverified source language %s local without a translation request',
+  async (originalLanguage) => {
+    const unknown = {
+      ...article,
+      id: `wrn-art-home-translation-${originalLanguage}` as const,
+      originalLanguage,
+    };
+    const translate = vi.fn<ProductionTranslationAdapter['translate']>();
+    render(
+      <AutomaticHomeCardText
+        article={unknown}
+        role="main"
+        headingLevel={3}
+        authority={{ ...authority, articleId: unknown.id }}
+        language="de"
+        adapter={{ identity, translate }}
+      />,
+    );
+    await act(async () => undefined);
+    expect(screen.getByRole('heading', { name: article.title })).toBeVisible();
+    expect(translate).not.toHaveBeenCalled();
+  },
+);
+
+it('does not translate a title with authority for another article', async () => {
+  const translate = vi.fn<ProductionTranslationAdapter['translate']>();
+  render(
+    <AutomaticHomeCardText
+      article={article}
+      role="main"
+      headingLevel={3}
+      authority={{ ...authority, articleId: 'another-article' }}
+      language="de"
+      adapter={{ identity, translate }}
+    />,
+  );
+  await act(async () => undefined);
+  expect(screen.getByRole('heading', { name: article.title })).toBeVisible();
+  expect(translate).not.toHaveBeenCalled();
+});
+
 it('shows the original without a configured translation adapter', () => {
   render(
     <AutomaticHomeCardText

@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useState, type ReactNode } from 'react';
+import { isTranslationSourceLanguage } from '@wrn/api-contracts/translation-v1';
 import type { LocalSourcePreferencesV1, ProductionArticleV1 } from '@wrn/content-contracts';
 import type {
   DirectoryArticle,
@@ -16,6 +17,7 @@ import {
 import { getProductionHomeCopy } from '@wrn/ui-language/production-home';
 import { selectProductionHomeArticles } from './production-home-selection';
 import { AutomaticDirectoryTitle } from './automatic-directory-title';
+import { reserveAutomaticHomeTranslationRequests } from './production-home-translation';
 import type { ProductionTranslationAdapter } from './production-translation';
 
 export type ProductionHomeDirectory = Readonly<{
@@ -176,6 +178,7 @@ export function ProductionHome({
   prioritizeCurrentLinks = false,
   brandMarkUrl,
   translationAdapter = null,
+  contentReady = true,
 }: Readonly<{
   articles: readonly ProductionArticleV1[];
   language: UiLanguage;
@@ -189,6 +192,7 @@ export function ProductionHome({
   prioritizeCurrentLinks?: boolean | undefined;
   brandMarkUrl?: string | undefined;
   translationAdapter?: ProductionTranslationAdapter | null;
+  contentReady?: boolean;
 }>) {
   const copy = getProductionHomeCopy(language);
   const freshnessCopy = websiteFreshnessCopy[language];
@@ -252,6 +256,21 @@ export function ProductionHome({
       main: top.filter((_, index) => index !== imageIndex),
     };
   }, [selection, hasOriginalImage]);
+  const reviewedTranslationRequests = !contentReady
+    ? 7
+    : [frontPage.lead, ...frontPage.main].reduce((count, article, index) => {
+        if (
+          !article ||
+          !isTranslationSourceLanguage(article.originalLanguage) ||
+          article.originalLanguage === language
+        )
+          return count;
+        return count + 1 + (index === 0 && frontPage.lead && article.teaser ? 1 : 0);
+      }, 0);
+  useLayoutEffect(() => {
+    reserveAutomaticHomeTranslationRequests(translationAdapter ? reviewedTranslationRequests : 0);
+    return () => reserveAutomaticHomeTranslationRequests(0);
+  }, [reviewedTranslationRequests, translationAdapter]);
   const archive = useMemo(
     () =>
       currentDirectory
