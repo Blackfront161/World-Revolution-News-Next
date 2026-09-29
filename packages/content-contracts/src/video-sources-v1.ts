@@ -1,6 +1,6 @@
 /** Editorial directory only. Admission never implies approval of every upload.
- * Provenance: docs/evidence/WRN-YOUTUBE-SHORTS-RECOMMENDATION-2026-09-09.md
- * and the Product Owner's explicit acceptance of its eleven-source selection.
+ * The original eleven entries follow docs/evidence/WRN-YOUTUBE-SHORTS-RECOMMENDATION-2026-09-09.md;
+ * later link-only additions are publisher pages, not admitted videos.
  * No provider API data, player contract or offline media capability is declared.
  */
 export const videoSourceLanguagesV1 = [
@@ -101,11 +101,26 @@ const sources: readonly VideoSourceV1[] = [
     originalUrl: 'https://www.yeryuzupostasi.org/category/video/',
     kind: 'collection',
   },
+  // Publisher-link additions checked on 2026-09-28; not part of the 2026-09-09 PO selection.
+  {
+    id: 'video-source:labournet-tv',
+    name: 'Labournet TV',
+    language: 'de',
+    originalUrl: 'https://www.labournet.tv/de/videos',
+    kind: 'collection',
+  },
+  {
+    id: 'video-source:actvism-munich',
+    name: 'acTVism Munich',
+    language: 'de',
+    originalUrl: 'https://www.actvism.org/archive/',
+    kind: 'collection',
+  },
 ];
 
 export const videoSourceCatalogV1 = Object.freeze({
   schemaVersion: 'video-source-directory-v1' as const,
-  revision: '2026-09-09.1',
+  revision: '2026-09-29.1',
   selectedOn: '2026-09-09',
   disposition: 'directory-only' as const,
   sources: Object.freeze(sources.map((source) => Object.freeze(source))),

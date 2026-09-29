@@ -35,7 +35,7 @@ describe('website sport source directory integration', () => {
       />,
     );
     expect(await screen.findByTestId('sport-sources-summary')).toHaveTextContent(
-      'Sport sources (9)',
+      'Sport sources (16)',
     );
     expect(screen.getByTestId('sport-sources-summary').closest('details')).toHaveAttribute('open');
   });

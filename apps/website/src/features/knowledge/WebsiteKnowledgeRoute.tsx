@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useMemo, useState, type RefObject } from 'r
 import { getMobileKnowledgeCopy, type UiLanguage } from '@wrn/ui-language';
 import { getWebsiteSupportCopy } from '@wrn/ui-language/support';
 import { loadWebsiteKnowledge, type WebsiteKnowledge } from './knowledge-loader';
+import { BlackAnarchismResources } from '../../../../../packages/browser-content/src/black-anarchism-resources';
 import './knowledge.css';
 
 type Tab = 'library' | 'lexicon';
@@ -144,6 +145,11 @@ function Library({ data, language }: { data: WebsiteKnowledge; language: UiLangu
           </li>
         ))}
       </ul>
+      <BlackAnarchismResources
+        language={language}
+        headingLevel={2}
+        listClassName="website-source-list"
+      />
     </section>
   );
 }

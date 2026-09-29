@@ -28,6 +28,7 @@ import {
   type EventDateScope,
   type MediaSection,
 } from './events-media-model';
+import { additionalAudioSourceLinks } from './additional-media-source-links';
 import './events-media-directory.css';
 
 export type ProductionEventsMediaDirectoryProps = Readonly<{
@@ -47,7 +48,14 @@ const external = {
   rel: 'noopener noreferrer',
   referrerPolicy: 'no-referrer',
 } as const;
-const isHttps = (url: string) => url.startsWith('https://');
+const isHttps = (url: string) => {
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === 'https:' && !parsed.username && !parsed.password;
+  } catch {
+    return false;
+  }
+};
 type DirectoryRecord =
   | ProductionEventsMediaEventV1
   | ProductionEventsMediaVideoV1
@@ -103,7 +111,7 @@ export function ConsentDialog({
     node.addEventListener('keydown', key);
     return () => {
       node.removeEventListener('keydown', key);
-      if (node.open) node.close();
+      if (node.open && typeof node.close === 'function') node.close();
     };
   }, [onClose]);
   return (
@@ -151,6 +159,78 @@ function OriginalLink({
   );
 }
 
+const additionalAudioCopy: Readonly<Record<UiLanguage, { heading: string; note: string }>> = {
+  en: {
+    heading: 'Additional audio and podcast sources',
+    note: 'Original publisher pages only. WRN does not load episodes, images or players here; check availability and rights at the source.',
+  },
+  de: {
+    heading: 'Weitere Audio- und Podcastquellen',
+    note: 'Nur Originallinks. WRN lädt hier keine Folgen, Bilder oder Player; Verfügbarkeit und Rechte sind bei der Quelle zu prüfen.',
+  },
+  es: {
+    heading: 'Más fuentes de audio y pódcast',
+    note: 'Solo enlaces a las páginas originales. WRN no carga episodios, imágenes ni reproductores aquí; comprueba la disponibilidad y los derechos en la fuente.',
+  },
+  fr: {
+    heading: 'Autres sources audio et podcasts',
+    note: 'Liens vers les sites d’origine uniquement. WRN ne charge ici ni épisodes, ni images, ni lecteurs ; vérifiez leur disponibilité et leurs droits à la source.',
+  },
+  it: {
+    heading: 'Altre fonti audio e podcast',
+    note: 'Solo link ai siti originali. WRN non carica qui episodi, immagini o lettori; verifica disponibilità e diritti alla fonte.',
+  },
+  pt: {
+    heading: 'Mais fontes de áudio e podcasts',
+    note: 'Apenas links para os sites originais. A WRN não carrega episódios, imagens ou leitores aqui; verifique disponibilidade e direitos na fonte.',
+  },
+  ru: {
+    heading: 'Другие источники аудио и подкастов',
+    note: 'Только ссылки на сайты источников. WRN не загружает здесь выпуски, изображения или плееры; проверяйте доступность и права у источника.',
+  },
+  el: {
+    heading: 'Περισσότερες πηγές ήχου και podcast',
+    note: 'Μόνο σύνδεσμοι προς τις αρχικές σελίδες. Το WRN δεν φορτώνει εδώ επεισόδια, εικόνες ή αναπαραγωγείς· ελέγξτε διαθεσιμότητα και δικαιώματα στην πηγή.',
+  },
+  tr: {
+    heading: 'Diğer ses ve podcast kaynakları',
+    note: 'Yalnızca özgün sitelere bağlantılar. WRN burada bölüm, görsel veya oynatıcı yüklemez; erişilebilirliği ve hakları kaynakta kontrol edin.',
+  },
+};
+
+function AdditionalAudioSources({
+  language,
+  headingLevel,
+  copy,
+  onConsent,
+}: {
+  language: UiLanguage;
+  headingLevel: 1 | 2;
+  copy: ReturnType<typeof getEventsMediaCopy>;
+  onConsent: (url: string, trigger: HTMLElement) => void;
+}) {
+  const Heading = headingLevel === 1 ? 'h2' : 'h3';
+  const CardHeading = headingLevel === 1 ? 'h3' : 'h4';
+  return (
+    <section
+      className="events-media-additional-sources"
+      aria-label={additionalAudioCopy[language].heading}
+    >
+      <Heading>{additionalAudioCopy[language].heading}</Heading>
+      <p>{additionalAudioCopy[language].note}</p>
+      <ul>
+        {additionalAudioSourceLinks.map((source) => (
+          <li key={source.id} data-additional-audio-source={source.id}>
+            <CardHeading lang={source.language}>{source.name}</CardHeading>
+            <p lang={source.language}>{source.language.toUpperCase()}</p>
+            <OriginalLink url={source.originalUrl} copy={copy} onConsent={onConsent} />
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 export function ProductionEventsMediaDirectory({
   load,
   language,
@@ -194,7 +274,7 @@ export function ProductionEventsMediaDirectory({
   }, [load, retry]);
   useEffect(() => {
     setConsent(null);
-  }, [mode, section, eventFilters, mediaFilters, data]);
+  }, [mode, section, eventFilters, mediaFilters]);
   useEffect(() => {
     if (consent !== null || !restoreConsentFocus.current) return;
     restoreConsentFocus.current = false;
@@ -220,6 +300,14 @@ export function ProductionEventsMediaDirectory({
           {mode === 'events' ? copy.events : copy.media}
         </Heading>
         {mode === 'media' ? productionMedia : null}
+        {mode === 'media' ? (
+          <AdditionalAudioSources
+            language={language}
+            headingLevel={headingLevel}
+            copy={copy}
+            onConsent={request}
+          />
+        ) : null}
         {mode === 'events' && currentEvents}
         <p role="status">{failed ? copy.failed : copy.loading}</p>
         {failed ? (
@@ -227,6 +315,7 @@ export function ProductionEventsMediaDirectory({
             {copy.retry}
           </button>
         ) : null}
+        {consent ? <ConsentDialog url={consent} onClose={closeConsent} copy={copy} /> : null}
       </section>
     );
   const languages = productionEventsMediaLanguages(data);
@@ -264,6 +353,14 @@ export function ProductionEventsMediaDirectory({
         {mode === 'events' ? copy.events : copy.media}
       </Heading>
       {mode === 'media' ? productionMedia : null}
+      {mode === 'media' ? (
+        <AdditionalAudioSources
+          language={language}
+          headingLevel={headingLevel}
+          copy={copy}
+          onConsent={request}
+        />
+      ) : null}
       {mode === 'events' && currentEvents}
       <p>
         {copy.historical}{' '}
@@ -487,7 +584,23 @@ export function ProductionEventsMediaDirectory({
           {copy.more}
         </button>
       ) : null}
-      {mode === 'media' && section === 'videos' ? videoChannels : null}
+      {mode === 'media' && section === 'videos' && videoChannels ? (
+        <div
+          className="events-media-video-channels"
+          onClickCapture={(event) => {
+            const anchor =
+              event.target instanceof Element
+                ? event.target.closest<HTMLAnchorElement>('a[href]')
+                : null;
+            if (!anchor || !event.currentTarget.contains(anchor)) return;
+            event.preventDefault();
+            const url = anchor.getAttribute('href');
+            if (url && isHttps(url)) request(url, anchor);
+          }}
+        >
+          {videoChannels}
+        </div>
+      ) : null}
       {consent ? <ConsentDialog url={consent} onClose={closeConsent} copy={copy} /> : null}
     </section>
   );

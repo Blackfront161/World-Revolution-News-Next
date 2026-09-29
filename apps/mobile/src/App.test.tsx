@@ -329,9 +329,7 @@ describe('mobile local newsfeed', () => {
       expect(message).not.toBeNull();
       expect(message).toBeVisible();
     });
-    expect(
-      await screen.findByText('No reviewed full texts match this selection.'),
-    ).toBeVisible();
+    expect(await screen.findByText('No reviewed full texts match this selection.')).toBeVisible();
   });
 
   it('keeps one personalization store across route changes and restores the current selection', async () => {
@@ -892,7 +890,7 @@ describe('mobile local newsfeed', () => {
       within(screen.getByRole('region', { name: 'Sport reading notes' }))
         .getAllByRole('link')
         .filter((link) => link.getAttribute('target') === '_blank'),
-    ).toHaveLength(45);
+    ).toHaveLength(52);
     expect(screen.getByRole('link', { name: 'RSS' })).toHaveAttribute(
       'href',
       'https://www.fsgt.org/feed/',
