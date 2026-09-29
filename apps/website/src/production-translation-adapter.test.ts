@@ -92,6 +92,41 @@ describe('website production translation adapter', () => {
     });
     expect(fetch).toHaveBeenCalledTimes(1);
   });
+  it('uses the same cacheable public request across independent clients without local identities', async () => {
+    const bodies: unknown[] = [];
+    const fetch = vi.fn<typeof globalThis.fetch>(async (_url, init) => {
+      bodies.push(JSON.parse(init!.body as string));
+      const value = await reply();
+      return Response.json({
+        ...value,
+        cache: { ...value.cache, status: bodies.length === 1 ? 'miss' : 'hit' },
+      });
+    });
+    const ports = { fetch, now: () => now, online: () => true };
+    const firstClient = createWebsiteProductionTranslationAdapter(config, ports)!;
+    const secondClient = createWebsiteProductionTranslationAdapter(config, ports)!;
+    const first = await firstClient.translate(
+      { ...paragraph, articleId: 'first-local-id', route: 'first-route' },
+      new AbortController().signal,
+      () => true,
+    );
+    const second = await secondClient.translate(
+      { ...paragraph, articleId: 'second-local-id', route: 'second-route' },
+      new AbortController().signal,
+      () => true,
+    );
+    expect(first.kind).toBe('translated');
+    expect(second.kind).toBe('translated');
+    if (first.kind !== 'translated' || second.kind !== 'translated')
+      throw new Error('expected shared translations');
+    expect(first.response.cache.status).toBe('miss');
+    expect(second.response.cache.status).toBe('hit');
+    expect(first.response.translation).toEqual(second.response.translation);
+    expect(first.identity).not.toBe(second.identity);
+    expect(bodies).toHaveLength(2);
+    expect(bodies[0]).toEqual(bodies[1]);
+    expect(JSON.stringify(bodies)).not.toMatch(/first-local-id|second-local-id|route/);
+  });
   it('translates a directory title without sending its local identity or source choice', async () => {
     const fetch = vi.fn<typeof globalThis.fetch>().mockResolvedValue(Response.json(await reply()));
     const adapter = createWebsiteProductionTranslationAdapter(config, {

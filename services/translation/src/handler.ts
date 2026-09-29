@@ -38,6 +38,17 @@ export interface TranslationCachePort {
   ) => Promise<void>;
 }
 
+/** Strongly current allowlist of exact text digests from active, licensed public content. */
+export interface TranslationContentAdmissionPort {
+  readonly allows: (
+    paragraph: {
+      readonly textSha256: string;
+      readonly sourceLanguage: TranslationSourceLanguage;
+    },
+    options: { readonly signal: AbortSignal },
+  ) => Promise<boolean>;
+}
+
 export interface TranslationQuotaPort {
   readonly reserve: (
     reservation: {
@@ -74,6 +85,8 @@ export interface TranslationServiceConfiguration {
   readonly enabled: boolean;
   readonly adapter: TranslationAdapterIdentity;
   readonly cacheTtlSeconds: number;
+  /** Global KV rollover; content revocation is enforced separately by contentAdmission. */
+  readonly cacheRevision?: string;
   readonly supportedSourceLanguages: readonly TranslationSourceLanguage[];
 }
 
@@ -81,6 +94,7 @@ export interface TranslationServicePorts {
   readonly configuration: TranslationServiceConfiguration;
   readonly clock: TranslationClock;
   readonly cache: TranslationCachePort;
+  readonly contentAdmission: TranslationContentAdmissionPort;
   /** A read/abuse reservation is made before every cache lookup, including hits. */
   readonly readQuota: TranslationQuotaPort;
   /** A miss reserves one request and the exact JavaScript UTF-16 code-unit count. */
@@ -187,13 +201,21 @@ function validAdapterIdentity(value: unknown): value is TranslationAdapterIdenti
 function validConfiguration(value: unknown): value is TranslationServiceConfiguration {
   return (
     isPlainRecord(value) &&
-    exactKeys(value, ['enabled', 'adapter', 'cacheTtlSeconds', 'supportedSourceLanguages']) &&
+    exactKeys(
+      value,
+      value.cacheRevision === undefined
+        ? ['enabled', 'adapter', 'cacheTtlSeconds', 'supportedSourceLanguages']
+        : ['enabled', 'adapter', 'cacheTtlSeconds', 'cacheRevision', 'supportedSourceLanguages'],
+    ) &&
     value.enabled === true &&
     validAdapterIdentity(value.adapter) &&
     typeof value.cacheTtlSeconds === 'number' &&
     Number.isInteger(value.cacheTtlSeconds) &&
     value.cacheTtlSeconds > 0 &&
     value.cacheTtlSeconds <= translationCacheTtlSeconds &&
+    (value.cacheRevision === undefined ||
+      (typeof value.cacheRevision === 'string' &&
+        /^[a-zA-Z0-9._:-]{1,64}$/u.test(value.cacheRevision))) &&
     Array.isArray(value.supportedSourceLanguages) &&
     value.supportedSourceLanguages.length > 0 &&
     value.supportedSourceLanguages.length <= 256 &&
@@ -213,6 +235,7 @@ function hasRequiredPorts(value: unknown): value is TranslationServicePorts {
     typeof candidate.clock.clearTimeout === 'function' &&
     typeof candidate.cache?.get === 'function' &&
     typeof candidate.cache.put === 'function' &&
+    typeof candidate.contentAdmission?.allows === 'function' &&
     (candidate.safeLog === undefined || typeof candidate.safeLog === 'function') &&
     quotaPortIsUsable(candidate.readQuota) &&
     quotaPortIsUsable(candidate.providerQuota) &&
@@ -355,6 +378,9 @@ export async function sha256Hex(value: string): Promise<string> {
 export function canonicalCacheIdentity(
   request: TranslationRequest,
   adapter: TranslationAdapterIdentity,
+  policy: { readonly cacheTtlSeconds: number; readonly cacheRevision?: string } = {
+    cacheTtlSeconds: translationCacheTtlSeconds,
+  },
 ): string {
   return JSON.stringify({
     schema: 'wrn.translation-cache-key.v2',
@@ -364,14 +390,17 @@ export function canonicalCacheIdentity(
     targetLanguage: request.targetLanguage,
     text: request.text,
     adapter: { id: adapter.id, version: adapter.version },
+    cacheTtlSeconds: policy.cacheTtlSeconds,
+    cacheRevision: policy.cacheRevision ?? 'v1',
   });
 }
 
 export async function deriveTranslationCacheKey(
   request: TranslationRequest,
   adapter: TranslationAdapterIdentity,
+  policy?: { readonly cacheTtlSeconds: number; readonly cacheRevision?: string },
 ): Promise<string> {
-  return `${translationCacheNamespace}:${await sha256Hex(canonicalCacheIdentity(request, adapter))}`;
+  return `${translationCacheNamespace}:${await sha256Hex(canonicalCacheIdentity(request, adapter, policy))}`;
 }
 
 async function validCachedEntry(
@@ -380,6 +409,7 @@ async function validCachedEntry(
   adapter: TranslationAdapterIdentity,
   requestTextSha256: string,
   now: Date,
+  configuredTtlSeconds: number,
 ): Promise<boolean> {
   const created = new Date(entry.createdAt);
   const expires = new Date(entry.expiresAt);
@@ -393,7 +423,7 @@ async function validCachedEntry(
     entry.translation.textSha256 === (await sha256Hex(entry.translation.text)) &&
     created.valueOf() <= now.valueOf() &&
     expires.valueOf() > now.valueOf() &&
-    expires.valueOf() - created.valueOf() <= translationCacheTtlSeconds * 1000
+    expires.valueOf() - created.valueOf() <= configuredTtlSeconds * 1000
   );
 }
 
@@ -591,7 +621,9 @@ async function runTranslation(
   run: TranslationRun,
 ): Promise<TranslationServiceResult> {
   const requestTextSha256 = await run.wait(() => sha256Hex(request.text));
-  const key = await run.wait(() => deriveTranslationCacheKey(request, ports.configuration.adapter));
+  const key = await run.wait(() =>
+    deriveTranslationCacheKey(request, ports.configuration.adapter, ports.configuration),
+  );
   const readReservation = { requests: 1 as const, utf16CodeUnits: 0 };
   try {
     if (
@@ -601,6 +633,21 @@ async function runTranslation(
       ports.safeLog?.({ code: 'quota-denied', statusClass: 4 });
       return error(429, 'QUOTA_EXCEEDED', true);
     }
+  } catch {
+    return error(503, 'SERVICE_UNAVAILABLE', true);
+  }
+
+  // A shared text-addressed KV hit is never authority to show withdrawn content.
+  try {
+    if (
+      (await run.wait(() =>
+        ports.contentAdmission.allows(
+          { textSha256: requestTextSha256, sourceLanguage: request.sourceLanguage },
+          { signal: run.signal },
+        ),
+      )) !== true
+    )
+      return error(503, 'SERVICE_UNAVAILABLE', false);
   } catch {
     return error(503, 'SERVICE_UNAVAILABLE', true);
   }
@@ -621,11 +668,27 @@ async function runTranslation(
           ports.configuration.adapter,
           requestTextSha256,
           ports.clock.now(),
+          ports.configuration.cacheTtlSeconds,
         ),
       ))
     ) {
       ports.safeLog?.({ code: 'integrity-failed', statusClass: 5 });
       return error(503, 'SERVICE_UNAVAILABLE', false);
+    }
+    // Recheck after an asynchronous KV read: a revoked digest must not be served
+    // merely because it was active when the lookup began.
+    try {
+      if (
+        (await run.wait(() =>
+          ports.contentAdmission.allows(
+            { textSha256: requestTextSha256, sourceLanguage: request.sourceLanguage },
+            { signal: run.signal },
+          ),
+        )) !== true
+      )
+        return error(503, 'SERVICE_UNAVAILABLE', false);
+    } catch {
+      return error(503, 'SERVICE_UNAVAILABLE', true);
     }
     const response = await run.wait(() =>
       makeSuccess(
@@ -701,6 +764,19 @@ async function runTranslationMiss(
   key: string,
   run: TranslationRun,
 ): Promise<TranslationServiceResult> {
+  try {
+    if (
+      (await run.wait(() =>
+        ports.contentAdmission.allows(
+          { textSha256: requestTextSha256, sourceLanguage: request.sourceLanguage },
+          { signal: run.signal },
+        ),
+      )) !== true
+    )
+      return error(503, 'SERVICE_UNAVAILABLE', false);
+  } catch {
+    return error(503, 'SERVICE_UNAVAILABLE', true);
+  }
   const providerReservation = { requests: 1 as const, utf16CodeUnits: request.text.length };
   try {
     if (
@@ -782,6 +858,20 @@ async function runTranslationMiss(
     ),
   );
   if (!response) return error(503, 'SERVICE_UNAVAILABLE', false);
+
+  try {
+    if (
+      (await run.wait(() =>
+        ports.contentAdmission.allows(
+          { textSha256: requestTextSha256, sourceLanguage: request.sourceLanguage },
+          { signal: run.signal },
+        ),
+      )) !== true
+    )
+      return error(503, 'SERVICE_UNAVAILABLE', false);
+  } catch {
+    return error(503, 'SERVICE_UNAVAILABLE', true);
+  }
 
   try {
     if (

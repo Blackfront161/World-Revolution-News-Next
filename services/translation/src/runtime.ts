@@ -9,7 +9,18 @@ import {
   approvedGeminiTranslationModel,
   createGeminiTranslationAdapter,
 } from './gemini-adapter.js';
-import type { TranslationCachePort, TranslationClock, TranslationQuotaPort } from './handler.js';
+import {
+  approvedCloudflareM2mModel,
+  cloudflareM2mIdentity,
+  createCloudflareM2mAdapter,
+  type CloudflareAiBinding,
+} from './cloudflare-m2m-adapter.js';
+import type {
+  TranslationCachePort,
+  TranslationClock,
+  TranslationContentAdmissionPort,
+  TranslationQuotaPort,
+} from './handler.js';
 import { createTranslationWorkerFetch, systemTranslationClock } from './index.js';
 
 export interface TranslationRuntimeBindings {
@@ -17,13 +28,16 @@ export interface TranslationRuntimeBindings {
   readonly allowedOrigins: readonly string[];
   readonly adapter: TranslationAdapterIdentity;
   readonly model: string;
-  readonly apiKey: string;
-  readonly fetch: typeof globalThis.fetch;
+  readonly apiKey?: string;
+  readonly fetch?: typeof globalThis.fetch;
+  readonly ai?: CloudflareAiBinding;
   readonly cache: TranslationCachePort;
+  readonly contentAdmission: TranslationContentAdmissionPort;
   readonly readQuota: TranslationQuotaPort;
   readonly providerQuota: TranslationQuotaPort;
   readonly writeQuota: TranslationQuotaPort;
   readonly cacheTtlSeconds: number;
+  readonly cacheRevision?: string;
   readonly supportedSourceLanguages: readonly TranslationSourceLanguage[];
   readonly clock?: TranslationClock;
 }
@@ -37,9 +51,12 @@ export interface TranslationRuntimeEnvironment {
   readonly TRANSLATION_ALLOWED_ORIGINS?: unknown;
   readonly TRANSLATION_MODEL?: unknown;
   readonly GEMINI_API_KEY?: unknown;
+  readonly AI?: unknown;
   readonly TRANSLATION_CACHE_TTL_SECONDS?: unknown;
+  readonly TRANSLATION_CACHE_REVISION?: unknown;
   readonly TRANSLATION_SUPPORTED_SOURCE_LANGUAGES?: unknown;
   readonly TRANSLATION_CACHE?: unknown;
+  readonly TRANSLATION_CONTENT_ADMISSION?: unknown;
   readonly TRANSLATION_READ_QUOTA?: unknown;
   readonly TRANSLATION_PROVIDER_QUOTA?: unknown;
   readonly TRANSLATION_WRITE_QUOTA?: unknown;
@@ -126,6 +143,22 @@ function isQuotaPort(value: unknown): value is TranslationQuotaPort {
   );
 }
 
+function isContentAdmissionPort(value: unknown): value is TranslationContentAdmissionPort {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    typeof (value as TranslationContentAdmissionPort).allows === 'function'
+  );
+}
+
+function isCloudflareAiBinding(value: unknown): value is CloudflareAiBinding {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    typeof (value as CloudflareAiBinding).run === 'function'
+  );
+}
+
 /**
  * Strictly composes a reviewed platform environment into the existing runtime
  * ports. It cannot select a provider, recover missing bindings, or activate a
@@ -141,30 +174,45 @@ export function createTranslationRuntimeFetchFromEnvironment(
     environment.TRANSLATION_SUPPORTED_SOURCE_LANGUAGES,
   );
   const cacheTtlSeconds = parseTtl(environment.TRANSLATION_CACHE_TTL_SECONDS);
+  const cacheRevision = environment.TRANSLATION_CACHE_REVISION;
   if (
     !allowedOrigins ||
     !supportedSourceLanguages ||
     cacheTtlSeconds === undefined ||
-    environment.TRANSLATION_MODEL !== approvedGeminiTranslationModel ||
-    typeof environment.GEMINI_API_KEY !== 'string' ||
+    (cacheRevision !== undefined &&
+      (typeof cacheRevision !== 'string' || !/^[a-zA-Z0-9._:-]{1,64}$/u.test(cacheRevision))) ||
     !isCachePort(environment.TRANSLATION_CACHE) ||
+    !isContentAdmissionPort(environment.TRANSLATION_CONTENT_ADMISSION) ||
     !isQuotaPort(environment.TRANSLATION_READ_QUOTA) ||
     !isQuotaPort(environment.TRANSLATION_PROVIDER_QUOTA) ||
     !isQuotaPort(environment.TRANSLATION_WRITE_QUOTA)
   )
     return disabledFetch();
+  const model = environment.TRANSLATION_MODEL;
+  if (model !== approvedGeminiTranslationModel && model !== approvedCloudflareM2mModel)
+    return disabledFetch();
+  if (model === approvedGeminiTranslationModel && typeof environment.GEMINI_API_KEY !== 'string')
+    return disabledFetch();
+  if (model === approvedCloudflareM2mModel && !isCloudflareAiBinding(environment.AI))
+    return disabledFetch();
   return createTranslationRuntimeFetch({
     enabled: true,
     allowedOrigins,
-    adapter: { ...geminiAdapterIdentity, version: `v1:${environment.TRANSLATION_MODEL}` },
-    model: environment.TRANSLATION_MODEL,
-    apiKey: environment.GEMINI_API_KEY,
-    fetch: fetchImplementation,
+    adapter:
+      model === approvedGeminiTranslationModel
+        ? { ...geminiAdapterIdentity, version: `v1:${model}` }
+        : cloudflareM2mIdentity,
+    model,
+    ...(model === approvedGeminiTranslationModel
+      ? { apiKey: environment.GEMINI_API_KEY as string, fetch: fetchImplementation }
+      : { ai: environment.AI as CloudflareAiBinding }),
     cache: environment.TRANSLATION_CACHE,
+    contentAdmission: environment.TRANSLATION_CONTENT_ADMISSION,
     readQuota: environment.TRANSLATION_READ_QUOTA,
     providerQuota: environment.TRANSLATION_PROVIDER_QUOTA,
     writeQuota: environment.TRANSLATION_WRITE_QUOTA,
     cacheTtlSeconds,
+    ...(cacheRevision === undefined ? {} : { cacheRevision }),
     supportedSourceLanguages,
   });
 }
@@ -178,12 +226,19 @@ export function createTranslationRuntimeFetch(
 ): (request: Request) => Promise<Response> {
   if (!bindings || bindings.enabled !== true) return disabledFetch();
   try {
-    const upstream = createGeminiTranslationAdapter({
-      model: bindings.model,
-      apiKey: bindings.apiKey,
-      fetch: bindings.fetch,
-      adapter: bindings.adapter,
-    });
+    const upstream =
+      bindings.model === approvedCloudflareM2mModel &&
+      isCloudflareAiBinding(bindings.ai) &&
+      bindings.adapter.id === cloudflareM2mIdentity.id &&
+      bindings.adapter.version === cloudflareM2mIdentity.version &&
+      bindings.adapter.provider === cloudflareM2mIdentity.provider
+        ? createCloudflareM2mAdapter(bindings.ai)
+        : createGeminiTranslationAdapter({
+            model: bindings.model,
+            apiKey: bindings.apiKey as string,
+            fetch: bindings.fetch as typeof globalThis.fetch,
+            adapter: bindings.adapter,
+          });
     return createTranslationWorkerFetch({
       allowedOrigins: bindings.allowedOrigins,
       service: {
@@ -191,10 +246,14 @@ export function createTranslationRuntimeFetch(
           enabled: true,
           adapter: bindings.adapter,
           cacheTtlSeconds: bindings.cacheTtlSeconds,
+          ...(bindings.cacheRevision === undefined
+            ? {}
+            : { cacheRevision: bindings.cacheRevision }),
           supportedSourceLanguages: bindings.supportedSourceLanguages,
         },
         clock: bindings.clock ?? systemTranslationClock,
         cache: bindings.cache,
+        contentAdmission: bindings.contentAdmission,
         readQuota: bindings.readQuota,
         providerQuota: bindings.providerQuota,
         writeQuota: bindings.writeQuota,
