@@ -1,16 +1,22 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { act, render, renderHook, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   makeProductionOfflineFixture,
   firstProductionTestId,
 } from '../../../tests/e2e/production-content-offline-harness';
+import type { ProductionContentOfflineControllerResult } from '../../../packages/browser-content/src/production-content-offline-controller';
+import { createEmptyProductionContentOfflineControlV1 } from '@wrn/content-contracts/production-content-offline-v1';
 import { createProductionContentOfflineController } from './production-content-offline-controller';
 import {
   createProductionReadingStateStore,
   productionReadingStateStorageKey,
 } from './production-reading-state';
 import { App } from './App';
+import {
+  isVirginPublicationControl,
+  useProductionContentOfflineController,
+} from './production-content-ui';
 
 vi.mock('./production-content-offline-controller', () => ({
   createProductionContentOfflineController: vi.fn(),
@@ -41,6 +47,134 @@ beforeEach(async () => {
 });
 
 describe('Website production adapter and entry', () => {
+  it('limits automatic publication recovery to untouched controls', () => {
+    const virgin = createEmptyProductionContentOfflineControlV1();
+    expect(isVirginPublicationControl(virgin)).toBe(true);
+    expect(isVirginPublicationControl({ ...virgin, clearEpoch: 1 })).toBe(false);
+    expect(
+      isVirginPublicationControl({
+        ...virgin,
+        safety: { revision: 1, revokedIds: ['wrn-art-revoked'] },
+      }),
+    ).toBe(false);
+  });
+  it('recovers a virgin first visit when the initial guarded check was busy', async () => {
+    const runtime = await makeProductionOfflineFixture();
+    const virgin = {
+      status: 'needs-source-check',
+      reason: 'no-active-bundle',
+      control: createEmptyProductionContentOfflineControlV1(),
+    } as ProductionContentOfflineControllerResult;
+    const active = {
+      status: 'active',
+      reason: 'ready',
+      runtime,
+      activeKey: runtime.manifestSha256,
+      expiresAt: Date.now() + 86400000,
+      control: null,
+      safety: runtime.safetyLedger,
+      confirmedWrites: [],
+      storageFailure: null,
+    } as ProductionContentOfflineControllerResult;
+    const check = vi.fn().mockResolvedValueOnce({ status: 'busy' }).mockResolvedValue(active);
+    vi.mocked(createProductionContentOfflineController).mockReturnValue({
+      restore: vi.fn(async () => virgin),
+      check,
+      rollback: vi.fn(async () => virgin),
+      clear: vi.fn(async () => virgin),
+      dispose: vi.fn(),
+    });
+    render(<App />);
+    await waitFor(() => expect(check).toHaveBeenCalledTimes(2), { timeout: 3000 });
+    expect(await screen.findByText('Authored test 0')).toBeVisible();
+  });
+
+  it('does not auto-check a generation-zero control with prior safety state, but permits manual check', async () => {
+    const nonVirgin = {
+      status: 'needs-source-check',
+      reason: 'no-active-bundle',
+      runtime: null,
+      activeKey: null,
+      expiresAt: null,
+      control: {
+        ...createEmptyProductionContentOfflineControlV1(),
+        safety: { revision: 1, revokedIds: ['wrn-art-revoked'] },
+      },
+      safety: null,
+      confirmedWrites: [],
+      storageFailure: null,
+    } satisfies ProductionContentOfflineControllerResult;
+    const check = vi.fn(async () => nonVirgin);
+    const restore = vi.fn(async () => nonVirgin);
+    vi.mocked(createProductionContentOfflineController).mockReturnValue({
+      restore,
+      check,
+      rollback: vi.fn(async () => nonVirgin),
+      clear: vi.fn(async () => nonVirgin),
+      dispose: vi.fn(),
+    });
+    render(<App />);
+    const manualCheck = await screen.findByRole('button', { name: 'Check for a newer revision' });
+    await waitFor(() => expect(restore).toHaveBeenCalledTimes(2));
+    expect(check).not.toHaveBeenCalled();
+    await userEvent.setup().click(manualCheck);
+    await waitFor(() => expect(check).toHaveBeenCalledTimes(1));
+  });
+
+  it('stops a virgin auto-check retry when Clear preempts its guard', async () => {
+    const virgin = {
+      status: 'needs-source-check',
+      reason: 'no-active-bundle',
+      control: createEmptyProductionContentOfflineControlV1(),
+    } as ProductionContentOfflineControllerResult;
+    const cleared = {
+      ...virgin,
+      control: { ...virgin.control!, generation: 1, clearEpoch: 1 },
+    } as ProductionContentOfflineControllerResult;
+    let finishGuard: ((value: ProductionContentOfflineControllerResult) => void) | undefined;
+    const restore = vi
+      .fn()
+      .mockResolvedValueOnce(virgin)
+      .mockResolvedValueOnce(virgin)
+      .mockImplementationOnce(
+        () =>
+          new Promise((resolve) => {
+            finishGuard = resolve;
+          }),
+      );
+    const check = vi.fn(async () => ({
+      ...virgin,
+      status: 'busy' as const,
+      reason: 'operation-in-progress' as const,
+    }));
+    vi.mocked(createProductionContentOfflineController).mockReturnValue({
+      restore,
+      check,
+      rollback: vi.fn(async () => virgin),
+      clear: vi.fn(async () => cleared),
+      dispose: vi.fn(),
+    });
+    const { result } = renderHook(() => useProductionContentOfflineController());
+    await waitFor(() => expect(restore).toHaveBeenCalledTimes(1));
+    await act(async () => {
+      await result.current.invoke('guard');
+    });
+    let pendingCheck!: Promise<ProductionContentOfflineControllerResult | null>;
+    act(() => {
+      pendingCheck = result.current.invoke('check');
+    });
+    await waitFor(() => expect(restore).toHaveBeenCalledTimes(3));
+    await act(async () => {
+      await result.current.invoke('clear');
+    });
+    await act(async () => {
+      finishGuard?.(virgin);
+      await pendingCheck;
+    });
+    expect(check).toHaveBeenCalledTimes(1);
+    expect(result.current.result?.control?.clearEpoch).toBe(1);
+  });
+
   it('default mode uses production even with old query switches and never reads either v1 or Mobile reading keys', async () => {
     window.history.replaceState({}, '', '/?state=ready&contentMode=fixture-offline');
     const getItem = vi.spyOn(Storage.prototype, 'getItem');

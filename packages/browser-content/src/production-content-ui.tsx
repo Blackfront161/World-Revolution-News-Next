@@ -31,6 +31,7 @@ import {
   type createProductionContentOfflineHook,
   type ProductionOfflineUiCall,
 } from './content-offline-ui';
+import type { ProductionContentOfflineControllerResult } from './production-content-offline-controller';
 import {
   type createProductionReadingStateStore,
   type ProductionReadingStateChange,
@@ -160,6 +161,7 @@ type ProductionContentAreaDependencies = Readonly<{
   productionReadingStateStorageKey: string;
   headingId: string;
   archiveTriggerId: string;
+  shouldAutoCheck?: (control: ProductionContentOfflineControllerResult['control']) => boolean;
   embeddedCardHeadingLevel?: 3 | 4;
   translationAdapter?: ProductionTranslationAdapter | null;
   deviceSpeechAdapter?: ProductionDeviceSpeechAdapter | null;
@@ -175,6 +177,7 @@ export function createProductionContentArea({
   productionReadingStateStorageKey,
   headingId,
   archiveTriggerId,
+  shouldAutoCheck = (control) => control?.generation === 0 && control.activeKey === null,
   embeddedCardHeadingLevel = 4,
   translationAdapter = null,
   deviceSpeechAdapter = null,
@@ -290,11 +293,7 @@ export function createProductionContentArea({
       void (async () => {
         let checked = await invoke('guard');
         if (!active || routeRef.current !== routeKey) return;
-        if (
-          !bootstrapped.current &&
-          checked?.control?.generation === 0 &&
-          checked.control.activeKey === null
-        ) {
+        if (!bootstrapped.current && shouldAutoCheck(checked?.control ?? null)) {
           bootstrapped.current = true;
           checked = await invoke('check');
         }
@@ -303,7 +302,7 @@ export function createProductionContentArea({
       return () => {
         active = false;
       };
-    }, [routeKey, invoke]);
+    }, [routeKey, invoke, shouldAutoCheck]);
 
     useEffect(() => {
       let active = true;

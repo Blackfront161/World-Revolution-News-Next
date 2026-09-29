@@ -2508,6 +2508,7 @@ export function App({
                         onBrowse: () => navigateDirectory('news'),
                         onBrowseSport: () => navigateDirectory('sport'),
                         prioritizeCurrentLinks: true,
+                        leadWithCurrentSidebar: true,
                         automaticTranslation: true,
                         brandMarkUrl: brandAssetUrls.solinaridaoMark,
                       }
