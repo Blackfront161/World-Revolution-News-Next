@@ -1818,10 +1818,18 @@
   --wrn-brand-glow-secondary: var(--website-code26-red);
   background-color: var(--wrn-color-canvas);
   background-image:
-    radial-gradient(circle at 8% 23%, color-mix(in srgb, var(--website-code26-cyan) 9%, transparent), transparent 32rem),
-    radial-gradient(circle at 90% 20%, color-mix(in srgb, var(--website-code26-red) 7%, transparent), transparent 32rem);
+    radial-gradient(
+      circle at 8% 23%,
+      color-mix(in srgb, var(--website-code26-cyan) 9%, transparent),
+      transparent 32rem
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      color-mix(in srgb, var(--website-code26-red) 7%, transparent),
+      transparent 32rem
+    );
 }
-:root:is([data-theme='light'], [data-theme='soft'], [data-theme='contrast']) .website-shell {
+:root:is([data-theme='light'], [data-theme='contrast']) .website-shell {
   --website-code26-cyan: #006d75;
   --website-code26-red: #b41c35;
 }
@@ -1857,12 +1865,30 @@
   height: 66px;
   object-fit: contain;
 }
+.site-brand-wordmark {
+  display: block;
+  color: var(--wrn-color-text);
+  font:
+    750 0.43rem/1 system-ui,
+    sans-serif;
+  letter-spacing: -0.02em;
+  text-align: center;
+  white-space: nowrap;
+}
+.site-brand-wordmark span:first-child {
+  color: var(--website-code26-cyan);
+}
+.site-brand-wordmark span:last-child {
+  color: var(--website-code26-red);
+}
 .site-brand-project {
   display: block;
   width: 78px;
   margin: -4px 0 0;
   color: #9cabb4;
-  font: 600 0.52rem/1.1 system-ui, sans-serif;
+  font:
+    600 0.52rem/1.1 system-ui,
+    sans-serif;
   text-align: center;
   white-space: nowrap;
 }
@@ -1883,7 +1909,9 @@
   color: var(--website-code26-cyan);
   background: var(--wrn-color-surface-raised);
 }
-.compact-site-tools .language-selector select { color: var(--wrn-color-text); }
+.compact-site-tools .language-selector select {
+  color: var(--wrn-color-text);
+}
 .site-header .site-nav {
   min-height: 42px;
   justify-content: flex-start;
@@ -1916,10 +1944,15 @@
 }
 .website-shell main[data-view='home'] .production-content > h2 {
   color: var(--wrn-color-text);
-  font: 850 clamp(1.7rem, 3vw, 2.25rem)/1.1 system-ui, sans-serif;
+  font:
+    850 clamp(1.7rem, 3vw, 2.25rem)/1.1 system-ui,
+    sans-serif;
 }
 @media (max-width: 63.99rem) {
-  .site-header .site-nav { overflow-x: auto; flex-wrap: nowrap; }
+  .site-header .site-nav {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
 }
 @media (max-width: 47.99rem) {
   .compact-site-masthead {
@@ -1928,11 +1961,23 @@
     gap: 0.3rem;
   }
   .site-brand,
-  .site-brand-project { width: 69px; }
-  .site-brand-code26-mark { width: 69px; height: 59px; }
-  .site-brand-project { font-size: 0.46rem; }
+  .site-brand-project {
+    width: 69px;
+  }
+  .site-brand-code26-mark {
+    width: 69px;
+    height: 59px;
+  }
+  .site-brand-project {
+    font-size: 0.46rem;
+  }
+  .site-brand-wordmark {
+    display: none;
+  }
   .site-header .site-nav a,
-  .site-header .site-more-button { font-size: 0.74rem; }
+  .site-header .site-more-button {
+    font-size: 0.74rem;
+  }
 }
 @media (max-width: 37.5rem) {
   .site-header .site-nav-compact {
@@ -1964,5 +2009,160 @@
   .site-header .site-nav-compact .site-more-button {
     display: none;
   }
-  .website-shell main { padding-bottom: calc(78px + env(safe-area-inset-bottom)); }
+  .website-shell main {
+    padding-bottom: calc(78px + env(safe-area-inset-bottom));
+  }
+}
+
+/* Code26's stronger image mark anchors the two-level news masthead. */
+@media (min-width: 48rem) {
+  .compact-site-masthead {
+    grid-template-columns: 120px minmax(0, 1fr) auto;
+    min-height: 88px;
+  }
+  .site-brand,
+  .site-brand-project {
+    width: 120px;
+  }
+  .site-brand-code26-mark {
+    width: 120px;
+    height: 82px;
+  }
+  .site-brand-wordmark {
+    font-size: 0.59rem;
+  }
+  .site-brand-project {
+    margin-top: 0.1rem;
+    font-size: 0.45rem;
+  }
+}
+
+.compact-site-download,
+.compact-site-support {
+  display: none;
+}
+@media (min-width: 56rem) {
+  .compact-site-masthead {
+    grid-template-columns: 120px minmax(0, 1fr) auto auto var(--wrn-control-min-size) auto;
+    gap: 0.5rem;
+  }
+  .compact-site-download,
+  .compact-site-support {
+    display: block;
+    align-self: center;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid color-mix(in srgb, var(--website-code26-cyan) 55%, transparent);
+    border-radius: 8px;
+    color: var(--wrn-color-text);
+    background: color-mix(in srgb, var(--website-code26-cyan) 8%, transparent);
+    font:
+      750 0.82rem/1.2 system-ui,
+      sans-serif;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .compact-site-download {
+    grid-column: 3;
+  }
+  .compact-site-support {
+    grid-column: 4;
+    border-color: color-mix(in srgb, var(--website-code26-red) 55%, transparent);
+    background: color-mix(in srgb, var(--website-code26-red) 8%, transparent);
+  }
+  .compact-site-support a {
+    display: block;
+    margin: -0.7rem -0.9rem;
+    padding: 0.7rem 0.9rem;
+    color: inherit;
+    text-decoration: none;
+  }
+  .compact-site-download:hover,
+  .compact-site-download:focus-visible {
+    color: var(--website-code26-cyan);
+  }
+  .compact-site-support:hover,
+  .compact-site-support:focus-within {
+    color: var(--website-code26-red);
+  }
+  .compact-site-menu {
+    grid-column: 5;
+  }
+  .compact-site-tools {
+    grid-column: 6;
+  }
+}
+
+/* A stored Editorial preference keeps its value while the website displays
+ * the same Code26 news typography and cyan/red chrome as the default theme. */
+:root[data-theme='editorial'] .website-shell {
+  --wrn-font-editorial: system-ui, sans-serif;
+  --wrn-color-action: #ff334f;
+  --wrn-color-accent: #00f0ff;
+  --wrn-color-accent-cyan: #00f0ff;
+}
+:root:is(
+    [data-theme='violet'],
+    [data-theme='dark'],
+    [data-theme='editorial'],
+    [data-theme='oled'],
+    [data-theme='soft'],
+    [data-theme='pink']
+  )
+  .website-shell {
+  --wrn-color-canvas: #080d12;
+  --wrn-color-surface: #111a22;
+  --wrn-color-surface-raised: #18242e;
+  --wrn-color-chrome: #05090d;
+  --wrn-color-text: #f6f9fb;
+  --wrn-color-muted: #b9c5cc;
+  --wrn-color-border: #465760;
+  --wrn-color-focus: #00f0ff;
+  --wrn-color-accent-cyan: #00f0ff;
+  --wrn-color-accent-magenta: #ff334f;
+  --wrn-color-action: #ff334f;
+  --wrn-color-accent: #00f0ff;
+  --wrn-brand-wordmark-primary: #00f0ff;
+  --wrn-brand-wordmark-secondary: #ff334f;
+}
+:root:is(
+    [data-theme='violet'],
+    [data-theme='dark'],
+    [data-theme='editorial'],
+    [data-theme='oled'],
+    [data-theme='soft'],
+    [data-theme='pink']
+  )
+  body {
+  background: #080d12;
+}
+:root[data-theme='editorial']
+  .website-shell
+  :is(
+    .website-hero,
+    .website-hero h1,
+    .website-feed-card h2,
+    .production-content h2,
+    .production-content h3,
+    .production-content h4
+  ) {
+  font-family: system-ui, sans-serif;
+  text-transform: none;
+  letter-spacing: normal;
+}
+:root[data-theme='editorial'] .website-shell .production-home > section > h2 {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+}
+
+.site-more-menu .site-more-action {
+  border-color: color-mix(in srgb, var(--website-code26-cyan) 45%, transparent);
+  color: var(--website-code26-cyan);
+}
+.site-more-menu .site-more-donate {
+  border-color: color-mix(in srgb, var(--website-code26-red) 45%, transparent);
+  color: var(--website-code26-red);
+}
+@media (min-width: 56rem) {
+  .site-more-menu .site-more-action {
+    display: none;
+  }
 }

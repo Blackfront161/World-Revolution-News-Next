@@ -176,6 +176,7 @@ export function ProductionHome({
   onBrowseSport,
   regionalEvents,
   prioritizeCurrentLinks = false,
+  leadWithCurrentSidebar = false,
   brandMarkUrl,
   translationAdapter = null,
   contentReady = true,
@@ -190,6 +191,7 @@ export function ProductionHome({
   onBrowseSport?: (() => void) | undefined;
   regionalEvents?: ReactNode;
   prioritizeCurrentLinks?: boolean | undefined;
+  leadWithCurrentSidebar?: boolean | undefined;
   brandMarkUrl?: string | undefined;
   translationAdapter?: ProductionTranslationAdapter | null;
   contentReady?: boolean;
@@ -377,45 +379,62 @@ export function ProductionHome({
       )}
     </section>
   );
+  const currentHeadlineSection = directoryNews || (
+    <section aria-labelledby="production-home-archive">
+      <h2 id="production-home-archive">{freshnessCopy.current}</h2>
+      {failed ? (
+        <>
+          <p role="alert">{directoryCopy.loadError}</p>
+          <button type="button" onClick={() => setAttempt((value) => value + 1)}>
+            {directoryCopy.retry}
+          </button>
+        </>
+      ) : (
+        <p role="status">{directoryCopy.loading}</p>
+      )}
+    </section>
+  );
+  const featuredSection = frontPage.lead && (
+    <section aria-labelledby="production-home-lead">
+      <h2 id="production-home-lead">
+        {prioritizeCurrentLinks ? freshnessCopy.featured : copy.featured}
+      </h2>
+      {renderCard(frontPage.lead, 'lead', true)}
+    </section>
+  );
+  const reviewedSection = frontPage.main.length > 0 && (
+    <section aria-labelledby="production-home-main">
+      <h2 id="production-home-main">
+        {prioritizeCurrentLinks ? freshnessCopy.latest : copy.latest}
+      </h2>
+      <div className="production-home__compact">
+        {frontPage.main.map((article) => renderCard(article, 'main', true))}
+      </div>
+    </section>
+  );
+  const showCurrentSidebar = leadWithCurrentSidebar && prioritizeCurrentLinks && featuredSection;
   return (
     <div className="production-home" data-testid="production-home">
-      {prioritizeCurrentLinks &&
-        (directoryNews || (
-          <section aria-labelledby="production-home-archive">
-            <h2 id="production-home-archive">{freshnessCopy.current}</h2>
-            {failed ? (
-              <>
-                <p role="alert">{directoryCopy.loadError}</p>
-                <button type="button" onClick={() => setAttempt((value) => value + 1)}>
-                  {directoryCopy.retry}
-                </button>
-              </>
-            ) : (
-              <p role="status">{directoryCopy.loading}</p>
-            )}
-          </section>
-        ))}
-      {(frontPage.lead || frontPage.main.length > 0) && (
-        <div className="production-home__lead-grid">
-          {frontPage.lead && (
-            <section aria-labelledby="production-home-lead">
-              <h2 id="production-home-lead">
-                {prioritizeCurrentLinks ? freshnessCopy.featured : copy.featured}
-              </h2>
-              {renderCard(frontPage.lead, 'lead', true)}
-            </section>
+      {showCurrentSidebar ? (
+        <>
+          <div className="production-home__front-grid">
+            {featuredSection}
+            {currentHeadlineSection}
+          </div>
+          {reviewedSection && (
+            <div className="production-home__reviewed-grid">{reviewedSection}</div>
           )}
-          {frontPage.main.length > 0 && (
-            <section aria-labelledby="production-home-main">
-              <h2 id="production-home-main">
-                {prioritizeCurrentLinks ? freshnessCopy.latest : copy.latest}
-              </h2>
-              <div className="production-home__compact">
-                {frontPage.main.map((article) => renderCard(article, 'main', true))}
-              </div>
-            </section>
+        </>
+      ) : (
+        <>
+          {prioritizeCurrentLinks && currentHeadlineSection}
+          {(featuredSection || reviewedSection) && (
+            <div className="production-home__lead-grid">
+              {featuredSection}
+              {reviewedSection}
+            </div>
           )}
-        </div>
+        </>
       )}
       {loadDirectory && (
         <>

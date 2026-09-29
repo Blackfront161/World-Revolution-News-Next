@@ -225,6 +225,7 @@ export function createProductionContentArea({
           onBrowse(): void;
           onBrowseSport?(): void;
           prioritizeCurrentLinks?: boolean;
+          leadWithCurrentSidebar?: boolean;
           automaticTranslation?: boolean;
           brandMarkUrl?: string;
         }>
@@ -1244,6 +1245,7 @@ export function createProductionContentArea({
                       onBrowseDirectory={homeDirectory?.onBrowse}
                       onBrowseSport={homeDirectory?.onBrowseSport}
                       prioritizeCurrentLinks={homeDirectory?.prioritizeCurrentLinks}
+                      leadWithCurrentSidebar={homeDirectory?.leadWithCurrentSidebar}
                       brandMarkUrl={homeDirectory?.brandMarkUrl}
                       regionalEvents={regionalEvents}
                       translationAdapter={

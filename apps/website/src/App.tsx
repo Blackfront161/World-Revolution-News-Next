@@ -122,6 +122,29 @@ type LocalArchiveLifecycleFixture = Readonly<{
 }>;
 type OfflineAction = 'save' | 'check' | 'activate' | 'rollback' | 'clear';
 
+const appDownloadLabels: Record<UiLanguage, string> = {
+  de: 'App laden',
+  en: 'Get the app',
+  es: 'Descargar app',
+  fr: 'Télécharger l’app',
+  it: 'Scarica app',
+  pt: 'Descarregar app',
+  ru: 'Скачать приложение',
+  el: 'Λήψη εφαρμογής',
+  tr: 'Uygulamayı indir',
+};
+const donationLabels: Record<UiLanguage, string> = {
+  de: 'Spenden',
+  en: 'Donate',
+  es: 'Donar',
+  fr: 'Faire un don',
+  it: 'Dona',
+  pt: 'Doar',
+  ru: 'Пожертвовать',
+  el: 'Δωρεά',
+  tr: 'Bağış yap',
+};
+
 function WebsiteContentOfflinePanel({
   result,
   operationResult,
@@ -2195,20 +2218,6 @@ export function App({
           >
             <div className="site-header-inner">
               <div className="compact-site-masthead">
-                <button
-                  type="button"
-                  className="compact-site-menu"
-                  aria-label={menuIsOpen ? copy.back : copy.more}
-                  data-testid="header-more-trigger"
-                  aria-expanded={moreMenuOpen}
-                  aria-controls="website-more-menu"
-                  aria-current={target === 'more' ? 'page' : undefined}
-                  onClick={toggleMoreMenu}
-                >
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path d={menuIsOpen ? 'm14 6-6 6 6 6M8 12h13' : 'M3 6h18M3 12h18M3 18h18'} />
-                  </svg>
-                </button>
                 <div className="compact-site-brand">
                   <a
                     className="site-brand"
@@ -2230,6 +2239,9 @@ export function App({
                       height="102"
                       data-testid="code26-brand-mark"
                     />
+                    <span className="site-brand-wordmark">
+                      <span>WORLD</span> REVOLUTION <span>NEWS</span>
+                    </span>
                   </a>
                   <a
                     className="site-brand-project"
@@ -2242,6 +2254,39 @@ export function App({
                     solinaridao.com ↗
                   </a>
                 </div>
+                <a
+                  className="compact-site-download"
+                  href="https://play.google.com/store/apps/details?id=com.world.revolution"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  referrerPolicy="no-referrer"
+                >
+                  {appDownloadLabels[uiLanguage]}
+                </a>
+                <div className="compact-site-support">
+                  <a
+                    href="https://www.paypal.com/ncp/payment/6FSV9FEN4X7VS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    referrerPolicy="no-referrer"
+                  >
+                    {donationLabels[uiLanguage]}
+                  </a>
+                </div>
+                <button
+                  type="button"
+                  className="compact-site-menu"
+                  aria-label={menuIsOpen ? copy.back : copy.more}
+                  data-testid="header-more-trigger"
+                  aria-expanded={moreMenuOpen}
+                  aria-controls="website-more-menu"
+                  aria-current={target === 'more' ? 'page' : undefined}
+                  onClick={toggleMoreMenu}
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d={menuIsOpen ? 'm14 6-6 6 6 6M8 12h13' : 'M3 6h18M3 12h18M3 18h18'} />
+                  </svg>
+                </button>
                 <div className="compact-site-tools">
                   <button
                     type="button"
@@ -2297,7 +2342,16 @@ export function App({
                 aria-label={copy.websiteExpandedNavigation}
                 className="site-nav site-nav-expanded"
               >
-                {navigationLinks(['home', 'following', 'discover', 'media', 'events', 'knowledge', 'solidarity', 'saved'])}
+                {navigationLinks([
+                  'home',
+                  'following',
+                  'discover',
+                  'media',
+                  'events',
+                  'knowledge',
+                  'solidarity',
+                  'saved',
+                ])}
                 <button
                   type="button"
                   className="site-more-button"
@@ -2326,6 +2380,24 @@ export function App({
                 {routeLink('events')}
                 {routeLink('solidarity')}
                 {routeLink('help')}
+                <a
+                  className="site-more-action site-more-app"
+                  href="https://play.google.com/store/apps/details?id=com.world.revolution"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  referrerPolicy="no-referrer"
+                >
+                  {appDownloadLabels[uiLanguage]}
+                </a>
+                <a
+                  className="site-more-action site-more-donate"
+                  href="https://www.paypal.com/ncp/payment/6FSV9FEN4X7VS"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  referrerPolicy="no-referrer"
+                >
+                  {donationLabels[uiLanguage]}
+                </a>
                 {privacyPolicyLink}
               </div>
             </div>
@@ -2398,6 +2470,7 @@ export function App({
                         onBrowse: () => navigateDirectory('news'),
                         onBrowseSport: () => navigateDirectory('sport'),
                         prioritizeCurrentLinks: true,
+                        leadWithCurrentSidebar: true,
                         automaticTranslation: true,
                         brandMarkUrl: brandAssetUrls.solinaridaoMark,
                       }

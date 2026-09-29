@@ -70,6 +70,58 @@ it('puts the newest original-source reports before older full-text reading piece
   expect(document.querySelector('.production-home')?.firstElementChild).toBe(current);
 });
 
+it('places the website image lead before the current-link sidebar in DOM order', async () => {
+  const fullText = {
+    id: 'wrn-art-00000000000000000000000000000002',
+    title: 'Reviewed lead',
+    publishedAt: '2026-09-19T08:00:00.000Z',
+    tags: [],
+  } as unknown as ProductionArticleV1;
+  const directory = {
+    document: { sourceCommit: 'fixture-sidebar', observedAt: '2026-09-27T10:00:00.000Z' },
+    projection: {
+      articles: [
+        {
+          id: 'current',
+          url: 'https://source.example/current',
+          title: 'Current original',
+          sourceName: 'Source',
+          language: 'en',
+          publishedAt: '2026-09-27T08:00:00.000Z',
+          endpointIds: [],
+          observations: [],
+        },
+      ],
+      sources: [],
+      sports: [],
+    },
+  } as unknown as ProductionHomeDirectory;
+  render(
+    <ProductionHome
+      articles={[fullText]}
+      language="de"
+      sourcePreferences={emptySourcePreferences()}
+      renderCard={(article) => <article>{article.title}</article>}
+      loadDirectory={vi.fn(async () => directory)}
+      prioritizeCurrentLinks
+      leadWithCurrentSidebar
+    />,
+  );
+  await screen.findByRole('link', { name: /Current original/ });
+  const front = document.querySelector('.production-home__front-grid');
+  expect(document.querySelector('.production-home')?.firstElementChild).toBe(front);
+  expect(front?.children[0]).toContainElement(
+    screen.getByRole('heading', { name: 'Lesestück im Blickpunkt' }),
+  );
+  expect(front?.children[1]).toContainElement(
+    screen.getByRole('heading', { name: 'Aktuelle Meldungen' }),
+  );
+  expect(screen.getByRole('link', { name: /Current original/ })).toHaveAttribute(
+    'href',
+    'https://source.example/current',
+  );
+});
+
 it('translates a known-language current title automatically and keeps unknown language and original links intact', async () => {
   const report = (id: string, language: string) => ({
     id,
