@@ -38,10 +38,29 @@ public class WRNPlatformPlugin extends Plugin {
     @PluginMethod
     public void share(PluginCall call) {
         String raw = call.getString("url");
-        getActivity().runOnUiThread(() -> shareOnMain(call, raw));
+        String translatedLanguage = call.getString("translatedLanguage");
+        getActivity().runOnUiThread(() -> shareOnMain(call, raw, translatedLanguage));
     }
 
-    private void shareOnMain(PluginCall call, String raw) {
+    static String shareText(String canonical, String translatedLanguage) {
+        String attribution;
+        if (translatedLanguage == null) return canonical;
+        switch (translatedLanguage) {
+            case "de": attribution = "Übersetzt mit World Revolution News"; break;
+            case "en": attribution = "Translated with World Revolution News"; break;
+            case "es": attribution = "Traducido con World Revolution News"; break;
+            case "fr": attribution = "Traduit avec World Revolution News"; break;
+            case "it": attribution = "Tradotto con World Revolution News"; break;
+            case "pt": attribution = "Traduzido com World Revolution News"; break;
+            case "ru": attribution = "Переведено с помощью World Revolution News"; break;
+            case "el": attribution = "Μεταφράστηκε με το World Revolution News"; break;
+            case "tr": attribution = "World Revolution News ile çevrildi"; break;
+            default: return canonical;
+        }
+        return attribution + "\n" + canonical;
+    }
+
+    private void shareOnMain(PluginCall call, String raw, String translatedLanguage) {
         String canonical = policy.canonicalShareUrl(raw);
         if (canonical == null) {
             call.reject("Only canonical World Revolution News article URLs can be shared.");
@@ -50,7 +69,7 @@ public class WRNPlatformPlugin extends Plugin {
         try {
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
-            shareIntent.putExtra(Intent.EXTRA_TEXT, canonical);
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareText(canonical, translatedLanguage));
             getActivity().startActivity(Intent.createChooser(shareIntent, "Share article"));
             call.resolve();
         } catch (Exception exception) {

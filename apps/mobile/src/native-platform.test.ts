@@ -150,6 +150,12 @@ describe('native platform session', () => {
       expect(writeText).toHaveBeenCalledWith(
         'https://solinaridao.com/articles/wrn-test-art-cedar/',
       );
+      await session.shareAdapter.share('https://solinaridao.com/articles/wrn-test-art-cedar/', {
+        translationLanguage: 'de',
+      });
+      expect(writeText).toHaveBeenLastCalledWith(
+        'Übersetzt mit World Revolution News\nhttps://solinaridao.com/articles/wrn-test-art-cedar/',
+      );
     } finally {
       if (originalClipboard === undefined) {
         delete (window.navigator as { clipboard?: unknown }).clipboard;
@@ -157,6 +163,20 @@ describe('native platform session', () => {
         Object.defineProperty(window.navigator, 'clipboard', originalClipboard);
       }
     }
+  });
+
+  it('passes only the bounded translation language to the native share bridge', async () => {
+    const { runtime, plugin } = createRuntime();
+    const session = createNativePlatformSession(runtime);
+    const url = 'https://solinaridao.com/articles/wrn-test-art-cedar/';
+    await session.shareAdapter.share(url);
+    await session.shareAdapter.share(url, { translationLanguage: 'de' });
+    expect(plugin.share).toHaveBeenNthCalledWith(1, { url });
+    expect(plugin.share).toHaveBeenNthCalledWith(2, { url, translatedLanguage: 'de' });
+    await expect(
+      session.shareAdapter.share(`${url}?x=1`, { translationLanguage: 'de' }),
+    ).rejects.toThrow('Invalid canonical');
+    expect(plugin.share).toHaveBeenCalledTimes(2);
   });
 
   it('contains availability and removal failures, including late registration', async () => {

@@ -42,6 +42,7 @@ import {
   type ProductionArticleView,
 } from './production-content-view';
 import { ProductionReaderBlocks } from './production-reader-blocks';
+import { canonicalShareText, type ShareAdapter } from './browser-share';
 import type { ProductionTranslationAdapter } from './production-translation';
 import { ProductionPodcastPanel, type ProductionDeviceSpeechAdapter } from './production-podcast';
 import type { ProductionOnlinePodcastAdapter } from './production-podcast-online';
@@ -212,7 +213,7 @@ export function createProductionContentArea({
     onCloseReader(): void;
     onCloseArchive(): void;
     onOpenArchive(trigger: HTMLButtonElement): void;
-    shareAdapter: { share(url: string): Promise<void> };
+    shareAdapter: ShareAdapter;
     children?: ReactNode;
     regionalEvents?: ReactNode;
     preferences?: LocalPersonalizationStateV1 | undefined;
@@ -263,6 +264,8 @@ export function createProductionContentArea({
     );
     const routeRef = useRef(routeKey);
     routeRef.current = routeKey;
+    const languageRef = useRef(language);
+    languageRef.current = language;
     const blocksRef = useRef<HTMLDivElement>(null);
     const readerHeading = useRef<HTMLHeadingElement>(null);
     const routeArticle = typeof archiveRoute === 'string' ? archiveRoute : articleId;
@@ -640,6 +643,12 @@ export function createProductionContentArea({
     const share = async () => {
       const attempt = ++shareAttempt.current;
       const route = routeRef.current;
+      // Guarding temporarily unmounts the reader, so capture only a result that
+      // is actually rendered at the instant the user presses Share.
+      const renderedTranslation = blocksRef.current?.querySelector('[data-translation-result]');
+      const visibleTranslationLanguage = renderedTranslation?.isConnected
+        ? renderedTranslation.closest<HTMLElement>('.production-translation')?.lang
+        : null;
       const checked = await run('guard');
       const refreshed =
         routeArticle === null ? null : resolveProductionArticleView(checked, routeArticle);
@@ -651,6 +660,29 @@ export function createProductionContentArea({
       )
         return;
       const authority = `${checked.activeKey}:${checked.safety?.revision}:${checked.expiresAt}`;
+      if (identityRef.current !== authority) return;
+      const renderedAuthority = view?.kind === 'ready' ? view.translationAuthority : null;
+      const refreshedAuthority = refreshed.translationAuthority;
+      const sameTranslationAuthority =
+        renderedAuthority != null &&
+        refreshedAuthority != null &&
+        renderedAuthority.releaseRevision === refreshedAuthority.releaseRevision &&
+        renderedAuthority.manifestSha256 === refreshedAuthority.manifestSha256 &&
+        renderedAuthority.articleId === refreshedAuthority.articleId &&
+        renderedAuthority.articleRevision === refreshedAuthority.articleRevision &&
+        renderedAuthority.activeKey === refreshedAuthority.activeKey &&
+        renderedAuthority.safetyRevision === refreshedAuthority.safetyRevision &&
+        renderedAuthority.expiresAt === refreshedAuthority.expiresAt;
+      const translatedLanguage =
+        sameTranslationAuthority &&
+        translationAdapter &&
+        languageRef.current === language &&
+        visibleTranslationLanguage === language
+          ? language
+          : null;
+      const shareOptions = translatedLanguage
+        ? { translationLanguage: translatedLanguage }
+        : undefined;
       const publish = (value: string, url?: string) => {
         if (
           shareAttempt.current === attempt &&
@@ -666,10 +698,11 @@ export function createProductionContentArea({
           });
       };
       try {
-        await shareAdapter.share(refreshed.shareUrl);
+        if (shareOptions) await shareAdapter.share(refreshed.shareUrl, shareOptions);
+        else await shareAdapter.share(refreshed.shareUrl);
         publish(copy.canonicalShareReady);
       } catch {
-        publish(copy.canonicalShareError, refreshed.shareUrl);
+        publish(copy.canonicalShareError, canonicalShareText(refreshed.shareUrl, shareOptions));
       }
     };
     const restoredPosition = useRef<string | null>(null);
@@ -736,7 +769,7 @@ export function createProductionContentArea({
         (shareMessage?.identity === identity && shareMessage.route === routeKey
           ? shareMessage.text
           : null));
-    const shareFallbackUrl =
+    const shareFallbackText =
       shareMessage?.identity === identity && shareMessage.route === routeKey
         ? (shareMessage.url ?? null)
         : null;
@@ -1196,6 +1229,7 @@ export function createProductionContentArea({
                     )}
                     <ProductionHome
                       articles={articles}
+                      contentReady={allowed}
                       language={language}
                       sourcePreferences={sourcePreferences.state}
                       renderCard={renderArticleCard}
@@ -1260,15 +1294,25 @@ export function createProductionContentArea({
             {readingNotice}
           </p>
         )}
-        {shareFallbackUrl !== null ? (
-          <input
-            type="url"
-            readOnly
-            value={shareFallbackUrl}
-            aria-label={copy.share}
-            data-testid="canonical-share-fallback"
-            onFocus={(event) => event.currentTarget.select()}
-          />
+        {shareFallbackText !== null ? (
+          shareFallbackText.includes('\n') ? (
+            <textarea
+              readOnly
+              value={shareFallbackText}
+              aria-label={copy.share}
+              data-testid="canonical-share-fallback"
+              onFocus={(event) => event.currentTarget.select()}
+            />
+          ) : (
+            <input
+              type="url"
+              readOnly
+              value={shareFallbackText}
+              aria-label={copy.share}
+              data-testid="canonical-share-fallback"
+              onFocus={(event) => event.currentTarget.select()}
+            />
+          )
         ) : null}
         <p role="status" className="production-notice">
           {status}
