@@ -29,6 +29,7 @@ import {
   type MediaSection,
 } from './events-media-model';
 import { additionalAudioSourceLinks } from './additional-media-source-links';
+import { LiveTvSources } from './live-tv-sources';
 import './events-media-directory.css';
 
 export type ProductionEventsMediaDirectoryProps = Readonly<{
@@ -288,6 +289,14 @@ export function ProductionEventsMediaDirectory({
     trigger.current = origin;
     setConsent(url);
   };
+  const liveTvSources =
+    mode === 'media' ? (
+      <LiveTvSources
+        language={language}
+        headingLevel={headingLevel}
+        renderOriginalLink={(url) => <OriginalLink url={url} copy={copy} onConsent={request} />}
+      />
+    ) : null;
   const Heading = headingLevel === 1 ? 'h1' : 'h2';
   if (!data)
     return (
@@ -300,6 +309,7 @@ export function ProductionEventsMediaDirectory({
           {mode === 'events' ? copy.events : copy.media}
         </Heading>
         {mode === 'media' ? productionMedia : null}
+        {liveTvSources}
         {mode === 'media' ? (
           <AdditionalAudioSources
             language={language}
@@ -353,6 +363,7 @@ export function ProductionEventsMediaDirectory({
         {mode === 'events' ? copy.events : copy.media}
       </Heading>
       {mode === 'media' ? productionMedia : null}
+      {liveTvSources}
       {mode === 'media' ? (
         <AdditionalAudioSources
           language={language}
