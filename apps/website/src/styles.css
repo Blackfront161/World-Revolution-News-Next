@@ -2166,3 +2166,168 @@
     display: none;
   }
 }
+
+/* Match the current WRN app shell while preserving the website's wider reader. */
+.site-header-inner,
+.website-shell main,
+.website-shell main[data-view='home'] {
+  width: min(100%, 56rem);
+}
+.compact-site-masthead,
+.site-header[data-wide-language-layout='true'] .compact-site-masthead {
+  position: relative;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(5, 44px);
+  grid-template-rows: auto 44px;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+  padding-block: 0.4rem 0.6rem;
+}
+.compact-site-brand,
+.site-header[data-wide-language-layout='true'] .compact-site-brand {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-self: center;
+  justify-items: center;
+  text-align: center;
+}
+.site-brand,
+.site-brand-project {
+  width: 118px;
+}
+.site-brand-code26-mark {
+  width: 118px;
+  height: 82px;
+}
+.site-brand-wordmark {
+  display: block;
+  font-size: 0.58rem;
+}
+.site-brand-project {
+  margin-top: 0.1rem;
+  font-size: 0.52rem;
+}
+.compact-site-menu,
+.compact-site-media,
+.compact-site-solidarity,
+.compact-site-search,
+.compact-site-tools .language-selector select {
+  width: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid var(--website-code26-cyan);
+  border-radius: 9px;
+  color: var(--website-code26-cyan);
+  background: var(--wrn-color-surface-raised);
+}
+.compact-site-menu,
+.site-header[data-wide-language-layout='true'] .compact-site-menu {
+  grid-column: 1;
+  grid-row: 2;
+}
+.compact-site-media {
+  grid-column: 2;
+  grid-row: 2;
+}
+.compact-site-solidarity {
+  grid-column: 3;
+  grid-row: 2;
+}
+.compact-site-quick-action {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  font:
+    800 1.7rem/1 system-ui,
+    sans-serif;
+  cursor: pointer;
+}
+.compact-site-tools,
+.site-header[data-wide-language-layout='true'] .compact-site-tools {
+  display: contents;
+}
+.compact-site-search {
+  grid-column: 4;
+  grid-row: 2;
+}
+.compact-site-tools .language-selector,
+.site-header[data-wide-language-layout='true'] .compact-site-tools .language-selector {
+  grid-column: 5;
+  grid-row: 2;
+  width: 44px;
+}
+.compact-site-tools .language-selector select {
+  padding-inline: 0;
+  text-align: center;
+}
+.compact-site-quick-action:focus-visible {
+  outline: 3px solid var(--wrn-color-focus);
+  outline-offset: 2px;
+}
+.website-shell .site-header .compact-site-menu,
+.website-shell .site-header .compact-site-media,
+.website-shell .site-header .compact-site-search {
+  border-color: var(--website-code26-cyan);
+  color: var(--website-code26-cyan);
+}
+.website-shell .site-header .compact-site-solidarity {
+  border-color: var(--website-code26-red);
+  color: var(--website-code26-red);
+}
+:root:not([data-theme='light']):not([data-theme='contrast']) .website-shell main {
+  background:
+    radial-gradient(ellipse at 70% 27%, rgba(0, 86, 103, 0.27), transparent 49%),
+    radial-gradient(ellipse at 23% 66%, rgba(89, 19, 34, 0.17), transparent 44%),
+    linear-gradient(180deg, #071015, #02070b 85%);
+}
+.site-header .site-nav-compact .primary-nav-icon {
+  display: block;
+  color: var(--website-code26-red);
+  font:
+    700 1.45rem/1 system-ui,
+    sans-serif;
+}
+.site-header .site-nav-compact a[aria-current='page'] .primary-nav-icon {
+  color: var(--website-code26-cyan);
+}
+.site-header .site-nav-compact .primary-nav-label {
+  display: block;
+  font-size: 0.7rem;
+}
+@media (max-width: 37.5rem) {
+  .site-header .site-nav-compact a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-height: 62px;
+    padding-block: 0.4rem;
+    border-radius: 0;
+  }
+  .site-header .site-nav-compact a[aria-current='page'] {
+    border-top: 0;
+    border-radius: 9px;
+    background: color-mix(in srgb, var(--website-code26-cyan) 14%, transparent);
+  }
+}
+@media (min-width: 56rem) {
+  .compact-site-download,
+  .compact-site-support {
+    position: absolute;
+    top: 2.4rem;
+    grid-column: auto;
+    grid-row: auto;
+    margin: 0;
+  }
+  .compact-site-download {
+    left: 1rem;
+  }
+  .compact-site-support {
+    right: 1rem;
+  }
+  .site-header .site-nav-expanded {
+    max-width: 56rem;
+    margin-inline: auto;
+  }
+}

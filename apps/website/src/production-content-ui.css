@@ -501,3 +501,68 @@
     object-fit: cover;
   }
 }
+
+/* The app places current original links before the reviewed reading cards. */
+.website-production {
+  width: min(100%, 56rem);
+}
+.website-production .production-content > h2#website-page-title {
+  font-size: clamp(1.45rem, 3vw, 1.8rem);
+}
+.website-shell main .website-production .production-home .production-home__current > h2 {
+  color: var(--wrn-color-text);
+  font-size: clamp(1.3rem, 2.2vw, 1.55rem);
+}
+.website-production .production-home__current > p {
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+.website-production .production-home__current > ul,
+.website-production .production-home__archive {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  margin-block: 0.5rem;
+  overflow: visible;
+}
+.website-production .production-home__archive li,
+.website-production .production-home__archive li + li {
+  display: block;
+  padding: 0.35rem 0 0.35rem 1rem;
+  border: 0;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+.website-production .production-home__archive li::before {
+  float: none;
+  display: inline;
+  min-width: 0;
+  margin-left: -1rem;
+  padding-right: 0.4rem;
+  color: var(--wrn-color-text);
+  content: '•';
+  font: inherit;
+}
+.website-production .production-home__archive a {
+  display: inline;
+  color: var(--website-code26-cyan, #00f0ff);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: underline;
+}
+.website-production .production-home__archive li > span {
+  display: inline;
+  color: var(--wrn-color-muted);
+}
+@media (min-width: 64rem) {
+  .website-production .production-home__current > ul,
+  .website-production .production-home__archive {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 41.99rem) {
+  .website-production .production-home__archive li {
+    flex: none;
+    scroll-snap-align: none;
+  }
+}

@@ -11,6 +11,7 @@ import {
   type KeyboardEvent as ReactKeyboardEvent,
   type TouchEvent as ReactTouchEvent,
   type RefObject,
+  type ReactNode,
 } from 'react';
 import {
   brandAssetUrls,
@@ -2043,7 +2044,7 @@ export function App({
           return resolution.kind === 'redirected' ? resolution.canonicalId : archiveRoute;
         })()
       : archiveRoute;
-  const routeLink = (id: NavigationTargetId, label = navigationLabel(id)) => (
+  const routeLink = (id: NavigationTargetId, label: ReactNode = navigationLabel(id)) => (
     <a
       href={`#${id}`}
       aria-current={target === id ? 'page' : undefined}
@@ -2071,6 +2072,27 @@ export function App({
   };
   const navigationLinks = (ids: readonly NavigationTargetId[]) =>
     ids.filter((id) => id !== 'more').map((id) => <span key={id}>{routeLink(id)}</span>);
+  const compactNavigationIcons: Partial<Record<NavigationTargetId, string>> = {
+    home: '⌂',
+    following: '☆',
+    discover: '◎',
+    media: '▷',
+    saved: '▱',
+  };
+  const compactNavigationLinks = (ids: readonly NavigationTargetId[]) =>
+    ids.map((id) => (
+      <span key={id}>
+        {routeLink(
+          id,
+          <>
+            <span aria-hidden="true" className="primary-nav-icon">
+              {compactNavigationIcons[id]}
+            </span>
+            <span className="primary-nav-label">{navigationLabel(id)}</span>
+          </>,
+        )}
+      </span>
+    ));
   const selectTheme = (value: string) => {
     const nextPreference = normalizeThemePreference(value);
     setThemePreference(nextPreference);
@@ -2287,6 +2309,22 @@ export function App({
                     <path d={menuIsOpen ? 'm14 6-6 6 6 6M8 12h13' : 'M3 6h18M3 12h18M3 18h18'} />
                   </svg>
                 </button>
+                <button
+                  type="button"
+                  className="compact-site-media compact-site-quick-action"
+                  aria-label={navigationLabel('media')}
+                  onClick={() => navigate('media')}
+                >
+                  <span aria-hidden="true">▷</span>
+                </button>
+                <button
+                  type="button"
+                  className="compact-site-solidarity compact-site-quick-action"
+                  aria-label={navigationLabel('solidarity')}
+                  onClick={() => navigate('solidarity')}
+                >
+                  <span aria-hidden="true">♡</span>
+                </button>
                 <div className="compact-site-tools">
                   <button
                     type="button"
@@ -2323,7 +2361,7 @@ export function App({
                 </div>
               </div>
               <nav aria-label={copy.websiteMainNavigation} className="site-nav site-nav-compact">
-                {navigationLinks(['home', 'following', 'discover', 'media', 'saved'])}
+                {compactNavigationLinks(['home', 'following', 'discover', 'media', 'saved'])}
                 <button
                   type="button"
                   className="site-more-button"
@@ -2470,7 +2508,6 @@ export function App({
                         onBrowse: () => navigateDirectory('news'),
                         onBrowseSport: () => navigateDirectory('sport'),
                         prioritizeCurrentLinks: true,
-                        leadWithCurrentSidebar: true,
                         automaticTranslation: true,
                         brandMarkUrl: brandAssetUrls.solinaridaoMark,
                       }

@@ -385,8 +385,13 @@ describe('website local newsfeed', () => {
     expect(
       within(compactNavigation)
         .getAllByRole('link')
-        .map((link) => link.textContent),
+        .map((link) => link.querySelector('.primary-nav-label')?.textContent),
     ).toEqual(['Home', 'For me', 'Discover', 'Media', 'Saved']);
+    expect(
+      within(compactNavigation)
+        .getAllByRole('link')
+        .map((link) => link.querySelector('.primary-nav-icon')?.getAttribute('aria-hidden')),
+    ).toEqual(['true', 'true', 'true', 'true', 'true']);
     const moreButton = within(compactNavigation).getByRole('button', { name: 'More' });
     await user.click(moreButton);
     expect(moreButton).toHaveAttribute('aria-expanded', 'true');
