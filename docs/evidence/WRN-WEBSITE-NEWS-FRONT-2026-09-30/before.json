@@ -1,0 +1,32 @@
+[
+  {
+    "path": "index.html",
+    "bytes": 2066,
+    "sha256": "47fd173914cc59d79c54690f7170e3ee9296ce832be80ba9255dd51e870c02a0"
+  },
+  {
+    "path": "website-shell-sw.js",
+    "bytes": 26824,
+    "sha256": "fb14c308efed1aa5816d5267a15d2f60c5564f3edcef461cdcad4e99cf381e12"
+  },
+  {
+    "path": "wrn-production-content/current.json",
+    "bytes": 276,
+    "sha256": "16c1644e9f4205e334279f206d1d63202603d22adbd47edeb17175e7a65cf8be"
+  },
+  {
+    "path": "wrn-content-directory/current.json",
+    "bytes": 512,
+    "sha256": "5413b74c72723e877550b474072f750eca5d22a5f83032a378e01ecb00da8b57"
+  },
+  {
+    "path": "wrn-source-passes/current.json",
+    "bytes": 83783,
+    "sha256": "bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa"
+  },
+  {
+    "path": "wrn-source-pass-revocations/current.json",
+    "bytes": 161,
+    "sha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617"
+  }
+]

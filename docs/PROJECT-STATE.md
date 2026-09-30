@@ -1,5 +1,15 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 30.09., 05:55 UTC – Die jüngste PO-Lenkung zur Website ist umgesetzt und
+live: echte Bildaufmacher zuerst, bebilderte Nebenmeldungen im Desktop-/Tablet-
+Raster und einspaltig auf Handy, eigene Originalmarke/Farben. Produkt `8f5d06f`,
+197 Website-Vitest + 71 Node + 13 Mobile-Home bestanden, beide Typprüfungen,
+Build und unabhängiger UI-Review PASS. Tastatur- und Bildreihenfolge stimmen
+überein; App-Anordnung bleibt erhalten. Nur 16 Shell-Dateien hochgeladen,
+vier Zeiger bytegleich; Live-Reader und 390/820/1440 ohne Überlauf geprüft.
+Bekannte CDN-PNG-Byteabweichung bleibt, keine neue Offline-/Feed-/Play-Freigabe.
+[Bildfront-Beleg](evidence/WRN-WEBSITE-NEWS-FRONT-2026-09-30/REPORT.md).
+
 Neu 30.09. – Nach explizitem PO-Auftrag ist die Website-Korrektur aus
 `3206a25` auf `https://solinaridao.com/` veröffentlicht: App-Aufbau,
 zentrierte Marke und fünf untere Hauptziele. Hostinger-Backup erfolgreich
