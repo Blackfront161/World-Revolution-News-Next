@@ -241,14 +241,20 @@ test('Apache and per-resource profiles bind CSP, credentialless CORS and exact c
     'utf8',
   );
   assert.match(root, /AddType application\/json \.json/);
-  const utf8Extensions = root.match(/^AddCharset utf-8 (.+)$/m)?.[1].split(/\s+/) ?? [];
+  const mimeRules = [...root.matchAll(/<FilesMatch "([^"]+)">([\s\S]*?)<\/FilesMatch>/g)];
   const shell = await collectShellManifest({ outputDirectory: input, compatibility: 'g3-015-v1' });
   for (const resource of shell.entries) {
-    if (resource.mime.endsWith('; charset=utf-8')) {
-      assert(utf8Extensions.includes(path.extname(resource.path)), resource.path);
-    }
+    const effectiveMime = mimeRules
+      .filter(([, pattern]) => new RegExp(pattern).test(path.basename(resource.path)))
+      .map(([, , body]) => body.match(/^Header always set Content-Type "([^"]+)"$/m)?.[1])
+      .filter(Boolean)
+      .at(-1);
+    assert.equal(
+      effectiveMime,
+      resource.mime.endsWith('; charset=utf-8') ? resource.mime : undefined,
+      resource.path,
+    );
   }
-  assert(!utf8Extensions.includes('.png'));
   assert.match(root, /Header onsuccess unset content-security-policy/);
   assert(!root.includes('x-robots-tag'));
   assert(!content.includes('Allow-Credentials "'));
