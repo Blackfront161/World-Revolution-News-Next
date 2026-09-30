@@ -2337,6 +2337,13 @@ export function App({
                   </label>
                 </div>
               </div>
+              <nav aria-label={copy.websiteMainNavigation} className="site-nav site-nav-expanded">
+                {routeLink('home')}
+                {routeLink('following')}
+                {routeLink('discover')}
+                {routeLink('media')}
+                {routeLink('saved')}
+              </nav>
               <div id="website-more-menu" className="site-more-menu" hidden={!moreMenuOpen}>
                 <p>{copy.moreAreas}</p>
                 <button
@@ -2440,7 +2447,8 @@ export function App({
                         load: loadWebsiteContentDirectory,
                         onBrowse: () => navigateDirectory('news'),
                         onBrowseSport: () => navigateDirectory('sport'),
-                        prioritizeCurrentLinks: true,
+                        prioritizeCurrentLinks: false,
+                        prioritizeReviewedImages: true,
                         automaticTranslation: true,
                         brandMarkUrl: brandAssetUrls.solinaridaoMark,
                       }

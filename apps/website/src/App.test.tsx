@@ -379,9 +379,20 @@ describe('website local newsfeed', () => {
     const user = userEvent.setup();
     render(<App initialState="loading" />);
 
-    const compactNavigation = screen.getAllByRole('navigation', {
+    const navigations = screen.getAllByRole('navigation', {
       name: 'Website main navigation',
-    })[0]!;
+    });
+    const compactNavigation = navigations.find((item) =>
+      item.classList.contains('site-nav-compact'),
+    )!;
+    const expandedNavigation = navigations.find((item) =>
+      item.classList.contains('site-nav-expanded'),
+    )!;
+    expect(
+      within(expandedNavigation)
+        .getAllByRole('link')
+        .map((link) => link.textContent),
+    ).toEqual(['Home', 'For me', 'Discover', 'Media', 'Saved']);
     expect(
       within(compactNavigation)
         .getAllByRole('link')

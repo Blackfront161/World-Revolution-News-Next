@@ -177,6 +177,7 @@ export function ProductionHome({
   regionalEvents,
   prioritizeCurrentLinks = false,
   leadWithCurrentSidebar = false,
+  prioritizeReviewedImages = false,
   brandMarkUrl,
   translationAdapter = null,
   contentReady = true,
@@ -192,6 +193,7 @@ export function ProductionHome({
   regionalEvents?: ReactNode;
   prioritizeCurrentLinks?: boolean | undefined;
   leadWithCurrentSidebar?: boolean | undefined;
+  prioritizeReviewedImages?: boolean | undefined;
   brandMarkUrl?: string | undefined;
   translationAdapter?: ProductionTranslationAdapter | null;
   contentReady?: boolean;
@@ -251,13 +253,20 @@ export function ProductionHome({
   const frontPage = useMemo(() => {
     const top = selection.lead ? [selection.lead, ...selection.main] : [...selection.main];
     const imageIndex = hasOriginalImage ? top.findIndex(hasOriginalImage) : -1;
-    if (imageIndex <= 0) return { lead: selection.lead, main: selection.main };
-    // Keep the same reviewed articles; give the first licensed image the visual lead.
+    const lead = imageIndex > 0 ? (top[imageIndex] ?? null) : selection.lead;
+    const main = imageIndex > 0 ? top.filter((_, index) => index !== imageIndex) : selection.main;
+    // Website image priority must also govern DOM and keyboard order. The App
+    // retains its existing order because this presentation option defaults off.
     return {
-      lead: top[imageIndex] ?? null,
-      main: top.filter((_, index) => index !== imageIndex),
+      lead,
+      main:
+        prioritizeReviewedImages && hasOriginalImage
+          ? [...main].sort(
+              (left, right) => Number(hasOriginalImage(right)) - Number(hasOriginalImage(left)),
+            )
+          : main,
     };
-  }, [selection, hasOriginalImage]);
+  }, [selection, hasOriginalImage, prioritizeReviewedImages]);
   const reviewedTranslationRequests = !contentReady
     ? 7
     : [frontPage.lead, ...frontPage.main].reduce((count, article, index) => {

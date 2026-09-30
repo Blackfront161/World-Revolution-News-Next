@@ -12,6 +12,42 @@ import type {
   ProductionTranslationOutcome,
 } from '../../../packages/browser-content/src/production-translation';
 
+it('keeps keyboard order aligned with website image priority and preserves the default App order', () => {
+  const articles = ['lead', 'text-a', 'text-b', 'image-a', 'text-c', 'image-b'].map(
+    (title, index) => ({
+      id: `wrn-art-${String(index + 1).padStart(32, '0')}`,
+      title,
+      tags: [],
+    }),
+  ) as unknown as ProductionArticleV1[];
+  const home = (imagePriority?: boolean) => (
+    <ProductionHome
+      articles={articles}
+      language="de"
+      sourcePreferences={emptySourcePreferences()}
+      hasOriginalImage={(article) => article.title === 'lead' || article.title.startsWith('image-')}
+      prioritizeReviewedImages={imagePriority}
+      renderCard={(article) => <button key={article.id}>{article.title}</button>}
+    />
+  );
+  const { rerender } = render(home(true));
+  const names = () =>
+    within(screen.getByRole('region', { name: 'Aktuelle Nachrichten' }))
+      .getAllByRole('button')
+      .map((button) => button.textContent);
+  expect(names()).toEqual(['image-a', 'image-b', 'text-a', 'text-b', 'text-c']);
+  rerender(home());
+  expect(names()).toEqual(['text-a', 'text-b', 'image-a', 'text-c', 'image-b']);
+  expect(articles.map((article) => article.title)).toEqual([
+    'lead',
+    'text-a',
+    'text-b',
+    'image-a',
+    'text-c',
+    'image-b',
+  ]);
+});
+
 it('puts the newest original-source reports before older full-text reading pieces', async () => {
   const report = (id: string, language: string, day: string) => ({
     id,
