@@ -155,7 +155,7 @@ test('visible shell save survives network-off reload with four bound catalogues'
         (request) => new URL(request.url).pathname,
       );
     });
-    expect(paths).toHaveLength(14);
+    expect(paths).toHaveLength(15);
     expect(paths.filter((path) => path.endsWith('.json'))).toHaveLength(4);
     expect(paths.some((path) => path.includes('/production-events-media-v1-'))).toBe(true);
     for (const family of ['legacy-knowledge-v1', 'legacy-support-v1', 'content-directory-v1'])

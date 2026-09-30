@@ -14,6 +14,72 @@ test.beforeEach(async ({ page }) => {
   );
   await page.route('https://**/*', (route) => route.abort());
 });
+
+test('original red-black app icon survives an offline reopen while the header mark stays bound', async ({
+  page,
+  context,
+}) => {
+  await page.goto('/?lang=en#home');
+  const icon = await page.locator('link[rel="icon"]').getAttribute('href');
+  expect(icon).toMatch(/^\/assets\/wrn-app-icon-[A-Za-z0-9_-]+\.png$/);
+  expect(await page.getByTestId('code26-brand-mark').getAttribute('src')).toContain(
+    'solinaridao-header-mark-filled',
+  );
+  const online = await page.request.get(icon!);
+  expect(online.status()).toBe(200);
+  expect(online.headers()['content-type']).toBe('image/png');
+  expect((await online.body()).length).toBe(8845);
+  expect(
+    createHash('sha256')
+      .update(await online.body())
+      .digest('hex'),
+  ).toBe('78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f');
+  await page.goto('/?lang=en#more');
+  await page.getByRole('button', { name: 'Save website shell', exact: true }).click();
+  await expect(page.locator('.website-shell-panel')).toHaveAttribute(
+    'data-shell-status',
+    /^(saved|active)$/,
+    { timeout: 30000 },
+  );
+  await expect
+    .poll(() =>
+      page.evaluate(async () => (await navigator.serviceWorker.getRegistration())?.active?.state),
+    )
+    .toBe('activated');
+  await page.close();
+  await context.setOffline(true);
+  const reopened = await context.newPage();
+  await reopened.goto('/?lang=en#home');
+  expect(await reopened.locator('link[rel="icon"]').getAttribute('href')).toBe(icon);
+  const offline = await reopened.evaluate(async () => {
+    const href = document.querySelector<HTMLLinkElement>('link[rel="icon"]')!.href;
+    const image = new Image();
+    image.src = href;
+    await image.decode();
+    const response = await fetch(href);
+    const bytes = await response.arrayBuffer();
+    const digest = await crypto.subtle.digest('SHA-256', bytes);
+    return {
+      controlled: !!navigator.serviceWorker.controller,
+      width: image.naturalWidth,
+      height: image.naturalHeight,
+      mime: response.headers.get('content-type'),
+      bytes: bytes.byteLength,
+      sha256: [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join(''),
+    };
+  });
+  expect(offline).toEqual({
+    controlled: true,
+    width: 72,
+    height: 72,
+    mime: 'image/png',
+    bytes: 8845,
+    sha256: '78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f',
+  });
+  expect(await reopened.getByTestId('code26-brand-mark').getAttribute('src')).toContain(
+    'solinaridao-header-mark-filled',
+  );
+});
 test('bound production coverage, original links, all nine languages and accessibility', async ({
   page,
 }, info) => {

@@ -184,6 +184,7 @@ export function createShellProtocol() {
         'application/json; charset=utf-8',
         4 * 1024 * 1024,
       ],
+      [/^\/assets\/wrn-app-icon-[A-Za-z0-9_-]+\.png$/, 'image/png', 16 * 1024],
     ];
     const seen = new Set();
     let total = 0;
@@ -203,7 +204,8 @@ export function createShellProtocol() {
       total += entry.bytes;
     }
     return (
-      (seen.size === 9 || (seen.size === 8 && !seen.has(8))) &&
+      (seen.size - Number(seen.has(9)) === 9 ||
+        (seen.size - Number(seen.has(9)) === 8 && !seen.has(8))) &&
       total <= maxBytes &&
       manifest.totalBytes === total
     );
@@ -233,6 +235,7 @@ export function createShellProtocol() {
         'application/json; charset=utf-8',
         4 * 1024 * 1024,
       ],
+      [/^\/assets\/wrn-app-icon-[A-Za-z0-9_-]+\.png$/, 'image/png', 16 * 1024],
     ];
     const javascript =
       /^\/assets\/(?:index|react-vendor|rolldown-runtime|wrn-language|wrn-content-core|wrn-browser-runtime)-[A-Za-z0-9_-]+\.js$/;
@@ -267,7 +270,8 @@ export function createShellProtocol() {
     }
     return (
       [0, 1, 2, 3, 4, 5].every((family) => fixed.has(family)) &&
-      (fixed.size === 6 || (fixed.size === 7 && fixed.has(6))) &&
+      (fixed.size - Number(fixed.has(7)) === 6 ||
+        (fixed.size - Number(fixed.has(7)) === 7 && fixed.has(6))) &&
       javascriptCount >= 2 &&
       javascriptCount <= 12 &&
       stylesheetCount >= 1 &&

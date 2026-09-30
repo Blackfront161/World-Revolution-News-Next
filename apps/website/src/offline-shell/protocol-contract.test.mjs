@@ -190,6 +190,37 @@ test('protocol admits historical and bounded static split shell generations', as
   });
   split.totalBytes = split.entries.reduce((sum, item) => sum + item.bytes, 0);
   assert.equal(p.metadata(split), true);
+  for (const base of [current, split]) {
+    const withIcon = structuredClone(base);
+    withIcon.entries.push({
+      ...entry('/assets/wrn-app-icon-a.png'),
+      mime: 'image/png',
+      bytes: 16 * 1024,
+    });
+    withIcon.totalBytes = withIcon.entries.reduce((sum, item) => sum + item.bytes, 0);
+    assert.equal(p.metadata(withIcon), true);
+    for (const patch of [
+      { bytes: 16 * 1024 + 1 },
+      { mime: 'image/webp' },
+      { path: '/assets/foreign-icon-a.png' },
+      { path: '/assets/wrn-app-icon-a.png?unbound=1' },
+      { sha256: 'invalid' },
+      { extra: 'unbound' },
+    ]) {
+      const changed = structuredClone(withIcon);
+      Object.assign(changed.entries.at(-1), patch);
+      changed.totalBytes = changed.entries.reduce((sum, item) => sum + item.bytes, 0);
+      assert.equal(p.metadata(changed), false, JSON.stringify(patch));
+    }
+    const duplicate = structuredClone(withIcon);
+    duplicate.entries.push({ ...duplicate.entries.at(-1), path: '/assets/wrn-app-icon-b.png' });
+    duplicate.totalBytes = duplicate.entries.reduce((sum, item) => sum + item.bytes, 0);
+    assert.equal(p.metadata(duplicate), false);
+    const missingHeader = structuredClone(withIcon);
+    missingHeader.entries.splice(3, 1);
+    missingHeader.totalBytes = missingHeader.entries.reduce((sum, item) => sum + item.bytes, 0);
+    assert.equal(p.metadata(missingHeader), false);
+  }
   const oversizedChunk = structuredClone(split);
   oversizedChunk.entries[2].bytes = 500_001;
   oversizedChunk.totalBytes = oversizedChunk.entries.reduce((sum, item) => sum + item.bytes, 0);

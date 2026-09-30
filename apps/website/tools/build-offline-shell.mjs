@@ -17,6 +17,8 @@ import {
 const maxGenerationBytes = 8 * 1024 * 1024;
 const allowedImage =
   /^(solinaridao-header-mark-filled|wrn-future-header-white)-[A-Za-z0-9_-]+\.png$/;
+const allowedAppIcon = /^wrn-app-icon-[A-Za-z0-9_-]+\.png$/;
+const maxAppIconBytes = 16 * 1024;
 const allowedJson =
   /^(legacy-knowledge-v1|legacy-support-v1|content-directory-v1|production-events-media-v1)-[A-Za-z0-9_-]+\.json$/;
 const mimeFor = (file) =>
@@ -182,13 +184,20 @@ export async function collectShellManifest({
     );
   const vite = JSON.parse(await readFile(path.join(dist, '.vite', 'manifest.json'), 'utf8'));
   const graph = collectViteClosure(vite);
-  // The tab icon reuses the existing approved header image; no extra asset family.
+  const appIcons = assets.filter((entry) => allowedAppIcon.test(entry));
+  if (appIcons.length > 1) throw new Error('Duplicate app icon family');
+  // Preserve historical header-favicon graphs for rollback. The dedicated icon
+  // is only admitted when this exact family is referenced by the HTML favicon.
   const favicon = html
     .toString('utf8')
     .match(
-      /<link rel="icon" type="image\/png" href="(\/assets\/solinaridao-header-mark-filled-[A-Za-z0-9_-]+\.png)"\s*\/?>/,
+      /<link rel="icon" type="image\/png" href="(\/assets\/(?:solinaridao-header-mark-filled|wrn-app-icon)-[A-Za-z0-9_-]+\.png)"\s*\/?>/,
     )?.[1];
-  if (favicon && !images.includes(favicon))
+  const appIcon = appIcons.length ? `/assets/${appIcons[0]}` : null;
+  if (
+    (appIcon && favicon !== appIcon) ||
+    (favicon && !images.includes(favicon) && favicon !== appIcon)
+  )
     throw new Error('Favicon is not an approved shell image');
   const expectedReferences = [
     ...[...graph.javascript, ...graph.css].map((file) => `/${file}`),
@@ -196,6 +205,7 @@ export async function collectShellManifest({
   ].sort();
   const approvedAssets = [
     ...images.map((image) => image.slice(1)),
+    ...(appIcon ? [appIcon.slice(1)] : []),
     ...jsonAssets.map((asset) => `assets/${asset}`),
   ].sort();
   const permittedViteFiles = new Set([...graph.javascript, ...graph.css, ...approvedAssets]);
@@ -230,6 +240,7 @@ export async function collectShellManifest({
       ...graph.javascript.map((file) => `/${file}`),
       ...graph.css.map((file) => `/${file}`),
       ...images,
+      ...(appIcon ? [appIcon] : []),
       ...jsonAssets.map((asset) => `/assets/${asset}`),
     ]),
   ].sort();
@@ -247,6 +258,8 @@ export async function collectShellManifest({
     const details = await stat(diskPath);
     if (!details.isFile() || details.size > maxGenerationBytes)
       throw new Error(`Invalid shell asset: ${entryPath}`);
+    if (allowedAppIcon.test(path.basename(entryPath)) && details.size > maxAppIconBytes)
+      throw new Error(`App icon exceeds its 16 KiB byte cap: ${entryPath}`);
     if (
       entryPath.endsWith('.json') &&
       details.size >

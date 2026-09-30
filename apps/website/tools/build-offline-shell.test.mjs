@@ -190,6 +190,74 @@ test('tab icon reuses the approved offline header image and rejects other refere
   }
 });
 
+test('dedicated original app icon is bound separately and historical shell graphs remain valid', async (t) => {
+  for (const names of [jsonNames, completeJsonNames]) {
+    const { root, dist } = await fixture(names);
+    t.after(() => rm(root, { recursive: true, force: true }));
+    const baseline = await collectShellManifest({ outputDirectory: dist });
+    const icon = await readFile(
+      path.resolve(import.meta.dirname, '../src/assets/wrn-app-icon.png'),
+    );
+    assert.equal(icon.length, 8845);
+    assert.equal(
+      createHash('sha256').update(icon).digest('hex'),
+      '78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f',
+    );
+    await writeFile(path.join(dist, 'assets/wrn-app-icon-a.png'), icon);
+    const vitePath = path.join(dist, '.vite/manifest.json');
+    const vite = JSON.parse(await readFile(vitePath, 'utf8'));
+    vite['index.html'].assets.push('assets/wrn-app-icon-a.png');
+    await writeFile(vitePath, JSON.stringify(vite));
+    const htmlPath = path.join(dist, 'index.html');
+    const html = await readFile(htmlPath, 'utf8');
+    await assert.rejects(
+      () => collectShellManifest({ outputDirectory: dist }),
+      /approved shell image/,
+    );
+    await writeFile(
+      htmlPath,
+      html + '<link rel="icon" type="image/png" href="/assets/wrn-app-icon-a.png" />',
+    );
+    const withIcon = await buildOfflineShell({ outputDirectory: dist });
+    assert.equal(withIcon.entries.length, baseline.entries.length + 1);
+    assert.equal(createShellProtocol().metadata(withIcon.manifest), true);
+    assert.equal(createShellProtocol().metadata(baseline), true);
+    assert.deepEqual(
+      withIcon.entries.filter(
+        (entry) => entry.path !== '/index.html' && !entry.path.includes('wrn-app-icon-'),
+      ),
+      baseline.entries.filter((entry) => entry.path !== '/index.html'),
+    );
+    const entry = withIcon.entries.find((entry) => entry.path === '/assets/wrn-app-icon-a.png');
+    assert.equal(entry.mime, 'image/png');
+    assert.equal(entry.bytes, icon.length);
+    assert.equal(entry.sha256, createHash('sha256').update(icon).digest('hex'));
+    await writeFile(path.join(dist, 'assets/wrn-app-icon-a.png'), new Uint8Array(16 * 1024 + 1));
+    await assert.rejects(() => collectShellManifest({ outputDirectory: dist }), /App icon exceeds/);
+  }
+});
+
+test('a second app icon and a favicon which does not bind its dedicated file fail closed', async (t) => {
+  const { root, dist } = await fixture();
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const htmlPath = path.join(dist, 'index.html');
+  const html = await readFile(htmlPath, 'utf8');
+  await writeFile(path.join(dist, 'assets/wrn-app-icon-a.png'), 'icon');
+  await writeFile(
+    htmlPath,
+    html + '<link rel="icon" type="image/png" href="/assets/wrn-app-icon-missing.png" />',
+  );
+  await assert.rejects(
+    () => collectShellManifest({ outputDirectory: dist }),
+    /approved shell image/,
+  );
+  await writeFile(path.join(dist, 'assets/wrn-app-icon-b.png'), 'second');
+  await assert.rejects(
+    () => collectShellManifest({ outputDirectory: dist }),
+    /Duplicate app icon family/,
+  );
+});
+
 test('binds a bounded static multi-chunk graph and rejects manifest/source disagreement', async (t) => {
   const { root, dist } = await fixture();
   t.after(() => rm(root, { recursive: true, force: true }));
