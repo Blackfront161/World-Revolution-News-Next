@@ -4,7 +4,7 @@
 
 Arbeitsbaum: `wrn-next-live-work`; Branch `codex/next-editorial-home-20260928`.
 Ausgangscommit `fa8031dfe20cca77a189de12d9afceb4f2fe2f88`.
-Der konkrete Kandidatencommit ist der Commit, der diesen Bericht und die gebundenen Dateien enthält. Das anschließend lokal vorbereitete `work/website-projection-release/READY.json` bindet diesen Commit, Website-/Hostingmanifest, Shell und Projektion. Keine Veröffentlichung ist erfolgt.
+Produktcommit `9673f9c970eaf3477b4d198782914a4bb4bc75fd`; ein nachfolgender reiner Belegcommit ergänzt die Paketprüfung ohne Produktänderung. Das anschließend lokal vorbereitete `work/website-projection-release/READY.json` bindet diesen Commit, Website-/Hostingmanifest, Shell und Projektion. Keine Veröffentlichung ist erfolgt.
 
 ## Wirkung und Klassen
 
@@ -84,6 +84,14 @@ Die Browserdateien prüfen zusätzlich zu positiven Ansichten tatsächliche Sper
 Vier unveränderte ESLintfehler in zwei bestehenden Dateien sind nachweislich bereits im Ausgangscommit vorhanden: zwei `set-state-in-effect` in `WebsiteFollowingDirectory.tsx`, zwei `only-export-components` in `production-content-ui.tsx`. Sie wurden durch ESLint auf den mittels `git show` gelesenen Ausgangsdateien reproduziert. Keine Regel oder Testassertion wurde abgeschwächt. Dies ist **kein workspaceweiter Lint-PASS**.
 
 Die vom beendeten Prüfchat vorbereiteten Website-only-Matrixdateien wurden gelesen und erhalten/integrationsfähig übernommen. Ihre projektweite Matrix (über 2.100 Fälle außerhalb des hier vollständigen betroffenen Pakets) wurde hier nicht als durchgeführt oder bestanden behauptet. Das Gesamt-RC bleibt beim Chief/Kontrollchat.
+
+## Prüfung der tatsächlich vorbereiteten Hostingdateien
+
+Der lokale Abschluss `work/website-projection-release/READY.json` bindet Produktcommit `9673f9c970eaf3477b4d198782914a4bb4bc75fd`, 44 Website- und 47 öffentliche Hostingdateien. Hostingmanifest SHA-256 `f18aa7239eb6b9ea5676eef4fad5d09a9bac5df9db6db410d23ef98d5c473846`; Websitemanifest `5d989661e563b23efd1403aa94671c80bc698a86f11ddf517c9b84390afb1255`. Die Verpackung ergänzt die bestehende Produktions-CSP; ihre Shell ist deshalb `babe22b55eaa1108765b9405327765f8953029d769a490b7c85229e9256b75b0`, während die oben genannte Shell den unverpackten Build bezeichnet. Beide bestehenden Paketvalidatoren bestanden vor dem READY-Abschluss.
+
+Zusätzlich bestehen zwölf Offline-/Lese-/Persistenzfälle gegen die tatsächlichen Hostingbytes am lokalen HTTP-Server und acht Quellen-/Artikelwiderruf- und Fremdhashfälle an vollständig lokal abgefangener kanonischer HTTPS-Origin, jeweils in vier Größenprojekten. Dies sind 20 abgedeckte Fälle aus zwei Testkontexten, kein einzelner fehlerfreier 20er-Lauf. Acht anfängliche API-Fehler an localhost waren durch die unveränderte `connect-src 'self'` verursacht; vier anschließende kanonische Testfehler betrafen ausschließlich die erwartete Nichterreichbarkeit des Directory-Pointers. Der korrigierte Harness simuliert diesen Fehlerfall, ohne Produktbytes oder Originalassertionen zu ändern. Alle acht negativen Fälle bestehen danach. `packaged-candidate.json` erhält Ergebnisse, Diagnosen, Harnessinhalte und Bindungen. Reale Apacheheader und Livebetrieb bleiben ungeprüft.
+
+Der versionierte Produktstand war vor diesem reinen Belegnachtrag sauber. Alle 118 vorbestehenden unversionierten PNG-Vorschauen sind erhalten und im Paketbeleg aufgelistet. Die Gesamtmatrix wurde mit exakt 2.128 Fällen in 57 Dateien nur aufgelistet, nicht ausgeführt.
 
 ## Reproduktion und Paketgrenzen
 

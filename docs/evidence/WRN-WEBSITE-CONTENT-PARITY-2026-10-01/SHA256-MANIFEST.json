@@ -3,7 +3,7 @@
   "scope": "local-website-only-candidate; independent review and live release open",
   "baselineCommit": "fa8031dfe20cca77a189de12d9afceb4f2fe2f88",
   "upstreamCommit": "33509ace3d3b2f7f275ebc05fe3522a59d62964f",
-  "generatedAtUTC": "2026-09-30T17:58:28.679Z",
+  "generatedAtUTC": "2026-09-30T18:32:04.966Z",
   "projection": {
     "schema": "wrn.website-projection-lock.v1",
     "upstream": {
@@ -133,19 +133,24 @@
       "sha256": "c88a28a8ce8d8e73b8ffc10cb8caeeabf8ae45dd79f2460d7f9449a0945059db"
     },
     {
-      "path": "apps/website/src/features/directory/directory-loader.ts",
-      "bytes": 11053,
-      "sha256": "d3c20fa68ceb9fa356d62045af00882df2a2299e41de2a6100241ce3948a0de2"
-    },
-    {
       "path": "apps/website/src/features/directory/WebsiteContentDirectoryRoute.tsx",
       "bytes": 20713,
       "sha256": "c4216028ab343ff07cb06ea9bcb094bcab8f3103e5ef8e8f117b8df3a9bff509"
     },
     {
+      "path": "apps/website/src/features/directory/directory-loader.ts",
+      "bytes": 11053,
+      "sha256": "d3c20fa68ceb9fa356d62045af00882df2a2299e41de2a6100241ce3948a0de2"
+    },
+    {
       "path": "apps/website/src/features/following/WebsiteFollowingDirectory.tsx",
       "bytes": 6832,
       "sha256": "ee7b513711c1c06fc0f5e0982c1e6c5386b3cfa88cde6cab5d85cf66c243f670"
+    },
+    {
+      "path": "apps/website/src/features/projection/WebsiteCoverage.tsx",
+      "bytes": 4442,
+      "sha256": "a058cc45d00e7eceab8a387b288b0292b1119cd3f5c9f73f305b60fdb56798a9"
     },
     {
       "path": "apps/website/src/features/projection/data/content-directory-v1.json",
@@ -203,11 +208,6 @@
       "sha256": "902081c8a542813291afb60e9feae8f815d299a8a55752781cc870b6fb55417e"
     },
     {
-      "path": "apps/website/src/features/projection/WebsiteCoverage.tsx",
-      "bytes": 4442,
-      "sha256": "a058cc45d00e7eceab8a387b288b0292b1119cd3f5c9f73f305b60fdb56798a9"
-    },
-    {
       "path": "apps/website/src/production-content-ui.tsx",
       "bytes": 4598,
       "sha256": "3975dd6a491695b6b58b412f5d82179278f97c5057669997287805c752983db0"
@@ -216,6 +216,11 @@
       "path": "apps/website/src/styles.css",
       "bytes": 58908,
       "sha256": "2046c937cfb501c231e5d218ac759b90bbbf15774afb7bab3f4165e5e3ba6577"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/REPORT.md",
+      "bytes": 15393,
+      "sha256": "8f9a34fa6845148d09eb624046664f4bed9a66c2207b0fa46d4a9fb20f82ca68"
     },
     {
       "path": "docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/admission-classes.json",
@@ -228,6 +233,11 @@
       "sha256": "0b776b6946fd96208425986fed734459b6eedf35353da63e1ebcb4155c5486f8"
     },
     {
+      "path": "docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/packaged-candidate.json",
+      "bytes": 23061,
+      "sha256": "ca0855c866c92a3443dc789f84fa7165d0c736d5afffacc0229f2b2765c5301d"
+    },
+    {
       "path": "docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/parity-report.json",
       "bytes": 677259,
       "sha256": "46b47f7eb005cd307fda40beae5d6a74bdac9c936e3045ca4382a390803c6b80"
@@ -236,11 +246,6 @@
       "path": "docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/replay-config.json",
       "bytes": 1239,
       "sha256": "016d4a1f560cecc286620a5b6c8dcc90f541a00aef4d8e249cf7812db9231a26"
-    },
-    {
-      "path": "docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/REPORT.md",
-      "bytes": 13487,
-      "sha256": "b841d06e14c06c3a815e54bb50a3cca01da956b0541fe4869726d7eaeac11459"
     },
     {
       "path": "docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/website-1440x900.png",
@@ -302,5 +307,7 @@
       "bytes": 15072,
       "sha256": "b7af33564cd2806657e832196f1aa8c30af41486172a74246bff79f57dfcc1e7"
     }
-  ]
+  ],
+  "productCommit": "9673f9c970eaf3477b4d198782914a4bb4bc75fd",
+  "packagedCandidateEvidence": "docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/packaged-candidate.json"
 }

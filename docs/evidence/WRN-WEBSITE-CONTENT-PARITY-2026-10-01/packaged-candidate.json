@@ -1,0 +1,447 @@
+{
+  "schema": "wrn.website-packaged-candidate-evidence.v1",
+  "generatedAtUTC": "2026-09-30T18:32:04.789Z",
+  "productCommit": "9673f9c970eaf3477b4d198782914a4bb4bc75fd",
+  "publicationPerformed": false,
+  "liveDeviationResolved": false,
+  "candidate": {
+    "schema": "wrn.website-projection-candidate.v1",
+    "status": "LOCAL-PASS",
+    "publicationPerformed": false,
+    "sourceCommit": "9673f9c970eaf3477b4d198782914a4bb4bc75fd",
+    "generatedAtUTC": "2026-09-30T17:59:17.457Z",
+    "projection": {
+      "status": "PASS",
+      "counts": {
+        "feed": 500,
+        "feedSources": 98,
+        "registry": 406,
+        "included": 480,
+        "metadataLinkOnly": 480,
+        "fullTextImported": 0,
+        "directoryOnlySources": 0,
+        "metadataOnlySources": 397,
+        "excluded": 20,
+        "matchedSources": 6,
+        "pendingSources": 391,
+        "excludedSources": 9,
+        "directoryArticles": 961,
+        "directorySources": 532
+      },
+      "sequence": 202609301530,
+      "directorySha256": "72fea07011df07b18ea274524530a53bc6485b1b17f575c050d8e4857bbf71ff",
+      "reportSha256": "46b47f7eb005cd307fda40beae5d6a74bdac9c936e3045ca4382a390803c6b80",
+      "upstreamCommit": "33509ace3d3b2f7f275ebc05fe3522a59d62964f"
+    },
+    "admissionClasses": {
+      "individuallyAdmittedFulltext": {
+        "articles": 12,
+        "sourceProfiles": 3,
+        "revision": "wrn-production-news-2026-09-26-v8",
+        "corpus": "existing-separate-production-admission"
+      },
+      "newFulltextOrMedia": {
+        "articles": 0,
+        "sourceEndpoints": 0
+      },
+      "metadataLinkOnly": {
+        "articles": 480,
+        "sourceEndpoints": 397,
+        "withoutConfirmedSourcePass": 476,
+        "editorialVerification": false,
+        "reuseRightsGranted": false
+      },
+      "directoryOnly": {
+        "articles": 0,
+        "sourceEndpoints": 0
+      },
+      "excluded": {
+        "articles": 20,
+        "sourceEndpoints": 9,
+        "reasons": {
+          "future-published-at": 1,
+          "identity-conflict": 7,
+          "incomplete-source-provenance": 3,
+          "insecure-url": 9
+        }
+      },
+      "upstream": {
+        "articles": 500,
+        "sourceEndpoints": 406,
+        "recordedFeedSourceNames": 98
+      }
+    },
+    "publicationStatus": {
+      "liveDeviationResolved": false,
+      "directoryParity": "bound-local-snapshot-only",
+      "directoryProjectionPublication": "pending",
+      "websitePublication": "pending",
+      "liveVerification": "not-performed"
+    },
+    "shellId": "babe22b55eaa1108765b9405327765f8953029d769a490b7c85229e9256b75b0",
+    "websiteFiles": 44,
+    "hostingFiles": 47,
+    "websiteManifestSha256": "5d989661e563b23efd1403aa94671c80bc698a86f11ddf517c9b84390afb1255",
+    "hostingManifestSha256": "f18aa7239eb6b9ea5676eef4fad5d09a9bac5df9db6db410d23ef98d5c473846",
+    "previousRevocationsSha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617",
+    "previousRevocationsReceipt": "local-input-only; last-delivered-host-receipt-required-before-rollout",
+    "externalGates": [
+      "independent-controller-review",
+      "source-and-item-rights-for-body-media",
+      "last-delivered-revocations-receipt",
+      "live-Apache-CSP-CORS-and-two-pointer-rollback",
+      "explicit-deployment-authorization"
+    ]
+  },
+  "readySha256": "2e915150e08f7e430be9ea05e4b65accef6826e5e439da15bf3ce25d3bb2ed66",
+  "scope": "local package bytes; same-origin network tests intercepted locally; real Apache headers and live deployment unverified",
+  "packagedBrowser": {
+    "coverage": {
+      "passedAtLocalhost": 12,
+      "passedAtInterceptedCanonicalOrigin": 8,
+      "distinctCasesPassed": 20
+    },
+    "localhost": {
+      "stats": {
+        "startTime": "2026-09-30T18:02:02.331Z",
+        "duration": 79136.734,
+        "expected": 12,
+        "skipped": 0,
+        "unexpected": 8,
+        "flaky": 0
+      },
+      "sha256": "7d048bc5d53768fa557384214c3ba2011d3dfb7e4cc5b34241b4a952f25e9205",
+      "cases": [
+        {
+          "title": "saved production Website opens a real article after closing the page while fully offline",
+          "project": "website-390x844",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "default entry reads admitted articles, persists v2 and never touches reading v1",
+          "project": "website-390x844",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "saved production Website opens a real article after closing the page while fully offline",
+          "project": "website-800x1280",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "default entry reads admitted articles, persists v2 and never touches reading v1",
+          "project": "website-800x1280",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "saved production Website opens a real article after closing the page while fully offline",
+          "project": "website-1440x900",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "default entry reads admitted articles, persists v2 and never touches reading v1",
+          "project": "website-1440x900",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "saved production Website opens a real article after closing the page while fully offline",
+          "project": "website-reflow-200pct",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "default entry reads admitted articles, persists v2 and never touches reading v1",
+          "project": "website-reflow-200pct",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "explicit shell save restores broad current metadata links after an offline restart",
+          "project": "website-390x844",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "later source withdrawal removes both homepage lists and remains removed after reload",
+          "project": "website-390x844",
+          "status": "failed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "a new valid live hash cannot admit an unreviewed title; its article withdrawal still applies",
+          "project": "website-390x844",
+          "status": "failed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "explicit shell save restores broad current metadata links after an offline restart",
+          "project": "website-800x1280",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "later source withdrawal removes both homepage lists and remains removed after reload",
+          "project": "website-800x1280",
+          "status": "failed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "a new valid live hash cannot admit an unreviewed title; its article withdrawal still applies",
+          "project": "website-800x1280",
+          "status": "failed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "explicit shell save restores broad current metadata links after an offline restart",
+          "project": "website-1440x900",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "later source withdrawal removes both homepage lists and remains removed after reload",
+          "project": "website-1440x900",
+          "status": "failed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "a new valid live hash cannot admit an unreviewed title; its article withdrawal still applies",
+          "project": "website-1440x900",
+          "status": "failed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "explicit shell save restores broad current metadata links after an offline restart",
+          "project": "website-reflow-200pct",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "later source withdrawal removes both homepage lists and remains removed after reload",
+          "project": "website-reflow-200pct",
+          "status": "failed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "a new valid live hash cannot admit an unreviewed title; its article withdrawal still applies",
+          "project": "website-reflow-200pct",
+          "status": "failed",
+          "expectedStatus": "passed"
+        }
+      ],
+      "command": "node node_modules/@playwright/test/cli.js test --config work/package-check.config.ts --grep 'explicit shell|later source withdrawal|new valid live hash|saved production|default entry'",
+      "diagnosis": "Eight negative API cases fail at localhost because unchanged production connect-src self blocks canonical HTTPS requests before mocks. Those cases were separately rerun at intercepted canonical origin."
+    },
+    "canonical": {
+      "stats": {
+        "startTime": "2026-09-30T18:27:52.844Z",
+        "duration": 12099.457,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "sha256": "8652170bc3df4765a6033b068c156f188f4b0fa93ab10ca8659ace4a4fb70e32",
+      "cases": [
+        {
+          "title": "later source withdrawal removes both homepage lists and remains removed after reload",
+          "project": "website-390x844",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "a new valid live hash cannot admit an unreviewed title; its article withdrawal still applies",
+          "project": "website-390x844",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "later source withdrawal removes both homepage lists and remains removed after reload",
+          "project": "website-800x1280",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "a new valid live hash cannot admit an unreviewed title; its article withdrawal still applies",
+          "project": "website-800x1280",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "later source withdrawal removes both homepage lists and remains removed after reload",
+          "project": "website-1440x900",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "a new valid live hash cannot admit an unreviewed title; its article withdrawal still applies",
+          "project": "website-1440x900",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "later source withdrawal removes both homepage lists and remains removed after reload",
+          "project": "website-reflow-200pct",
+          "status": "passed",
+          "expectedStatus": "passed"
+        },
+        {
+          "title": "a new valid live hash cannot admit an unreviewed title; its article withdrawal still applies",
+          "project": "website-reflow-200pct",
+          "status": "passed",
+          "expectedStatus": "passed"
+        }
+      ],
+      "command": "node node_modules/@playwright/test/cli.js test --config work/canonical-package.config.ts --grep 'later source withdrawal|new valid live hash'",
+      "diagnosis": "Earlier canonical harness returned a live bound pointer although original source-withdrawal test requires unavailable pointer. Corrected harness returns 404 for baseline directory/current.json; test-specific new-pointer mocks take precedence. Assertions and product bytes unchanged."
+    },
+    "harnesses": {
+      "work/package-check.config.ts": {
+        "sha256": "0ffca641d6dbf7df2dc627e5eebfda684a165858b801ad5c4526fe96fda909d7",
+        "text": "import {defineConfig} from '@playwright/test';\nimport base from '../tests/e2e/website-content-projection.config';\nimport path from 'node:path';\nexport default defineConfig({...base,testDir:path.resolve('tests/e2e'),globalSetup:path.resolve('work/package-check.setup.ts'),outputDir:path.resolve('test-results/packaged-website'),reporter:[['list'],['json',{outputFile:path.resolve('work/website-projection-release/packaged-browser-tests.json')}]]});\n"
+      },
+      "work/package-check.setup.ts": {
+        "sha256": "2d468aca14de76ab7971246e73dba62355eeb6183b4d3d2faae540db2bc38cd7",
+        "text": "import { createServer } from 'node:http';\nimport { readFile, stat } from 'node:fs/promises';\nimport path from 'node:path';\n/** Website-only built-server harness. No Mobile server, build or source writes. */\nexport default async function setup() {\n  const root = path.resolve('work/website-projection-release/hosting');\n  const server = createServer(async (req, res) => {\n    try {\n      const pathname = decodeURIComponent(new URL(req.url ?? '/', 'http://127.0.0.1').pathname);\n      const relative =\n        pathname === '/'\n          ? 'index.html'\n          : pathname.endsWith('/')\n            ? pathname.slice(1) + 'index.html'\n            : pathname.slice(1);\n      const file = path.resolve(root, relative);\n      if (!file.startsWith(root + path.sep) || !(await stat(file)).isFile()) throw Error('missing');\n      const mime = file.endsWith('.html')\n        ? 'text/html'\n        : file.endsWith('.js')\n          ? 'text/javascript'\n          : file.endsWith('.css')\n            ? 'text/css'\n            : file.endsWith('.json')\n              ? 'application/json'\n              : file.endsWith('.png')\n                ? 'image/png'\n                : file.endsWith('.webp')\n                  ? 'image/webp'\n                  : file.endsWith('.xml')\n                    ? 'application/xml'\n                    : 'text/plain';\n      res.writeHead(200, {\n        'content-type':\n          mime.startsWith('text/') || mime === 'application/json' || mime === 'application/xml'\n            ? `${mime}; charset=utf-8`\n            : mime,\n        'cache-control': 'no-store',\n      });\n      res.end(await readFile(file));\n    } catch {\n      res.writeHead(404, { 'content-type': 'text/plain' });\n      res.end('Not found');\n    }\n  });\n  await new Promise<void>((resolve, reject) => {\n    server.once('error', reject);\n    server.listen(43178, '127.0.0.1', resolve);\n  });\n  return async () =>\n    new Promise<void>((resolve, reject) =>\n      server.close((error) => (error ? reject(error) : resolve())),\n    );\n}\n"
+      },
+      "work/canonical-package.config.ts": {
+        "sha256": "bf3fa602365996a20ae9eae4f4fb6df1569daf251ef41fec88575700deba00e4",
+        "text": "import { defineConfig } from '@playwright/test';\nimport path from 'node:path';\nexport default defineConfig({testDir:path.resolve('work'),testMatch:'canonical-package.spec.ts',workers:2,retries:0,forbidOnly:true,outputDir:path.resolve('test-results/canonical-packaged-website'),reporter:[['list'],['json',{outputFile:path.resolve('work/website-projection-release/canonical-browser-tests.json')}]],use:{channel:'chrome',reducedMotion:'reduce',trace:'retain-on-failure'},projects:[{name:'website-390x844',use:{viewport:{width:390,height:844}}},{name:'website-800x1280',use:{viewport:{width:800,height:1280}}},{name:'website-1440x900',use:{viewport:{width:1440,height:900}}},{name:'website-reflow-200pct',use:{viewport:{width:390,height:844}}}]});\r\n"
+      },
+      "work/canonical-package.spec.ts": {
+        "sha256": "382d050d735fe714cd5e1389b5d987e746ea3afb35390b0c2b95486d1465839c",
+        "text": "import { test } from '@playwright/test';\nimport { readFile, stat } from 'node:fs/promises';\nimport path from 'node:path';\nawait import('../tests/e2e/website-content-projection.spec');\n// Keep the production CSP unchanged. Intercept all canonical-origin requests locally;\n// no DNS/host modification and no request to the live site.\ntest.beforeEach(async ({page})=>{\n  const goto=page.goto.bind(page);\n  page.goto=((url,options)=>goto(new URL(url,'https://solinaridao.com').href,options)) as typeof page.goto;\n  const root=path.resolve('work/website-projection-release/hosting');\n  await page.route('https://solinaridao.com/**',async route=>{\n    const pathname=new URL(route.request().url()).pathname;\n    // Match the original negative test: the directory pointer is unavailable.\n    // A test-specific newer-pointer mock takes precedence when required.\n    if(pathname==='/wrn-content-directory/current.json'){await route.fulfill({status:404,body:'Not found'});return;}\n    const relative=pathname==='/'?'index.html':pathname.slice(1);\n    const file=path.resolve(root,relative);\n    if(!file.startsWith(root+path.sep))throw Error('outside-package');\n    try {\n      if(!(await stat(file)).isFile())throw Error('missing');\n      const type=file.endsWith('.html')?'text/html; charset=utf-8':file.endsWith('.js')?'text/javascript; charset=utf-8':file.endsWith('.css')?'text/css; charset=utf-8':file.endsWith('.json')?'application/json; charset=utf-8':file.endsWith('.webp')?'image/webp':file.endsWith('.png')?'image/png':'text/plain; charset=utf-8';\n      await route.fulfill({body:await readFile(file),contentType:type});\n    } catch {await route.fulfill({status:404,body:'Not found'});}\n  });\n});\r\n"
+      }
+    }
+  },
+  "preservedUntrackedFiles": [
+    "preview-app-lead-1440.png",
+    "preview-app-lead-390.png",
+    "preview-baseline-site-stable-1440.png",
+    "preview-baseline-site-stable-390.png",
+    "preview-classic-1440.png",
+    "preview-classic-390.png",
+    "preview-code26-clean-review.png",
+    "preview-code26-home-restored-1440.png",
+    "preview-code26-home-restored-390.png",
+    "preview-code26-menu-390.png",
+    "preview-code26-menu-768.png",
+    "preview-code26-react-clean-1440.png",
+    "preview-code26-react-desktop.png",
+    "preview-code26-react-final-1440.png",
+    "preview-code26-react-final-390.png",
+    "preview-code26-react-mobile.png",
+    "preview-code26-restored-dark-1440.png",
+    "preview-code26-restored-dark-390.png",
+    "preview-code26-restored-editorial-1440.png",
+    "preview-code26-restored-editorial-390.png",
+    "preview-code26-restored-final-dark-1440.png",
+    "preview-code26-restored-final-dark-390.png",
+    "preview-code26-restored-final-dark-768.png",
+    "preview-code26-restored-final-editorial-1440.png",
+    "preview-code26-restored-final-pink-1440.png",
+    "preview-code26-restored-final-soft-1440.png",
+    "preview-code26-sidebar-final-1440.png",
+    "preview-code26-sidebar-final-390.png",
+    "preview-code26-sidebar-final-768.png",
+    "preview-code26-sidebar-review-1440.png",
+    "preview-code26-sidebar-review-390.png",
+    "preview-compare-app-1440.png",
+    "preview-compare-app-390.png",
+    "preview-compare-app-following-390.png",
+    "preview-compare-app-stable-1440.png",
+    "preview-compare-app-stable-390.png",
+    "preview-compare-site-1440.png",
+    "preview-compare-site-390.png",
+    "preview-compare-site-stable-1440.png",
+    "preview-compare-site-stable-390.png",
+    "preview-current-app-check.png",
+    "preview-desktop-reference.png",
+    "preview-layout-app-390-lower.png",
+    "preview-layout-app-390-top.png",
+    "preview-layout-web-390-lower.png",
+    "preview-layout-web-390-top.png",
+    "preview-live-editorial-design-check.png",
+    "preview-live-home-design-check-clear.png",
+    "preview-live-home-design-check.png",
+    "preview-live-home-design-wip.png",
+    "preview-live-mobile-design-check.png",
+    "preview-mobile-audio-sources-20260929.png",
+    "preview-mobile-before.png",
+    "preview-mobile-black-anarchism-20260929.png",
+    "preview-mobile-black-resources-20260929.png",
+    "preview-mobile-black-top-20260929.png",
+    "preview-mobile-code26-de-violet-390.png",
+    "preview-mobile-code26-final-de-390.png",
+    "preview-mobile-code26-react-390.png",
+    "preview-mobile-directory-translation-fallback-390.png",
+    "preview-mobile-for-me-directory-390.png",
+    "preview-mobile-live-directory-390.png",
+    "preview-mobile-live-source-all-390.png",
+    "preview-mobile-new-sport-20260929.png",
+    "preview-mobile-reference.png",
+    "preview-mobile-source-all-390.png",
+    "preview-mobile-source-hide-fix-390.png",
+    "preview-mobile-source-swipe-final-390.png",
+    "preview-mobile-sport-sources-20260929.png",
+    "preview-next-editorial-home-1440.png",
+    "preview-next-editorial-home-390.png",
+    "preview-next-editorial-home-768.png",
+    "preview-next-home-translation-fallback-1440.png",
+    "preview-website-20min-virgin-1440.png",
+    "preview-website-app-current-1440.png",
+    "preview-website-app-current-390.png",
+    "preview-website-app-current-768.png",
+    "preview-website-app-parity-final-1440.png",
+    "preview-website-app-parity-final-390.png",
+    "preview-website-app-parity-final-768.png",
+    "preview-website-app-parity-following-wip-1440.png",
+    "preview-website-app-parity-wip-1440-review.png",
+    "preview-website-app-parity-wip-1440.png",
+    "preview-website-app-parity-wip-390.png",
+    "preview-website-app-title-editorial-1440.png",
+    "preview-website-app-title-editorial-390.png",
+    "preview-website-app-title-lead-1440.png",
+    "preview-website-app-title-lead-390.png",
+    "preview-website-app-title-top-1440.png",
+    "preview-website-app-title-top-390.png",
+    "preview-website-audio-sources-20260929.png",
+    "preview-website-black-anarchism-20260929.png",
+    "preview-website-black-resources-20260929.png",
+    "preview-website-black-top-20260929.png",
+    "preview-website-editorial-final-1440.png",
+    "preview-website-editorial-final-390.png",
+    "preview-website-editorial-final-820.png",
+    "preview-website-editorial-news-top-1440.png",
+    "preview-website-editorial-news-top-390.png",
+    "preview-website-editorial-news-top-820.png",
+    "preview-website-editorial-revised-1440.png",
+    "preview-website-editorial-revised-390.png",
+    "preview-website-editorial-revised-820.png",
+    "preview-website-explicit-source-1440.png",
+    "preview-website-following-1440.png",
+    "preview-website-following-390.png",
+    "preview-website-hidden-source-1440.png",
+    "preview-website-home-translation-fallback-1440.png",
+    "preview-website-new-sport-20260929.png",
+    "preview-website-news20-front-1440.png",
+    "preview-website-news20-front-390.png",
+    "preview-website-news20-front-820.png",
+    "preview-website-news20-top-1440.png",
+    "preview-website-news20-top-390.png",
+    "preview-website-news20-top-820.png",
+    "preview-website-source-filter-1440.png",
+    "preview-website-source-filter-390.png",
+    "preview-website-sport-sources-20260929.png"
+  ],
+  "overallWebsiteMatrix": {
+    "listedCases": 2128,
+    "files": 57,
+    "executed": false
+  },
+  "preexistingLintErrors": 4
+}
