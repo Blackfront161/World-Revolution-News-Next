@@ -460,3 +460,117 @@ test('many tiny extra files cannot expand the closed five-entry metadata graph',
     collectShellManifest({ outputDirectory: dist, compatibility: 'g3-015-v1' }),
   );
 });
+
+// Exercise the serialized worker installer, including ready publication and
+// cleanup. Protocol/storage lifecycle behavior has its own contract suite.
+async function installResponse(body, headers, expectedBody = 'bound shell bytes', status = 200) {
+  const entry = {
+    path: '/index.html',
+    mime: 'text/html; charset=utf-8',
+    bytes: Buffer.byteLength(expectedBody),
+    sha256: createHash('sha256').update(expectedBody).digest('hex'),
+  };
+  const manifest = {
+    version: 1,
+    compatibility: 'g3-015-v1',
+    shellId: 'a'.repeat(64),
+    totalBytes: entry.bytes,
+    entries: [entry],
+  };
+  const protocol = createShellProtocol();
+  let control = protocol.initial(1);
+  const caches = new Map();
+  const storage = {
+    open: async (name) => {
+      if (!caches.has(name)) caches.set(name, new Map());
+      return { put: async (key, value) => caches.get(name).set(key, value.clone()) };
+    },
+    match: async (key, options) => caches.get(options.cacheName)?.get(key)?.clone(),
+    delete: async (name) => caches.delete(name),
+    has: async (name) => caches.has(name),
+  };
+  const p = {
+    ...protocol,
+    metadata: () => true,
+    inventory: async () => {},
+    read: async () => ({ kind: 'known', value: structuredClone(control) }),
+    write: async (_storage, value) => {
+      control = structuredClone(value);
+    },
+  };
+  const handlers = new Map();
+  const scope = {
+    caches: storage,
+    navigator: { locks: { request: async (_key, _options, task) => task() } },
+    clients: { matchAll: async () => [] },
+    addEventListener: (name, handler) => handlers.set(name, handler),
+  };
+  vm.runInNewContext('(' + installWebsiteShellRuntime.toString() + ')(self, manifest, p)', {
+    self: scope,
+    manifest,
+    p,
+    performance,
+    crypto,
+    Response,
+    AbortSignal,
+    URL,
+    fetch: async () =>
+      new Response(body, { status, headers: { 'content-type': entry.mime, ...headers } }),
+  });
+  let installation;
+  handlers.get('install')({
+    waitUntil: (value) => {
+      installation = value;
+    },
+  });
+  try {
+    await installation;
+  } catch (error) {
+    return { error: error.message, control, caches };
+  }
+  return { control, caches };
+}
+
+for (const encoding of ['br', 'gzip', 'deflate'])
+  test(`decoded ${encoding} response accepts encoded Content-Length and stores verified identity bytes`, async () => {
+    const result = await installResponse('bound shell bytes', {
+      'content-encoding': encoding,
+      'content-length': '7',
+    });
+    assert.equal(result.error, undefined);
+    assert.equal(result.control.generations[0].ready, true);
+    const response = result.caches.values().next().value.get('/index.html');
+    assert.equal(await response.text(), 'bound shell bytes');
+    assert.equal(response.headers.get('content-encoding'), null);
+    assert.equal(response.headers.get('content-length'), null);
+  });
+
+for (const encoding of [undefined, 'identity'])
+  test(`incorrect identity Content-Length rejects before ready (${encoding ?? 'absent'})`, async () => {
+    const result = await installResponse('bound shell bytes', {
+      'content-length': '7',
+      ...(encoding ? { 'content-encoding': encoding } : {}),
+    });
+    assert.equal(result.error, 'integrity');
+    assert.equal(result.control.generations.length, 0);
+    assert.equal(result.caches.size, 0);
+  });
+
+for (const [name, body, headers, error, status] of [
+  ['decoded overrun', 'bound shell bytes!', {}, 'budget', 200],
+  ['decoded truncation', 'bound shell byte', {}, 'integrity', 200],
+  ['decoded wrong digest', 'wrong shell bytes', {}, 'integrity', 200],
+  ['wrong MIME', 'bound shell bytes', { 'content-type': 'text/plain' }, 'integrity', 200],
+  ['wrong status', 'bound shell bytes', {}, 'integrity', 206],
+])
+  test(`compressed ${name} cannot publish ready and cleans partial payload`, async () => {
+    const result = await installResponse(
+      body,
+      { 'content-encoding': 'br', 'content-length': '7', ...headers },
+      'bound shell bytes',
+      status,
+    );
+    assert.equal(result.error, error);
+    assert.equal(result.control.generations.length, 0);
+    assert.equal(result.caches.size, 0);
+  });

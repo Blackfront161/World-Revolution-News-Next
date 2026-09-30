@@ -39,7 +39,15 @@ export function installWebsiteShellRuntime(self, manifest, p) {
     )
       throw new Error('integrity');
     const length = response.headers.get('content-length');
-    if (length !== null && Number(length) !== expected.bytes) throw new Error('integrity');
+    // Fetch exposes decoded bytes, while Content-Length describes the encoded
+    // HTTP representation. Only an identity response has a comparable length.
+    const encoding = response.headers.get('content-encoding')?.trim().toLowerCase();
+    if (
+      (!encoding || encoding === 'identity') &&
+      length !== null &&
+      Number(length) !== expected.bytes
+    )
+      throw new Error('integrity');
     const reader = response.body.getReader();
     const chunks = [];
     let total = 0;
