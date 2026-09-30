@@ -2070,8 +2070,6 @@ export function App({
     setTarget('discover');
     setNavigationEpoch((epoch) => epoch + 1);
   };
-  const navigationLinks = (ids: readonly NavigationTargetId[]) =>
-    ids.filter((id) => id !== 'more').map((id) => <span key={id}>{routeLink(id)}</span>);
   const compactNavigationIcons: Partial<Record<NavigationTargetId, string>> = {
     home: '⌂',
     following: '☆',
@@ -2261,9 +2259,7 @@ export function App({
                       height="102"
                       data-testid="code26-brand-mark"
                     />
-                    <span className="site-brand-wordmark">
-                      <span>WORLD</span> REVOLUTION <span>NEWS</span>
-                    </span>
+                    <span className="site-brand-wordmark">World Revolution News</span>
                   </a>
                   <a
                     className="site-brand-project"
@@ -2274,25 +2270,6 @@ export function App({
                     aria-label={copy.moreAboutProject}
                   >
                     solinaridao.com ↗
-                  </a>
-                </div>
-                <a
-                  className="compact-site-download"
-                  href="https://play.google.com/store/apps/details?id=com.world.revolution"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  referrerPolicy="no-referrer"
-                >
-                  {appDownloadLabels[uiLanguage]}
-                </a>
-                <div className="compact-site-support">
-                  <a
-                    href="https://www.paypal.com/ncp/payment/6FSV9FEN4X7VS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    referrerPolicy="no-referrer"
-                  >
-                    {donationLabels[uiLanguage]}
                   </a>
                 </div>
                 <button
@@ -2360,50 +2337,6 @@ export function App({
                   </label>
                 </div>
               </div>
-              <nav aria-label={copy.websiteMainNavigation} className="site-nav site-nav-compact">
-                {compactNavigationLinks(['home', 'following', 'discover', 'media', 'saved'])}
-                <button
-                  type="button"
-                  className="site-more-button"
-                  aria-expanded={moreMenuOpen}
-                  aria-controls="website-more-menu"
-                  aria-current={target === 'more' ? 'page' : undefined}
-                  onClick={() => {
-                    setMoreMenuOpen((open) => !open);
-                    if (target !== 'more') navigate('more');
-                  }}
-                >
-                  {copy.more}
-                </button>
-              </nav>
-              <nav
-                aria-label={copy.websiteExpandedNavigation}
-                className="site-nav site-nav-expanded"
-              >
-                {navigationLinks([
-                  'home',
-                  'following',
-                  'discover',
-                  'media',
-                  'events',
-                  'knowledge',
-                  'solidarity',
-                  'saved',
-                ])}
-                <button
-                  type="button"
-                  className="site-more-button"
-                  aria-expanded={moreMenuOpen}
-                  aria-controls="website-more-menu"
-                  aria-current={target === 'more' ? 'page' : undefined}
-                  onClick={() => {
-                    setMoreMenuOpen((open) => !open);
-                    if (target !== 'more') navigate('more');
-                  }}
-                >
-                  {copy.more}
-                </button>
-              </nav>
               <div id="website-more-menu" className="site-more-menu" hidden={!moreMenuOpen}>
                 <p>{copy.moreAreas}</p>
                 <button
@@ -2508,7 +2441,6 @@ export function App({
                         onBrowse: () => navigateDirectory('news'),
                         onBrowseSport: () => navigateDirectory('sport'),
                         prioritizeCurrentLinks: true,
-                        leadWithCurrentSidebar: true,
                         automaticTranslation: true,
                         brandMarkUrl: brandAssetUrls.solinaridaoMark,
                       }
@@ -2832,6 +2764,9 @@ export function App({
               </aside>
             )}
           </main>
+          <nav aria-label={copy.websiteMainNavigation} className="site-nav site-nav-compact">
+            {compactNavigationLinks(['home', 'following', 'discover', 'media', 'saved'])}
+          </nav>
           {productionMode && <WebsiteSupportWelcome language={uiLanguage} />}
           <footer className="site-footer">
             {productionMode ? shellCopy.productName : copy.websitePreviewFooter}

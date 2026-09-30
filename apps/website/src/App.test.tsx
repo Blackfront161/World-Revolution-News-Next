@@ -375,7 +375,7 @@ describe('website local newsfeed', () => {
     await waitFor(() => expect(document.activeElement).toBe(searchBox));
   });
 
-  it('uses the compact website groups and exposes the expanded local more menu', async () => {
+  it('keeps the five App destinations and all additional routes in the header More menu', async () => {
     const user = userEvent.setup();
     render(<App initialState="loading" />);
 
@@ -392,21 +392,28 @@ describe('website local newsfeed', () => {
         .getAllByRole('link')
         .map((link) => link.querySelector('.primary-nav-icon')?.getAttribute('aria-hidden')),
     ).toEqual(['true', 'true', 'true', 'true', 'true']);
-    const moreButton = within(compactNavigation).getByRole('button', { name: 'More' });
+    expect(within(compactNavigation).queryByRole('button')).toBeNull();
+    const moreButton = screen.getByTestId('header-more-trigger');
     await user.click(moreButton);
     expect(moreButton).toHaveAttribute('aria-expanded', 'true');
     expect(screen.getByRole('heading', { name: 'More' })).toHaveFocus();
     expect(screen.getByRole('link', { name: 'Help' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'Knowledge' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'Get the app' })).toHaveAttribute(
+      'href',
+      'https://play.google.com/store/apps/details?id=com.world.revolution',
+    );
+    expect(screen.getByRole('link', { name: 'Donate' })).toHaveAttribute(
+      'href',
+      'https://www.paypal.com/ncp/payment/6FSV9FEN4X7VS',
+    );
   });
 
   it('synchronizes the more menu with browser back and forward navigation', async () => {
     const user = userEvent.setup();
     render(<App initialState="loading" />);
 
-    const compactNavigation = screen.getAllByRole('navigation', {
-      name: 'Website main navigation',
-    })[0]!;
-    const moreButton = within(compactNavigation).getByRole('button', { name: 'More' });
+    const moreButton = screen.getByTestId('header-more-trigger');
     await user.click(moreButton);
     expect(moreButton).toHaveAttribute('aria-expanded', 'true');
     expect(screen.getByText('More areas')).toBeVisible();
