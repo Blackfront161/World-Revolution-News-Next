@@ -161,6 +161,35 @@ test('builds a canonical closed shell manifest and byte-identical worker twice',
   assert.ok(first.totalBytes > 0 && first.totalBytes < 8 * 1024 * 1024);
 });
 
+test('tab icon reuses the approved offline header image and rejects other references', async (t) => {
+  const { root, dist } = await fixture();
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const htmlPath = path.join(dist, 'index.html');
+  const html = await readFile(htmlPath, 'utf8');
+  const baseline = await collectShellManifest({ outputDirectory: dist });
+  await writeFile(
+    htmlPath,
+    `${html}<link rel="icon" type="image/png" href="/assets/solinaridao-header-mark-filled-a.png" />`,
+  );
+  const withIcon = await collectShellManifest({ outputDirectory: dist });
+  assert.deepEqual(
+    withIcon.entries.map((entry) => entry.path),
+    baseline.entries.map((entry) => entry.path),
+  );
+  assert.notEqual(withIcon.shellId, baseline.shellId);
+  for (const icon of [
+    'solinaridao-header-mark-filled-missing.png',
+    'wrn-future-header-white-a.png',
+    'other.png',
+  ]) {
+    await writeFile(htmlPath, `${html}<link rel="icon" type="image/png" href="/assets/${icon}" />`);
+    await assert.rejects(
+      () => collectShellManifest({ outputDirectory: dist }),
+      /approved shell image|Vite manifest/,
+    );
+  }
+});
+
 test('binds a bounded static multi-chunk graph and rejects manifest/source disagreement', async (t) => {
   const { root, dist } = await fixture();
   t.after(() => rm(root, { recursive: true, force: true }));

@@ -182,7 +182,18 @@ export async function collectShellManifest({
     );
   const vite = JSON.parse(await readFile(path.join(dist, '.vite', 'manifest.json'), 'utf8'));
   const graph = collectViteClosure(vite);
-  const expectedReferences = [...graph.javascript, ...graph.css].map((file) => `/${file}`).sort();
+  // The tab icon reuses the existing approved header image; no extra asset family.
+  const favicon = html
+    .toString('utf8')
+    .match(
+      /<link rel="icon" type="image\/png" href="(\/assets\/solinaridao-header-mark-filled-[A-Za-z0-9_-]+\.png)"\s*\/?>/,
+    )?.[1];
+  if (favicon && !images.includes(favicon))
+    throw new Error('Favicon is not an approved shell image');
+  const expectedReferences = [
+    ...[...graph.javascript, ...graph.css].map((file) => `/${file}`),
+    ...(favicon ? [favicon] : []),
+  ].sort();
   const approvedAssets = [
     ...images.map((image) => image.slice(1)),
     ...jsonAssets.map((asset) => `assets/${asset}`),

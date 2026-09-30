@@ -1,0 +1,65 @@
+{
+  "schema": "wrn.website-favicon-evidence.v1",
+  "generatedAtUTC": "2026-09-30T18:44:09.540Z",
+  "baselineCommit": "48be47fdd32df10cda8a8ce4b272f62eb4cac0ee",
+  "publicationPerformed": false,
+  "liveDeviationResolved": false,
+  "browser": {
+    "offline": {
+      "href": "/assets/solinaridao-header-mark-filled-D7vg3enZ.png",
+      "width": 1254,
+      "height": 1076,
+      "controlled": true
+    },
+    "icon": "/assets/solinaridao-header-mark-filled-D7vg3enZ.png",
+    "status": 200,
+    "dimensions": {
+      "width": 1254,
+      "height": 1076
+    },
+    "sha256": "9dca207bc008384ef45cf435a134bf170037ae0149d27c43c732b754912b61b9",
+    "sourceBytesUnchanged": true
+  },
+  "tests": {
+    "offlineShell": 20,
+    "websiteHostingPackage": 13,
+    "offlineRestartBrowser": 4
+  },
+  "logs": {
+    "work-favicon-tests.log": "a19c8ed99078cfa597a09ca303aa4cf6992797a6818ac0f8338aa50b70bf952e",
+    "work-favicon-package-tests.log": "8ab2dbb05ec65909ec7c837d6195221883acd584e473fe3ff39bfa9002231f8f",
+    "work-favicon-offline-browser.log": "c9ddc968217beea77292bd27e93762dab72785bb3a88912caef350729af01b82"
+  },
+  "files": [
+    {
+      "path": "apps/website/index.html",
+      "bytes": 645,
+      "sha256": "e343b41c445cdb3d2a4e961a82f4777f9f92103c6ee4123e387aa57d65856aff"
+    },
+    {
+      "path": "apps/website/tools/build-offline-shell.mjs",
+      "bytes": 13171,
+      "sha256": "291f0a1ecf69bb9b7ceb8ed50de327f7fead8e164997f208d63ec0fedccfa287"
+    },
+    {
+      "path": "apps/website/tools/build-offline-shell.test.mjs",
+      "bytes": 19847,
+      "sha256": "73b233819db4e6368f89fd21d90132f3884152045a2b59956852a9ad9bd8b68c"
+    },
+    {
+      "path": "apps/website/src/assets/solinaridao-header-mark-filled.png",
+      "bytes": 1123871,
+      "sha256": "9dca207bc008384ef45cf435a134bf170037ae0149d27c43c732b754912b61b9"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-FAVICON-2026-10-01/REPORT.md",
+      "bytes": 1472,
+      "sha256": "5168d94aed3aa86497fd9d0cd1b9c22800a4d7e8a307f124212660ae0524ddf0"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-FAVICON-2026-10-01/website-1440x900.png",
+      "bytes": 1542595,
+      "sha256": "a0e9799610857828d7fc62f4d80d75a04294ceab3d64cdacacabe402a2717cf4"
+    }
+  ]
+}
