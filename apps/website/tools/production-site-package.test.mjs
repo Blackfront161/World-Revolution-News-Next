@@ -96,7 +96,13 @@ test('two packages have deterministic bytes, exact real closure and immutable in
   const two = await prepare(options(path.join(base, 'two')));
   assert.deepEqual(await readFile(one.manifestPath), await readFile(two.manifestPath));
   assert.deepEqual(await check(one.outputDirectory), await check(two.outputDirectory));
-  assert.equal(manifest.files.length, 44);
+  assert.equal(manifest.files.length, 45);
+  const icons = manifest.files.filter((entry) =>
+    /^assets\/wrn-app-icon-[A-Za-z0-9_-]+\.png$/.test(entry.path),
+  );
+  assert.equal(icons.length, 1);
+  assert.equal(icons[0].bytes, 8845);
+  assert.equal(icons[0].sha256, '78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f');
   assert.deepEqual(
     manifest.files.filter((e) => e.path.startsWith('articles/')).map((e) => e.path),
     [
@@ -114,7 +120,7 @@ test('two packages have deterministic bytes, exact real closure and immutable in
       'articles/wrn-art-f2ad391804423c87773b3351eb79c802/index.html',
     ],
   );
-  assert.equal(manifest.sourceInput.files.length, 41);
+  assert.equal(manifest.sourceInput.files.length, 42);
   assert(manifest.files.some((entry) => entry.path === 'wrn-source-passes/current.json'));
   assert(manifest.files.some((entry) => entry.path === 'wrn-source-pass-revocations/current.json'));
   assert(
@@ -494,7 +500,7 @@ test('CLI succeeds from non-root cwd and rejects full-length unknown, duplicate,
     options('').previousRevocationsFile,
   ];
   const success = await run(process.execPath, [script, ...args], { cwd: base });
-  assert.equal(JSON.parse(success.stdout).files, 44);
+  assert.equal(JSON.parse(success.stdout).files, 45);
   for (const invalid of [
     ['--unknown', ...args.slice(1)],
     [...args.slice(0, 8), '--build', input],
