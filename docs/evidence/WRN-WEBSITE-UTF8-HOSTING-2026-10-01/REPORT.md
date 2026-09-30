@@ -1,0 +1,11 @@
+# UTF-8 im Website-Hosting
+
+Die reale Hostinger-Auslieferung lieferte HTML, JavaScript und JSON ohne Charset. Der unveränderte Offlinevertrag verlangt bei diesen Ressourcen exakt `charset=utf-8`. Der bisher unabhängig geprüfte Favicon-Kandidat wurde deshalb noch nicht hochgeladen oder aktiviert.
+
+Die Apache-Paketkonfiguration ergänzt ausschließlich `AddCharset utf-8 .html .js .css .json .xml .txt`. Der Pakettest bindet diese Erweiterungen an die MIME-Anforderungen des tatsächlich erzeugten Offline-Shell-Manifests; PNG bleibt binär ohne Charset. Alle 13 Pakettests bestehen, einschließlich deterministischer Paketbildung, negativer Hash-/Header-/Pfadprüfungen und der unveränderten beiden Pointer zuletzt. Der Offlinevertrag wird nicht abgeschwächt.
+
+Auf solinaridao.com wurden die beiden zuvor aktiven CDN-Einstellungen WebP-Bildkomprimierung und intelligente Bildoptimierung ausgeschaltet. Danach lieferten beide bestehenden Logo-PNGs wieder die Originalbytes: Kopf-/Faviconlogo 1.123.871 Bytes, SHA256 `9dca207bc008384ef45cf435a134bf170037ae0149d27c43c732b754912b61b9`; weißes Logo 212.123 Bytes, SHA256 `9da0e22936304a30a55ba1483c2305c6ad6c3b1a057341af2ab3b16fe98a5e2f`. Das CDN selbst und die Sicherheitseinstellungen blieben aktiv. Die Einstellungen können über dieselben zwei Schalter zurückgesetzt werden.
+
+Vollständiges Server-Rollbackarchiv außerhalb public_html: `public_html-pre-wrn-20261001-7f44506.zip`, Server-SHA256 `d03869397a7e85dc4c25812c6e56acd2a7c144e5234c6d128ac9bfed437715fe`, angezeigt 194,46 MiB. Der Browserdownload konnte nicht bestätigt werden; das Archiv bleibt serverseitig erhalten. Die bisherigen drei Pointer sowie der bisherige Directory-Snapshot sind lokal zusätzlich gebunden. Frischer Widerrufsabgleich vor erster Hostingänderung am 30.09.2026 um 22:01:43 UTC: unverändert `030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617`.
+
+Die Folgekorrektur verlangt eine erneute enge unabhängige Paketprüfung vor Aktivierung. Noch keine neue Live-Website, keine neue Directory-Projektion und keine Live-Offline-Abnahme; `liveDeviationResolved:false`. Metadaten-/Rechte-/Artikel-/Directory-/Widerrufinhalte bleiben unverändert. Rohbelege liegen im ignorierten Arbeitsverzeichnis `work/website-projection-live-20261001`.

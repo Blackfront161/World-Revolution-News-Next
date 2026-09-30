@@ -131,6 +131,7 @@ function policies(security, shell) {
     'AddType application/xml .xml',
     'AddType text/plain .txt',
     'AddType image/png .png',
+    'AddCharset utf-8 .html .js .css .json .xml .txt',
     ...Object.entries(rootHeaders).flatMap(([k, v]) => noDuplicateHeader(k, v)),
     ...noDuplicateHeader('Access-Control-Allow-Origin'),
     ...noDuplicateHeader('Access-Control-Allow-Credentials'),

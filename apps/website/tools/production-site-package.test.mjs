@@ -8,6 +8,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { build } from 'vite';
 import { integrateProductionArticleLandings } from './integrate-production-article-landings.mjs';
+import { collectShellManifest } from './build-offline-shell.mjs';
 import { buildProductionContentRelease } from '../../../tools/build-production-content-release.mjs';
 import { buildWebsiteProductionContentRelease } from './production-content-release.mjs';
 import {
@@ -240,6 +241,14 @@ test('Apache and per-resource profiles bind CSP, credentialless CORS and exact c
     'utf8',
   );
   assert.match(root, /AddType application\/json \.json/);
+  const utf8Extensions = root.match(/^AddCharset utf-8 (.+)$/m)?.[1].split(/\s+/) ?? [];
+  const shell = await collectShellManifest({ outputDirectory: input, compatibility: 'g3-015-v1' });
+  for (const resource of shell.entries) {
+    if (resource.mime.endsWith('; charset=utf-8')) {
+      assert(utf8Extensions.includes(path.extname(resource.path)), resource.path);
+    }
+  }
+  assert(!utf8Extensions.includes('.png'));
   assert.match(root, /Header onsuccess unset content-security-policy/);
   assert(!root.includes('x-robots-tag'));
   assert(!content.includes('Allow-Credentials "'));
