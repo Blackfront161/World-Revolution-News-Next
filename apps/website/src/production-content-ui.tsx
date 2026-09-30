@@ -14,6 +14,7 @@ import {
   productionReadingStateStorageKey,
 } from './production-reading-state';
 import './production-content-ui.css';
+import { WebsiteCoverage } from './features/projection/WebsiteCoverage';
 
 const useBaseProductionContentOfflineController = createProductionContentOfflineHook(
   createProductionContentOfflineController,
@@ -98,6 +99,9 @@ export function WebsiteProductionContentArea(props: ComponentProps<typeof Conten
   return (
     <div className="website-production">
       {!props.embedded && <h1 className="website-production-heading">World Revolution News</h1>}
+      {props.target === 'home' && props.articleId === null && props.archiveRoute === undefined && (
+        <WebsiteCoverage language={props.language} />
+      )}
       <ContentArea {...props} />
     </div>
   );

@@ -9,6 +9,7 @@ import type { UiLanguage } from '@wrn/ui-language';
 import { formatDirectoryCopy, getDirectoryCopy } from '@wrn/ui-language/directory';
 import {
   loadWebsiteContentDirectory,
+  subscribeWebsiteContentDirectory,
   type WebsiteContentDirectory,
 } from '../directory/directory-loader';
 import { useSourcePreferences } from '../../../../../packages/browser-content/src/source-preferences-ui';
@@ -61,6 +62,10 @@ export function WebsiteFollowingDirectory({
 
   useEffect(() => {
     const controller = new AbortController();
+    const unsubscribe =
+      loadDirectory === loadWebsiteContentDirectory
+        ? subscribeWebsiteContentDirectory(setDirectory)
+        : () => {};
     setFailed(false);
     loadDirectory(controller.signal)
       .then((loaded) => {
@@ -72,7 +77,10 @@ export function WebsiteFollowingDirectory({
       .catch(() => {
         if (!controller.signal.aborted) setFailed(true);
       });
-    return () => controller.abort();
+    return () => {
+      unsubscribe();
+      controller.abort();
+    };
   }, [loadDirectory, attempt]);
   useEffect(() => setShown(pageSize), [preferences]);
 
@@ -104,7 +112,9 @@ export function WebsiteFollowingDirectory({
       {failed && !directory && (
         <>
           <p role="alert">{copy.loadError}</p>
-          <button type="button" onClick={() => setAttempt((current) => current + 1)}>{copy.retry}</button>
+          <button type="button" onClick={() => setAttempt((current) => current + 1)}>
+            {copy.retry}
+          </button>
         </>
       )}
       {directory && (
@@ -115,19 +125,25 @@ export function WebsiteFollowingDirectory({
               total: articles.length,
             })}
           </p>
-          {articles.length === 0 && (
-            <p>{copy.noResults}</p>
-          )}
+          {articles.length === 0 && <p>{copy.noResults}</p>}
           <ol className="website-following-directory__list">
             {articles.slice(0, shown).map((article: DirectoryArticle) => (
               <li key={article.id}>
-                <a href={article.url} lang={article.language === 'und' ? undefined : article.language} {...external}>
+                <a
+                  href={article.url}
+                  lang={article.language === 'und' ? undefined : article.language}
+                  {...external}
+                >
                   {article.title}
                 </a>
                 <p>
                   {article.sourceName}
                   {article.publishedAt && (
-                    <> · <time dateTime={article.publishedAt}>{article.publishedAt.slice(0, 10)}</time></>
+                    <>
+                      {' '}
+                      ·{' '}
+                      <time dateTime={article.publishedAt}>{article.publishedAt.slice(0, 10)}</time>
+                    </>
                   )}
                 </p>
               </li>

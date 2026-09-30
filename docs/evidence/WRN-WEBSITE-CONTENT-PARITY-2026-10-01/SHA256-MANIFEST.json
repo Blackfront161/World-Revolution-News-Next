@@ -1,0 +1,306 @@
+{
+  "schema": "wrn.website-content-parity-evidence.v1",
+  "scope": "local-website-only-candidate; independent review and live release open",
+  "baselineCommit": "fa8031dfe20cca77a189de12d9afceb4f2fe2f88",
+  "upstreamCommit": "33509ace3d3b2f7f275ebc05fe3522a59d62964f",
+  "generatedAtUTC": "2026-09-30T17:58:28.679Z",
+  "projection": {
+    "schema": "wrn.website-projection-lock.v1",
+    "upstream": {
+      "commit": "33509ace3d3b2f7f275ebc05fe3522a59d62964f",
+      "observedAt": "2026-09-30T16:00:03.683Z",
+      "hashes": {
+        "baseline": "1f017b98721e18a863635d8c4783889f6724aa3a46d4523e65ddb85b871258a1",
+        "feed": "54c8e2e62bc11ad5c4c255904f600eac05372809d3927a38da6cd86a7253c639",
+        "status": "eb5bb840f0638680adfce902806c38ecbe8ab79967936c33269cf6808d7c8ad5",
+        "registry": "cdbae3d1cd82c5367e9623c99d1d30a7a04c1dc19fbc7095e9ab743fb4ef4956",
+        "sourcePass": "bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa",
+        "revocations": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617"
+      },
+      "feedCount": 500,
+      "registerCount": 406,
+      "publishedOrigin": "https://blackfront161.github.io/Revolution-News-Data/",
+      "publishedBytesMatchCommit": true,
+      "admissionPolicy": "website-restricted-link-only-v1",
+      "importMode": "metadata-only"
+    },
+    "directorySha256": "72fea07011df07b18ea274524530a53bc6485b1b17f575c050d8e4857bbf71ff",
+    "reportSha256": "46b47f7eb005cd307fda40beae5d6a74bdac9c936e3045ca4382a390803c6b80"
+  },
+  "shell": {
+    "shellId": "6f1b417dc3f50e73fe2ea12c76c789c99a8a6c80ba97478dcccdc50c3df9b758",
+    "totalBytes": 8364668,
+    "maximumBytes": 8388608
+  },
+  "browser": {
+    "stats": {
+      "passed": 161,
+      "skipped": 3,
+      "failed": 0,
+      "reportedDuration": "7.3m",
+      "completedAtUTC": "2026-09-30T17:34:17.952Z"
+    },
+    "resultSha256": "0b776b6946fd96208425986fed734459b6eedf35353da63e1ebcb4155c5486f8",
+    "command": "node node_modules/@playwright/test/cli.js test --config tests/e2e/website-content-projection.config.ts"
+  },
+  "tests": {
+    "websiteVitest": 209,
+    "websiteNode": 71,
+    "projectionNode": 12,
+    "runtimePolicyVitest": 6,
+    "projectionUiVitest": 6,
+    "directoryContracts": 24,
+    "activeBrowser": 161,
+    "skippedBrowser": 3
+  },
+  "screenshots": {
+    "sizes": [
+      "390x844",
+      "1440x900"
+    ],
+    "verifiedHomeReadingCards": 11,
+    "verifiedCurrentLinks": 6
+  },
+  "files": [
+    {
+      "path": ".prettierignore",
+      "bytes": 1037,
+      "sha256": "5315269dc895d3a5647a6bf1e08a09d7d97c4aecaf6e7255b69780791b6b908a"
+    },
+    {
+      "path": "apps/website/index.html",
+      "bytes": 588,
+      "sha256": "30b5ca5183cf7ec6864337714cffe7f47415f0c042318c2c94f41a175c67281f"
+    },
+    {
+      "path": "apps/website/package.json",
+      "bytes": 2042,
+      "sha256": "4115e3f97976f4597204d3a7b8125a1a9fb1d821e64b86377379560801fafb3a"
+    },
+    {
+      "path": "apps/website/public/wrn-production-content/wrn-production-news-2026-09-26-v8/admission.json",
+      "bytes": 16160,
+      "sha256": "b726c4bc5d669fca1551e2fd736575050b72413e6f25f724ae4947174aded02e"
+    },
+    {
+      "path": "apps/website/public/wrn-production-content/wrn-production-news-2026-09-26-v8/archive-lifecycle.json",
+      "bytes": 1822,
+      "sha256": "327d6a623739815db43479471fab25b95bb4038b13145b8c7944f4df20fe8982"
+    },
+    {
+      "path": "apps/website/public/wrn-production-content/wrn-production-news-2026-09-26-v8/articles.json",
+      "bytes": 18685,
+      "sha256": "4edd91969f49ff079e23183dec13eae3633f51157dd87b41c9f895f93c09a584"
+    },
+    {
+      "path": "apps/website/public/wrn-production-content/wrn-production-news-2026-09-26-v8/discover-index.json",
+      "bytes": 1964,
+      "sha256": "74a42a185d31c85def388f0a5b767d9249ba857af1ce6249b1cc8cba42135433"
+    },
+    {
+      "path": "apps/website/public/wrn-production-content/wrn-production-news-2026-09-26-v8/manifest.json",
+      "bytes": 1445,
+      "sha256": "3a397f3b6b9fc912ca92f40bf4942bd072b662b551ccce45ace28cc9a2e8e32e"
+    },
+    {
+      "path": "apps/website/public/wrn-production-content/wrn-production-news-2026-09-26-v8/reader-details.json",
+      "bytes": 1243454,
+      "sha256": "6b841a0971e18667325d110601a4c67eca6cf1ac214f023024d521d3126cb079"
+    },
+    {
+      "path": "apps/website/public/wrn-production-content/wrn-production-news-2026-09-26-v8/release-descriptor.json",
+      "bytes": 880,
+      "sha256": "811530a2973bcb4a965b81376f0931d9b3b7ea24a7e32d0f78c481d71e72064f"
+    },
+    {
+      "path": "apps/website/public/wrn-production-content/wrn-production-news-2026-09-26-v8/website-publication.json",
+      "bytes": 2003,
+      "sha256": "45c62aeb8a11fa82391e342dd5f660a395cdf0935d47536b2c7c88ee8507ecd2"
+    },
+    {
+      "path": "apps/website/public/wrn-source-pass-revocations/current.json",
+      "bytes": 161,
+      "sha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617"
+    },
+    {
+      "path": "apps/website/public/wrn-source-passes/current.json",
+      "bytes": 83783,
+      "sha256": "bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa"
+    },
+    {
+      "path": "apps/website/src/App.tsx",
+      "bytes": 107543,
+      "sha256": "c88a28a8ce8d8e73b8ffc10cb8caeeabf8ae45dd79f2460d7f9449a0945059db"
+    },
+    {
+      "path": "apps/website/src/features/directory/directory-loader.ts",
+      "bytes": 11053,
+      "sha256": "d3c20fa68ceb9fa356d62045af00882df2a2299e41de2a6100241ce3948a0de2"
+    },
+    {
+      "path": "apps/website/src/features/directory/WebsiteContentDirectoryRoute.tsx",
+      "bytes": 20713,
+      "sha256": "c4216028ab343ff07cb06ea9bcb094bcab8f3103e5ef8e8f117b8df3a9bff509"
+    },
+    {
+      "path": "apps/website/src/features/following/WebsiteFollowingDirectory.tsx",
+      "bytes": 6832,
+      "sha256": "ee7b513711c1c06fc0f5e0982c1e6c5386b3cfa88cde6cab5d85cf66c243f670"
+    },
+    {
+      "path": "apps/website/src/features/projection/data/content-directory-v1.json",
+      "bytes": 1923594,
+      "sha256": "72fea07011df07b18ea274524530a53bc6485b1b17f575c050d8e4857bbf71ff"
+    },
+    {
+      "path": "apps/website/src/features/projection/data/lock.json",
+      "bytes": 1018,
+      "sha256": "79aed2a1f69d8bf220f7f92692040bd37f07a35bd30a1a35bb3286cd63d1b6f6"
+    },
+    {
+      "path": "apps/website/src/features/projection/data/pointer.json",
+      "bytes": 512,
+      "sha256": "437228ff555434a3fa78308db8d53126d747913f8097d9ba881401a0c86a2bfa"
+    },
+    {
+      "path": "apps/website/src/features/projection/data/summary.json",
+      "bytes": 834,
+      "sha256": "c8f5b12310437440457d51bd14f3ca64cc2f96d80c9472332e11d84d1e669698"
+    },
+    {
+      "path": "apps/website/src/features/projection/projection-copy.ts",
+      "bytes": 9961,
+      "sha256": "813a1166eaa5f4d94212c3fe315cdb9dc098f70411fd3fcb1291d51f00ecf340"
+    },
+    {
+      "path": "apps/website/src/features/projection/projection-policy.test.tsx",
+      "bytes": 6967,
+      "sha256": "8a824c2e11c03371a2eb53cfff74915f5c8ada9481f0d0f88ca1baf91ddd9067"
+    },
+    {
+      "path": "apps/website/src/features/projection/projection-policy.ts",
+      "bytes": 3540,
+      "sha256": "9d4ca806fca3f7c1d3cb9421d3f5e2406784dce871457a8f7e23816ae686d0db"
+    },
+    {
+      "path": "apps/website/src/features/projection/projection-state-copy.ts",
+      "bytes": 4713,
+      "sha256": "cdb16783253dc5af6b87352c601110ed1646556b6f2a8c0e4cb09feac6258708"
+    },
+    {
+      "path": "apps/website/src/features/projection/projection.css",
+      "bytes": 546,
+      "sha256": "ae67c91891ca6da0e903da2d6c52c5a7071d717718783d243c739bdcde09d68a"
+    },
+    {
+      "path": "apps/website/src/features/projection/use-website-directory.ts",
+      "bytes": 576,
+      "sha256": "5ce9cf56ff2639567063d5e02578d93ed84026660c9f444258467715ab70cd6a"
+    },
+    {
+      "path": "apps/website/src/features/projection/website-projection.test.tsx",
+      "bytes": 4878,
+      "sha256": "902081c8a542813291afb60e9feae8f815d299a8a55752781cc870b6fb55417e"
+    },
+    {
+      "path": "apps/website/src/features/projection/WebsiteCoverage.tsx",
+      "bytes": 4442,
+      "sha256": "a058cc45d00e7eceab8a387b288b0292b1119cd3f5c9f73f305b60fdb56798a9"
+    },
+    {
+      "path": "apps/website/src/production-content-ui.tsx",
+      "bytes": 4598,
+      "sha256": "3975dd6a491695b6b58b412f5d82179278f97c5057669997287805c752983db0"
+    },
+    {
+      "path": "apps/website/src/styles.css",
+      "bytes": 58908,
+      "sha256": "2046c937cfb501c231e5d218ac759b90bbbf15774afb7bab3f4165e5e3ba6577"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/admission-classes.json",
+      "bytes": 1384,
+      "sha256": "60ca0bc6999311232b165c9769463c87507dfb192a9867f5e8cd1b85d7fba5e9"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/browser-tests.json",
+      "bytes": 41922,
+      "sha256": "0b776b6946fd96208425986fed734459b6eedf35353da63e1ebcb4155c5486f8"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/parity-report.json",
+      "bytes": 677259,
+      "sha256": "46b47f7eb005cd307fda40beae5d6a74bdac9c936e3045ca4382a390803c6b80"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/replay-config.json",
+      "bytes": 1239,
+      "sha256": "016d4a1f560cecc286620a5b6c8dcc90f541a00aef4d8e249cf7812db9231a26"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/REPORT.md",
+      "bytes": 13487,
+      "sha256": "b841d06e14c06c3a815e54bb50a3cca01da956b0541fe4869726d7eaeac11459"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/website-1440x900.png",
+      "bytes": 2089816,
+      "sha256": "150a2c6b57e57636328204532c77c9e2bfdefb6b50204756028de76b0dfca305"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/website-390x844.png",
+      "bytes": 955518,
+      "sha256": "f0ce24a5b21ebfa1cfbefbb1c3ce1e2fc13469451edcff3b63eb5c877e7cc763"
+    },
+    {
+      "path": "tests/e2e/website-content-projection.config.ts",
+      "bytes": 1013,
+      "sha256": "0f386172e95becc0c41e989c88e4bbd7c8a2a93f71f12afc5928d9dba9624fe9"
+    },
+    {
+      "path": "tests/e2e/website-content-projection.setup.ts",
+      "bytes": 1992,
+      "sha256": "25187c6437ace9ac24df9ced8d21db9bce68ac3d84771c5f5efad68dbaecb1d2"
+    },
+    {
+      "path": "tests/e2e/website-content-projection.spec.ts",
+      "bytes": 8468,
+      "sha256": "91828cf7cf5bf8e57d682e08b9bf34ccd76d13e91e9b32ecc4bba43d94afd08e"
+    },
+    {
+      "path": "tests/e2e/website-only-matrix.config.ts",
+      "bytes": 1184,
+      "sha256": "4507e7819173a52ed8e1d31df4d50cbcb06ad6162792204bad992373f048bbeb"
+    },
+    {
+      "path": "tests/e2e/website-only-matrix.setup.ts",
+      "bytes": 5348,
+      "sha256": "aee6fc0aa16aeb5b8a83fca2604c174b56980c3d6a351577f6f00eba08525838"
+    },
+    {
+      "path": "tools/directory/check-website-content-projection.mjs",
+      "bytes": 1842,
+      "sha256": "8d6d3aefaa21c0ff9fc413bb0233883d019a2d59a38b3ee770731091ecf1619e"
+    },
+    {
+      "path": "tools/directory/observe-website-projection-inputs.mjs",
+      "bytes": 4401,
+      "sha256": "fd8bf15331bf97220d8f6c510af0a381c2ce1447bc63b41aefabb999794ad527"
+    },
+    {
+      "path": "tools/directory/prepare-website-projection-candidate.mjs",
+      "bytes": 7422,
+      "sha256": "a8418daee4b143ae0c3fe415d071020b7f8f191726307f9191140b2ab9abd577"
+    },
+    {
+      "path": "tools/directory/website-content-projection.mjs",
+      "bytes": 26216,
+      "sha256": "f2f2d90153aaf6243849710e8866634333722efb7b17096c4e9b3af3d8ea801c"
+    },
+    {
+      "path": "tools/directory/website-content-projection.test.mjs",
+      "bytes": 15072,
+      "sha256": "b7af33564cd2806657e832196f1aa8c30af41486172a74246bff79f57dfcc1e7"
+    }
+  ]
+}

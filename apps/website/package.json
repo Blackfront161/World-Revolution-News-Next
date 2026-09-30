@@ -5,12 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --manifest && node tools/integrate-production-article-landings.mjs dist && node tools/build-offline-shell.mjs dist",
+    "build": "node ../../tools/directory/check-website-content-projection.mjs && vite build --manifest && node tools/integrate-production-article-landings.mjs dist && node tools/build-offline-shell.mjs dist",
     "build:staging": "node tools/validate-staging-config.mjs && vite build --mode staging --manifest --outDir dist-staging-build && node tools/build-staging-package.mjs dist-staging-build dist-staging-package dist-staging-retirement",
     "verify:staging": "node tools/verify-staging-package.mjs dist-staging-package dist-staging-package.manifest.json",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test:unit": "vitest run src --exclude src/offline-shell/protocol-contract.test.mjs && node --test tools/generate-static-article-landings.test.mjs tools/integrate-static-article-landings.test.mjs tools/production-content-release.test.mjs tools/build-production-website-publication.test.mjs tools/generate-production-article-landings.test.mjs tools/integrate-production-article-landings.test.mjs tools/build-offline-shell.test.mjs tools/staging-package.test.mjs tools/staging-vite-plugin.test.mjs tools/production-site-package.test.mjs tools/privacy-page.test.mjs src/offline-shell/protocol-contract.test.mjs",
-    "test:offline-shell": "vitest run src/offline-shell/adapter.test.ts && node --test tools/build-offline-shell.test.mjs src/offline-shell/protocol-contract.test.mjs"
+    "test:offline-shell": "vitest run src/offline-shell/adapter.test.ts && node --test tools/build-offline-shell.test.mjs src/offline-shell/protocol-contract.test.mjs",
+    "test:projection": "node --test ../../tools/directory/website-content-projection.test.mjs",
+    "test:browser:projection": "cd ../.. && node node_modules/@playwright/test/cli.js test --config tests/e2e/website-content-projection.config.ts"
   },
   "dependencies": {
     "@wrn/api-contracts": "workspace:*",

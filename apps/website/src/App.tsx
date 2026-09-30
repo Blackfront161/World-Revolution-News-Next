@@ -102,7 +102,7 @@ import { getDirectoryCopy } from '@wrn/ui-language/directory';
 import { WebsiteKnowledgeRoute } from './features/knowledge/WebsiteKnowledgeRoute';
 import { WebsiteContentDirectoryRoute } from './features/directory/WebsiteContentDirectoryRoute';
 import { readWebsiteDirectorySection } from './features/directory/directory-navigation';
-import { loadWebsiteContentDirectory } from './features/directory/directory-loader';
+import { useWebsiteDirectoryLoader } from './features/projection/use-website-directory';
 import {
   createBrowserShareAdapter,
   type ShareAdapter,
@@ -1340,6 +1340,7 @@ export function App({
   contentMode?: 'production' | 'fixture-offline';
   shareAdapter?: ShareAdapter;
 } = {}) {
+  const liveWebsiteDirectoryLoader = useWebsiteDirectoryLoader();
   const query = new URLSearchParams(window.location.search);
   const [languageHandoff] = useState(() => {
     const initialQuery = new URLSearchParams(window.location.search);
@@ -2444,7 +2445,7 @@ export function App({
                 homeDirectory={
                   target === 'home'
                     ? {
-                        load: loadWebsiteContentDirectory,
+                        load: liveWebsiteDirectoryLoader,
                         onBrowse: () => navigateDirectory('news'),
                         onBrowseSport: () => navigateDirectory('sport'),
                         prioritizeCurrentLinks: false,

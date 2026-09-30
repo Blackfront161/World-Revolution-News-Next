@@ -5,7 +5,11 @@ import {
   getDirectoryMetadataCopy,
 } from '@wrn/ui-language/directory';
 import type { UiLanguage } from '@wrn/ui-language';
-import { loadWebsiteContentDirectory, type WebsiteContentDirectory } from './directory-loader';
+import {
+  loadWebsiteContentDirectory,
+  subscribeWebsiteContentDirectory,
+  type WebsiteContentDirectory,
+} from './directory-loader';
 import type {
   DirectoryArticle,
   DirectorySource,
@@ -13,6 +17,8 @@ import type {
 import type { SourcePassRecord } from '@wrn/content-contracts/source-pass-overlay-v1';
 import type { WebsiteDirectorySection } from './directory-navigation';
 import './directory.css';
+import { CoverageDetails } from '../projection/WebsiteCoverage';
+import { getProjectionCopy } from '../projection/projection-copy';
 import { projectDirectorySourcePreferences, projectSourcePreferences } from '@wrn/domain';
 import {
   useSourcePreferences,
@@ -102,10 +108,14 @@ export function WebsiteContentDirectoryRoute({
   const [shown, setShown] = useState(30);
   useEffect(() => {
     const c = new AbortController();
+    const unsubscribe = subscribeWebsiteContentDirectory(setData);
     loadWebsiteContentDirectory(c.signal)
       .then(setData)
       .catch(() => setFailed(true));
-    return () => c.abort();
+    return () => {
+      unsubscribe();
+      c.abort();
+    };
   }, []);
   const entries = useMemo(
     () =>
@@ -215,7 +225,8 @@ export function WebsiteContentDirectoryRoute({
   const mergeFacet = (left: readonly string[], right: readonly string[]) =>
     [...new Set([...left, ...right])].sort((a, b) => a.localeCompare(b));
   const sourcePassCopy = getSourcePassCopy(language);
-  const sourceArticleLabel = language === 'de' ? 'Alle Meldungen dieser Quelle' : 'All news from this source';
+  const sourceArticleLabel =
+    language === 'de' ? 'Alle Meldungen dieser Quelle' : 'All news from this source';
   const sourceArticleCount = (selected: SelectedDirectorySource) =>
     data.projection.articles.filter((article) => matchesSelectedSource(article, selected)).length;
   const showSourceNews = (selected: SelectedDirectorySource) => {
@@ -234,6 +245,7 @@ export function WebsiteContentDirectoryRoute({
         {title}
       </h1>
       <p>{formatDirectoryCopy(copy.snapshot, { date: data.document.observedAt.slice(0, 10) })}</p>
+      <CoverageDetails data={data} language={language} />
       {section === 'sport' && <p>{copy.sportNote}</p>}
       {section === 'sources' && (
         <SourcePreferencesPanel
@@ -463,48 +475,59 @@ export function WebsiteContentDirectoryRoute({
                   )}
                   <p>{entry.sourceName ?? entry.languages?.join(' · ') ?? entry.publisher}</p>
                   {section === 'sources' && (
+                    <p>
+                      {sourcePass?.records.some((record) =>
+                        record.endpoints.some((endpoint) => endpoint.endpointId === entry.id),
+                      )
+                        ? getProjectionCopy(language).matchedLabel
+                        : getProjectionCopy(language).pendingLabel}
+                    </p>
+                  )}
+                  {section === 'sources' && (
                     <>
-                    {(() => {
-                      const directorySource = data.projection.sources.find((item) => item.id === entry.id);
-                      if (!directorySource) return null;
-                      const selected = selectDirectorySource(directorySource);
-                      const count = sourceArticleCount(selected);
-                      return count > 0 ? (
-                        <button type="button" onClick={() => showSourceNews(selected)}>
-                          {sourceArticleLabel} ({count})
-                        </button>
-                      ) : null;
-                    })()}
-                    <SourceProfile
-                      catalog="directory"
-                      sourceId={entry.id}
-                      name={entry.name ?? entry.id}
-                    >
-                      <p>{metadata.historicalStatus}</p>
-                      {data.projection.sources
-                        .find((source) => source.id === entry.id)
-                        ?.observations.map((o) => (
-                          <div key={`${o.provenance.dataset}-${o.provenance.row}`}>
-                            <p>
-                              {o.mediaType ?? metadata.unknown} ·{' '}
-                              {o.languages.join(' · ') || metadata.unknown}
-                            </p>
-                            <p>
-                              {o.topics.join(' · ')} · {o.originCountry ?? metadata.unknown} ·{' '}
-                              {o.originRegion ?? metadata.unknown}
-                            </p>
-                            <p>
-                              {metadata.recordedStatus}: {o.status ?? metadata.unknown}
-                            </p>
-                            <p>
-                              {metadata.observed}:{' '}
-                              <time dateTime={o.provenance.observedAt}>
-                                {o.provenance.observedAt.slice(0, 10)}
-                              </time>
-                            </p>
-                          </div>
-                        ))}
-                    </SourceProfile>
+                      {(() => {
+                        const directorySource = data.projection.sources.find(
+                          (item) => item.id === entry.id,
+                        );
+                        if (!directorySource) return null;
+                        const selected = selectDirectorySource(directorySource);
+                        const count = sourceArticleCount(selected);
+                        return count > 0 ? (
+                          <button type="button" onClick={() => showSourceNews(selected)}>
+                            {sourceArticleLabel} ({count})
+                          </button>
+                        ) : null;
+                      })()}
+                      <SourceProfile
+                        catalog="directory"
+                        sourceId={entry.id}
+                        name={entry.name ?? entry.id}
+                      >
+                        <p>{metadata.historicalStatus}</p>
+                        {data.projection.sources
+                          .find((source) => source.id === entry.id)
+                          ?.observations.map((o) => (
+                            <div key={`${o.provenance.dataset}-${o.provenance.row}`}>
+                              <p>
+                                {o.mediaType ?? metadata.unknown} ·{' '}
+                                {o.languages.join(' · ') || metadata.unknown}
+                              </p>
+                              <p>
+                                {o.topics.join(' · ')} · {o.originCountry ?? metadata.unknown} ·{' '}
+                                {o.originRegion ?? metadata.unknown}
+                              </p>
+                              <p>
+                                {metadata.recordedStatus}: {o.status ?? metadata.unknown}
+                              </p>
+                              <p>
+                                {metadata.observed}:{' '}
+                                <time dateTime={o.provenance.observedAt}>
+                                  {o.provenance.observedAt.slice(0, 10)}
+                                </time>
+                              </p>
+                            </div>
+                          ))}
+                      </SourceProfile>
                     </>
                   )}
                   {section === 'sport' && (

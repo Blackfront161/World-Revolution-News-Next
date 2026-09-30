@@ -19,6 +19,7 @@ apps/mobile/src/features/directory/data/content-directory-v1.json
 apps/mobile/src/features/knowledge/data/legacy-knowledge-v1.json
 apps/mobile/src/features/support/data/legacy-support-v1.json
 apps/website/src/features/directory/data/content-directory-v1.json
+apps/website/src/features/projection/data/
 apps/website/src/features/knowledge/data/legacy-knowledge-v1.json
 apps/website/src/features/support/data/legacy-support-v1.json
 apps/mobile/public/wrn-production-content/
