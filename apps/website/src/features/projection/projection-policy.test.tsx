@@ -31,7 +31,10 @@ async function transport(remote = document) {
     artifactSha256: digest,
     artifactPath: `snapshots/directory-${pointer.sequence + 1}-${digest}.json`,
   };
-  let revocations = structuredClone(initialRevocations);
+  let revocations = {
+    ...structuredClone(initialRevocations),
+    endpointIds: [...initialRevocations.endpointIds] as string[],
+  };
   vi.stubEnv(
     'VITE_WRN_DIRECTORY_MANIFEST_ENDPOINT',
     'https://solinaridao.com/wrn-content-directory/current.json',

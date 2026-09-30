@@ -111,7 +111,10 @@ async function loadNow(): Promise<WebsiteContentDirectory> {
   const document = bound ? loaded.document : (candidate as MobileContentDirectory);
   let pass: Awaited<ReturnType<typeof loadBundledSourcePassOverlay>> = null;
   try {
-    pass = await loadBundledSourcePassOverlay(document, { signal, storage });
+    pass = await loadBundledSourcePassOverlay(document, {
+      signal,
+      ...(storage ? { storage } : {}),
+    });
   } catch {
     /* Fail closed below. */
   }
@@ -237,11 +240,12 @@ export function subscribeWebsiteContentDirectory(
           verified = {
             ...verified,
             projection,
-            transferState: safe ? verified.transferState : 'safety-unavailable',
+            ...(!safe ? { transferState: 'safety-unavailable' as const } : {}),
           };
           for (const listener of listeners) listener(verified);
         }
       } catch {
+        if (!verified) return;
         if (
           verified.projection.articles.length ||
           verified.projection.sources.length ||
