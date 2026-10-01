@@ -1,6 +1,6 @@
 # WRN â€“ aktueller Arbeitsstand
 
-Neu 01.10. – Gemeinsamer lokaler Katalog-/Wissenskandidat: 715 Bücher (53 DE), 155 Begriffe mit 32 Referenzen, 19 DE-/EN-Revisionen und drei Entwurfs-Lernpfade mit 30 Werkbezügen. Podcastarchiv aus 1.310 aktiven IDs als 1.256 eindeutige Originalseiten auf der Website; kein neues Medienrecht. App6428cfe/Data4153d5f gebunden, historische Website-Dateien erhalten. Website231 Vitest/84 Node, Typprüfung/Lint/Build und vier Browserfälle bestanden; Offline-Shell7.025.513 Bytes. Noch nicht live, nicht in Code32; unabhängiger Website-Abschlussreview folgt. [Abschlussbeleg](evidence/WRN-CATALOG-KNOWLEDGE-2026-10-01/REPORT.md).
+Neu 01.10. – Gemeinsamer lokaler Katalog-/Wissenskandidat: 715 Bücher (53 DE), 155 Begriffe mit 32 Referenzen, 19 DE-/EN-Revisionen und drei Entwurfs-Lernpfade mit 30 Werkbezügen. Podcastarchiv aus 1.310 aktiven IDs als 1.256 eindeutige Originalseiten auf der Website; kein neues Medienrecht. App6428cfe/Data4153d5f gebunden, historische Website-Dateien erhalten. Website231 Vitest/84 Node, Typprüfung/Lint/Build und vier Browserfälle bestanden; Offline-Shell7.025.513 Bytes. Noch nicht live, nicht in Code32; unabhängiger Website-Abschlussreview GREEN für83abb0f; lokales Veröffentlichungspaket vorbereitet. [Abschlussbeleg](evidence/WRN-CATALOG-KNOWLEDGE-2026-10-01/REPORT.md).
 
 Neu 30.09., 05:55 UTC – Die jüngste PO-Lenkung zur Website ist umgesetzt und
 live: echte Bildaufmacher zuerst, bebilderte Nebenmeldungen im Desktop-/Tablet-

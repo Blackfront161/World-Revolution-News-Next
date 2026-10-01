@@ -56,7 +56,19 @@ bei 320/390/768/1440 erneut ohne Überlauf geprüft.
 
 Frische Vorschau: `http://127.0.0.1:43231/?lang=de#knowledge`.
 App: `http://127.0.0.1:8794/index.html?preview=8&catalog=20261001`.
-Unabhängiger Website-Abschlussreview folgt am eingefrorenen Commit.
+Unabhängiger Website-Abschlussreview: GREEN für Produktcommit
+`83abb0f3cc3ac385b5df3409edc623cf592e733a`, ausschließlich lokal.
+Siehe `controller-review.md`: 13/13 Eingangsbindungen, 4/4 Manifesthashes,
+24 Wissens-/Katalogtests, 12 Projektionsverträge, Typprüfung/Lint und vier
+Browserfälle unabhängig bestätigt. Kein offener Produktblocker.
+
+Das nach dem Produktcommit erzeugte `release-candidate.json` wird als
+gesonderter Dokument-/Paketnachtrag gebunden: Quellcommit `83abb0f`,
+Status LOCAL-PASS, 45 Website- und 48 Hostingdateien, Veröffentlichung false.
+SHA-256 `c02ced3a08e18956eade87b7ef8aa5db371bf3df9def80174022ebb12d226905`.
+Der bestehende Paketvalidator hat die beiden Pakete vor READY vollständig geprüft.
+Der Nachtrag ändert keine Produktbytes. Live-CSP/CORS, letzter Widerrufsreceipt,
+Zeiger-/Rollback-Nachweise und artefaktgebundene Veröffentlichung bleiben offen.
 
 ## Google Play
 
