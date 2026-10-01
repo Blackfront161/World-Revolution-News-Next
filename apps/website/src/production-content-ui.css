@@ -156,6 +156,97 @@
   color: var(--website-code26-cyan, #00f0ff);
 }
 
+/* A wide picture lead and latest reports occupy the first newspaper row.
+ * Keep the document order identical on desktop, tablet and phone. */
+.website-production .production-home__front-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+}
+.website-production .production-home__front-grid > section {
+  min-width: 0;
+}
+.website-production .production-home__front-grid .production-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.website-production .production-home__front-grid .production-home-image {
+  order: -1;
+}
+.website-production .production-home__front-grid .production-reader-image {
+  margin: 0;
+  max-width: none;
+}
+.website-production .production-home__front-grid .production-home-image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.4rem;
+}
+.website-production .production-home__front-grid .production-card h3 {
+  margin: 0.25rem 0;
+  font:
+    750 clamp(1.55rem, 3vw, 2.2rem)/1.15 system-ui,
+    sans-serif;
+}
+.website-production .production-home__current .production-home__archive {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.website-production .production-home__current .production-home__archive li {
+  padding-block: 0.8rem;
+  border-block-end: 1px solid var(--wrn-color-border);
+}
+.website-production .production-home__current .production-home__archive a {
+  display: block;
+  color: var(--wrn-color-text);
+  font:
+    700 1.05rem/1.25 system-ui,
+    sans-serif;
+  text-decoration: none;
+}
+.website-production .production-home__current .production-home__archive span,
+.website-production .production-home__current > p {
+  font-size: 0.8rem;
+  color: var(--wrn-color-text-muted);
+}
+.website-production .production-home__reviewed-grid .production-home__compact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+.website-production .production-home__reviewed-grid .production-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.website-production .production-home__reviewed-grid .production-home-image {
+  order: -1;
+}
+.website-production .production-home__reviewed-grid .production-home-image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+@media (min-width: 48rem) {
+  .website-production .production-home__front-grid {
+    grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr);
+  }
+  .website-production .production-home__current {
+    padding-inline-start: 1.3rem;
+    border-inline-start: 1px solid var(--wrn-color-border);
+  }
+  .website-production .production-home__reviewed-grid .production-home__compact {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 /* Saved Editorial is still Code26 on the website; undo the shared magazine
  * variant only for these home cards, without changing the saved preference. */
 :root[data-theme='editorial'] .website-production .production-home,

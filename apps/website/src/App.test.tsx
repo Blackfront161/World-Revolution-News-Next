@@ -409,7 +409,16 @@ describe('website local newsfeed', () => {
     expect(moreButton).toHaveAttribute('aria-expanded', 'true');
     expect(screen.getByRole('heading', { name: 'More' })).toHaveFocus();
     expect(screen.getByRole('link', { name: 'Help' })).toBeVisible();
-    expect(screen.getByRole('link', { name: 'Knowledge' })).toBeVisible();
+    expect(
+      within(document.getElementById('website-more-menu')!).getByRole('link', {
+        name: 'Knowledge',
+      }),
+    ).toBeVisible();
+    expect(
+      within(screen.getByRole('navigation', { name: 'More areas' })).getByRole('link', {
+        name: 'Knowledge',
+      }),
+    ).toHaveAttribute('href', '#knowledge');
     expect(screen.getByRole('link', { name: 'Get the app' })).toHaveAttribute(
       'href',
       'https://play.google.com/store/apps/details?id=com.world.revolution',

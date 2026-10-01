@@ -4,6 +4,7 @@ import { getWebsiteSupportCopy } from '@wrn/ui-language/support';
 import { loadWebsiteKnowledge, type WebsiteKnowledge } from './knowledge-loader';
 import { BlackAnarchismResources } from '../../../../../packages/browser-content/src/black-anarchism-resources';
 import './knowledge.css';
+import { WebsiteAppCatalog } from '../events-media/WebsiteAppCatalog';
 
 type Tab = 'library' | 'lexicon';
 const pageSize = 30;
@@ -335,7 +336,10 @@ export function WebsiteKnowledgeRoute({
             </button>
           </div>
           {tab === 'library' ? (
-            <Library data={data} language={language} />
+            <>
+              <WebsiteAppCatalog mode="library" language={language} />
+              <Library data={data} language={language} />
+            </>
           ) : (
             <Lexicon data={data} language={language} />
           )}

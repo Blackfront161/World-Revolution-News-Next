@@ -54,11 +54,7 @@ export async function prepareWebsiteProjectionCandidate({
   const projection = await checkWebsiteContentProjection(root, now);
   const data = resolve(root, 'apps/website/src/features/projection/data');
   const directoryBytes = await readFile(resolve(data, 'content-directory-v1.json'));
-  const report = JSON.parse(
-    await readFile(
-      resolve(root, 'docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/parity-report.json'),
-    ),
-  );
+  const report = JSON.parse(await readFile(resolve(data, 'report.json')));
   const current = JSON.parse(await readFile(resolve(build, 'wrn-production-content/current.json')));
   const fulltexts = JSON.parse(
     await readFile(
@@ -98,14 +94,36 @@ export async function prepareWebsiteProjectionCandidate({
       recordedFeedSourceNames: projection.counts.feedSources,
     },
   };
-  const recordedClasses = JSON.parse(
-    await readFile(
-      resolve(root, 'docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/admission-classes.json'),
-    ),
-  );
-  if (JSON.stringify(admissionClasses) !== JSON.stringify(recordedClasses.classes))
+  const recordedClasses = JSON.parse(await readFile(resolve(data, 'admission-classes.json')));
+  if (
+    recordedClasses.upstreamCommit !== projection.upstreamCommit ||
+    recordedClasses.directorySha256 !== projection.directorySha256 ||
+    JSON.stringify(admissionClasses) !== JSON.stringify(recordedClasses.classes)
+  )
     throw Error('candidate-classification-mismatch');
   const assets = await readdir(resolve(build, 'assets'));
+  const catalogBytes = await readFile(
+    resolve(root, 'apps/website/src/features/events-media/packed/production-events-media-v1.json'),
+  );
+  const catalog = JSON.parse(catalogBytes);
+  const catalogAssets = assets.filter((name) => /^production-events-media-v1-.*\.json$/.test(name));
+  if (
+    catalogAssets.length !== 1 ||
+    !(await readFile(resolve(build, 'assets', catalogAssets[0]))).equals(catalogBytes) ||
+    catalog.schema !== 'wrn.website-events-media-package.v1' ||
+    catalog.current.commit !== projection.upstreamCommit ||
+    catalog.current.rights !== 'metadata-original-link-only' ||
+    catalog.history.sha256 !==
+      projectionHash(
+        await readFile(
+          resolve(
+            root,
+            'apps/website/src/features/events-media/data/production-events-media-v1.json',
+          ),
+        ),
+      )
+  )
+    throw Error('candidate-app-catalog-mismatch');
   const directoryAssets = assets.filter((name) => /^content-directory-v1-.*\.json$/.test(name));
   if (
     directoryAssets.length !== 1 ||
@@ -152,6 +170,17 @@ export async function prepareWebsiteProjectionCandidate({
     generatedAtUTC,
     projection,
     admissionClasses,
+    appCatalog: {
+      commit: catalog.current.commit,
+      observedAt: catalog.current.observedAt,
+      rights: catalog.current.rights,
+      counts: Object.fromEntries(
+        Object.entries(catalog.current.collections).map(([kind, rows]) => [kind, rows.length]),
+      ),
+      inputs: catalog.current.inputs,
+      historySha256: catalog.history.sha256,
+      packedSha256: projectionHash(catalogBytes),
+    },
     publicationStatus: {
       liveDeviationResolved: false,
       directoryParity: 'bound-local-snapshot-only',

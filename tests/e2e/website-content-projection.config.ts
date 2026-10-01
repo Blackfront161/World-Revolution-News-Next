@@ -2,7 +2,11 @@ import { defineConfig } from '@playwright/test';
 import { randomUUID } from 'node:crypto';
 export default defineConfig({
   testDir: '.',
-  testMatch: ['website-content-projection.spec.ts', 'production-website-content.spec.ts'],
+  testMatch: [
+    'website-content-projection.spec.ts',
+    'production-website-content.spec.ts',
+    'website-app-catalog.spec.ts',
+  ],
   globalSetup: './website-content-projection.setup.ts',
   workers: 2,
   retries: 0,

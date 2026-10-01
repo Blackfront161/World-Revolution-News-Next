@@ -14,9 +14,7 @@ export async function checkWebsiteContentProjection(
   const base = resolve(root, 'apps/website/src/features/projection/data');
   const [directoryBytes, reportBytes, lockBytes, pointerBytes] = await Promise.all([
     readFile(resolve(base, 'content-directory-v1.json')),
-    readFile(
-      resolve(root, 'docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01/parity-report.json'),
-    ),
+    readFile(resolve(base, 'report.json')),
     readFile(resolve(base, 'lock.json')),
     readFile(resolve(base, 'pointer.json')),
   ]);

@@ -73,7 +73,13 @@ export function CoverageDetails({
   );
 }
 
-export function WebsiteCoverage({ language }: { language: UiLanguage }) {
+export function WebsiteCoverage({
+  language,
+  compact = false,
+}: {
+  language: UiLanguage;
+  compact?: boolean;
+}) {
   const [data, setData] = useState<WebsiteContentDirectory | null>(null),
     [failed, setFailed] = useState(false);
   useEffect(() => {
@@ -91,6 +97,18 @@ export function WebsiteCoverage({ language }: { language: UiLanguage }) {
   }, []);
   const copy = getProjectionCopy(language);
   if (!data) return failed ? <p role="status">{copy.unavailable}</p> : null;
+  if (compact)
+    return (
+      <details className="website-coverage-disclosure">
+        <summary>
+          {copy.title} ·{' '}
+          {data.coverage
+            ? `${data.coverage.counts.included}/${data.coverage.counts.feed}`
+            : projectionAvailableCopy(language)}
+        </summary>
+        <CoverageDetails data={data} language={language} />
+      </details>
+    );
   const links = data.projection.articles
     .filter((a) => !a.historical)
     .sort((a, b) => (b.publishedAt ?? '').localeCompare(a.publishedAt ?? ''))

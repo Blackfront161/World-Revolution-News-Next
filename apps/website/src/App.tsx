@@ -2345,6 +2345,38 @@ export function App({
                 {routeLink('media')}
                 {routeLink('saved')}
               </nav>
+              <nav className="website-section-nav" aria-label={copy.moreAreas}>
+                <a
+                  href="#discover/news"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    navigateDirectory('news');
+                  }}
+                >
+                  {getDirectoryCopy(uiLanguage).news}
+                </a>
+                <a
+                  href="#discover/sources"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    navigateDirectory('sources');
+                  }}
+                >
+                  {getDirectoryCopy(uiLanguage).sources}
+                </a>
+                <a
+                  href="#discover/sport"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    navigateDirectory('sport');
+                  }}
+                >
+                  {getDirectoryCopy(uiLanguage).sport}
+                </a>
+                {routeLink('events')}
+                {routeLink('knowledge')}
+                {routeLink('solidarity')}
+              </nav>
               <div id="website-more-menu" className="site-more-menu" hidden={!moreMenuOpen}>
                 <p>{copy.moreAreas}</p>
                 <button
@@ -2448,7 +2480,8 @@ export function App({
                         load: liveWebsiteDirectoryLoader,
                         onBrowse: () => navigateDirectory('news'),
                         onBrowseSport: () => navigateDirectory('sport'),
-                        prioritizeCurrentLinks: false,
+                        prioritizeCurrentLinks: true,
+                        leadWithCurrentSidebar: true,
                         prioritizeReviewedImages: true,
                         automaticTranslation: true,
                         brandMarkUrl: brandAssetUrls.solinaridaoMark,

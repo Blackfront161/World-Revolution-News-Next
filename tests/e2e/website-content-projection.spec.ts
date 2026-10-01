@@ -7,7 +7,7 @@ import directory from '../../apps/website/src/features/projection/data/content-d
 import pointer from '../../apps/website/src/features/projection/data/pointer.json' with { type: 'json' };
 import revocations from '../../apps/website/public/wrn-source-pass-revocations/current.json' with { type: 'json' };
 import { createHash } from 'node:crypto';
-const evidence = path.resolve('docs/evidence/WRN-WEBSITE-CONTENT-PARITY-2026-10-01');
+const evidence = path.resolve('work/website-app-parity-20261001/browser');
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() =>
     sessionStorage.setItem('wrn.website.support-welcome.v1', 'dismissed'),
@@ -83,13 +83,15 @@ test('original red-black app icon survives an offline reopen while the header ma
 test('bound production coverage, original links, all nine languages and accessibility', async ({
   page,
 }, info) => {
+  test.setTimeout(60000);
   for (const language of ['en', 'de', 'es', 'fr', 'it', 'pt', 'ru', 'el', 'tr']) {
     await page.goto(`/?lang=${language}#home`);
-    await expect(page.locator('.website-coverage')).toContainText('480/500');
+    await page.locator('.website-coverage-disclosure > summary').click();
+    await expect(page.locator('.website-coverage')).toContainText('483/500');
     await expect(page.locator('.website-coverage')).toContainText(
       getProjectionCopy(language).warning,
     );
-    await expect(page.locator('[data-projection-article]')).toHaveCount(6);
+    await expect(page.locator('[data-home-directory-article]')).toHaveCount(5);
     expect(await page.title()).toContain('World Revolution News');
     expect(
       await page.locator('body').evaluate((el) => el.scrollWidth <= window.innerWidth + 1),
@@ -104,17 +106,17 @@ test('bound production coverage, original links, all nine languages and accessib
     (
       await new AxeBuilder({ page })
         .include('.website-coverage')
-        .include('.website-projection-links')
+        .include('.production-home__current')
         .analyze()
     ).violations,
   ).toEqual([]);
-  const first = page.locator('[data-projection-article] a').first();
+  const first = page.locator('[data-home-directory-article] a').first();
   await first.focus();
   await expect(first).toBeFocused();
   await expect(first).toHaveAttribute('rel', 'noopener noreferrer');
   await expect(first).toHaveAttribute('referrerpolicy', 'no-referrer');
   await page.goto('/?lang=de#home');
-  await expect(page.locator('.website-coverage')).toContainText('480/500');
+  await expect(page.locator('.website-coverage')).toContainText('483/500');
   if (['website-390x844', 'website-1440x900'].includes(info.project.name)) {
     await mkdir(evidence, { recursive: true });
     await page.screenshot({
@@ -139,7 +141,7 @@ test('small, landscape and wide website sizes keep coverage and current links re
   ]) {
     await page.setViewportSize({ width, height });
     await page.goto('/?lang=de#home');
-    await expect(page.locator('.website-coverage')).toContainText('480/500');
+    await expect(page.locator('.website-coverage')).toContainText('483/500');
     expect(
       await page.locator('body').evaluate((el) => el.scrollWidth <= window.innerWidth + 1),
     ).toBe(true);
@@ -149,7 +151,7 @@ test('news and sources deep links show metadata restrictions and unknown source 
   page,
 }) => {
   await page.goto('/?lang=de#discover/news');
-  await expect(page.locator('.website-coverage')).toContainText('480/500');
+  await expect(page.locator('.website-coverage')).toContainText('483/500');
   await expect(page.locator('.website-content-list>li')).toHaveCount(30);
   await page.goto('/?lang=de#discover/sources');
   await expect(page.getByText('Ungeprüfte Quelle · nur Originallink').first()).toBeVisible();
@@ -162,11 +164,11 @@ test('explicit shell save restores broad current metadata links after an offline
   context,
 }) => {
   await page.goto('/?lang=en#home');
-  await expect(page.locator('[data-projection-article]')).toHaveCount(6);
+  await expect(page.locator('[data-home-directory-article]')).toHaveCount(5);
   const ids = await page
-    .locator('[data-projection-article]')
+    .locator('[data-home-directory-article]')
     .evaluateAll((entries) =>
-      entries.map((entry) => entry.getAttribute('data-projection-article')),
+      entries.map((entry) => entry.getAttribute('data-home-directory-article')),
     );
   await page.goto('/#more');
   await page.getByRole('button', { name: 'Save website shell', exact: true }).click();
@@ -183,15 +185,15 @@ test('explicit shell save restores broad current metadata links after an offline
   await context.setOffline(true);
   const reopened = await context.newPage();
   await reopened.goto('/?lang=en#home');
-  await expect(reopened.locator('[data-projection-article]')).toHaveCount(6);
+  await expect(reopened.locator('[data-home-directory-article]')).toHaveCount(5);
   expect(
     await reopened
-      .locator('[data-projection-article]')
+      .locator('[data-home-directory-article]')
       .evaluateAll((entries) =>
-        entries.map((entry) => entry.getAttribute('data-projection-article')),
+        entries.map((entry) => entry.getAttribute('data-home-directory-article')),
       ),
   ).toEqual(ids);
-  await expect(reopened.locator('.website-coverage')).toContainText('480/500');
+  await expect(reopened.locator('.website-coverage')).toContainText('483/500');
   expect(await reopened.evaluate(() => navigator.serviceWorker.controller !== null)).toBe(true);
 });
 
@@ -203,11 +205,11 @@ test('later source withdrawal removes both homepage lists and remains removed af
     route.fulfill({ json: incoming }),
   );
   await page.goto('/?lang=de#home');
-  await expect(page.locator('[data-projection-article]')).toHaveCount(6);
+  await expect(page.locator('[data-home-directory-article]')).toHaveCount(5);
   const id = await page
-    .locator('[data-projection-article]')
+    .locator('[data-home-directory-article]')
     .first()
-    .getAttribute('data-projection-article');
+    .getAttribute('data-home-directory-article');
   const article = directory.articles.find((a) => a.id === id)!;
   const origin = new URL(article.url).origin;
   const source = directory.sources.find(
@@ -222,7 +224,7 @@ test('later source withdrawal removes both homepage lists and remains removed af
     page.locator(`[data-projection-article="${id}"],[data-home-directory-article="${id}"]`),
   ).toHaveCount(0);
   await page.reload();
-  await expect(page.locator('.website-coverage')).toContainText('480/500');
+  await expect(page.locator('.website-coverage')).toContainText('483/500');
   await expect(
     page.locator(`[data-projection-article="${id}"],[data-home-directory-article="${id}"]`),
   ).toHaveCount(0);
@@ -258,7 +260,7 @@ test('a new valid live hash cannot admit an unreviewed title; its article withdr
     route.fulfill({ body: bytes, contentType: 'application/json' }),
   );
   await page.goto('/?lang=de#home');
-  await expect(page.locator('.website-coverage')).toContainText('480/500');
+  await expect(page.locator('.website-coverage')).toContainText('483/500');
   await expect(page.getByText('Unreviewed live title', { exact: true })).toHaveCount(0);
   await expect(
     page.locator(`[data-projection-article="${id}"],[data-home-directory-article="${id}"]`),

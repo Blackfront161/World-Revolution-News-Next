@@ -99,10 +99,10 @@ export function WebsiteProductionContentArea(props: ComponentProps<typeof Conten
   return (
     <div className="website-production">
       {!props.embedded && <h1 className="website-production-heading">World Revolution News</h1>}
-      {props.target === 'home' && props.articleId === null && props.archiveRoute === undefined && (
-        <WebsiteCoverage language={props.language} />
-      )}
       <ContentArea {...props} />
+      {props.target === 'home' && props.articleId === null && props.archiveRoute === undefined && (
+        <WebsiteCoverage language={props.language} compact />
+      )}
     </div>
   );
 }

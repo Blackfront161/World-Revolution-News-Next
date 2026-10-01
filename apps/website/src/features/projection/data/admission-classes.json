@@ -1,0 +1,50 @@
+{
+  "schema": "wrn.website-admission-classes.v1",
+  "upstreamCommit": "0349e13104465fe5ef63d22e424c6bcbdedb13e2",
+  "directorySha256": "5136ebcc4240fa16120187f1c93d257cace9785a838c81445d9d15e6908605eb",
+  "publicationStatus": {
+    "liveDeviationResolved": false,
+    "directoryParity": "bound-local-snapshot-only",
+    "directoryProjectionPublication": "pending",
+    "websitePublication": "pending",
+    "liveVerification": "not-performed"
+  },
+  "classes": {
+    "individuallyAdmittedFulltext": {
+      "articles": 12,
+      "sourceProfiles": 3,
+      "revision": "wrn-production-news-2026-09-26-v8",
+      "corpus": "existing-separate-production-admission"
+    },
+    "newFulltextOrMedia": {
+      "articles": 0,
+      "sourceEndpoints": 0
+    },
+    "metadataLinkOnly": {
+      "articles": 483,
+      "sourceEndpoints": 398,
+      "withoutConfirmedSourcePass": 479,
+      "editorialVerification": false,
+      "reuseRightsGranted": false
+    },
+    "directoryOnly": {
+      "articles": 0,
+      "sourceEndpoints": 0
+    },
+    "excluded": {
+      "articles": 17,
+      "sourceEndpoints": 9,
+      "reasons": {
+        "future-published-at": 1,
+        "insecure-url": 8,
+        "identity-conflict": 5,
+        "incomplete-source-provenance": 3
+      }
+    },
+    "upstream": {
+      "articles": 500,
+      "sourceEndpoints": 407,
+      "recordedFeedSourceNames": 101
+    }
+  }
+}
