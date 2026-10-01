@@ -1,5 +1,7 @@
 # Logo als Website-Tab-Icon – veröffentlicht
 
+Historischer Zwischenstand: Die nachfolgende [Windrosen-Korrektur](../WRN-WEBSITE-STAR-FAVICON-2026-10-01/REPORT.md) ersetzt dieses Schriftlogo-Favicon live mit Produktcommit f202ec5. Die folgenden Prüfergebnisse dokumentieren ausschließlich den damaligen Stand 5df01f1.
+
 Das bestehende Solinaridao-Logo ist auf [solinaridao.com](https://solinaridao.com/) als PNG-Favicon veröffentlicht. Vite verwendet dieselbe bestehende Kopf-Assetdatei; der Logo-Master bleibt unverändert. Der frische Browser lädt `/assets/solinaridao-header-mark-filled-D7vg3enZ.png`: 1.123.871 Bytes, 1254 × 1076, SHA256 `9dca207bc008384ef45cf435a134bf170037ae0149d27c43c732b754912b61b9`. Andere oder fehlende Bildverweise werden in der Offline-Graphprüfung weiterhin abgewiesen.
 
 Veröffentlichter Produktstand: `5df01f13937b4c7957aeb097b7116587b86eb144`, unveränderliches READY unter `work/website-projection-favicon-compression-release-v2/READY.json`. Shell `2cf0f8ba57ca78142efbd38fca1197f652ac3b48ff59b7d20044c966a5e7f1cf`; Website-Manifest `4c50b23160a92efa382ba5621113a1181e0a913a7512b707c76fcd78deb3d99a`; Hosting-Manifest `34a0b8cdf6c7dd425e0e9525e690484aa4eb310c3ec89689e345c668ba62d822`. Unabhängige Abnahme des exakten Stands: 44/44 Website- und 47/47 Hostingdateien lokal, 209 Frontendtests, 82 Node-Vertragstests, TypeScript, realer Chrome-Core mit br/gzip sowie vollständiger Prozessneustart über Brotli-HTTP PASS. Fokussiertes ESLint und Diff-Whitespace PASS; kein neuer Workspace-Lint-Gesamt-PASS behauptet.

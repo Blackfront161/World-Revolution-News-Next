@@ -1,44 +1,30 @@
 {
-  "schema": "wrn.website-favicon-evidence.v1",
-  "generatedAtUTC": "2026-09-30T23:26:06.625Z",
-  "sourceCommit": "5df01f13937b4c7957aeb097b7116587b86eb144",
+  "schema": "wrn.website-star-favicon-evidence.v1",
+  "generatedAtUTC": "2026-10-01T00:05:42.361Z",
+  "sourceCommit": "f202ec5d702e875127c01292b26b6e0b9edfe38e",
   "publicationPerformed": true,
-  "liveDeviationResolved": true,
-  "scope": "published-website-and-bound-directory-projection-only",
-  "overallRcAdmission": false,
-  "newBodyOrMediaAdmission": false,
-  "upstreamCommit": "33509ace3d3b2f7f275ebc05fe3522a59d62964f",
-  "projection": {
-    "status": "PASS",
-    "counts": {
-      "feed": 500,
-      "feedSources": 98,
-      "registry": 406,
-      "included": 480,
-      "metadataLinkOnly": 480,
-      "fullTextImported": 0,
-      "directoryOnlySources": 0,
-      "metadataOnlySources": 397,
-      "excluded": 20,
-      "matchedSources": 6,
-      "pendingSources": 391,
-      "excludedSources": 9,
-      "directoryArticles": 961,
-      "directorySources": 532
-    },
-    "sequence": 202609301530,
-    "directorySha256": "72fea07011df07b18ea274524530a53bc6485b1b17f575c050d8e4857bbf71ff",
-    "reportSha256": "46b47f7eb005cd307fda40beae5d6a74bdac9c936e3045ca4382a390803c6b80",
-    "upstreamCommit": "33509ace3d3b2f7f275ebc05fe3522a59d62964f"
+  "scope": "website favicon and bound offline asset family",
+  "shellId": "91367d2e6f35cf42d45f0a7d4e84adcca00b74a225e71b64bbba786293f64506",
+  "websiteManifestSha256": "e64d91953716dbd2150c0ed7d7df3dd0d6069445b5a0c188d17bb8a2f965d359",
+  "hostingManifestSha256": "002fc01ee8507457b8a96ba4ec9709bc68b051128d57db145a50d03d5858c4dc",
+  "originalIcon": {
+    "path": "android-wrapper/android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+    "appCommit": "260fed388385cbc8ef203a2f534d97d694d92e54",
+    "bytes": 8845,
+    "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f",
+    "width": 72,
+    "height": 72
   },
-  "shellId": "2cf0f8ba57ca78142efbd38fca1197f652ac3b48ff59b7d20044c966a5e7f1cf",
-  "websiteManifestSha256": "4c50b23160a92efa382ba5621113a1181e0a913a7512b707c76fcd78deb3d99a",
-  "hostingManifestSha256": "34a0b8cdf6c7dd425e0e9525e690484aa4eb310c3ec89689e345c668ba62d822",
+  "ownLivePublicFiles": 44,
+  "independentLivePublicFiles": 44,
+  "independentHttpFullReceiptSaved": false,
+  "independentLiveDecision": "PASS",
+  "independentLiveReceipts": [],
   "publishedFiles": [
     {
-      "bytes": 4705,
+      "bytes": 4732,
       "path": ".htaccess",
-      "sha256": "fd8da9dd31d9a7c67b63ec610e04e231013f4ccb45762f42af4ac0d0db4c6d7e"
+      "sha256": "e3909d84fbe1d82e138aa15fcda508b5c9143368d5cfd557b10d7f79e88ffa52"
     },
     {
       "bytes": 5946,
@@ -111,9 +97,9 @@
       "sha256": "72fea07011df07b18ea274524530a53bc6485b1b17f575c050d8e4857bbf71ff"
     },
     {
-      "bytes": 162587,
-      "path": "assets/index-D1tHYQ7a.js",
-      "sha256": "b53516d1e8fa87f27e777b085109c57fd779038b5c0fbf01499d479c44b6d72e"
+      "bytes": 162789,
+      "path": "assets/index-D93O2XYI.js",
+      "sha256": "af6715b4de76d62dc5b11a0ce3be1ba63c9686c7950d0614da034b9cb1d19703"
     },
     {
       "bytes": 69393,
@@ -146,6 +132,11 @@
       "sha256": "9dca207bc008384ef45cf435a134bf170037ae0149d27c43c732b754912b61b9"
     },
     {
+      "bytes": 8845,
+      "path": "assets/wrn-app-icon-CwyuVArd.png",
+      "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+    },
+    {
       "bytes": 22062,
       "path": "assets/wrn-browser-runtime--mSyaIxC.css",
       "sha256": "050886f4b2b5aa1221a6b41e2a1016316a350b8a857cc1e73b1e97f3f49e4d46"
@@ -171,9 +162,9 @@
       "sha256": "9fc03e2601190a116a77ee490f6fc13b58a265d1f9fd22dd78fb806cd0514cd7"
     },
     {
-      "bytes": 2319,
+      "bytes": 2301,
       "path": "index.html",
-      "sha256": "f2f581ce03f1bdb1f49e4d22df225c3fb1b8988fcf4131d564d2b74a7a071f06"
+      "sha256": "2cce541255bfbeb09207853e5280a01f232a6c408774a9960a9c90d96df03ad5"
     },
     {
       "bytes": 68,
@@ -186,9 +177,9 @@
       "sha256": "14dff9adf32197a7cab90a62df217c111356c406e820aba72345ca18af378a20"
     },
     {
-      "bytes": 27139,
+      "bytes": 27558,
       "path": "website-shell-sw.js",
-      "sha256": "af2569bd4bf24e994585aba08665fd1b3073b899f918ce1ead66346c875265e6"
+      "sha256": "8920f26fa7e4a2a461fe793b2912e79a301d0f4fbbbea0743485254ae4d974c9"
     },
     {
       "bytes": 814,
@@ -271,82 +262,65 @@
       "sha256": "bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa"
     }
   ],
-  "ownLivePublicFiles": 43,
-  "independentLivePublicFiles": 43,
   "offline": {
-    "href": "/assets/solinaridao-header-mark-filled-D7vg3enZ.png",
-    "width": 1254,
-    "height": 1076,
+    "href": "/assets/wrn-app-icon-CwyuVArd.png",
+    "width": 72,
+    "height": 72,
     "controlled": true,
     "mime": "image/png",
-    "bytes": 1123871,
-    "sha256": "9dca207bc008384ef45cf435a134bf170037ae0149d27c43c732b754912b61b9"
+    "bytes": 8845,
+    "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
   },
-  "independentLiveDecision": "PASS",
-  "controllerThread": "019ff285-63dc-7ed2-88a8-cab5f06ed26e",
   "rollback": {
-    "serverArchive": "public_html-pre-wrn-20261001-7f44506.zip",
-    "serverArchiveSha256": "d03869397a7e85dc4c25812c6e56acd2a7c144e5234c6d128ac9bfed437715fe",
-    "fullArchiveDownloaded": false,
-    "scopedArchiveSha256": "527dfa40d9aa19f54c0d95e284dc17c85dd3868386adc7f88e59401cbd5f236c",
-    "freshRevocationRequiredBeforeFutureRollback": true
+    "archive": "rollback-website-star-f202ec5.zip",
+    "sha256": "a169b8abb51367d7f1df7b63adba26e1a3885a37c65794c978837d94ad20ffea",
+    "freshRevocationRequired": true
   },
   "artifacts": [
     {
       "path": "REPORT.md",
-      "bytes": 5589,
-      "sha256": "174b7f8be05bc9f6e39bf08d0a6e655c281627e33b2c26f09e00cf5de00c689b"
+      "bytes": 6577,
+      "sha256": "cd158de00b0fef0a5bcd42b8009264bc32afb276e181354bd128584ece7a0b77"
     },
     {
       "path": "LIVE-HTTP.json",
-      "bytes": 44121,
-      "sha256": "988fd2ad4b5a01804b7d4e255ec6b9c4ffe1a44961d8963ca184938bb91f2b73"
+      "bytes": 137273,
+      "sha256": "32b59169aa6cde6168dbc308afd7f504822f48c84bb6b346dc5e671cd2f96828"
     },
     {
       "path": "LIVE-BROWSER.json",
-      "bytes": 3051,
-      "sha256": "c8bb8a0bcc9e301fb5d5ab2558cd44e367877c18470a08191bc423e0bd358321"
+      "bytes": 3005,
+      "sha256": "75905beaf42b42d4f550d84d28a4b3196856943fa8f3294533eab5f22b7124c0"
+    },
+    {
+      "path": "LIVE-REVIEW.json",
+      "bytes": 880,
+      "sha256": "6bba3cbf0c8471a37d334ac207055a5d46aed04635e322021d75fb28fa051a95"
+    },
+    {
+      "path": "INDEPENDENT-BROWSER.json",
+      "bytes": 1332,
+      "sha256": "52888093a1dc5c3e167bb0b3bdd9fab0a1085e11e9aa0cfcff1beb2edd94ec54"
+    },
+    {
+      "path": "live-icon-preview.png",
+      "bytes": 1602,
+      "sha256": "8ded56efe9d26ee02273f214e4e89d4ce3e198e67195c6081f611c4d7470acf6"
     },
     {
       "path": "website-1440x900.png",
-      "bytes": 1542394,
-      "sha256": "dcf096faf5a0eff763af819a681b976915d122d6e3b6a398dcbcb5119225f277"
+      "bytes": 2374447,
+      "sha256": "9f21a894f96ef1a5f57dc4b9d0e96fb924a5a67b2dc109f6855f781b79d8a01f"
     },
     {
       "path": "website-live-mobile.png",
-      "bytes": 53860,
-      "sha256": "23b86a6035bffb2fb7ec741ccf8d9ee0a86bb64713415a3f97682e84af679338"
+      "bytes": 83846,
+      "sha256": "22a4e7f19ba1d2319c2429263babfa75340bde8f4db4bb94a9e55e26459a69ee"
     },
     {
       "path": "website-offline-process-restart.png",
       "bytes": 395588,
       "sha256": "a8332dfc7c54dc1b902594f05312175b9becd6c2efcd21317a71f9d9f42acb34"
     }
-  ],
-  "rawInputs": {
-    "ready": {
-      "path": "work/website-projection-favicon-compression-release-v2/READY.json",
-      "sha256": "8925cd7b1f76942ae3a71ff91f37a40482a23bc62317c2ae774a1cc58b5b0af4"
-    },
-    "ownHttp": {
-      "path": "work/website-projection-live-20261001/live-full-1790810260636/receipt.json",
-      "sha256": "bdc2c7f8287078992e24c4613cd21306294bf40d5ebc66d03d947948e5396cac"
-    },
-    "independentHttp": {
-      "path": "work/website-projection-live-20261001/live-full-1790810413005/receipt.json",
-      "sha256": "0c470cd04934e11893de12d308adfb0d1df750d669460df2fa259e55f46e6742"
-    },
-    "browser": {
-      "path": "work/website-projection-live-20261001/browser-live-5df01f1/result.json",
-      "sha256": "c8bb8a0bcc9e301fb5d5ab2558cd44e367877c18470a08191bc423e0bd358321"
-    },
-    "prePointersRevocation": {
-      "path": "work/website-projection-live-20261001/revocations-pre-pointers-5df01f1.json",
-      "sha256": "7febb5177a235fa398cba40344e7ffb5293413f2dcad25c83a3f30f40a38f2f6"
-    }
-  },
-  "historicalSupersededBy": {
-    "sourceCommit": "f202ec5d702e875127c01292b26b6e0b9edfe38e",
-    "report": "../WRN-WEBSITE-STAR-FAVICON-2026-10-01/REPORT.md"
-  }
+  ]
 }
