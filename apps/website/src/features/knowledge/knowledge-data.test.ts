@@ -22,11 +22,11 @@ describe('website knowledge snapshot', () => {
     expect(projection.books).toHaveLength(609);
     expect(projection.terms).toHaveLength(22);
     expect(packed.history).toEqual(JSON.parse(bytes.toString('utf8')));
-    expect(validateMobileKnowledge(packed.currentGlossary).ok).toBe(true);
-    expect(packed.currentGlossary.lexicon.terms).toHaveLength(155);
-    expect(packed.currentGlossary.lexicon.sources).toHaveLength(13);
-    expect(packed.currentGlossary.input.lexiconSha256).toBe(
-      '7b01d0dafe01211c3bf0095c1033d88e950d40b1f626b5d4364f245023f6660a',
+    expect(validateMobileKnowledge(packed.currentKnowledge).ok).toBe(true);
+    expect(packed.currentKnowledge.lexicon.terms).toHaveLength(155);
+    expect(packed.currentKnowledge.lexicon.sources).toHaveLength(32);
+    expect(packed.currentKnowledge.input.lexiconSha256).toBe(
+      '5064537d43a666a41e5eb3b0186a22b86b523d4f12eec3eeae5df0ff97a60c74',
     );
   });
 });

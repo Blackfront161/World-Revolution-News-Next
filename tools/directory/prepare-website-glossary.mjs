@@ -64,7 +64,10 @@ export function prepareWebsiteGlossary(source, commit, observedAt) {
   }
   visit(tree);
   // The App explicitly replaces older drafts by stable public term ID.
-  const unique = [...new Map(terms.map((term) => [term.id, term])).values()];
+  const unique = [...new Map(terms.map((term) => [term.id, term])).values()].map((term) => ({
+    ...term,
+    aliases: { de: term.aliases?.de ?? [], en: term.aliases?.en ?? [] },
+  }));
   const document = createKnowledgeDocument({
     libraryFeed: '[]',
     librarySources: '[]',

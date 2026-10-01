@@ -4,7 +4,7 @@ import { getWebsiteSupportCopy } from '@wrn/ui-language/support';
 import { loadWebsiteKnowledge, type WebsiteKnowledge } from './knowledge-loader';
 import { BlackAnarchismResources } from '../../../../../packages/browser-content/src/black-anarchism-resources';
 import './knowledge.css';
-import { WebsiteAppCatalog } from '../events-media/WebsiteAppCatalog';
+import { LearningPaths } from './LearningPaths';
 
 type Tab = 'library' | 'lexicon';
 const pageSize = 30;
@@ -19,7 +19,15 @@ const external = {
   referrerPolicy: 'no-referrer',
 } as const;
 
-function Library({ data, language }: { data: WebsiteKnowledge; language: UiLanguage }) {
+function Library({
+  data,
+  language,
+  onOpenTerm,
+}: {
+  data: WebsiteKnowledge;
+  language: UiLanguage;
+  onOpenTerm: (id: string) => void;
+}) {
   const copy = getMobileKnowledgeCopy(language);
   const supportCopy = getWebsiteSupportCopy(language);
   const [query, setQuery] = useState('');
@@ -54,6 +62,7 @@ function Library({ data, language }: { data: WebsiteKnowledge; language: UiLangu
   const formats = [...new Set(data.projection.books.flatMap((book) => book.formats))].sort();
   return (
     <section className="website-knowledge-panel" aria-label={copy.library}>
+      <LearningPaths data={data} language={language} onOpenTerm={onOpenTerm} />
       <div className="website-content-filters">
         <label>
           {copy.search}
@@ -155,11 +164,19 @@ function Library({ data, language }: { data: WebsiteKnowledge; language: UiLangu
   );
 }
 
-function Lexicon({ data, language }: { data: WebsiteKnowledge; language: UiLanguage }) {
+function Lexicon({
+  data,
+  language,
+  initialTermId,
+}: {
+  data: WebsiteKnowledge;
+  language: UiLanguage;
+  initialTermId: string | null;
+}) {
   const copy = getMobileKnowledgeCopy(language);
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('');
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(initialTermId);
   const terms = useMemo(
     () =>
       data.projection.terms.filter(
@@ -266,6 +283,11 @@ export function WebsiteKnowledgeRoute({
 }) {
   const copy = getMobileKnowledgeCopy(language);
   const [tab, setTab] = useState<Tab>('library');
+  const [initialTermId, setInitialTermId] = useState<string | null>(null);
+  const openTerm = (id: string) => {
+    setInitialTermId(id);
+    setTab('lexicon');
+  };
   const [data, setData] = useState<WebsiteKnowledge | null>(null);
   const [failed, setFailed] = useState(false);
   const [retry, setRetry] = useState(0);
@@ -343,11 +365,10 @@ export function WebsiteKnowledgeRoute({
           </div>
           {tab === 'library' ? (
             <>
-              <WebsiteAppCatalog mode="library" language={language} />
-              <Library data={data} language={language} />
+              <Library data={data} language={language} onOpenTerm={openTerm} />
             </>
           ) : (
-            <Lexicon data={data} language={language} />
+            <Lexicon data={data} language={language} initialTermId={initialTermId} />
           )}
         </>
       )}

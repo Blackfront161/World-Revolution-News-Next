@@ -1,0 +1,280 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\patri\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "C:\\Users\\patri\\Documents\\World Revolution News\\wrn-next-live-work\\node_modules\\.pnpm\\@playwright+test@1.62.1\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "tests/e2e/website-content-projection.config.ts",
+      "website-app-catalog.spec.ts"
+    ],
+    "configFile": "C:\\Users\\patri\\Documents\\World Revolution News\\wrn-next-live-work\\tests\\e2e\\website-content-projection.config.ts",
+    "rootDir": "C:/Users/patri/Documents/World Revolution News/wrn-next-live-work/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": "C:\\Users\\patri\\Documents\\World Revolution News\\wrn-next-live-work\\tests\\e2e\\website-content-projection.setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/patri/Documents/World Revolution News/wrn-next-live-work/test-results/website-projection/c2447df8-a38d-41e7-bf8f-7291f51ccf3c",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "website-390x844",
+        "name": "website-390x844",
+        "testDir": "C:/Users/patri/Documents/World Revolution News/wrn-next-live-work/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "website-content-projection.spec.ts",
+          "production-website-content.spec.ts",
+          "website-app-catalog.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/patri/Documents/World Revolution News/wrn-next-live-work/test-results/website-projection/c2447df8-a38d-41e7-bf8f-7291f51ccf3c",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "website-800x1280",
+        "name": "website-800x1280",
+        "testDir": "C:/Users/patri/Documents/World Revolution News/wrn-next-live-work/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "website-content-projection.spec.ts",
+          "production-website-content.spec.ts",
+          "website-app-catalog.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/patri/Documents/World Revolution News/wrn-next-live-work/test-results/website-projection/c2447df8-a38d-41e7-bf8f-7291f51ccf3c",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "website-1440x900",
+        "name": "website-1440x900",
+        "testDir": "C:/Users/patri/Documents/World Revolution News/wrn-next-live-work/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "website-content-projection.spec.ts",
+          "production-website-content.spec.ts",
+          "website-app-catalog.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/patri/Documents/World Revolution News/wrn-next-live-work/test-results/website-projection/c2447df8-a38d-41e7-bf8f-7291f51ccf3c",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "website-reflow-200pct",
+        "name": "website-reflow-200pct",
+        "testDir": "C:/Users/patri/Documents/World Revolution News/wrn-next-live-work/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "website-content-projection.spec.ts",
+          "production-website-content.spec.ts",
+          "website-app-catalog.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../test-results/website-projection-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "website-app-catalog.spec.ts",
+      "file": "website-app-catalog.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "all current app catalogues, EPUB-only books, filters and safe original links are reachable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "website-390x844",
+              "projectName": "website-390x844",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6621,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T11:50:35.492Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f098743443edb9e2b991-a2d7a0360ca924ce7c26",
+          "file": "website-app-catalog.spec.ts",
+          "line": 10,
+          "column": 1
+        },
+        {
+          "title": "all current app catalogues, EPUB-only books, filters and safe original links are reachable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "website-800x1280",
+              "projectName": "website-800x1280",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7129,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T11:50:35.492Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f098743443edb9e2b991-e0f8a224344ec1c6bb0e",
+          "file": "website-app-catalog.spec.ts",
+          "line": 10,
+          "column": 1
+        },
+        {
+          "title": "all current app catalogues, EPUB-only books, filters and safe original links are reachable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "website-1440x900",
+              "projectName": "website-1440x900",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6465,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T11:50:42.913Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f098743443edb9e2b991-2d90a1dd85c117f621bc",
+          "file": "website-app-catalog.spec.ts",
+          "line": 10,
+          "column": 1
+        },
+        {
+          "title": "all current app catalogues, EPUB-only books, filters and safe original links are reachable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "website-reflow-200pct",
+              "projectName": "website-reflow-200pct",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6114,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T11:50:43.519Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f098743443edb9e2b991-70c10f7b6b9188e9e97c",
+          "file": "website-app-catalog.spec.ts",
+          "line": 10,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-01T11:50:34.915Z",
+    "duration": 15096.241,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

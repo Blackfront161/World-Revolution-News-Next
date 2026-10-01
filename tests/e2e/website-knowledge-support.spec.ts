@@ -45,8 +45,8 @@ test('website knowledge provides the pinned catalogue, filters and all UI headin
   await page.goto('/?theme=violet#knowledge');
   const copy = getMobileKnowledgeCopy('en');
   await expect(page.getByRole('heading', { name: copy.title, exact: true })).toBeFocused();
-  await expect(page.getByText('30 of 609', { exact: true })).toBeVisible();
-  await page.getByLabel(copy.search, { exact: true }).fill('A chi non si dissocia');
+  await expect(page.getByText('30 of 715', { exact: true })).toBeVisible();
+  await page.getByLabel(copy.search, { exact: true }).fill('ABC des Anarchismus');
   await expect(page.getByText('1 of 1', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: copy.reset, exact: true }).click();
   await page.getByRole('button', { name: copy.lexicon, exact: true }).click();

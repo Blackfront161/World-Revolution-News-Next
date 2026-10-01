@@ -105,7 +105,7 @@ export function validateAppCatalog(v: unknown): v is AppCatalog {
     const rows = collections[kind];
     return (
       Array.isArray(rows) &&
-      rows.length <= 1000 &&
+      rows.length <= (kind === 'podcasts' ? 3000 : 1000) &&
       rows.every((r) => {
         if (
           !object(r) ||

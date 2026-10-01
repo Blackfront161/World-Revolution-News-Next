@@ -39,7 +39,8 @@ export async function prepareWebsiteAppCatalog({
     inputs.push({ path: name, sha256: hash(bytes), bytes: bytes.length });
     const document = JSON.parse(bytes);
     const rows = document.items ?? document;
-    if (!Array.isArray(rows) || rows.length > 1000) throw Error('input-count');
+    if (!Array.isArray(rows) || rows.length > (kinds[index] === 'podcasts' ? 3000 : 1000))
+      throw Error('input-count');
     const records = new Map();
     const kind = kinds[index];
     for (const item of rows) {
@@ -75,7 +76,18 @@ export async function prepareWebsiteAppCatalog({
           ? new Date(date).toISOString()
           : null;
       const id = 'app-' + hash(kind + ':' + url.href);
-      records.set(id, { id, title, source, url: url.href, language, publishedAt, country });
+      const previous = records.get(id);
+      // Multiple GUIDs for one original page cannot prove its audio language.
+      const safeLanguage = previous && previous.language !== language ? 'und' : language;
+      records.set(id, {
+        id,
+        title,
+        source,
+        url: url.href,
+        language: safeLanguage,
+        publishedAt,
+        country,
+      });
     }
     collections[kind] = [...records.values()];
     reconciliation[kind] = {

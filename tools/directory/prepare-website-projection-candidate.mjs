@@ -110,11 +110,18 @@ export async function prepareWebsiteProjectionCandidate({
     resolve(root, 'apps/website/src/features/knowledge/packed/legacy-knowledge-v1.json'),
   );
   const knowledge = JSON.parse(knowledgeBytes);
+  const parity = JSON.parse(
+    await readFile(
+      resolve(root, 'docs/evidence/WRN-CATALOG-KNOWLEDGE-2026-10-01/input-bindings.json'),
+    ),
+  );
   const knowledgeAssets = assets.filter((name) => /^legacy-knowledge-v1-.*\.json$/.test(name));
   if (
     knowledgeAssets.length !== 1 ||
     !(await readFile(resolve(build, 'assets', knowledgeAssets[0]))).equals(knowledgeBytes) ||
-    knowledge.schema !== 'wrn.website-knowledge-package.v1' ||
+    knowledge.schema !== 'wrn.website-knowledge-package.v2' ||
+    knowledge.currentKnowledge.sourceCommit !== parity.appCommit ||
+    projectionHash(knowledgeBytes) !== parity.knowledge.packedSha256 ||
     JSON.stringify(knowledge.history) !==
       JSON.stringify(
         JSON.parse(
@@ -130,7 +137,9 @@ export async function prepareWebsiteProjectionCandidate({
     catalogAssets.length !== 1 ||
     !(await readFile(resolve(build, 'assets', catalogAssets[0]))).equals(catalogBytes) ||
     catalog.schema !== 'wrn.website-events-media-package.v1' ||
-    catalog.current.commit !== projection.upstreamCommit ||
+    catalog.current.commit !== parity.dataCommit ||
+    projectionHash(catalogBytes) !== parity.appCatalog.packed.sha256 ||
+    JSON.stringify(catalog.current.inputs) !== JSON.stringify(parity.appCatalog.inputs) ||
     catalog.current.rights !== 'metadata-original-link-only' ||
     catalog.history.sha256 !==
       projectionHash(
@@ -201,13 +210,14 @@ export async function prepareWebsiteProjectionCandidate({
       packedSha256: projectionHash(catalogBytes),
     },
     appGlossary: {
-      commit: knowledge.currentGlossary.sourceCommit,
-      observedAt: knowledge.currentGlossary.observedAt,
-      terms: knowledge.currentGlossary.lexicon.terms.length,
-      references: knowledge.currentGlossary.lexicon.sources.length,
+      commit: knowledge.currentKnowledge.sourceCommit,
+      observedAt: knowledge.currentKnowledge.observedAt,
+      books: knowledge.currentKnowledge.library.books.length,
+      terms: knowledge.currentKnowledge.lexicon.terms.length,
+      references: knowledge.currentKnowledge.lexicon.sources.length,
       rights: 'existing-WRN-editorial-text',
-      inputSha256: knowledge.currentGlossary.input.lexiconSha256,
-      inputBytes: knowledge.currentGlossary.input.lexiconBytes,
+      inputSha256: knowledge.currentKnowledge.input.lexiconSha256,
+      inputBytes: knowledge.currentKnowledge.input.lexiconBytes,
       packedSha256: projectionHash(knowledgeBytes),
     },
     publicationStatus: {

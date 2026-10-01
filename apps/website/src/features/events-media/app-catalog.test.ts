@@ -14,9 +14,9 @@ describe('current app catalogue and preserved historical bytes', () => {
     const result = await unpackWebsiteCatalog(packed, signal());
     expect(
       Object.fromEntries(Object.entries(result.current.collections).map(([k, v]) => [k, v.length])),
-    ).toEqual({ radio: 27, podcasts: 710, videos: 16, library: 266, events: 5 });
+    ).toEqual({ radio: 27, podcasts: 1256, videos: 17, library: 715, events: 6 });
     expect(result.current.collections.library.every((r) => r.url.endsWith('.epub'))).toBe(true);
-    expect(result.current.commit).toBe('0349e13104465fe5ef63d22e424c6bcbdedb13e2');
+    expect(result.current.commit).toBe('4153d5f2baccbc0d7ccc16a546d08e7808dff753');
     expect(packed.history.sha256).toBe(createHash('sha256').update(historical).digest('hex'));
     expect(result.history).toEqual(JSON.parse(historical.toString('utf8')));
   });

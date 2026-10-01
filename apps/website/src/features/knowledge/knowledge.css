@@ -109,3 +109,27 @@
     min-width: 100%;
   }
 }
+.website-learning-paths {
+  margin-block: 1.5rem;
+  overflow-wrap: anywhere;
+}
+.website-learning-paths details {
+  padding: 0.8rem;
+  border: 1px solid var(--border-color, #555);
+  margin-block: 0.7rem;
+}
+.website-learning-paths summary {
+  cursor: pointer;
+}
+.website-learning-paths li {
+  margin-block: 1rem;
+}
+.website-learning-paths button {
+  margin: 0.2rem;
+}
+.website-learning-paths a,
+.website-learning-paths summary {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}

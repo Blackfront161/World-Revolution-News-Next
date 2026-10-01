@@ -16,8 +16,8 @@ describe('website knowledge loader', () => {
     );
     const result = await loadWebsiteKnowledge(new AbortController().signal);
     expect(result.projection.terms).toHaveLength(155);
-    expect(result.projection.lexiconSources).toHaveLength(13);
-    expect(result.projection.books).toHaveLength(609);
+    expect(result.projection.lexiconSources).toHaveLength(32);
+    expect(result.projection.books).toHaveLength(715);
     const aborted = new AbortController();
     aborted.abort();
     await expect(loadWebsiteKnowledge(aborted.signal)).rejects.toMatchObject({
@@ -30,9 +30,9 @@ describe('website knowledge loader', () => {
       const candidate = structuredClone(packed);
       if (variant === 'unknown-key') Object.assign(candidate, { extra: true });
       if (variant === 'broken-related')
-        candidate.currentGlossary.lexicon.terms[0]!.related.push('missing-term');
+        candidate.currentKnowledge.lexicon.terms[0]!.related.push('missing-term');
       if (variant === 'unsafe-reference')
-        candidate.currentGlossary.lexicon.sources[0]!.url = 'javascript:alert(1)';
+        candidate.currentKnowledge.lexicon.sources[0]!.url = 'javascript:alert(1)';
       vi.stubGlobal(
         'fetch',
         vi.fn().mockResolvedValue(

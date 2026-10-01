@@ -1,0 +1,23 @@
+{
+  "schema": "wrn.catalog-knowledge-evidence.v1",
+  "generatedAt": "2026-10-01T11:55:54.006Z",
+  "hashes": {
+    "website-learning-paths-390.png": {
+      "bytes": 132373,
+      "sha256": "555995c4ec87b4a874a441287e13628a1030ad6129e16a0c1fb6f0bb05b534d4"
+    },
+    "website-learning-paths-open-390.png": {
+      "bytes": 145601,
+      "sha256": "500ed09f8bf96265c60e4193e9aa0dc490b8cfd7dad653b27a2e54ac41cdf599"
+    },
+    "website-podcasts-390.png": {
+      "bytes": 99690,
+      "sha256": "7a5631a8ec5a155ae462287b3c0ecae25ec12cb9726cbfd215a78acea96d316f"
+    },
+    "input-bindings.json": {
+      "bytes": 2859,
+      "sha256": "2f069c8f3cc9f5cbd3c275ac6be46ea2fdaeba49f26411daf2cfe2cd94ef9bb9"
+    }
+  },
+  "pageErrors": []
+}

@@ -30,28 +30,18 @@ export async function loadWebsiteKnowledge(signal: AbortSignal): Promise<Website
     Array.isArray(candidate) ||
     Object.keys(candidate).length !== 3 ||
     !('schema' in candidate) ||
-    candidate.schema !== 'wrn.website-knowledge-package.v1' ||
+    candidate.schema !== 'wrn.website-knowledge-package.v2' ||
     !('history' in candidate) ||
-    !('currentGlossary' in candidate)
+    !('currentKnowledge' in candidate)
   )
     throw new TypeError('knowledge-package-invalid');
   const result = validateMobileKnowledge(candidate.history);
-  const glossary = validateMobileKnowledge(candidate.currentGlossary);
-  if (
-    !glossary.ok ||
-    glossary.value === null ||
-    glossary.value.library.books.length !== 0 ||
-    glossary.value.library.sources.length !== 0
-  )
-    throw new TypeError('glossary-asset-invalid');
+  const glossary = validateMobileKnowledge(candidate.currentKnowledge);
+  if (!glossary.ok || glossary.value === null) throw new TypeError('glossary-asset-invalid');
   if (!result.ok || result.value === null) throw new TypeError('knowledge-asset-invalid');
   verified = Object.freeze({
-    document: result.value,
-    projection: {
-      ...projectMobileKnowledge(result.value),
-      terms: projectMobileKnowledge(glossary.value).terms,
-      lexiconSources: projectMobileKnowledge(glossary.value).lexiconSources,
-    },
+    document: glossary.value,
+    projection: projectMobileKnowledge(glossary.value),
     glossaryDocument: glossary.value,
   });
   return verified;

@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { getMobileKnowledgeCopy } from '../../packages/ui-language/src';
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() =>
     sessionStorage.setItem('wrn.website.support-welcome.v1', 'dismissed'),
@@ -49,8 +50,8 @@ test('all current app catalogues, EPUB-only books, filters and safe original lin
   await radio.getByLabel('Suche', { exact: true }).fill('Radio Dreyeckland');
   await expect(radio.locator('[data-app-catalog-record]')).toHaveCount(1);
   await radio.getByRole('button', { name: 'Filter zurücksetzen', exact: true }).click();
-  await radio.getByRole('button', { name: 'Podcast-Folgen (710)', exact: true }).click();
-  const podcasts = await check('podcasts', 710);
+  await radio.getByRole('button', { name: 'Podcast-Folgen (1256)', exact: true }).click();
+  const podcasts = await check('podcasts', 1256);
   await podcasts.getByRole('button', { name: '30 weitere zeigen', exact: true }).click();
   await expect(podcasts.locator('[data-app-catalog-record]')).toHaveCount(60);
   await podcasts.getByLabel('Inhaltssprache').selectOption('it');
@@ -59,22 +60,44 @@ test('all current app catalogues, EPUB-only books, filters and safe original lin
       .locator('[data-app-catalog-record] h3')
       .evaluateAll((es) => es.every((e) => e.getAttribute('lang') === 'it')),
   ).toBe(true);
-  await podcasts.getByRole('button', { name: 'Videos (16)', exact: true }).click();
-  await check('videos', 16);
+  await podcasts.getByRole('button', { name: 'Videos (17)', exact: true }).click();
+  await check('videos', 17);
   await page.goto('/?lang=de#knowledge');
-  const library = await check('library', 266);
+  const library = page.locator('.website-knowledge-panel');
+  await expect(library.getByText('30 von 715', { exact: true })).toBeVisible();
+  await expect(library.locator('ol.website-content-list > li')).toHaveCount(30);
   expect(
     await library
-      .locator('[data-app-catalog-record] a')
+      .locator('.website-safe-links a')
       .evaluateAll((es) => es.every((e) => e.getAttribute('href')?.endsWith('.epub'))),
   ).toBe(true);
-  await library.getByLabel('Suche', { exact: true }).fill('8 Stunden');
-  await expect(library.locator('[data-app-catalog-record]')).toHaveCount(1);
+  await library
+    .getByLabel(getMobileKnowledgeCopy('de').search, { exact: true })
+    .fill('ABC des Anarchismus');
+  await expect(library.locator('ol.website-content-list > li')).toHaveCount(1);
+  await expect(library.locator('ol.website-content-list')).toContainText('Berkman');
+  await expect(library.locator('[data-learning-path]')).toHaveCount(3);
+  await expect(library.locator('[data-learning-book]')).toHaveCount(30);
+  for (const language of ['de', 'en', 'es', 'fr', 'it', 'pt', 'ru', 'el', 'tr']) {
+    await page.getByTestId('ui-language-selector').selectOption(language);
+    await expect(library.locator('[data-learning-path]')).toHaveCount(3);
+    await expect(library.locator('[data-learning-book]')).toHaveCount(30);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(
+      true,
+    );
+  }
+  await page.getByTestId('ui-language-selector').selectOption('de');
+  await library.locator('.website-learning-paths summary').first().click();
+  expect(
+    (await new AxeBuilder({ page }).include('.website-knowledge-view').analyze()).violations,
+  ).toEqual([]);
+  await library.locator('.website-learning-paths button').first().click();
+  await expect(page.locator('.website-lexicon-layout > article h2')).toHaveText('Anarchismus');
   await page.getByRole('button', { name: 'Lexikon', exact: true }).click();
   await expect(page.locator('.website-lexicon-layout')).toBeVisible();
   await expect(page.locator('.website-lexicon-layout > ul > li')).toHaveCount(155);
   await page.goto('/?lang=de#events');
-  await check('events', 5);
+  await check('events', 6);
   await page.goto('/?lang=de#solidarity');
   await expect(page.locator('#website-page-title')).toBeVisible();
   await page.goto('/?lang=de#home');
