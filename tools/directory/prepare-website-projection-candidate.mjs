@@ -106,6 +106,25 @@ export async function prepareWebsiteProjectionCandidate({
     resolve(root, 'apps/website/src/features/events-media/packed/production-events-media-v1.json'),
   );
   const catalog = JSON.parse(catalogBytes);
+  const knowledgeBytes = await readFile(
+    resolve(root, 'apps/website/src/features/knowledge/packed/legacy-knowledge-v1.json'),
+  );
+  const knowledge = JSON.parse(knowledgeBytes);
+  const knowledgeAssets = assets.filter((name) => /^legacy-knowledge-v1-.*\.json$/.test(name));
+  if (
+    knowledgeAssets.length !== 1 ||
+    !(await readFile(resolve(build, 'assets', knowledgeAssets[0]))).equals(knowledgeBytes) ||
+    knowledge.schema !== 'wrn.website-knowledge-package.v1' ||
+    JSON.stringify(knowledge.history) !==
+      JSON.stringify(
+        JSON.parse(
+          await readFile(
+            resolve(root, 'apps/website/src/features/knowledge/data/legacy-knowledge-v1.json'),
+          ),
+        ),
+      )
+  )
+    throw Error('candidate-glossary-mismatch');
   const catalogAssets = assets.filter((name) => /^production-events-media-v1-.*\.json$/.test(name));
   if (
     catalogAssets.length !== 1 ||
@@ -180,6 +199,16 @@ export async function prepareWebsiteProjectionCandidate({
       inputs: catalog.current.inputs,
       historySha256: catalog.history.sha256,
       packedSha256: projectionHash(catalogBytes),
+    },
+    appGlossary: {
+      commit: knowledge.currentGlossary.sourceCommit,
+      observedAt: knowledge.currentGlossary.observedAt,
+      terms: knowledge.currentGlossary.lexicon.terms.length,
+      references: knowledge.currentGlossary.lexicon.sources.length,
+      rights: 'existing-WRN-editorial-text',
+      inputSha256: knowledge.currentGlossary.input.lexiconSha256,
+      inputBytes: knowledge.currentGlossary.input.lexiconBytes,
+      packedSha256: projectionHash(knowledgeBytes),
     },
     publicationStatus: {
       liveDeviationResolved: false,

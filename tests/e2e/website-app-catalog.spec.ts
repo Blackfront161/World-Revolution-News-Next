@@ -21,15 +21,13 @@ test('all current app catalogues, EPUB-only books, filters and safe original lin
       `${Math.min(30, total)} von ${total}`,
     );
     await expect(catalog.locator('[data-app-catalog-record]')).toHaveCount(Math.min(30, total));
-    const links = await catalog
-      .locator('[data-app-catalog-record] a')
-      .evaluateAll((es) =>
-        es.map((a) => ({
-          href: a.getAttribute('href'),
-          rel: a.getAttribute('rel'),
-          policy: a.getAttribute('referrerpolicy'),
-        })),
-      );
+    const links = await catalog.locator('[data-app-catalog-record] a').evaluateAll((es) =>
+      es.map((a) => ({
+        href: a.getAttribute('href'),
+        rel: a.getAttribute('rel'),
+        policy: a.getAttribute('referrerpolicy'),
+      })),
+    );
     expect(
       links.every(
         (a) =>
@@ -74,6 +72,7 @@ test('all current app catalogues, EPUB-only books, filters and safe original lin
   await expect(library.locator('[data-app-catalog-record]')).toHaveCount(1);
   await page.getByRole('button', { name: 'Lexikon', exact: true }).click();
   await expect(page.locator('.website-lexicon-layout')).toBeVisible();
+  await expect(page.locator('.website-lexicon-layout > ul > li')).toHaveCount(155);
   await page.goto('/?lang=de#events');
   await check('events', 5);
   await page.goto('/?lang=de#solidarity');

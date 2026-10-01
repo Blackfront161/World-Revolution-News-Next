@@ -1,5 +1,7 @@
 .website-knowledge-view,
 .website-support-view {
+  min-width: 0;
+  overflow-wrap: anywhere;
   max-width: 76rem;
   margin: 0 auto;
 }

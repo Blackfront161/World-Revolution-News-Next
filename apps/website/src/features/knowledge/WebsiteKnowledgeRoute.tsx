@@ -312,9 +312,15 @@ export function WebsiteKnowledgeRoute({
         <>
           <p>
             {copy.snapshotDate}:{' '}
-            <time dateTime={data.document.observedAt}>
+            <time
+              dateTime={
+                tab === 'lexicon' ? data.glossaryDocument.observedAt : data.document.observedAt
+              }
+            >
               {new Intl.DateTimeFormat(language, { dateStyle: 'medium', timeZone: 'UTC' }).format(
-                new Date(data.document.observedAt),
+                new Date(
+                  tab === 'lexicon' ? data.glossaryDocument.observedAt : data.document.observedAt,
+                ),
               )}
             </time>
           </p>

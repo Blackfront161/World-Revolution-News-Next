@@ -6,6 +6,7 @@ import {
   projectMobileKnowledge,
   validateMobileKnowledge,
 } from '@wrn/content-contracts/mobile-knowledge-v1';
+import packed from './packed/legacy-knowledge-v1.json';
 describe('website knowledge snapshot', () => {
   it('keeps the approved byte-identical snapshot, contract and visible counts', async () => {
     const bytes = await readFile(
@@ -20,5 +21,12 @@ describe('website knowledge snapshot', () => {
     const projection = projectMobileKnowledge(validation.value!);
     expect(projection.books).toHaveLength(609);
     expect(projection.terms).toHaveLength(22);
+    expect(packed.history).toEqual(JSON.parse(bytes.toString('utf8')));
+    expect(validateMobileKnowledge(packed.currentGlossary).ok).toBe(true);
+    expect(packed.currentGlossary.lexicon.terms).toHaveLength(155);
+    expect(packed.currentGlossary.lexicon.sources).toHaveLength(13);
+    expect(packed.currentGlossary.input.lexiconSha256).toBe(
+      '7b01d0dafe01211c3bf0095c1033d88e950d40b1f626b5d4364f245023f6660a',
+    );
   });
 });
