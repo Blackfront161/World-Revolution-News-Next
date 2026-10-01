@@ -42,13 +42,17 @@ Website: 231 Vitest und 84 Node-Fälle bestanden. Nach Quellenklassifikations-
 und Testtypkorrektur 24 betroffene Wissens-/Katalogfälle erneut bestanden.
 Typprüfung und fokussierter Lint bestanden. Nachrichtenprojektionsverträge:
 12 Node-Fälle bestanden. Produktionsbuild mit 12 Artikel-Landings bestanden.
-Offline-Shell 7.023.465 Bytes, weiterhin unter dem harten 8-MiB-Limit.
+Offline-Shell 7.025.513 Bytes, weiterhin unter dem harten 8-MiB-Limit.
 
 Vier Browserfälle bestanden: 390/800/1440 sowie 200-%-Reflow. Podcastpagination,
 Originalsprache, sichere Originallinks, 715-Bücher-Suche, Lernpfade und
 Lexikon-Direktaufruf geprüft; Lernpfade in neun UI-Sprachen, ehrlicher EN-Fallback
 außerhalb DE/EN. Axe-Prüfung für den sichtbaren Wissensbereich ohne Befunde.
 Repräsentative Screenshots und ein Hashmanifest liegen in diesem Verzeichnis.
+Der sichtbare Einstieg bezeichnet den aktuellen lokalen Katalog statt des
+veralteten Alt-App-Katalogs; dieser UI-Text ist in neun Sprachen vorhanden.
+Nach dieser Copy-Korrektur Typprüfung/Lint/Build und 36 Sprach-/Breitenkombinationen
+bei 320/390/768/1440 erneut ohne Überlauf geprüft.
 
 Frische Vorschau: `http://127.0.0.1:43231/?lang=de#knowledge`.
 App: `http://127.0.0.1:8794/index.html?preview=8&catalog=20261001`.

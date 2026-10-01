@@ -8,6 +8,53 @@ import { LearningPaths } from './LearningPaths';
 
 type Tab = 'library' | 'lexicon';
 const pageSize = 30;
+const currentCatalogueCopy: Record<UiLanguage, { provenance: string; intro: string }> = {
+  de: {
+    provenance: 'WRN-Katalog · Bibliothek, Lexikon und Lernpfade',
+    intro:
+      'Bücher, Begriffe und Lesepfade aus unserem lokalen WRN-Katalog. Externe Texte öffnen bei ihrer Originalquelle.',
+  },
+  en: {
+    provenance: 'WRN catalogue · library, glossary and learning paths',
+    intro:
+      'Books, terms and reading paths from our local WRN catalogue. External texts open at their original source.',
+  },
+  es: {
+    provenance: 'Catálogo WRN · biblioteca, glosario e itinerarios',
+    intro:
+      'Libros, conceptos e itinerarios de lectura de nuestro catálogo local WRN. Los textos externos se abren en su fuente original.',
+  },
+  fr: {
+    provenance: 'Catalogue WRN · bibliothèque, lexique et parcours',
+    intro:
+      'Livres, notions et parcours de lecture de notre catalogue local WRN. Les textes externes s’ouvrent à leur source originale.',
+  },
+  it: {
+    provenance: 'Catalogo WRN · biblioteca, glossario e percorsi',
+    intro:
+      'Libri, concetti e percorsi di lettura dal nostro catalogo locale WRN. I testi esterni si aprono alla fonte originale.',
+  },
+  pt: {
+    provenance: 'Catálogo WRN · biblioteca, glossário e percursos',
+    intro:
+      'Livros, conceitos e percursos de leitura do nosso catálogo local WRN. Os textos externos abrem na fonte original.',
+  },
+  ru: {
+    provenance: 'Каталог WRN · библиотека, словарь и учебные маршруты',
+    intro:
+      'Книги, понятия и маршруты чтения из нашего локального каталога WRN. Внешние тексты открываются у первоисточника.',
+  },
+  el: {
+    provenance: 'Κατάλογος WRN · βιβλιοθήκη, λεξικό και διαδρομές μάθησης',
+    intro:
+      'Βιβλία, έννοιες και διαδρομές ανάγνωσης από τον τοπικό κατάλογο WRN. Τα εξωτερικά κείμενα ανοίγουν στην αρχική πηγή.',
+  },
+  tr: {
+    provenance: 'WRN kataloğu · kütüphane, sözlük ve öğrenme yolları',
+    intro:
+      'Yerel WRN kataloğumuzdan kitaplar, kavramlar ve okuma yolları. Harici metinler özgün kaynağında açılır.',
+  },
+};
 const normalize = (value: string) =>
   value
     .normalize('NFKD')
@@ -312,11 +359,11 @@ export function WebsiteKnowledgeRoute({
   }, [headingRef]);
   return (
     <section className="website-knowledge-view" aria-labelledby="website-page-title">
-      <p className="hero-kicker">{copy.provenance}</p>
+      <p className="hero-kicker">{currentCatalogueCopy[language].provenance}</p>
       <h1 id="website-page-title" ref={headingRef} tabIndex={-1}>
         {copy.title}
       </h1>
-      <p>{copy.intro}</p>
+      <p>{currentCatalogueCopy[language].intro}</p>
       {data === null ? (
         <div role="status">
           {failed ? (
