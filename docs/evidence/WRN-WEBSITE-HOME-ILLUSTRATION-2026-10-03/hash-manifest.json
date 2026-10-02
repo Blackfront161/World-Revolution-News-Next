@@ -1,0 +1,92 @@
+{
+  "schema": "wrn.website-evidence-manifest.v1",
+  "productCommit": "ef5ac42ae623101874f3001c560ba4cb44c8d932",
+  "productPaths": [
+    "apps/website/src/assets/wrn-land-rights-illustration-v1.webp",
+    "apps/website/src/features/home/WebsiteAppHome.tsx",
+    "apps/website/src/features/home/app-home.css",
+    "apps/website/src/features/home/home-editorial.test.ts",
+    "apps/website/src/features/home/home-editorial.ts",
+    "apps/website/src/features/home/home-illustration-v1.json",
+    "apps/website/src/features/home/home-note-languages-v1.json",
+    "apps/website/src/offline-shell/protocol-contract.test.mjs",
+    "apps/website/src/offline-shell/protocol.mjs",
+    "apps/website/tools/build-offline-shell.mjs",
+    "apps/website/tools/build-offline-shell.test.mjs",
+    "apps/website/tools/production-site-package.mjs",
+    "apps/website/tools/production-site-package.test.mjs"
+  ],
+  "createdAt": "2026-10-02T21:58:04.773Z",
+  "candidate": {
+    "websiteManifestSha256": "ade9a27c2d0072b0111e81e501c35f0928b6b08966409665bb616b8682042643",
+    "hostingManifestSha256": "ac83ede977c13d0095b4808410257dadebc9e5ade54abda1faa7028016ed2773",
+    "hostingShellId": "69cf0380ab53c67e13ce1620075cd9f3cd91632eb5c3d756fd246aeb8552ce7d"
+  },
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 6782,
+      "sha256": "335b21be6a1a63df1e7c21f328ed99ed90af9bf0f9cccedf080a584afda04b09"
+    },
+    {
+      "path": "REVIEW-STATUS.md",
+      "bytes": 1564,
+      "sha256": "3ab1730bc598ccedacba442acb8d99be163b9d97ffd11f15283fc850b7e8eb31"
+    },
+    {
+      "path": "app-image-handoff.json",
+      "bytes": 2600,
+      "sha256": "45c85507eb90acc5b93135df343306a8a95206528659cfc1235a247472be4dad"
+    },
+    {
+      "path": "archive-hashes.json",
+      "bytes": 809,
+      "sha256": "f6e41c1395cdd92cd5f373c29e49663a0f1de0ecbd3a517c7f42e966de6ec0aa"
+    },
+    {
+      "path": "image-handoff-review.json",
+      "bytes": 2345,
+      "sha256": "cc0da1b1972422f21d69c2e4d812f1b6dd107c4be7c38415ec807d96d247294b"
+    },
+    {
+      "path": "next-app-handoff-inspection.json",
+      "bytes": 4021,
+      "sha256": "60e10eb10d9a960cfd2b9ddaecd1e996c25435239abc5d6be5787642b167e524"
+    },
+    {
+      "path": "package-browser-result.json",
+      "bytes": 3044,
+      "sha256": "552cb6c560d75b113e89b4b8e691d68cfd315a332fd2b9a044c88042303193ab"
+    },
+    {
+      "path": "pre-upload-revocations.json",
+      "bytes": 2932,
+      "sha256": "cbd49cd3b25767e6c90480d7355a00c387e5b8833a5a78f3333e0a42865535e7"
+    },
+    {
+      "path": "preview-390.png",
+      "bytes": 640854,
+      "sha256": "d1701fed72c254e4e453ce2ac70f8b65a816e9edd1764d90b607e74d7852ba9d"
+    },
+    {
+      "path": "preview-offline-1440.png",
+      "bytes": 634026,
+      "sha256": "c0271c8249cbe54f79c3ea1379a051430105b64805b2b2019bcffc811757c320"
+    },
+    {
+      "path": "preview-result.json",
+      "bytes": 642,
+      "sha256": "7df02ce6e515ac9ad0aed9f10817a91751b99fa31756faf2849a02d320d27d9e"
+    },
+    {
+      "path": "previous-live-readback.json",
+      "bytes": 133813,
+      "sha256": "3e6990892b6d14c51a5de15ab014917e7dcf3c5363f64a2c4083b45cef2ff1d0"
+    },
+    {
+      "path": "rollback-receipt.json",
+      "bytes": 388,
+      "sha256": "60bae1c4576bea2e67952939e4a72525cb7a86c0d192ff4fecc8db433bd1da78"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "observedAt": "2026-10-02T21:33:18.659Z",
+  "checks": [
+    "Exact App selection IDs and original URLs; 21 original reading notes; working five-item edition; four viewport widths",
+    "All 21 canonical App topics and bound WRN reading notes/headlines in nine interface languages; one labelled local WRN illustration with exact handoff bytes",
+    "Actual topic filter and return to Home"
+  ],
+  "pageErrors": [],
+  "limits": [
+    "Source photos and original full texts are not admitted by this package",
+    "WRN reading notes and headlines in nine supported interface languages; no source full texts imported"
+  ]
+}
