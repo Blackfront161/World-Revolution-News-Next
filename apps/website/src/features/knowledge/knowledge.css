@@ -94,6 +94,17 @@
   grid-template-columns: minmax(14rem, 1fr) minmax(0, 2fr);
   gap: 1rem;
 }
+.website-lexicon-layout > ul {
+  margin: 0;
+  max-height: min(65vh, 40rem);
+  overflow-y: auto;
+  padding: 0;
+  list-style: none;
+}
+.website-lexicon-layout > ul button {
+  width: 100%;
+  text-align: left;
+}
 .website-lexicon-layout article {
   border: 1px solid var(--line);
   padding: 1rem;
@@ -101,6 +112,9 @@
 @media (max-width: 42rem) {
   .website-lexicon-layout {
     grid-template-columns: 1fr;
+  }
+  .website-lexicon-layout > ul {
+    max-height: 35vh;
   }
   .website-content-filters {
     align-items: stretch;
