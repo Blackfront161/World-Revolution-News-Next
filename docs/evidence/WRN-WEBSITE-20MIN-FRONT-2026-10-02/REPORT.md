@@ -135,3 +135,12 @@ Inhaltsabdeckung; ihre Sichtbarkeit ist kein korrektes Ladeorakel. Die
 unverändert. Private Zwischenfehler bleiben erhalten. `LIVE-VERIFICATION.json`
 bindet jetzt den finalen Freeze 4dfbf47, die Fault-Injection und die
 zurückgelesene aktuelle Rücksicherung.
+
+## Unabhängiger finaler Liveabschluss
+
+Der WRN Kontrolleur hat auch den finalen Live-Freeze 4dfbf47 read-only
+mit PASS abgeschlossen: 44/44 normale öffentliche Dateien ohne Hashabweichung,
+Chrome-Live-/Offline-Neustart mit allen Katalogen, keine Page Errors, automatische
+Front nach einem und zwei abgebrochenen Pointerrequests sowie die exakte
+48-Dateien-Rücksicherung. Der Website-Erststartblocker ist damit geschlossen.
+Keine weitere Produktänderung erforderlich.

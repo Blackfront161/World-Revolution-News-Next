@@ -5,7 +5,7 @@
   "status": "LIVE-PASS",
   "checkedAtUTC": "2026-10-02T09:11:26.216Z",
   "independentCodeAndPacketReview": "PASS - WRN Kontrolleur, 4dfbf47, exact 2-path delta and 45/48 byte-hash manifest binding",
-  "independentLiveReview": "815c27d PASS; 4dfbf47 follow-up requested; final 4dfbf47 wire/browser/fault receipts verified by writer",
+  "independentLiveReview": "PASS - WRN Kontrolleur final read-only acceptance of 4dfbf47: exact 44 normal public URLs, Chrome live/offline, first-visit fault injection and server backup",
   "normalPublicUrlVerification": {
     "observedAtUTC": "2026-10-02T09:03:52.990Z",
     "status": "PASS",
@@ -434,5 +434,6 @@
     "total": 237,
     "workers": 2
   },
-  "unchangedDataAndPointers": true
+  "unchangedDataAndPointers": true,
+  "independentLiveReviewReceivedAtUTC": "2026-10-02T09:14:11.428Z"
 }

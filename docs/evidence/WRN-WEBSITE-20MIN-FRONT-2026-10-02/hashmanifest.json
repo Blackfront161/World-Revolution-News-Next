@@ -45,8 +45,8 @@
     },
     {
       "path": "LIVE-VERIFICATION.json",
-      "bytes": 15054,
-      "sha256": "99f6a75272bada4006675e301065e68b9cce26796e8f0a4b0989de07d8558141",
+      "bytes": 15176,
+      "sha256": "66525f55fd271262b9ce352cbf77f76f38445d2569d84d903db06b763a58e0ff",
       "capturedSourceCommit": "4dfbf47ff8af9809ab537004f8ae5181144dec3e"
     },
     {
