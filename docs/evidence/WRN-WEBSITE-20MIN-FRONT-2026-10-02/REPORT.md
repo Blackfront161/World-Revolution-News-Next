@@ -1,6 +1,6 @@
 # WRN: App-Inhalte mit Nachrichtenfront nach 20min
 
-Produktstand `815c27d94b1a4b8e28e11b4c50110e961e07f365` auf der bereits
+Erster Produktstand `815c27d94b1a4b8e28e11b4c50110e961e07f365` auf der bereits
 unabhängig akzeptierten Inhaltsbasis `7533fe1`. Direkter PO-Auftrag vom
 2. Oktober: veröffentlichen, App-Inhalte/Marke erhalten, Aufbau nach 20min.ch.
 
@@ -60,20 +60,78 @@ Vor der Live-Umschaltung Widerrufe und alten Index erneut prüfen.
 
 Veröffentlichung durch direkten PO-Auftrag autorisiert. Head Chief hat
 paralleles Website-Deployment beendet und Website-/Hostinger-Zuständigkeit
-an diesen Chat übergeben. Neues UI-Delta benötigt den in AGENTS.md
-vorgeschriebenen unabhängigen Abschlussreview. Erlaubnis zum Anschreiben
-des bestehenden Kontrolleur-Chats ist angefragt. Noch kein Live-PASS.
-Die ZIPs sind lokal fertig und mit vollständiger Rücksicherung gebunden.
-Hostinger hat drei Uploadversuche mit HTTP 403 / „You don't have permissions
-to access this“ abgewiesen: zuerst sieben Dateien in der bestehenden Sitzung,
-dann sieben über einen frisch geöffneten Website-Dateimanager, anschließend
-eine kleine Policy-ZIP über den frisch geöffneten Hosting-Dateimanager.
-Keine bestätigte Übernahme dieser ZIPs und keine Consumer-Umschaltung.
-Screenshot und genauer Status liegen privat in
-`work/website-20min-20261002/hostinger-403.png` und `publication-status.json`.
-Der normale Liveindex wurde danach erneut hashgleich zu `f202ec5` gelesen;
-Website weiterhin erreichbar mit HTTP 200. Menschliche Hostinger-
-Neuanmeldung/Dateimanagerprüfung angefragt. Review und Veröffentlichung offen.
+an diesen Chat übergeben. Der bestehende Kontrolleur hat das UI-Delta
+unabhängig mit PASS abgenommen; Bericht SHA-256
+`e299d817e4cb7abee7f2e2da0fa17a1d695ca606678e4018ca7005d91b2afbdb`.
+
+Die vorherigen drei Uploadversuche im Hostingroot wurden mit HTTP 403
+abgewiesen. In einem frisch angelegten privaten Geschwisterordner von
+`public_html` funktionieren die normalen UI-Uploads. Alle sieben ZIPs
+bestätigt; Assets, Rootpolicy, Teilbereichspolicies/SW, Index und beide
+Zeiger nacheinander aktiviert. Keine Deaktivierung von Sicherheitsmaßnahmen.
+Ursache der vorherigen 403 nicht abschließend bestimmt.
+
+Liveindex SHA-256
+`820dfaa6dc22ad8db1b59812c525cbdfbc0ce7c131ebcf6b5ca60e053c16fdec`.
+Alle 44 öffentlichen Dateien über normale HTTPS-URLs byte-/hashgleich,
+einschließlich MIME/CSP/CORS/Cacheheaders: PASS. Widerrufsstand vor der
+Zeigerumschaltung frisch unverändert geprüft. Der echte Chrome-Livetest
+mit vollständigem Offline-Prozessneustart bestätigt alle App-Kataloge,
+155 Lexikonbegriffe und die exakten Faviconbytes, ohne Seitenfehler.
+Die private Serverrücksicherung wurde heruntergeladen und SHA-256-genau
+zu `da793c8b...` bestätigt (48 verwaltete Dateien, beide alten Zeiger).
+Der Kontrolleur bestätigt anschließend unabhängig den Live-Abschluss.
+Ein zusätzlicher frischer Erstaufruf bestätigt die automatische Freigabe
+des großen Leitartikels ohne Aktualisierungsklick und das dekodierte
+Originalbild. Desktop (1440) und Telefon (390) ohne Seiten-Overflow.
+Die anfänglichen privaten Screenshot-Harnessfehler (zu breit gefasster
+Lead-Locator bzw. alter Gridname) bleiben als Historie erhalten; der
+auf das tatsächlich gerenderte Frontgrid begrenzte finale Lauf ist PASS.
+
+Private Receipts: `work/website-projection-live-20261001/live-full-1790929446151/receipt.json`,
+`work/website-20min-20261002/live-browser-815c27d/result.json`,
+`server-backup-readback.json` und `publication-status.json`.
 
 Vorschau: http://127.0.0.1:43240/?lang=de#home
-Die vier finalen Ansichten sind über `hashmanifest.json` gebunden.
+Die vier lokalen und zwei veröffentlichten Ansichten, der unabhängige
+UI-Bericht und `LIVE-VERIFICATION.json` sind über `hashmanifest.json` gebunden.
+
+## Nachkorrektur: zuverlässiger Erststart
+
+Nach der ersten Veröffentlichung trat bei frischen Browserprofilen ein echter
+sporadischer Timeout auf. Der bestehende Bootstrap setzte seinen Einmalmerker
+vor dem fehlgeschlagenen Check und ließ die Front anschließend ohne Lead.
+Der Kontrolleur bestätigte den Befund und die anschließende Website-lokale
+Korrektur unabhängig. Finaler Produktfreeze `4dfbf47ff8af9809ab537004f8ae5181144dec3e`: zwei
+zusätzliche Websitepfade (Wrapper und Regressionstests), keine Shared-/App-Writes.
+Nur ein zuvor vollständig unberührter Erststart bekommt maximal drei
+Transportversuche beziehungsweise sechs busy/coalesced Versuche; vor jedem
+Folgecheck erneuter Guard. Clear/Unmount, gespeicherte Inhalte, neue Safety
+oder andere nicht-jungfräuliche Zustände beenden die Wiederholung.
+
+237/237 Website-Tests mit zwei Workern, Typecheck und Build PASS. Der vorherige
+maximal parallele Lauf hatte vier Directory-Ladezeitfehler; keine Testorakel
+geändert. ESLint meldet weiterhin zwei bereits vorhandene Fast-Refresh-Exports
+an den unveränderten Exportdeklarationen. Reale Browser-Fault-Injection lokal
+und live bestätigt die automatische Front nach einem sowie zwei simulierten
+Pointer-Timeouts, mit dekodiertem Leitbild und Headerlogo.
+
+45/48-Dateipaket und Code unabhängig PASS. Website-Manifest
+`d7fc4494d4744389ad52bce0f17de3fe464d3e91c088128207fc487c14b60ca5`,
+Hosting-Manifest `fdc6d52562009448cacdcf36da529d421afbff04206f6a979fd72f975dfa87b2`.
+Nur vier Serverdateien unterscheiden sich: Rootpolicy-Cacheliste, neues JS,
+SW, Index; beide Inhaltszeiger und sämtliche Inhalte bleiben bytegleich.
+Die frische vollständige Rücksicherung auf 815c27d wurde privat hochgeladen
+und vom Server zurückgelesen: 48 Dateien, SHA-256
+`5a30af2e82315a5d4c0e243b00fd49cb1dd1646fd1357a76369a9ce63369aee4`.
+Alle 44 normalen öffentlichen URLs entsprechen dem finalen Manifest.
+Die Live-Screenshots zeigen den finalen Freeze nach zwei simulierten Timeouts.
+
+Finaler Liveabschluss: alle App-Kataloge, Lexikon und genaue Faviconbytes
+auch nach vollständigem Chrome-Prozessneustart offline PASS, ohne Seitenfehler.
+Der finale Test wartet auf das Vorhandensein der anfangs geschlossenen
+Inhaltsabdeckung; ihre Sichtbarkeit ist kein korrektes Ladeorakel. Die
+5-s-Transportgrenzen und sämtliche Inhalts-/Header-/Safety-Assertions bleiben
+unverändert. Private Zwischenfehler bleiben erhalten. `LIVE-VERIFICATION.json`
+bindet jetzt den finalen Freeze 4dfbf47, die Fault-Injection und die
+zurückgelesene aktuelle Rücksicherung.
