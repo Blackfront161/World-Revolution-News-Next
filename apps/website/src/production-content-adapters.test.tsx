@@ -13,6 +13,7 @@ import {
   productionReadingStateStorageKey,
 } from './production-reading-state';
 import { App } from './App';
+import { getProductionContentCopy } from '@wrn/ui-language/production-content';
 import {
   isVirginPublicationControl,
   useProductionContentOfflineController,
@@ -86,7 +87,7 @@ describe('Website production adapter and entry', () => {
     });
     render(<App />);
     await waitFor(() => expect(check).toHaveBeenCalledTimes(2), { timeout: 3000 });
-    expect(await screen.findByText('Authored test 0')).toBeVisible();
+    expect(await screen.findByText(getProductionContentCopy('en').offlineReady)).toBeVisible();
   });
 
   it('recovers a first-visit transport failure without a manual update', async () => {
@@ -112,7 +113,7 @@ describe('Website production adapter and entry', () => {
       restore: vi.fn(async () => (check.mock.calls.length ? touched : virgin)),
     });
     render(<App />);
-    expect(await screen.findByText('Authored test 0')).toBeVisible();
+    expect(await screen.findByText(getProductionContentCopy('en').offlineReady)).toBeVisible();
     expect(check).toHaveBeenCalledTimes(2);
   });
 
@@ -140,7 +141,7 @@ describe('Website production adapter and entry', () => {
       restore: vi.fn(async () => virgin),
     });
     render(<App />);
-    expect(await screen.findByText('Authored test 0')).toBeVisible();
+    expect(await screen.findByText(getProductionContentCopy('en').offlineReady)).toBeVisible();
     expect(check).toHaveBeenCalledTimes(5);
   });
 
@@ -311,7 +312,7 @@ describe('Website production adapter and entry', () => {
     window.history.replaceState({}, '', '/?state=ready&contentMode=fixture-offline');
     const getItem = vi.spyOn(Storage.prototype, 'getItem');
     render(<App />);
-    expect(await screen.findByText('Authored test 0')).toBeVisible();
+    expect(await screen.findByText(getProductionContentCopy('en').offlineReady)).toBeVisible();
     expect(screen.queryByTestId('manifest-revision')).not.toBeInTheDocument();
     expect(screen.queryByText('Local test publication')).not.toBeInTheDocument();
     expect(getItem.mock.calls.map(([key]) => key)).not.toContain(
@@ -352,7 +353,12 @@ describe('Website production adapter and entry', () => {
     await waitFor(() =>
       expect(new URL(window.location.href).searchParams.has('article')).toBe(false),
     );
-    expect(await screen.findByText('Authored test 1')).toBeVisible();
+    await waitFor(() =>
+      expect(
+        screen.getByTestId('production-content').querySelector('.website-app-start'),
+      ).toBeInTheDocument(),
+    );
+    expect(new URL(window.location.href).hash).toBe('#home');
     expect(screen.queryByText('Self-authored browser test text.')).not.toBeInTheDocument();
   });
 });

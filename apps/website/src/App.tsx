@@ -1,4 +1,5 @@
 import { WebsiteSupportWelcome } from './website-support-welcome';
+import { WebsiteAppHome } from './features/home/WebsiteAppHome';
 import {
   createContext,
   useCallback,
@@ -2474,6 +2475,18 @@ export function App({
                 onCloseArchive={closeArchive}
                 onOpenArchive={openArchive}
                 shareAdapter={shareAdapter}
+                homeContent={
+                  target === 'home' ? (
+                    <WebsiteAppHome
+                      language={uiLanguage}
+                      onBrowse={() => navigateDirectory('news')}
+                      onSport={() => navigateDirectory('sport')}
+                      regionalEvents={
+                        <CurrentRegionalEvents client="website" language={uiLanguage} />
+                      }
+                    />
+                  ) : undefined
+                }
                 homeDirectory={
                   target === 'home'
                     ? {

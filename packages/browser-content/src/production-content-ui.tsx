@@ -204,6 +204,7 @@ export function createProductionContentArea({
     embedded = false,
     onCanonical,
     homeDirectory,
+    homeContent,
     regionalEvents,
   }: {
     target: string;
@@ -219,6 +220,7 @@ export function createProductionContentArea({
     shareAdapter: ShareAdapter;
     children?: ReactNode;
     regionalEvents?: ReactNode;
+    homeContent?: ReactNode;
     preferences?: LocalPersonalizationStateV1 | undefined;
     embedded?: boolean;
     onCanonical?(id: string, archive: boolean): void;
@@ -1220,40 +1222,42 @@ export function createProductionContentArea({
                   />
                 )}
                 {target === 'home' ? (
-                  <>
-                    {homeDirectory?.automaticTranslation && (
-                      <p className="production-home-translation-notice" lang={language}>
-                        {translationAdapter
-                          ? getHomeTranslationCopy(language).notice
-                          : getHomeTranslationCopy(language).unavailable}
-                      </p>
-                    )}
-                    <ProductionHome
-                      articles={articles}
-                      contentReady={allowed}
-                      language={language}
-                      sourcePreferences={sourcePreferences.state}
-                      renderCard={renderArticleCard}
-                      hasOriginalImage={(article) => {
-                        const view = resolveProductionArticleView(visible, article.id);
-                        return (
-                          view.kind === 'ready' &&
-                          view.blocks.some((block) => block.kind === 'image')
-                        );
-                      }}
-                      loadDirectory={homeDirectory?.load}
-                      onBrowseDirectory={homeDirectory?.onBrowse}
-                      onBrowseSport={homeDirectory?.onBrowseSport}
-                      prioritizeCurrentLinks={homeDirectory?.prioritizeCurrentLinks}
-                      leadWithCurrentSidebar={homeDirectory?.leadWithCurrentSidebar}
-                      prioritizeReviewedImages={homeDirectory?.prioritizeReviewedImages}
-                      brandMarkUrl={homeDirectory?.brandMarkUrl}
-                      regionalEvents={regionalEvents}
-                      translationAdapter={
-                        homeDirectory?.automaticTranslation ? translationAdapter : null
-                      }
-                    />
-                  </>
+                  (homeContent ?? (
+                    <>
+                      {homeDirectory?.automaticTranslation && (
+                        <p className="production-home-translation-notice" lang={language}>
+                          {translationAdapter
+                            ? getHomeTranslationCopy(language).notice
+                            : getHomeTranslationCopy(language).unavailable}
+                        </p>
+                      )}
+                      <ProductionHome
+                        articles={articles}
+                        contentReady={allowed}
+                        language={language}
+                        sourcePreferences={sourcePreferences.state}
+                        renderCard={renderArticleCard}
+                        hasOriginalImage={(article) => {
+                          const view = resolveProductionArticleView(visible, article.id);
+                          return (
+                            view.kind === 'ready' &&
+                            view.blocks.some((block) => block.kind === 'image')
+                          );
+                        }}
+                        loadDirectory={homeDirectory?.load}
+                        onBrowseDirectory={homeDirectory?.onBrowse}
+                        onBrowseSport={homeDirectory?.onBrowseSport}
+                        prioritizeCurrentLinks={homeDirectory?.prioritizeCurrentLinks}
+                        leadWithCurrentSidebar={homeDirectory?.leadWithCurrentSidebar}
+                        prioritizeReviewedImages={homeDirectory?.prioritizeReviewedImages}
+                        brandMarkUrl={homeDirectory?.brandMarkUrl}
+                        regionalEvents={regionalEvents}
+                        translationAdapter={
+                          homeDirectory?.automaticTranslation ? translationAdapter : null
+                        }
+                      />
+                    </>
+                  ))
                 ) : (
                   <div className="feed-list">
                     {articles.map((article) => renderArticleCard(article))}
