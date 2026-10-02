@@ -16,13 +16,16 @@ const current = () => {
   };
 };
 describe('learning paths use current catalogue records and original links', () => {
-  it('resolves three paths and all thirty book relationships', () => {
+  it('resolves four paths and all thirty-three book relationships', () => {
     const data = current();
     expect(data.projection.books).toHaveLength(728);
     expect(data.projection.books.filter((b) => b.languages.includes('de'))).toHaveLength(66);
     const paths = learningPathsForKnowledge(data);
-    expect(paths).toHaveLength(3);
-    expect(paths.flatMap((p) => p.entries)).toHaveLength(30);
+    expect(paths).toHaveLength(4);
+    expect(paths.flatMap((p) => p.entries)).toHaveLength(33);
+    expect(
+      paths.find((p) => p.id === 'digital-commons-and-self-organisation')?.entries,
+    ).toHaveLength(3);
     expect(
       paths
         .flatMap((p) => p.entries)
@@ -34,12 +37,12 @@ describe('learning paths use current catalogue records and original links', () =
     const entry = learningPathsForKnowledge(data)[0]!.entries[0]!;
     Object.assign(data.document.withdrawnIds, { books: [entry.bookId] });
     data.projection = projectMobileKnowledge(data.document);
-    expect(learningPathsForKnowledge(data).flatMap((p) => p.entries)).toHaveLength(29);
+    expect(learningPathsForKnowledge(data).flatMap((p) => p.entries)).toHaveLength(32);
     const changed = current();
     const book = changed.document.library.books.find((b) => b.id === entry.bookId)!;
     Object.assign(book, { downloads: { epub: 'https://other.example/book' }, readUrl: '' });
     changed.projection = projectMobileKnowledge(changed.document);
-    expect(learningPathsForKnowledge(changed).flatMap((p) => p.entries)).toHaveLength(29);
+    expect(learningPathsForKnowledge(changed).flatMap((p) => p.entries)).toHaveLength(32);
     const withdrawn = current();
     Object.assign(withdrawn.document.withdrawnIds, { terms: [entry.termIds[0]!] });
     withdrawn.projection = projectMobileKnowledge(withdrawn.document);

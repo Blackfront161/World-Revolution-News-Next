@@ -5,7 +5,7 @@ import packed from './packed/legacy-knowledge-v1.json';
 afterEach(resetWebsiteKnowledgeCacheForTest);
 
 describe('website knowledge loader', () => {
-  it('loads all 155 current terms while preserving the historical library', async () => {
+  it('loads all 167 current terms while preserving the historical library', async () => {
     vi.stubGlobal(
       'fetch',
       vi
@@ -15,8 +15,8 @@ describe('website knowledge loader', () => {
         ),
     );
     const result = await loadWebsiteKnowledge(new AbortController().signal);
-    expect(result.projection.terms).toHaveLength(155);
-    expect(result.projection.lexiconSources).toHaveLength(32);
+    expect(result.projection.terms).toHaveLength(167);
+    expect(result.projection.lexiconSources).toHaveLength(44);
     expect(result.projection.books).toHaveLength(728);
     const aborted = new AbortController();
     aborted.abort();

@@ -1,0 +1,20 @@
+{
+  "schema": "wrn.website-radio-original-links.v1",
+  "handoffCommit": "75016f6b2356918671e28964397d56219d6367de",
+  "radioInputSha256": "19546104f211dcd8a16dcdf359f99518e66996eb9ddef9f20e069161d0bf17a9",
+  "rights": "original-link-only-no-redistribution-no-offline-audio",
+  "records": [
+    {
+      "id": "app-fcaee58ec0c1ae8928f6421ed6db0e950bb48f6d2072e3d5b1e20e4b90d9f6e0",
+      "title": "3CR Community Radio",
+      "source": "3CR Community Radio",
+      "url": "https://www.3cr.org.au/",
+      "language": "en",
+      "publishedAt": null,
+      "country": "AU",
+      "streamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/3CR.mp3",
+      "evidenceUrl": "https://www.3cr.org.au/streaming",
+      "checkedAt": "2026-10-02T22:17:26.421Z"
+    }
+  ]
+}

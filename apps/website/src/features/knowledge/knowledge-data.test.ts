@@ -23,10 +23,37 @@ describe('website knowledge snapshot', () => {
     expect(projection.terms).toHaveLength(22);
     expect(packed.history).toEqual(JSON.parse(bytes.toString('utf8')));
     expect(validateMobileKnowledge(packed.currentKnowledge).ok).toBe(true);
-    expect(packed.currentKnowledge.lexicon.terms).toHaveLength(155);
-    expect(packed.currentKnowledge.lexicon.sources).toHaveLength(32);
+    expect(packed.currentKnowledge.lexicon.terms).toHaveLength(167);
+    expect(packed.currentKnowledge.lexicon.sources).toHaveLength(44);
     expect(packed.currentKnowledge.input.lexiconSha256).toBe(
-      '5064537d43a666a41e5eb3b0186a22b86b523d4f12eec3eeae5df0ff97a60c74',
+      '32419d539f47377451b2409f2665b8c13da39becde7fc033ad01d0b7c0a7c8b5',
     );
+    expect(packed.currentKnowledge.sourceCommit).toBe('75016f6b2356918671e28964397d56219d6367de');
+    const added = packed.currentKnowledge.lexicon.terms.filter((term) =>
+      [
+        'agroecology',
+        'seed-sovereignty',
+        'energy-democracy',
+        'climate-reparations',
+        'environmental-racism',
+        'community-supported-agriculture',
+        'digital-commons',
+        'federated-networks',
+        'interoperability',
+        'open-standards',
+        'free-knowledge',
+        'collective-access',
+      ].includes(term.id),
+    );
+    expect(added).toHaveLength(12);
+    expect(
+      added.every(
+        (term) =>
+          term.rights === 'user-supplied-editorial-text' &&
+          term.sources.every((id) =>
+            packed.currentKnowledge.lexicon.sources.some((source) => source.id === id),
+          ),
+      ),
+    ).toBe(true);
   });
 });

@@ -4,6 +4,7 @@ import { getEventsMediaCopy } from '@wrn/ui-language/events-media';
 import { loadWebsiteAppCatalog } from './events-media-loader';
 import type { AppCatalog, CatalogKind, AppCatalogRecord } from './app-catalog';
 import directories from './data/media-directory-sources.json';
+import { radioCatalogueRows, radioOriginalStream } from './radio-original-links';
 const emptyRows: AppCatalogRecord[] = [];
 
 const copyByLanguage: Record<UiLanguage, { title: string; radio: string; note: string }> = {
@@ -90,7 +91,11 @@ export function WebsiteAppCatalog({
       });
     return () => abort.abort();
   }, [retry]);
-  const rows = data?.collections[kind] ?? emptyRows;
+  const radioRows = useMemo(
+    () => (data ? radioCatalogueRows(data.collections.radio) : emptyRows),
+    [data],
+  );
+  const rows = kind === 'radio' ? radioRows : (data?.collections[kind] ?? emptyRows);
   const filtered = useMemo(
     () =>
       rows
@@ -185,7 +190,7 @@ export function WebsiteAppCatalog({
               }}
             >
               {labels[k]}
-              {data ? ` (${data.collections[k].length})` : ''}
+              {data ? ` (${k === 'radio' ? radioRows.length : data.collections[k].length})` : ''}
             </button>
           ))}
         </div>
@@ -305,6 +310,21 @@ export function WebsiteAppCatalog({
                     {media.openOriginal}
                     {/\.epub(?:[?#]|$)/i.test(r.url) ? ' · EPUB' : ''}
                   </a>
+                  {kind === 'radio' && radioOriginalStream(r) ? (
+                    <p>
+                      <a
+                        href={radioOriginalStream(r)!}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        referrerPolicy="no-referrer"
+                        lang={language === 'de' ? 'de' : 'en'}
+                      >
+                        {language === 'de'
+                          ? 'Live beim Originalsender hören'
+                          : 'Listen live at the original broadcaster'}
+                      </a>
+                    </p>
+                  ) : null}
                 </li>
               ))}
             </ol>
