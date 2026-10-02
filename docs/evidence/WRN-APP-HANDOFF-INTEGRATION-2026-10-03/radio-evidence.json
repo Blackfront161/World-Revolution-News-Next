@@ -1,0 +1,52 @@
+{
+  "schema": "wrn.website-next-radio-primary-evidence.v1",
+  "observedAt": "2026-10-02T22:17:26.421Z",
+  "sourcePage": "https://www.3cr.org.au/streaming",
+  "streamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/3CR.mp3",
+  "rights": "Original direct link only; no redistribution or offline audio",
+  "dataCommit": "9ce5fa03151e230f26c6b09be77620d2f7398e63",
+  "inputs": [
+    {
+      "path": "radio-stations.json",
+      "bytes": 13644,
+      "sha256": "19546104f211dcd8a16dcdf359f99518e66996eb9ddef9f20e069161d0bf17a9",
+      "rows": 28,
+      "has3CR": true
+    },
+    {
+      "path": "podcasts.json",
+      "bytes": 3162161,
+      "sha256": "0961c293c8c847f45eaf71a88aba4a51fc4ef07c7d8e6651d314842763846221",
+      "rows": 1778
+    },
+    {
+      "path": "video-feed.json",
+      "bytes": 22745,
+      "sha256": "d97a8bb13ad863554b44f0116e36a1e333329a574ed05109242687d2f8c8123f",
+      "rows": 15
+    },
+    {
+      "path": "library-feed.json",
+      "bytes": 402838,
+      "sha256": "910738929a2906bc7c44717e52a2617fb1cb028160bb2894ce5ae8259be32c0f",
+      "rows": 729
+    },
+    {
+      "path": "events-feed.json",
+      "bytes": 11997,
+      "sha256": "7d5fd1dac441183452b7979df2b15aeb741e3f6b871f3106218996d82425d4b6",
+      "rows": 6
+    }
+  ],
+  "sourceStatus": 200,
+  "sourceHtmlSha256": "4b75d56d804b5f29d4ac04e020ef7cdc1a15bb57913daffccb804527d95695a3",
+  "officialPageContainsExactStream": true,
+  "streamStatus": 206,
+  "resolvedStreamUrl": "https://23153.live.streamtheworld.com/3CR.mp3",
+  "streamMime": "audio/mpeg",
+  "firstChunkBytes": 4096,
+  "limits": [
+    "An audio HTTP response is not browser decoding or continuing playback proof",
+    "No audio saved, cached, proxied or redistributed"
+  ]
+}

@@ -1,0 +1,480 @@
+{
+  "schema": "wrn.website-app-integration-scope.v1",
+  "observedAt": "2026-10-02T22:52:31.735Z",
+  "handoffCommit": "75016f6b2356918671e28964397d56219d6367de",
+  "appCommit": "74e92546a4133ddc92ce51213f8d3f4a1eff7a68",
+  "dataCommit": "9ce5fa03151e230f26c6b09be77620d2f7398e63",
+  "rights": "Metadata and original links; WRN editorial knowledge only; no source bodies, covers, audio or expired addresses",
+  "podcasts": {
+    "inputRows": 1778,
+    "stableIds": 1778,
+    "idsWithMultipleOriginalUrls": [],
+    "uniqueCanonicalOriginalUrls": 1722,
+    "duplicateOriginalUrlRows": 56,
+    "sources": 50,
+    "before": 1722,
+    "after": 1722,
+    "added": [],
+    "removed": [],
+    "changed": [],
+    "newEpisodes": []
+  },
+  "radio": {
+    "before": 27,
+    "after": 28,
+    "added": [
+      "https://www.3cr.org.au/"
+    ],
+    "removed": [],
+    "changed": [],
+    "addedRecords": [
+      {
+        "id": "app-fcaee58ec0c1ae8928f6421ed6db0e950bb48f6d2072e3d5b1e20e4b90d9f6e0",
+        "title": "3CR Community Radio",
+        "source": "3CR Community Radio",
+        "url": "https://www.3cr.org.au/",
+        "language": "en",
+        "publishedAt": null,
+        "country": "AU"
+      }
+    ],
+    "healthEntries": 28,
+    "positiveHealth": 9,
+    "healthDoesNotEstablishContinuingPlayback": true
+  },
+  "library": {
+    "before": 728,
+    "after": 728,
+    "added": [],
+    "removed": [],
+    "changed": [],
+    "downloadLinksExcludedByHandoff": true,
+    "booksMustRetainExistingOriginalDownloadLinkBindings": true
+  },
+  "lexicon": {
+    "before": 155,
+    "after": 167,
+    "added": [
+      "agroecology",
+      "seed-sovereignty",
+      "energy-democracy",
+      "climate-reparations",
+      "environmental-racism",
+      "community-supported-agriculture",
+      "digital-commons",
+      "federated-networks",
+      "interoperability",
+      "open-standards",
+      "free-knowledge",
+      "collective-access"
+    ],
+    "removed": [],
+    "changed": []
+  },
+  "lexiconReferences": {
+    "before": 32,
+    "after": 44,
+    "added": [
+      "knowledge-agroecology",
+      "knowledge-seed-sovereignty",
+      "knowledge-energy-democracy",
+      "knowledge-climate-reparations",
+      "knowledge-environmental-racism",
+      "knowledge-community-supported-agriculture",
+      "knowledge-digital-commons",
+      "knowledge-federated-networks",
+      "knowledge-interoperability",
+      "knowledge-open-standards",
+      "knowledge-free-knowledge",
+      "knowledge-collective-access"
+    ],
+    "removed": [],
+    "changed": []
+  },
+  "learningPaths": {
+    "before": 3,
+    "after": 4,
+    "added": [
+      "digital-commons-and-self-organisation"
+    ],
+    "removed": [],
+    "changed": []
+  },
+  "lexiconLocalesUnchanged": true,
+  "articles": {
+    "visible": 426,
+    "presentInCurrentDirectory": 292,
+    "requireAdmission": 134,
+    "home": [
+      {
+        "id": "news-bf7f81a0916bf3c8e14fd76c3ea38c65a8c8ac67c2a6008059ef42a8f74b4fcc",
+        "title": "Make the wealthy pay: AIDC lays out alternative to austerity",
+        "role": "lead",
+        "url": "https://elitshanews.org.za/2026/10/02/make-the-wealthy-pay-aidc-lays-out-alternative-to-austerity/",
+        "source": "Elitsha",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-4805e4b7cf59c5de9e527df647913b42b2e7a9e98c41c0b38e024c33da7d511b",
+        "title": "Nunavut sports hall of fame inductions begin",
+        "role": "top",
+        "url": "https://nunatsiaq.com/stories/article/nunavut-sport-hall-of-fame-inductions-begin/",
+        "source": "Nunatsiaq News",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-19ec580a27780de2a9af0ed4eb0fc0441bc442f30d9954d78686e6c655a04cee",
+        "title": "“If Bolsonaro wins, they kill us; if Lula wins, they let us die.”",
+        "role": "top",
+        "url": "https://autonomies.org/2026/10/if-bolsonaro-wins-they-kill-us-if-lula-wins-they-let-us-die/",
+        "source": "Autonomies",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-cf022a0fd6b1dff18da08d530fe6f0fd9ec23a743d1ac65cd8cbc212c00d5f63",
+        "title": "Iran’s teachers movement perseveres against all odds",
+        "role": "top",
+        "url": "https://wagingnonviolence.org/2026/10/iran-teachers-movement-perseveres-against-odds/",
+        "source": "Waging Nonviolence",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-4aebfed2089e5861f814b47fdc387997351b655643f164d0fec4fe551a6752e0",
+        "title": "Site-Blocking Will Not Defend IP, No Matter the Bill’s Name",
+        "role": "top",
+        "url": "https://www.eff.org/deeplinks/2026/10/site-blocking-will-not-defend-ip-no-matter-bills-name",
+        "source": "Electronic Frontier Foundation",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-e8532636992ed876eefb26694f27f3726fe015c24893f6e7decadacdf1900a00",
+        "title": "Ethiopia accuses Sudan of backing opposition, reshuffled hope for Idris’s govt, tribal violence engulfs South Darfur, military opens road to West Kordofan, China on Sudan’s coast",
+        "role": "top",
+        "url": "https://www.madamasr.com/en/2026/10/02/news/u/ethiopia-accuses-sudan-of-backing-opposition-reshuffled-hope-for-idriss-govt-tribal-violence-engulfs-south-darfur-military-opens-road-to-west-kordofan-china-on-sudans-coast/",
+        "source": "Mada Masr (Egypt)",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-89996c282207e65c3097efb6adccbc8c85fe46c009854f1cad5386ab1cd96389",
+        "title": "Sastre sin fumigaciones: “Lo que debería venir es la agroecología para las futuras generaciones”",
+        "role": "more",
+        "url": "https://agenciatierraviva.com.ar/sastre-sin-fumigaciones-lo-que-deberia-venir-es-la-agroecologia-para-las-futuras-generaciones/",
+        "source": "Agencia Tierra Viva",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-f6e3c002e7c2304d8328565c09551f82af3051f1800ec8a83f618df06c96bacf",
+        "title": "Les dépendances artificielles / mayday / podcast",
+        "role": "more",
+        "url": "https://mars-infos.org/les-dependances-artificielles-8757",
+        "source": "MIA Marseille (FR)",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-d52cfaa043f0bce20c31fa5f04fcc8bce9e50adb2be12f2f366dc19402769081",
+        "title": "Михаил Бакунин - Революционный катехизис",
+        "role": "more",
+        "url": "https://ru.anarchistlibraries.net/library/mikhail-bakunin-revoliutsionnyi-katekhizis?v=1790973683",
+        "source": "Anarchist Library (RU)",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-71160ece10d3968bc4eef086b079366f9219621d283b98ea3405ab8e49c7dbfe",
+        "title": "#you would think those 6 syllable words were being taken away",
+        "role": "more",
+        "url": "https://queeranarchism.tumblr.com/post/829391404689211392",
+        "source": "Queer Anarchism",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-d24f42223b892eb38ec28385fa4e5ccaeb79fb2cedfae3e41560a0d7ae4983fd",
+        "title": "The North African family French critics couldn’t see",
+        "role": "more",
+        "url": "https://africasacountry.com/2026/10/the-north-african-family-french-critics-couldnt-see",
+        "source": "Africa Is a Country",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-4477980f56597e2f0462e36f3d89653f080a521476160fc92f97cc594b29d927",
+        "title": "“Sin la ayuda de mis hijos no puedo llegar a fin de mes”: otro miércoles de protesta de jubilados por una vida digna",
+        "role": "more",
+        "url": "https://argentina.indymedia.org/2026/10/02/sin-la-ayuda-de-mis-hijos-no-puedo-llegar-a-fin-de-mes-otro-miercoles-de-protesta-de-jubilados-por-una-vida-digna/",
+        "source": "Indymedia Argentina",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-7861eaeeeab2dcb2decc157a80b2cbe3bb6acfb431767c97b8c7b3de7cd9451d",
+        "title": "Comunicado Público de los Presos políticos mapuche de la Franja lavkenche condenados en el Caso Grollmus",
+        "role": "more",
+        "url": "https://radiokurruf.org/comunicado-publico-de-los-presos-politicos-mapuche-de-la-franja-lavkenche-condenados-en-el-caso-grollmus/",
+        "source": "Radio Kurruf Noticias",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-18819c41d5e1448ddcd93cd96786c015b5ee6afeca445d7095a61f8c47555433",
+        "title": "The Revolutionary Legacy of the Balkans: Yavor Tarinski’s Balkan Federation and Communes",
+        "role": "more",
+        "url": "https://libcom.org/article/revolutionary-legacy-balkans-yavor-tarinskis-balkan-federation-and-communes",
+        "source": "Libcom Library",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-63288e1130f25b9db71b153e08bf4f31c1825824bcc602af45c99b8bd208d8fd",
+        "title": "Levantamento aponta um caso de violência política a cada 37 horas durante campanha de 2026",
+        "role": "more",
+        "url": "https://apublica.org/2026/10/levantamento-aponta-um-caso-de-violencia-politica-a-cada-37-horas-durante-campanha-de-2026/",
+        "source": "Agência Pública",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-ced541655bbddcfadc012cbfbf3991f3453ca77a69d1c165e0eb0ed27e021197",
+        "title": "Iqaluit Northmart unveils completed in-store renovations",
+        "role": "briefing",
+        "url": "https://nunatsiaq.com/stories/article/iqaluit-northmart-unveils-completed-in-store-renovations/",
+        "source": "Nunatsiaq News",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-15bd626de2c3273c503e5e56575ba5f1237b486aed69af133d425062d8ddad5a",
+        "title": "FORMATION PSYCHO TRAUMA SPAAM",
+        "role": "briefing",
+        "url": "https://mars-infos.org/formation-psycho-trauma-spaam-8750",
+        "source": "MIA Marseille (FR)",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-a37bea00300e766dbeecd9293b3e85e75c4b19f67422e5e963eb50a3091ca27e",
+        "title": "FIERTÉS VÉNÈRES — Pride radicale du Sud",
+        "role": "briefing",
+        "url": "https://mars-infos.org/fiertes-veneres-pride-radicale-du-8754",
+        "source": "MIA Marseille (FR)",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-666950a407216f3604842055c309b462cc056f33cc64b0c1417ba48793f36b7d",
+        "title": "1er jour d'octobre et ça pète fort à Marseille !",
+        "role": "briefing",
+        "url": "https://mars-infos.org/1er-jour-d-octobre-et-ca-pete-fort-8760",
+        "source": "MIA Marseille (FR)",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      },
+      {
+        "id": "news-d576bb384df539b059557e499aa9f62da650491da4a96162a30f0ef378a39b2c",
+        "title": "Congress Has Another Site-Blocking Bill, And This One Targets VPNs",
+        "role": "briefing",
+        "url": "https://www.eff.org/deeplinks/2026/10/congress-has-another-site-blocking-bill-and-one-targets-vpns",
+        "source": "Electronic Frontier Foundation",
+        "presentInDirectory": false,
+        "admission": "requires-website-admission",
+        "hasOwnSummary": false
+      }
+    ],
+    "sourceMatches": [
+      {
+        "name": "Elitsha",
+        "url": "https://elitshanews.org.za/2026/10/02/make-the-wealthy-pay-aidc-lays-out-alternative-to-austerity/",
+        "existingDirectorySources": [
+          "source-bde2134385a71edcb4f6a8255a8985f57801a7cd23baad7f4c9c8432f877ddfa",
+          "source-f43ce635e5ec01a16a80c39fb3e3ab8fa11e92601095574dbe0e9d783670585a"
+        ]
+      },
+      {
+        "name": "Nunatsiaq News",
+        "url": "https://nunatsiaq.com/stories/article/nunavut-sport-hall-of-fame-inductions-begin/",
+        "existingDirectorySources": [
+          "source-2dcf9f737a0d139e115139449152c70027e695b591620d2159dbf05d7af0ee6e",
+          "source-435baeef61bacc40e9e518eb4bbd40620ada5657036dbe321542c2ee3ca389ab"
+        ]
+      },
+      {
+        "name": "Autonomies",
+        "url": "https://autonomies.org/2026/10/if-bolsonaro-wins-they-kill-us-if-lula-wins-they-let-us-die/",
+        "existingDirectorySources": [
+          "source-bd0b253a8d892feaae9ce724e44d2577b9d7218294027912a47a08c9b6fbf584",
+          "source-c840b7eeb9c0bc283310cd4c33502b310754a7c5c260aabf76b47ea552cd9348"
+        ]
+      },
+      {
+        "name": "Waging Nonviolence",
+        "url": "https://wagingnonviolence.org/2026/10/iran-teachers-movement-perseveres-against-odds/",
+        "existingDirectorySources": [
+          "source-87aec818e0d702377572c8d60c8be968df0f409350b098743d0f64eada887f26",
+          "source-e11ff9c35957b2a85dea18977795c7e5e562c6ddc917075fb6f86e0324e16ece"
+        ]
+      },
+      {
+        "name": "Electronic Frontier Foundation",
+        "url": "https://www.eff.org/deeplinks/2026/10/site-blocking-will-not-defend-ip-no-matter-bills-name",
+        "existingDirectorySources": [
+          "source-ef5503bcda4b70d449148e570edb94205d52574c97eeafe8d5caeedd3654ea15",
+          "source-f0824f315038ca0e6f5b916b0a17d1b842f33f85bdf818b346b39cbc37f5df7d"
+        ]
+      },
+      {
+        "name": "Mada Masr (Egypt)",
+        "url": "https://www.madamasr.com/en/2026/10/02/news/u/ethiopia-accuses-sudan-of-backing-opposition-reshuffled-hope-for-idriss-govt-tribal-violence-engulfs-south-darfur-military-opens-road-to-west-kordofan-china-on-sudans-coast/",
+        "existingDirectorySources": [
+          "source-378f62b5934a6410187d78526da5ea25fa410a54c35643b60912a59de325e7c9",
+          "source-e9493f2439fb496a18ebd1700487a41b54a3e6b70f08631f1f17c19db6a21df6"
+        ]
+      },
+      {
+        "name": "Agencia Tierra Viva",
+        "url": "https://agenciatierraviva.com.ar/sastre-sin-fumigaciones-lo-que-deberia-venir-es-la-agroecologia-para-las-futuras-generaciones/",
+        "existingDirectorySources": [
+          "source-85fe6ba944db112372c974914dc2bd1733c70cc060b139f7bb24079652a3776b",
+          "source-b0743fbf7994211a86491f810d58f36f707ae54cba11b3e6819bfaa5d72f9839"
+        ]
+      },
+      {
+        "name": "MIA Marseille (FR)",
+        "url": "https://mars-infos.org/les-dependances-artificielles-8757",
+        "existingDirectorySources": [
+          "source-13d7619f3b3327b6d74602ced91af07bd6e9a90c852e7d068dbaeb95309bbe70",
+          "source-cf1577885f6c083bea286a469be86134f5b7a79d7c15380cfb43b607427cb1f4"
+        ]
+      },
+      {
+        "name": "Anarchist Library (RU)",
+        "url": "https://ru.anarchistlibraries.net/library/mikhail-bakunin-revoliutsionnyi-katekhizis?v=1790973683",
+        "existingDirectorySources": [
+          "source-034e4a0d443c14778d8c3e207f3b278ad437719c25e8caace9f4dcdf3958deff",
+          "source-711a13875f0ed6b42acb52274bb657da882673ee1c16d98c2aadb3b0cbed5ce2"
+        ]
+      },
+      {
+        "name": "Queer Anarchism",
+        "url": "https://queeranarchism.tumblr.com/post/829391404689211392",
+        "existingDirectorySources": [
+          "source-ab716e75c75e02bc578fac331c514ffc9f2817d66d48be2c3901fc425d76c64d",
+          "source-e20190deb90f4f3406ef9c86b1ba434e85376b638b90d8ee9b8a755f595f16ff"
+        ]
+      },
+      {
+        "name": "Africa Is a Country",
+        "url": "https://africasacountry.com/2026/10/the-north-african-family-french-critics-couldnt-see",
+        "existingDirectorySources": [
+          "source-8d47c381dfd8abf4946a0d82c708500a28366051b40ce57b026f3f0440f164fd",
+          "source-d73aa8575b7a52df882b1ad832271f0cca8c779caab576cab9eb32678b6c929d"
+        ]
+      },
+      {
+        "name": "Indymedia Argentina",
+        "url": "https://argentina.indymedia.org/2026/10/02/sin-la-ayuda-de-mis-hijos-no-puedo-llegar-a-fin-de-mes-otro-miercoles-de-protesta-de-jubilados-por-una-vida-digna/",
+        "existingDirectorySources": [
+          "source-7cb33779fa0e809d5210643abb0cbce8721ccd30534c7c07e26978ea40629640",
+          "source-e27cdc84f2039265558374b5f8176759ffbc1bf6c1ae89512d71c72afada136c"
+        ]
+      },
+      {
+        "name": "Radio Kurruf Noticias",
+        "url": "https://radiokurruf.org/comunicado-publico-de-los-presos-politicos-mapuche-de-la-franja-lavkenche-condenados-en-el-caso-grollmus/",
+        "existingDirectorySources": [
+          "source-140c1ff05de20dcc767f5949a8f6fca3c07214302dacb50129db142ca36b76f0",
+          "source-d8d640c2c49985371ce712692037e63b254d06cad2276f2c4bef2bb1751077cc"
+        ]
+      },
+      {
+        "name": "Libcom Library",
+        "url": "https://libcom.org/article/revolutionary-legacy-balkans-yavor-tarinskis-balkan-federation-and-communes",
+        "existingDirectorySources": [
+          "source-084a7cd043f1b6b43320720a15e56eb15028aba1c567861014226cc13c61da18"
+        ]
+      },
+      {
+        "name": "Agência Pública",
+        "url": "https://apublica.org/2026/10/levantamento-aponta-um-caso-de-violencia-politica-a-cada-37-horas-durante-campanha-de-2026/",
+        "existingDirectorySources": [
+          "source-8346bf16656945bc57e086d95952c1af522789b1a51fbeb5f0743ac6d9873bad",
+          "source-ab0bb244a8cebc126474c6f2e854544230c44a42601fd005705e516b8bd758c2"
+        ]
+      },
+      {
+        "name": "Nunatsiaq News",
+        "url": "https://nunatsiaq.com/stories/article/iqaluit-northmart-unveils-completed-in-store-renovations/",
+        "existingDirectorySources": [
+          "source-2dcf9f737a0d139e115139449152c70027e695b591620d2159dbf05d7af0ee6e",
+          "source-435baeef61bacc40e9e518eb4bbd40620ada5657036dbe321542c2ee3ca389ab"
+        ]
+      },
+      {
+        "name": "MIA Marseille (FR)",
+        "url": "https://mars-infos.org/formation-psycho-trauma-spaam-8750",
+        "existingDirectorySources": [
+          "source-13d7619f3b3327b6d74602ced91af07bd6e9a90c852e7d068dbaeb95309bbe70",
+          "source-cf1577885f6c083bea286a469be86134f5b7a79d7c15380cfb43b607427cb1f4"
+        ]
+      },
+      {
+        "name": "MIA Marseille (FR)",
+        "url": "https://mars-infos.org/fiertes-veneres-pride-radicale-du-8754",
+        "existingDirectorySources": [
+          "source-13d7619f3b3327b6d74602ced91af07bd6e9a90c852e7d068dbaeb95309bbe70",
+          "source-cf1577885f6c083bea286a469be86134f5b7a79d7c15380cfb43b607427cb1f4"
+        ]
+      },
+      {
+        "name": "MIA Marseille (FR)",
+        "url": "https://mars-infos.org/1er-jour-d-octobre-et-ca-pete-fort-8760",
+        "existingDirectorySources": [
+          "source-13d7619f3b3327b6d74602ced91af07bd6e9a90c852e7d068dbaeb95309bbe70",
+          "source-cf1577885f6c083bea286a469be86134f5b7a79d7c15380cfb43b607427cb1f4"
+        ]
+      },
+      {
+        "name": "Electronic Frontier Foundation",
+        "url": "https://www.eff.org/deeplinks/2026/10/congress-has-another-site-blocking-bill-and-one-targets-vpns",
+        "existingDirectorySources": [
+          "source-ef5503bcda4b70d449148e570edb94205d52574c97eeafe8d5caeedd3654ea15",
+          "source-f0824f315038ca0e6f5b916b0a17d1b842f33f85bdf818b346b39cbc37f5df7d"
+        ]
+      }
+    ],
+    "missingDirectorySources": []
+  },
+  "constraints": [
+    "Keep ef5ac42 unchanged for independent review",
+    "Next knowledge/catalogue package can be prepared separately from news admission",
+    "New Home news requires article and source admission, withdrawals and bound own notes; no reuse of old ANRed image for another article",
+    "Catalogue row count is not a count of admitted unique episodes",
+    "No provider or Worker deployment in this scope"
+  ]
+}

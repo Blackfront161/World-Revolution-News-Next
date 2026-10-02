@@ -1,0 +1,9 @@
+{
+  "privatePolicies": "previous approved ef5ac42 hosting packet",
+  "archive": "rollback-before-5664227-ef5ac42.zip",
+  "publicationPerformed": false,
+  "publicReadbackReceipt": "live-full-1790979804270/receipt.json",
+  "sha256": "cd16586dda0a22430f97d35de7a6d50204941ec0d133fb92840fd1873538df8d",
+  "previousCommit": "ef5ac42ae623101874f3001c560ba4cb44c8d932",
+  "files": 49
+}
