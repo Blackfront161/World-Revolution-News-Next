@@ -2562,3 +2562,59 @@
 .website-app-catalog [data-app-catalog-record] h3 {
   font-size: 1.05rem;
 }
+
+/* WRN content in a compact newspaper front, following the 20min reference.
+ * Preferences, route order and the mobile app navigation remain intact. */
+.site-header-inner,
+.website-shell main[data-view='home'] {
+  width: min(100%, 67rem);
+  padding-inline: clamp(0.75rem, 2vw, 1.5rem);
+}
+.website-shell main[data-view='home'] {
+  padding-block-start: 0.75rem;
+}
+.website-shell main[data-view='home'] .production-content > h2 {
+  font-size: 0.85rem;
+  margin-block: 0 0.2rem;
+  color: var(--wrn-color-text-muted);
+}
+.website-shell main[data-view='home'] .production-content > [role='status'] {
+  margin-block: 0.2rem 0.65rem;
+  font-size: 0.75rem;
+}
+.website-shell .site-header {
+  box-shadow: none;
+}
+.website-shell .website-section-nav a {
+  padding-inline: 0.85rem;
+  font-size: 0.9rem;
+}
+@media (min-width: 48rem) {
+  .website-shell .compact-site-masthead,
+  .website-shell .site-header[data-wide-language-layout='true'] .compact-site-masthead {
+    min-height: 4.25rem;
+  }
+  .website-shell .site-brand-code26-mark {
+    height: 2.65rem;
+  }
+  .website-shell .site-nav-expanded a {
+    font-size: 0.9rem;
+  }
+}
+@media (min-width: 64rem) {
+  .website-shell .site-header-inner {
+    position: relative;
+  }
+  .website-shell .site-nav-expanded {
+    position: absolute;
+    inset-block-start: 0.75rem;
+    inset-inline: 10rem 19rem;
+    min-height: 44px;
+    border: 0;
+  }
+  .website-shell .site-nav-expanded a {
+    min-height: 44px;
+    padding-inline: 0.65rem;
+    font-size: 0.8rem;
+  }
+}
