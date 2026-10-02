@@ -49,3 +49,7 @@ Diese Untersuchung ändert weder Source-Pass-Overlay noch Directory, Home-Rollen
 ## Maßgebliche Grenzen
 
 WRN Article Admission verlangt bei fehlender, veralteter oder unpassender Quellenfreigabe: „keep admission pending or request a source review“. Unknown rights permit at most a metadata-only candidate with a confirmed original link. Ein Quellenreview oder Validator-PASS ist keine Veröffentlichungsgenehmigung. Der nächste neue Home-Freeze muss nur tatsächlich aufgenommene Beiträge enthalten und unabhängig geprüft werden.
+
+## Nachtrag: vier eigene Notizentwürfe
+
+Der konkrete Elitsha-Leitartikel und die drei Beiträge mit vorhandenen EFF-/AIAC-Metadatenpässen wurden direkt im Originalkontext gelesen. Vier neue eigene DE-/EN-Lesenotizen stehen in `OWN-READING-NOTES.md`, ausschließlich zur späteren individuellen Aufnahmeprüfung. Die frischen Status-/Titel-/Canonical-/Hashbelege und der im konkreten Elitsha-Artikel beobachtete CC-BY-NC-Link sind in `own-note-primary-evidence.json` gebunden. Beim AIAC-Beitrag wurde kein Canonical-Tag beobachtet; diese Bestätigung bleibt vor einer Aufnahme offen. Drei andere Canonical-Tags passen exakt. Die frühere allgemeine Feststellung, dass die individuelle Elitsha-Lizenzmarkierung noch unbekannt war, bleibt als damaliger Stand nachvollziehbar; dieser Nachtrag ergänzt sie, ohne Medien- oder kommerzielle Rechte zu behaupten. Kein Produktimport und keine neue Home-Auswahl aktiviert.

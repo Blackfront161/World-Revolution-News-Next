@@ -3,13 +3,23 @@
   "handoffCommit": "75016f6b2356918671e28964397d56219d6367de",
   "reviewedProductUnchanged": "566422758241190f432d8c8a09d67a5f589d90ac",
   "earlierArticleReviewEvidence": "9a072ef:docs/evidence/WRN-APP-HANDOFF-INTEGRATION-2026-10-03/home-primary-review.json",
-  "generatedAt": "2026-10-02T23:36:14.377Z",
+  "generatedAt": "2026-10-02T23:46:02.804Z",
   "sourcePassesApproved": 0,
   "files": [
     {
+      "path": "OWN-READING-NOTES.md",
+      "bytes": 4522,
+      "sha256": "872b40f5438abe5a2423b49737b1e179a27da3dd589d08c714e3e323269ed987"
+    },
+    {
       "path": "REPORT.md",
-      "bytes": 9447,
-      "sha256": "fc670322534a947434e27f9676295d101bc14e3ad3de8bedec4a3b9fe1022e83"
+      "bytes": 10363,
+      "sha256": "234577dfb572bac150741fd68ce2945801ff7bfeefbe3e8dc88affb962455679"
+    },
+    {
+      "path": "own-note-primary-evidence.json",
+      "bytes": 5318,
+      "sha256": "0104d9226782b0eb4e99ff8e4956a8692804ea425301fe9908c17fc23a02a400"
     },
     {
       "path": "source-homepage-observations.json",

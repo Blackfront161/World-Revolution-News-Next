@@ -1,0 +1,103 @@
+{
+  "schema": "wrn.website-own-note-primary-evidence.v1",
+  "handoffCommit": "75016f6b2356918671e28964397d56219d6367de",
+  "status": "needs-review",
+  "results": [
+    {
+      "articleId": "news-bf7f81a0916bf3c8e14fd76c3ea38c65a8c8ac67c2a6008059ef42a8f74b4fcc",
+      "source": "Elitsha",
+      "originalUrl": "https://elitshanews.org.za/2026/10/02/make-the-wealthy-pay-aidc-lays-out-alternative-to-austerity/",
+      "sourcePassId": null,
+      "httpStatus": 200,
+      "resolvedUrl": "https://elitshanews.org.za/2026/10/02/make-the-wealthy-pay-aidc-lays-out-alternative-to-austerity/",
+      "canonicalUrl": "https://elitshanews.org.za/2026/10/02/make-the-wealthy-pay-aidc-lays-out-alternative-to-austerity/",
+      "title": "Make the wealthy pay: AIDC lays out alternative to austerity – Elitsha",
+      "publishedAt": null,
+      "observedAt": "2026-10-02T23:46:01.382Z",
+      "htmlBytes": 130980,
+      "htmlSha256": "c727d96586275c3bd383f73733639f1e863b0a809ce69f8c863fd961ecdb485e",
+      "observedLicenseLinks": [
+        "http://creativecommons.org/licenses/by-nc/4.0/"
+      ],
+      "decision": "candidate-needs-final-review",
+      "limits": [
+        "Transient source context was read; no source body or media saved",
+        "No commercial rights or individual image licence claimed",
+        "Own notes pending individual article/source admission"
+      ],
+      "canonicalBindingConfirmed": true
+    },
+    {
+      "articleId": "news-4aebfed2089e5861f814b47fdc387997351b655643f164d0fec4fe551a6752e0",
+      "source": "Electronic Frontier Foundation",
+      "originalUrl": "https://www.eff.org/deeplinks/2026/10/site-blocking-will-not-defend-ip-no-matter-bills-name",
+      "sourcePassId": "wrn-source-pass-4f938bf89f0b4fa3a7472161d8b92dc4",
+      "httpStatus": 200,
+      "resolvedUrl": "https://www.eff.org/deeplinks/2026/10/site-blocking-will-not-defend-ip-no-matter-bills-name",
+      "canonicalUrl": "https://www.eff.org/deeplinks/2026/10/site-blocking-will-not-defend-ip-no-matter-bills-name",
+      "title": "Site-Blocking Will Not Defend IP, No Matter the Bill’s Name",
+      "publishedAt": "2026-10-02T11:59:23-07:00",
+      "observedAt": "2026-10-02T23:46:01.560Z",
+      "htmlBytes": 56524,
+      "htmlSha256": "5f28a58b6740cfb7e021813ef090424f1b6a6d2851011789d6ac044109758648",
+      "observedLicenseLinks": [],
+      "decision": "candidate-needs-final-review",
+      "limits": [
+        "Transient source context was read; no source body or media saved",
+        "No commercial rights or individual image licence claimed",
+        "Own notes pending individual article/source admission"
+      ],
+      "canonicalBindingConfirmed": true
+    },
+    {
+      "articleId": "news-d24f42223b892eb38ec28385fa4e5ccaeb79fb2cedfae3e41560a0d7ae4983fd",
+      "source": "Africa Is a Country",
+      "originalUrl": "https://africasacountry.com/2026/10/the-north-african-family-french-critics-couldnt-see",
+      "sourcePassId": "wrn-source-pass-9175a51652444964a513864dd68f3db2",
+      "httpStatus": 200,
+      "resolvedUrl": "https://africasacountry.com/2026/10/the-north-african-family-french-critics-couldnt-see",
+      "canonicalUrl": null,
+      "title": "The North African family French critics couldn’t see",
+      "publishedAt": null,
+      "observedAt": "2026-10-02T23:46:02.625Z",
+      "htmlBytes": 41984,
+      "htmlSha256": "92e618b15384574cc7cae708580bd1049cc8da828b6eba7ce36004a9b9fab0fc",
+      "observedLicenseLinks": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "decision": "candidate-needs-final-review",
+      "limits": [
+        "Transient source context was read; no source body or media saved",
+        "No commercial rights or individual image licence claimed",
+        "Own notes pending individual article/source admission",
+        "No matching canonical tag observed; confirmation remains pending before admission"
+      ],
+      "canonicalBindingConfirmed": false
+    },
+    {
+      "articleId": "news-d576bb384df539b059557e499aa9f62da650491da4a96162a30f0ef378a39b2c",
+      "source": "Electronic Frontier Foundation",
+      "originalUrl": "https://www.eff.org/deeplinks/2026/10/congress-has-another-site-blocking-bill-and-one-targets-vpns",
+      "sourcePassId": "wrn-source-pass-4f938bf89f0b4fa3a7472161d8b92dc4",
+      "httpStatus": 200,
+      "resolvedUrl": "https://www.eff.org/deeplinks/2026/10/congress-has-another-site-blocking-bill-and-one-targets-vpns",
+      "canonicalUrl": "https://www.eff.org/deeplinks/2026/10/congress-has-another-site-blocking-bill-and-one-targets-vpns",
+      "title": "Congress Has Another Site-Blocking Bill, And This One Targets VPNs",
+      "publishedAt": "2026-10-02T10:41:08-07:00",
+      "observedAt": "2026-10-02T23:46:02.722Z",
+      "htmlBytes": 58294,
+      "htmlSha256": "b20b1d70df8c2930dfc52fcea429243332a7e44937711da81264708915035032",
+      "observedLicenseLinks": [],
+      "decision": "candidate-needs-final-review",
+      "limits": [
+        "Transient source context was read; no source body or media saved",
+        "No commercial rights or individual image licence claimed",
+        "Own notes pending individual article/source admission"
+      ],
+      "canonicalBindingConfirmed": true
+    }
+  ],
+  "noArticleBodiesSaved": true,
+  "noMediaCopied": true,
+  "productChanged": false
+}
