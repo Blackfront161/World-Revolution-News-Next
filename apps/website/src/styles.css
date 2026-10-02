@@ -2565,6 +2565,9 @@
 
 /* WRN content in a compact newspaper front, following the 20min reference.
  * Preferences, route order and the mobile app navigation remain intact. */
+.website-shell .current-regional-events {
+  color: var(--wrn-color-text);
+}
 .site-header-inner,
 .website-shell main[data-view='home'] {
   width: min(100%, 67rem);
