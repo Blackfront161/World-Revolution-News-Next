@@ -16,7 +16,7 @@
     "apps/website/tools/production-site-package.mjs",
     "apps/website/tools/production-site-package.test.mjs"
   ],
-  "createdAt": "2026-10-02T21:58:31.340Z",
+  "createdAt": "2026-10-02T22:18:48.475Z",
   "candidate": {
     "websiteManifestSha256": "ade9a27c2d0072b0111e81e501c35f0928b6b08966409665bb616b8682042643",
     "hostingManifestSha256": "ac83ede977c13d0095b4808410257dadebc9e5ade54abda1faa7028016ed2773",
@@ -25,8 +25,8 @@
   "files": [
     {
       "path": "REPORT.md",
-      "bytes": 6782,
-      "sha256": "335b21be6a1a63df1e7c21f328ed99ed90af9bf0f9cccedf080a584afda04b09"
+      "bytes": 6957,
+      "sha256": "d89f8b4630d3d8e43a098753d34530b2b729620575e8a840f185e79c5a8b9289"
     },
     {
       "path": "REVIEW-STATUS.md",
