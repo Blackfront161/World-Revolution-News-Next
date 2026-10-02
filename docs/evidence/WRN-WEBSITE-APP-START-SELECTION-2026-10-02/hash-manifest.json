@@ -1,13 +1,19 @@
 {
   "schema": "wrn.website-app-home-evidence.v1",
-  "scope": "Local selection/order only; full App content parity remains open; no live upload",
+  "scope": "Selection/order published as partial correction; full App content parity remains open",
+  "productCommit": "734425ecd635478608b2b32b37c05baa8dc40860",
   "appFreeze": "ce2b5565e539cbd1373fef5684cf1997fab5b6e2",
   "directoryCommit": "d7da528c9a996a2ec13bf3912c45e18e7d58bdfa",
   "entries": [
     {
       "path": "docs/evidence/WRN-WEBSITE-APP-START-SELECTION-2026-10-02/REPORT.md",
-      "byteLength": 4980,
-      "sha256": "87e331407f03a37add7e4bc033afeb68bbefb0905893d81732fd3d1c4d588964"
+      "byteLength": 7662,
+      "sha256": "94f2288cf8304cd486162654ce143672d97936416fb061df73e48ffe76865de1"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-APP-START-SELECTION-2026-10-02/REVIEW.md",
+      "byteLength": 1986,
+      "sha256": "c9252eebe1d8d99f4085f22670c24bddebd94f01caa234936b4fe66076e16782"
     },
     {
       "path": "docs/evidence/WRN-WEBSITE-APP-START-SELECTION-2026-10-02/website-1440.png",
@@ -28,6 +34,36 @@
       "path": "docs/evidence/WRN-WEBSITE-APP-START-SELECTION-2026-10-02/preview.json",
       "byteLength": 4067,
       "sha256": "038d35a8061447cb6bb364771bce4d904dd9b1137da73cbf57c734bb894d4e8c"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-APP-START-SELECTION-2026-10-02/live-browser.json",
+      "byteLength": 2873,
+      "sha256": "3b7bb8b78aba0b4601791ad97f5fe7881330c15632b96da4702ffd7da4464d3a"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-APP-START-SELECTION-2026-10-02/live-first-check.json",
+      "byteLength": 2918,
+      "sha256": "f8cf41afed779e77b4f49cc6b57bc1e781f2144486f82e7394e143a618115055"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-APP-START-SELECTION-2026-10-02/live-1440.png",
+      "byteLength": 1580676,
+      "sha256": "20f4dbc449186ba44859bc0bb9789097b304cf092e129123f7c74c7eb00bf969"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-APP-START-SELECTION-2026-10-02/live-390.png",
+      "byteLength": 1389449,
+      "sha256": "521635520ff4c704d85e7fb49f65ac8caa432a2d66f3910cc012431764abedef"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-APP-START-SELECTION-2026-10-02/live-readback.json",
+      "byteLength": 133704,
+      "sha256": "097127e9d9115724874121ba8d321ef25a553be229b89972f2731971ca0c6487"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-APP-START-SELECTION-2026-10-02/pre-upload-revocations.json",
+      "byteLength": 2932,
+      "sha256": "736fbcd9adc7008f11cac2f4cfcd5f45b8cff5f91637089bcdd5604b5fa6a90e"
     },
     {
       "path": "apps/website/src/features/home/app-home-layout-v1.json",
