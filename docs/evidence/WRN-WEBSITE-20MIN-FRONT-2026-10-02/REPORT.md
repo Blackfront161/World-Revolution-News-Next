@@ -63,8 +63,17 @@ paralleles Website-Deployment beendet und Website-/Hostinger-Zuständigkeit
 an diesen Chat übergeben. Neues UI-Delta benötigt den in AGENTS.md
 vorgeschriebenen unabhängigen Abschlussreview. Erlaubnis zum Anschreiben
 des bestehenden Kontrolleur-Chats ist angefragt. Noch kein Live-PASS.
-Vorbereitete ZIPs liegen im privaten Hostingroot; Consumer-Umschaltung
-erst nach diesem Review. Aktueller Liveindex weiter auf altem `f202ec5`.
+Die ZIPs sind lokal fertig und mit vollständiger Rücksicherung gebunden.
+Hostinger hat drei Uploadversuche mit HTTP 403 / „You don't have permissions
+to access this“ abgewiesen: zuerst sieben Dateien in der bestehenden Sitzung,
+dann sieben über einen frisch geöffneten Website-Dateimanager, anschließend
+eine kleine Policy-ZIP über den frisch geöffneten Hosting-Dateimanager.
+Keine bestätigte Übernahme dieser ZIPs und keine Consumer-Umschaltung.
+Screenshot und genauer Status liegen privat in
+`work/website-20min-20261002/hostinger-403.png` und `publication-status.json`.
+Der normale Liveindex wurde danach erneut hashgleich zu `f202ec5` gelesen;
+Website weiterhin erreichbar mit HTTP 200. Menschliche Hostinger-
+Neuanmeldung/Dateimanagerprüfung angefragt. Review und Veröffentlichung offen.
 
 Vorschau: http://127.0.0.1:43240/?lang=de#home
 Die vier finalen Ansichten sind über `hashmanifest.json` gebunden.
