@@ -185,6 +185,11 @@ export function createShellProtocol() {
         4 * 1024 * 1024,
       ],
       [/^\/assets\/wrn-app-icon-[A-Za-z0-9_-]+\.png$/, 'image/png', 16 * 1024],
+      [
+        /^\/assets\/wrn-land-rights-illustration-v1-[A-Za-z0-9_-]+\.webp$/,
+        'image/webp',
+        700 * 1024,
+      ],
     ];
     const seen = new Set();
     let total = 0;
@@ -204,8 +209,8 @@ export function createShellProtocol() {
       total += entry.bytes;
     }
     return (
-      (seen.size - Number(seen.has(9)) === 9 ||
-        (seen.size - Number(seen.has(9)) === 8 && !seen.has(8))) &&
+      (seen.size - Number(seen.has(9)) - Number(seen.has(10)) === 9 ||
+        (seen.size - Number(seen.has(9)) - Number(seen.has(10)) === 8 && !seen.has(8))) &&
       total <= maxBytes &&
       manifest.totalBytes === total
     );
@@ -236,6 +241,11 @@ export function createShellProtocol() {
         4 * 1024 * 1024,
       ],
       [/^\/assets\/wrn-app-icon-[A-Za-z0-9_-]+\.png$/, 'image/png', 16 * 1024],
+      [
+        /^\/assets\/wrn-land-rights-illustration-v1-[A-Za-z0-9_-]+\.webp$/,
+        'image/webp',
+        700 * 1024,
+      ],
     ];
     const javascript =
       /^\/assets\/(?:index|react-vendor|rolldown-runtime|wrn-language|wrn-content-core|wrn-browser-runtime)-[A-Za-z0-9_-]+\.js$/;
@@ -270,8 +280,8 @@ export function createShellProtocol() {
     }
     return (
       [0, 1, 2, 3, 4, 5].every((family) => fixed.has(family)) &&
-      (fixed.size - Number(fixed.has(7)) === 6 ||
-        (fixed.size - Number(fixed.has(7)) === 7 && fixed.has(6))) &&
+      (fixed.size - Number(fixed.has(7)) - Number(fixed.has(8)) === 6 ||
+        (fixed.size - Number(fixed.has(7)) - Number(fixed.has(8)) === 7 && fixed.has(6))) &&
       javascriptCount >= 2 &&
       javascriptCount <= 12 &&
       stylesheetCount >= 1 &&

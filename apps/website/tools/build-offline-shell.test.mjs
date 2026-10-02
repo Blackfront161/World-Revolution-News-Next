@@ -237,6 +237,42 @@ test('dedicated original app icon is bound separately and historical shell graph
   }
 });
 
+test('only the approved local WRN illustration bytes enter the bounded closed graph', async (t) => {
+  const { root, dist } = await fixture();
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const baseline = await collectShellManifest({ outputDirectory: dist });
+  const bytes = await readFile(
+    path.resolve(import.meta.dirname, '../src/assets/wrn-land-rights-illustration-v1.webp'),
+  );
+  const imagePath = 'assets/wrn-land-rights-illustration-v1-a.webp';
+  await writeFile(path.join(dist, imagePath), bytes);
+  const vitePath = path.join(dist, '.vite/manifest.json');
+  const vite = JSON.parse(await readFile(vitePath, 'utf8'));
+  vite['index.html'].assets.push(imagePath);
+  await writeFile(vitePath, JSON.stringify(vite));
+  const built = await buildOfflineShell({ outputDirectory: dist });
+  assert.equal(createShellProtocol().metadata(baseline), true);
+  assert.equal(createShellProtocol().metadata(built.manifest), true);
+  assert.equal(built.entries.length, baseline.entries.length + 1);
+  assert.deepEqual(
+    built.entries.find((entry) => entry.path === '/' + imagePath),
+    {
+      path: '/' + imagePath,
+      mime: 'image/webp',
+      bytes: 455444,
+      sha256: 'e33d13ae13efbf10463e6bb1e660f02305b323ae83ef2e4aa22c58f579b111ab',
+    },
+  );
+  await writeFile(path.join(dist, imagePath), Buffer.from('changed'));
+  await assert.rejects(() => collectShellManifest({ outputDirectory: dist }), /approved handoff/);
+  await writeFile(path.join(dist, imagePath), bytes);
+  await writeFile(path.join(dist, 'assets/wrn-land-rights-illustration-v1-b.webp'), bytes);
+  await assert.rejects(
+    () => collectShellManifest({ outputDirectory: dist }),
+    /Duplicate WRN illustration/,
+  );
+});
+
 test('a second app icon and a favicon which does not bind its dedicated file fail closed', async (t) => {
   const { root, dist } = await fixture();
   t.after(() => rm(root, { recursive: true, force: true }));

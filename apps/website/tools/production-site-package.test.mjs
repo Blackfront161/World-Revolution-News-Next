@@ -96,7 +96,16 @@ test('two packages have deterministic bytes, exact real closure and immutable in
   const two = await prepare(options(path.join(base, 'two')));
   assert.deepEqual(await readFile(one.manifestPath), await readFile(two.manifestPath));
   assert.deepEqual(await check(one.outputDirectory), await check(two.outputDirectory));
-  assert.equal(manifest.files.length, 45);
+  assert.equal(manifest.files.length, 46);
+  const illustrations = manifest.files.filter((entry) =>
+    /^assets\/wrn-land-rights-illustration-v1-[A-Za-z0-9_-]+\.webp$/.test(entry.path),
+  );
+  assert.equal(illustrations.length, 1);
+  assert.equal(illustrations[0].bytes, 455444);
+  assert.equal(
+    illustrations[0].sha256,
+    'e33d13ae13efbf10463e6bb1e660f02305b323ae83ef2e4aa22c58f579b111ab',
+  );
   const icons = manifest.files.filter((entry) =>
     /^assets\/wrn-app-icon-[A-Za-z0-9_-]+\.png$/.test(entry.path),
   );
@@ -120,7 +129,7 @@ test('two packages have deterministic bytes, exact real closure and immutable in
       'articles/wrn-art-f2ad391804423c87773b3351eb79c802/index.html',
     ],
   );
-  assert.equal(manifest.sourceInput.files.length, 42);
+  assert.equal(manifest.sourceInput.files.length, 43);
   assert(manifest.files.some((entry) => entry.path === 'wrn-source-passes/current.json'));
   assert(manifest.files.some((entry) => entry.path === 'wrn-source-pass-revocations/current.json'));
   assert(
@@ -247,6 +256,7 @@ test('Apache and per-resource profiles bind CSP, credentialless CORS and exact c
     'utf8',
   );
   assert.match(root, /AddType application\/json \.json/);
+  assert.match(root, /AddType image\/webp \.webp/);
   const mimeRules = [...root.matchAll(/<FilesMatch "([^"]+)">([\s\S]*?)<\/FilesMatch>/g)];
   const shell = await collectShellManifest({ outputDirectory: input, compatibility: 'g3-015-v1' });
   for (const resource of shell.entries) {
@@ -500,7 +510,7 @@ test('CLI succeeds from non-root cwd and rejects full-length unknown, duplicate,
     options('').previousRevocationsFile,
   ];
   const success = await run(process.execPath, [script, ...args], { cwd: base });
-  assert.equal(JSON.parse(success.stdout).files, 45);
+  assert.equal(JSON.parse(success.stdout).files, 46);
   for (const invalid of [
     ['--unknown', ...args.slice(1)],
     [...args.slice(0, 8), '--build', input],

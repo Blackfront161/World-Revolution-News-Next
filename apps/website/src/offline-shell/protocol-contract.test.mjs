@@ -1,6 +1,59 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
+test('WRN illustration is optional, uniquely bounded and restricted to its local WebP family', async () => {
+  const p = (await import('./protocol.mjs')).createShellProtocol();
+  const entries = [
+    ['/index.html', 'text/html; charset=utf-8'],
+    ['/assets/index-a.js', 'text/javascript; charset=utf-8'],
+    ['/assets/index-a.css', 'text/css; charset=utf-8'],
+    ['/assets/solinaridao-header-mark-filled-a.png', 'image/png'],
+    ['/assets/wrn-future-header-white-a.png', 'image/png'],
+    ...['legacy-knowledge-v1', 'legacy-support-v1', 'content-directory-v1'].map((name) => [
+      `/assets/${name}-a.json`,
+      'application/json; charset=utf-8',
+    ]),
+  ].map(([path, mime]) => ({ path, mime, bytes: 1, sha256: 'a'.repeat(64) }));
+  for (const base of [
+    entries,
+    [
+      ...entries,
+      {
+        path: '/assets/react-vendor-a.js',
+        mime: 'text/javascript; charset=utf-8',
+        bytes: 1,
+        sha256: 'a'.repeat(64),
+      },
+    ],
+  ]) {
+    assert.equal(p.metadata({ entries: base, totalBytes: base.length }), true);
+    const image = {
+      path: '/assets/wrn-land-rights-illustration-v1-a.webp',
+      mime: 'image/webp',
+      bytes: 700 * 1024,
+      sha256: 'a'.repeat(64),
+    };
+    const withImage = { entries: [...base, image], totalBytes: base.length + image.bytes };
+    assert.equal(p.metadata(withImage), true);
+    for (const patch of [
+      { bytes: 700 * 1024 + 1 },
+      { mime: 'image/png' },
+      { path: '/assets/foreign-a.webp' },
+      { path: 'https://example.org/assets/wrn-land-rights-illustration-v1-a.webp' },
+      { path: '/assets/wrn-land-rights-illustration-v1-a.webp?unbound=1' },
+    ]) {
+      const invalid = structuredClone(withImage);
+      Object.assign(invalid.entries.at(-1), patch);
+      invalid.totalBytes = invalid.entries.reduce((sum, item) => sum + item.bytes, 0);
+      assert.equal(p.metadata(invalid), false);
+    }
+    const duplicate = structuredClone(withImage);
+    duplicate.entries.push({ ...image, path: '/assets/wrn-land-rights-illustration-v1-b.webp' });
+    duplicate.totalBytes += image.bytes;
+    assert.equal(p.metadata(duplicate), false);
+  }
+});
+
 test('complete nine-entry shell keeps exact original families, new metadata bounds and aggregate identity', async () => {
   const { createShellProtocol } = await import('./protocol.mjs');
   const p = createShellProtocol();

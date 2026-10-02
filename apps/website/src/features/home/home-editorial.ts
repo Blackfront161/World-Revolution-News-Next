@@ -2,6 +2,8 @@ import type { DirectoryArticle } from '@wrn/content-contracts/mobile-content-dir
 import type { UiLanguage } from '@wrn/ui-language';
 import editorial from './app-home-editorial-v1.json';
 import topicCatalog from './app-topics-v1.json';
+import noteLanguages from './home-note-languages-v1.json';
+import illustration from './home-illustration-v1.json';
 
 /** An editorial note never restores an article removed by directory/source safety. */
 export function homeReadingNote(article: DirectoryArticle, directoryCommit: string) {
@@ -16,7 +18,40 @@ export function homeReadingNote(article: DirectoryArticle, directoryCommit: stri
     ) ?? null
   );
 }
+/** Local language versions remain bound to the reviewed WRN note and article. */
+export function homeReadingSummary(
+  article: DirectoryArticle,
+  directoryCommit: string,
+  language: UiLanguage,
+) {
+  const note = homeReadingNote(article, directoryCommit);
+  if (!note) return null;
+  if (language === 'de') return { text: note.summaryDe, language: 'de', headline: note.headlineDe };
+  const translated = noteLanguages.entries.find(
+    (entry) =>
+      entry.articleId === note.articleId &&
+      entry.sourceSummaryEn === note.summaryEn &&
+      entry.sourceHeadlineDe === note.headlineDe,
+  );
+  if (language === 'en')
+    return { text: note.summaryEn, language: 'en', headline: translated?.headlines.en };
+  const text = translated?.summaries[language];
+  return text
+    ? { text, language, headline: translated?.headlines[language] }
+    : { text: note.summaryEn, language: 'en', headline: undefined };
+}
 export const appTopics: readonly string[] = topicCatalog.topics;
+export function homeArticleIllustration(article: DirectoryArticle, directoryCommit: string) {
+  return homeReadingNote(article, directoryCommit) &&
+    directoryCommit === illustration.directoryCommit &&
+    article.id === illustration.articleId &&
+    article.url === illustration.originalUrl &&
+    article.title === illustration.originalTitle &&
+    illustration.assetType === 'wrn-original-generated-illustration' &&
+    illustration.noForeignSourceImageCopied
+    ? illustration
+    : null;
+}
 export function appTopicLabel(topic: string, language: UiLanguage): string {
   const labels = topicCatalog.labels as Record<string, Record<string, string>>;
   return labels[language]?.[topic] ?? topic;

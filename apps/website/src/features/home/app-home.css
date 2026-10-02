@@ -67,6 +67,20 @@
   line-height: 1.5;
   margin: 0.75rem 0;
 }
+.app-start-illustration {
+  margin: 0 0 1rem;
+}
+.app-start-illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.app-start-illustration figcaption {
+  margin-top: 0.4rem;
+  color: var(--wrn-color-muted);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
 .app-start-story--main .app-start-original {
   color: #d71934;
 }

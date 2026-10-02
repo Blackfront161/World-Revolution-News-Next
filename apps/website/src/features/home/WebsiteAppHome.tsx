@@ -13,8 +13,15 @@ import {
   type WebsiteContentDirectory,
 } from '../directory/directory-loader';
 import layout from './app-home-layout-v1.json';
-import { appTopics, appTopicLabel, homeReadingNote, homeCoverage } from './home-editorial';
+import {
+  appTopics,
+  appTopicLabel,
+  homeReadingSummary,
+  homeArticleIllustration,
+  homeCoverage,
+} from './home-editorial';
 import './app-home.css';
+import landRightsIllustration from '../../assets/wrn-land-rights-illustration-v1.webp';
 
 const homeLabels: Record<
   UiLanguage,
@@ -199,8 +206,8 @@ export function WebsiteAppHome({
         }).format(new Date(article.publishedAt))
       : '';
   const title = (article: DirectoryArticle, position: number) =>
-    language === 'de' && data && homeReadingNote(article, data.document.sourceCommit) ? (
-      <>{homeReadingNote(article, data.document.sourceCommit)!.headlineDe}</>
+    data && homeReadingSummary(article, data.document.sourceCommit, language)?.headline ? (
+      <>{homeReadingSummary(article, data.document.sourceCommit, language)!.headline}</>
     ) : (
       <AutomaticDirectoryTitle
         article={article}
@@ -210,10 +217,10 @@ export function WebsiteAppHome({
         position={position}
       />
     );
-  const note = (article: DirectoryArticle) =>
-    data ? homeReadingNote(article, data.document.sourceCommit) : null;
   const summary = (article: DirectoryArticle) =>
-    language === 'de' ? note(article)?.summaryDe : note(article)?.summaryEn;
+    data ? homeReadingSummary(article, data.document.sourceCommit, language) : null;
+  const illustration = (article: DirectoryArticle) =>
+    data ? homeArticleIllustration(article, data.document.sourceCommit) : null;
   const story = (article: DirectoryArticle, role = 'main', position = 0) => (
     <article
       className={`app-start-story app-start-story--${role}`}
@@ -222,6 +229,29 @@ export function WebsiteAppHome({
         : { 'data-app-home-article': article.id })}
       key={article.id}
     >
+      {illustration(article) && (
+        <figure className="app-start-illustration" data-wrn-illustration={article.id}>
+          <img
+            src={landRightsIllustration}
+            alt={language === 'de' ? illustration(article)!.altDe : illustration(article)!.altEn}
+            lang={language === 'de' ? 'de' : 'en'}
+            width="1672"
+            height="941"
+            loading={role === 'lead' ? 'eager' : 'lazy'}
+          />
+          <figcaption lang={language === 'de' ? 'de' : 'en'}>
+            <strong>
+              {language === 'de'
+                ? illustration(article)!.creditDe
+                : illustration(article)!.creditEn}
+            </strong>
+            {' · '}
+            {language === 'de'
+              ? illustration(article)!.captionDe
+              : illustration(article)!.captionEn}
+          </figcaption>
+        </figure>
+      )}
       <div className="app-start-story__meta">
         <span>{article.sourceName}</span>
         <time dateTime={article.publishedAt ?? undefined}>{dated(article)}</time>
@@ -250,8 +280,8 @@ export function WebsiteAppHome({
         </h3>
       )}
       {summary(article) && (
-        <p className="app-start-story__summary" lang={language === 'de' ? 'de' : 'en'}>
-          {summary(article)}
+        <p className="app-start-story__summary" lang={summary(article)!.language}>
+          {summary(article)!.text}
         </p>
       )}
       <div className="app-start-story__topics">
@@ -295,10 +325,10 @@ export function WebsiteAppHome({
         ))}
       </nav>
       {selected && (
-        <p className="app-start-editorial-credit">
+        <p className="app-start-editorial-credit" lang={language === 'de' ? 'de' : 'en'}>
           {language === 'de'
-            ? 'Die Startauswahl der App · Kurztexte und deutsche Schlagzeilen von WRN · Originalbeiträge jeweils verlinkt'
-            : 'The App’s Home selection · Reading notes by WRN · Original articles linked'}
+            ? 'Die Startauswahl der App · Kurztexte und Schlagzeilen von WRN · Originalbeiträge jeweils verlinkt'
+            : 'The App’s Home selection · Reading notes and headlines by WRN · Original articles linked'}
         </p>
       )}
       {!selected ? (

@@ -131,6 +131,7 @@ function policies(security, shell) {
     'AddType application/xml .xml',
     'AddType text/plain .txt',
     'AddType image/png .png',
+    'AddType image/webp .webp',
     ...Object.entries({
       html: 'text/html',
       js: 'text/javascript',
