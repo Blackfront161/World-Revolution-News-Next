@@ -16,7 +16,7 @@
     "apps/website/tools/production-site-package.mjs",
     "apps/website/tools/production-site-package.test.mjs"
   ],
-  "createdAt": "2026-10-02T22:18:48.475Z",
+  "createdAt": "2026-10-02T22:20:51.516Z",
   "candidate": {
     "websiteManifestSha256": "ade9a27c2d0072b0111e81e501c35f0928b6b08966409665bb616b8682042643",
     "hostingManifestSha256": "ac83ede977c13d0095b4808410257dadebc9e5ade54abda1faa7028016ed2773",
@@ -25,13 +25,13 @@
   "files": [
     {
       "path": "REPORT.md",
-      "bytes": 6957,
-      "sha256": "d89f8b4630d3d8e43a098753d34530b2b729620575e8a840f185e79c5a8b9289"
+      "bytes": 7391,
+      "sha256": "217ad58130273921f61c5de1a62e612c1eff7be15f1755fb1ced36cde27aa142"
     },
     {
       "path": "REVIEW-STATUS.md",
-      "bytes": 1564,
-      "sha256": "3ab1730bc598ccedacba442acb8d99be163b9d97ffd11f15283fc850b7e8eb31"
+      "bytes": 2170,
+      "sha256": "fbe93fe7f3b86122859d2e58a82a8ef12618eea93d0843681f9fd0c86b6b206a"
     },
     {
       "path": "app-image-handoff.json",
@@ -51,7 +51,7 @@
     {
       "path": "next-app-handoff-inspection.json",
       "bytes": 4021,
-      "sha256": "91b8da7fe42628368ed20e698a510eac49b27c3d8b841a7c9888a05aa1f9ab7e"
+      "sha256": "4da3985b7c4d435a55f642082e69a15051369b47a2df2086ddff01fe139187ab"
     },
     {
       "path": "package-browser-result.json",
@@ -82,6 +82,11 @@
       "path": "previous-live-readback.json",
       "bytes": 133813,
       "sha256": "3e6990892b6d14c51a5de15ab014917e7dcf3c5363f64a2c4083b45cef2ff1d0"
+    },
+    {
+      "path": "release-review.json",
+      "bytes": 2436,
+      "sha256": "94556b4bd90a6a3e422df3b6ef49b9fc681dc575be0d398fb6259340cace8a2f"
     },
     {
       "path": "rollback-receipt.json",
