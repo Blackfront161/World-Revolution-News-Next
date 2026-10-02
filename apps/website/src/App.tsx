@@ -393,7 +393,7 @@ function readThemePreference(
       window.localStorage.removeItem(themeStorageKey);
       return 'dark';
     }
-    return storedPreference === null ? 'dark' : normalizeThemePreference(storedPreference);
+    return storedPreference === null ? 'light' : normalizeThemePreference(storedPreference);
   } catch {
     return 'dark';
   }
