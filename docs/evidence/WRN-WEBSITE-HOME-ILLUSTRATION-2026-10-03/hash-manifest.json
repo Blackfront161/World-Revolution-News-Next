@@ -16,7 +16,7 @@
     "apps/website/tools/production-site-package.mjs",
     "apps/website/tools/production-site-package.test.mjs"
   ],
-  "createdAt": "2026-10-02T21:58:04.773Z",
+  "createdAt": "2026-10-02T21:58:31.340Z",
   "candidate": {
     "websiteManifestSha256": "ade9a27c2d0072b0111e81e501c35f0928b6b08966409665bb616b8682042643",
     "hostingManifestSha256": "ac83ede977c13d0095b4808410257dadebc9e5ade54abda1faa7028016ed2773",
@@ -40,8 +40,8 @@
     },
     {
       "path": "archive-hashes.json",
-      "bytes": 809,
-      "sha256": "f6e41c1395cdd92cd5f373c29e49663a0f1de0ecbd3a517c7f42e966de6ec0aa"
+      "bytes": 782,
+      "sha256": "9af5355339f871fa6251322aeb0760a6c084c33d6d770c286d83c396aa673062"
     },
     {
       "path": "image-handoff-review.json",
@@ -51,7 +51,7 @@
     {
       "path": "next-app-handoff-inspection.json",
       "bytes": 4021,
-      "sha256": "60e10eb10d9a960cfd2b9ddaecd1e996c25435239abc5d6be5787642b167e524"
+      "sha256": "91b8da7fe42628368ed20e698a510eac49b27c3d8b841a7c9888a05aa1f9ab7e"
     },
     {
       "path": "package-browser-result.json",
@@ -85,8 +85,8 @@
     },
     {
       "path": "rollback-receipt.json",
-      "bytes": 388,
-      "sha256": "60bae1c4576bea2e67952939e4a72525cb7a86c0d192ff4fecc8db433bd1da78"
+      "bytes": 379,
+      "sha256": "fc278b91a7e3317dd4b031702a4fba767244dab804f9961dbd3d9848b822e30d"
     }
   ]
 }
