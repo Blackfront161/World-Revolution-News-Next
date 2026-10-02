@@ -3,6 +3,7 @@ import { getMobileKnowledgeCopy, type UiLanguage } from '@wrn/ui-language';
 import { getEventsMediaCopy } from '@wrn/ui-language/events-media';
 import { loadWebsiteAppCatalog } from './events-media-loader';
 import type { AppCatalog, CatalogKind, AppCatalogRecord } from './app-catalog';
+import directories from './data/media-directory-sources.json';
 const emptyRows: AppCatalogRecord[] = [];
 
 const copyByLanguage: Record<UiLanguage, { title: string; radio: string; note: string }> = {
@@ -131,6 +132,29 @@ export function WebsiteAppCatalog({
       <h2 id={`app-catalog-${mode}`}>
         {copy.title} · {labels[kind]}
       </h2>
+      {mode === 'media' && kind === 'podcasts' ? (
+        <aside>
+          <h3>{language === 'de' ? 'Weitere Audio-Verzeichnisse' : 'More audio directories'}</h3>
+          <p lang={language === 'de' ? 'de' : 'en'}>
+            {language === 'de'
+              ? 'Bei der Originalquelle öffnen. Ein automatischer Podcastfeed ist noch nicht bestätigt.'
+              : 'Open at the original source. An automatic podcast feed has not yet been confirmed.'}
+          </p>
+          {directories.sources.map((source) => (
+            <p key={source.id}>
+              <a
+                href={source.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                referrerPolicy="no-referrer"
+              >
+                {source.name}
+              </a>{' '}
+              · {source.country}
+            </p>
+          ))}
+        </aside>
+      ) : null}
       <p>
         {copy.note}
         {data ? (

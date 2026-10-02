@@ -70,7 +70,10 @@ export async function prepareWebsiteAppCatalog({
         (country !== null && !plain(country, 100))
       )
         throw Error('invalid-metadata');
-      const date = item.published ?? item.publishedAt ?? item.updatedAt ?? item.eventStart;
+      const date =
+        kind === 'library'
+          ? (item.published ?? item.publishedAt)
+          : (item.published ?? item.publishedAt ?? item.updatedAt ?? item.eventStart);
       const publishedAt =
         typeof date === 'string' && Number.isFinite(Date.parse(date))
           ? new Date(date).toISOString()

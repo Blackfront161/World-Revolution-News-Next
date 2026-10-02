@@ -5,6 +5,7 @@ import { loadWebsiteKnowledge, type WebsiteKnowledge } from './knowledge-loader'
 import { BlackAnarchismResources } from '../../../../../packages/browser-content/src/black-anarchism-resources';
 import './knowledge.css';
 import { LearningPaths } from './LearningPaths';
+import { localizedKnowledgeTerm } from './lexicon-locales';
 
 type Tab = 'library' | 'lexicon';
 const pageSize = 30;
@@ -230,13 +231,14 @@ function Lexicon({
         (term) =>
           (!query ||
             normalize(
-              `${term.title.de} ${term.title.en} ${term.summary.de} ${term.summary.en}`,
+              `${term.title.de} ${term.title.en} ${term.summary.de} ${term.summary.en} ${localizedKnowledgeTerm(term, language).title} ${localizedKnowledgeTerm(term, language).summary}`,
             ).includes(normalize(query))) &&
           (!category || term.category === category),
       ),
-    [category, data, query],
+    [category, data, query, language],
   );
   const selected = terms.find((term) => term.id === selectedId) ?? terms[0] ?? null;
+  const selectedText = selected ? localizedKnowledgeTerm(selected, language) : null;
   const text = (value: { de: string; en: string }) => (language === 'de' ? value.de : value.en);
   const select = (id: string) => {
     setQuery('');
@@ -260,7 +262,9 @@ function Lexicon({
           </select>
         </label>
       </div>
-      {language !== 'de' && language !== 'en' ? <p>{copy.fallback}</p> : null}
+      {language !== 'de' && language !== 'en' && selectedText?.language !== language ? (
+        <p>{copy.fallback}</p>
+      ) : null}
       <div className="website-lexicon-layout">
         <ul className="website-content-list">
           {terms.map((term) => (
@@ -270,22 +274,34 @@ function Lexicon({
                 aria-pressed={selected?.id === term.id}
                 onClick={() => setSelectedId(term.id)}
               >
-                <span lang={language === 'de' ? 'de' : 'en'}>{text(term.title)}</span>
+                <span lang={localizedKnowledgeTerm(term, language).language}>
+                  {localizedKnowledgeTerm(term, language).title}
+                </span>
               </button>
             </li>
           ))}
         </ul>
         {selected ? (
           <article>
-            <h2 lang={language === 'de' ? 'de' : 'en'}>{text(selected.title)}</h2>
+            <h2 lang={selectedText?.language}>{selectedText?.title}</h2>
+            {selectedText?.draft ? (
+              <p lang={selectedText.language}>
+                {selectedText.language === 'fr'
+                  ? 'Traduction éditoriale WRN · brouillon'
+                  : 'Traducción editorial WRN · borrador'}
+              </p>
+            ) : null}
             <p>
-              <strong>{copy.definition}</strong> {text(selected.summary)}
+              <strong>{copy.definition}</strong>{' '}
+              <span lang={selectedText?.language}>{selectedText?.summary}</span>
             </p>
             <p>
-              <strong>{copy.practice}</strong> {text(selected.practice)}
+              <strong>{copy.practice}</strong>{' '}
+              <span lang={selectedText?.language}>{selectedText?.practice}</span>
             </p>
             <p>
-              <strong>{copy.perspectives}</strong> {text(selected.debate)}
+              <strong>{copy.perspectives}</strong>{' '}
+              <span lang={selectedText?.language}>{selectedText?.debate}</span>
             </p>
             <p className="website-safe-links">
               <strong>{copy.related}</strong>
@@ -294,7 +310,7 @@ function Lexicon({
                 .filter((term): term is NonNullable<typeof term> => term !== undefined)
                 .map((term) => (
                   <button key={term.id} type="button" onClick={() => select(term.id)}>
-                    {text(term.title)}
+                    {localizedKnowledgeTerm(term, language).title}
                   </button>
                 ))}
             </p>

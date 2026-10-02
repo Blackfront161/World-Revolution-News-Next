@@ -14,9 +14,17 @@ describe('current app catalogue and preserved historical bytes', () => {
     const result = await unpackWebsiteCatalog(packed, signal());
     expect(
       Object.fromEntries(Object.entries(result.current.collections).map(([k, v]) => [k, v.length])),
-    ).toEqual({ radio: 27, podcasts: 1256, videos: 17, library: 715, events: 6 });
-    expect(result.current.collections.library.every((r) => r.url.endsWith('.epub'))).toBe(true);
-    expect(result.current.commit).toBe('4153d5f2baccbc0d7ccc16a546d08e7808dff753');
+    ).toEqual({ radio: 27, podcasts: 1722, videos: 16, library: 728, events: 6 });
+    expect(result.current.collections.library.filter((r) => r.url.endsWith('.epub'))).toHaveLength(
+      715,
+    );
+    expect(
+      result.current.collections.library.filter((r) =>
+        r.url.startsWith('https://anarchist-archive.org/library/de/'),
+      ),
+    ).toHaveLength(13);
+    expect(result.current.collections.library.every((r) => r.publishedAt === null)).toBe(true);
+    expect(result.current.commit).toBe('2342289bb126c6356f20088d5a97fe20a08980e1');
     expect(packed.history.sha256).toBe(createHash('sha256').update(historical).digest('hex'));
     expect(result.history).toEqual(JSON.parse(historical.toString('utf8')));
   });

@@ -1,0 +1,42 @@
+{
+  "schema": "wrn.catalog-knowledge-evidence.v1",
+  "generatedAt": "2026-10-02T06:40:21.114Z",
+  "hashes": {
+    "website-learning-paths-390.png": {
+      "bytes": 133343,
+      "sha256": "812f85567b4444c91b5692221180144b028110a76bcb43db690d920b3412147f"
+    },
+    "website-learning-paths-open-390.png": {
+      "bytes": 144088,
+      "sha256": "f9c5664129332eb9d90e3e4040738518211566e8ad7d70b6c17b2c41f3b045ac"
+    },
+    "website-podcasts-390.png": {
+      "bytes": 118916,
+      "sha256": "dfdebf64f20268c0c02ee6a2491082b4537c75ca1cad9855c39d95794ed3614f"
+    },
+    "input-bindings.json": {
+      "bytes": 3051,
+      "sha256": "15db5ab000f294d6fe97b7c99c1b60bf7b418da0f244e6733a2d4e7ca2bf17fc"
+    },
+    "website-listening-path-390.png": {
+      "bytes": 165289,
+      "sha256": "052139b6e6cfbd00652471803c05c943c75bba4a0ffaaed24ff9fc5e7f6cd78a"
+    },
+    "website-lexicon-fr-390.png": {
+      "bytes": 150773,
+      "sha256": "b26f7febf4856e111c747c90e04994cdde2d9145ce64c3e9923205689115f58b"
+    },
+    "website-lexicon-es-390.png": {
+      "bytes": 148469,
+      "sha256": "fd785c424aec9e68ce977fe880c8e00184fb2e0761e82b77e4f8334c5cf96d40"
+    }
+  },
+  "pageErrors": [],
+  "extendedBrowserChecks": {
+    "FrenchDraft": true,
+    "SpanishDraft": true,
+    "untranslatedEnglishFallback": true,
+    "podcastLinks": 7,
+    "bookLinks": 30
+  }
+}

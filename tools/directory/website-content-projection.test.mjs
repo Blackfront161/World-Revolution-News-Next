@@ -149,6 +149,17 @@ test('duplicate source endpoints block the complete candidate', async () => {
     /duplicate-source/,
   );
 });
+test('disabled source intake remains excluded with a complete verifiable ledger', async () => {
+  const result = await buildWebsiteContentProjection(input((rows, registry) => {
+    registry.sources[0].importMode = 'disabled';
+  }, 2));
+  assert.equal(result.report.sources[0].status, 'excluded');
+  assert.equal(result.report.sources[0].reason, 'unsupported-import-mode');
+  assert.equal(result.report.sources[0].observedImportMode, 'disabled');
+  assert.equal(result.report.counts.included, 1);
+  assert.equal(result.document.articles.some((article) => article.url === 'https://source0.example/article-0'), false);
+  assert.equal((await verifyWebsiteProjection(gate(result))).status, 'PASS');
+});
 test('directory-only never admits feed articles; metadata-only never copies bodies', async () => {
   const restricted = await buildWebsiteContentProjection(
     input((rows, reg) => {

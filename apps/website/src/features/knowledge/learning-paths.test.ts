@@ -18,8 +18,8 @@ const current = () => {
 describe('learning paths use current catalogue records and original links', () => {
   it('resolves three paths and all thirty book relationships', () => {
     const data = current();
-    expect(data.projection.books).toHaveLength(715);
-    expect(data.projection.books.filter((b) => b.languages.includes('de'))).toHaveLength(53);
+    expect(data.projection.books).toHaveLength(728);
+    expect(data.projection.books.filter((b) => b.languages.includes('de'))).toHaveLength(66);
     const paths = learningPathsForKnowledge(data);
     expect(paths).toHaveLength(3);
     expect(paths.flatMap((p) => p.entries)).toHaveLength(30);

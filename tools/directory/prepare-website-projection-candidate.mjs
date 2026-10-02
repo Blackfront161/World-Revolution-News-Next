@@ -37,6 +37,7 @@ export async function prepareWebsiteProjectionCandidate({
   sourceCommit,
   generatedAtUTC,
   previousRevocationsFile,
+  inputBindingsFile = 'docs/evidence/WRN-CATALOG-KNOWLEDGE-2026-10-01/input-bindings.json',
   now = Date.now(),
 }) {
   if (
@@ -51,6 +52,7 @@ export async function prepareWebsiteProjectionCandidate({
   await confined(root, build);
   await confined(root, output);
   await confined(root, resolve(previousRevocationsFile));
+  await confined(root, resolve(root, inputBindingsFile));
   const projection = await checkWebsiteContentProjection(root, now);
   const data = resolve(root, 'apps/website/src/features/projection/data');
   const directoryBytes = await readFile(resolve(data, 'content-directory-v1.json'));
@@ -110,11 +112,7 @@ export async function prepareWebsiteProjectionCandidate({
     resolve(root, 'apps/website/src/features/knowledge/packed/legacy-knowledge-v1.json'),
   );
   const knowledge = JSON.parse(knowledgeBytes);
-  const parity = JSON.parse(
-    await readFile(
-      resolve(root, 'docs/evidence/WRN-CATALOG-KNOWLEDGE-2026-10-01/input-bindings.json'),
-    ),
-  );
+  const parity = JSON.parse(await readFile(resolve(root, inputBindingsFile)));
   const knowledgeAssets = assets.filter((name) => /^legacy-knowledge-v1-.*\.json$/.test(name));
   if (
     knowledgeAssets.length !== 1 ||

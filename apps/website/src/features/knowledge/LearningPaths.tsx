@@ -1,6 +1,9 @@
 import type { UiLanguage } from '@wrn/ui-language';
+import { useEffect, useState } from 'react';
+import type { AppCatalog } from '../events-media/app-catalog';
+import { loadWebsiteAppCatalog } from '../events-media/events-media-loader';
 import type { WebsiteKnowledge } from './knowledge-loader';
-import { learningPathsForKnowledge } from './learning-paths';
+import { learningPathsForKnowledge, learningPodcastsForKnowledge } from './learning-paths';
 
 export function LearningPaths({
   data,
@@ -12,7 +15,18 @@ export function LearningPaths({
   onOpenTerm: (id: string) => void;
 }) {
   const editorialLanguage = language === 'de' ? 'de' : 'en';
+  const [catalog, setCatalog] = useState<AppCatalog | null>(null);
+  useEffect(() => {
+    const controller = new AbortController();
+    loadWebsiteAppCatalog(controller.signal)
+      .then((result) => setCatalog(result.current))
+      .catch(() => {
+        /* Books remain available if the audio snapshot fails validation. */
+      });
+    return () => controller.abort();
+  }, []);
   const paths = learningPathsForKnowledge(data);
+  const listening = learningPodcastsForKnowledge(data, catalog);
   return (
     <section
       className="website-learning-paths"
@@ -59,6 +73,35 @@ export function LearningPaths({
               </li>
             ))}
           </ol>
+          {listening.find((item) => item.id === path.id)?.entries.length ? (
+            <>
+              <h3>Podcasts</h3>
+              <ol>
+                {listening
+                  .find((item) => item.id === path.id)!
+                  .entries.map((entry) => (
+                    <li key={entry.episodeId} data-learning-podcast={entry.episodeId}>
+                      <a
+                        href={entry.originalUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        referrerPolicy="no-referrer"
+                      >
+                        {entry.episode.title}
+                      </a>
+                      <p>{entry.note[editorialLanguage]}</p>
+                      <p>
+                        {entry.terms.map((term) => (
+                          <button type="button" key={term.id} onClick={() => onOpenTerm(term.id)}>
+                            {term.title[editorialLanguage]}
+                          </button>
+                        ))}
+                      </p>
+                    </li>
+                  ))}
+              </ol>
+            </>
+          ) : null}
         </details>
       ))}
     </section>

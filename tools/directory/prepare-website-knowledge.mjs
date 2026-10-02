@@ -15,6 +15,7 @@ export async function prepareWebsiteKnowledge({
   historyFile,
   outputFile,
   learningPathsFile,
+  lexiconLocalesFile,
   observedAt,
 }) {
   if (!/^[a-f0-9]{40}$/.test(commit)) throw Error('knowledge-commit');
@@ -65,6 +66,16 @@ export async function prepareWebsiteKnowledge({
     throw Error('knowledge-package-cap');
   await writeFile(outputFile, packed);
   await writeFile(learningPathsFile, pathsBytes);
+  const localeBytes = lexiconLocalesFile ? read('lexicon-locales.json') : null;
+  if (localeBytes) {
+    const locales = JSON.parse(localeBytes);
+    if (
+      locales.schema !== 'wrn.lexicon-locales.v1' ||
+      locales.rights !== 'WRN-original-editorial-text'
+    )
+      throw Error('lexicon-locales-contract');
+    await writeFile(lexiconLocalesFile, localeBytes);
+  }
   const hash = (value) => createHash('sha256').update(value).digest('hex');
   return {
     commit,
@@ -75,6 +86,7 @@ export async function prepareWebsiteKnowledge({
     historySha256: hash(historyBytes),
     packedSha256: hash(packed),
     learningPathsSha256: hash(pathsBytes),
+    lexiconLocalesSha256: localeBytes ? hash(localeBytes) : null,
     inputs: currentKnowledge.input,
   };
 }
