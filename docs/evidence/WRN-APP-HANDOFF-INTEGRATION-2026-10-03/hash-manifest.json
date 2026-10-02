@@ -14,7 +14,7 @@
     "apps/website/src/features/knowledge/packed/legacy-knowledge-v1.json",
     "docs/evidence/WRN-APP-HANDOFF-INTEGRATION-2026-10-03/input-bindings.json"
   ],
-  "createdAt": "2026-10-02T22:56:23.929Z",
+  "createdAt": "2026-10-02T23:05:30.031Z",
   "hostingShellBytes": 7807982,
   "hostingShellId": "0d72ef4f9334f6a7cc1fec884931157ed3ed3f3ecb2f6214c5ecd6d29fefc7a8",
   "websiteManifestSha256": "599f6db1a4f1dec174d5ac8b53c1b0baf6dfbdf2eb6764547a8a980649aa1d22",
@@ -22,8 +22,8 @@
   "files": [
     {
       "path": "REPORT.md",
-      "bytes": 9224,
-      "sha256": "b32d7b79eb7a0f1f20d0c8ff28c96198dfc97792004abfec99c510020dfccd4f"
+      "bytes": 9740,
+      "sha256": "2ffcd3fa87678ec80db9568259b9cb4f2d070907d98ad007f1187c7ba1b4002c"
     },
     {
       "path": "archive-hashes.json",
@@ -69,6 +69,11 @@
       "path": "package-browser-result.json",
       "bytes": 3167,
       "sha256": "b65f0daaf8d4fdc7dd07e6ae7b35d78276dcb91e019c3bdfac305690e432a0a6"
+    },
+    {
+      "path": "private-upload-observation.json",
+      "bytes": 1232,
+      "sha256": "490d22b28220c8ac8e5b86810700828292523acf2536b30d7c047710d4b3ed10"
     },
     {
       "path": "radio-1440.png",

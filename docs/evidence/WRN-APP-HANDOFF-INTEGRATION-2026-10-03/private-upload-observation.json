@@ -1,0 +1,43 @@
+{
+  "schema": "wrn.website-private-upload-observation.v1",
+  "productCommit": "566422758241190f432d8c8a09d67a5f589d90ac",
+  "observedAt": "2026-10-02T23:05:29.944Z",
+  "destination": "domains/solinaridao.com/wrn-release-5664227-private/",
+  "observations": [
+    "Hostinger upload progress completed",
+    "All six exact archive names visible in the private folder",
+    "Displayed rounded sizes correspond to the local archive sizes"
+  ],
+  "files": [
+    {
+      "name": "01-wrn-immutable-5664227.zip",
+      "localBytes": 5649879
+    },
+    {
+      "name": "02-wrn-policy-sw-5664227.zip",
+      "localBytes": 10742
+    },
+    {
+      "name": "03-wrn-index-5664227.zip",
+      "localBytes": 1349
+    },
+    {
+      "name": "04-wrn-production-pointer-5664227.zip",
+      "localBytes": 345
+    },
+    {
+      "name": "05-wrn-directory-pointer-5664227.zip",
+      "localBytes": 474
+    },
+    {
+      "name": "rollback-before-5664227-ef5ac42.zip",
+      "localBytes": 5656153
+    }
+  ],
+  "limits": [
+    "No remote archive SHA readback claimed",
+    "No new archive publicly extracted",
+    "Independent final review of this exact product freeze pending"
+  ],
+  "publiclyActiveProduct": "ef5ac42ae623101874f3001c560ba4cb44c8d932"
+}
