@@ -1,0 +1,25 @@
+{
+  "sourceCommit": "815c27d94b1a4b8e28e11b4c50110e961e07f365",
+  "files": [
+    {
+      "path": "home-1440.png",
+      "bytes": 410224,
+      "sha256": "a0c8f87dac76f83800e22461ed5036cb280346bc647d0e25897e4b0b29856fe2"
+    },
+    {
+      "path": "home-200pct.png",
+      "bytes": 168640,
+      "sha256": "82db5476e6881eac5150496dace207aa0c03ed7337189f1a65d16661b2c55832"
+    },
+    {
+      "path": "home-390.png",
+      "bytes": 142233,
+      "sha256": "1125262debe426197b0e0b34917b6201ba72ada95c8f3ac394df441e11820f47"
+    },
+    {
+      "path": "home-800.png",
+      "bytes": 292262,
+      "sha256": "1f28830939a8fb2d6625050885556c79f5e42264cf274e192c359162595705d3"
+    }
+  ]
+}
