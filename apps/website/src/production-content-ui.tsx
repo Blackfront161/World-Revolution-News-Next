@@ -1,4 +1,4 @@
-import { useCallback, useRef, type ComponentProps } from 'react';
+import { useCallback, useEffect, useRef, type ComponentProps } from 'react';
 import {
   productionContentOfflineFormatV1,
   type ProductionContentOfflineControlV1,
@@ -40,10 +40,21 @@ export function isVirginPublicationControl(control: ProductionContentOfflineCont
 export function useProductionContentOfflineController(enabled = true) {
   const offline = useBaseProductionContentOfflineController(enabled);
   const virginGuarded = useRef(false);
+  const recoveryEpoch = useRef(0);
+  useEffect(
+    () => () => {
+      recoveryEpoch.current++;
+      virginGuarded.current = false;
+    },
+    [],
+  );
   const baseInvoke = offline.invoke;
   const invoke = useCallback<typeof baseInvoke>(
     async (action) => {
-      if (action === 'clear') virginGuarded.current = false;
+      if (action === 'clear') {
+        recoveryEpoch.current++;
+        virginGuarded.current = false;
+      }
       if (action === 'guard' || action === 'resumeGuard') {
         const checked = await baseInvoke(action);
         virginGuarded.current =
@@ -53,22 +64,45 @@ export function useProductionContentOfflineController(enabled = true) {
         return checked;
       }
       if (action !== 'check' || !virginGuarded.current) return baseInvoke(action);
-      // A focus/pageshow guard can coalesce exactly when the shared first-visit
-      // bootstrap calls check. Wait for that guard, then retry only while the
-      // same untouched control is still present. Return the accepted result to
-      // the shared route effect so it can open the verified Home view.
-      for (let attempt = 0; attempt < 3; attempt++) {
-        if (!virginGuarded.current) return null;
+      // Only the automatically started first publication owns this recovery.
+      // A transient request timeout must not permanently latch an empty Home.
+      // Every retry still passes the controller's safety and durable barriers.
+      const epoch = recoveryEpoch.current;
+      let transportFailures = 0;
+      for (let attempt = 0; attempt < 6; attempt++) {
+        if (recoveryEpoch.current !== epoch) return null;
         const checked = await baseInvoke('check');
-        if (checked !== null) {
+        if (recoveryEpoch.current !== epoch) return null;
+        if (checked !== null && checked.reason !== 'transport-or-validation') {
           virginGuarded.current = false;
           return checked;
         }
+        if (checked !== null) {
+          transportFailures++;
+          if (transportFailures >= 3) {
+            virginGuarded.current = false;
+            return checked;
+          }
+          await new Promise<void>((resolve) => setTimeout(resolve, 250 * transportFailures));
+          if (recoveryEpoch.current !== epoch) return null;
+        }
         const guarded = await baseInvoke('guard');
+        if (recoveryEpoch.current !== epoch) return null;
+        const control = guarded?.control;
         if (
           guarded?.status !== 'needs-source-check' ||
           guarded.reason !== 'no-active-bundle' ||
-          !isVirginPublicationControl(guarded.control)
+          control === null ||
+          control === undefined ||
+          control.clearEpoch !== 0 ||
+          control.activeKey !== null ||
+          control.previousKey !== null ||
+          control.candidateKey !== null ||
+          control.pendingRecheck !== null ||
+          control.highestAcceptedSequence !== 0 ||
+          control.acceptedIdentities.length !== 0 ||
+          control.safety.revision !== 0 ||
+          control.safety.revokedIds.length !== 0
         ) {
           virginGuarded.current = false;
           return guarded;

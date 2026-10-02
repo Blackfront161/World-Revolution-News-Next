@@ -89,6 +89,101 @@ describe('Website production adapter and entry', () => {
     expect(await screen.findByText('Authored test 0')).toBeVisible();
   });
 
+  it('recovers a first-visit transport failure without a manual update', async () => {
+    const controller = vi.mocked(createProductionContentOfflineController)();
+    const active = await controller.check();
+    const empty = createEmptyProductionContentOfflineControlV1();
+    const virgin = {
+      ...active,
+      status: 'needs-source-check' as const,
+      reason: 'no-active-bundle' as const,
+      runtime: null,
+      activeKey: null,
+      control: empty,
+    };
+    const touched = { ...virgin, control: { ...empty, generation: 2, lastObservedAt: Date.now() } };
+    const check = vi
+      .fn()
+      .mockResolvedValueOnce({ ...virgin, control: null, reason: 'transport-or-validation' })
+      .mockResolvedValue(active);
+    vi.mocked(createProductionContentOfflineController).mockReturnValue({
+      ...controller,
+      check,
+      restore: vi.fn(async () => (check.mock.calls.length ? touched : virgin)),
+    });
+    render(<App />);
+    expect(await screen.findByText('Authored test 0')).toBeVisible();
+    expect(check).toHaveBeenCalledTimes(2);
+  });
+
+  it('recovers more than three coalesced first-visit checks', async () => {
+    const controller = vi.mocked(createProductionContentOfflineController)();
+    const active = await controller.check();
+    const virgin = {
+      ...active,
+      status: 'needs-source-check' as const,
+      reason: 'no-active-bundle' as const,
+      runtime: null,
+      activeKey: null,
+      control: createEmptyProductionContentOfflineControlV1(),
+    };
+    const check = vi
+      .fn()
+      .mockResolvedValueOnce({ status: 'busy' })
+      .mockResolvedValueOnce({ status: 'busy' })
+      .mockResolvedValueOnce({ status: 'busy' })
+      .mockResolvedValueOnce({ status: 'busy' })
+      .mockResolvedValue(active);
+    vi.mocked(createProductionContentOfflineController).mockReturnValue({
+      ...controller,
+      check,
+      restore: vi.fn(async () => virgin),
+    });
+    render(<App />);
+    expect(await screen.findByText('Authored test 0')).toBeVisible();
+    expect(check).toHaveBeenCalledTimes(5);
+  });
+
+  it('bounds first-visit transport retries and stops them after unmount', async () => {
+    const controller = vi.mocked(createProductionContentOfflineController)();
+    const active = await controller.check();
+    const virgin = {
+      ...active,
+      status: 'needs-source-check' as const,
+      reason: 'no-active-bundle' as const,
+      runtime: null,
+      activeKey: null,
+      control: createEmptyProductionContentOfflineControlV1(),
+    };
+    const failed = { ...virgin, control: null, reason: 'transport-or-validation' as const };
+    const check = vi.fn(async () => failed);
+    vi.mocked(createProductionContentOfflineController).mockReturnValue({
+      ...controller,
+      check,
+      restore: vi.fn(async () => virgin),
+    });
+    const hook = renderHook(() => useProductionContentOfflineController());
+    await act(async () => {
+      await hook.result.current.invoke('guard');
+    });
+    await act(async () => {
+      await hook.result.current.invoke('check');
+    });
+    expect(check).toHaveBeenCalledTimes(3);
+    check.mockClear();
+    await act(async () => {
+      await hook.result.current.invoke('guard');
+    });
+    let pending!: Promise<ProductionContentOfflineControllerResult | null>;
+    act(() => {
+      pending = hook.result.current.invoke('check');
+    });
+    await waitFor(() => expect(check).toHaveBeenCalledTimes(1));
+    hook.unmount();
+    await pending;
+    expect(check).toHaveBeenCalledTimes(1);
+  });
+
   it('does not auto-check a generation-zero control with prior safety state, but permits manual check', async () => {
     const nonVirgin = {
       status: 'needs-source-check',
@@ -170,6 +265,43 @@ describe('Website production adapter and entry', () => {
     await act(async () => {
       finishGuard?.(virgin);
       await pendingCheck;
+    });
+    expect(check).toHaveBeenCalledTimes(1);
+    expect(result.current.result?.control?.clearEpoch).toBe(1);
+  });
+
+  it('Clear cancels a delayed first-visit transport retry', async () => {
+    const controller = vi.mocked(createProductionContentOfflineController)();
+    const active = await controller.check();
+    const virgin = {
+      ...active,
+      status: 'needs-source-check' as const,
+      reason: 'no-active-bundle' as const,
+      runtime: null,
+      activeKey: null,
+      control: createEmptyProductionContentOfflineControlV1(),
+    };
+    const failed = { ...virgin, control: null, reason: 'transport-or-validation' as const };
+    const cleared = { ...virgin, control: { ...virgin.control, generation: 1, clearEpoch: 1 } };
+    const check = vi.fn(async () => failed);
+    vi.mocked(createProductionContentOfflineController).mockReturnValue({
+      ...controller,
+      check,
+      restore: vi.fn(async () => virgin),
+      clear: vi.fn(async () => cleared),
+    });
+    const { result } = renderHook(() => useProductionContentOfflineController());
+    await act(async () => {
+      await result.current.invoke('guard');
+    });
+    let pending!: Promise<ProductionContentOfflineControllerResult | null>;
+    act(() => {
+      pending = result.current.invoke('check');
+    });
+    await waitFor(() => expect(check).toHaveBeenCalledTimes(1));
+    await act(async () => {
+      await result.current.invoke('clear');
+      await pending;
     });
     expect(check).toHaveBeenCalledTimes(1);
     expect(result.current.result?.control?.clearEpoch).toBe(1);
