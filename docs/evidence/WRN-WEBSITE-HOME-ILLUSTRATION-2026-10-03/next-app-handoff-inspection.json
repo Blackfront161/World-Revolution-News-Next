@@ -1,6 +1,6 @@
 {
   "schema": "wrn.website-next-app-handoff-inspection.v1",
-  "observedAt": "2026-10-02T22:20:51.491Z",
+  "observedAt": "2026-10-02T22:33:32.073Z",
   "status": "HASH_VERIFIED_NOT_ADMITTED",
   "handoffCommit": "75016f6b2356918671e28964397d56219d6367de",
   "appCommit": "74e92546a4133ddc92ce51213f8d3f4a1eff7a68",

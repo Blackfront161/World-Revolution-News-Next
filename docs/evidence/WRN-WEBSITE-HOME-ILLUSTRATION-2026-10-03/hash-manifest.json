@@ -16,7 +16,7 @@
     "apps/website/tools/production-site-package.mjs",
     "apps/website/tools/production-site-package.test.mjs"
   ],
-  "createdAt": "2026-10-02T22:20:51.516Z",
+  "createdAt": "2026-10-02T22:33:32.100Z",
   "candidate": {
     "websiteManifestSha256": "ade9a27c2d0072b0111e81e501c35f0928b6b08966409665bb616b8682042643",
     "hostingManifestSha256": "ac83ede977c13d0095b4808410257dadebc9e5ade54abda1faa7028016ed2773",
@@ -25,13 +25,18 @@
   "files": [
     {
       "path": "REPORT.md",
-      "bytes": 7391,
-      "sha256": "217ad58130273921f61c5de1a62e612c1eff7be15f1755fb1ced36cde27aa142"
+      "bytes": 8532,
+      "sha256": "b14bd8f1c9f55eb0647992532b7e7fcbb1b94c6d4611f939c18a118f9a4c5241"
     },
     {
       "path": "REVIEW-STATUS.md",
       "bytes": 2170,
       "sha256": "fbe93fe7f3b86122859d2e58a82a8ef12618eea93d0843681f9fd0c86b6b206a"
+    },
+    {
+      "path": "activation-revocations.json",
+      "bytes": 2932,
+      "sha256": "459188c6bcd84901a9ed8bc8c460ad4eb459a30b7fb1a3ecf35abf9217b1d729"
     },
     {
       "path": "app-image-handoff.json",
@@ -49,9 +54,34 @@
       "sha256": "cc0da1b1972422f21d69c2e4d812f1b6dd107c4be7c38415ec807d96d247294b"
     },
     {
+      "path": "live-390.png",
+      "bytes": 639282,
+      "sha256": "9b96a35a07fff08f7f5668d18603f6617ecbdb9a860006203e47b929d281a789"
+    },
+    {
+      "path": "live-home-result.json",
+      "bytes": 642,
+      "sha256": "74f6f0dd51e58666890dd33af14b0e98a7d56d3e891e5375a9d9901ed2d853a7"
+    },
+    {
+      "path": "live-offline-1440.png",
+      "bytes": 634026,
+      "sha256": "c0271c8249cbe54f79c3ea1379a051430105b64805b2b2019bcffc811757c320"
+    },
+    {
+      "path": "live-offline-result.json",
+      "bytes": 3045,
+      "sha256": "00758b41626aa5e7469158e9775fa1ed254f2ec205201e4807fe2678478b6a2d"
+    },
+    {
+      "path": "live-readback.json",
+      "bytes": 136674,
+      "sha256": "8cf5a749213fcaff423b7582e50a16a160e2a10c2be81316c6915cb9d0d1f6c5"
+    },
+    {
       "path": "next-app-handoff-inspection.json",
       "bytes": 4021,
-      "sha256": "4da3985b7c4d435a55f642082e69a15051369b47a2df2086ddff01fe139187ab"
+      "sha256": "f116faffaff76b97999268928331d777286c3052de7d364f8b2ff3576271f69a"
     },
     {
       "path": "package-browser-result.json",
