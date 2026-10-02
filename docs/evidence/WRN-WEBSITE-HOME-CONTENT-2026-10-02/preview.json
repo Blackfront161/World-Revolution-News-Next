@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "observedAt": "2026-10-02T14:44:48.263Z",
+  "checks": [
+    "Exact App selection IDs and original URLs; 21 original reading notes; working five-item edition; four viewport widths",
+    "All 21 canonical App topics in nine interface languages",
+    "Actual topic filter and return to Home"
+  ],
+  "pageErrors": [],
+  "limits": [
+    "Source photos and original full texts are not admitted by this package",
+    "Reading notes available in German and English; other interface languages retain English notes with lang=en"
+  ]
+}
