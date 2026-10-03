@@ -11,7 +11,9 @@ export async function loadWebsiteAppCatalog(signal: AbortSignal) {
   signal.addEventListener('abort', abort, { once: true });
   const timeout = setTimeout(
     () => request.abort(new DOMException('metadata timeout', 'TimeoutError')),
-    10000,
+    // Cold delivery of this bounded 1.7 MiB catalogue can take 12–19 s on HTTP/3.
+    // Keep cancellation and the 4 MiB read limit while allowing that transfer to finish.
+    30000,
   );
   try {
     const result = await unpackWebsiteCatalog(
