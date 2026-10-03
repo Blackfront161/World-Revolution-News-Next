@@ -1,0 +1,40 @@
+{
+  "productCommit": "5d45eeb8a9b8c6bd6dd988ad74525e6f5f30bfca",
+  "publicationPerformed": false,
+  "independentReview": "PENDING",
+  "websiteTests": {
+    "files": 44,
+    "passed": 320,
+    "note": "Full Website suite before the final same-parent navigation notification; affected App/swipe/navigation tests subsequently passed75/75 on the final product."
+  },
+  "finalAffectedTests": {
+    "files": 4,
+    "passed": 75
+  },
+  "typecheck": "PASS",
+  "scopedLint": "PASS",
+  "vite": {
+    "modules": 232,
+    "status": "PASS",
+    "deploymentPackage": false,
+    "offlineShell": false
+  },
+  "browser": {
+    "checks": 6,
+    "uiLanguages": 9,
+    "reflow": {
+      "width": 390,
+      "rootFontPercent": 200
+    },
+    "nativeBackForward": true,
+    "sameAreaSeparateFilterEntries": true,
+    "unsolicitedStreams": 0,
+    "pageErrors": 0
+  },
+  "catalogueInputs": {
+    "knowledgeSha256": "8b750ca32f13de7ab7ecf3bc0185971243d080ea6166fe756626584114074ee6",
+    "mediaSha256": "ac2c2f944b814be0fce19129791c39d87c0940f8c82caf47bdc868cc5bcb8b15"
+  },
+  "unchangedPublicationProduct": "f6649dc804a6029bdcceb4eafe47041aace9587b",
+  "unchangedPublicBaseline": "d738a9454161f1f6aff624bcb9c2a9f0bc2ccf60"
+}
