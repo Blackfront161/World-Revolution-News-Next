@@ -96,7 +96,16 @@ test('two packages have deterministic bytes, exact real closure and immutable in
   const two = await prepare(options(path.join(base, 'two')));
   assert.deepEqual(await readFile(one.manifestPath), await readFile(two.manifestPath));
   assert.deepEqual(await check(one.outputDirectory), await check(two.outputDirectory));
-  assert.equal(manifest.files.length, 48);
+  assert.equal(manifest.files.length, 51);
+  for (const name of ['privacy.html', 'privacy.css', 'privacy.js']) {
+    const privacy = manifest.files.find((entry) => entry.path === name);
+    assert.ok(privacy);
+    assert.deepEqual(
+      await readFile(path.join(one.outputDirectory, name)),
+      await readFile(path.join(workspace, 'apps/website/public', name)),
+    );
+    assert.equal(manifest.headers[name]['cache-control'], 'no-store');
+  }
   const illustrations = manifest.files.filter((entry) =>
     /^assets\/wrn-austerity-illustration-v1-[A-Za-z0-9_-]+\.webp$/.test(entry.path),
   );
@@ -142,7 +151,7 @@ test('two packages have deterministic bytes, exact real closure and immutable in
       'articles/wrn-art-f2ad391804423c87773b3351eb79c802/index.html',
     ],
   );
-  assert.equal(manifest.sourceInput.files.length, 45);
+  assert.equal(manifest.sourceInput.files.length, 48);
   assert(manifest.files.some((entry) => entry.path === 'wrn-source-passes/current.json'));
   assert(manifest.files.some((entry) => entry.path === 'wrn-source-pass-revocations/current.json'));
   assert(
@@ -231,6 +240,7 @@ test('actual six-article V3 publication packages deterministically with the unch
       entry.path !== 'index.html' &&
       entry.path !== '.vite/manifest.json' &&
       !entry.path.startsWith('assets/') &&
+      !['privacy.html', 'privacy.css', 'privacy.js'].includes(entry.path) &&
       !entry.path.startsWith('wrn-source-pass')
     )
       continue;
@@ -261,6 +271,24 @@ test('actual six-article V3 publication packages deterministically with the unch
   );
   await check(first.outputDirectory);
   await check(second.outputDirectory);
+});
+test('privacy publication refuses missing or altered disclosure before preparing a release', async () => {
+  const missingBuild = await cloneInput('privacy-missing', 'privacy.');
+  await assert.rejects(
+    prepare({
+      ...options(path.join(base, 'privacy-missing-output')),
+      buildDirectory: missingBuild,
+    }),
+    /ENOENT/,
+  );
+  for (const name of ['privacy.html', 'privacy.css', 'privacy.js']) {
+    const buildDirectory = await cloneInput('privacy-altered-' + name);
+    await writeFile(path.join(buildDirectory, name), 'Altered unreviewed disclosure');
+    await assert.rejects(
+      prepare({ ...options(path.join(base, 'privacy-rejected-' + name)), buildDirectory }),
+      /Privacy publication bytes\/identity mismatch/,
+    );
+  }
 });
 test('Apache and per-resource profiles bind CSP, credentialless CORS and exact cache distinctions', async () => {
   const root = await readFile(path.join(one.outputDirectory, '.htaccess'), 'utf8');
@@ -523,7 +551,7 @@ test('CLI succeeds from non-root cwd and rejects full-length unknown, duplicate,
     options('').previousRevocationsFile,
   ];
   const success = await run(process.execPath, [script, ...args], { cwd: base });
-  assert.equal(JSON.parse(success.stdout).files, 48);
+  assert.equal(JSON.parse(success.stdout).files, 51);
   for (const invalid of [
     ['--unknown', ...args.slice(1)],
     [...args.slice(0, 8), '--build', input],

@@ -283,6 +283,18 @@ async function plan({
       throw Error('Static publication bytes/identity mismatch: ' + rel);
   }
   const index = await take('index.html');
+  // Public network disclosures travel with the reviewed release, not an older
+  // separately hosted privacy page. Capture only these three bounded local files.
+  const privacyHtml = await take('privacy.html');
+  for (const name of ['privacy.html', 'privacy.css', 'privacy.js']) {
+    const bytes = name === 'privacy.html' ? privacyHtml : await take(name);
+    const limit = name === 'privacy.js' ? 262144 : 65536;
+    if (
+      bytes.length > limit ||
+      !bytes.equals(await readBound(root, root, 'apps/website/public/' + name))
+    )
+      throw Error('Privacy publication bytes/identity mismatch: ' + name);
+  }
   await take('.vite/manifest.json');
   const assetDirectory = await inspect(root, path.join(build, 'assets'), true);
   const sourceAssets = await readdir(assetDirectory, { withFileTypes: true });
@@ -302,7 +314,11 @@ async function plan({
   });
   if (sourceShell.entries.length !== shellPaths.length + 1)
     throw Error('Incomplete production shell');
-  const allHtml = [index, ...publication.landingPages.map((e) => captured.get(e.path))];
+  const allHtml = [
+    index,
+    privacyHtml,
+    ...publication.landingPages.map((e) => captured.get(e.path)),
+  ];
   const security = Object.fromEntries(
     Object.entries(buildStagingSecurityHeaders(allHtml.map((b) => b.toString('utf8')))).filter(
       ([key]) => key !== 'x-robots-tag',
