@@ -1,3 +1,8 @@
+import {
+  navigateCatalogue,
+  useCatalogueLocation,
+  useCatalogueView,
+} from '../catalogue-navigation/catalogue-navigation-state';
 import { useEffect, useMemo, useState } from 'react';
 import { getMobileKnowledgeCopy, type UiLanguage } from '@wrn/ui-language';
 import { getEventsMediaCopy } from '@wrn/ui-language/events-media';
@@ -5,6 +10,7 @@ import { loadWebsiteAppCatalog } from './events-media-loader';
 import type { AppCatalog, CatalogKind, AppCatalogRecord } from './app-catalog';
 import directories from './data/media-directory-sources.json';
 import { radioCatalogueRows, radioOriginalStream } from './radio-original-links';
+import { CatalogueItemPanel, CatalogueLink } from '../catalogue-navigation/catalogue-navigation';
 const emptyRows: AppCatalogRecord[] = [];
 
 const copyByLanguage: Record<UiLanguage, { title: string; radio: string; note: string }> = {
@@ -73,12 +79,20 @@ export function WebsiteAppCatalog({
   const [data, setData] = useState<AppCatalog | null>(null);
   const [failed, setFailed] = useState(false);
   const [retry, setRetry] = useState(0);
-  const [kind, setKind] = useState<CatalogKind>(mode === 'media' ? 'radio' : mode);
-  const [query, setQuery] = useState('');
-  const [contentLanguage, setContentLanguage] = useState('');
-  const [source, setSource] = useState('');
-  const [country, setCountry] = useState('');
-  const [shown, setShown] = useState(30);
+  const route = useCatalogueLocation();
+  const kind: CatalogKind =
+    mode === 'media'
+      ? route && ['radio', 'podcasts', 'videos'].includes(route.kind)
+        ? (route.kind as 'radio' | 'podcasts' | 'videos')
+        : 'radio'
+      : mode;
+  const { view, change, reset } = useCatalogueView(kind, data !== null);
+  const { query, language: contentLanguage, source, country, shown } = view;
+  const setQuery = (value: string) => change('query', value);
+  const setContentLanguage = (value: string) => change('language', value);
+  const setSource = (value: string) => change('source', value);
+  const setCountry = (value: string) => change('country', value);
+  const setShown = (value: number) => change('shown', value);
   useEffect(() => {
     const abort = new AbortController();
     loadWebsiteAppCatalog(abort.signal)
@@ -114,13 +128,6 @@ export function WebsiteAppCatalog({
         ),
     [rows, kind, query, contentLanguage, source, country],
   );
-  const reset = () => {
-    setQuery('');
-    setContentLanguage('');
-    setSource('');
-    setCountry('');
-    setShown(30);
-  };
   const labels = {
     radio: copy.radio,
     podcasts: media.episodes,
@@ -128,6 +135,47 @@ export function WebsiteAppCatalog({
     library: common.library,
     events: media.events,
   };
+  if (data && route?.kind === kind && (route.item || route.invalidItem)) {
+    const record = rows.find((item) => item.id === route.item);
+    return (
+      <CatalogueItemPanel
+        key={route.item}
+        kind={kind}
+        item={route.item}
+        language={language}
+        title={record?.title ?? null}
+        titleLanguage={record?.language ?? 'und'}
+      >
+        {record ? (
+          <>
+            <p>{copy.note}</p>
+            <p>
+              {record.source} · {record.language}
+              {record.country ? ` · ${record.country}` : ''}
+            </p>
+            {record.publishedAt ? (
+              <p>
+                <time dateTime={record.publishedAt}>
+                  {new Intl.DateTimeFormat(language, {
+                    dateStyle: 'medium',
+                    timeZone: 'UTC',
+                  }).format(new Date(record.publishedAt))}
+                </time>
+              </p>
+            ) : null}
+            <a
+              href={record.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              referrerPolicy="no-referrer"
+            >
+              {media.openOriginal}
+            </a>
+          </>
+        ) : null}
+      </CatalogueItemPanel>
+    );
+  }
   return (
     <section
       className="website-app-catalog website-knowledge-panel"
@@ -185,8 +233,7 @@ export function WebsiteAppCatalog({
               type="button"
               aria-pressed={kind === k}
               onClick={() => {
-                setKind(k);
-                reset();
+                navigateCatalogue(k, language);
               }}
             >
               {labels[k]}
@@ -210,10 +257,11 @@ export function WebsiteAppCatalog({
         </div>
       ) : (
         <>
-          <div className="website-content-filters">
+          <div className="website-content-filters" data-catalogue-view={kind}>
             <label>
               {media.search}
               <input
+                data-catalogue-control="query"
                 value={query}
                 onChange={(e) => {
                   setQuery(e.target.value);
@@ -224,6 +272,7 @@ export function WebsiteAppCatalog({
             <label>
               {media.language}
               <select
+                data-catalogue-control="language"
                 value={contentLanguage}
                 onChange={(e) => {
                   setContentLanguage(e.target.value);
@@ -239,6 +288,7 @@ export function WebsiteAppCatalog({
             <label>
               {media.source}
               <select
+                data-catalogue-control="source"
                 value={source}
                 onChange={(e) => {
                   setSource(e.target.value);
@@ -255,6 +305,7 @@ export function WebsiteAppCatalog({
               <label>
                 {media.country}
                 <select
+                  data-catalogue-control="country"
                   value={country}
                   onChange={(e) => {
                     setCountry(e.target.value);
@@ -284,7 +335,11 @@ export function WebsiteAppCatalog({
             <ol className="website-content-list">
               {filtered.slice(0, shown).map((r) => (
                 <li key={r.id} data-app-catalog-record={r.id}>
-                  <h3 lang={r.language}>{r.title}</h3>
+                  <h3 lang={r.language}>
+                    <CatalogueLink kind={kind} item={r.id} language={language}>
+                      {r.title}
+                    </CatalogueLink>
+                  </h3>
                   <p>
                     {r.source} · {r.language}
                     {r.country ? ` · ${r.country}` : ''}
@@ -332,7 +387,7 @@ export function WebsiteAppCatalog({
             <p role="status">{media.empty}</p>
           )}
           {shown < filtered.length ? (
-            <button type="button" onClick={() => setShown((n) => n + 30)}>
+            <button type="button" onClick={() => setShown(shown + 30)}>
               {media.more}
             </button>
           ) : null}

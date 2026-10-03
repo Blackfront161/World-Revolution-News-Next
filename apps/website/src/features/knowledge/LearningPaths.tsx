@@ -4,6 +4,7 @@ import type { AppCatalog } from '../events-media/app-catalog';
 import { loadWebsiteAppCatalog } from '../events-media/events-media-loader';
 import type { WebsiteKnowledge } from './knowledge-loader';
 import { learningPathsForKnowledge, learningPodcastsForKnowledge } from './learning-paths';
+import { CatalogueLink } from '../catalogue-navigation/catalogue-navigation';
 
 export function LearningPaths({
   data,
@@ -52,15 +53,9 @@ export function LearningPaths({
           <ol>
             {path.entries.map((entry) => (
               <li key={entry.bookId} data-learning-book={entry.bookId}>
-                <a
-                  href={entry.originalUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  referrerPolicy="no-referrer"
-                  lang={entry.book.languages[0]}
-                >
+                <CatalogueLink kind="library" item={entry.bookId} language={language}>
                   {entry.book.title}
-                </a>{' '}
+                </CatalogueLink>{' '}
                 · {entry.book.languages.join(', ')}
                 <p>{entry.note[editorialLanguage]}</p>
                 <p>
@@ -81,14 +76,9 @@ export function LearningPaths({
                   .find((item) => item.id === path.id)!
                   .entries.map((entry) => (
                     <li key={entry.episodeId} data-learning-podcast={entry.episodeId}>
-                      <a
-                        href={entry.originalUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        referrerPolicy="no-referrer"
-                      >
+                      <CatalogueLink kind="podcasts" item={entry.episode.id} language={language}>
                         {entry.episode.title}
-                      </a>
+                      </CatalogueLink>
                       <p>{entry.note[editorialLanguage]}</p>
                       <p>
                         {entry.terms.map((term) => (

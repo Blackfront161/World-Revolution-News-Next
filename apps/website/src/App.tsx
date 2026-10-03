@@ -4,6 +4,7 @@ import { DirectoryReaderNavigation } from './features/reader/directory-reader-na
 import { isWebsiteNewsId } from './features/reader/directory-article-url';
 import { WebsiteDirectoryReader } from './features/reader/WebsiteDirectoryReader';
 import { WebsiteNewsSaved } from './features/reader/WebsiteNewsSaved';
+import { readCatalogueLocation } from './features/catalogue-navigation/catalogue-location';
 import {
   createContext,
   useCallback,
@@ -406,6 +407,9 @@ function readThemePreference(
   }
 }
 function readNavigationTargetFromLocation(): NavigationTargetId {
+  const catalogue = readCatalogueLocation(window.location.hash);
+  if (catalogue) return catalogue.kind === 'library' || catalogue.kind === 'lexicon'
+    ? 'knowledge' : catalogue.kind === 'events' ? 'events' : 'media';
   if (/^#discover\/(news|sources|sport)$/u.test(window.location.hash)) return 'discover';
   return resolveNavigationTarget(window.location.hash.replace(/^#\/?/, ''));
 }
@@ -1775,6 +1779,8 @@ export function App({
   const navigate = (nextTarget: NavigationTargetId, trigger?: HTMLElement | null) => {
     if (
       nextTarget === target &&
+      !readCatalogueLocation(window.location.hash)?.item &&
+      !readCatalogueLocation(window.location.hash)?.invalidItem &&
       (!productionMode || (readerArticleId === null && archiveRoute === undefined))
     )
       return;
@@ -1795,6 +1801,8 @@ export function App({
         '',
         productionMode ? `${url.pathname}${url.search}#${nextTarget}` : `#${nextTarget}`,
       );
+      // pushState also needs to notify catalogue children when the parent area stays the same.
+      window.dispatchEvent(new Event('wrn-catalogue-navigation'));
       targetRef.current = nextTarget;
       setTarget(nextTarget);
       setMoreMenuOpen(nextTarget === 'more');

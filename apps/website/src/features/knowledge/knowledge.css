@@ -1,9 +1,28 @@
 .website-knowledge-view,
+.website-catalogue-item,
 .website-support-view {
   min-width: 0;
   overflow-wrap: anywhere;
   max-width: 76rem;
   margin: 0 auto;
+}
+.website-catalogue-item button,
+.website-catalogue-item a {
+  min-width: 44px;
+  min-height: 44px;
+}
+.website-catalogue-item input {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+.website-catalogue-item .website-safe-links label {
+  min-width: 0;
+  flex: 1 1 16rem;
+}
+.website-lexicon-layout > .website-catalogue-item:only-child {
+  grid-column: 1 / -1;
 }
 .website-knowledge-view > h1 {
   font-size: clamp(1.5rem, 8vw, 2rem);

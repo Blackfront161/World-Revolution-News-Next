@@ -1,3 +1,8 @@
+import {
+  navigateCatalogue,
+  useCatalogueLocation,
+  useCatalogueView,
+} from '../catalogue-navigation/catalogue-navigation-state';
 import { useEffect, useLayoutEffect, useMemo, useState, type RefObject } from 'react';
 import { getMobileKnowledgeCopy, type UiLanguage } from '@wrn/ui-language';
 import { getWebsiteSupportCopy } from '@wrn/ui-language/support';
@@ -6,8 +11,8 @@ import { BlackAnarchismResources } from '../../../../../packages/browser-content
 import './knowledge.css';
 import { LearningPaths } from './LearningPaths';
 import { localizedKnowledgeTerm } from './lexicon-locales';
+import { CatalogueItemPanel, CatalogueLink } from '../catalogue-navigation/catalogue-navigation';
 
-type Tab = 'library' | 'lexicon';
 const pageSize = 30;
 const currentCatalogueCopy: Record<UiLanguage, { provenance: string; intro: string }> = {
   de: {
@@ -78,11 +83,13 @@ function Library({
 }) {
   const copy = getMobileKnowledgeCopy(language);
   const supportCopy = getWebsiteSupportCopy(language);
-  const [query, setQuery] = useState('');
-  const [bookLanguage, setBookLanguage] = useState('');
-  const [source, setSource] = useState('');
-  const [format, setFormat] = useState('');
-  const [shown, setShown] = useState(pageSize);
+  const route = useCatalogueLocation();
+  const { view, change, reset } = useCatalogueView('library', true);
+  const { query, language: bookLanguage, source, format, shown } = view;
+  const setQuery = (value: string) => change('query', value);
+  const setBookLanguage = (value: string) => change('language', value);
+  const setSource = (value: string) => change('source', value);
+  const setFormat = (value: string) => change('format', value);
   const books = useMemo(
     () =>
       data.projection.books.filter((book) => {
@@ -96,29 +103,61 @@ function Library({
       }),
     [bookLanguage, data, format, query, source],
   );
-  useEffect(() => {
-    const timeout = window.setTimeout(() => setShown(pageSize), 0);
-    return () => window.clearTimeout(timeout);
-  }, [bookLanguage, format, query, source]);
-  const reset = () => {
-    setQuery('');
-    setBookLanguage('');
-    setSource('');
-    setFormat('');
-  };
   const languages = [...new Set(data.projection.books.flatMap((book) => book.languages))].sort();
   const formats = [...new Set(data.projection.books.flatMap((book) => book.formats))].sort();
+  if (route?.kind === 'library' && (route.item || route.invalidItem)) {
+    const book = data.projection.books.find((value) => value.id === route.item);
+    return (
+      <CatalogueItemPanel
+        key={route.item}
+        kind="library"
+        item={route.item}
+        language={language}
+        title={book?.title ?? null}
+        titleLanguage={book?.languages[0] ?? 'und'}
+      >
+        {book ? (
+          <>
+            <p>
+              {book.authors.join(', ') || '—'} · {book.languages.join(', ')} · {book.sourceName}
+            </p>
+            <p>{book.topics.join(', ')}</p>
+            <p className="website-safe-links">
+              {book.readUrl ? (
+                <a href={book.readUrl} {...external}>
+                  {copy.read}
+                </a>
+              ) : null}
+              {Object.entries(book.downloads).map(([kind, url]) => (
+                <a key={kind} href={url} {...external}>
+                  {kind.toUpperCase()}
+                </a>
+              ))}
+            </p>
+          </>
+        ) : null}
+      </CatalogueItemPanel>
+    );
+  }
   return (
     <section className="website-knowledge-panel" aria-label={copy.library}>
       <LearningPaths data={data} language={language} onOpenTerm={onOpenTerm} />
-      <div className="website-content-filters">
+      <div className="website-content-filters" data-catalogue-view="library">
         <label>
           {copy.search}
-          <input value={query} onChange={(event) => setQuery(event.target.value)} />
+          <input
+            data-catalogue-control="query"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+          />
         </label>
         <label>
           {copy.language}
-          <select value={bookLanguage} onChange={(event) => setBookLanguage(event.target.value)}>
+          <select
+            data-catalogue-control="language"
+            value={bookLanguage}
+            onChange={(event) => setBookLanguage(event.target.value)}
+          >
             <option value="">{copy.all}</option>
             {languages.map((value) => (
               <option key={value}>{value}</option>
@@ -127,7 +166,11 @@ function Library({
         </label>
         <label>
           {copy.source}
-          <select value={source} onChange={(event) => setSource(event.target.value)}>
+          <select
+            data-catalogue-control="source"
+            value={source}
+            onChange={(event) => setSource(event.target.value)}
+          >
             <option value="">{copy.all}</option>
             {data.projection.librarySources.map((item) => (
               <option key={item.id} value={item.id}>
@@ -138,7 +181,11 @@ function Library({
         </label>
         <label>
           {copy.format}
-          <select value={format} onChange={(event) => setFormat(event.target.value)}>
+          <select
+            data-catalogue-control="format"
+            value={format}
+            onChange={(event) => setFormat(event.target.value)}
+          >
             <option value="">{copy.all}</option>
             {formats.map((value) => (
               <option key={value}>{value}</option>
@@ -160,8 +207,12 @@ function Library({
       ) : (
         <ol className="website-content-list">
           {books.slice(0, shown).map((book) => (
-            <li key={book.id}>
-              <h3 lang={book.languages[0]}>{book.title}</h3>
+            <li key={book.id} data-knowledge-book={book.id}>
+              <h3 lang={book.languages[0]}>
+                <CatalogueLink kind="library" item={book.id} language={language}>
+                  {book.title}
+                </CatalogueLink>
+              </h3>
               <p>
                 {book.authors.join(', ') || '—'} · {book.languages.join(', ')} · {book.sourceName}
               </p>
@@ -182,7 +233,7 @@ function Library({
         </ol>
       )}
       {shown < books.length ? (
-        <button type="button" onClick={() => setShown((count) => count + pageSize)}>
+        <button type="button" onClick={() => change('shown', shown + pageSize)}>
           {copy.loadMore}
         </button>
       ) : null}
@@ -212,19 +263,12 @@ function Library({
   );
 }
 
-function Lexicon({
-  data,
-  language,
-  initialTermId,
-}: {
-  data: WebsiteKnowledge;
-  language: UiLanguage;
-  initialTermId: string | null;
-}) {
+function Lexicon({ data, language }: { data: WebsiteKnowledge; language: UiLanguage }) {
   const copy = getMobileKnowledgeCopy(language);
-  const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('');
-  const [selectedId, setSelectedId] = useState<string | null>(initialTermId);
+  const route = useCatalogueLocation();
+  const { view, change } = useCatalogueView('lexicon', true);
+  const { query, category } = view;
+  const selectedId = route?.kind === 'lexicon' ? route.item : null;
   const terms = useMemo(
     () =>
       data.projection.terms.filter(
@@ -237,53 +281,67 @@ function Lexicon({
       ),
     [category, data, query, language],
   );
-  const selected = terms.find((term) => term.id === selectedId) ?? terms[0] ?? null;
+  const selected = selectedId
+    ? (data.projection.terms.find((term) => term.id === selectedId) ?? null)
+    : route?.invalidItem
+      ? null
+      : (terms[0] ?? null);
   const selectedText = selected ? localizedKnowledgeTerm(selected, language) : null;
   const text = (value: { de: string; en: string }) => (language === 'de' ? value.de : value.en);
-  const select = (id: string) => {
-    setQuery('');
-    setCategory('');
-    setSelectedId(id);
-  };
+  const select = (id: string) => navigateCatalogue('lexicon', language, id);
   return (
     <section className="website-knowledge-panel" aria-label={copy.lexicon}>
-      <div className="website-content-filters">
-        <label>
-          {copy.search}
-          <input value={query} onChange={(event) => setQuery(event.target.value)} />
-        </label>
-        <label>
-          {copy.category}
-          <select value={category} onChange={(event) => setCategory(event.target.value)}>
-            <option value="">{copy.all}</option>
-            {[...new Set(data.projection.terms.map((term) => term.category))].map((value) => (
-              <option key={value}>{value}</option>
-            ))}
-          </select>
-        </label>
-      </div>
+      {!selectedId && !route?.invalidItem ? (
+        <div className="website-content-filters" data-catalogue-view="lexicon">
+          <label>
+            {copy.search}
+            <input
+              data-catalogue-control="query"
+              value={query}
+              onChange={(event) => change('query', event.target.value)}
+            />
+          </label>
+          <label>
+            {copy.category}
+            <select
+              data-catalogue-control="category"
+              value={category}
+              onChange={(event) => change('category', event.target.value)}
+            >
+              <option value="">{copy.all}</option>
+              {[...new Set(data.projection.terms.map((term) => term.category))].map((value) => (
+                <option key={value}>{value}</option>
+              ))}
+            </select>
+          </label>
+        </div>
+      ) : null}
       {language !== 'de' && language !== 'en' && selectedText?.language !== language ? (
         <p>{copy.fallback}</p>
       ) : null}
       <div className="website-lexicon-layout">
-        <ul className="website-content-list">
-          {terms.map((term) => (
-            <li key={term.id}>
-              <button
-                type="button"
-                aria-pressed={selected?.id === term.id}
-                onClick={() => setSelectedId(term.id)}
-              >
-                <span lang={localizedKnowledgeTerm(term, language).language}>
-                  {localizedKnowledgeTerm(term, language).title}
-                </span>
-              </button>
-            </li>
-          ))}
-        </ul>
+        {!selectedId && !route?.invalidItem ? (
+          <ul className="website-content-list">
+            {terms.map((term) => (
+              <li key={term.id}>
+                <CatalogueLink kind="lexicon" item={term.id} language={language}>
+                  <span lang={localizedKnowledgeTerm(term, language).language}>
+                    {localizedKnowledgeTerm(term, language).title}
+                  </span>
+                </CatalogueLink>
+              </li>
+            ))}
+          </ul>
+        ) : null}
         {selected ? (
-          <article>
-            <h2 lang={selectedText?.language}>{selectedText?.title}</h2>
+          <CatalogueItemPanel
+            key={selectedId}
+            kind="lexicon"
+            item={selectedId}
+            language={language}
+            title={selectedText?.title ?? null}
+            titleLanguage={selectedText?.language ?? language}
+          >
             {selectedText?.draft ? (
               <p lang={selectedText.language}>
                 {selectedText.language === 'fr'
@@ -328,7 +386,9 @@ function Lexicon({
                   </li>
                 ))}
             </ul>
-          </article>
+          </CatalogueItemPanel>
+        ) : selectedId || route?.invalidItem ? (
+          <CatalogueItemPanel kind="lexicon" item={selectedId} language={language} title={null} />
         ) : (
           <p role="status">{copy.noResults}</p>
         )}
@@ -345,12 +405,9 @@ export function WebsiteKnowledgeRoute({
   headingRef: RefObject<HTMLHeadingElement | null>;
 }) {
   const copy = getMobileKnowledgeCopy(language);
-  const [tab, setTab] = useState<Tab>('library');
-  const [initialTermId, setInitialTermId] = useState<string | null>(null);
-  const openTerm = (id: string) => {
-    setInitialTermId(id);
-    setTab('lexicon');
-  };
+  const route = useCatalogueLocation();
+  const tab = route?.kind === 'lexicon' ? 'lexicon' : 'library';
+  const openTerm = (id: string) => navigateCatalogue('lexicon', language, id);
   const [data, setData] = useState<WebsiteKnowledge | null>(null);
   const [failed, setFailed] = useState(false);
   const [retry, setRetry] = useState(0);
@@ -414,14 +471,14 @@ export function WebsiteKnowledgeRoute({
             <button
               type="button"
               aria-pressed={tab === 'library'}
-              onClick={() => setTab('library')}
+              onClick={() => navigateCatalogue('library', language)}
             >
               {copy.library}
             </button>
             <button
               type="button"
               aria-pressed={tab === 'lexicon'}
-              onClick={() => setTab('lexicon')}
+              onClick={() => navigateCatalogue('lexicon', language)}
             >
               {copy.lexicon}
             </button>
@@ -431,7 +488,7 @@ export function WebsiteKnowledgeRoute({
               <Library data={data} language={language} onOpenTerm={openTerm} />
             </>
           ) : (
-            <Lexicon data={data} language={language} initialTermId={initialTermId} />
+            <Lexicon data={data} language={language} />
           )}
         </>
       )}
