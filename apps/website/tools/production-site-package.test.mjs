@@ -98,13 +98,13 @@ test('two packages have deterministic bytes, exact real closure and immutable in
   assert.deepEqual(await check(one.outputDirectory), await check(two.outputDirectory));
   assert.equal(manifest.files.length, 46);
   const illustrations = manifest.files.filter((entry) =>
-    /^assets\/wrn-land-rights-illustration-v1-[A-Za-z0-9_-]+\.webp$/.test(entry.path),
+    /^assets\/wrn-austerity-illustration-v1-[A-Za-z0-9_-]+\.webp$/.test(entry.path),
   );
   assert.equal(illustrations.length, 1);
-  assert.equal(illustrations[0].bytes, 455444);
+  assert.equal(illustrations[0].bytes, 230192);
   assert.equal(
     illustrations[0].sha256,
-    'e33d13ae13efbf10463e6bb1e660f02305b323ae83ef2e4aa22c58f579b111ab',
+    'b7d83ace0ea59e05d803f1076c524af4a95e05345d1cb272306a7ce2fbec7eb0',
   );
   const icons = manifest.files.filter((entry) =>
     /^assets\/wrn-app-icon-[A-Za-z0-9_-]+\.png$/.test(entry.path),

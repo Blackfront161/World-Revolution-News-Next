@@ -21,7 +21,7 @@ import {
   homeCoverage,
 } from './home-editorial';
 import './app-home.css';
-import landRightsIllustration from '../../assets/wrn-land-rights-illustration-v1.webp';
+import homeIllustrationAsset from '../../assets/wrn-austerity-illustration-v1.webp';
 
 const homeLabels: Record<
   UiLanguage,
@@ -232,7 +232,7 @@ export function WebsiteAppHome({
       {illustration(article) && (
         <figure className="app-start-illustration" data-wrn-illustration={article.id}>
           <img
-            src={landRightsIllustration}
+            src={homeIllustrationAsset}
             alt={language === 'de' ? illustration(article)!.altDe : illustration(article)!.altEn}
             lang={language === 'de' ? 'de' : 'en'}
             width="1672"
@@ -473,8 +473,8 @@ export function WebsiteAppHome({
                     <strong>{selected.briefing.length}</strong>
                     <p>
                       {language === 'de'
-                        ? 'Die fünf Meldungen aus dem App-Briefing kompakt lesen.'
-                        : 'Read the five reports from the App briefing together.'}
+                        ? 'Die Meldungen aus dem App-Briefing kompakt lesen.'
+                        : 'Read the reports from the App briefing together.'}
                     </p>
                     <button
                       type="button"

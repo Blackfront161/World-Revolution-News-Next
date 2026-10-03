@@ -1,9 +1,12 @@
 import type { DirectoryArticle } from '@wrn/content-contracts/mobile-content-directory-v1';
 import type { UiLanguage } from '@wrn/ui-language';
+import { validateSourcePassOverlayV1 } from '@wrn/content-contracts/source-pass-overlay-v1';
 import editorial from './app-home-editorial-v1.json';
+import sourceReview from './app-home-source-review-v1.json';
 import topicCatalog from './app-topics-v1.json';
 import noteLanguages from './home-note-languages-v1.json';
 import illustration from './home-illustration-v1.json';
+const reviewedProfiles = validateSourcePassOverlayV1(sourceReview) ? sourceReview.records : [];
 
 /** An editorial note never restores an article removed by directory/source safety. */
 export function homeReadingNote(article: DirectoryArticle, directoryCommit: string) {
@@ -14,6 +17,16 @@ export function homeReadingNote(article: DirectoryArticle, directoryCommit: stri
         entry.articleId === article.id &&
         entry.originalUrl === article.url &&
         entry.originalTitle === article.title &&
+        entry.sourceName === article.sourceName &&
+        entry.admission === 'metadata-only-with-wrn-note' &&
+        reviewedProfiles.some(
+          (profile) =>
+            profile.id === entry.sourcePassId &&
+            profile.canonicalName === entry.sourceName &&
+            profile.rights.some(
+              (right) => right.medium === 'metadata' && ['allowed', 'link-only'].includes(right.status),
+            ),
+        ) &&
         entry.rights === 'wrn-original-reading-note',
     ) ?? null
   );

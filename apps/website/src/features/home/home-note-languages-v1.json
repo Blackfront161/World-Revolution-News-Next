@@ -3,507 +3,363 @@
   "authorship": "Language versions of WRN-owned reading notes, not translations of source full texts",
   "entries": [
     {
-      "articleId": "news-d66b8d407e0eb4adcb2e5d17d2e9bdb1b85660b8c28b758d128f6ed58356f685",
-      "sourceSummaryEn": "ANRed reports that a court ruling has reinstated the repeal of restrictions on foreign ownership of rural land. Unions and social organisations are preparing protests.",
-      "sourceHeadlineDe": "Argentinien: Streit um Landgesetz führt zu neuen Protesten",
+      "articleId": "news-bf7f81a0916bf3c8e14fd76c3ea38c65a8c8ac67c2a6008059ef42a8f74b4fcc",
+      "sourceSummaryEn": "Elitsha reports on AIDC proposals for more progressive taxation in South Africa. Wealth and dividend taxes are presented as alternatives to spending cuts.",
+      "sourceHeadlineDe": "Südafrika: Vorschläge gegen Sparpolitik",
       "headlines": {
-        "en": "Argentina: land-law dispute prompts new protests",
-        "es": "Argentina: la disputa por la ley de tierras provoca nuevas protestas",
-        "fr": "Argentine : le conflit sur la loi foncière relance les manifestations",
-        "it": "Argentina: la disputa sulla legge fondiaria provoca nuove proteste",
-        "pt": "Argentina: disputa sobre a lei de terras gera novos protestos",
-        "ru": "Аргентина: спор о земельном законе вызывает новые протесты",
-        "el": "Αργεντινή: η διαμάχη για τη γη φέρνει νέες κινητοποιήσεις",
-        "tr": "Arjantin: Arazi yasası anlaşmazlığı yeni protestolara yol açıyor"
+        "en": "South Africa: proposals against austerity",
+        "es": "Sudáfrica: propuestas contra la austeridad",
+        "fr": "Afrique du Sud : des propositions contre l’austérité",
+        "it": "Sudafrica: proposte contro l’austerità",
+        "pt": "África do Sul: propostas contra a austeridade",
+        "ru": "ЮАР: предложения против политики жёсткой экономии",
+        "el": "Νότια Αφρική: προτάσεις κατά της λιτότητας",
+        "tr": "Güney Afrika: kemer sıkmaya karşı öneriler"
       },
       "summaries": {
-        "es": "ANRed informa de un fallo judicial que vuelve a hacer efectiva la derogación de las restricciones a la propiedad extranjera de tierras rurales. Sindicatos y organizaciones sociales preparan protestas.",
-        "fr": "ANRed rapporte qu’une décision judiciaire rétablit l’abrogation des restrictions à la propriété étrangère des terres rurales. Des syndicats et des organisations sociales préparent des manifestations.",
-        "it": "ANRed riferisce che una sentenza ripristina l’abrogazione dei limiti alla proprietà straniera dei terreni rurali. Sindacati e organizzazioni sociali preparano proteste.",
-        "pt": "A ANRed informa que uma decisão judicial restabelece a revogação dos limites à propriedade estrangeira de terras rurais. Sindicatos e organizações sociais preparam protestos.",
-        "ru": "ANRed сообщает, что решение суда вновь вводит в действие отмену ограничений на иностранную собственность на сельские земли. Профсоюзы и общественные организации готовят протесты.",
-        "el": "Το ANRed αναφέρει ότι δικαστική απόφαση επαναφέρει σε ισχύ την κατάργηση των περιορισμών στην ξένη ιδιοκτησία αγροτικής γης. Συνδικάτα και κοινωνικές οργανώσεις προετοιμάζουν κινητοποιήσεις.",
-        "tr": "ANRed, bir mahkeme kararının kırsal arazilerin yabancılarca mülkiyetine getirilen kısıtlamaların kaldırılmasını yeniden yürürlüğe soktuğunu bildiriyor. Sendikalar ve toplumsal örgütler protestolara hazırlanıyor."
+        "es": "Elitsha informa sobre propuestas del AIDC para una tributación más progresiva en Sudáfrica. Los impuestos sobre el patrimonio y los dividendos se presentan como alternativas a los recortes del gasto.",
+        "fr": "Elitsha présente les propositions de l’AIDC pour une fiscalité plus progressive en Afrique du Sud. Les taxes sur la fortune et les dividendes sont proposées comme alternatives aux coupes budgétaires.",
+        "it": "Elitsha presenta le proposte dell’AIDC per una tassazione più progressiva in Sudafrica. Le imposte sul patrimonio e sui dividendi vengono proposte come alternative ai tagli alla spesa.",
+        "pt": "A Elitsha apresenta propostas do AIDC para uma tributação mais progressiva na África do Sul. Impostos sobre patrimônio e dividendos são apresentados como alternativas aos cortes de gastos.",
+        "ru": "Elitsha рассказывает о предложениях AIDC по более прогрессивному налогообложению в ЮАР. Налоги на состояние и дивиденды представлены как альтернатива сокращению расходов.",
+        "el": "Το Elitsha παρουσιάζει προτάσεις του AIDC για πιο προοδευτική φορολογία στη Νότια Αφρική. Οι φόροι στον πλούτο και στα μερίσματα προτείνονται ως εναλλακτικές στις περικοπές δαπανών.",
+        "tr": "Elitsha, Güney Afrika’da daha artan oranlı vergilendirme için AIDC’nin önerilerini aktarıyor. Servet ve temettü vergileri harcama kesintilerine alternatif olarak sunuluyor."
       }
     },
     {
-      "articleId": "news-98ecd49aeb72e7bdcba4bc929017c856a38a216b12c664413c50f48a7eac1f53",
-      "sourceSummaryEn": "Evrensel reports the Houthis’ account of Saudi air strikes on Sana’a and other cities. The report presents the Houthis’ claim.",
-      "sourceHeadlineDe": "Huthi melden saudische Luftangriffe auf Sanaa",
+      "articleId": "news-4805e4b7cf59c5de9e527df647913b42b2e7a9e98c41c0b38e024c33da7d511b",
+      "sourceSummaryEn": "Nunatsiaq reports on the first planned inductions into Nunavut’s sports hall of fame. Jordin Tootoo and Attima Hadlari are to be honoured.",
+      "sourceHeadlineDe": "Nunavut ehrt seine ersten Sportlegenden",
       "headlines": {
-        "en": "Houthis report Saudi air strikes on Sana’a",
-        "es": "Los hutíes denuncian ataques aéreos saudíes contra Saná",
-        "fr": "Les Houthis font état de frappes saoudiennes sur Sanaa",
-        "it": "Gli Huthi denunciano attacchi aerei sauditi a Sana’a",
-        "pt": "Houthis relatam ataques aéreos sauditas a Sana",
-        "ru": "Хуситы заявляют о саудовских авиаударах по Сане",
-        "el": "Οι Χούθι αναφέρουν σαουδαραβικές αεροπορικές επιδρομές στη Σαναά",
-        "tr": "Husiler Sana’ya Suudi hava saldırıları yapıldığını bildiriyor"
+        "en": "Nunavut honours its first sporting legends",
+        "es": "Nunavut honra a sus primeras leyendas deportivas",
+        "fr": "Le Nunavut honore ses premières légendes sportives",
+        "it": "Nunavut celebra le sue prime leggende sportive",
+        "pt": "Nunavut homenageia suas primeiras lendas esportivas",
+        "ru": "Нунавут чествует первых спортивных легенд",
+        "el": "Το Νούναβουτ τιμά τους πρώτους αθλητικούς θρύλους του",
+        "tr": "Nunavut ilk spor efsanelerini onurlandırıyor"
       },
       "summaries": {
-        "es": "Evrensel recoge la versión de los hutíes sobre ataques aéreos saudíes contra Saná y otras ciudades. La noticia presenta la afirmación de los hutíes.",
-        "fr": "Evrensel relaie les déclarations des Houthis sur des frappes aériennes saoudiennes contre Sanaa et d’autres villes. L’article présente la version des Houthis.",
-        "it": "Evrensel riporta le dichiarazioni degli Huthi su attacchi aerei sauditi a Sana’a e in altre città. La notizia presenta la versione degli Huthi.",
-        "pt": "O Evrensel relata a versão dos houthis sobre ataques aéreos sauditas a Sana e outras cidades. A notícia apresenta a alegação dos houthis.",
-        "ru": "Evrensel передаёт заявления хуситов о саудовских авиаударах по Сане и другим городам. В публикации представлена версия хуситов.",
-        "el": "Το Evrensel μεταφέρει τις δηλώσεις των Χούθι για σαουδαραβικές αεροπορικές επιδρομές στη Σαναά και άλλες πόλεις. Το δημοσίευμα παρουσιάζει τον ισχυρισμό των Χούθι.",
-        "tr": "Evrensel, Husilerin Sana ve diğer kentlere Suudi hava saldırıları yapıldığı yönündeki açıklamalarını aktarıyor. Haber, Husilerin iddiasını sunuyor."
+        "es": "Nunatsiaq informa sobre las primeras incorporaciones previstas al salón de la fama deportiva de Nunavut. Se homenajeará a Jordin Tootoo y Attima Hadlari.",
+        "fr": "Nunatsiaq rapporte les premières admissions prévues au panthéon sportif du Nunavut. Jordin Tootoo et Attima Hadlari doivent être honorés.",
+        "it": "Nunatsiaq riferisce delle prime ammissioni previste nella hall of fame sportiva del Nunavut. Saranno celebrati Jordin Tootoo e Attima Hadlari.",
+        "pt": "A Nunatsiaq relata as primeiras inclusões previstas no salão da fama esportiva de Nunavut. Jordin Tootoo e Attima Hadlari serão homenageados.",
+        "ru": "Nunatsiaq сообщает о первых запланированных включениях в спортивный зал славы Нунавута. Чествовать намерены Джордина Туту и Аттиму Хадлари.",
+        "el": "Το Nunatsiaq αναφέρει τις πρώτες προγραμματισμένες εντάξεις στο αθλητικό πάνθεον του Νούναβουτ. Θα τιμηθούν ο Τζόρντιν Τουτού και ο Ατίμα Χαντλάρι.",
+        "tr": "Nunatsiaq, Nunavut’un spor şöhretler salonuna planlanan ilk kabulleri aktarıyor. Jordin Tootoo ve Attima Hadlari’nin onurlandırılması bekleniyor."
       }
     },
     {
-      "articleId": "news-d68eb3eba71982ef703ecdf9cc1ae377e2e2f778c838979b236ef321cea1fc77",
-      "sourceSummaryEn": "An UAWD commentary republished by Labor for Palestine discusses state intervention in the UAW. The author argues for democratic unions and independent worker organising.",
-      "sourceHeadlineDe": "Gewerkschaftliche Unabhängigkeit unter staatlicher Aufsicht",
+      "articleId": "news-19ec580a27780de2a9af0ed4eb0fc0441bc442f30d9954d78686e6c655a04cee",
+      "sourceSummaryEn": "Autonomies republishes a CrimethInc. commentary on Brazil’s elections. It criticises both political camps and discusses autonomous organising.",
+      "sourceHeadlineDe": "Brasiliens Wahl aus anarchistischer Perspektive",
       "headlines": {
-        "en": "Union independence under state oversight",
-        "es": "Independencia sindical bajo supervisión estatal",
-        "fr": "L’indépendance syndicale sous contrôle de l’État",
-        "it": "Indipendenza sindacale sotto controllo statale",
-        "pt": "Independência sindical sob supervisão estatal",
-        "ru": "Профсоюзная независимость под государственным надзором",
-        "el": "Συνδικαλιστική ανεξαρτησία υπό κρατική εποπτεία",
-        "tr": "Devlet denetimi altında sendikal bağımsızlık"
+        "en": "Brazil’s election from an anarchist perspective",
+        "es": "Las elecciones de Brasil desde una perspectiva anarquista",
+        "fr": "Les élections brésiliennes vues par des anarchistes",
+        "it": "Le elezioni brasiliane da una prospettiva anarchica",
+        "pt": "As eleições brasileiras sob uma perspectiva anarquista",
+        "ru": "Выборы в Бразилии с анархистской точки зрения",
+        "el": "Οι εκλογές στη Βραζιλία από αναρχική οπτική",
+        "tr": "Brezilya seçimlerine anarşist bir bakış"
       },
       "summaries": {
-        "es": "Un comentario de UAWD republicado por Labor for Palestine analiza la intervención estatal en la UAW. El autor defiende sindicatos democráticos y la organización independiente de los trabajadores.",
-        "fr": "Un commentaire de l’UAWD repris par Labor for Palestine examine l’intervention de l’État dans l’UAW. L’auteur défend des syndicats démocratiques et une organisation indépendante des travailleurs.",
-        "it": "Un commento di UAWD ripubblicato da Labor for Palestine esamina l’intervento statale nella UAW. L’autore sostiene sindacati democratici e l’organizzazione indipendente dei lavoratori.",
-        "pt": "Um comentário da UAWD republicado pelo Labor for Palestine discute a intervenção estatal na UAW. O autor defende sindicatos democráticos e a organização independente dos trabalhadores.",
-        "ru": "Комментарий UAWD, перепечатанный Labor for Palestine, рассматривает вмешательство государства в UAW. Автор выступает за демократические профсоюзы и независимую организацию работников.",
-        "el": "Σχόλιο της UAWD που αναδημοσιεύει το Labor for Palestine εξετάζει την κρατική παρέμβαση στην UAW. Ο συντάκτης υποστηρίζει δημοκρατικά συνδικάτα και ανεξάρτητη οργάνωση των εργαζομένων.",
-        "tr": "Labor for Palestine’ın yeniden yayımladığı UAWD yorumu, UAW’ye devlet müdahalesini tartışıyor. Yazar demokratik sendikaları ve işçilerin bağımsız örgütlenmesini savunuyor."
+        "es": "Autonomies republica un comentario de CrimethInc. sobre las elecciones de Brasil. Critica ambos sectores políticos y debate la organización autónoma.",
+        "fr": "Autonomies republie un commentaire de CrimethInc. sur les élections brésiliennes. Le texte critique les deux camps politiques et discute de l’organisation autonome.",
+        "it": "Autonomies ripubblica un commento di CrimethInc. sulle elezioni brasiliane. Il testo critica entrambi gli schieramenti politici e discute l’organizzazione autonoma.",
+        "pt": "A Autonomies republica um comentário da CrimethInc. sobre as eleições brasileiras. O texto critica os dois campos políticos e discute a organização autônoma.",
+        "ru": "Autonomies перепубликует комментарий CrimethInc. о выборах в Бразилии. Текст критикует оба политических лагеря и обсуждает автономную самоорганизацию.",
+        "el": "Το Autonomies αναδημοσιεύει σχόλιο της CrimethInc. για τις εκλογές στη Βραζιλία. Το κείμενο ασκεί κριτική και στα δύο πολιτικά στρατόπεδα και συζητά την αυτόνομη οργάνωση.",
+        "tr": "Autonomies, Brezilya seçimleri üzerine bir CrimethInc. yorumunu yeniden yayımlıyor. Metin iki siyasi kampı da eleştiriyor ve özerk örgütlenmeyi tartışıyor."
       }
     },
     {
-      "articleId": "news-5cd76619b67a58f87537f3c36d6451e2d10c706bd9f4a0695ede8605b972214e",
-      "sourceSummaryEn": "Infolibre publishes the programme for the second libertarian festival in Thessaloniki’s ΧΑΝΘ park. Its focus is organised anarchism and social and labour struggles.",
-      "sourceHeadlineDe": "Libertäres Festival am 2. und 3. Oktober in Thessaloniki",
+      "articleId": "news-cf022a0fd6b1dff18da08d530fe6f0fd9ec23a743d1ac65cd8cbc212c00d5f63",
+      "sourceSummaryEn": "Waging Nonviolence reports on Iran’s teachers movement. Interviewees describe their struggle for fair pay, public education and the release of detained colleagues.",
+      "sourceHeadlineDe": "Irans Lehrkräfte halten an ihren Forderungen fest",
       "headlines": {
-        "en": "Libertarian festival in Thessaloniki on October 2 and 3",
-        "es": "Festival libertario en Tesalónica el 2 y 3 de octubre",
-        "fr": "Festival libertaire à Thessalonique les 2 et 3 octobre",
-        "it": "Festival libertario a Salonicco il 2 e 3 ottobre",
-        "pt": "Festival libertário em Salónica nos dias 2 e 3 de outubro",
-        "ru": "Либертарный фестиваль в Салониках 2 и 3 октября",
-        "el": "Ελευθεριακό φεστιβάλ στη Θεσσαλονίκη στις 2 και 3 Οκτωβρίου",
-        "tr": "Selanik’te 2 ve 3 Ekim’de özgürlükçü festival"
+        "en": "Iran’s teachers persist with their demands",
+        "es": "El profesorado iraní mantiene sus demandas",
+        "fr": "Les enseignants iraniens maintiennent leurs revendications",
+        "it": "Gli insegnanti iraniani mantengono le loro richieste",
+        "pt": "Professores iranianos mantêm suas reivindicações",
+        "ru": "Иранские учителя продолжают отстаивать свои требования",
+        "el": "Οι εκπαιδευτικοί του Ιράν επιμένουν στα αιτήματά τους",
+        "tr": "İranlı öğretmenler taleplerini sürdürmeye devam ediyor"
       },
       "summaries": {
-        "es": "Infolibre publica el programa del segundo festival libertario en el parque ΧΑΝΘ de Tesalónica. Sus temas son el anarquismo organizado y las luchas sociales y laborales.",
-        "fr": "Infolibre publie le programme du deuxième festival libertaire au parc ΧΑΝΘ de Thessalonique. Il porte sur l’anarchisme organisé et les luttes sociales et syndicales.",
-        "it": "Infolibre pubblica il programma del secondo festival libertario nel parco ΧΑΝΘ di Salonicco. Al centro sono l’anarchismo organizzato e le lotte sociali e del lavoro.",
-        "pt": "O Infolibre publica o programa do segundo festival libertário no parque ΧΑΝΘ, em Salónica. O foco é o anarquismo organizado e as lutas sociais e laborais.",
-        "ru": "Infolibre публикует программу второго либертарного фестиваля в парке ΧΑΝΘ в Салониках. Его темы — организованный анархизм, общественные и трудовые движения.",
-        "el": "Το Infolibre δημοσιεύει το πρόγραμμα του δεύτερου ελευθεριακού φεστιβάλ στο πάρκο ΧΑΝΘ της Θεσσαλονίκης. Εστιάζει στον οργανωμένο αναρχισμό και στους κοινωνικούς και εργατικούς αγώνες.",
-        "tr": "Infolibre, Selanik’teki ΧΑΝΘ parkında düzenlenen ikinci özgürlükçü festivalin programını yayımlıyor. Program örgütlü anarşizm ile toplumsal mücadelelere ve emek mücadelelerine odaklanıyor."
+        "es": "Waging Nonviolence informa sobre el movimiento docente de Irán. Las personas entrevistadas describen su lucha por salarios justos, educación pública y la liberación de colegas detenidos.",
+        "fr": "Waging Nonviolence présente le mouvement enseignant iranien. Les personnes interrogées décrivent leur lutte pour des salaires équitables, l’éducation publique et la libération de collègues détenus.",
+        "it": "Waging Nonviolence racconta il movimento degli insegnanti iraniani. Gli intervistati descrivono la lotta per salari equi, istruzione pubblica e liberazione dei colleghi detenuti.",
+        "pt": "A Waging Nonviolence apresenta o movimento de professores do Irã. Entrevistados descrevem a luta por salários justos, educação pública e libertação de colegas detidos.",
+        "ru": "Waging Nonviolence рассказывает о движении учителей Ирана. Собеседники описывают борьбу за справедливую оплату, государственное образование и освобождение задержанных коллег.",
+        "el": "Το Waging Nonviolence παρουσιάζει το κίνημα εκπαιδευτικών του Ιράν. Οι συνεντευξιαζόμενοι περιγράφουν τον αγώνα για δίκαιες αμοιβές, δημόσια εκπαίδευση και απελευθέρωση κρατούμενων συναδέλφων.",
+        "tr": "Waging Nonviolence, İran’ın öğretmen hareketini anlatıyor. Görüşülen kişiler adil ücret, kamusal eğitim ve tutuklu meslektaşlarının serbest bırakılması için mücadelelerini aktarıyor."
       }
     },
     {
-      "articleId": "news-921fcc9bef43bfa916947824646785e171bfa0bcf6f1b03a7c8b1aa19a8ed3c3",
-      "sourceSummaryEn": "EFF and the ACLU demand records about Marin County Sheriff’s sharing of Flock licence-plate data. They argue that the sharing violates California law and a previous settlement.",
-      "sourceHeadlineDe": "EFF fordert Aufklärung über weitergegebene Kennzeichendaten",
+      "articleId": "news-4aebfed2089e5861f814b47fdc387997351b655643f164d0fec4fe551a6752e0",
+      "sourceSummaryEn": "EFF criticises the US DEFEND IP bill. The organisation warns that blocking entire websites could harm lawful content and freedom of expression.",
+      "sourceHeadlineDe": "EFF kritisiert neuen Vorschlag für Website-Sperren",
       "headlines": {
-        "en": "EFF seeks answers on shared licence-plate data",
-        "es": "EFF pide explicaciones sobre datos de matrículas compartidos",
-        "fr": "EFF demande des explications sur le partage de données de plaques",
-        "it": "EFF chiede chiarimenti sui dati delle targhe condivisi",
-        "pt": "EFF pede esclarecimentos sobre dados de matrículas partilhados",
-        "ru": "EFF требует объяснений передачи данных автомобильных номеров",
-        "el": "Το EFF ζητά εξηγήσεις για τη διαβίβαση δεδομένων πινακίδων",
-        "tr": "EFF paylaşılan plaka verileri hakkında açıklama istiyor"
+        "en": "EFF criticises another website-blocking proposal",
+        "es": "EFF critica otra propuesta de bloqueo de sitios web",
+        "fr": "EFF critique un nouveau projet de blocage de sites",
+        "it": "EFF critica una nuova proposta di blocco dei siti",
+        "pt": "EFF critica outra proposta de bloqueio de sites",
+        "ru": "EFF критикует очередной проект блокировки сайтов",
+        "el": "Η EFF επικρίνει νέα πρόταση αποκλεισμού ιστοτόπων",
+        "tr": "EFF yeni bir site engelleme önerisini eleştiriyor"
       },
       "summaries": {
-        "es": "EFF y ACLU solicitan información sobre la cesión de datos de matrículas de Flock por la oficina del sheriff de Marin. Sostienen que vulnera la legislación de California y un acuerdo anterior.",
-        "fr": "EFF et l’ACLU demandent des informations sur le partage de données de plaques d’immatriculation Flock par le shérif du comté de Marin. Elles y voient une violation du droit californien et d’un accord antérieur.",
-        "it": "EFF e ACLU chiedono informazioni sulla condivisione dei dati delle targhe Flock da parte dello sceriffo della contea di Marin. Ritengono che violi la legge della California e un accordo precedente.",
-        "pt": "A EFF e a ACLU pedem informações sobre a partilha de dados de matrículas da Flock pelo xerife do condado de Marin. Consideram que viola a lei da Califórnia e um acordo anterior.",
-        "ru": "EFF и ACLU запрашивают сведения о передаче данных автомобильных номеров Flock шерифом округа Марин. Они считают, что это нарушает закон Калифорнии и ранее достигнутое соглашение.",
-        "el": "Οι EFF και ACLU ζητούν στοιχεία για τη διαβίβαση δεδομένων πινακίδων Flock από τον σερίφη της κομητείας Marin. Θεωρούν ότι παραβιάζει τη νομοθεσία της Καλιφόρνιας και προηγούμενη συμφωνία.",
-        "tr": "EFF ve ACLU, Marin County şerifinin Flock plaka verilerini paylaşması hakkında bilgi talep ediyor. Bunun Kaliforniya hukukunu ve önceki bir anlaşmayı ihlal ettiğini savunuyorlar."
+        "es": "EFF critica el proyecto estadounidense DEFEND IP. La organización advierte que bloquear sitios enteros podría perjudicar contenidos legales y la libertad de expresión.",
+        "fr": "EFF critique le projet américain DEFEND IP. L’organisation avertit que le blocage de sites entiers pourrait nuire aux contenus licites et à la liberté d’expression.",
+        "it": "EFF critica il progetto statunitense DEFEND IP. L’organizzazione avverte che bloccare interi siti potrebbe danneggiare contenuti leciti e libertà di espressione.",
+        "pt": "A EFF critica o projeto americano DEFEND IP. A organização alerta que bloquear sites inteiros poderia prejudicar conteúdos lícitos e a liberdade de expressão.",
+        "ru": "EFF критикует американский законопроект DEFEND IP. Организация предупреждает, что блокировка целых сайтов может навредить законному контенту и свободе выражения.",
+        "el": "Η EFF επικρίνει το αμερικανικό νομοσχέδιο DEFEND IP. Προειδοποιεί ότι ο αποκλεισμός ολόκληρων ιστοτόπων μπορεί να πλήξει νόμιμο περιεχόμενο και την ελευθερία έκφρασης.",
+        "tr": "EFF, ABD’deki DEFEND IP yasa tasarısını eleştiriyor. Kuruluş, tüm sitelerin engellenmesinin yasal içeriklere ve ifade özgürlüğüne zarar verebileceği uyarısında bulunuyor."
       }
     },
     {
-      "articleId": "news-712d66bf4c905af4e90b9d6b1353bd96423028611dc53b832ec7ee83e6906a75",
-      "sourceSummaryEn": "Agência Pública examines a resurfaced comment by Flávio Bolsonaro following the murder of judge Patrícia Acioli. The article places the statement in context.",
-      "sourceHeadlineDe": "Pública greift Bolsonaros Äußerung über Patrícia Acioli auf",
+      "articleId": "news-89996c282207e65c3097efb6adccbc8c85fe46c009854f1cad5386ab1cd96389",
+      "sourceSummaryEn": "Agencia Tierra Viva reports on the dispute over pesticide spraying near Sastre. A resident describes the community initiative and its call for agroecology.",
+      "sourceHeadlineDe": "Sastre: Nach dem Urteil wird über Agrarökologie diskutiert",
       "headlines": {
-        "en": "Pública revisits Bolsonaro’s remark about Patrícia Acioli",
-        "es": "Pública retoma el comentario de Bolsonaro sobre Patrícia Acioli",
-        "fr": "Pública revient sur les propos de Bolsonaro sur Patrícia Acioli",
-        "it": "Pública riprende il commento di Bolsonaro su Patrícia Acioli",
-        "pt": "Pública retoma comentário de Bolsonaro sobre Patrícia Acioli",
-        "ru": "Pública возвращается к словам Болсонару о Патрисии Асиоли",
-        "el": "Η Pública επανεξετάζει δήλωση Bolsonaro για την Patrícia Acioli",
-        "tr": "Pública, Bolsonaro’nun Patrícia Acioli hakkındaki yorumunu ele alıyor"
+        "en": "Sastre: agroecology after the court ruling",
+        "es": "Sastre: agroecología tras el fallo judicial",
+        "fr": "Sastre : l’agroécologie après la décision judiciaire",
+        "it": "Sastre: agroecologia dopo la decisione giudiziaria",
+        "pt": "Sastre: agroecologia após a decisão judicial",
+        "ru": "Састре: агроэкология после решения суда",
+        "el": "Σάστρε: αγροοικολογία μετά τη δικαστική απόφαση",
+        "tr": "Sastre: mahkeme kararının ardından agroekoloji"
       },
       "summaries": {
-        "es": "Agência Pública examina un comentario de Flávio Bolsonaro que ha vuelto a circular tras el asesinato de la jueza Patrícia Acioli. El artículo contextualiza esa declaración.",
-        "fr": "Agência Pública examine une déclaration de Flávio Bolsonaro remise en circulation après l’assassinat de la juge Patrícia Acioli. L’article replace ces propos dans leur contexte.",
-        "it": "Agência Pública esamina un commento di Flávio Bolsonaro tornato a circolare dopo l’assassinio della giudice Patrícia Acioli. L’articolo contestualizza la dichiarazione.",
-        "pt": "A Agência Pública analisa um comentário de Flávio Bolsonaro que voltou a circular após o assassinato da juíza Patrícia Acioli. O artigo contextualiza a declaração.",
-        "ru": "Agência Pública рассматривает вновь распространившееся высказывание Флавиу Болсонару после убийства судьи Патрисии Асиоли. Статья объясняет контекст этого заявления.",
-        "el": "Η Agência Pública εξετάζει σχόλιο του Flávio Bolsonaro που επανήλθε στη δημοσιότητα μετά τη δολοφονία της δικαστού Patrícia Acioli. Το άρθρο εντάσσει τη δήλωση στο πλαίσιό της.",
-        "tr": "Agência Pública, yargıç Patrícia Acioli’nin öldürülmesinden sonra Flávio Bolsonaro’nun yaptığı ve yeniden dolaşıma giren bir yorumu inceliyor. Yazı, açıklamayı bağlamına yerleştiriyor."
+        "es": "Agencia Tierra Viva informa sobre el conflicto por las fumigaciones cerca de Sastre. Una vecina describe la iniciativa comunitaria y su demanda de agroecología.",
+        "fr": "Agencia Tierra Viva rapporte le conflit sur les épandages de pesticides près de Sastre. Une habitante décrit l’initiative collective et sa demande d’agroécologie.",
+        "it": "Agencia Tierra Viva racconta la controversia sull’irrorazione di pesticidi vicino a Sastre. Una residente descrive l’iniziativa comunitaria e la richiesta di agroecologia.",
+        "pt": "A Agencia Tierra Viva relata o conflito sobre pulverização de pesticidas perto de Sastre. Uma moradora descreve a iniciativa comunitária e sua demanda por agroecologia.",
+        "ru": "Agencia Tierra Viva рассказывает о споре вокруг распыления пестицидов возле Састре. Жительница описывает инициативу сообщества и его требование агроэкологии.",
+        "el": "Το Agencia Tierra Viva παρουσιάζει τη διαμάχη για ψεκασμούς φυτοφαρμάκων κοντά στο Σάστρε. Μια κάτοικος περιγράφει την κοινοτική πρωτοβουλία και το αίτημα για αγροοικολογία.",
+        "tr": "Agencia Tierra Viva, Sastre yakınlarında pestisit püskürtme tartışmasını aktarıyor. Bir mahalle sakini topluluk girişimini ve agroekoloji talebini anlatıyor."
       }
     },
     {
-      "articleId": "news-32600c56c2ca69d7aaf19feb276436952695e2dfedb273867156974a24a772b0",
-      "sourceSummaryEn": "ANF discusses access to sport with Abdülmecit Yılmaz. He identifies inaccessible facilities, transport difficulties and financial barriers faced by visually impaired people.",
-      "sourceHeadlineDe": "Barrieren halten sehbehinderte Menschen vom Sport fern",
+      "articleId": "news-f6e3c002e7c2304d8328565c09551f82af3051f1800ec8a83f618df06c96bacf",
+      "sourceSummaryEn": "MIA introduces a Mayday podcast episode about dependency on drugs and AI systems. The programme discusses social relationships and expanding automation.",
+      "sourceHeadlineDe": "Mayday diskutiert Abhängigkeiten und künstliche Intelligenz",
       "headlines": {
-        "en": "Barriers keep visually impaired people out of sport",
-        "es": "Las barreras alejan del deporte a personas con discapacidad visual",
-        "fr": "Des obstacles privent les personnes malvoyantes de sport",
-        "it": "Le barriere tengono lontane dallo sport le persone con disabilità visiva",
-        "pt": "Barreiras afastam pessoas com deficiência visual do desporto",
-        "ru": "Барьеры мешают людям с нарушениями зрения заниматься спортом",
-        "el": "Εμπόδια αποκλείουν ανθρώπους με προβλήματα όρασης από τον αθλητισμό",
-        "tr": "Engeller görme engelli insanları spordan uzak tutuyor"
+        "en": "Mayday discusses dependency and artificial intelligence",
+        "es": "Mayday debate dependencia e inteligencia artificial",
+        "fr": "Mayday discute des dépendances et de l’intelligence artificielle",
+        "it": "Mayday discute dipendenze e intelligenza artificiale",
+        "pt": "Mayday discute dependências e inteligência artificial",
+        "ru": "Mayday обсуждает зависимости и искусственный интеллект",
+        "el": "Το Mayday συζητά εξαρτήσεις και τεχνητή νοημοσύνη",
+        "tr": "Mayday bağımlılıkları ve yapay zekâyı tartışıyor"
       },
       "summaries": {
-        "es": "ANF conversa con Abdülmecit Yılmaz sobre el acceso al deporte. Él señala instalaciones inaccesibles, dificultades de transporte y barreras económicas para personas con discapacidad visual.",
-        "fr": "ANF s’entretient avec Abdülmecit Yılmaz sur l’accès au sport. Il évoque des installations inaccessibles, des difficultés de transport et des obstacles financiers pour les personnes malvoyantes.",
-        "it": "ANF parla con Abdülmecit Yılmaz dell’accesso allo sport. Egli indica strutture inaccessibili, difficoltà di trasporto e barriere economiche per le persone con disabilità visiva.",
-        "pt": "A ANF conversa com Abdülmecit Yılmaz sobre o acesso ao desporto. Ele aponta instalações inacessíveis, dificuldades de transporte e barreiras económicas para pessoas com deficiência visual.",
-        "ru": "ANF беседует с Абдюльмеджитом Йылмазом о доступности спорта. Он указывает на недоступные сооружения, транспортные трудности и финансовые препятствия для людей с нарушениями зрения.",
-        "el": "Το ANF συνομιλεί με τον Abdülmecit Yılmaz για την πρόσβαση στον αθλητισμό. Αναφέρει μη προσβάσιμες εγκαταστάσεις, δυσκολίες μετακίνησης και οικονομικά εμπόδια για ανθρώπους με προβλήματα όρασης.",
-        "tr": "ANF, Abdülmecit Yılmaz ile spora erişimi konuşuyor. Yılmaz, görme engelli insanların karşılaştığı erişilemeyen tesisleri, ulaşım sorunlarını ve ekonomik engelleri anlatıyor."
+        "es": "MIA presenta un episodio del pódcast Mayday sobre la dependencia de drogas y sistemas de IA. El programa debate las relaciones sociales y la expansión de la automatización.",
+        "fr": "MIA présente un épisode du podcast Mayday sur les dépendances aux drogues et aux systèmes d’IA. L’émission discute des relations sociales et de l’expansion de l’automatisation.",
+        "it": "MIA presenta una puntata del podcast Mayday sulle dipendenze da droghe e sistemi di IA. Il programma discute relazioni sociali e crescente automazione.",
+        "pt": "A MIA apresenta um episódio do podcast Mayday sobre dependência de drogas e sistemas de IA. O programa discute relações sociais e o avanço da automação.",
+        "ru": "MIA представляет выпуск подкаста Mayday о зависимости от наркотиков и систем ИИ. Программа обсуждает социальные связи и расширение автоматизации.",
+        "el": "Το MIA παρουσιάζει επεισόδιο του podcast Mayday για την εξάρτηση από ουσίες και συστήματα τεχνητής νοημοσύνης. Η εκπομπή συζητά κοινωνικές σχέσεις και αυξανόμενη αυτοματοποίηση.",
+        "tr": "MIA, uyuşturucu ve yapay zekâ sistemlerine bağımlılık üzerine bir Mayday podcast bölümünü tanıtıyor. Program sosyal ilişkileri ve yaygınlaşan otomasyonu tartışıyor."
       }
     },
     {
-      "articleId": "news-a58445cf002768b75b8bb50efb9df1d6047ad0890b29b4ff17fc1bda9c694754",
-      "sourceSummaryEn": "APTN reports that Canada’s parole board revoked the release of a man convicted of killing two First Nations women, citing breaches of conditions and its assessment of risk.",
-      "sourceHeadlineDe": "Kanadische Bewährungsbehörde widerruft Freilassung",
+      "articleId": "news-d24f42223b892eb38ec28385fa4e5ccaeb79fb2cedfae3e41560a0d7ae4983fd",
+      "sourceSummaryEn": "A commentary on Africa Is a Country examines the North African family in the film Alpha. The author asks why French film criticism has given this perspective little attention.",
+      "sourceHeadlineDe": "Eine nordafrikanische Perspektive auf den Film Alpha",
       "headlines": {
-        "en": "Canadian parole board revokes release",
-        "es": "La junta canadiense de libertad condicional revoca una liberación",
-        "fr": "La commission canadienne révoque une libération",
-        "it": "La commissione canadese revoca una scarcerazione",
-        "pt": "Comissão canadiana revoga uma libertação",
-        "ru": "Канадская комиссия отменяет освобождение",
-        "el": "Καναδική επιτροπή ανακαλεί αποφυλάκιση",
-        "tr": "Kanada tahliye kurulu bir tahliyeyi geri alıyor"
+        "en": "A North African perspective on the film Alpha",
+        "es": "Una perspectiva norteafricana sobre la película Alpha",
+        "fr": "Une perspective nord-africaine sur le film Alpha",
+        "it": "Una prospettiva nordafricana sul film Alpha",
+        "pt": "Uma perspectiva norte-africana sobre o filme Alpha",
+        "ru": "Североафриканский взгляд на фильм «Альфа»",
+        "el": "Μια βορειοαφρικανική οπτική στην ταινία Alpha",
+        "tr": "Alpha filmine Kuzey Afrikalı bir bakış"
       },
       "summaries": {
-        "es": "APTN informa de que la junta de libertad condicional de Canadá revocó la liberación de un hombre condenado por matar a dos mujeres de las Primeras Naciones. Cita incumplimientos de condiciones y su evaluación del riesgo.",
-        "fr": "APTN rapporte que la commission canadienne des libérations conditionnelles a révoqué la libération d’un homme condamné pour avoir tué deux femmes des Premières Nations. Elle invoque des conditions non respectées et son évaluation du risque.",
-        "it": "APTN riferisce che la commissione canadese per la libertà condizionale ha revocato la scarcerazione di un uomo condannato per l’uccisione di due donne delle Prime Nazioni. Cita violazioni delle condizioni e la propria valutazione del rischio.",
-        "pt": "A APTN informa que a comissão canadiana de liberdade condicional revogou a libertação de um homem condenado por matar duas mulheres das Primeiras Nações. Cita violações das condições e a sua avaliação do risco.",
-        "ru": "APTN сообщает, что канадская комиссия по условно-досрочному освобождению отменила освобождение мужчины, осуждённого за убийство двух женщин из числа Первых наций. Причины — нарушение условий и оценка риска комиссией.",
-        "el": "Το APTN αναφέρει ότι η καναδική επιτροπή αποφυλακίσεων ανακάλεσε την αποφυλάκιση άνδρα καταδικασμένου για τη δολοφονία δύο γυναικών των Πρώτων Εθνών. Επικαλείται παραβιάσεις όρων και την αξιολόγηση κινδύνου της.",
-        "tr": "APTN, Kanada şartlı tahliye kurulunun iki İlk Uluslar kadınının öldürülmesinden hüküm giymiş bir erkeğin tahliyesini geri aldığını bildiriyor. Kurul, koşul ihlallerini ve kendi risk değerlendirmesini gerekçe gösteriyor."
+        "es": "Un comentario en Africa Is a Country examina la familia norteafricana de la película Alpha. El autor pregunta por qué la crítica francesa ha prestado poca atención a esta perspectiva.",
+        "fr": "Un commentaire sur Africa Is a Country examine la famille nord-africaine du film Alpha. L’auteur demande pourquoi la critique française accorde peu d’attention à cette perspective.",
+        "it": "Un commento su Africa Is a Country esamina la famiglia nordafricana del film Alpha. L’autore si chiede perché la critica francese abbia prestato poca attenzione a questa prospettiva.",
+        "pt": "Um comentário na Africa Is a Country examina a família norte-africana do filme Alpha. O autor pergunta por que a crítica francesa deu pouca atenção a essa perspectiva.",
+        "ru": "Комментарий на Africa Is a Country рассматривает североафриканскую семью в фильме «Альфа». Автор спрашивает, почему французская кинокритика уделяет этому взгляду мало внимания.",
+        "el": "Ένα σχόλιο στο Africa Is a Country εξετάζει τη βορειοαφρικανική οικογένεια στην ταινία Alpha. Ο συγγραφέας αναρωτιέται γιατί η γαλλική κριτική δίνει μικρή προσοχή σε αυτή την οπτική.",
+        "tr": "Africa Is a Country’deki bir yorum, Alpha filmindeki Kuzey Afrikalı aileyi inceliyor. Yazar, Fransız film eleştirisinin bu bakışa neden az ilgi gösterdiğini soruyor."
       }
     },
     {
-      "articleId": "news-0fc6e8f3caf790b0b890a57cdf58836d2437fae9d77915a0c568634ef46198c1",
-      "sourceSummaryEn": "Gabriel Aguirre shares his address to an event alongside the UN Human Rights Council. He discusses human rights, international law and demilitarisation.",
-      "sourceHeadlineDe": "World BEYOND War spricht beim Menschenrechtsrat in Genf",
+      "articleId": "news-4477980f56597e2f0462e36f3d89653f080a521476160fc92f97cc594b29d927",
+      "sourceSummaryEn": "Indymedia Argentina reports on another pensioners’ protest. Participants describe financial pressures and demand dignified living conditions.",
+      "sourceHeadlineDe": "Argentinien: Rentnerproteste gehen weiter",
       "headlines": {
-        "en": "World BEYOND War speaks at Human Rights Council event",
-        "es": "World BEYOND War interviene en un acto del Consejo de Derechos Humanos",
-        "fr": "World BEYOND War intervient au Conseil des droits de l’homme",
-        "it": "World BEYOND War interviene al Consiglio per i diritti umani",
-        "pt": "World BEYOND War intervém no Conselho de Direitos Humanos",
-        "ru": "World BEYOND War выступает на мероприятии Совета по правам человека",
-        "el": "Το World BEYOND War μιλά σε εκδήλωση για τα ανθρώπινα δικαιώματα",
-        "tr": "World BEYOND War insan hakları etkinliğinde konuşuyor"
+        "en": "Argentina: pensioners continue their protests",
+        "es": "Argentina: continúan las protestas de jubilados",
+        "fr": "Argentine : les retraités poursuivent leurs manifestations",
+        "it": "Argentina: continuano le proteste dei pensionati",
+        "pt": "Argentina: continuam os protestos de aposentados",
+        "ru": "Аргентина: пенсионеры продолжают протестовать",
+        "el": "Αργεντινή: οι συνταξιούχοι συνεχίζουν τις διαμαρτυρίες",
+        "tr": "Arjantin: emekliler protestolarını sürdürüyor"
       },
       "summaries": {
-        "es": "Gabriel Aguirre comparte su intervención en un acto paralelo al Consejo de Derechos Humanos de la ONU. Aborda los derechos humanos, el derecho internacional y la desmilitarización.",
-        "fr": "Gabriel Aguirre partage son intervention lors d’un événement en marge du Conseil des droits de l’homme de l’ONU. Il aborde les droits humains, le droit international et la démilitarisation.",
-        "it": "Gabriel Aguirre condivide il suo intervento a un evento a margine del Consiglio ONU per i diritti umani. Affronta diritti umani, diritto internazionale e smilitarizzazione.",
-        "pt": "Gabriel Aguirre partilha a sua intervenção num evento paralelo ao Conselho de Direitos Humanos da ONU. Aborda direitos humanos, direito internacional e desmilitarização.",
-        "ru": "Габриэль Агирре публикует своё выступление на мероприятии параллельно Совету ООН по правам человека. Он обсуждает права человека, международное право и демилитаризацию.",
-        "el": "Ο Gabriel Aguirre δημοσιεύει την παρέμβασή του σε εκδήλωση στο περιθώριο του Συμβουλίου Ανθρωπίνων Δικαιωμάτων του ΟΗΕ. Συζητά τα ανθρώπινα δικαιώματα, το διεθνές δίκαιο και την αποστρατιωτικοποίηση.",
-        "tr": "Gabriel Aguirre, BM İnsan Hakları Konseyi toplantıları sırasında düzenlenen bir etkinlikteki konuşmasını paylaşıyor. İnsan haklarını, uluslararası hukuku ve silahsızlandırmayı tartışıyor."
+        "es": "Indymedia Argentina informa sobre otra protesta de jubilados. Sus participantes describen presiones económicas y reclaman condiciones de vida dignas.",
+        "fr": "Indymedia Argentina rapporte une nouvelle manifestation de retraités. Les participants décrivent leurs difficultés financières et réclament des conditions de vie dignes.",
+        "it": "Indymedia Argentina racconta un’altra protesta dei pensionati. I partecipanti descrivono difficoltà economiche e chiedono condizioni di vita dignitose.",
+        "pt": "A Indymedia Argentina relata outro protesto de aposentados. Participantes descrevem dificuldades financeiras e reivindicam condições de vida dignas.",
+        "ru": "Indymedia Argentina сообщает об очередном протесте пенсионеров. Участники рассказывают о финансовых трудностях и требуют достойных условий жизни.",
+        "el": "Το Indymedia Argentina παρουσιάζει άλλη μια διαμαρτυρία συνταξιούχων. Οι συμμετέχοντες περιγράφουν οικονομικές πιέσεις και διεκδικούν αξιοπρεπείς συνθήκες ζωής.",
+        "tr": "Indymedia Argentina, emeklilerin bir başka protestosunu aktarıyor. Katılımcılar mali baskıları anlatıyor ve insan onuruna uygun yaşam koşulları talep ediyor."
       }
     },
     {
-      "articleId": "news-1cf06938edc2dec293c98980c564f3636a79c1824d29d2061219501a6e21cbea",
-      "sourceSummaryEn": "Radio Kurruf publishes Martín Curiche’s reflection on the Huracán case and a postponed hearing. It presents his criticism of the justice system’s treatment of Mapuche people.",
-      "sourceHeadlineDe": "Mapuche-Perspektive auf Justiz und staatliche Gewalt",
+      "articleId": "news-7861eaeeeab2dcb2decc157a80b2cbe3bb6acfb431767c97b8c7b3de7cd9451d",
+      "sourceSummaryEn": "Radio Kurruf publishes a submitted statement by Mapuche people convicted in the Grollmus case. Its authors criticise the proceedings and call for a fair trial.",
+      "sourceHeadlineDe": "Mapuche-Erklärung zum Verfahren im Fall Grollmus",
       "headlines": {
-        "en": "A Mapuche perspective on justice and state violence",
-        "es": "Perspectiva mapuche sobre la justicia y la violencia estatal",
-        "fr": "Un regard mapuche sur la justice et la violence d’État",
-        "it": "Una prospettiva mapuche sulla giustizia e la violenza statale",
-        "pt": "Uma perspetiva mapuche sobre justiça e violência estatal",
-        "ru": "Взгляд мапуче на правосудие и государственное насилие",
-        "el": "Μια οπτική των Μαπούτσε για τη δικαιοσύνη και την κρατική βία",
-        "tr": "Adalete ve devlet şiddetine Mapuche bakışı"
+        "en": "Mapuche statement on the Grollmus case",
+        "es": "Declaración mapuche sobre el caso Grollmus",
+        "fr": "Déclaration mapuche sur l’affaire Grollmus",
+        "it": "Dichiarazione mapuche sul caso Grollmus",
+        "pt": "Declaração mapuche sobre o caso Grollmus",
+        "ru": "Заявление мапуче по делу Грольмус",
+        "el": "Δήλωση Μαπούτσε για την υπόθεση Grollmus",
+        "tr": "Grollmus davası hakkında Mapuçe açıklaması"
       },
       "summaries": {
-        "es": "Radio Kurruf publica una reflexión de Martín Curiche sobre el caso Huracán y una audiencia aplazada. Expone su crítica al trato de la justicia hacia el pueblo mapuche.",
-        "fr": "Radio Kurruf publie une réflexion de Martín Curiche sur l’affaire Huracán et une audience reportée. Il critique le traitement du peuple mapuche par la justice.",
-        "it": "Radio Kurruf pubblica una riflessione di Martín Curiche sul caso Huracán e un’udienza rinviata. Presenta la sua critica al trattamento dei Mapuche da parte della giustizia.",
-        "pt": "A Radio Kurruf publica uma reflexão de Martín Curiche sobre o caso Huracán e uma audiência adiada. Apresenta a sua crítica ao tratamento dos Mapuche pela justiça.",
-        "ru": "Radio Kurruf публикует размышления Мартина Куриче о деле «Ураган» и отложенном слушании. В них представлена его критика отношения системы правосудия к народу мапуче.",
-        "el": "Το Radio Kurruf δημοσιεύει σκέψεις του Martín Curiche για την υπόθεση Huracán και μια αναβληθείσα ακρόαση. Παρουσιάζει την κριτική του στη μεταχείριση των Μαπούτσε από τη δικαιοσύνη.",
-        "tr": "Radio Kurruf, Martín Curiche’nin Huracán davası ve ertelenen bir duruşma üzerine düşüncelerini yayımlıyor. Yazı, yargının Mapuche halkına yaklaşımına yönelik eleştirisini aktarıyor."
+        "es": "Radio Kurruf publica una declaración recibida de personas mapuche condenadas en el caso Grollmus. Sus autores critican el proceso y reclaman un juicio justo.",
+        "fr": "Radio Kurruf publie une déclaration reçue de personnes mapuche condamnées dans l’affaire Grollmus. Ses auteurs critiquent la procédure et demandent un procès équitable.",
+        "it": "Radio Kurruf pubblica una dichiarazione ricevuta da persone mapuche condannate nel caso Grollmus. Gli autori criticano il procedimento e chiedono un processo equo.",
+        "pt": "A Radio Kurruf publica uma declaração recebida de pessoas mapuche condenadas no caso Grollmus. Os autores criticam o processo e pedem um julgamento justo.",
+        "ru": "Radio Kurruf публикует присланное заявление мапуче, осуждённых по делу Грольмус. Авторы критикуют разбирательство и требуют справедливого суда.",
+        "el": "Το Radio Kurruf δημοσιεύει δήλωση που έλαβε από Μαπούτσε καταδικασμένους στην υπόθεση Grollmus. Οι συντάκτες επικρίνουν τη διαδικασία και ζητούν δίκαιη δίκη.",
+        "tr": "Radio Kurruf, Grollmus davasında hüküm giymiş Mapuçelerden gönderilen bir açıklamayı yayımlıyor. Açıklamanın yazarları yargılamayı eleştiriyor ve adil yargılanma istiyor."
       }
     },
     {
-      "articleId": "news-cd8e2ff31c612cf88cb0c6542d66f7e19e59e211ef2ee9ba9d32f41b88ec47de",
-      "sourceSummaryEn": "Labor Notes publishes an article adapted from a speech by Rose Roach. She discusses healthcare cuts and privatisation and possible responses by unions.",
-      "sourceHeadlineDe": "Wie Gewerkschaften die Medicaid-Privatisierung bekämpfen können",
+      "articleId": "news-63288e1130f25b9db71b153e08bf4f31c1825824bcc602af45c99b8bd208d8fd",
+      "sourceSummaryEn": "Agência Pública presents its survey of reported political violence during Brazil’s election campaign. The newsroom reports attacks and intimidation against candidates.",
+      "sourceHeadlineDe": "Pública untersucht politische Gewalt im Wahlkampf",
       "headlines": {
-        "en": "How unions can oppose Medicaid privatisation",
-        "es": "Cómo pueden combatir los sindicatos la privatización de Medicaid",
-        "fr": "Comment les syndicats peuvent combattre la privatisation de Medicaid",
-        "it": "Come i sindacati possono contrastare la privatizzazione di Medicaid",
-        "pt": "Como os sindicatos podem combater a privatização do Medicaid",
-        "ru": "Как профсоюзы могут противостоять приватизации Medicaid",
-        "el": "Πώς μπορούν τα συνδικάτα να αντισταθούν στην ιδιωτικοποίηση του Medicaid",
-        "tr": "Sendikalar Medicaid özelleştirmesine nasıl karşı çıkabilir?"
+        "en": "Pública examines political violence during the campaign",
+        "es": "Pública examina la violencia política durante la campaña",
+        "fr": "Pública examine la violence politique pendant la campagne",
+        "it": "Pública esamina la violenza politica durante la campagna",
+        "pt": "Pública examina a violência política durante a campanha",
+        "ru": "Pública изучает политическое насилие во время кампании",
+        "el": "Το Pública εξετάζει την πολιτική βία στην εκστρατεία",
+        "tr": "Pública seçim kampanyasındaki siyasi şiddeti inceliyor"
       },
       "summaries": {
-        "es": "Labor Notes publica un artículo adaptado de un discurso de Rose Roach. Analiza los recortes y la privatización de la sanidad y las posibles respuestas sindicales.",
-        "fr": "Labor Notes publie un article adapté d’un discours de Rose Roach. Elle examine les coupes et la privatisation dans la santé ainsi que les réponses possibles des syndicats.",
-        "it": "Labor Notes pubblica un articolo adattato da un discorso di Rose Roach. Affronta tagli e privatizzazione della sanità e possibili risposte dei sindacati.",
-        "pt": "A Labor Notes publica um artigo adaptado de um discurso de Rose Roach. Aborda cortes e privatização na saúde e possíveis respostas dos sindicatos.",
-        "ru": "Labor Notes публикует статью на основе выступления Роуз Роуч. Она рассматривает сокращения и приватизацию здравоохранения и возможные действия профсоюзов.",
-        "el": "Το Labor Notes δημοσιεύει άρθρο βασισμένο σε ομιλία της Rose Roach. Εξετάζει περικοπές και ιδιωτικοποίηση στην υγεία και πιθανές απαντήσεις των συνδικάτων.",
-        "tr": "Labor Notes, Rose Roach’un konuşmasından uyarlanan bir yazı yayımlıyor. Yazı sağlıkta kesintileri ve özelleştirmeyi, sendikaların olası karşılıklarını ele alıyor."
+        "es": "Agência Pública presenta su estudio de denuncias de violencia política durante la campaña electoral brasileña. La redacción informa sobre ataques e intimidación contra candidatos.",
+        "fr": "Agência Pública présente son enquête sur les violences politiques signalées pendant la campagne électorale brésilienne. La rédaction rapporte des attaques et des intimidations visant des candidats.",
+        "it": "Agência Pública presenta la sua indagine sui casi segnalati di violenza politica nella campagna elettorale brasiliana. La redazione racconta attacchi e intimidazioni contro i candidati.",
+        "pt": "A Agência Pública apresenta seu levantamento de denúncias de violência política na campanha eleitoral brasileira. A redação relata ataques e intimidação contra candidatos.",
+        "ru": "Agência Pública представляет своё исследование сообщений о политическом насилии в бразильской предвыборной кампании. Редакция сообщает о нападениях и запугивании кандидатов.",
+        "el": "Το Agência Pública παρουσιάζει την έρευνά του για καταγγελίες πολιτικής βίας στη βραζιλιάνικη προεκλογική εκστρατεία. Η σύνταξη αναφέρει επιθέσεις και εκφοβισμό υποψηφίων.",
+        "tr": "Agência Pública, Brezilya seçim kampanyasındaki siyasi şiddet bildirimlerine ilişkin araştırmasını sunuyor. Haber merkezi adaylara yönelik saldırıları ve gözdağını aktarıyor."
       }
     },
     {
-      "articleId": "news-6c92ab6b6abe7ce329b581eaa145f2576b56a8516ee1b499a2c91d72367411a2",
-      "sourceSummaryEn": "Bianet reports union and political responses to a mine collapse in Soma. They call for investigation of its causes, workplace safety and public oversight.",
-      "sourceHeadlineDe": "Nach Grubenunglück in Soma: Forderung nach Aufklärung",
+      "articleId": "news-ced541655bbddcfadc012cbfbf3991f3453ca77a69d1c165e0eb0ed27e021197",
+      "sourceSummaryEn": "Nunatsiaq reports that interior renovations at Iqaluit’s Northmart are complete. The article describes the redesigned store and staff and customer experiences.",
+      "sourceHeadlineDe": "Iqaluit: Northmart meldet Abschluss des Ladenumbaus",
       "headlines": {
-        "en": "Calls for answers after Soma mine collapse",
-        "es": "Exigen aclaraciones tras el derrumbe de una mina en Soma",
-        "fr": "Demandes d’enquête après l’effondrement d’une mine à Soma",
-        "it": "Richieste di chiarimenti dopo il crollo di una miniera a Soma",
-        "pt": "Pedidos de esclarecimento após desabamento de mina em Soma",
-        "ru": "Требования расследования после обрушения шахты в Соме",
-        "el": "Αιτήματα έρευνας μετά την κατάρρευση ορυχείου στη Σόμα",
-        "tr": "Soma’daki maden göçüğünün ardından araştırma talebi"
+        "en": "Iqaluit: Northmart completes its store renovation",
+        "es": "Iqaluit: Northmart termina la reforma de su tienda",
+        "fr": "Iqaluit : Northmart achève la rénovation du magasin",
+        "it": "Iqaluit: Northmart completa il rinnovo del negozio",
+        "pt": "Iqaluit: Northmart conclui a reforma da loja",
+        "ru": "Икалуит: Northmart завершает ремонт магазина",
+        "el": "Ικάλουιτ: το Northmart ολοκληρώνει την ανακαίνιση",
+        "tr": "Iqaluit: Northmart mağaza yenilemesini tamamlıyor"
       },
       "summaries": {
-        "es": "Bianet recoge reacciones sindicales y políticas al derrumbe de una mina en Soma. Reclaman investigar sus causas, la seguridad laboral y la supervisión pública.",
-        "fr": "Bianet rapporte les réactions syndicales et politiques à l’effondrement d’une mine à Soma. Elles demandent une enquête sur les causes, la sécurité au travail et le contrôle public.",
-        "it": "Bianet riporta le reazioni sindacali e politiche al crollo di una miniera a Soma. Chiedono indagini sulle cause, sulla sicurezza del lavoro e sul controllo pubblico.",
-        "pt": "O Bianet relata reações sindicais e políticas ao desabamento de uma mina em Soma. Pedem investigação das causas, da segurança laboral e da fiscalização pública.",
-        "ru": "Bianet сообщает о реакции профсоюзов и политических организаций на обрушение шахты в Соме. Они требуют расследовать причины, условия безопасности труда и государственный надзор.",
-        "el": "Το Bianet αναφέρει συνδικαλιστικές και πολιτικές αντιδράσεις στην κατάρρευση ορυχείου στη Σόμα. Ζητούν έρευνα για τα αίτια, την ασφάλεια στην εργασία και τη δημόσια εποπτεία.",
-        "tr": "Bianet, Soma’daki maden göçüğüne yönelik sendikal ve siyasi tepkileri aktarıyor. Tepkilerde nedenlerin, iş güvenliğinin ve kamu denetiminin araştırılması isteniyor."
+        "es": "Nunatsiaq informa que han concluido las reformas interiores del Northmart de Iqaluit. El artículo describe la tienda renovada y las experiencias de empleados y clientes.",
+        "fr": "Nunatsiaq rapporte l’achèvement des rénovations intérieures du Northmart d’Iqaluit. L’article décrit le magasin réaménagé et les expériences du personnel et des clients.",
+        "it": "Nunatsiaq riferisce che i lavori interni del Northmart di Iqaluit sono conclusi. L’articolo descrive il negozio rinnovato e le esperienze di personale e clienti.",
+        "pt": "A Nunatsiaq informa que a reforma interna do Northmart de Iqaluit está concluída. O artigo descreve a loja renovada e as experiências de funcionários e clientes.",
+        "ru": "Nunatsiaq сообщает о завершении внутреннего ремонта Northmart в Икалуите. Статья описывает обновлённый магазин и опыт сотрудников и покупателей.",
+        "el": "Το Nunatsiaq αναφέρει την ολοκλήρωση της εσωτερικής ανακαίνισης του Northmart στο Ικάλουιτ. Το άρθρο περιγράφει το ανανεωμένο κατάστημα και εμπειρίες εργαζομένων και πελατών.",
+        "tr": "Nunatsiaq, Iqaluit’teki Northmart’ın iç yenilemelerinin tamamlandığını bildiriyor. Yazı yenilenen mağazayı, çalışan ve müşteri deneyimlerini anlatıyor."
       }
     },
     {
-      "articleId": "news-4c449c29d008695cd45c6680e3fcb1da4061197db4ad75d57a789db849940f57",
-      "sourceSummaryEn": "Unicorn Riot examines the case following an explosion in Athens and Nikos Romanos’s acquittal, discussing the different verdicts and Greece’s terrorism laws.",
-      "sourceHeadlineDe": "Unicorn Riot berichtet über Freispruch für Nikos Romanos",
+      "articleId": "news-15bd626de2c3273c503e5e56575ba5f1237b486aed69af133d425062d8ddad5a",
+      "sourceSummaryEn": "MIA publishes a SPAAM announcement for an event in Marseille on 17 October. Its subjects are psychological trauma and mutual support.",
+      "sourceHeadlineDe": "Marseille: Veranstaltung zum Thema Psychotrauma",
       "headlines": {
-        "en": "Unicorn Riot reports Nikos Romanos’s acquittal",
-        "es": "Unicorn Riot informa de la absolución de Nikos Romanos",
-        "fr": "Unicorn Riot rapporte l’acquittement de Nikos Romanos",
-        "it": "Unicorn Riot riferisce dell’assoluzione di Nikos Romanos",
-        "pt": "Unicorn Riot relata a absolvição de Nikos Romanos",
-        "ru": "Unicorn Riot сообщает об оправдании Никоса Романоса",
-        "el": "Το Unicorn Riot αναφέρει την αθώωση του Νίκου Ρωμανού",
-        "tr": "Unicorn Riot, Nikos Romanos’un beraatini bildiriyor"
+        "en": "Marseille: an event about psychological trauma",
+        "es": "Marsella: una actividad sobre trauma psicológico",
+        "fr": "Marseille : une rencontre sur le psychotrauma",
+        "it": "Marsiglia: un evento sul trauma psicologico",
+        "pt": "Marselha: um evento sobre trauma psicológico",
+        "ru": "Марсель: мероприятие о психологической травме",
+        "el": "Μασσαλία: εκδήλωση για το ψυχικό τραύμα",
+        "tr": "Marsilya: psikolojik travma üzerine bir etkinlik"
       },
       "summaries": {
-        "es": "Unicorn Riot analiza el caso tras una explosión en Atenas y la absolución de Nikos Romanos. Examina las distintas sentencias y la legislación antiterrorista griega.",
-        "fr": "Unicorn Riot examine l’affaire après une explosion à Athènes et l’acquittement de Nikos Romanos. Le reportage aborde les différents verdicts et les lois antiterroristes grecques.",
-        "it": "Unicorn Riot esamina il caso dopo un’esplosione ad Atene e l’assoluzione di Nikos Romanos. Analizza le diverse sentenze e le leggi antiterrorismo greche.",
-        "pt": "A Unicorn Riot analisa o caso após uma explosão em Atenas e a absolvição de Nikos Romanos. Discute as diferentes decisões judiciais e as leis antiterroristas gregas.",
-        "ru": "Unicorn Riot рассматривает дело после взрыва в Афинах и оправдания Никоса Романоса. Публикация обсуждает разные приговоры и антитеррористическое законодательство Греции.",
-        "el": "Το Unicorn Riot εξετάζει την υπόθεση μετά από έκρηξη στην Αθήνα και την αθώωση του Νίκου Ρωμανού. Συζητά τις διαφορετικές δικαστικές αποφάσεις και την ελληνική αντιτρομοκρατική νομοθεσία.",
-        "tr": "Unicorn Riot, Atina’daki bir patlamanın ardından görülen davayı ve Nikos Romanos’un beraatini inceliyor. Farklı kararları ve Yunanistan’ın terörle mücadele yasalarını ele alıyor."
+        "es": "MIA publica un anuncio de SPAAM para una actividad en Marsella el 17 de octubre. Sus temas son el trauma psicológico y el apoyo mutuo.",
+        "fr": "MIA publie une annonce du SPAAM pour une rencontre à Marseille le 17 octobre. Ses thèmes sont le psychotrauma et le soutien mutuel.",
+        "it": "MIA pubblica un annuncio di SPAAM per un evento a Marsiglia il 17 ottobre. I temi sono il trauma psicologico e il sostegno reciproco.",
+        "pt": "A MIA publica um anúncio do SPAAM para um evento em Marselha em 17 de outubro. Os temas são trauma psicológico e apoio mútuo.",
+        "ru": "MIA публикует объявление SPAAM о мероприятии в Марселе 17 октября. Его темы — психологическая травма и взаимная поддержка.",
+        "el": "Το MIA δημοσιεύει ανακοίνωση του SPAAM για εκδήλωση στη Μασσαλία στις 17 Οκτωβρίου. Τα θέματα είναι το ψυχικό τραύμα και η αλληλοϋποστήριξη.",
+        "tr": "MIA, SPAAM’ın Marsilya’da 17 Ekim’de düzenlenecek etkinlik duyurusunu yayımlıyor. Konular psikolojik travma ve karşılıklı destek."
       }
     },
     {
-      "articleId": "news-c5f7f1b8152f814231d0746a2812d88878dc775550146a1ed6c83ac6ab912756",
-      "sourceSummaryEn": "Nunatsiaq reports that residents of the Tusaajiapik elders home in Kuujjuaq are being moved to facilities near Montreal because of technical problems with the building.",
-      "sourceHeadlineDe": "Bewohner des Tusaajiapik-Altersheims werden verlegt",
+      "articleId": "news-a37bea00300e766dbeecd9293b3e85e75c4b19f67422e5e963eb50a3091ca27e",
+      "sourceSummaryEn": "MIA publishes the call and programme for Fiertés Vénères in Nîmes. Organisers connect the 10 October Pride with queer and antifascist demands.",
+      "sourceHeadlineDe": "Nîmes: Aufruf zur Pride am 10. Oktober",
       "headlines": {
-        "en": "Tusaajiapik elders home residents are relocated",
-        "es": "Trasladan a residentes del hogar de mayores Tusaajiapik",
-        "fr": "Les résidents du foyer Tusaajiapik sont transférés",
-        "it": "Trasferiti gli ospiti della casa per anziani Tusaajiapik",
-        "pt": "Residentes do lar Tusaajiapik são transferidos",
-        "ru": "Жителей дома престарелых Tusaajiapik переводят в другие учреждения",
-        "el": "Μεταφέρονται οι ένοικοι του γηροκομείου Tusaajiapik",
-        "tr": "Tusaajiapik yaşlı bakım evinin sakinleri taşınıyor"
+        "en": "Nîmes: a call for Pride on10 October",
+        "es": "Nîmes: convocatoria del Orgullo para el 10 de octubre",
+        "fr": "Nîmes : appel à la Pride du 10 octobre",
+        "it": "Nîmes: appello per il Pride del 10 ottobre",
+        "pt": "Nîmes: convocação para a Pride de 10 de outubro",
+        "ru": "Ним: призыв к прайду 10 октября",
+        "el": "Νιμ: κάλεσμα για το Pride στις 10 Οκτωβρίου",
+        "tr": "Nîmes: 10 Ekim’deki Onur yürüyüşüne çağrı"
       },
       "summaries": {
-        "es": "Nunatsiaq informa del traslado de residentes del hogar de mayores Tusaajiapik, en Kuujjuaq, a centros cercanos a Montreal por problemas técnicos del edificio.",
-        "fr": "Nunatsiaq rapporte le transfert de résidents du foyer pour aînés Tusaajiapik de Kuujjuaq vers des établissements près de Montréal en raison de problèmes techniques du bâtiment.",
-        "it": "Nunatsiaq riferisce del trasferimento degli ospiti della casa per anziani Tusaajiapik di Kuujjuaq in strutture vicino a Montréal per problemi tecnici dell’edificio.",
-        "pt": "O Nunatsiaq informa da transferência de residentes do lar de idosos Tusaajiapik, em Kuujjuaq, para instituições perto de Montreal devido a problemas técnicos no edifício.",
-        "ru": "Nunatsiaq сообщает о переводе жителей дома престарелых Tusaajiapik в Кууджуаке в учреждения близ Монреаля из-за технических проблем со зданием.",
-        "el": "Το Nunatsiaq αναφέρει τη μεταφορά ενοίκων του γηροκομείου Tusaajiapik στο Kuujjuaq σε δομές κοντά στο Μόντρεαλ λόγω τεχνικών προβλημάτων του κτιρίου.",
-        "tr": "Nunatsiaq, Kuujjuaq’taki Tusaajiapik yaşlı bakım evinin sakinlerinin binadaki teknik sorunlar nedeniyle Montreal yakınındaki tesislere taşındığını bildiriyor."
+        "es": "MIA publica la convocatoria y el programa de Fiertés Vénères en Nîmes. Sus organizadores vinculan el Orgullo del 10 de octubre con reivindicaciones queer y antifascistas.",
+        "fr": "MIA publie l’appel et le programme des Fiertés Vénères à Nîmes. Les organisateurs associent la Pride du 10 octobre à des revendications queer et antifascistes.",
+        "it": "MIA pubblica l’appello e il programma di Fiertés Vénères a Nîmes. Gli organizzatori collegano il Pride del 10 ottobre a rivendicazioni queer e antifasciste.",
+        "pt": "A MIA publica a convocação e o programa da Fiertés Vénères em Nîmes. Os organizadores vinculam a Pride de 10 de outubro a reivindicações queer e antifascistas.",
+        "ru": "MIA публикует призыв и программу Fiertés Vénères в Ниме. Организаторы связывают прайд 10 октября с квир- и антифашистскими требованиями.",
+        "el": "Το MIA δημοσιεύει το κάλεσμα και το πρόγραμμα των Fiertés Vénères στη Νιμ. Οι διοργανωτές συνδέουν το Pride της 10ης Οκτωβρίου με κουίρ και αντιφασιστικά αιτήματα.",
+        "tr": "MIA, Nîmes’teki Fiertés Vénères’in çağrısını ve programını yayımlıyor. Düzenleyiciler 10 Ekim’deki Onur yürüyüşünü kuir ve antifaşist taleplerle ilişkilendiriyor."
       }
     },
     {
-      "articleId": "news-d99ce40b3f63bd958aeaa9dfa51ddd03cf78655e83e026fb1d3d822e5b230711",
-      "sourceSummaryEn": "An Avtonom commentary starts from the idea of the end of history and discusses how teaching history can shape society’s expectations of the future.",
-      "sourceHeadlineDe": "Wie Geschichtsunterricht gesellschaftliche Horizonte prägt",
+      "articleId": "news-d576bb384df539b059557e499aa9f62da650491da4a96162a30f0ef378a39b2c",
+      "sourceSummaryEn": "EFF examines the US ACPA bill, which could require VPN providers to block websites. It acknowledges procedural safeguards while criticising risks to the open internet.",
+      "sourceHeadlineDe": "EFF: Website-Sperrvorschlag betrifft auch VPN-Anbieter",
       "headlines": {
-        "en": "How teaching history shapes society’s horizons",
-        "es": "Cómo la enseñanza de la historia moldea los horizontes sociales",
-        "fr": "Comment l’enseignement de l’histoire façonne les horizons sociaux",
-        "it": "Come l’insegnamento della storia plasma gli orizzonti sociali",
-        "pt": "Como o ensino da história molda os horizontes sociais",
-        "ru": "Как преподавание истории формирует общественные горизонты",
-        "el": "Πώς η διδασκαλία της ιστορίας διαμορφώνει κοινωνικούς ορίζοντες",
-        "tr": "Tarih öğretimi toplumun ufkunu nasıl şekillendiriyor?"
+        "en": "EFF: website-blocking proposal also targets VPNs",
+        "es": "EFF: el bloqueo de sitios también afectaría a las VPN",
+        "fr": "EFF : le projet de blocage vise aussi les VPN",
+        "it": "EFF: il progetto di blocco riguarda anche le VPN",
+        "pt": "EFF: projeto de bloqueio de sites também visa VPNs",
+        "ru": "EFF: проект блокировки сайтов затрагивает и VPN",
+        "el": "EFF: η πρόταση αποκλεισμού στοχεύει και τα VPN",
+        "tr": "EFF: site engelleme önerisi VPN’leri de hedefliyor"
       },
       "summaries": {
-        "es": "Un comentario de Avtonom parte de la idea del fin de la historia. Analiza cómo la enseñanza de la historia puede influir en las expectativas de futuro de la sociedad.",
-        "fr": "Un commentaire d’Avtonom part de l’idée de la fin de l’histoire. Il examine comment l’enseignement de l’histoire peut façonner les attentes d’avenir de la société.",
-        "it": "Un commento di Avtonom parte dall’idea della fine della storia. Discute come l’insegnamento della storia possa plasmare le aspettative della società sul futuro.",
-        "pt": "Um comentário do Avtonom parte da ideia do fim da história. Discute como o ensino da história pode moldar as expectativas de futuro da sociedade.",
-        "ru": "Комментарий Avtonom отталкивается от идеи конца истории. Он рассматривает, как преподавание истории может формировать ожидания общества относительно будущего.",
-        "el": "Σχόλιο του Avtonom ξεκινά από την ιδέα του τέλους της ιστορίας. Εξετάζει πώς η διδασκαλία της ιστορίας μπορεί να διαμορφώνει τις προσδοκίες της κοινωνίας για το μέλλον.",
-        "tr": "Avtonom’daki bir yorum, tarihin sonu düşüncesinden yola çıkıyor. Tarih öğretiminin toplumun geleceğe ilişkin beklentilerini nasıl şekillendirebileceğini tartışıyor."
-      }
-    },
-    {
-      "articleId": "news-a7fc56d51e29c8016ae4abc48c48253f21f2cec19089fb06497cc38ff89d3f19",
-      "sourceSummaryEn": "IndigiNews reports on a gathering of Secwépemc people and allies following a white-nationalist demonstration. Participants reclaimed the space through singing, drumming and prayer.",
-      "sourceHeadlineDe": "Tk̓emlúps: Gemeinschaft setzt Zeichen gegen weißen Nationalismus",
-      "headlines": {
-        "en": "Tk̓emlúps community stands against white nationalism",
-        "es": "Tk̓emlúps: la comunidad se moviliza contra el nacionalismo blanco",
-        "fr": "Tk̓emlúps : la communauté s’oppose au nationalisme blanc",
-        "it": "Tk̓emlúps: la comunità si oppone al nazionalismo bianco",
-        "pt": "Tk̓emlúps: comunidade opõe-se ao nacionalismo branco",
-        "ru": "Ткемлупс: община выступает против белого национализма",
-        "el": "Tk̓emlúps: η κοινότητα αντιστέκεται στον λευκό εθνικισμό",
-        "tr": "Tk̓emlúps: Topluluk beyaz milliyetçiliğine karşı duruyor"
-      },
-      "summaries": {
-        "es": "IndigiNews informa de un encuentro de personas secwépemc y sus aliados tras una manifestación nacionalista blanca. Recuperaron el espacio mediante cantos, tambores y oraciones.",
-        "fr": "IndigiNews rapporte un rassemblement de personnes secwépemc et de leurs alliés après une manifestation nationaliste blanche. Elles ont réinvesti l’espace par des chants, des tambours et des prières.",
-        "it": "IndigiNews riferisce di un incontro di persone secwépemc e alleati dopo una manifestazione nazionalista bianca. Hanno riconquistato lo spazio con canti, tamburi e preghiere.",
-        "pt": "A IndigiNews relata um encontro de pessoas secwépemc e aliados após uma manifestação nacionalista branca. Recuperaram o espaço com cantos, tambores e orações.",
-        "ru": "IndigiNews сообщает о встрече представителей народа секвепемк и их союзников после демонстрации белых националистов. Участники вернули себе это пространство через песни, барабаны и молитвы.",
-        "el": "Το IndigiNews αναφέρει συγκέντρωση ανθρώπων Secwépemc και συμμάχων τους μετά από διαδήλωση λευκών εθνικιστών. Οι συμμετέχοντες επαναδιεκδίκησαν τον χώρο με τραγούδια, τύμπανα και προσευχές.",
-        "tr": "IndigiNews, beyaz milliyetçisi bir gösterinin ardından Secwépemc halkından kişiler ve destekçilerinin buluşmasını aktarıyor. Katılımcılar şarkı, davul ve dualarla alanı yeniden sahiplendi."
-      }
-    },
-    {
-      "articleId": "news-3edbd3ee75cc8ce29fe68dd5bc4b7353ef28ba8c52d0cbbfc3ce2db8390eefdb",
-      "sourceSummaryEn": "Evrensel reports that five people were detained in an embezzlement investigation concerning Bolu’s municipal administration. The report concerns an ongoing investigation, not a conviction.",
-      "sourceHeadlineDe": "Bolu: Fünf Festnahmen in Ermittlungen wegen Veruntreuung",
-      "headlines": {
-        "en": "Bolu: five arrests in embezzlement investigation",
-        "es": "Bolu: cinco detenciones en una investigación por malversación",
-        "fr": "Bolu : cinq arrestations dans une enquête pour détournement",
-        "it": "Bolu: cinque arresti in un’indagine per appropriazione indebita",
-        "pt": "Bolu: cinco detenções em investigação por desvio de fundos",
-        "ru": "Болу: пять задержаний в расследовании растраты",
-        "el": "Bolu: πέντε συλλήψεις σε έρευνα για υπεξαίρεση",
-        "tr": "Bolu: Zimmet soruşturmasında beş tutuklama"
-      },
-      "summaries": {
-        "es": "Evrensel informa de cinco detenciones en una investigación por malversación relacionada con la administración municipal de Bolu. Se trata de una investigación en curso, no de una condena.",
-        "fr": "Evrensel rapporte cinq arrestations dans une enquête pour détournement de fonds concernant la municipalité de Bolu. Il s’agit d’une enquête en cours, pas d’une condamnation.",
-        "it": "Evrensel riferisce di cinque arresti in un’indagine per appropriazione indebita riguardante il comune di Bolu. Si tratta di un’indagine in corso, non di una condanna.",
-        "pt": "O Evrensel informa de cinco detenções numa investigação por desvio de fundos relacionada com a administração municipal de Bolu. Trata-se de uma investigação em curso, não de uma condenação.",
-        "ru": "Evrensel сообщает о задержании пяти человек в рамках расследования растраты в муниципальной администрации Болу. Речь идёт о продолжающемся расследовании, а не об обвинительном приговоре.",
-        "el": "Το Evrensel αναφέρει πέντε συλλήψεις σε έρευνα για υπεξαίρεση στη δημοτική διοίκηση του Bolu. Πρόκειται για έρευνα σε εξέλιξη και όχι για καταδίκη.",
-        "tr": "Evrensel, Bolu belediye yönetimine ilişkin bir zimmet soruşturmasında beş kişinin tutuklandığını bildiriyor. Haber devam eden soruşturmayla ilgili; mahkûmiyet bildirmiyor."
-      }
-    },
-    {
-      "articleId": "news-af6277b60e663ae65a85b785ecbe00718fd203e338f700f77b5f0b085012d077",
-      "sourceSummaryEn": "APTN reports on renewed litigation between Pimicikamak and Manitoba over moose-hunting licences. The First Nation argues that the province is infringing its Treaty rights.",
-      "sourceHeadlineDe": "Pimicikamak streitet um Elchjagd und Vertragsrechte",
-      "headlines": {
-        "en": "Pimicikamak challenges moose hunting and Treaty-rights violations",
-        "es": "Pimicikamak disputa la caza de alces y los derechos de tratados",
-        "fr": "Pimicikamak conteste la chasse à l’orignal et défend ses droits",
-        "it": "Pimicikamak contesta la caccia all’alce e difende i diritti dei trattati",
-        "pt": "Pimicikamak disputa caça ao alce e direitos dos tratados",
-        "ru": "Пимичикамак оспаривает охоту на лосей и защищает договорные права",
-        "el": "Το Pimicikamak αμφισβητεί το κυνήγι άλκης και υπερασπίζεται δικαιώματα συνθηκών",
-        "tr": "Pimicikamak sığın avına itiraz ediyor ve antlaşma haklarını savunuyor"
-      },
-      "summaries": {
-        "es": "APTN informa de un nuevo litigio entre Pimicikamak y Manitoba por las licencias de caza de alces. La Primera Nación sostiene que la provincia vulnera sus derechos reconocidos en tratados.",
-        "fr": "APTN rapporte un nouveau litige entre Pimicikamak et le Manitoba sur les permis de chasse à l’orignal. La Première Nation estime que la province porte atteinte à ses droits issus de traités.",
-        "it": "APTN riferisce di un nuovo contenzioso tra Pimicikamak e Manitoba sulle licenze di caccia all’alce. La Prima Nazione sostiene che la provincia violi i suoi diritti sanciti dai trattati.",
-        "pt": "A APTN relata um novo litígio entre Pimicikamak e Manitoba sobre licenças de caça ao alce. A Primeira Nação afirma que a província viola os seus direitos previstos em tratados.",
-        "ru": "APTN сообщает о новом судебном споре между Пимичикамак и Манитобой по поводу лицензий на охоту на лосей. Первая нация считает, что провинция нарушает её договорные права.",
-        "el": "Το APTN αναφέρει νέα δικαστική διαμάχη μεταξύ Pimicikamak και Manitoba για άδειες κυνηγιού άλκης. Το Πρώτο Έθνος υποστηρίζει ότι η επαρχία παραβιάζει τα δικαιώματά του βάσει συνθηκών.",
-        "tr": "APTN, Pimicikamak ile Manitoba arasında sığın avı ruhsatlarıyla ilgili yeni bir hukuki uyuşmazlığı aktarıyor. İlk Ulus, eyaletin antlaşmalardan doğan haklarını ihlal ettiğini savunuyor."
-      }
-    },
-    {
-      "articleId": "news-78427d30aa9d8c969cdfdbb9f76908dce9ea15d0d1046a332bfa027d3e96701f",
-      "sourceSummaryEn": "Evrensel reports that student protests in France have spread to Belgium. Further details are available in the original report.",
-      "sourceHeadlineDe": "Schülerproteste erreichen Belgien",
-      "headlines": {
-        "en": "Student protests reach Belgium",
-        "es": "Las protestas estudiantiles llegan a Bélgica",
-        "fr": "Les manifestations lycéennes s’étendent à la Belgique",
-        "it": "Le proteste studentesche raggiungono il Belgio",
-        "pt": "Protestos estudantis chegam à Bélgica",
-        "ru": "Ученические протесты распространяются на Бельгию",
-        "el": "Οι μαθητικές κινητοποιήσεις φτάνουν στο Βέλγιο",
-        "tr": "Öğrenci protestoları Belçika’ya ulaşıyor"
-      },
-      "summaries": {
-        "es": "Evrensel informa de que las protestas estudiantiles de Francia han llegado a Bélgica. La noticia original ofrece más detalles.",
-        "fr": "Evrensel rapporte que les manifestations lycéennes en France se sont étendues à la Belgique. L’article original donne davantage de détails.",
-        "it": "Evrensel riferisce che le proteste studentesche in Francia si sono estese al Belgio. Altri dettagli sono nella notizia originale.",
-        "pt": "O Evrensel informa que os protestos estudantis em França chegaram à Bélgica. A notícia original contém mais detalhes.",
-        "ru": "Evrensel сообщает, что ученические протесты из Франции распространились на Бельгию. Подробности доступны в исходной публикации.",
-        "el": "Το Evrensel αναφέρει ότι οι μαθητικές κινητοποιήσεις στη Γαλλία επεκτάθηκαν στο Βέλγιο. Περισσότερες πληροφορίες υπάρχουν στο πρωτότυπο δημοσίευμα.",
-        "tr": "Evrensel, Fransa’daki lise öğrencilerinin protestolarının Belçika’ya yayıldığını bildiriyor. Ayrıntılar özgün haberde yer alıyor."
-      }
-    },
-    {
-      "articleId": "news-7835793017091df1109c1d909d7ab90088107ccec7802f75e15ff70418def3c9",
-      "sourceSummaryEn": "EFF explains new options for distributing alternative app stores and handling app payments, placing the changes in the context of Epic Games’s lawsuit against Google.",
-      "sourceHeadlineDe": "Alternative App-Stores kommen in den Google Play Store",
-      "headlines": {
-        "en": "Alternative app stores arrive in Google Play",
-        "es": "Llegan tiendas de aplicaciones alternativas a Google Play",
-        "fr": "Des boutiques d’applications alternatives arrivent sur Google Play",
-        "it": "Negozi di app alternativi arrivano su Google Play",
-        "pt": "Lojas de aplicações alternativas chegam à Google Play",
-        "ru": "Альтернативные магазины приложений появляются в Google Play",
-        "el": "Εναλλακτικά καταστήματα εφαρμογών φτάνουν στο Google Play",
-        "tr": "Alternatif uygulama mağazaları Google Play’e geliyor"
-      },
-      "summaries": {
-        "es": "EFF explica nuevas opciones para distribuir tiendas de aplicaciones alternativas y gestionar pagos. Sitúa los cambios en el contexto de la demanda de Epic Games contra Google.",
-        "fr": "EFF explique de nouvelles possibilités de distribution de boutiques d’applications alternatives et de paiement. Elle situe ces changements dans le procès opposant Epic Games à Google.",
-        "it": "EFF spiega nuove opzioni per distribuire negozi di app alternativi e gestire pagamenti. Colloca i cambiamenti nel contesto della causa di Epic Games contro Google.",
-        "pt": "A EFF explica novas opções para distribuir lojas de aplicações alternativas e gerir pagamentos. Enquadra as mudanças na ação judicial da Epic Games contra a Google.",
-        "ru": "EFF объясняет новые возможности распространения альтернативных магазинов приложений и проведения платежей. Изменения рассматриваются в контексте иска Epic Games против Google.",
-        "el": "Το EFF εξηγεί νέες δυνατότητες διανομής εναλλακτικών καταστημάτων εφαρμογών και διαχείρισης πληρωμών. Εντάσσει τις αλλαγές στη δικαστική διαμάχη της Epic Games με την Google.",
-        "tr": "EFF, alternatif uygulama mağazalarının dağıtımı ve uygulama ödemeleri için yeni seçenekleri açıklıyor. Değişiklikleri Epic Games’in Google’a açtığı dava bağlamında ele alıyor."
-      }
-    },
-    {
-      "articleId": "news-853a9b37afe4e3c8c26e86e82d77a2cf3078ecda1a3861142b132a37b0108242",
-      "sourceSummaryEn": "Infolibre publishes a call from Kilkís opposing large energy projects, with details of an October 2 event and support for a legal challenge concerning land and environmental protection.",
-      "sourceHeadlineDe": "Kilkís: Protest gegen industrielle Energieprojekte",
-      "headlines": {
-        "en": "Kilkís protests industrial energy projects",
-        "es": "Kilkís protesta contra proyectos energéticos industriales",
-        "fr": "Kilkís proteste contre des projets énergétiques industriels",
-        "it": "Kilkís protesta contro progetti energetici industriali",
-        "pt": "Kilkís protesta contra projetos energéticos industriais",
-        "ru": "Килкис протестует против промышленных энергетических проектов",
-        "el": "Το Κιλκίς διαμαρτύρεται για βιομηχανικά ενεργειακά έργα",
-        "tr": "Kilkís endüstriyel enerji projelerine karşı protesto ediyor"
-      },
-      "summaries": {
-        "es": "Infolibre publica un llamamiento de Kilkís contra grandes proyectos energéticos. Incluye un acto del 2 de octubre y apoyo a un recurso judicial sobre la protección del territorio y del medio ambiente.",
-        "fr": "Infolibre publie un appel de Kilkís contre de grands projets énergétiques. Il annonce un événement le 2 octobre et un soutien à un recours judiciaire pour la protection du territoire et de l’environnement.",
-        "it": "Infolibre pubblica un appello di Kilkís contro grandi progetti energetici. Include un evento del 2 ottobre e il sostegno a un ricorso per la tutela del territorio e dell’ambiente.",
-        "pt": "O Infolibre publica um apelo de Kilkís contra grandes projetos energéticos. Inclui um evento de 2 de outubro e apoio a uma ação judicial pela proteção do território e do ambiente.",
-        "ru": "Infolibre публикует призыв из Килкиса против крупных энергетических проектов. В нём сообщается о мероприятии 2 октября и поддержке судебного обжалования ради защиты земель и окружающей среды.",
-        "el": "Το Infolibre δημοσιεύει κάλεσμα από το Κιλκίς ενάντια σε μεγάλα ενεργειακά έργα. Περιλαμβάνει εκδήλωση στις 2 Οκτωβρίου και στήριξη δικαστικής προσφυγής για την προστασία της γης και του περιβάλλοντος.",
-        "tr": "Infolibre, Kilkís’ten büyük enerji projelerine karşı bir çağrı yayımlıyor. Çağrıda 2 Ekim etkinliği ve toprağın ve çevrenin korunması için hukuki itiraza destek bilgileri bulunuyor."
+        "es": "EFF examina el proyecto estadounidense ACPA, que podría exigir bloqueos de sitios a proveedores de VPN. Reconoce garantías procesales, pero critica los riesgos para una internet abierta.",
+        "fr": "EFF examine le projet américain ACPA, qui pourrait imposer des blocages aux fournisseurs de VPN. L’organisation reconnaît des garanties procédurales, mais critique les risques pour un internet ouvert.",
+        "it": "EFF esamina il progetto statunitense ACPA, che potrebbe imporre blocchi ai fornitori di VPN. Riconosce garanzie procedurali, ma critica i rischi per un internet aperto.",
+        "pt": "A EFF examina o projeto americano ACPA, que poderia exigir bloqueios de provedores de VPN. Reconhece garantias processuais, mas critica os riscos para uma internet aberta.",
+        "ru": "EFF рассматривает американский законопроект ACPA, который может обязать VPN-провайдеров блокировать сайты. Организация признаёт процедурные гарантии, но критикует риски для открытого интернета.",
+        "el": "Η EFF εξετάζει το αμερικανικό νομοσχέδιο ACPA, που θα μπορούσε να επιβάλει αποκλεισμούς σε παρόχους VPN. Αναγνωρίζει διαδικαστικές εγγυήσεις, αλλά επικρίνει κινδύνους για το ανοιχτό διαδίκτυο.",
+        "tr": "EFF, VPN sağlayıcılarına site engelleme yükümlülüğü getirebilecek ABD ACPA tasarısını inceliyor. Usule ilişkin güvenceleri kabul ediyor, ancak açık internet için riskleri eleştiriyor."
       }
     }
   ]

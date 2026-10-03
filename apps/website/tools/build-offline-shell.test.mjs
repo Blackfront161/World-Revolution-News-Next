@@ -242,9 +242,9 @@ test('only the approved local WRN illustration bytes enter the bounded closed gr
   t.after(() => rm(root, { recursive: true, force: true }));
   const baseline = await collectShellManifest({ outputDirectory: dist });
   const bytes = await readFile(
-    path.resolve(import.meta.dirname, '../src/assets/wrn-land-rights-illustration-v1.webp'),
+    path.resolve(import.meta.dirname, '../src/assets/wrn-austerity-illustration-v1.webp'),
   );
-  const imagePath = 'assets/wrn-land-rights-illustration-v1-a.webp';
+  const imagePath = 'assets/wrn-austerity-illustration-v1-a.webp';
   await writeFile(path.join(dist, imagePath), bytes);
   const vitePath = path.join(dist, '.vite/manifest.json');
   const vite = JSON.parse(await readFile(vitePath, 'utf8'));
@@ -259,14 +259,14 @@ test('only the approved local WRN illustration bytes enter the bounded closed gr
     {
       path: '/' + imagePath,
       mime: 'image/webp',
-      bytes: 455444,
-      sha256: 'e33d13ae13efbf10463e6bb1e660f02305b323ae83ef2e4aa22c58f579b111ab',
+      bytes: 230192,
+      sha256: 'b7d83ace0ea59e05d803f1076c524af4a95e05345d1cb272306a7ce2fbec7eb0',
     },
   );
   await writeFile(path.join(dist, imagePath), Buffer.from('changed'));
   await assert.rejects(() => collectShellManifest({ outputDirectory: dist }), /approved handoff/);
   await writeFile(path.join(dist, imagePath), bytes);
-  await writeFile(path.join(dist, 'assets/wrn-land-rights-illustration-v1-b.webp'), bytes);
+  await writeFile(path.join(dist, 'assets/wrn-austerity-illustration-v1-b.webp'), bytes);
   await assert.rejects(
     () => collectShellManifest({ outputDirectory: dist }),
     /Duplicate WRN illustration/,

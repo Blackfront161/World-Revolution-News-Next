@@ -27,8 +27,9 @@ test('WRN illustration is optional, uniquely bounded and restricted to its local
     ],
   ]) {
     assert.equal(p.metadata({ entries: base, totalBytes: base.length }), true);
+    for (const family of ['land-rights', 'austerity']) {
     const image = {
-      path: '/assets/wrn-land-rights-illustration-v1-a.webp',
+      path: `/assets/wrn-${family}-illustration-v1-a.webp`,
       mime: 'image/webp',
       bytes: 700 * 1024,
       sha256: 'a'.repeat(64),
@@ -51,6 +52,7 @@ test('WRN illustration is optional, uniquely bounded and restricted to its local
     duplicate.entries.push({ ...image, path: '/assets/wrn-land-rights-illustration-v1-b.webp' });
     duplicate.totalBytes += image.bytes;
     assert.equal(p.metadata(duplicate), false);
+    }
   }
 });
 

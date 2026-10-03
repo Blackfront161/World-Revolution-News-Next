@@ -19,7 +19,7 @@ const allowedImage =
   /^(solinaridao-header-mark-filled|wrn-future-header-white)-[A-Za-z0-9_-]+\.png$/;
 const allowedAppIcon = /^wrn-app-icon-[A-Za-z0-9_-]+\.png$/;
 const maxAppIconBytes = 16 * 1024;
-const allowedIllustration = /^wrn-land-rights-illustration-v1-[A-Za-z0-9_-]+\.webp$/;
+const allowedIllustration = /^wrn-austerity-illustration-v1-[A-Za-z0-9_-]+\.webp$/;
 const maxIllustrationBytes = 700 * 1024;
 const approvedIllustration = JSON.parse(
   await readFile(

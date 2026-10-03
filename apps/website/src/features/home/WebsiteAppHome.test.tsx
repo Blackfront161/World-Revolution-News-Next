@@ -6,22 +6,23 @@ import { selectAppHomeArticles } from './WebsiteAppHome';
 const document = directory as MobileContentDirectory;
 const data = { document, projection: document };
 describe('actual App Home selection on the Website', () => {
-  it('uses the App news lead and all five top stories instead of the old reviewed lead', () => {
+  it('uses the current App lead and reviewed stories in their exact App role order', () => {
     const home = selectAppHomeArticles(data, document.articles);
     expect(home.lead?.title).toBe(
-      '«Se vuelven a encender las calles» tras el fallo de la Corte que reactivó la extranjerización de la tierra',
+      'Make the wealthy pay: AIDC lays out alternative to austerity',
     );
     expect(home.top.map((a) => a.title)).toEqual([
-      'Husiler: Suudi Arabistan, başkent Sana ve diğer bazı kentlere hava saldırıları düzenliyor',
-      'The Struggle for Class-Independent Unionism in the Face of State Intervention (UAWD Daily Struggle)',
-      '2ο Ελευθεριακό φεστιβάλ για τον οργανωμένο αναρχισμό, 2-3/10 Πάρκο ΧΑΝΘ',
-      'We Demand More Information on How Marin Cops Illegally Shared Flock ALPR Data',
-      'Morta por PMs, juíza Patrícia Acioli “humilhava policiais”, disse Flávio Bolsonaro em 2011',
+      'Nunavut sports hall of fame inductions begin',
+      '“If Bolsonaro wins, they kill us; if Lula wins, they let us die.”',
+      'Iran’s teachers movement perseveres against all odds',
+      'Site-Blocking Will Not Defend IP, No Matter the Bill’s Name',
     ]);
-    expect(home.more).toHaveLength(9);
-    expect(home.briefing).toHaveLength(5);
-    expect(home.sport).toHaveLength(1);
-    expect(layout.excludedSelection).toEqual([]);
+    expect(home.more).toHaveLength(6);
+    expect(home.briefing).toHaveLength(4);
+    expect(home.sport).toHaveLength(0);
+    expect(layout.excludedSelection).toHaveLength(5);
+    const selected = [home.lead, ...home.top, ...home.more, ...home.briefing].map((a) => a?.id);
+    for (const held of layout.excludedSelection) expect(selected).not.toContain(held.articleId);
   });
   it('cannot restore a withdrawn or source-hidden App article from the layout map', () => {
     const admitted = document.articles.filter(

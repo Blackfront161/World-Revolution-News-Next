@@ -11,15 +11,18 @@ import {
   homeCoverage,
 } from './home-editorial';
 import noteLanguages from './home-note-languages-v1.json';
+import sourceReview from './app-home-source-review-v1.json';
+import { validateSourcePassOverlayV1 } from '@wrn/content-contracts/source-pass-overlay-v1';
 const article = directory.articles.find((a) => a.id === layout.lead)! as DirectoryArticle;
 describe('App Home editorial reading notes', () => {
   it('binds notes to the exact article, original title, URL and reviewed revision', () => {
     expect(homeReadingNote(article, directory.sourceCommit)?.summaryDe).toContain(
-      'ANRed berichtet',
+      'Elitsha berichtet',
     );
     for (const changed of [
       { ...article, url: 'https://example.com/' },
       { ...article, title: 'Changed' },
+      { ...article, sourceName: 'Changed source' },
       { ...article, historical: true },
       { ...article, id: layout.top[0]! },
     ])
@@ -27,6 +30,7 @@ describe('App Home editorial reading notes', () => {
     expect(homeReadingNote(article, 'f'.repeat(40))).toBeNull();
   });
   it('covers every selected App article without any source body or copied image', () => {
+    expect(validateSourcePassOverlayV1(sourceReview)).toBe(true);
     const ids = [layout.lead, ...layout.top, ...layout.sport, ...layout.more, ...layout.briefing];
     for (const id of ids) {
       const note = homeReadingNote(
@@ -35,10 +39,18 @@ describe('App Home editorial reading notes', () => {
       );
       expect(note).not.toBeNull();
       expect(note?.rights).toBe('wrn-original-reading-note');
+      expect(note?.admission).toBe('metadata-only-with-wrn-note');
+      expect(sourceReview.records.some((profile) => profile.id === note?.sourcePassId)).toBe(true);
       expect(note?.summaryDe.length).toBeLessThan(600);
       expect(note?.summaryEn.length).toBeLessThan(600);
       expect(note).not.toHaveProperty('image');
       expect(note).not.toHaveProperty('body');
+    }
+  });
+  it('does not produce reading notes for held App items even when raw metadata remains visible', () => {
+    for (const held of layout.excludedSelection) {
+      const candidate = directory.articles.find((a) => a.id === held.articleId);
+      if (candidate) expect(homeReadingNote(candidate as DirectoryArticle, directory.sourceCommit)).toBeNull();
     }
   });
   it('uses all 21 canonical App topics with all nine language catalogues', () => {

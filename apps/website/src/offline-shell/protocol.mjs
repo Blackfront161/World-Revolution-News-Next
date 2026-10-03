@@ -186,7 +186,7 @@ export function createShellProtocol() {
       ],
       [/^\/assets\/wrn-app-icon-[A-Za-z0-9_-]+\.png$/, 'image/png', 16 * 1024],
       [
-        /^\/assets\/wrn-land-rights-illustration-v1-[A-Za-z0-9_-]+\.webp$/,
+        /^\/assets\/wrn-(?:land-rights|austerity)-illustration-v1-[A-Za-z0-9_-]+\.webp$/,
         'image/webp',
         700 * 1024,
       ],
@@ -242,7 +242,7 @@ export function createShellProtocol() {
       ],
       [/^\/assets\/wrn-app-icon-[A-Za-z0-9_-]+\.png$/, 'image/png', 16 * 1024],
       [
-        /^\/assets\/wrn-land-rights-illustration-v1-[A-Za-z0-9_-]+\.webp$/,
+        /^\/assets\/wrn-(?:land-rights|austerity)-illustration-v1-[A-Za-z0-9_-]+\.webp$/,
         'image/webp',
         700 * 1024,
       ],

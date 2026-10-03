@@ -1,7 +1,7 @@
 {
   "schema": "wrn.website-admission-classes.v1",
-  "upstreamCommit": "d7da528c9a996a2ec13bf3912c45e18e7d58bdfa",
-  "directorySha256": "3e73cac43faf5ce71b2b79680dee197b7c98d7bc4bed667e6e175e956f91e136",
+  "upstreamCommit": "5304fa0032a6761071962e4b74b66cb6f114c49f",
+  "directorySha256": "0acf194b149b39ccd74785716325561ab59ac5140fef3f3b7f8e8d1007c2f725",
   "publicationStatus": {
     "liveDeviationResolved": false,
     "directoryParity": "bound-local-snapshot-only",
@@ -21,9 +21,9 @@
       "sourceEndpoints": 0
     },
     "metadataLinkOnly": {
-      "articles": 482,
-      "sourceEndpoints": 422,
-      "withoutConfirmedSourcePass": 478,
+      "articles": 465,
+      "sourceEndpoints": 427,
+      "withoutConfirmedSourcePass": 463,
       "editorialVerification": false,
       "reuseRightsGranted": false
     },
@@ -32,17 +32,18 @@
       "sourceEndpoints": 2
     },
     "excluded": {
-      "articles": 18,
+      "articles": 35,
       "sourceEndpoints": 9,
       "reasons": {
-        "incomplete-source-provenance": 6,
-        "insecure-url": 8,
-        "identity-conflict": 4
+        "incomplete-source-provenance": 4,
+        "identity-conflict": 20,
+        "insecure-url": 10,
+        "invalid-schema": 1
       }
     },
     "upstream": {
       "articles": 500,
-      "sourceEndpoints": 433,
+      "sourceEndpoints": 438,
       "recordedFeedSourceNames": 102
     }
   }
