@@ -1,0 +1,66 @@
+{
+  "sourceCommit": "e20c8002f32103a7f888e907e6603fed792c8b52",
+  "packetDirectory": "C:\\Users\\patri\\Documents\\World Revolution News\\wrn-next-live-work\\work\\website-current-reader-nav-knowledge-release-e20c800",
+  "ready": "C:\\Users\\patri\\Documents\\World Revolution News\\wrn-next-live-work\\work\\website-current-reader-nav-knowledge-release-e20c800\\READY.json",
+  "websiteManifest": "C:\\Users\\patri\\Documents\\World Revolution News\\wrn-next-live-work\\work\\website-current-reader-nav-knowledge-release-e20c800\\website.manifest.json",
+  "hostingManifest": "C:\\Users\\patri\\Documents\\World Revolution News\\wrn-next-live-work\\work\\website-current-reader-nav-knowledge-release-e20c800\\hosting.manifest.json",
+  "uploadDirectory": "C:\\Users\\patri\\Documents\\World Revolution News\\wrn-next-live-work\\work\\website-projection-live-20261001\\upload-e20c800",
+  "uploadOrder": [
+    {
+      "sha256": "d2d1d892225cff622898eb1c9e6e74fddeb5f37b29e74304d59d3f941f9c30b6",
+      "files": 43,
+      "archive": "01-wrn-immutable-e20c800.zip",
+      "bytes": 5799890,
+      "absolutePath": "C:\\Users\\patri\\Documents\\World Revolution News\\wrn-next-live-work\\work\\website-projection-live-20261001\\upload-e20c800\\01-wrn-immutable-e20c800.zip"
+    },
+    {
+      "sha256": "a3b2118b6f2e7c0510b768fe2ae900ac298e5e2528e4120eaeb956883944a0db",
+      "files": 5,
+      "archive": "02-wrn-policy-sw-e20c800.zip",
+      "bytes": 11008,
+      "absolutePath": "C:\\Users\\patri\\Documents\\World Revolution News\\wrn-next-live-work\\work\\website-projection-live-20261001\\upload-e20c800\\02-wrn-policy-sw-e20c800.zip"
+    },
+    {
+      "sha256": "ac4d037ff308b4cc3bf446ce9281a4d2e3cc144104a256e3d6c5b8cf222e7c68",
+      "files": 1,
+      "archive": "03-wrn-index-e20c800.zip",
+      "bytes": 1352,
+      "absolutePath": "C:\\Users\\patri\\Documents\\World Revolution News\\wrn-next-live-work\\work\\website-projection-live-20261001\\upload-e20c800\\03-wrn-index-e20c800.zip"
+    },
+    {
+      "sha256": "28c0ab2f96124f94777038b3e58bcf0448971a8a2b6129b40a9e62057ad1385d",
+      "files": 1,
+      "archive": "04-wrn-production-pointer-e20c800.zip",
+      "bytes": 345,
+      "absolutePath": "C:\\Users\\patri\\Documents\\World Revolution News\\wrn-next-live-work\\work\\website-projection-live-20261001\\upload-e20c800\\04-wrn-production-pointer-e20c800.zip"
+    },
+    {
+      "sha256": "25e296117163529d03eb4486624761fe9a9e019fffc81c3969946e2232a8c0cc",
+      "files": 1,
+      "archive": "05-wrn-directory-pointer-e20c800.zip",
+      "bytes": 480,
+      "absolutePath": "C:\\Users\\patri\\Documents\\World Revolution News\\wrn-next-live-work\\work\\website-projection-live-20261001\\upload-e20c800\\05-wrn-directory-pointer-e20c800.zip"
+    }
+  ],
+  "rollback": {
+    "files": 49,
+    "publicationPerformed": false,
+    "previousCommit": "d738a9454161f1f6aff624bcb9c2a9f0bc2ccf60",
+    "sha256": "12361e95d64e17a897e668a112ec36aeb87596f11be31442b67e940a0e9d0749",
+    "archive": "rollback-before-e20c800-d738a94.zip",
+    "publicReadbackReceipt": "work/current-reader-nav-knowledge-20261003/rollback-public-readback.json",
+    "privatePolicies": "previous approved d738a94 hosting packet",
+    "bytes": 5668589,
+    "absolutePath": "C:\\Users\\patri\\Documents\\World Revolution News\\wrn-next-live-work\\work\\website-projection-live-20261001\\upload-e20c800\\rollback-before-e20c800-d738a94.zip"
+  },
+  "activationOrder": [
+    "immutable-files",
+    "policy-and-service-worker",
+    "index.html",
+    "wrn-production-content/current.json",
+    "wrn-content-directory/current.json"
+  ],
+  "publication": false,
+  "independentPackageReview": "PENDING",
+  "hostingerSessionGate": "human-answer-pending; no rejected-session retry"
+}

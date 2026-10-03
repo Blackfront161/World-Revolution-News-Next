@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "compatibility": "g3-015-v1",
+  "workerProtocolRevision": "wrn.website-shell.worker.v1.3.0fb9948771162401376aa421a417fb6d62db8a34986e0d82e59e02b61cc8321b",
+  "shellId": "19f516a71d5e3af35f12ddfe1ad49b1dd6b965a44530329964ea144f68149a07",
+  "totalBytes": 8026585,
+  "entries": [
+    {
+      "path": "/assets/content-directory-v1-BzcKetGs.json",
+      "mime": "application/json; charset=utf-8",
+      "bytes": 1937848,
+      "sha256": "f09accb635582fa41764a38cbf987d9085502a3c9694cb72d8dc630a03deadb2"
+    },
+    {
+      "path": "/assets/index-C3wRaphu.css",
+      "mime": "text/css; charset=utf-8",
+      "bytes": 86104,
+      "sha256": "d8ccacc067cb4b3947e4943050be41d4df7e6fea6671c8a1e43b63d8966e9d57"
+    },
+    {
+      "path": "/assets/index-CvI-2MRp.js",
+      "mime": "text/javascript; charset=utf-8",
+      "bytes": 378680,
+      "sha256": "2d8d5f323604d6dc15ed14c41c61387390c4667dc393823f475763de956b8541"
+    },
+    {
+      "path": "/assets/legacy-knowledge-v1-WkT7yILI.json",
+      "mime": "application/json; charset=utf-8",
+      "bytes": 893344,
+      "sha256": "e3479e68fd7525bda9c685bb2b2718ff0ded82fc525eeab8205bfeb0e4dbfece"
+    },
+    {
+      "path": "/assets/legacy-support-v1-CKf2hNYO.json",
+      "mime": "application/json; charset=utf-8",
+      "bytes": 41012,
+      "sha256": "9bfaced898bcabca449ab7a9e75db1c7bf5caba496eabae01268a58630039525"
+    },
+    {
+      "path": "/assets/production-events-media-v1-oJB41y0C.json",
+      "mime": "application/json; charset=utf-8",
+      "bytes": 1701964,
+      "sha256": "ac2c2f944b814be0fce19129791c39d87c0940f8c82caf47bdc868cc5bcb8b15"
+    },
+    {
+      "path": "/assets/react-vendor-YahHAMAi.js",
+      "mime": "text/javascript; charset=utf-8",
+      "bytes": 189620,
+      "sha256": "c5f08825cdca736a015fe6303f97a64ec1e4511a38b5f2f6f589ecb35e815c65"
+    },
+    {
+      "path": "/assets/solinaridao-header-mark-filled-D7vg3enZ.png",
+      "mime": "image/png",
+      "bytes": 1123871,
+      "sha256": "9dca207bc008384ef45cf435a134bf170037ae0149d27c43c732b754912b61b9"
+    },
+    {
+      "path": "/assets/wrn-agroecology-illustration-v1-DrDVXIYr.webp",
+      "mime": "image/webp",
+      "bytes": 188830,
+      "sha256": "dda6b30e14e95ab6f61c21be8c26885559a3e488cef114963bffc198695a2bc8"
+    },
+    {
+      "path": "/assets/wrn-app-icon-CwyuVArd.png",
+      "mime": "image/png",
+      "bytes": 8845,
+      "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+    },
+    {
+      "path": "/assets/wrn-austerity-illustration-v1-ByTb6ajV.webp",
+      "mime": "image/webp",
+      "bytes": 230192,
+      "sha256": "b7d83ace0ea59e05d803f1076c524af4a95e05345d1cb272306a7ce2fbec7eb0"
+    },
+    {
+      "path": "/assets/wrn-browser-runtime-Bv2391bc.css",
+      "mime": "text/css; charset=utf-8",
+      "bytes": 22062,
+      "sha256": "b95ede8f50486489e639c6b93944dd94709a94b22fb8580d34b1f42be670345c"
+    },
+    {
+      "path": "/assets/wrn-browser-runtime-DqdeQ5jm.js",
+      "mime": "text/javascript; charset=utf-8",
+      "bytes": 266324,
+      "sha256": "840459468211dc6ee149e2552263800039fde2de64aba45cd0f7a5839582088f"
+    },
+    {
+      "path": "/assets/wrn-content-core-8GxI7iaF.js",
+      "mime": "text/javascript; charset=utf-8",
+      "bytes": 152878,
+      "sha256": "51af0071bb562932e7faa892f4b35a4e8ff79f38ac183df346b6d8e7b236d9d0"
+    },
+    {
+      "path": "/assets/wrn-future-header-white-D5q8hgPK.png",
+      "mime": "image/png",
+      "bytes": 212123,
+      "sha256": "9da0e22936304a30a55ba1483c2305c6ad6c3b1a057341af2ab3b16fe98a5e2f"
+    },
+    {
+      "path": "/assets/wrn-language-CQw_5_ha.js",
+      "mime": "text/javascript; charset=utf-8",
+      "bytes": 418529,
+      "sha256": "fcf4643feecaf85273618421041f6b6a5726bec9b4547875a4be0c10d6bede80"
+    },
+    {
+      "path": "/assets/wrn-teachers-illustration-v1-eboeU-Ap.webp",
+      "mime": "image/webp",
+      "bytes": 172058,
+      "sha256": "2aa705d84cb5ada966e1f0466c4dfdfa36cbb9188c3009ddd4e7941524184922"
+    },
+    {
+      "path": "/index.html",
+      "mime": "text/html; charset=utf-8",
+      "bytes": 2301,
+      "sha256": "cd9edecc7b147a1e1ba749da67dee1cf9df5f798c48b430d5731270e21ce2503"
+    }
+  ]
+}

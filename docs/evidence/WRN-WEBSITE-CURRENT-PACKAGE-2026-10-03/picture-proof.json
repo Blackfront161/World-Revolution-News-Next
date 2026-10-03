@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "sourceCommit": "e20c8002f32103a7f888e907e6603fed792c8b52",
+  "rows": [
+    {
+      "theme": "light",
+      "id": "news-bf7f81a0916bf3c8e14fd76c3ea38c65a8c8ac67c2a6008059ef42a8f74b4fcc",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "theme": "light",
+      "id": "news-cf022a0fd6b1dff18da08d530fe6f0fd9ec23a743d1ac65cd8cbc212c00d5f63",
+      "width": 1088,
+      "height": 612
+    },
+    {
+      "theme": "light",
+      "id": "news-89996c282207e65c3097efb6adccbc8c85fe46c009854f1cad5386ab1cd96389",
+      "width": 1088,
+      "height": 612
+    },
+    {
+      "theme": "editorial",
+      "id": "news-bf7f81a0916bf3c8e14fd76c3ea38c65a8c8ac67c2a6008059ef42a8f74b4fcc",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "theme": "editorial",
+      "id": "news-cf022a0fd6b1dff18da08d530fe6f0fd9ec23a743d1ac65cd8cbc212c00d5f63",
+      "width": 1088,
+      "height": 612
+    },
+    {
+      "theme": "editorial",
+      "id": "news-89996c282207e65c3097efb6adccbc8c85fe46c009854f1cad5386ab1cd96389",
+      "width": 1088,
+      "height": 612
+    }
+  ]
+}
