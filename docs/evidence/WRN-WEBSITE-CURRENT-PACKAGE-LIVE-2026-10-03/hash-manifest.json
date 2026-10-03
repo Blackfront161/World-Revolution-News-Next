@@ -1,0 +1,67 @@
+{
+  "schema": "wrn.evidence-hash-manifest.v1",
+  "sourceCommit": "e20c8002f32103a7f888e907e6603fed792c8b52",
+  "frozenEvidenceCommit": "95a775e479ec7cdfc5641c8a36e93e20edfb35ef",
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 4083,
+      "sha256": "56174d54bac04af60aa1eac00f60625b387e9a8820b253e04c096c1898f41ba8"
+    },
+    {
+      "path": "browser-default-loading-timeout.json",
+      "bytes": 1987,
+      "sha256": "31acdf2014ab02a071650b6b3cacb95a5d3c4eec4239fe3e55d2156473d66480"
+    },
+    {
+      "path": "browser-live-result.json",
+      "bytes": 7687,
+      "sha256": "67d644e795fafbbfcc912af3059cabe9e6f1527d74b81058089af67fb5f7d7f0"
+    },
+    {
+      "path": "live-autonom-390.png",
+      "bytes": 239092,
+      "sha256": "5c910c012364061ec0914e1742b4869eff703d1994870dbae8555c02c2a84a43"
+    },
+    {
+      "path": "live-home-chrome.jpg",
+      "bytes": 162337,
+      "sha256": "0cf9025588cffaaf20722a1ee9ff71ee70c0a3999c8dbd4bb6736b7aabec85cb"
+    },
+    {
+      "path": "live-reader-390.png",
+      "bytes": 264774,
+      "sha256": "faa4677980e3b95f7b10fe3f3d70ac0546bf993f45eb2cb23dd7588ccbd70d0b"
+    },
+    {
+      "path": "live-reader-chrome.jpg",
+      "bytes": 117086,
+      "sha256": "faf54cf7c55476876ecea55f43dfcde19f7ad3e60cf77e1a43bcfeef4c6f5882"
+    },
+    {
+      "path": "live-reader-offline-390.png",
+      "bytes": 266312,
+      "sha256": "f4f3f34bb0358eac5053aa0cf7982238e5ee7919ce53c6783cb21de31834cd77"
+    },
+    {
+      "path": "pointer-activation-gate.json",
+      "bytes": 1143,
+      "sha256": "4b85fd59084acd9de87f680e3e2165449ca7ca6739afd9cda51f7510f69db2b6"
+    },
+    {
+      "path": "preactivation.json",
+      "bytes": 132015,
+      "sha256": "c42f4a89ec2c653acad9687396fb119382249d9951c88ce1ca4e55107adc9562"
+    },
+    {
+      "path": "public-live-readback.json",
+      "bytes": 143195,
+      "sha256": "ecda2d93d510bf4512a9cbb1f729bb8c854b8c17dd1f116495c24ca701fb43a4"
+    },
+    {
+      "path": "publication-receipt.json",
+      "bytes": 4336,
+      "sha256": "8e870b802ecccdcec6e360ff96c239fe656138c3b6e9e54356fc98aa06ae917c"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "origin": "https://solinaridao.com",
+  "transport": "browser default",
+  "sourceCommit": "e20c8002f32103a7f888e907e6603fed792c8b52",
+  "observedAtUTC": "2026-10-03T13:25:17.585Z",
+  "status": "FAIL",
+  "checks": [],
+  "networkFailures": [],
+  "coverageText": "",
+  "illustration": {
+    "mime": "image/webp",
+    "bytes": 230192,
+    "sha256": "b7d83ace0ea59e05d803f1076c524af4a95e05345d1cb272306a7ce2fbec7eb0",
+    "width": 1672,
+    "additionalImages": [
+      {
+        "bytes": 172058,
+        "sha256": "2aa705d84cb5ada966e1f0466c4dfdfa36cbb9188c3009ddd4e7941524184922"
+      },
+      {
+        "bytes": 188830,
+        "sha256": "dda6b30e14e95ab6f61c21be8c26885559a3e488cef114963bffc198695a2bc8"
+      }
+    ]
+  },
+  "error": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  locator('[data-app-home-article]')\nExpected: 11\nReceived: 0\nTimeout:  5000ms\n\nCall log:\n  - Expect \"to.have.count\" with timeout 5000ms\n  - waiting for locator('[data-app-home-article]')\n    11 × locator resolved to 0 elements\n       - unexpected value \"0\"\n",
+  "failureUI": "Saltar al contenido principal\nWORLD REVOLUTION NEWS\nsolinaridao.com ↗\n▷\n♡\nIdioma de la interfaz\nEN\nDE\nES\nFR\nIT\nPT\nRU\nEL\nTR\nInicio\nPara mí\nDescubrir\nMultimedia\nGuardados\nNoticias\nFuentes\nLecturas de deporte\nEventos\nConocimiento\nSolidaridad\nWORLD REVOLUTION NEWS\nActualidad\nTodo\nAntiimperialismo\nAnticapitalismo\nAnticolonialismo\nAntifascismo\nContra la guerra\nTeoría y estrategia\nAntirracismo\nAntisexismo\nFeminismo queer\nSin fronteras\nSalud radical y discapacidad\nLuchas indígenas\nNoticias de movimientos\nManifestaciones\nLuchas laborales\nOkupación y vivienda\nAntirrepresión y prisiones\nCiberactivismo\nEcoanarquismo\nLiberación animal\nBibliotecas\n\nCargando\n\nArtículos guardados para leer sin conexión.\n\nBuscar una revisión nueva\nNoticias\nFuentes\nLecturas de deporte\nWorld Revolution News",
+  "worker": {
+    "caches": []
+  }
+}

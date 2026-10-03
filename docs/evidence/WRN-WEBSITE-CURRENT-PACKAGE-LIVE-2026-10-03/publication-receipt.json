@@ -1,0 +1,107 @@
+{
+  "schema": "wrn.website-live-publication-receipt.v1",
+  "recordedAtUTC": "2026-10-03T13:31:21.117Z",
+  "sourceCommit": "e20c8002f32103a7f888e907e6603fed792c8b52",
+  "frozenEvidenceCommit": "95a775e479ec7cdfc5641c8a36e93e20edfb35ef",
+  "independentAcceptanceReceiptCommit": "620a35280de43379b6dfeee9f39b379a75d5ff48",
+  "independentReview": {
+    "status": "SCOPED-PASS",
+    "threadId": "019ff285-63dc-7ed2-88a8-cab5f06ed26e",
+    "turnId": "01a10111-b7b3-7a62-a78d-1f453124eee2",
+    "scope": "frozen local package"
+  },
+  "origin": "https://solinaridao.com",
+  "destination": "website-specific solinaridao.com/public_html",
+  "humanSessionReply": "hostinger ist angemeldet",
+  "authorizationBasis": "Existing direct human publication requests plus current reply to the pending Hostinger session question; target freshly verified through the domain-only hPanel card.",
+  "privateArchiveDirectory": "wrn-release-e20c800-private",
+  "uploadOrder": [
+    {
+      "archive": "01-wrn-immutable-e20c800.zip",
+      "sha256": "d2d1d892225cff622898eb1c9e6e74fddeb5f37b29e74304d59d3f941f9c30b6",
+      "files": 43
+    },
+    {
+      "archive": "02-wrn-policy-sw-e20c800.zip",
+      "sha256": "a3b2118b6f2e7c0510b768fe2ae900ac298e5e2528e4120eaeb956883944a0db",
+      "files": 5
+    },
+    {
+      "archive": "03-wrn-index-e20c800.zip",
+      "sha256": "ac4d037ff308b4cc3bf446ce9281a4d2e3cc144104a256e3d6c5b8cf222e7c68",
+      "files": 1
+    },
+    {
+      "archive": "04-wrn-production-pointer-e20c800.zip",
+      "sha256": "28c0ab2f96124f94777038b3e58bcf0448971a8a2b6129b40a9e62057ad1385d",
+      "files": 1
+    },
+    {
+      "archive": "05-wrn-directory-pointer-e20c800.zip",
+      "sha256": "25e296117163529d03eb4486624761fe9a9e019fffc81c3969946e2232a8c0cc",
+      "files": 1
+    }
+  ],
+  "rollback": {
+    "files": 49,
+    "publicationPerformed": false,
+    "previousCommit": "d738a9454161f1f6aff624bcb9c2a9f0bc2ccf60",
+    "sha256": "12361e95d64e17a897e668a112ec36aeb87596f11be31442b67e940a0e9d0749",
+    "archive": "rollback-before-e20c800-d738a94.zip",
+    "publicReadbackReceipt": "work/current-reader-nav-knowledge-20261003/rollback-public-readback.json",
+    "privatePolicies": "previous approved d738a94 hosting packet",
+    "bytes": 5668589,
+    "absolutePath": "C:\\Users\\patri\\Documents\\World Revolution News\\wrn-next-live-work\\work\\website-projection-live-20261001\\upload-e20c800\\rollback-before-e20c800-d738a94.zip"
+  },
+  "published": true,
+  "publicReadbackStatus": "PASS",
+  "publicFilesVerified": 47,
+  "headersVerified": true,
+  "browserStatus": "PASS",
+  "browserChecks": 16,
+  "browserTransport": "HTTPS over HTTP/1.1",
+  "browserDefaultFirstRun": "FAIL: Spanish language full navigation still loading at unchanged 5-second assertion; retained separately. No product or test assertions changed before the explicit HTTP/1.1 run.",
+  "browserNetworkFailures": [
+    {
+      "url": "https://solinaridao.com/wrn-source-passes/current.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://solinaridao.com/wrn-source-passes/current.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://solinaridao.com/wrn-source-passes/current.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://solinaridao.com/wrn-source-passes/current.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://solinaridao.com/wrn-source-passes/current.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://solinaridao.com/wrn-source-passes/current.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://solinaridao.com/assets/production-events-media-v1-oJB41y0C.json",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "pageErrors": [],
+  "unsolicitedStreams": [],
+  "offline": "Functional assertions passed after complete Chrome process restart with persistent profile and no network. Offline network failures are not separately instrumented.",
+  "dataObservedAt": "2026-10-03T05:58:12.439Z",
+  "ageHoursAtActivationGate": 7.413629722222222,
+  "freshnessWindowHours": 24,
+  "newPublisherBodyAdmissions": 0,
+  "newPublisherMediaAdmissions": 0,
+  "machineTranslationProviderConfigured": false,
+  "appGuideCandidateImported": false,
+  "gameImported": false,
+  "frozenPackageModified": false,
+  "appOrDataWritten": false
+}

@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "sourceCommit": "e20c8002f32103a7f888e907e6603fed792c8b52",
+  "observedAtUTC": "2026-10-03T13:23:01.506Z",
+  "dataObservedAt": "2026-10-03T05:58:12.439Z",
+  "ageHours": 7.413629722222222,
+  "freshnessWindowHours": 24,
+  "files": [
+    {
+      "path": "wrn-source-passes/current.json",
+      "status": 200,
+      "sha256": "bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa",
+      "observedAtUTC": "2026-10-03T13:23:01.506Z"
+    },
+    {
+      "path": "wrn-source-pass-revocations/current.json",
+      "status": 200,
+      "sha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617",
+      "observedAtUTC": "2026-10-03T13:23:01.493Z"
+    },
+    {
+      "path": "wrn-production-content/current.json",
+      "status": 200,
+      "sha256": "16c1644e9f4205e334279f206d1d63202603d22adbd47edeb17175e7a65cf8be",
+      "observedAtUTC": "2026-10-03T13:23:01.486Z"
+    },
+    {
+      "path": "wrn-content-directory/current.json",
+      "status": 200,
+      "sha256": "c6a42238f5d1424e1268636a7c99031834d91cc241a1584bd65006e2312bad82",
+      "observedAtUTC": "2026-10-03T13:23:01.493Z"
+    }
+  ]
+}
