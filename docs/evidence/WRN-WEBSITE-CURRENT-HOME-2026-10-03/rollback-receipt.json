@@ -1,0 +1,9 @@
+{
+  "publicReadbackReceipt": "work/current-home-20261003/rollback-public-readback.json",
+  "files": 49,
+  "privatePolicies": "previous approved d738a94 hosting packet",
+  "previousCommit": "d738a9454161f1f6aff624bcb9c2a9f0bc2ccf60",
+  "archive": "rollback-before-20b677c-d738a94.zip",
+  "sha256": "6ae67d9fdc6fc85edf6915754119604dd88113632321c736339c28d49eb7ee93",
+  "publicationPerformed": false
+}

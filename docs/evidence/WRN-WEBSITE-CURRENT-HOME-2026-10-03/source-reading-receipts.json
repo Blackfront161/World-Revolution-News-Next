@@ -1,0 +1,455 @@
+{
+  "notice": "Transient original-page reads; no bodies persisted. First h1 may be a site/footer heading and is not an article-title verification. Exact original titles/URLs bind separately to the versioned identity observations and product feed/layout.",
+  "identityBasis": "docs/evidence/WRN-HOME-SOURCE-REVIEW-2026-10-03/home-identity-observations.json",
+  "rows": [
+    {
+      "index": 1,
+      "id": "news-bf7f81a0916bf3c8e14fd76c3ea38c65a8c8ac67c2a6008059ef42a8f74b4fcc",
+      "url": "https://elitshanews.org.za/2026/10/02/make-the-wealthy-pay-aidc-lays-out-alternative-to-austerity/",
+      "source": "Elitsha",
+      "observedAt": "2026-10-03T04:42:17.018Z",
+      "httpStatus": 200,
+      "resolvedUrl": "https://elitshanews.org.za/2026/10/02/make-the-wealthy-pay-aidc-lays-out-alternative-to-austerity/",
+      "bytes": 130929,
+      "sha256": "f5f8e841a3d20aa39feec93a5e84c8d6498c9df79546595bf2b31e0fee9f5dca",
+      "canonical": "https://elitshanews.org.za/2026/10/02/make-the-wealthy-pay-aidc-lays-out-alternative-to-austerity/",
+      "language": "en-ZA",
+      "contextCharacters": 7630,
+      "dates": [],
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/by-nc/4.0/",
+        "http://creativecommons.org/licenses/by-nc/4.0/"
+      ],
+      "bodySaved": false,
+      "observedFirstH1": "Make the wealthy pay: AIDC lays out alternative to austerity",
+      "firstH1IsNotVerifiedArticleTitle": true
+    },
+    {
+      "index": 2,
+      "id": "news-4805e4b7cf59c5de9e527df647913b42b2e7a9e98c41c0b38e024c33da7d511b",
+      "url": "https://nunatsiaq.com/stories/article/nunavut-sport-hall-of-fame-inductions-begin/",
+      "source": "Nunatsiaq News",
+      "observedAt": "2026-10-03T04:42:19.973Z",
+      "httpStatus": 200,
+      "resolvedUrl": "https://nunatsiaq.com/stories/article/nunavut-sport-hall-of-fame-inductions-begin/",
+      "bytes": 99320,
+      "sha256": "1cc616026b99779daa16f5e0c4b87cc3cfe213d8e9babd59c9540e4d0efa2c41",
+      "canonical": "https://nunatsiaq.com/stories/article/nunavut-sport-hall-of-fame-inductions-begin/",
+      "language": "en",
+      "contextCharacters": 1723,
+      "dates": [],
+      "licenseLinks": [],
+      "bodySaved": false,
+      "observedFirstH1": "Nunavut sports hall of fame inductions begin",
+      "firstH1IsNotVerifiedArticleTitle": true
+    },
+    {
+      "index": 3,
+      "id": "news-19ec580a27780de2a9af0ed4eb0fc0441bc442f30d9954d78686e6c655a04cee",
+      "url": "https://autonomies.org/2026/10/if-bolsonaro-wins-they-kill-us-if-lula-wins-they-let-us-die/",
+      "source": "Autonomies",
+      "observedAt": "2026-10-03T04:41:52.149Z",
+      "httpStatus": 200,
+      "resolvedUrl": "https://autonomies.org/2026/10/if-bolsonaro-wins-they-kill-us-if-lula-wins-they-let-us-die/",
+      "bytes": 93401,
+      "sha256": "903c750a9459c6e81b01b278a4edc6a5bc090767e8688932d663d66ae765e8ec",
+      "canonical": "https://autonomies.org/2026/10/if-bolsonaro-wins-they-kill-us-if-lula-wins-they-let-us-die/",
+      "language": "en-US",
+      "contextCharacters": 22860,
+      "dates": [],
+      "licenseLinks": [],
+      "bodySaved": false,
+      "observedFirstH1": "“If Bolsonaro wins, they kill us; if Lula wins, they let us die.”",
+      "firstH1IsNotVerifiedArticleTitle": true
+    },
+    {
+      "index": 4,
+      "id": "news-cf022a0fd6b1dff18da08d530fe6f0fd9ec23a743d1ac65cd8cbc212c00d5f63",
+      "url": "https://wagingnonviolence.org/2026/10/iran-teachers-movement-perseveres-against-odds/",
+      "source": "Waging Nonviolence",
+      "observedAt": "2026-10-03T04:42:58.444Z",
+      "httpStatus": 200,
+      "resolvedUrl": "https://wagingnonviolence.org/2026/10/iran-teachers-movement-perseveres-against-odds/",
+      "bytes": 123976,
+      "sha256": "24f5ff4970b374726d1871156bdac2eef43ab551624e7ba6629c1cab1b35e181",
+      "canonical": "https://wagingnonviolence.org/2026/10/iran-teachers-movement-perseveres-against-odds/",
+      "language": "en-US",
+      "contextCharacters": 24471,
+      "dates": [],
+      "licenseLinks": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "bodySaved": false,
+      "observedFirstH1": "Iran’s teachers movement perseveres against all odds",
+      "firstH1IsNotVerifiedArticleTitle": true
+    },
+    {
+      "index": 5,
+      "id": "news-4aebfed2089e5861f814b47fdc387997351b655643f164d0fec4fe551a6752e0",
+      "url": "https://www.eff.org/deeplinks/2026/10/site-blocking-will-not-defend-ip-no-matter-bills-name",
+      "source": "Electronic Frontier Foundation",
+      "observedAt": "2026-10-03T04:43:31.836Z",
+      "httpStatus": 200,
+      "resolvedUrl": "https://www.eff.org/deeplinks/2026/10/site-blocking-will-not-defend-ip-no-matter-bills-name",
+      "bytes": 56516,
+      "sha256": "7b5d60858cf9e4586a7be0cae53af07d92dca547b88151708a56b34e6eee1364",
+      "canonical": "https://www.eff.org/deeplinks/2026/10/site-blocking-will-not-defend-ip-no-matter-bills-name",
+      "language": "en",
+      "contextCharacters": 3366,
+      "dates": [],
+      "licenseLinks": [],
+      "bodySaved": false,
+      "observedFirstH1": "Site-Blocking Will Not Defend IP, No Matter the Bill’s Name",
+      "firstH1IsNotVerifiedArticleTitle": true
+    },
+    {
+      "index": 7,
+      "id": "news-89996c282207e65c3097efb6adccbc8c85fe46c009854f1cad5386ab1cd96389",
+      "url": "https://agenciatierraviva.com.ar/sastre-sin-fumigaciones-lo-que-deberia-venir-es-la-agroecologia-para-las-futuras-generaciones/",
+      "source": "Agencia Tierra Viva",
+      "observedAt": "2026-10-03T04:42:14.222Z",
+      "httpStatus": 200,
+      "resolvedUrl": "https://agenciatierraviva.com.ar/sastre-sin-fumigaciones-lo-que-deberia-venir-es-la-agroecologia-para-las-futuras-generaciones/",
+      "bytes": 495053,
+      "sha256": "28c3bfadc4a2dfcabe7852fefd96464e2fc4c4810a4414db2c80e1c5967ea2a1",
+      "canonical": "https://agenciatierraviva.com.ar/sastre-sin-fumigaciones-lo-que-deberia-venir-es-la-agroecologia-para-las-futuras-generaciones/",
+      "language": "es",
+      "contextCharacters": 16590,
+      "dates": [],
+      "licenseLinks": [],
+      "bodySaved": false,
+      "observedFirstH1": "Estemos en contacto",
+      "firstH1IsNotVerifiedArticleTitle": true
+    },
+    {
+      "index": 8,
+      "id": "news-f6e3c002e7c2304d8328565c09551f82af3051f1800ec8a83f618df06c96bacf",
+      "url": "https://mars-infos.org/les-dependances-artificielles-8757",
+      "source": "MIA Marseille (FR)",
+      "observedAt": "2026-10-03T04:40:32.256Z",
+      "httpStatus": 200,
+      "resolvedUrl": "https://mars-infos.org/les-dependances-artificielles-8757",
+      "bytes": 41354,
+      "sha256": "efcf6d0127f0dced415c3bdb5a2c3b493feae9d2b7729738ccbd97587bff8009",
+      "canonical": "https://mars-infos.org/les-dependances-artificielles-8757",
+      "language": "fr",
+      "contextCharacters": 1862,
+      "dates": [
+        {
+          "datetime": "2026-10-02T21:02:12Z",
+          "label": "02/10"
+        },
+        {
+          "datetime": "2026-10-02T20:53:24Z",
+          "label": "02/10"
+        },
+        {
+          "datetime": "2026-10-02T20:46:39Z",
+          "label": "02/10"
+        },
+        {
+          "datetime": "2026-10-02T19:49:05Z",
+          "label": "02/10"
+        },
+        {
+          "datetime": "2026-10-02T19:37:46Z",
+          "label": "02/10"
+        }
+      ],
+      "licenseLinks": [],
+      "bodySaved": false,
+      "observedFirstH1": "Marseille Infos Autonomes",
+      "firstH1IsNotVerifiedArticleTitle": true
+    },
+    {
+      "index": 11,
+      "id": "news-d24f42223b892eb38ec28385fa4e5ccaeb79fb2cedfae3e41560a0d7ae4983fd",
+      "url": "https://africasacountry.com/2026/10/the-north-african-family-french-critics-couldnt-see",
+      "source": "Africa Is a Country",
+      "observedAt": "2026-10-03T04:43:32.216Z",
+      "httpStatus": 200,
+      "resolvedUrl": "https://africasacountry.com/2026/10/the-north-african-family-french-critics-couldnt-see",
+      "bytes": 41984,
+      "sha256": "1d49bf14282090aac8d24d75791d612d79b01972a2e555c73a811fe3b3a4555a",
+      "canonical": null,
+      "language": "en-US",
+      "contextCharacters": 9260,
+      "dates": [
+        {
+          "datetime": "published",
+          "label": "10.02.2026"
+        },
+        {
+          "datetime": "1.11.2023 11:00:11PM",
+          "label": "1.11.2023"
+        },
+        {
+          "datetime": "2.06.2025 01:00:58AM",
+          "label": "2.06.2025"
+        },
+        {
+          "datetime": "8.06.2025 12:00:10PM",
+          "label": "8.06.2025"
+        },
+        {
+          "datetime": "2.24.2026 09:30:03AM",
+          "label": "2.24.2026"
+        }
+      ],
+      "licenseLinks": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "bodySaved": false,
+      "observedFirstH1": "AfricaIs aCountry",
+      "firstH1IsNotVerifiedArticleTitle": true
+    },
+    {
+      "index": 12,
+      "id": "news-4477980f56597e2f0462e36f3d89653f080a521476160fc92f97cc594b29d927",
+      "url": "https://argentina.indymedia.org/2026/10/02/sin-la-ayuda-de-mis-hijos-no-puedo-llegar-a-fin-de-mes-otro-miercoles-de-protesta-de-jubilados-por-una-vida-digna/",
+      "source": "Indymedia Argentina",
+      "observedAt": "2026-10-03T04:43:30.128Z",
+      "httpStatus": 200,
+      "resolvedUrl": "https://argentina.indymedia.org/2026/10/02/sin-la-ayuda-de-mis-hijos-no-puedo-llegar-a-fin-de-mes-otro-miercoles-de-protesta-de-jubilados-por-una-vida-digna/",
+      "bytes": 167458,
+      "sha256": "a3d7b9822bb5eab667745d82bfef919d8ba6adb35ccfdcf0bb3b80d44d56bf56",
+      "canonical": "https://argentina.indymedia.org/2026/10/02/sin-la-ayuda-de-mis-hijos-no-puedo-llegar-a-fin-de-mes-otro-miercoles-de-protesta-de-jubilados-por-una-vida-digna/",
+      "language": "es-AR",
+      "contextCharacters": 3068,
+      "dates": [
+        {
+          "datetime": "2026-10-02T15:14:25-03:00",
+          "label": "2 octubre, 2026"
+        },
+        {
+          "datetime": "2026-10-02T15:45:38-03:00",
+          "label": "2 octubre, 2026"
+        }
+      ],
+      "licenseLinks": [
+        "http://creativecommons.org/licenses/by-sa/4.0/",
+        "https://creativecommons.org/licenses/by-sa/4.0/"
+      ],
+      "bodySaved": false,
+      "observedFirstH1": "“Sin la ayuda de mis hijos no puedo llegar a fin de mes”: otro miércoles de protesta de jubilados por una vida digna",
+      "firstH1IsNotVerifiedArticleTitle": true
+    },
+    {
+      "index": 13,
+      "id": "news-7861eaeeeab2dcb2decc157a80b2cbe3bb6acfb431767c97b8c7b3de7cd9451d",
+      "url": "https://radiokurruf.org/comunicado-publico-de-los-presos-politicos-mapuche-de-la-franja-lavkenche-condenados-en-el-caso-grollmus/",
+      "source": "Radio Kurruf Noticias",
+      "observedAt": "2026-10-03T04:43:02.275Z",
+      "httpStatus": 200,
+      "resolvedUrl": "https://radiokurruf.org/comunicado-publico-de-los-presos-politicos-mapuche-de-la-franja-lavkenche-condenados-en-el-caso-grollmus/",
+      "bytes": 387462,
+      "sha256": "b743302d9bfe72fa13e18d40aa953c4a7d4b238bb4b14826ecf08e176ca1ce96",
+      "canonical": "https://radiokurruf.org/comunicado-publico-de-los-presos-politicos-mapuche-de-la-franja-lavkenche-condenados-en-el-caso-grollmus/",
+      "language": "es",
+      "contextCharacters": 2994,
+      "dates": [],
+      "licenseLinks": [],
+      "bodySaved": false,
+      "observedFirstH1": "Comunicado Público de los Presos políticos mapuche de la Franja lavkenche condenados en el Caso Grollmus",
+      "firstH1IsNotVerifiedArticleTitle": true
+    },
+    {
+      "index": 14,
+      "id": "news-18819c41d5e1448ddcd93cd96786c015b5ee6afeca445d7095a61f8c47555433",
+      "url": "https://libcom.org/article/revolutionary-legacy-balkans-yavor-tarinskis-balkan-federation-and-communes",
+      "source": "Libcom Library",
+      "observedAt": "2026-10-03T04:40:59.131Z",
+      "httpStatus": 200,
+      "resolvedUrl": "https://libcom.org/article/revolutionary-legacy-balkans-yavor-tarinskis-balkan-federation-and-communes",
+      "bytes": 63321,
+      "sha256": "50992a1e27459b8e91c380d3421e6597eaf90bdfba0ab84748bdaedc1dd97333",
+      "canonical": "https://libcom.org/article/revolutionary-legacy-balkans-yavor-tarinskis-balkan-federation-and-communes",
+      "language": "en",
+      "contextCharacters": 13680,
+      "dates": [],
+      "licenseLinks": [],
+      "bodySaved": false,
+      "observedFirstH1": "The Revolutionary Legacy of the Balkans: Yavor Tarinski’s Balkan Federation and Communes",
+      "firstH1IsNotVerifiedArticleTitle": true
+    },
+    {
+      "index": 15,
+      "id": "news-63288e1130f25b9db71b153e08bf4f31c1825824bcc602af45c99b8bd208d8fd",
+      "url": "https://apublica.org/2026/10/levantamento-aponta-um-caso-de-violencia-politica-a-cada-37-horas-durante-campanha-de-2026/",
+      "source": "Agência Pública",
+      "observedAt": "2026-10-03T04:40:59.803Z",
+      "httpStatus": 200,
+      "resolvedUrl": "https://apublica.org/2026/10/levantamento-aponta-um-caso-de-violencia-politica-a-cada-37-horas-durante-campanha-de-2026/",
+      "bytes": 186681,
+      "sha256": "40dbab6a00c5efa8e4dfd0ff0f90cf204165573794bd0fdf7598cfa507d6ec09",
+      "canonical": "https://apublica.org/2026/10/levantamento-aponta-um-caso-de-violencia-politica-a-cada-37-horas-durante-campanha-de-2026/",
+      "language": "pt-BR",
+      "contextCharacters": 11113,
+      "dates": [],
+      "licenseLinks": [
+        "https://creativecommons.org/licenses/by-nd/4.0/"
+      ],
+      "bodySaved": false,
+      "observedFirstH1": "Levantamento aponta um caso de violência política a cada 37 horas durante campanha de 2026",
+      "firstH1IsNotVerifiedArticleTitle": true
+    },
+    {
+      "index": 16,
+      "id": "news-ced541655bbddcfadc012cbfbf3991f3453ca77a69d1c165e0eb0ed27e021197",
+      "url": "https://nunatsiaq.com/stories/article/iqaluit-northmart-unveils-completed-in-store-renovations/",
+      "source": "Nunatsiaq News",
+      "observedAt": "2026-10-03T04:42:22.766Z",
+      "httpStatus": 200,
+      "resolvedUrl": "https://nunatsiaq.com/stories/article/iqaluit-northmart-unveils-completed-in-store-renovations/",
+      "bytes": 105584,
+      "sha256": "3ec4228def59c259dc243b6ac810988941b4683ae5230beb63500844668d6dd8",
+      "canonical": "https://nunatsiaq.com/stories/article/iqaluit-northmart-unveils-completed-in-store-renovations/",
+      "language": "en",
+      "contextCharacters": 4285,
+      "dates": [],
+      "licenseLinks": [],
+      "bodySaved": false,
+      "observedFirstH1": "Iqaluit Northmart unveils completed in-store renovations",
+      "firstH1IsNotVerifiedArticleTitle": true
+    },
+    {
+      "index": 17,
+      "id": "news-15bd626de2c3273c503e5e56575ba5f1237b486aed69af133d425062d8ddad5a",
+      "url": "https://mars-infos.org/formation-psycho-trauma-spaam-8750",
+      "source": "MIA Marseille (FR)",
+      "observedAt": "2026-10-03T04:43:04.670Z",
+      "httpStatus": 200,
+      "resolvedUrl": "https://mars-infos.org/formation-psycho-trauma-spaam-8750",
+      "bytes": 37756,
+      "sha256": "9cdfc602279bf9dcaf2e686ae2e9e6435e8888426368952a16f0c724422f919f",
+      "canonical": "https://mars-infos.org/formation-psycho-trauma-spaam-8750",
+      "language": "fr",
+      "contextCharacters": 1647,
+      "dates": [
+        {
+          "datetime": "2026-10-02T21:02:12Z",
+          "label": "02/10"
+        },
+        {
+          "datetime": "2026-10-02T20:53:24Z",
+          "label": "02/10"
+        },
+        {
+          "datetime": "2026-10-02T20:46:39Z",
+          "label": "02/10"
+        },
+        {
+          "datetime": "2026-10-02T19:49:05Z",
+          "label": "02/10"
+        },
+        {
+          "datetime": "2026-10-02T19:37:46Z",
+          "label": "02/10"
+        }
+      ],
+      "licenseLinks": [],
+      "bodySaved": false,
+      "observedFirstH1": "Marseille Infos Autonomes",
+      "firstH1IsNotVerifiedArticleTitle": true
+    },
+    {
+      "index": 18,
+      "id": "news-a37bea00300e766dbeecd9293b3e85e75c4b19f67422e5e963eb50a3091ca27e",
+      "url": "https://mars-infos.org/fiertes-veneres-pride-radicale-du-8754",
+      "source": "MIA Marseille (FR)",
+      "observedAt": "2026-10-03T04:41:55.235Z",
+      "httpStatus": 200,
+      "resolvedUrl": "https://mars-infos.org/fiertes-veneres-pride-radicale-du-8754",
+      "bytes": 47969,
+      "sha256": "a53297115a903ced5f2d9159383e91b919570abb927345d2cc7bca13f078fdc1",
+      "canonical": "https://mars-infos.org/fiertes-veneres-pride-radicale-du-8754",
+      "language": "fr",
+      "contextCharacters": 8329,
+      "dates": [
+        {
+          "datetime": "2026-10-02T21:02:12Z",
+          "label": "02/10"
+        },
+        {
+          "datetime": "2026-10-02T20:53:24Z",
+          "label": "02/10"
+        },
+        {
+          "datetime": "2026-10-02T20:46:39Z",
+          "label": "02/10"
+        },
+        {
+          "datetime": "2026-10-02T19:49:05Z",
+          "label": "02/10"
+        },
+        {
+          "datetime": "2026-10-02T19:37:46Z",
+          "label": "02/10"
+        }
+      ],
+      "licenseLinks": [],
+      "bodySaved": false,
+      "observedFirstH1": "Marseille Infos Autonomes",
+      "firstH1IsNotVerifiedArticleTitle": true
+    },
+    {
+      "index": 19,
+      "id": "news-666950a407216f3604842055c309b462cc056f33cc64b0c1417ba48793f36b7d",
+      "url": "https://mars-infos.org/1er-jour-d-octobre-et-ca-pete-fort-8760",
+      "source": "MIA Marseille (FR)",
+      "observedAt": "2026-10-03T04:43:05.568Z",
+      "httpStatus": 200,
+      "resolvedUrl": "https://mars-infos.org/1er-jour-d-octobre-et-ca-pete-fort-8760",
+      "bytes": 43808,
+      "sha256": "4f79272e242377ded542f8f4fd93f471aa9f7afdbcc25fb6e1305259ea81c381",
+      "canonical": "https://mars-infos.org/1er-jour-d-octobre-et-ca-pete-fort-8760",
+      "language": "fr",
+      "contextCharacters": 3305,
+      "dates": [
+        {
+          "datetime": "2026-10-02T21:02:12Z",
+          "label": "02/10"
+        },
+        {
+          "datetime": "2026-10-02T20:53:24Z",
+          "label": "02/10"
+        },
+        {
+          "datetime": "2026-10-02T20:46:39Z",
+          "label": "02/10"
+        },
+        {
+          "datetime": "2026-10-02T19:49:05Z",
+          "label": "02/10"
+        },
+        {
+          "datetime": "2026-10-02T19:37:46Z",
+          "label": "02/10"
+        }
+      ],
+      "licenseLinks": [],
+      "bodySaved": false,
+      "observedFirstH1": "Marseille Infos Autonomes",
+      "firstH1IsNotVerifiedArticleTitle": true
+    },
+    {
+      "index": 20,
+      "id": "news-d576bb384df539b059557e499aa9f62da650491da4a96162a30f0ef378a39b2c",
+      "url": "https://www.eff.org/deeplinks/2026/10/congress-has-another-site-blocking-bill-and-one-targets-vpns",
+      "source": "Electronic Frontier Foundation",
+      "observedAt": "2026-10-03T04:43:05.978Z",
+      "httpStatus": 200,
+      "resolvedUrl": "https://www.eff.org/deeplinks/2026/10/congress-has-another-site-blocking-bill-and-one-targets-vpns",
+      "bytes": 58414,
+      "sha256": "38350c68e25c6fe7fa6b708c84048c7a70b0ce349cddc003d0e2bed411a21cba",
+      "canonical": "https://www.eff.org/deeplinks/2026/10/congress-has-another-site-blocking-bill-and-one-targets-vpns",
+      "language": "en",
+      "contextCharacters": 4580,
+      "dates": [],
+      "licenseLinks": [],
+      "bodySaved": false,
+      "observedFirstH1": "Congress Has Another Site-Blocking Bill, And This One Targets VPNs",
+      "firstH1IsNotVerifiedArticleTitle": true
+    }
+  ]
+}
