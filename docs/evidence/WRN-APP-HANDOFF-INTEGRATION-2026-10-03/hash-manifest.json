@@ -14,7 +14,7 @@
     "apps/website/src/features/knowledge/packed/legacy-knowledge-v1.json",
     "docs/evidence/WRN-APP-HANDOFF-INTEGRATION-2026-10-03/input-bindings.json"
   ],
-  "createdAt": "2026-10-02T23:05:30.031Z",
+  "createdAt": "2026-10-03T00:01:59.169Z",
   "hostingShellBytes": 7807982,
   "hostingShellId": "0d72ef4f9334f6a7cc1fec884931157ed3ed3f3ecb2f6214c5ecd6d29fefc7a8",
   "websiteManifestSha256": "599f6db1a4f1dec174d5ac8b53c1b0baf6dfbdf2eb6764547a8a980649aa1d22",
@@ -22,8 +22,8 @@
   "files": [
     {
       "path": "REPORT.md",
-      "bytes": 9740,
-      "sha256": "2ffcd3fa87678ec80db9568259b9cb4f2d070907d98ad007f1187c7ba1b4002c"
+      "bytes": 11697,
+      "sha256": "3ea1337d5a009c9466f566b45d92191823f0093b618577cd8762371c1faca004"
     },
     {
       "path": "archive-hashes.json",
@@ -39,6 +39,11 @@
       "path": "home-primary-review.json",
       "bytes": 29607,
       "sha256": "845f872933537f8dbcdf95c79915a2551e9046460e0e026bea7607bcbbea98c7"
+    },
+    {
+      "path": "independent-review.json",
+      "bytes": 3146,
+      "sha256": "90443473f0ade6945766aaf83dc2042ee9c6411d24cd99ad639cef59239385ef"
     },
     {
       "path": "input-bindings.json",
@@ -64,6 +69,51 @@
       "path": "knowledge-primary-references.json",
       "bytes": 7785,
       "sha256": "08466d918eee96892f4e87306801f0c72fffa53e9927f9cf482f97d6f2eab089"
+    },
+    {
+      "path": "live-browser-result.json",
+      "bytes": 3168,
+      "sha256": "c029faf32a26e9979cc22ac4b84e90067c5f4f824b77ad57cf2bfd3bf9ff735c"
+    },
+    {
+      "path": "live-full-receipt.json",
+      "bytes": 136594,
+      "sha256": "9df050664a8dbaffcbfd2e1ecea2d42b5118c16fdbec0a6caedaee21fe45efdd"
+    },
+    {
+      "path": "live-home-1440.png",
+      "bytes": 1087805,
+      "sha256": "3ca68475d31bad06afe153e72bff9552ec77d8c394d1cd1b29a11f8a7671af71"
+    },
+    {
+      "path": "live-immutable-receipt.json",
+      "bytes": 124527,
+      "sha256": "bbfbbb0f49076aac9a4530dce2e8acd8d598025e68e1fd9c8c051e04e66839a2"
+    },
+    {
+      "path": "live-knowledge-1440.png",
+      "bytes": 123385,
+      "sha256": "2099cee9a16e3a8224f0124d0a4af2c8a79d2bed02876fb2454edfe2ffdba4f4"
+    },
+    {
+      "path": "live-knowledge-390.png",
+      "bytes": 64765,
+      "sha256": "fd4c4cc47237ba2d003e06010894efa2fa48596554ac924e1f73a9e6b36010fd"
+    },
+    {
+      "path": "live-pre-pointer-receipt.json",
+      "bytes": 130717,
+      "sha256": "fb17f43537aff56f10313b30cf03d58d7ac507a65c009c8debca37d8d782c507"
+    },
+    {
+      "path": "live-radio-1440.png",
+      "bytes": 47653,
+      "sha256": "974bfb6b47004535212a0cbe2b1a40b59a1b748413fa48d611646c7535f18d51"
+    },
+    {
+      "path": "live-revocations.json",
+      "bytes": 2932,
+      "sha256": "f04b09fd194e52bea61c3b66457a08ac12d17b6adaa7a13b8e1714b0f35f8169"
     },
     {
       "path": "package-browser-result.json",
@@ -95,5 +145,12 @@
       "bytes": 21053,
       "sha256": "1589c72be082a482c245d49a76907a6ce2f629f8b3ce049334cfaa98fc766e54"
     }
-  ]
+  ],
+  "publication": {
+    "origin": "https://solinaridao.com",
+    "productCommit": "566422758241190f432d8c8a09d67a5f589d90ac",
+    "publicFiles": 45,
+    "status": "PASS",
+    "reviewEvidenceCommit": "9a072ef"
+  }
 }

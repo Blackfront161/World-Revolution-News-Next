@@ -40,3 +40,13 @@ Nächster klar begrenzter Nachrichtenumfang: die20 Rollenbeiträge samt13 noch f
 ## Nachtrag: private Uploadvorbereitung
 
 Alle sechs Archive sind im privaten Domainordner `wrn-release-5664227-private` hochgeladen. Der abgeschlossene Upload und alle sechs exakten Dateinamen mit passenden gerundeten Größen wurden in Hostinger sichtbar geprüft; Beleg `private-upload-observation.json`. Kein SHA-Readback der entfernten ZIPs behauptet. Öffentliche Aktivierung weiterhin ausstehend; produktiver Stand weiterhin ef5ac42. Die unabhängige Prüfung des konkreten Folgepakets ist noch erforderlich.
+
+## Nachtrag: öffentliche Veröffentlichung am 3. Oktober 2026
+
+Die vorstehenden offenen Review-/Uploadangaben dokumentieren den damaligen Vorbereitungsstand. Der unabhängige Kontrolleur hat den unveränderten Website-Freeze5664227 mit Evidenz9a072ef akzeptiert; Originalabschluss und Turnbindung stehen in independent-review.json. Die gesonderte Gefangenenprüfung desselben Abschlusses ist FAIL und wurde ausdrücklich nicht integriert. Die menschliche Veröffentlichungsgenehmigung lautet „veröffentliche und arbeite weiter an der angleichung“.
+
+Frischer Widerrufsabruf: PASS, HTTP200,161Bytes, unverändert ohne aktive Rücknahmen. Die fünf geprüften Archive wurden in der Reihenfolge unveränderliche Dateien → Hostingregeln/Service Worker → index → Produktionszeiger → Directory-Zeiger nach domains/solinaridao.com/public_html entpackt. Readbacks:41/41 unveränderliche Dateien,43/43 vor Zeigerumschaltung und45/45 öffentliche Dateien vollständig byte-/SHA-identisch. Erwartete Apache-Header einschließlich CSP, CORS, Cache und MIME stimmen auf allen anwendbaren Antworten. Dies ersetzt keinen direkten SHA-Abruf der privaten ZIPs oder Policies. Der gebundene Rollback ist erhalten; kein Rollback ausgeführt.
+
+Die öffentliche Seite https://solinaridao.com ist auf diesem Freeze aktiv. Live-Chromeprüfung PASS:28 Radios einschließlich3CR-Originallink,167 Lexikonbegriffe und vier Lernpfade;728 Bücher,1722 Episoden,16 Videos,6 Events und bestehende Home-Rollen erhalten. Desktop1440/Handy390 ohne horizontalen Überlauf; eigenes Bild und Logo-Favicon bytegenau. Vollständiger Chrome-Prozessabschluss und Offline-Neustart mit persistentem Testprofil PASS; keine PageErrors und kein automatischer Radio-Streamabruf. Live-Belege sind hier versioniert.
+
+Die20 neuen Home-Kandidaten und der gesonderte Gefangenenblock bleiben weitere Arbeit. Diese Veröffentlichung ist kein vollständiger App-Paritäts- oder Gesamt-Release-PASS.
