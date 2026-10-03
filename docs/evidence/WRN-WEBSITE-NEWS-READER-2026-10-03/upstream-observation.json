@@ -1,0 +1,29 @@
+[
+  {
+    "key": "feed",
+    "url": "https://blackfront161.github.io/Revolution-News-Data/news-feed.json",
+    "httpStatus": 200,
+    "observedAt": "2026-10-03T05:58:11.763Z",
+    "bytes": 2407944,
+    "sha256": "b888a16d1f659e31cab3bbb3c487734ad5259531af908d16f50525d2892efc56",
+    "matchesPinnedCommit": true
+  },
+  {
+    "key": "status",
+    "url": "https://blackfront161.github.io/Revolution-News-Data/feed-status.json",
+    "httpStatus": 200,
+    "observedAt": "2026-10-03T05:58:12.099Z",
+    "bytes": 877,
+    "sha256": "f080c0df3330ca1a4ac887684e128f6a6e4bcd82170c5cb56103b244d783b063",
+    "matchesPinnedCommit": true
+  },
+  {
+    "key": "registry",
+    "url": "https://blackfront161.github.io/Revolution-News-Data/sources-registry.json",
+    "httpStatus": 200,
+    "observedAt": "2026-10-03T05:58:12.439Z",
+    "bytes": 261913,
+    "sha256": "14caf3149f59d8eaab005c56c4dd07094a58d725843c27623fd982910c6e9637",
+    "matchesPinnedCommit": true
+  }
+]

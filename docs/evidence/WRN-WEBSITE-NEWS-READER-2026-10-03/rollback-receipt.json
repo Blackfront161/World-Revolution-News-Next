@@ -1,0 +1,9 @@
+{
+  "publicationPerformed": false,
+  "archive": "rollback-before-f6649dc-d738a94.zip",
+  "publicReadbackReceipt": "work/news-reader-20261003/rollback-public-readback.json",
+  "previousCommit": "d738a9454161f1f6aff624bcb9c2a9f0bc2ccf60",
+  "files": 49,
+  "privatePolicies": "previous approved d738a94 hosting packet",
+  "sha256": "dc1e45a1099f369b3d2e598e6a95137dc5f35397567db77dfcf9934efca8496a"
+}

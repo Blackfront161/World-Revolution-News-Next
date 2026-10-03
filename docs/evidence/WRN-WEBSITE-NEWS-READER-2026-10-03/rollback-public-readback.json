@@ -1,0 +1,325 @@
+{
+  "previousCommit": "d738a9454161f1f6aff624bcb9c2a9f0bc2ccf60",
+  "origin": "https://solinaridao.com",
+  "publicFiles": 45,
+  "status": "PASS",
+  "files": [
+    {
+      "path": "article-publication-manifest.json",
+      "bytes": 5946,
+      "sha256": "dfd8a56c07709cefe82aa957fa020384f914ad27a8697aa272151a967ae03a30",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:32.065Z"
+    },
+    {
+      "path": "articles/wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c/index.html",
+      "bytes": 13852,
+      "sha256": "6e6fb4338b9808a7d2d13ce5736dff640a45d3346c92678ed76cf80eb0c637bc",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:31.984Z"
+    },
+    {
+      "path": "articles/wrn-art-612a467e3e256a336d6bb635ba3516d0/index.html",
+      "bytes": 170365,
+      "sha256": "57c42e8e095b40ceee9ef9b9388186277269e46b8bf4f7891202612b420081f4",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:32.161Z"
+    },
+    {
+      "path": "articles/wrn-art-67bca5d4b29dab78f8ae26ccd996a9d8/index.html",
+      "bytes": 25237,
+      "sha256": "2be9b1f542bc80676aa4502d8828b05bc04c525292320437ab4863fdec58b6d5",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:31.989Z"
+    },
+    {
+      "path": "articles/wrn-art-8a5c375e96abe85721e4ba918c3f73e2/index.html",
+      "bytes": 18777,
+      "sha256": "bec2c15e7eb86f262013336cdc3067ffe08e3a520bb71d6c9ff5e1a991c3ab74",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:32.223Z"
+    },
+    {
+      "path": "articles/wrn-art-a772ab86c915a036c6177f1bfe958d4d/index.html",
+      "bytes": 218496,
+      "sha256": "53a2940101579c19e1a3139e8fde7f7effef079d357b2c659f92c330a020d897",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:32.396Z"
+    },
+    {
+      "path": "articles/wrn-art-ba76ef8b7afb34885bd5f64bc7135f6c/index.html",
+      "bytes": 20784,
+      "sha256": "f91341a9ea8c91a7556eb8ca9a222951d1b788ef7047a426688dfcf01b4f2ccd",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:32.386Z"
+    },
+    {
+      "path": "articles/wrn-art-bdb90712e1c72ee72293c70904b50889/index.html",
+      "bytes": 267350,
+      "sha256": "85070b91f9b11e3e6a9954c42291ee1cad8062c7fa7759475446ae414a06f798",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:32.483Z"
+    },
+    {
+      "path": "articles/wrn-art-c273494fad3a4c822cb7655ec5e157ef/index.html",
+      "bytes": 261922,
+      "sha256": "208577a9815439fa08ba9a6a32c6b789e509a8f4a514a7ca7b1c4cdf4ba4f261",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:32.678Z"
+    },
+    {
+      "path": "articles/wrn-art-c6c6c2fd56d7a3965b4da062d0f73981/index.html",
+      "bytes": 14317,
+      "sha256": "48e851cf5a6f29a75e81117e4137413b56a7b3769cc2f448557b1af33d09b305",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:32.700Z"
+    },
+    {
+      "path": "articles/wrn-art-d96004b71171145d4aab1c6e37eb28ca/index.html",
+      "bytes": 10468,
+      "sha256": "c5ae06dedd9ae4d6a21930cca4e5c751328151a759d2849e025d78b033b63b9e",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:32.619Z"
+    },
+    {
+      "path": "articles/wrn-art-e9c523735fe8b7a61922b09d2bcc84fb/index.html",
+      "bytes": 110077,
+      "sha256": "3c00081c81696c1ca03e107795674b4654104b5e5cf511894fcadd6b49d201c4",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:32.806Z"
+    },
+    {
+      "path": "articles/wrn-art-f2ad391804423c87773b3351eb79c802/index.html",
+      "bytes": 199637,
+      "sha256": "9b3d3dfd4b03dc4a045b6cae5e5776966f2f9b2e21490c61b9188731d4191ceb",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:32.906Z"
+    },
+    {
+      "path": "assets/content-directory-v1-B_klH-td.json",
+      "bytes": 1953524,
+      "sha256": "3e73cac43faf5ce71b2b79680dee197b7c98d7bc4bed667e6e175e956f91e136",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:33.016Z"
+    },
+    {
+      "path": "assets/index-BoDwzAcb.js",
+      "bytes": 325359,
+      "sha256": "fd142ad01e9ebbfd790c5bb6c6ae211373e999761c5d0c2d911cda1636eacb1a",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:33.189Z"
+    },
+    {
+      "path": "assets/index-YItVs5c8.css",
+      "bytes": 83388,
+      "sha256": "7f800463eaec9f99b182e76332f3a34e5b1fe5266a27773b7e05a5bed7fb4cdf",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:33.029Z"
+    },
+    {
+      "path": "assets/legacy-knowledge-v1-LYaStUaU.json",
+      "bytes": 873132,
+      "sha256": "8b750ca32f13de7ab7ecf3bc0185971243d080ea6166fe756626584114074ee6",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:33.179Z"
+    },
+    {
+      "path": "assets/legacy-support-v1-CKf2hNYO.json",
+      "bytes": 41012,
+      "sha256": "9bfaced898bcabca449ab7a9e75db1c7bf5caba496eabae01268a58630039525",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:33.242Z"
+    },
+    {
+      "path": "assets/production-events-media-v1-oJB41y0C.json",
+      "bytes": 1701964,
+      "sha256": "ac2c2f944b814be0fce19129791c39d87c0940f8c82caf47bdc868cc5bcb8b15",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:33.417Z"
+    },
+    {
+      "path": "assets/react-vendor-YahHAMAi.js",
+      "bytes": 189620,
+      "sha256": "c5f08825cdca736a015fe6303f97a64ec1e4511a38b5f2f6f589ecb35e815c65",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:33.418Z"
+    },
+    {
+      "path": "assets/solinaridao-header-mark-filled-D7vg3enZ.png",
+      "bytes": 1123871,
+      "sha256": "9dca207bc008384ef45cf435a134bf170037ae0149d27c43c732b754912b61b9",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:33.789Z"
+    },
+    {
+      "path": "assets/wrn-app-icon-CwyuVArd.png",
+      "bytes": 8845,
+      "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:33.477Z"
+    },
+    {
+      "path": "assets/wrn-browser-runtime-6Ai8jmEa.js",
+      "bytes": 266321,
+      "sha256": "8a2ef6a39ab284b92f1e4c65fb492c7bbd5a03e3f0b0f98d7f63f50a0c962cf1",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:33.737Z"
+    },
+    {
+      "path": "assets/wrn-browser-runtime-Bv2391bc.css",
+      "bytes": 22062,
+      "sha256": "b95ede8f50486489e639c6b93944dd94709a94b22fb8580d34b1f42be670345c",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:33.652Z"
+    },
+    {
+      "path": "assets/wrn-content-core-8GxI7iaF.js",
+      "bytes": 152878,
+      "sha256": "51af0071bb562932e7faa892f4b35a4e8ff79f38ac183df346b6d8e7b236d9d0",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:33.993Z"
+    },
+    {
+      "path": "assets/wrn-future-header-white-D5q8hgPK.png",
+      "bytes": 212123,
+      "sha256": "9da0e22936304a30a55ba1483c2305c6ad6c3b1a057341af2ab3b16fe98a5e2f",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:33.896Z"
+    },
+    {
+      "path": "assets/wrn-land-rights-illustration-v1-Dz0ucIps.webp",
+      "bytes": 455444,
+      "sha256": "e33d13ae13efbf10463e6bb1e660f02305b323ae83ef2e4aa22c58f579b111ab",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:33.975Z"
+    },
+    {
+      "path": "assets/wrn-language-DVQEbUJp.js",
+      "bytes": 418517,
+      "sha256": "a063fbde6a8bbfe7a25c310c4664f3569d276f1be83ac91ec33419d1f17d0d72",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:34.059Z"
+    },
+    {
+      "path": "index.html",
+      "bytes": 2301,
+      "sha256": "61881fafa186d15884a471a2153d3f3b3e2820b80e995659817e90a4065640d2",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:34.200Z"
+    },
+    {
+      "path": "robots.txt",
+      "bytes": 68,
+      "sha256": "44614f978d8565d1fec4e418bd48a8e2d990c326c6c82aac4ced480d94558e17",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:34.202Z"
+    },
+    {
+      "path": "sitemap.xml",
+      "bytes": 1646,
+      "sha256": "14dff9adf32197a7cab90a62df217c111356c406e820aba72345ca18af378a20",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:34.219Z"
+    },
+    {
+      "path": "website-shell-sw.js",
+      "bytes": 28096,
+      "sha256": "78b082939ab81e9e0e06767f36495f6dc9ac81b3421c131a398b13292e38820a",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:34.367Z"
+    },
+    {
+      "path": "wrn-content-directory/current.json",
+      "bytes": 512,
+      "sha256": "c6a42238f5d1424e1268636a7c99031834d91cc241a1584bd65006e2312bad82",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:34.505Z"
+    },
+    {
+      "path": "wrn-content-directory/snapshots/directory-202610020002-3e73cac43faf5ce71b2b79680dee197b7c98d7bc4bed667e6e175e956f91e136.json",
+      "bytes": 1953524,
+      "sha256": "3e73cac43faf5ce71b2b79680dee197b7c98d7bc4bed667e6e175e956f91e136",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:34.467Z"
+    },
+    {
+      "path": "wrn-production-content/current.json",
+      "bytes": 276,
+      "sha256": "16c1644e9f4205e334279f206d1d63202603d22adbd47edeb17175e7a65cf8be",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:34.538Z"
+    },
+    {
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/admission.json",
+      "bytes": 16160,
+      "sha256": "b726c4bc5d669fca1551e2fd736575050b72413e6f25f724ae4947174aded02e",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:34.590Z"
+    },
+    {
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/archive-lifecycle.json",
+      "bytes": 1822,
+      "sha256": "327d6a623739815db43479471fab25b95bb4038b13145b8c7944f4df20fe8982",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:34.691Z"
+    },
+    {
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/articles.json",
+      "bytes": 18685,
+      "sha256": "4edd91969f49ff079e23183dec13eae3633f51157dd87b41c9f895f93c09a584",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:34.818Z"
+    },
+    {
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/discover-index.json",
+      "bytes": 1964,
+      "sha256": "74a42a185d31c85def388f0a5b767d9249ba857af1ce6249b1cc8cba42135433",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:34.762Z"
+    },
+    {
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/manifest.json",
+      "bytes": 1445,
+      "sha256": "3a397f3b6b9fc912ca92f40bf4942bd072b662b551ccce45ace28cc9a2e8e32e",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:34.822Z"
+    },
+    {
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/reader-details.json",
+      "bytes": 1243454,
+      "sha256": "6b841a0971e18667325d110601a4c67eca6cf1ac214f023024d521d3126cb079",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:35.979Z"
+    },
+    {
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/release-descriptor.json",
+      "bytes": 880,
+      "sha256": "811530a2973bcb4a965b81376f0931d9b3b7ea24a7e32d0f78c481d71e72064f",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:35.083Z"
+    },
+    {
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/website-publication.json",
+      "bytes": 2003,
+      "sha256": "45c62aeb8a11fa82391e342dd5f660a395cdf0935d47536b2c7c88ee8507ecd2",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:35.126Z"
+    },
+    {
+      "path": "wrn-source-pass-revocations/current.json",
+      "bytes": 161,
+      "sha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:35.039Z"
+    },
+    {
+      "path": "wrn-source-passes/current.json",
+      "bytes": 83783,
+      "sha256": "bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa",
+      "status": 200,
+      "observedAtUTC": "2026-10-03T06:18:35.324Z"
+    }
+  ],
+  "privateApacheFiles": 4,
+  "privateApacheBasis": "Unchanged frozen d738a94 hosting packet, independently reviewed and uploaded previously; not claimed read back through public HTTP."
+}
