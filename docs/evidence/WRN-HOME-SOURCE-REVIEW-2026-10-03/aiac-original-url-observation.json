@@ -1,0 +1,24 @@
+{
+  "schema": "wrn.website-home-publisher-url-observation.v1",
+  "handoffCommit": "75016f6b2356918671e28964397d56219d6367de",
+  "articleId": "news-d24f42223b892eb38ec28385fa4e5ccaeb79fb2cedfae3e41560a0d7ae4983fd",
+  "sourcePassId": "wrn-source-pass-9175a51652444964a513864dd68f3db2",
+  "originalUrl": "https://africasacountry.com/2026/10/the-north-african-family-french-critics-couldnt-see",
+  "resolvedUrl": "https://africasacountry.com/2026/10/the-north-african-family-french-critics-couldnt-see",
+  "httpStatus": 200,
+  "observedAt": "2026-10-03T00:06:36.259Z",
+  "htmlBytes": 41984,
+  "htmlSha256": "f09692334e2896de57b55bf8673afda560938bc2e9e5d032a670027109a72f88",
+  "observedTitle": "The North African family French critics couldn’t see",
+  "canonicalTag": null,
+  "ogUrl": "https://africasacountry.com/2026/10/the-north-african-family-french-critics-couldnt-see",
+  "publisherOriginalUrlConfirmed": true,
+  "status": "publisher-url-confirmed-admission-pending",
+  "noArticleBodySaved": true,
+  "productChanged": false,
+  "limits": [
+    "Canonical link tag absent; og:url and unchanged HTTPS response identify the publisher original URL",
+    "This does not assert another canonical/alias relationship or article admission",
+    "Rights, full contextual safety review and independent review remain separate"
+  ]
+}
