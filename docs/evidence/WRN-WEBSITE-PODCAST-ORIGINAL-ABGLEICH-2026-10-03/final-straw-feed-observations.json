@@ -1,0 +1,25 @@
+{
+  "schema": "wrn.website-podcast-publisher-feed-observations.v1",
+  "publicationPerformed": false,
+  "productChanged": false,
+  "originalBodiesStored": false,
+  "mediaFetched": false,
+  "observations": [
+    {
+      "url": "https://thefinalstrawradio.libsyn.com/rss",
+      "error": "fetch failed",
+      "observedAtUTC": "2026-10-03T06:49:02.195Z"
+    },
+    {
+      "url": "https://thefinalstrawradio.mayfirst.info/",
+      "status": 200,
+      "bytes": 196689,
+      "sha256": "4328ecdc686b6507968d0346d06ad1c7aa808bc310595a5b8ff223c7cc42ffab",
+      "configuredFeedLinked": true,
+      "knownProducerLinks": [
+        "https://thefinalstrawradio.libsyn.com/rss"
+      ],
+      "observedAtUTC": "2026-10-03T06:49:03.627Z"
+    }
+  ]
+}

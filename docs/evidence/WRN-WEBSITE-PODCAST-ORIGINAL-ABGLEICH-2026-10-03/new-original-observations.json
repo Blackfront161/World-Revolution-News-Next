@@ -1,0 +1,1531 @@
+{
+  "schema": "wrn.website-new-podcast-original-observations.v1",
+  "dataCommit": "5304fa0032a6761071962e4b74b66cb6f114c49f",
+  "alignmentPlanSha256": "88aae4b01e1b75c5a8ffad16cf5412f5e164c71b2e8fdc5d5563e8c935644a3e",
+  "createdAtUTC": "2026-10-03T06:51:23.140Z",
+  "productChanged": false,
+  "publicationPerformed": false,
+  "method": "HEAD; no response body, audio, image or transcript fetched",
+  "counts": {
+    "records": 84,
+    "http200": 79,
+    "redirects": 4,
+    "otherHttp": 1,
+    "accessErrors": 0,
+    "unknownEpisodeLanguages": 5
+  },
+  "rows": [
+    {
+      "id": "app-099dba774725b0243ead22eccf229db8e07c7851256d36e24d1a40fcf4cc3960",
+      "url": "https://rdl.de/beitrag/unser-langj-hriger-musikredakteur-g-tz-adler-ist-im-alter-von-56-jahren-gestorben",
+      "sourceIds": [
+        "radio-dreyeckland"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:02.179Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-0f5e35d870981133c3e1091f44b48ae17040166a428b229db9215075ef96a707",
+      "url": "https://www.anarchiste.info/radio/libertaire/emission/carapatage/2026/09/02/",
+      "sourceIds": [
+        "carapatage"
+      ],
+      "language": "fr",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html"
+      },
+      "observedAtUTC": "2026-10-03T06:51:17.983Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-1085193e9b0354492d9aaa49e90990799abc3a93cff9d294ea2736d59b978cbf",
+      "url": "https://www.freie-radios.net/144882",
+      "sourceIds": [
+        "radio-corax"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:07.340Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-10e0d28fdac7d6452ed6b488992ee4593596673d0f8decc98642619cbc7313c0",
+      "url": "https://www.freie-radios.net/144867",
+      "sourceIds": [
+        "radio-corax"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:11.724Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-128610e991e7d8d50a291587fe91fa959cacca67e1481864f65e12d162d0fb18",
+      "url": "https://radioblackout.org/2026/10/saluzzo-bilancio-di-unaltra-stagione-di-sfruttamento-in-agricoltura/",
+      "sourceIds": [
+        "radio-blackout"
+      ],
+      "language": "it",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html;charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:06.171Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-139f11069262e16b5fca152f7342a88fed1cb3505e1f2ed202f672f86d6d2d22",
+      "url": "https://omny.fm/shows/eapenasfumaca/7-ovo-ou-galinha-fronteira-do-medo-s-rie",
+      "sourceIds": [
+        "fumaca"
+      ],
+      "language": "pt",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:20.022Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-13fe363b5fff51c6c0cb4908d4bbe0382aee2fd4e22a78a62e32fb7127c59320",
+      "url": "https://live-like-the-world-is-dying.pinecast.co/episode/dcde10e6/this-week-in-the-apocalypse-august-25-2026",
+      "sourceIds": [
+        "live-like-the-world-is-dying"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:19.514Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-14aec75a682b71dce5b08608bbcbdde660a56ff1483fa0fe50ad057148ec14a8",
+      "url": "https://www.freie-radios.net/144895",
+      "sourceIds": [
+        "radio-corax"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:06.088Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-1a33521e4627443b6c0fb9058b38436fc8490d7aef5dac8faed5981a9fa37770",
+      "url": "https://www.freie-radios.net/144884",
+      "sourceIds": [
+        "radio-corax"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:06.403Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-1cfca80f74c55fc3d87a746c3d77be39a964747a3f8bc8e6eddfd36dbdac1695",
+      "url": "https://rdl.de/beitrag/die-welt-ist-eine-scheibe-02102026",
+      "sourceIds": [
+        "radio-dreyeckland"
+      ],
+      "language": "und",
+      "confirmedEpisodeLanguage": false,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:02.180Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-1d41823adfe357ac3376556dda866e3a526036d905e411822821b23cb9a13d23",
+      "url": "https://www.anarchiste.info/radio/libertaire/emission/chroniques-rebelles/2026/08/29/",
+      "sourceIds": [
+        "chroniques-rebelles"
+      ],
+      "language": "fr",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html"
+      },
+      "observedAtUTC": "2026-10-03T06:51:18.929Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-1ec3a71b4c27f24b131712eeb45a94c384c9b4e50d637c4d14022fc7521167bb",
+      "url": "https://live-like-the-world-is-dying.pinecast.co/episode/b69fe3ed/clare-follmann-on-scapegoat-what-the-invasive-species-story-gets-wrong-",
+      "sourceIds": [
+        "live-like-the-world-is-dying"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:19.763Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-1fc0a53565719dd44b24371d62e7e570804e0c9e73dd9d458e629f16a77a9be8",
+      "url": "https://www.3cr.org.au/yeahnahpasaran/episode/ariel-bogle-764-and-more",
+      "sourceIds": [
+        "yeah-nah-pasaran"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:21.130Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-2186e7bbecdc32f7747891fb224a09fc5bba956248ce7df2de19086435efd01e",
+      "url": "https://omny.fm/shows/eapenasfumaca/o-trabalho-do-sexo-n-o-feminista-newsletter",
+      "sourceIds": [
+        "fumaca"
+      ],
+      "language": "pt",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:12.169Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-29ef35cadcf9c39792b2aa03ebc8afe38d482dd0c9c11453b4ef2a115fd46db5",
+      "url": "https://rdl.de/beitrag/gro-e-proteste-franz-sischen-schulen-sto-en-auf-ua-rassistische-gegenkampagne",
+      "sourceIds": [
+        "radio-dreyeckland"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:09.482Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-2adbebc11df85a380e666977db193b5a07ec0650d820be36d3372e464ef8c53d",
+      "url": "https://omny.fm/shows/eapenasfumaca/10-umas-ma-s-podres-fronteira-do-medo-s-rie",
+      "sourceIds": [
+        "fumaca"
+      ],
+      "language": "pt",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:16.694Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-2b64a850c3eb5232f9b6ab1de5c92393b22e47b38354c32ef3f6eb6916f9deb7",
+      "url": "https://www.3cr.org.au/outofthepan/episode/sarah-feagan-living-positive-victoria-bi",
+      "sourceIds": [
+        "out-of-the-pan"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:16.039Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-34ba5ae9546838f4ceabe4d14259b79785990a53455e162e4e17218afdd207aa",
+      "url": "https://live-like-the-world-is-dying.pinecast.co/episode/188b8ffc/doing-good-journalism-with-james-and-miriam",
+      "sourceIds": [
+        "live-like-the-world-is-dying"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:19.032Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-39ef9ebd6c84dd9fc11afd47784b546d9d491687cdf795f582f85b6152bee109",
+      "url": "https://rdl.de/beitrag/gehen-die-proteste-gegen-zwangsr-umung-einen-generalstreik-gegen-die-wohnungsmisere-ber",
+      "sourceIds": [
+        "radio-dreyeckland"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:08.558Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-3b4b1c4e49492e8521828dc867626057000ea5b6fff20ebaea3904832420f8d2",
+      "url": "https://www.ondarossa.info/newsredazione/2026/10/francia-ancora-repressione-nelle-piazze",
+      "sourceIds": [
+        "radio-onda-rossa"
+      ],
+      "language": "it",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:03.629Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-3baf6769abadc879d759a5e49dc72e03df0e81583c48e9de08f804f49843e63c",
+      "url": "https://live-like-the-world-is-dying.pinecast.co/episode/153f9051/micro-pocket-or-miyawaki-forests-with-rotglow-farm",
+      "sourceIds": [
+        "live-like-the-world-is-dying"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:17.288Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-3e321800b2617419cade4f0afca6c4f5e69375c1e96b19bc4fc99c8675e9ca54",
+      "url": "https://omny.fm/shows/eapenasfumaca/8-auto-de-not-cia-fronteira-do-medo-s-rie",
+      "sourceIds": [
+        "fumaca"
+      ],
+      "language": "pt",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:19.369Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-429b687efb4d4bee4c8b8a36e95a1246c40dd6f30aba973d588a45414f64ee8c",
+      "url": "https://radioblackout.org/2026/10/blocchi-nei-licei-in-francia-la-protesta-continua-e-si-espande/",
+      "sourceIds": [
+        "radio-blackout"
+      ],
+      "language": "it",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html;charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:10.632Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-4619926dc35d0e1a8d02cb2216c0c1cb0b9d8bab53bd1984a84d1dfaa0a5c235",
+      "url": "https://www.freie-radios.net/144896",
+      "sourceIds": [
+        "radio-corax"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:04.630Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-46a752761164468b239f1debfe471836da1629179884e80b4e6862899f5568bc",
+      "url": "https://www.freie-radios.net/144879",
+      "sourceIds": [
+        "radio-corax"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:07.957Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-502372eb49fdd6dfc01402d01e7ffceb3887166509735386a8852255f24e50ae",
+      "url": "https://live-like-the-world-is-dying.pinecast.co/episode/6e5d1126/woven-ends-on-death-dying-pt-i-rerun-",
+      "sourceIds": [
+        "live-like-the-world-is-dying"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:15.283Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-53ad43b0404195788a4a5446e5bad15b6fbff14e6b925fddd5116f0c9b418392",
+      "url": "https://www.freie-radios.net/144873",
+      "sourceIds": [
+        "radio-corax"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:09.258Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-53b6a3817df8366a8ced78316dbf0c6b27ed1310e094397fcff1e0960b8ee263",
+      "url": "https://radioblackout.org/2026/10/israele-netanyahu-alla-ricerca-di-consenso-verso-le-elezioni/",
+      "sourceIds": [
+        "radio-blackout"
+      ],
+      "language": "it",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html;charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:11.255Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-593f57c9a5318c81503c1208cb60b79ba5f87a0d1fb6fc74d0b69f8b75bbe798",
+      "url": "https://workingclasshistory.com/podcast/e126-the-radical-history-of-the-weekend/",
+      "sourceIds": [
+        "working-class-history"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:12.799Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-5b51deb5dcb45e4e36e0f13a8f1ba89cc0901c2bf5308ce8da52e672aa1ff442",
+      "url": "https://www.freie-radios.net/144875",
+      "sourceIds": [
+        "radio-corax"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:08.406Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-5b60253876b10e1bb65e7806e9d92a9cd5d9dd0c3f3c34be1a0c8f7523023b7b",
+      "url": "https://www.3cr.org.au/outofthepan/episode/dolly-parton-tim-curry-celebrate-bi-month-current-political-climate",
+      "sourceIds": [
+        "out-of-the-pan"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:16.893Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-5ee74e3151f53dbf5802d5a93b357e5fcd6ae7ea838dc50b505708f10e2003f1",
+      "url": "https://www.anarchiste.info/radio/libertaire/emission/carapatage/2025/07/07/",
+      "sourceIds": [
+        "carapatage"
+      ],
+      "language": "fr",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html"
+      },
+      "observedAtUTC": "2026-10-03T06:51:21.983Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-68639d72be06e66dd63122ee25cdf6229a7c365aa5f0309affbf1533e4c72aec",
+      "url": "https://omny.fm/shows/eapenasfumaca/12-garfo-de-ouro-fronteira-do-medo-s-rie",
+      "sourceIds": [
+        "fumaca"
+      ],
+      "language": "pt",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:14.288Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-6b50efa2437991c8d8ea99058cc0e533b98ba60747874c9b7de1354214a800a1",
+      "url": "https://live-like-the-world-is-dying.pinecast.co/episode/bea3d5ab/red-pepper-with-eric-shonkwiler",
+      "sourceIds": [
+        "live-like-the-world-is-dying"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:11.491Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-6bba991d8cbabbd04cbdfe1c90b13666de23322a48e4e1f2054f3f154c267718",
+      "url": "https://www.ondarossa.info/newstrasmissioni/faremo-sapere/2026/10/pearl-moth",
+      "sourceIds": [
+        "radio-onda-rossa"
+      ],
+      "language": "it",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:03.619Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-7351ade9744ffeaef68c926e79da41878e08f4f7da10133821de280f379506a0",
+      "url": "https://omny.fm/shows/eapenasfumaca/13-estado-versus-pedro-fronteira-do-medo-s-rie",
+      "sourceIds": [
+        "fumaca"
+      ],
+      "language": "pt",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:12.669Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-752c86b3e60a1b3764d0b63652a329e7c389c2ebf92f3bba8b65a937f131a563",
+      "url": "https://workingclasshistory.com/podcast/wcl15-literature-of-the-1926-general-strike/",
+      "sourceIds": [
+        "working-class-history"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:15.980Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-753e49d963a656691d8878f29221d1a3cca88881c82f3b2ad8e7b1f28f618589",
+      "url": "https://live-like-the-world-is-dying.pinecast.co/episode/a438d383/this-week-in-the-apocalypse-august-18-2026",
+      "sourceIds": [
+        "live-like-the-world-is-dying"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:20.633Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-81ab84ca9fd119d2c9c4239e878b2f1363b1d5c8849c290ab20b7da7ba4e84fd",
+      "url": "https://www.freie-radios.net/144880",
+      "sourceIds": [
+        "radio-corax"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:07.508Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-8269e6d2187cd1c6bbcfcd0e81ac7fe6f02d4bcd8921274ae2a7b9ae430bc09f",
+      "url": "https://rdl.de/beitrag/o-ton-playback-02102026",
+      "sourceIds": [
+        "radio-dreyeckland"
+      ],
+      "language": "und",
+      "confirmedEpisodeLanguage": false,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:02.180Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-857d37cd52183aee8e8547a3b1d3d3e7792f0776f3fc36e788870636c7cae231",
+      "url": "https://podcasters.spotify.com/pod/show/epanastash/episodes/1973-e3on9qp",
+      "sourceIds": [
+        "epanastasi-greece"
+      ],
+      "language": "el",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 301,
+        "location": "https://creators.spotify.com/pod/show/epanastash/episodes/1973-e3on9qp",
+        "contentType": null
+      },
+      "observedAtUTC": "2026-10-03T06:51:16.164Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-8cccfc51746f2ce8270a60f3233c26a8652c5bf896a08f09da7392a66c8d7360",
+      "url": "https://www.3cr.org.au/outofthepan/episode/luke-red-stitch-theatre-radical-computing",
+      "sourceIds": [
+        "out-of-the-pan"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:14.982Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-8ddeba1d0a9369b7b5c70d912971312fb13ef58f86410d163b51a2319bd85442",
+      "url": "https://www.anarchiste.info/radio/libertaire/emission/chroniques-rebelles/2026/09/05/",
+      "sourceIds": [
+        "chroniques-rebelles"
+      ],
+      "language": "fr",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html"
+      },
+      "observedAtUTC": "2026-10-03T06:51:17.014Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-91c2099e10dbedb5cf2a459b3bcf835d63affc585b43635c901646f674598e67",
+      "url": "https://radioblackout.org/2026/10/in-spagna-giornate-calde-per-il-diritto-allabitare/",
+      "sourceIds": [
+        "radio-blackout"
+      ],
+      "language": "it",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html;charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:06.188Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-9539a1b1181f77efb093fe8b930a5612e9ce203f69a6bf446854b4e260ab08b0",
+      "url": "https://podcasters.spotify.com/pod/show/epanastash/episodes/1789-1799-33-e3ob1g2",
+      "sourceIds": [
+        "epanastasi-greece"
+      ],
+      "language": "el",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 301,
+        "location": "https://creators.spotify.com/pod/show/epanastash/episodes/1789-1799-33-e3ob1g2",
+        "contentType": null
+      },
+      "observedAtUTC": "2026-10-03T06:51:17.108Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-98493bab795e4a9c20c3f65fb09f115db3f7d6d4a56751efc827cbfeb906d19f",
+      "url": "https://live-like-the-world-is-dying.pinecast.co/episode/7dfd04f5/circle-aleph-on-publishing-jewish-anarchist-tradition",
+      "sourceIds": [
+        "live-like-the-world-is-dying"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:13.924Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-9b50e3e44498d87545c8fedce0253da7cf565b2512538682de8877c0565f9727",
+      "url": "https://radioblackout.org/podcast/avvoltoio-vola-via-da-casa-mia-vola-via-da-puerta-de-sol-e-avvoltoio-ando-in-sudan/",
+      "sourceIds": [
+        "radio-blackout"
+      ],
+      "language": "it",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html;charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:02.147Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-9cc09a8e4cafd215b9b4f7501197c5fa23e24548bbe211ad386deecadd5d9c0c",
+      "url": "https://www.3cr.org.au/outofthepan/episode/luka-and-unpack-your-s-t-trans-film-fundraiser",
+      "sourceIds": [
+        "out-of-the-pan"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:20.646Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-9e93ace73969217bf15ae6f9c1e5d5e1ee82fd56a8d0786c1970b61ab552bb78",
+      "url": "https://www.freie-radios.net/144883",
+      "sourceIds": [
+        "radio-corax"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:06.876Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-9f89f13061a307603c346d29738ba52750ef6d969e82738d4968d66832f5ae8c",
+      "url": "https://www.3cr.org.au/outofthepan/episode/paul-byrne-moroney-intersex-advocate-and-speaker",
+      "sourceIds": [
+        "out-of-the-pan"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:19.557Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-9fe225f1ae76af433f3eb19cc3aa2c92604090b64aaf3d69ec085b2cbbd9c67c",
+      "url": "https://www.freie-radios.net/144868",
+      "sourceIds": [
+        "radio-corax"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:10.439Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-a18b963ee16a6e9de7585e96ce3422354fd63e0216e7be8003d5b87189d4dc32",
+      "url": "https://www.ondarossa.info/newstrasmissioni/split/2026/10/urban-essence",
+      "sourceIds": [
+        "radio-onda-rossa"
+      ],
+      "language": "it",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:03.987Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-a1d2048d9a42f34afcebf84385e3efd9f822e7cb0e28ea1b860beb559daa0e2f",
+      "url": "https://live-like-the-world-is-dying.pinecast.co/episode/76c429e1/this-week-in-the-apocalypse-sept-1-2026",
+      "sourceIds": [
+        "live-like-the-world-is-dying"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:18.356Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-a7847685035ca207f6e543adc391393cdf4dd738792676255e7c14b5f8e79d7f",
+      "url": "https://feeds.buzzsprout.com/Buzzsprout-19670426",
+      "sourceIds": [
+        "jalsa-arabic"
+      ],
+      "language": "ar",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 404,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:20.242Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-a9c16551f4f7a06c8788ed01f8a2e70ded47df23413f200b6c6ca5b0e655a9ea",
+      "url": "https://rdl.de/beitrag/infomagazin-02102026",
+      "sourceIds": [
+        "radio-dreyeckland"
+      ],
+      "language": "und",
+      "confirmedEpisodeLanguage": false,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:03.510Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-abf99cd6ff940cf09b1ed5388dda7879ed4049f6a183a1cb3ef50f754359abb0",
+      "url": "https://live-like-the-world-is-dying.pinecast.co/episode/ffa1be03/this-week-in-the-apocalypse-sept-15-2026",
+      "sourceIds": [
+        "live-like-the-world-is-dying"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:15.993Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-ae18d430497040391fde4ea9a867db4641e4fd034914deb263bf1a8650967ea3",
+      "url": "https://live-like-the-world-is-dying.pinecast.co/episode/c47cecc6/this-week-in-the-apocalypse-sept-8-2026",
+      "sourceIds": [
+        "live-like-the-world-is-dying"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:16.890Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-b514e5f03fbb369b40505ca1094b566bfd9af22ecd66e6531407ae5c46c4b0b0",
+      "url": "https://omny.fm/shows/eapenasfumaca/6-lugares-de-exce-o-fronteira-do-medo-s-rie",
+      "sourceIds": [
+        "fumaca"
+      ],
+      "language": "pt",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:20.815Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-bab687ca5b543a886509603322089b3e3238cdbea7fcc9c5c511ddc81e2b38ff",
+      "url": "https://www.anarchiste.info/radio/libertaire/emission/chroniques-rebelles/2026/09/26/",
+      "sourceIds": [
+        "chroniques-rebelles"
+      ],
+      "language": "fr",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html"
+      },
+      "observedAtUTC": "2026-10-03T06:51:13.442Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-bbf08014c4cf43237c55144e231f9077e67a5f7f09c64c77ae9edc25f7edb2a7",
+      "url": "https://www.freie-radios.net/144852",
+      "sourceIds": [
+        "radio-corax"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:11.829Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-c19171de834ad6f49d6bf15751463b7d47fe40474076fdc4dd9ac776ae4280de",
+      "url": "https://www.freie-radios.net/144874",
+      "sourceIds": [
+        "radio-corax"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:08.489Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-c21a8439f9f0228496614b9f74e847db10bdcaed55a5cb187cb57301f1c09318",
+      "url": "https://live-like-the-world-is-dying.pinecast.co/episode/0ca4e765/nolan-on-perennial-food-systems",
+      "sourceIds": [
+        "live-like-the-world-is-dying"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:16.354Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-c3d120d382b54f47627ae5545a9d764a4c34754d3319fe64d7aa683c7e39e549",
+      "url": "https://live-like-the-world-is-dying.pinecast.co/episode/fbc0a77b/this-week-in-the-apocalypse-september-22nd-2026",
+      "sourceIds": [
+        "live-like-the-world-is-dying"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:14.672Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-c71ec28e226e2e43835d0e1a9c3ee478ffe28dc7b1989acffff2dca9f75856da",
+      "url": "https://omny.fm/shows/eapenasfumaca/9-carta-do-monop-lio-fronteira-do-medo-s-rie",
+      "sourceIds": [
+        "fumaca"
+      ],
+      "language": "pt",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:17.967Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-ca2db86044ff75f313cf492a2ffba6a5a844f9e531b57f5029136ef3006a745a",
+      "url": "https://rdl.de/beitrag/historisches-tagesinfo-02102026",
+      "sourceIds": [
+        "radio-dreyeckland"
+      ],
+      "language": "und",
+      "confirmedEpisodeLanguage": false,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:09.584Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-ca853e4fda18f756e85479efccf00b03a7eef79ff75ecb23c029674e931df72a",
+      "url": "https://www.ondarossa.info/newstrasmissioni/ponte-radio/2026/10/tecnologiche-ingerenze",
+      "sourceIds": [
+        "radio-onda-rossa"
+      ],
+      "language": "it",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:13.542Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-cdc16815eb566d347f44f46a10f57cbb1c3b9f424577564715e68b9919f35005",
+      "url": "https://www.freie-radios.net/144881",
+      "sourceIds": [
+        "radio-corax"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:07.417Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-d069738d8adbe8b57d5d2cac3adeb07e3fc8063111fd56bfa3c072ce330fa820",
+      "url": "https://rdl.de/beitrag/bluesclubradio-27",
+      "sourceIds": [
+        "radio-dreyeckland"
+      ],
+      "language": "und",
+      "confirmedEpisodeLanguage": false,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:10.352Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-d7a7fb738328a2f5ad1c2b957eacc7cb8676ad0bfcf508bfc910d782c031c6bb",
+      "url": "https://www.anarchiste.info/radio/libertaire/emission/carapatage/2025/07/16/",
+      "sourceIds": [
+        "carapatage"
+      ],
+      "language": "fr",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html"
+      },
+      "observedAtUTC": "2026-10-03T06:51:21.505Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-de4af96bf59e98f44c3831bb502fe4ba30884a33abcad4b6d2529cf7c3507771",
+      "url": "https://podcasters.spotify.com/pod/show/epanastash/episodes/22-e3p1h7c",
+      "sourceIds": [
+        "epanastasi-greece"
+      ],
+      "language": "el",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 301,
+        "location": "https://creators.spotify.com/pod/show/epanastash/episodes/22-e3p1h7c",
+        "contentType": null
+      },
+      "observedAtUTC": "2026-10-03T06:51:15.302Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-df1f297cc8863a80d76971ad43655fc62e9632562e9b585d2c586fffe9b99671",
+      "url": "https://www.anarchiste.info/radio/libertaire/emission/chroniques-rebelles/2026/08/22/",
+      "sourceIds": [
+        "chroniques-rebelles"
+      ],
+      "language": "fr",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html"
+      },
+      "observedAtUTC": "2026-10-03T06:51:19.730Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-e32d0cc8a2fa43f8a8aeb6de1e896b191279cbd8eb474b1bd8825e983fc77472",
+      "url": "https://rdl.de/beitrag/lange-nacht-der-demokratie-staufen",
+      "sourceIds": [
+        "radio-dreyeckland"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:12.472Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-e5929fcd20c6f23d297cc4e50b97bde51a71dbc4ce71ccb94c343561eb717ea1",
+      "url": "https://live-like-the-world-is-dying.pinecast.co/episode/e4315eb6/know-your-rights-with-mo-rerun-",
+      "sourceIds": [
+        "live-like-the-world-is-dying"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:20.793Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-e6592dbf422469ab7cf252d76a37c72ec1c1501365410fd2052d0c1ffdfc5519",
+      "url": "https://live-like-the-world-is-dying.pinecast.co/episode/f15a0659/this-week-in-the-apocalypse-fat-bear-week-edition",
+      "sourceIds": [
+        "live-like-the-world-is-dying"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:12.911Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-e7db3ff816c0fa2b6e2ee45c0640b68906f0f32329bd16356c37762cbda5f5f2",
+      "url": "https://www.3cr.org.au/outofthepan/episode/smash-patriarchy",
+      "sourceIds": [
+        "out-of-the-pan"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:18.474Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-e942b9116b3539d64d2f24f41236e5be43169334de90fb3c436f3649264b1481",
+      "url": "https://www.anarchiste.info/radio/libertaire/emission/carapatage/2025/07/21/",
+      "sourceIds": [
+        "carapatage"
+      ],
+      "language": "fr",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html"
+      },
+      "observedAtUTC": "2026-10-03T06:51:21.491Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-ed90bbe49d7fc7dd52f851451a01e1420a10dedd1c7a9ffc8280567638f938c3",
+      "url": "https://www.anarchiste.info/radio/libertaire/emission/chroniques-rebelles/2026/09/19/",
+      "sourceIds": [
+        "chroniques-rebelles"
+      ],
+      "language": "fr",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html"
+      },
+      "observedAtUTC": "2026-10-03T06:51:15.064Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-ee9e17d9ba11f0da7bd15e70373b7c34f8af015ecbdfc1e23fb8ee88036ff2a6",
+      "url": "https://www.3cr.org.au/queeringtheair/episode/improving-world-one-book-time-melbourne-legendary-queer-bookseller-roland",
+      "sourceIds": [
+        "queering-the-air"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:21.513Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-ef51afdc9046fe6a4026e1d35ef6260c0ddead7a857bbbf9e5b4e9748f6751cd",
+      "url": "https://www.anarchiste.info/radio/libertaire/emission/chroniques-rebelles/2026/09/12/",
+      "sourceIds": [
+        "chroniques-rebelles"
+      ],
+      "language": "fr",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html"
+      },
+      "observedAtUTC": "2026-10-03T06:51:16.042Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-f022824c888fdafd7ce4c0dddfc15ff62b177ae50e58250d0bbf47d4202bf8c6",
+      "url": "https://omny.fm/shows/eapenasfumaca/11-o-falc-o-pol-cia-fronteira-do-medo-s-rie",
+      "sourceIds": [
+        "fumaca"
+      ],
+      "language": "pt",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:15.579Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-f1978a08fffe4e9967ca011b00202c83de5ef71c5922285e50e7e911fe0b0fc1",
+      "url": "https://www.freie-radios.net/144872",
+      "sourceIds": [
+        "radio-corax"
+      ],
+      "language": "de",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:09.528Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-f92ddc0dc5daf2a934f2e563588272f2843f3fdabe18edb7ff84c6b8d2cfefbc",
+      "url": "https://radioblackout.org/2026/10/lumbria-va-alla-guerra/",
+      "sourceIds": [
+        "radio-blackout"
+      ],
+      "language": "it",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html;charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:10.612Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-fe0078c6387a405d7c00568f80445817839fff13b7b51ce1b5f83e72e8b775af",
+      "url": "https://www.3cr.org.au/outofthepan/episode/penelope-swales-fringe-back-me-musical-journey-survival",
+      "sourceIds": [
+        "out-of-the-pan"
+      ],
+      "language": "en",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "observedAtUTC": "2026-10-03T06:51:13.103Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    },
+    {
+      "id": "app-feb5283deb86d8e56fa87531c849400bffa3043533e3362e9898be8fb9d264d9",
+      "url": "https://podcasters.spotify.com/pod/show/epanastash/episodes/ep-e3pcbg5",
+      "sourceIds": [
+        "epanastasi-greece"
+      ],
+      "language": "el",
+      "confirmedEpisodeLanguage": true,
+      "sourceHeld": false,
+      "observation": {
+        "status": 301,
+        "location": "https://creators.spotify.com/pod/show/epanastash/episodes/ep-e3pcbg5",
+        "contentType": null
+      },
+      "observedAtUTC": "2026-10-03T06:51:13.696Z",
+      "editorialAdmission": false,
+      "mediaFetched": false
+    }
+  ]
+}
