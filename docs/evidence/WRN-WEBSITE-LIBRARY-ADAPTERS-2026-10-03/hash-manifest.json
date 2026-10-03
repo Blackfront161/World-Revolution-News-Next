@@ -1,0 +1,35 @@
+{
+  "schema": "wrn.website-review-freeze.v1",
+  "productCommit": "a2352e83fff17cf5419a8e369d12691f64c86f2c",
+  "independentReview": "PENDING",
+  "publication": false,
+  "productPaths": [
+    {
+      "path": "tools/library_metadata_review.py",
+      "bytes": 10236,
+      "sha256": "f79f2303939ef48e5a2008662bd3b871becbcc6b3ad51823f44c0b2d8f48cba0"
+    },
+    {
+      "path": "tools/test_library_metadata_review.py",
+      "bytes": 7275,
+      "sha256": "aedf203577c679ab6047e37b94a7c37e87761b774537dc7551337a139aa53432"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "observations.json",
+      "bytes": 667603,
+      "sha256": "8a5fada37c10287253ce27c3c4c970cb3161f49a2dca1d676ecbcbfd9b28c2ec"
+    },
+    {
+      "path": "REPORT.md",
+      "bytes": 1889,
+      "sha256": "48a128b67794c401393dcdde28d645b8e4f9846a300774f1f2aedeaa878f5361"
+    },
+    {
+      "path": "validation.json",
+      "bytes": 584,
+      "sha256": "62a2066967860c062a152aad15fc0b42843df113f0a8ec22fdbd662b7d0d5aac"
+    }
+  ]
+}

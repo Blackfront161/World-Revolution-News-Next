@@ -1,0 +1,11 @@
+# Website App knowledge handoff
+
+Product c334e20d8844c83d9f01e89712b01997b2059dea; parent 531b6552eb0fbcde178ae059baf53271fc53735d. Independent Website review PENDING. Not published. Existing f6649dc reader release files and approved ZIPs are unchanged; this newer candidate is not included in them.
+
+Read-only committed App input e9c8088806f60ad8b9605705f686cc91f2536f90, accepted by Controller closing turn 01a100c9-a90f-7ff0-9088-b3353b03300a. Immutable handoff commit 2eebc35e67a88f385f612a93027f2689b29c9df2, manifest SHA256 ba0687a53acb3d4e72ee8bf20439847c2e4ac02c088ac0de6aa43f0c74dc6a12. Verified all 14 payload hashes/byte counts plus five committed source inputs.
+
+Imported the reviewed literal lexicon.json handoff, not executed App JavaScript. The older AST importer rejects the App's newly added spread/map expansions; it remains unchanged. createKnowledgeDocument validates the normalized DE/EN alias arrays and strict semantic knowledge contract; the package's sourceCommit and input lexicon bytes/hash bind the actual committed App source. The exact historical package, 731 existing book records and prior withdrawals are preserved. 177 terms, 54 references, four learning paths and 33 existing book bindings resolve. Other feed, media catalogue and source admission state are unchanged.
+
+Ten new original DE/EN entries remain drafts. A separate source-commit/hash-bound status registry preserves their revision notices; stale bindings or missing terms reject the package rather than silently clear labels. Draft notices have nine UI translations. Existing complete ES/FR supplemental translations keep their separate translation-draft notice; other unavailable term translations show the existing English fallback notice. Nine UI languages do not imply all 177 foreign-language bodies exist.
+
+Validation: 333 Website tests in 45 files PASS; final test-only readonly type fix rerun 4/4 PASS; scoped ESLint and Website TypeScript PASS. Vite 234-module compile PASS, not an Offline/Hosting release. Actual Chrome checks all nine languages at390px/200% text PASS, zero page errors or external requests. A first QA title assertion guessed the label and failed; final QA reads the exact bound source title. No product fallback substitution.

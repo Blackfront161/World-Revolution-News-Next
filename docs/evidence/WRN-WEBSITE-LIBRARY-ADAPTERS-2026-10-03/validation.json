@@ -1,0 +1,18 @@
+{
+  "productCommit": "a2352e83fff17cf5419a8e369d12691f64c86f2c",
+  "unitTests": 15,
+  "result": "PASS",
+  "publicMetadataRequests": 14,
+  "sourcePolicy": {
+    "path": "C:/Users/patri/Documents/World Rev Ne/wrn-github-app-current/library-sources.json",
+    "sha256": "5defa43d30ddd6e23d4c1667b6d14e1170ef77862606987fad40e2beb8ce8a54",
+    "bytes": 5529,
+    "authority": "bounded-worktree-observation-not-release"
+  },
+  "existingBooks": 731,
+  "admissionPerformed": false,
+  "mediaFetched": false,
+  "bodyPersisted": false,
+  "independentReview": "PENDING",
+  "publication": false
+}
