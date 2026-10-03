@@ -1,0 +1,130 @@
+{
+  "schema": "wrn.website-live-publication-receipt.v1",
+  "recordedAtUTC": "2026-10-03T20:44:38.789Z",
+  "sourceCommit": "448c82fdf31f4ce10ea17d60d35ad937faf76b10",
+  "frozenEvidenceCommit": "529ce7f6f7d7afc6b3fc5cc617e5c54a1a3f1ebc",
+  "independentReview": {
+    "status": "PASS",
+    "threadId": "019ff285-63dc-7ed2-88a8-cab5f06ed26e",
+    "turnId": "01a1036c-84e6-7432-a0d9-5efb5ec9af3b",
+    "scope": "exact source448c82f, Hosting54/Website51, upload ZIPs and frozen local evidence",
+    "headChiefAcceptance": "2026-10-04 current publication turn: source448/package/evidence9f8+529 PASS; noP1/P2; authorize existing publication after preflight"
+  },
+  "origin": "https://solinaridao.com",
+  "destination": "website-specific solinaridao.com/public_html",
+  "privateArchiveDirectory": "wrn-release-448c82f-private",
+  "humanSessionReply": "hostinger ist angemeldet",
+  "authorizationBasis": "Persisting direct human publication requests for solinaridao.com plus authenticated current domain-only Hostinger session.",
+  "published": true,
+  "frozenPackageModified": false,
+  "uploadOrder": [
+    {
+      "archive": "01-wrn-immutable-448c82f.zip",
+      "sha256": "6a7a7b6f327f12e6418b3bbd6c0038525e7560afbc8a2aab56ef0b11e4dd87f9",
+      "files": 46,
+      "bytes": 5829827
+    },
+    {
+      "archive": "02-wrn-policy-sw-448c82f.zip",
+      "sha256": "65ac59925122787739f139037decf54bb62ff2dc68835e788f2ef30d21ee0555",
+      "files": 5,
+      "bytes": 10970
+    },
+    {
+      "archive": "03-wrn-index-448c82f.zip",
+      "sha256": "fd3a0d47a6f32dfe312c608bbfdd144ebfd1fdb7b8356e52fa6f45f05f54a1a0",
+      "files": 1,
+      "bytes": 1383
+    },
+    {
+      "archive": "04-wrn-production-pointer-448c82f.zip",
+      "sha256": "a6c35df6d30111d7b38581bd5fb9576edeebfb19412d4734c6b22f678d019f5b",
+      "files": 1,
+      "bytes": 344
+    },
+    {
+      "archive": "05-wrn-directory-pointer-448c82f.zip",
+      "sha256": "2bea986a0a8c2fff5f3c6efabec6d47262035d4313499b4e9a310e9ab10bfaeb",
+      "files": 1,
+      "bytes": 475
+    }
+  ],
+  "rollback": {
+    "archive": "rollback-before-448c82f-e20c800.zip",
+    "files": 51,
+    "bytes": 5809876,
+    "sha256": "9bcad1cc5fcdeebe407886ef0259fe63d2d1a9c35dd6bd9b8c879412c227ce6c",
+    "uploadedPrivately": true,
+    "priorPrivacy": {
+      "archive": "rollback-previous-privacy-448c82f.zip",
+      "bytes": 16000,
+      "sha256": "62def4f8bdfe51ec751e44b9427dcc129a2562a059315d30227af9610a9dec17",
+      "entries": [
+        {
+          "path": "privacy.html",
+          "bytes": 47304,
+          "sha256": "760a51656b9c9e21940f83a3bc5324118107cfec64dcd25885d5b491291536e7"
+        }
+      ],
+      "priorAbsent": [
+        "privacy.css",
+        "privacy.js"
+      ],
+      "rollbackNote": "Restore prior privacy.html alongside frozen 51-file old-managed rollback. New privacy.css/js can remain unreferenced; no deletion needed."
+    }
+  },
+  "previousPublicFilesVerified": 47,
+  "preactivationPolicyAndPointerFilesVerified": 4,
+  "immutablePublicFilesVerified": 46,
+  "prePointerFreshPublicFilesVerified": 48,
+  "publicFilesVerified": 50,
+  "headersVerified": true,
+  "finalReadback": "bare canonical URLs after domain-only CDN cache purge; no query override",
+  "cdnCachePurge": {
+    "domain": "solinaridao.com",
+    "control": "Cache leeren",
+    "otherDomainOrCDNSettingsChanged": false,
+    "reason": "21 immutable resources had previous CSP headers with exact unchanged content; fresh URLs passed. Final canonical50 matched after purge."
+  },
+  "shell": {
+    "id": "d096826b7ecd07a2c52da70aa558d1390bac19e5666078610c86153910fc15e6",
+    "mandatoryEntries": 18,
+    "totalBytes": 8092523,
+    "budgetBytes": 8388608
+  },
+  "browserStatus": "PASS",
+  "browserChecks": 18,
+  "browserTransport": "browser default",
+  "browserNetworkFailures": [
+    {
+      "url": "https://solinaridao.com/wrn-source-passes/current.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://solinaridao.com/assets/production-events-media-v1-R8HI0ZMv.json",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "pageErrors": [],
+  "offline": "Functional assertions passed after full Chrome process restart with persistent test profile and network offline; request-failure events on reopened offline page are not separately instrumented.",
+  "serviceChecks": 2,
+  "actualPublicHeadlineTranslationPosts": 1,
+  "actualFulltextTranslationNetworkSmoke": false,
+  "originalNewsObservationUTC": "2026-10-03T05:58:12.439Z",
+  "newsExpiresUTC": "2026-10-04T05:58:12.439Z",
+  "newForeignBodyOrMediaAdmissions": 0,
+  "content": {
+    "newAppBooks": 10,
+    "newPodcastOriginalPages": 55,
+    "knowledgeBooks": 741,
+    "podcastOriginalPages": 1777,
+    "glossaryTerms": 177,
+    "glossaryReferences": 55,
+    "correctedTermsDEEN": 10,
+    "otherSevenGlossaryLanguages": "explicit EN fallback",
+    "news": "existing 465/500 bound historical snapshot; no latest-Feed equivalence claim"
+  },
+  "appOrDataWritten": false,
+  "foreignWipWritten": false,
+  "atlasGameNativeOrStoreWritten": false
+}

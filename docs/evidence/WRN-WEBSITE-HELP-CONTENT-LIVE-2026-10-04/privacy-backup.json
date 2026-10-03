@@ -1,0 +1,17 @@
+{
+  "archive": "rollback-previous-privacy-448c82f.zip",
+  "bytes": 16000,
+  "sha256": "62def4f8bdfe51ec751e44b9427dcc129a2562a059315d30227af9610a9dec17",
+  "entries": [
+    {
+      "path": "privacy.html",
+      "bytes": 47304,
+      "sha256": "760a51656b9c9e21940f83a3bc5324118107cfec64dcd25885d5b491291536e7"
+    }
+  ],
+  "priorAbsent": [
+    "privacy.css",
+    "privacy.js"
+  ],
+  "rollbackNote": "Restore prior privacy.html alongside frozen 51-file old-managed rollback. New privacy.css/js can remain unreferenced; no deletion needed."
+}
