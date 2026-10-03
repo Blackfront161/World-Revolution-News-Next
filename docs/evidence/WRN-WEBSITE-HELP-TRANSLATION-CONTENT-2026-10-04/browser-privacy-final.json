@@ -1,0 +1,26 @@
+{
+  "sourceCommit": "448c82fdf31f4ce10ea17d60d35ad937faf76b10",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "bound privacy HTML/CSS/JS under actual final CSP; all9 language texts and390px overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "final54-file packet exposes six-task help and adds no network request in help/privacy",
+      "status": "PASS"
+    }
+  ],
+  "pageErrors": [],
+  "outsideRequests": [],
+  "functionalPacketPreservation": {
+    "sourceCommit": "c5c3000853857e1b050ebe690e6cd2c14d88f7a6",
+    "files": 51,
+    "sha256AndBytesAndIndexHeadersIdentical": true,
+    "onlyAddition": [
+      "privacy.html",
+      "privacy.css",
+      "privacy.js"
+    ]
+  }
+}

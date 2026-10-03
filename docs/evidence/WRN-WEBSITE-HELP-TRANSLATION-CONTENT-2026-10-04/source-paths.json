@@ -1,0 +1,166 @@
+{
+  "sourceCommit": "448c82fdf31f4ce10ea17d60d35ad937faf76b10",
+  "baseCommit": "04908d3e43e0a8d31fca660a7d9c06398f097023",
+  "paths": [
+    {
+      "path": "apps/website/public/privacy.css",
+      "sha256": "23e445a13de9f421c9828a50da45c8ff4a2811c5b9d139cf8f907223975c129a"
+    },
+    {
+      "path": "apps/website/public/privacy.js",
+      "sha256": "62ed3cc82ac957585f986d6ffea1459c015ebf11a846c9c1ccb66119602ba5e8"
+    },
+    {
+      "path": "apps/website/src/App.tsx",
+      "sha256": "8fc2919d8694d3bc8db3ecb7b345664cff5c8818f0ec455baa1f782b8f7c49b5"
+    },
+    {
+      "path": "apps/website/src/features/catalogue-navigation/catalogue-navigation.test.tsx",
+      "sha256": "a0091f8cca55a7b0ee2e1d8b7a6e5ec1b7849e8fa2eeef99e3c9a1924549678b"
+    },
+    {
+      "path": "apps/website/src/features/events-media/app-catalog.test.ts",
+      "sha256": "215806cd678293acae3007a625f0bd72cef68cda1bd29eb9647b119d731179a6"
+    },
+    {
+      "path": "apps/website/src/features/events-media/app-catalog.ts",
+      "sha256": "e778ea8729ca79d66422d02dfd613b2a72876196fcfec1e694083c202a27194e"
+    },
+    {
+      "path": "apps/website/src/features/events-media/packed/production-events-media-v1.json",
+      "sha256": "6e62f413cd02dd5fc897b1481a973fd896f0eae4cead2cdb1cc764f1428a0571"
+    },
+    {
+      "path": "apps/website/src/features/guide/WebsiteGuide.test.tsx",
+      "sha256": "2ebab0010add3a8d47721aa3bc31bdcaa245a1460853f41358b65bb63643a58d"
+    },
+    {
+      "path": "apps/website/src/features/guide/WebsiteGuide.tsx",
+      "sha256": "2c3742bd560cca0b16d6af8af14f9ac6c762b4e1004c87ca6f35cb7480145a68"
+    },
+    {
+      "path": "apps/website/src/features/guide/website-guide-copy.ts",
+      "sha256": "75f64e1593581dde6c2063ffc2da1fba2a74ff1b78a90d0c0e1c0a2fe47bcb54"
+    },
+    {
+      "path": "apps/website/src/features/guide/website-guide.css",
+      "sha256": "acf520c731f1088776513e6dd597655594103f76ab8d815a2c24aa77e268684e"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/data/lexicon-editorial-status.json",
+      "sha256": "466869ad09692896b3c4c8586eef9b59d31984fb678a6890095dae778508a608"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/knowledge-data.test.ts",
+      "sha256": "e176f7944c6eeb33039d25e8b48c9efee53751bfb879efc1518890f2883d94c4"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/knowledge-loader.test.ts",
+      "sha256": "0d20c3230821377b8ec58b70c3b83efcb9ab7afbf901499840f94812bafa57ed"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/learning-paths.test.ts",
+      "sha256": "7c9885ecc015760b64a4e303615fa8194df9aedbb188741d7bbaf2e80c58be67"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/lexicon-editorial-status.test.ts",
+      "sha256": "013311c9b0e018371e63ad6834b760d7dcc9c465c1796358361c15a70ee73057"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/lexicon-editorial-status.ts",
+      "sha256": "a6e4019b9e23f58d6b38ad7e0e1b81129a3eeb6ebbe34601c17c3bd738136b0d"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/packed/legacy-knowledge-v1.json",
+      "sha256": "f4887698bd5971f12ff933927cef54c73794d32be6cc4b4730f9c39b0eef17f0"
+    },
+    {
+      "path": "apps/website/src/features/reader/WebsiteDirectoryReader.test.tsx",
+      "sha256": "9d9bf90854247cd467374fff34525e03a37af4c72f6f7d257f98f8e2b4deb0bf"
+    },
+    {
+      "path": "apps/website/src/features/reader/WebsiteDirectoryReader.tsx",
+      "sha256": "e18107818d255b09b3055ea4ca9d834709c533a6544358936fbcf3fddd82dd48"
+    },
+    {
+      "path": "apps/website/src/features/translation/ArticleTranslationStatus.tsx",
+      "sha256": "b6c0696a2ea8b2f4b517e83161dd4b14eae57eb461ad70b38b7149639901d212"
+    },
+    {
+      "path": "apps/website/src/features/translation/WebsiteAdmittedArticleTranslation.tsx",
+      "sha256": "de31463c5eb9f66f4a7545f56d7b2a1b34d41d019e81c7e2e6429d2504f78724"
+    },
+    {
+      "path": "apps/website/src/features/translation/shared-article-translation.test.ts",
+      "sha256": "9e2066e79f4c8f9e1aaeca7db9785bbfa223212d63229eadc7e19dff61110b4d"
+    },
+    {
+      "path": "apps/website/src/features/translation/shared-article-translation.ts",
+      "sha256": "f0a347a84eacc8e97c7baabc275ba493e9d85b59ce56761bb66cce1b36faa744"
+    },
+    {
+      "path": "apps/website/src/features/translation/translation-copy.ts",
+      "sha256": "480ed29ec2ad667696b092a6621b81d0787f0e90f4d0d6ac40d2fb90270819a6"
+    },
+    {
+      "path": "apps/website/src/features/translation/use-shared-article-translation.ts",
+      "sha256": "dbf4ea3b8ca0d59c2d12a547280f3dbff461a75e51e3987d59aeacf729906c31"
+    },
+    {
+      "path": "apps/website/src/production-content-adapters.test.tsx",
+      "sha256": "ee33a0f5456ce26c989c3864e8338b8530fd27b1b7bced4301c009457ecbb96c"
+    },
+    {
+      "path": "apps/website/src/production-content-ui.tsx",
+      "sha256": "13634bc393cf964a6e4cde4ec2ce205d0b21089a43b70fe46f2b672eee4d55a9"
+    },
+    {
+      "path": "apps/website/src/shared-browser-share.test.ts",
+      "sha256": "58c883085781060a64e840ffbe0c6a36986c8252354225fae77fffc10d8cfd9e"
+    },
+    {
+      "path": "apps/website/tools/production-site-package.mjs",
+      "sha256": "063a8a294af88aa34ba1d04572d2578c159d8193a246a8e4818a541e6de04407"
+    },
+    {
+      "path": "apps/website/tools/production-site-package.test.mjs",
+      "sha256": "6340574c90071732b3883167f20f7335201a641448948a175bd01727102c3e36"
+    },
+    {
+      "path": "packages/browser-content/src/browser-share.test.ts",
+      "sha256": "c1e12b19ecd57b88599d20e9d14b9f2af0e22335d8a602279e1c4c19932d3955"
+    },
+    {
+      "path": "packages/browser-content/src/browser-share.ts",
+      "sha256": "c3343d3ce0b8f41cdc78fe132d2dcc155fda99003b9c3d1fd98f59a06836af9a"
+    },
+    {
+      "path": "packages/browser-content/src/production-content-ui.tsx",
+      "sha256": "cb09a55ab5f7ec0294ce4836c49a4a5b5b73f568a7593f1768719aa7a47c6616"
+    },
+    {
+      "path": "tools/directory/prepare-website-glossary.mjs",
+      "sha256": "f69126505aa2532a1f21f4119adfaaa83d911e4d6b4ec6247c0d9c339d4b7226"
+    },
+    {
+      "path": "tools/directory/prepare-website-glossary.test.mjs",
+      "sha256": "cfd4ea442ccd715c1f62c00f628e9a12d626c32924030175f39a1466c3c1b922"
+    },
+    {
+      "path": "tools/directory/prepare-website-knowledge.mjs",
+      "sha256": "2a0518797235ea70d4d18d27cea1f3810065aa447b88ff0f534956b27e8ca1a1"
+    },
+    {
+      "path": "tools/directory/prepare-website-library-refresh.test.mjs",
+      "sha256": "6fd7693f3ba0273a537be771801a6c518424c75b27c7a84e27d7d2e6689cc176"
+    },
+    {
+      "path": "tools/directory/prepare-website-projection-candidate.mjs",
+      "sha256": "9d12754eb67f0cb3c07281a902d2010210878cbc7f7cc29b727d5b33c29a84d6"
+    },
+    {
+      "path": "tools/directory/prepare-website-reviewed-catalog-delta.mjs",
+      "sha256": "980a3b1bf6394ed2e95d8583c5f78bd17f9d737a6b8d6066bc7ff86f40d387a8"
+    }
+  ]
+}

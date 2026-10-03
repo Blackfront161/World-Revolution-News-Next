@@ -1,0 +1,204 @@
+{
+  "commit": "f4f3058bc68a433dba67cf3de114ba91b6cf4f7f",
+  "catalogReceipt": {
+    "commit": "f4f3058bc68a433dba67cf3de114ba91b6cf4f7f",
+    "baselineCommit": "c85f524f1abb9e7d39d7463fc676395923826745",
+    "inputs": [
+      {
+        "path": "podcasts.json",
+        "sha256": "b0707ebc8b5eae13e92fe99ea49c6c8bbff3dfafb2185c73c1c402c60d303280",
+        "bytes": 3222507
+      },
+      {
+        "path": "library-feed.json",
+        "sha256": "6aafcf161978c221ce40293da03aa330cc66318edc4a2cf2c536dcc84d96e1d4",
+        "bytes": 415835
+      },
+      {
+        "path": "podcast-content-policy.json",
+        "sha256": "03fa2bc9feced146f5bbdad429c92cdfb924900fceebccfe6b48c34e88e630bc",
+        "bytes": 22748
+      }
+    ],
+    "addedRawIds": {
+      "podcasts": [
+        "ff958a03fc63253ccbeeaca5",
+        "16374a915016a9868aef33a8",
+        "d9eaded1bb1fdcbf6b4f0bea",
+        "dea12384977df080251d3978",
+        "999f0bd1c678ad702de32849",
+        "7afdcf55c34e41aeaf38ddb9",
+        "1e1cbbc54fe47bda207f57ff",
+        "49b5b039824a55b25eeae0a5",
+        "543fc8ff5714f10c0a4a3e4d",
+        "5e26fce9d98aaa1412477a8c",
+        "bb9a7668791c61829cc66dd2",
+        "3e453f965c60db92c6c29745",
+        "019d22e4efad67778ba31b18",
+        "6f1a5fbe16b3d9eb5d48bb9d",
+        "c8675e669e0cb601e141cc82",
+        "7c8108aa8e6710decbe91078",
+        "7ee7322ddfd62b04b17ae1bf",
+        "6ea8709413472b7399c32b34",
+        "2ba293d918aaac60262fb246",
+        "6b123dc52f0081dfbee46612",
+        "26529560a4ac778463789975",
+        "df4e2a0f3ffd168c5082b6ce",
+        "13242defc1f201d3a166d4b6",
+        "507baf1418ee954cd245d181",
+        "2662f50866665e6e72bbe97c",
+        "a73a5ce7a715c34690b7f97e",
+        "cf21bcadcfb8c85a37b39cae",
+        "69458b516df9dafe8fa21f26",
+        "a115c4474d801a0699e9e409",
+        "7371df5358e2c0e6145337c5",
+        "41bd63aa3a4282d577340f11",
+        "a7b473d0c706cacd2be7ed68",
+        "7ddb914b8a6e93fe59c5f56a",
+        "2337717558f9877fd97e119a",
+        "dab65efa6c5fbc303612362f",
+        "a27c64959daf8edf26f865af",
+        "abf317009cfd4e89afd0569f",
+        "cb94448dfcf95de7b5f2a4e2",
+        "dc4c1b976d69fcca29dd67af",
+        "87f28e9b345f5713fb853272",
+        "6dc2cc4b788f69c50489c2d2",
+        "56ec5f16a649a8ec1d8a4411",
+        "b13e669826d3ad45488c765b",
+        "505a35d28a34489596acf0c2",
+        "c83d7b7fa8d0fe205b7678e5",
+        "3b31b9206837e70726edcd33",
+        "c4ce74e28d90f31ccfcf9863",
+        "4d52180a130dfe2cddafbefe",
+        "9636b9fd608baa6867956733",
+        "3a5ef2f879ddd2f50abbc869",
+        "16cbc058f9e925b0f979b4e4",
+        "cc213d04f4fe95c5644641fb",
+        "e1b3722cae689ddf5169e62b",
+        "53da02f253887e295a7fd621",
+        "8371e25759715b2a922e0343"
+      ],
+      "library": [
+        "anarchist-library-de-ba62ecff09594a0105cded9a",
+        "anarchist-library-de-174b8a1c8b31483104c78134",
+        "anarchist-library-de-53f177951cf6dc3525a55ad2",
+        "anarchist-library-de-433b2ba94777b2cbc1a40583",
+        "anarchist-library-de-cdd0f47e1835707d18dfbc69",
+        "anarchist-library-de-a66f144a48eed29e9330ce16",
+        "anarchist-library-de-dbfc419a36310497917860c0",
+        "anarchist-library-de-37f710aeecdeffbe215e526b",
+        "anarchist-library-de-4bf827a262200fb3dc1dcf0b",
+        "anarchist-library-de-b3828bd26e2871d376d62575"
+      ]
+    },
+    "addedProjectedCounts": {
+      "podcasts": 55,
+      "library": 10
+    },
+    "historyAndBasePreserved": true,
+    "mediaFetched": false,
+    "policy": "metadata-original-link-only"
+  },
+  "preserved": {
+    "radio": {
+      "old": 27,
+      "next": 27,
+      "changed": 0,
+      "changedExamples": []
+    },
+    "podcasts": {
+      "old": 1722,
+      "next": 1722,
+      "changed": 0,
+      "changedExamples": []
+    },
+    "videos": {
+      "old": 16,
+      "next": 16,
+      "changed": 0,
+      "changedExamples": []
+    },
+    "library": {
+      "old": 728,
+      "next": 728,
+      "changed": 0,
+      "changedExamples": []
+    },
+    "events": {
+      "old": 6,
+      "next": 6,
+      "changed": 0,
+      "changedExamples": []
+    }
+  },
+  "knowledgeReceipt": {
+    "commit": "f4f3058bc68a433dba67cf3de114ba91b6cf4f7f",
+    "observedAt": "2026-10-03T19:48:02.457Z",
+    "books": 741,
+    "terms": 177,
+    "references": 55,
+    "historySha256": "7049b06f3bc9c5b695f6c99a6d1d5db66629f59958a75804c7d543a6ad204a4c",
+    "packedSha256": "f4887698bd5971f12ff933927cef54c73794d32be6cc4b4730f9c39b0eef17f0",
+    "learningPathsSha256": "169185cbf4c8be46dce9ccfb26593857de9ece5dcb630518e6e61f02de82a2ee",
+    "lexiconLocalesSha256": "5b59354be8a764fef375e63a3ddae53e21d15c2d63320b224f43ea17067f30b0",
+    "inputs": {
+      "libraryFeedSha256": "6aafcf161978c221ce40293da03aa330cc66318edc4a2cf2c536dcc84d96e1d4",
+      "libraryFeedBytes": 415835,
+      "librarySourcesSha256": "a498bb6d672d4edb8af99d3b337c34d1292bf4e04924a3bedb3b364c4cd81f66",
+      "librarySourcesBytes": 5324,
+      "lexiconSha256": "737cf5e7264ffcfbbca93245fffe0c8f567b477b6e9107648d0b659536f2a903",
+      "lexiconBytes": 278765
+    }
+  },
+  "changedBooks": [],
+  "changedTerms": [
+    "free-prior-informed-consent",
+    "popular-education",
+    "social-insertion",
+    "participatory-budgeting",
+    "worker-cooperative"
+  ],
+  "changedReferences": [
+    "knowledge-fpic",
+    "knowledge-indigenous-data",
+    "knowledge-language-revitalisation",
+    "knowledge-popular-education",
+    "knowledge-social-insertion",
+    "knowledge-non-reformist-reforms",
+    "knowledge-access-intimacy",
+    "knowledge-participatory-budgeting",
+    "knowledge-worker-cooperative",
+    "knowledge-abolitionist-divestment"
+  ],
+  "policyKeys": [
+    "schemaVersion",
+    "canonicalSourceId",
+    "endpointId",
+    "feedUrls",
+    "restrictedEpisodeIds",
+    "mediaExtensions",
+    "metadataFields",
+    "metadataOnlySourceIds",
+    "metadataOnlyFeedUrls",
+    "metadataOnlyEpisodeIds",
+    "unverifiedLanguageSourceIds",
+    "unverifiedLanguageEpisodeIds",
+    "languageConflictEpisodeIds",
+    "declaredChannelOnlySourceIds",
+    "declaredChannelOnlyFeedUrls"
+  ],
+  "policyArrays": {
+    "feedUrls": 1,
+    "restrictedEpisodeIds": 61,
+    "mediaExtensions": 17,
+    "metadataFields": 37,
+    "metadataOnlySourceIds": 20,
+    "metadataOnlyFeedUrls": 20,
+    "metadataOnlyEpisodeIds": 499,
+    "unverifiedLanguageSourceIds": 1,
+    "unverifiedLanguageEpisodeIds": 35,
+    "languageConflictEpisodeIds": 5,
+    "declaredChannelOnlySourceIds": 5,
+    "declaredChannelOnlyFeedUrls": 5
+  }
+}
