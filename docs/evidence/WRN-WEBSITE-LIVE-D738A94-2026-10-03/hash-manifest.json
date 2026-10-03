@@ -1,0 +1,115 @@
+{
+  "schema": "wrn.website-live-evidence-hashes.v1",
+  "productCommit": "d738a9454161f1f6aff624bcb9c2a9f0bc2ccf60",
+  "reviewedEvidenceCommit": "2d890ffd0ae09af219ce124c4dbb951191db210b",
+  "independentReview": "PASS",
+  "publicationPerformed": true,
+  "liveStatus": "PUBLISHED-VERIFIED-WITH-HTTP3-LOAD-LIMITATION",
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 3507,
+      "sha256": "b24d8337143dabf20119294330780a9fcebf3e573cb47bfed4663488b28e1d0b"
+    },
+    {
+      "path": "address-review-1440.png",
+      "bytes": 41215,
+      "sha256": "c5621ac44f787b8ac7f6aecadbe91fb4a4fb7b14f2adbdd901d3c8ba6e156b81"
+    },
+    {
+      "path": "address-review-390.png",
+      "bytes": 30438,
+      "sha256": "ca7bae84778a985c379ef44f7aa2d47c1ed6929c47eebecd81c0e7c7f2537fe1"
+    },
+    {
+      "path": "browser-attempts.json",
+      "bytes": 14102,
+      "sha256": "3a56bfdb306d917cb5485873ff0a5efce267b94a9fc9b6ca1c7f992f2271e69b"
+    },
+    {
+      "path": "browser-check.mjs",
+      "bytes": 18886,
+      "sha256": "d0052657851f8ba967424be7dae3c7be0eb34195fd5d2d816958cdb5a8e67d58"
+    },
+    {
+      "path": "catalog-http1-diagnosis.json",
+      "bytes": 325,
+      "sha256": "6d4974de1fb86be7815f41c45bb0253c5a50c936e4e1e37ae2d076428547421a"
+    },
+    {
+      "path": "catalog-http3-diagnosis.json",
+      "bytes": 641,
+      "sha256": "155fe14c1c95aefc203f4183064626bb43560c663b7fa42b4b935d4a7592b867"
+    },
+    {
+      "path": "independent-review.json",
+      "bytes": 3743,
+      "sha256": "f73b58fdf264663a5bdd0c561e6b71b8d05864c9c3c9cf74c3b20fb6e45dcd2b"
+    },
+    {
+      "path": "library-1440.png",
+      "bytes": 161623,
+      "sha256": "d575c08c507c21cc937e935ecd1441b78eea6c33d5c59bc1b215b98b7f73c767"
+    },
+    {
+      "path": "library-390.png",
+      "bytes": 71236,
+      "sha256": "5020d5ba0d994c0fea6a638d87897c2a6be320f679bdb28846bec3fbf8e7a071"
+    },
+    {
+      "path": "live-browser-result.json",
+      "bytes": 5375,
+      "sha256": "271f0ed3dc2d436c4b781c97589b82a2ef9e022a7bb9a3dbe58089b2e0ab9702"
+    },
+    {
+      "path": "live-readback.json",
+      "bytes": 136734,
+      "sha256": "06b9c803785b60cf9065bb1d483b27ab9267621a3c3cc2a661e57788aed1f73d"
+    },
+    {
+      "path": "live-screenshot-result.json",
+      "bytes": 289,
+      "sha256": "8cdc2b12a091bdb0ec38ba3a2eb190e781822455be2d8cca9a2080bf769982a0"
+    },
+    {
+      "path": "regional-1440.png",
+      "bytes": 120839,
+      "sha256": "0023d00a726d76c56b9a8a61599e3a727346d36d1d50929e43098f94801a6586"
+    },
+    {
+      "path": "regional-390.png",
+      "bytes": 42996,
+      "sha256": "9977944c46b2c4c7c85114ea92efa5d5d410183dd2acfee6e9c512aef7bea76a"
+    },
+    {
+      "path": "rollout-receipt.json",
+      "bytes": 6211,
+      "sha256": "e379e49da9605dc8754c390f51d3d0bd6cd229a7f6961b40973cfbe13f49c4e2"
+    },
+    {
+      "path": "solidarity-1440.png",
+      "bytes": 56744,
+      "sha256": "85e1c60b53b3920153bc3a522d5e49280fede55e823d132567a84fea1647708a"
+    },
+    {
+      "path": "solidarity-390.png",
+      "bytes": 45301,
+      "sha256": "beba81df042a6c794713447e172eb2eab2fcf061668f4973f3505ddb889f868e"
+    },
+    {
+      "path": "website-1440x900.png",
+      "bytes": 1087882,
+      "sha256": "a24209ff73b4a25e1d53b7edd0881884caa7065867cabdc2f2b9d7e3e08c8f61"
+    },
+    {
+      "path": "website-390x844.png",
+      "bytes": 638519,
+      "sha256": "d823050da24e155fcd50eca750e40c2472f4c27a518361e6ffab628dab24127d"
+    },
+    {
+      "path": "website-offline-reopened.png",
+      "bytes": 634026,
+      "sha256": "c0271c8249cbe54f79c3ea1379a051430105b64805b2b2019bcffc811757c320"
+    }
+  ]
+}

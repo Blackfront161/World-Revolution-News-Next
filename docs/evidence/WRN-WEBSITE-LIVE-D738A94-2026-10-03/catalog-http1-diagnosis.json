@@ -1,0 +1,16 @@
+[
+  {
+    "name": "tcp-http1",
+    "status": 200,
+    "headerMs": 81.90000000223517,
+    "totalMs": 791.1000000014901,
+    "bytes": 1701964,
+    "sha256": "ac2c2f944b814be0fce19129791c39d87c0940f8c82caf47bdc868cc5bcb8b15",
+    "timing": [
+      {
+        "protocol": "http/1.1",
+        "duration": 782.5
+      }
+    ]
+  }
+]

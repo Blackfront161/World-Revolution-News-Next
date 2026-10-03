@@ -1,0 +1,121 @@
+{
+  "schema": "wrn.website-live-rollout.v1",
+  "status": "PUBLISHED-VERIFIED-WITH-HTTP3-LOAD-LIMITATION",
+  "productCommit": "d738a9454161f1f6aff624bcb9c2a9f0bc2ccf60",
+  "reviewedEvidenceCommit": "2d890ffd0ae09af219ce124c4dbb951191db210b",
+  "independentReview": {
+    "decision": "PASS",
+    "thread": "019ff285-63dc-7ed2-88a8-cab5f06ed26e",
+    "turn": "01a0ffc2-66e5-78e2-a1af-28b12bbc47e9"
+  },
+  "origin": "https://solinaridao.com",
+  "recordedAtUTC": "2026-10-03T03:50:29.823Z",
+  "activationOrder": [
+    "01 immutable: 41 files, readback 41/41",
+    "02 Apache policy and service worker",
+    "03 index: pre-pointer readback 43/43",
+    "04 production current.json",
+    "05 directory current.json"
+  ],
+  "uploadDirectory": "private sibling of public_html: wrn-release-d738a94-private",
+  "uploadArchiveHashes": [
+    {
+      "files": 41,
+      "archive": "01-wrn-immutable-d738a94.zip",
+      "sha256": "7f56c85be155928409cb05f0d171257c5bc474b42c33deabd8f68248097fa57e"
+    },
+    {
+      "files": 5,
+      "archive": "02-wrn-policy-sw-d738a94.zip",
+      "sha256": "ad8f93d6785c7a1eca3b56e49a0c2b85ecc265a2c612591221f67c7abdad43f3"
+    },
+    {
+      "files": 1,
+      "archive": "03-wrn-index-d738a94.zip",
+      "sha256": "aefc1686653abc95046192f8ed471706abda96c25995371cda0cbd4633892746"
+    },
+    {
+      "files": 1,
+      "archive": "04-wrn-production-pointer-d738a94.zip",
+      "sha256": "41cb83f0fdb322883c7b6f17c97d74277265a0dd9b26543c7c729667b687463e"
+    },
+    {
+      "files": 1,
+      "archive": "05-wrn-directory-pointer-d738a94.zip",
+      "sha256": "6f3f4dd1ea5438e67febecd1e148c39ea7e21870588a0de6f6589b4f2af6bce2"
+    }
+  ],
+  "rollback": {
+    "files": 49,
+    "publicationPerformed": false,
+    "publicReadbackReceipt": "live-full-1790992389475/receipt.json",
+    "sha256": "e1229298d0a49316647baa3501b45f164f0d86942b798d38d3c241dc7d48a98d",
+    "archive": "rollback-before-d738a94-5664227.zip",
+    "privatePolicies": "previous approved 5664227 hosting packet",
+    "previousCommit": "566422758241190f432d8c8a09d67a5f589d90ac"
+  },
+  "remoteZipHashesClaimed": false,
+  "publicReadback": {
+    "observedAtUTC": "2026-10-03T03:36:42.175Z",
+    "files": 45,
+    "sha256Status": "PASS",
+    "mimeCacheCspCorsStatus": "PASS"
+  },
+  "offlineRestart": {
+    "status": "PASS",
+    "transport": "HTTPS over HTTP/1.1",
+    "controlled": true
+  },
+  "revocation": {
+    "path": "wrn-source-pass-revocations/current.json",
+    "status": 200,
+    "bytes": 161,
+    "sha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617",
+    "expectedSha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617",
+    "observedAtUTC": "2026-10-03T03:36:42.160Z",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "alt-svc": "h3=\":443\"; ma=86400",
+      "cache-control": "no-store",
+      "connection": "keep-alive",
+      "content-encoding": "br",
+      "content-security-policy": "default-src 'self'; base-uri 'none'; connect-src 'self'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; img-src 'self' data: blob:; manifest-src 'self'; media-src https://dn721204.ca.archive.org; object-src 'none'; script-src 'self' 'sha256-3VeQnkimSKLdOsPrVac9yDeXm8QXkaFRcjW11E/lCi8=' 'sha256-4+DUuV1nfDmnCxNkHmLYCj4PcrvXrCtobvqIljG8OFo=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-78NbkatXW+zvVNZ0c6K5E3vAL8qe6EOZyWW0+VVm/aY=' 'sha256-EP/Hxej0o558QBQyv5ocl37J48KFjcI8QYcf+XoVvSQ=' 'sha256-H+KuAxumV8Uq26WybgLtPk2Pg+OxAEZx/4z6nQ6XxqM=' 'sha256-L5isiUL5mVTeU1BvL+97uOKAgWg7ZSGolJ0Wp4z/x5k=' 'sha256-VAoRvH5X5+PGRNlXlTvjVxgpY3uRqcr+SMXiQGiX4us=' 'sha256-VLn05fM4LtqlyRRt/+fPSc9LC4AsLcYaXR+iEHxYO0w=' 'sha256-WuZFxx6L2FBm1VTpWlkclFhrgkmmRUQYqNn0pMaWU7U=' 'sha256-dQyXglDKI9Qh30Zlg77C+d8hXrATMStCYz4A9JAjxLY=' 'sha256-kN/E+P035UBgDfcuX4YkJJUqmi47cnItXoBVd/nJcxA=' 'sha256-u9FBptH4POThmVSDNoFlOmaX4eibLPJTRUfIYECVfp0='; style-src 'self' 'sha256-TqMrWmBIyC9pBldcgLu8TIZVQ3mHkO3q2Dzj0yJaN5U='; worker-src 'self'; upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "cross-origin",
+      "date": "Sat, 03 Oct 2026 03:36:40 GMT",
+      "etag": "W/\"a1-6ac0764a-1ebf4a75156e2665;;;\"",
+      "last-modified": "Sat, 03 Oct 2026 03:28:10 GMT",
+      "panel": "hpanel",
+      "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "platform": "hostinger",
+      "referrer-policy": "no-referrer",
+      "server": "hcdn",
+      "ss": "unset content-security-policy, unset cross-origin-opener-policy, unset cross-origin-resource-policy, unset permissions-policy, unset referrer-policy, unset strict-transport-security, unset x-content-type-options, unset x-frame-options, unset cache-control, unset Access-Control-Allow-Origin, unset Access-Control-Allow-Credentials, unset X-Powered-By, unset Access-Control-Allow-Origin, unset Access-Control-Allow-Credentials, unset Cross-Origin-Resource-Policy, unset Content-Type, unset Cache-Control",
+      "strict-transport-security": "max-age=31536000",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-hcdn-cache-status": "DYNAMIC",
+      "x-hcdn-request-id": "43591262a9dcad795c226a143d89ef35-nme-edge12",
+      "x-hcdn-upstream-rt": "0.149"
+    },
+    "errors": []
+  },
+  "counts": {
+    "books": 731,
+    "terms": 167,
+    "learningPaths": 4,
+    "regionalEvents": 4,
+    "publicSupportLinks": 5,
+    "radios": 28,
+    "podcastOriginalLinks": 1722,
+    "videoOriginalLinks": 16
+  },
+  "openItems": [
+    "Cold HTTP/3 delivery of the unchanged 1701964-byte media catalogue took 12–19 s here and exceeded its 10 s application timeout. HTTPS/HTTP1 read the same SHA in 0.79 s; full online/offline QA passed using that transport. Native Chrome also displayed the catalogue. No universal transport/performance PASS.",
+    "New Home selection, 84 podcast additions and 18 URL/ID changes are not admitted by this publication.",
+    "No full App/Website parity, fresh all-source admission, native playback or overall RC approval inferred."
+  ]
+}

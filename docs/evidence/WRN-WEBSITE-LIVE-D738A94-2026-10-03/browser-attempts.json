@@ -1,0 +1,269 @@
+[
+  {
+    "path": "work/roadmap-website-live-20261002/browser-live-d738a94/result.json",
+    "status": "FAIL",
+    "observedAtUTC": "2026-10-03T03:36:48.639Z",
+    "error": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: locator('[data-app-catalog-count]')\nExpected: \"28 von 28\"\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"to.have.text\" with timeout 5000ms\n  - waiting for locator('[data-app-catalog-count]')\n",
+    "checks": [
+      {
+        "name": "live homepage, coverage and original links",
+        "status": "PASS",
+        "ids": [
+          "news-7956e3311e1bcb7df04798b6a2986cb5054cfd96dcc8d5a3397abcd519159959",
+          "news-09a14b63febedd7dcb177d736523f28b5242a09708b803fd819a4282996f2628",
+          "news-2b5f3c7700ce5f662358d8869d9c6dedfe9459fe28fcf0359943d98d2f16549e",
+          "news-ca355f155367fe855e230b1e6adfb68b1c7c7ede062061fb7ac07bc252892f79",
+          "news-da3cf8526e8ca0f62d63e0408e4cc6f1504c19e7ae53bc5ab6b0ba8825e57841"
+        ],
+        "links": [
+          {
+            "href": "https://english.anf-news.com/news/police-detain-mersin-metropolitan-municipality-mayor-and-58-others-87480",
+            "rel": "noopener noreferrer",
+            "referrerpolicy": "no-referrer"
+          },
+          {
+            "href": "https://english.anf-news.com/kurdistan/iran-bombs-kdp-i-camp-87481",
+            "rel": "noopener noreferrer",
+            "referrerpolicy": "no-referrer"
+          },
+          {
+            "href": "https://english.anf-news.com/kurdistan/soldiers-attack-martyr-binevs-cemetery-on-mount-gabar-87486",
+            "rel": "noopener noreferrer",
+            "referrerpolicy": "no-referrer"
+          },
+          {
+            "href": "https://www.anarchistfederation.net/healing-the-borders-scar-updates-on-khalif-miller/",
+            "rel": "noopener noreferrer",
+            "referrerpolicy": "no-referrer"
+          },
+          {
+            "href": "https://www.anarchistfederation.net/the-projet-evasions-needs-a-little-cash/",
+            "rel": "noopener noreferrer",
+            "referrerpolicy": "no-referrer"
+          }
+        ]
+      },
+      {
+        "name": "responsive 1440x900",
+        "status": "PASS"
+      },
+      {
+        "name": "responsive 390x844",
+        "status": "PASS"
+      },
+      {
+        "name": "news and sources deep links with unverified labels",
+        "status": "PASS"
+      },
+      {
+        "name": "five public support originals and source-bound 13/17 review states online",
+        "status": "PASS"
+      },
+      {
+        "name": "731 books with all three added original links; four regional events and Brazil empty online",
+        "status": "PASS"
+      }
+    ],
+    "networkFailures": [],
+    "mediaRetry": null
+  },
+  {
+    "path": "work/roadmap-website-live-20261002/browser-live-d738a94-final/result.json",
+    "status": "FAIL",
+    "observedAtUTC": "2026-10-03T03:38:17.766Z",
+    "error": "Error: expect(locator).toContainText(expected) failed\n\nLocator: locator('.website-coverage')\nExpected substring: \"Server\"\nReceived string:    \"InhaltsabdeckungVerfügbare Originallinks: 482Aktualisierung unbestätigt: der geprüfte gespeicherte Stand wird gezeigt.Feed veröffentlicht: 2026-10-02T02:12:08.814ZNeuester aufgenommener Artikel: 2026-10-02T02:11:58.377ZAufgenommene Links: 482/500 · Ausgeschlossene Feedeinträge: 18 · Quellenendpunkte mit ausstehender Prüfung: 418/433Ausschlussgründeincomplete-source-provenance: 6insecure-url: 8identity-conflict: 4Dieser gespeicherte Stand ist älter als 24 Stunden. Eine aktuelle Live-Aktualisierung ist nicht bestätigt.Links und erfasste Titel bedeuten keine redaktionelle Prüfung oder Wiederverwendungsrechte. Volltexte, Bilder, Audio und Logos benötigen eine gesonderte Aufnahme.\"\nTimeout: 5000ms\n\nCall log:\n  - Expect \"to.have.text\" with timeout 5000ms\n  - waiting for locator('.website-coverage')\n    14 × locator resolved to <section class=\"website-coverage\" aria-label=\"Inhaltsabdeckung\">…</section>\n       - unexpected value \"InhaltsabdeckungVerfügbare Originallinks: 482Aktualisierung unbestätigt: der geprüfte gespeicherte Stand wird gezeigt.Feed veröffentlicht: 2026-10-02T02:12:08.814ZNeuester aufgenommener Artikel: 2026-10-02T02:11:58.377ZAufgenommene Links: 482/500 · Ausgeschlossene Feedeinträge: 18 · Quellenendpunkte mit ausstehender Prüfung: 418/433Ausschlussgründeincomplete-source-provenance: 6insecure-url: 8identity-conflict: 4Dieser gespeicherte Stand ist älter als 24 Stunden. Eine aktuelle Live-Aktualisierung ist nicht bestätigt.Links und erfasste Titel bedeuten keine redaktionelle Prüfung oder Wiederverwendungsrechte. Volltexte, Bilder, Audio und Logos benötigen eine gesonderte Aufnahme.\"\n",
+    "checks": [],
+    "networkFailures": [],
+    "mediaRetry": null
+  },
+  {
+    "path": "work/roadmap-website-live-20261002/browser-live-d738a94-recheck/result.json",
+    "status": "FAIL",
+    "observedAtUTC": "2026-10-03T03:39:22.622Z",
+    "error": "Error: expect(locator).toContainText(expected) failed\n\nLocator: locator('.website-coverage')\nExpected substring: \"Server\"\nReceived string:    \"InhaltsabdeckungVerfügbare Originallinks: 482Aktualisierung unbestätigt: der geprüfte gespeicherte Stand wird gezeigt.Feed veröffentlicht: 2026-10-02T02:12:08.814ZNeuester aufgenommener Artikel: 2026-10-02T02:11:58.377ZAufgenommene Links: 482/500 · Ausgeschlossene Feedeinträge: 18 · Quellenendpunkte mit ausstehender Prüfung: 418/433Ausschlussgründeincomplete-source-provenance: 6insecure-url: 8identity-conflict: 4Dieser gespeicherte Stand ist älter als 24 Stunden. Eine aktuelle Live-Aktualisierung ist nicht bestätigt.Links und erfasste Titel bedeuten keine redaktionelle Prüfung oder Wiederverwendungsrechte. Volltexte, Bilder, Audio und Logos benötigen eine gesonderte Aufnahme.\"\nTimeout: 15000ms\n\nCall log:\n  - Expect \"to.have.text\" with timeout 15000ms\n  - waiting for locator('.website-coverage')\n    33 × locator resolved to <section class=\"website-coverage\" aria-label=\"Inhaltsabdeckung\">…</section>\n       - unexpected value \"InhaltsabdeckungVerfügbare Originallinks: 482Aktualisierung unbestätigt: der geprüfte gespeicherte Stand wird gezeigt.Feed veröffentlicht: 2026-10-02T02:12:08.814ZNeuester aufgenommener Artikel: 2026-10-02T02:11:58.377ZAufgenommene Links: 482/500 · Ausgeschlossene Feedeinträge: 18 · Quellenendpunkte mit ausstehender Prüfung: 418/433Ausschlussgründeincomplete-source-provenance: 6insecure-url: 8identity-conflict: 4Dieser gespeicherte Stand ist älter als 24 Stunden. Eine aktuelle Live-Aktualisierung ist nicht bestätigt.Links und erfasste Titel bedeuten keine redaktionelle Prüfung oder Wiederverwendungsrechte. Volltexte, Bilder, Audio und Logos benötigen eine gesonderte Aufnahme.\"\n",
+    "checks": [],
+    "networkFailures": [],
+    "mediaRetry": null
+  },
+  {
+    "path": "work/roadmap-website-live-20261002/browser-live-d738a94-final-bounded/result.json",
+    "status": "FAIL",
+    "observedAtUTC": "2026-10-03T03:41:19.745Z",
+    "error": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: locator('[data-app-catalog-count]')\nExpected: \"28 von 28\"\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"to.have.text\" with timeout 15000ms\n  - waiting for locator('[data-app-catalog-count]')\n",
+    "checks": [
+      {
+        "name": "live homepage, coverage and original links",
+        "status": "PASS",
+        "ids": [
+          "news-7956e3311e1bcb7df04798b6a2986cb5054cfd96dcc8d5a3397abcd519159959",
+          "news-09a14b63febedd7dcb177d736523f28b5242a09708b803fd819a4282996f2628",
+          "news-2b5f3c7700ce5f662358d8869d9c6dedfe9459fe28fcf0359943d98d2f16549e",
+          "news-ca355f155367fe855e230b1e6adfb68b1c7c7ede062061fb7ac07bc252892f79",
+          "news-da3cf8526e8ca0f62d63e0408e4cc6f1504c19e7ae53bc5ab6b0ba8825e57841"
+        ],
+        "links": [
+          {
+            "href": "https://english.anf-news.com/news/police-detain-mersin-metropolitan-municipality-mayor-and-58-others-87480",
+            "rel": "noopener noreferrer",
+            "referrerpolicy": "no-referrer"
+          },
+          {
+            "href": "https://english.anf-news.com/kurdistan/iran-bombs-kdp-i-camp-87481",
+            "rel": "noopener noreferrer",
+            "referrerpolicy": "no-referrer"
+          },
+          {
+            "href": "https://english.anf-news.com/kurdistan/soldiers-attack-martyr-binevs-cemetery-on-mount-gabar-87486",
+            "rel": "noopener noreferrer",
+            "referrerpolicy": "no-referrer"
+          },
+          {
+            "href": "https://www.anarchistfederation.net/healing-the-borders-scar-updates-on-khalif-miller/",
+            "rel": "noopener noreferrer",
+            "referrerpolicy": "no-referrer"
+          },
+          {
+            "href": "https://www.anarchistfederation.net/the-projet-evasions-needs-a-little-cash/",
+            "rel": "noopener noreferrer",
+            "referrerpolicy": "no-referrer"
+          }
+        ]
+      },
+      {
+        "name": "responsive 1440x900",
+        "status": "PASS"
+      },
+      {
+        "name": "responsive 390x844",
+        "status": "PASS"
+      },
+      {
+        "name": "news and sources deep links with unverified labels",
+        "status": "PASS"
+      },
+      {
+        "name": "five public support originals and source-bound 13/17 review states online",
+        "status": "PASS"
+      },
+      {
+        "name": "731 books with all three added original links; four regional events and Brazil empty online",
+        "status": "PASS"
+      }
+    ],
+    "networkFailures": [
+      {
+        "url": "https://solinaridao.com/wrn-production-content/wrn-production-news-2026-09-26-v8/reader-details.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://solinaridao.com/wrn-source-passes/current.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://solinaridao.com/assets/production-events-media-v1-oJB41y0C.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://solinaridao.com/assets/production-events-media-v1-oJB41y0C.json",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "mediaRetry": null
+  },
+  {
+    "path": "work/roadmap-website-live-20261002/browser-live-d738a94-with-retry/result.json",
+    "status": "FAIL",
+    "observedAtUTC": "2026-10-03T03:43:22.314Z",
+    "error": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: locator('[data-app-catalog-count]')\nExpected: \"28 von 28\"\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"to.have.text\" with timeout 15000ms\n  - waiting for locator('[data-app-catalog-count]')\n",
+    "checks": [
+      {
+        "name": "live homepage, coverage and original links",
+        "status": "PASS",
+        "ids": [
+          "news-7956e3311e1bcb7df04798b6a2986cb5054cfd96dcc8d5a3397abcd519159959",
+          "news-09a14b63febedd7dcb177d736523f28b5242a09708b803fd819a4282996f2628",
+          "news-2b5f3c7700ce5f662358d8869d9c6dedfe9459fe28fcf0359943d98d2f16549e",
+          "news-ca355f155367fe855e230b1e6adfb68b1c7c7ede062061fb7ac07bc252892f79",
+          "news-da3cf8526e8ca0f62d63e0408e4cc6f1504c19e7ae53bc5ab6b0ba8825e57841"
+        ],
+        "links": [
+          {
+            "href": "https://english.anf-news.com/news/police-detain-mersin-metropolitan-municipality-mayor-and-58-others-87480",
+            "rel": "noopener noreferrer",
+            "referrerpolicy": "no-referrer"
+          },
+          {
+            "href": "https://english.anf-news.com/kurdistan/iran-bombs-kdp-i-camp-87481",
+            "rel": "noopener noreferrer",
+            "referrerpolicy": "no-referrer"
+          },
+          {
+            "href": "https://english.anf-news.com/kurdistan/soldiers-attack-martyr-binevs-cemetery-on-mount-gabar-87486",
+            "rel": "noopener noreferrer",
+            "referrerpolicy": "no-referrer"
+          },
+          {
+            "href": "https://www.anarchistfederation.net/healing-the-borders-scar-updates-on-khalif-miller/",
+            "rel": "noopener noreferrer",
+            "referrerpolicy": "no-referrer"
+          },
+          {
+            "href": "https://www.anarchistfederation.net/the-projet-evasions-needs-a-little-cash/",
+            "rel": "noopener noreferrer",
+            "referrerpolicy": "no-referrer"
+          }
+        ]
+      },
+      {
+        "name": "responsive 1440x900",
+        "status": "PASS"
+      },
+      {
+        "name": "responsive 390x844",
+        "status": "PASS"
+      },
+      {
+        "name": "news and sources deep links with unverified labels",
+        "status": "PASS"
+      },
+      {
+        "name": "five public support originals and source-bound 13/17 review states online",
+        "status": "PASS"
+      },
+      {
+        "name": "731 books with all three added original links; four regional events and Brazil empty online",
+        "status": "PASS"
+      }
+    ],
+    "networkFailures": [
+      {
+        "url": "https://solinaridao.com/wrn-production-content/current.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://solinaridao.com/wrn-production-content/wrn-production-news-2026-09-26-v8/reader-details.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://solinaridao.com/wrn-source-passes/current.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://solinaridao.com/assets/production-events-media-v1-oJB41y0C.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://solinaridao.com/assets/production-events-media-v1-oJB41y0C.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://solinaridao.com/assets/production-events-media-v1-oJB41y0C.json",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "mediaRetry": {
+      "reason": "bounded ten-second catalogue load failed; explicit product retry",
+      "atUTC": "2026-10-03T03:44:14.962Z"
+    }
+  }
+]

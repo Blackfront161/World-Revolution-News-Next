@@ -1,0 +1,120 @@
+{
+  "schema": "wrn.website-lora-original-observations.v1",
+  "observedAtUTC": "2026-10-03T03:19:51.964Z",
+  "publicationPerformed": false,
+  "mediaFetched": false,
+  "records": [
+    {
+      "id": "35ae67d13d7b4483de96f839",
+      "previous": {
+        "id": "35ae67d13d7b4483de96f839",
+        "title": "Sendling Perspektiven",
+        "published": "2026-08-06T20:38:53+00:00",
+        "episodeUrl": "https://lora924.de/2026/08/06/sendling-perspektiven/",
+        "audioUrl": "https://www.freie-radios.net/mp3/20260806-sendlingpers-143868.mp3",
+        "feedUrl": "https://lora924.de/feed/",
+        "language": "de",
+        "languageVerified": true,
+        "languageReviewRequired": false
+      },
+      "current": {
+        "id": "35ae67d13d7b4483de96f839",
+        "title": "Sendling-Perspektiven",
+        "published": "2026-10-02T15:26:29+00:00",
+        "episodeUrl": "https://lora924.de/2026/10/02/sendling-perspektiven/",
+        "audioUrl": "https://www.freie-radios.net/mp3/20260806-sendlingpers-143868.mp3",
+        "feedUrl": "https://lora924.de/feed/",
+        "language": "de",
+        "languageVerified": true,
+        "languageReviewRequired": false
+      },
+      "sameAudioUrl": true,
+      "observations": [
+        {
+          "url": "https://lora924.de/2026/08/06/sendling-perspektiven/",
+          "status": 404,
+          "location": null,
+          "bytes": 75951,
+          "sha256": "9433d8bcad1a215e5edfc4ddfb402326c934142235e259fc581c20ba4cb9435f",
+          "canonical": null,
+          "ogUrl": null,
+          "title": "Untitled",
+          "published": null,
+          "modified": null,
+          "postId": null,
+          "observedAtUTC": "2026-10-03T03:19:54.791Z"
+        },
+        {
+          "url": "https://lora924.de/2026/10/02/sendling-perspektiven/",
+          "status": 200,
+          "location": null,
+          "bytes": 83288,
+          "sha256": "14a86c51c5447d5dc3bc2933db658d923553261f86203af9f339848a9f548180",
+          "canonical": "https://lora924.de/2026/10/02/sendling-perspektiven/",
+          "ogUrl": "https://lora924.de/2026/10/02/sendling-perspektiven/",
+          "title": "Sendling-Perspektiven",
+          "published": "2026-10-02T17:26:29+02:00",
+          "modified": "2026-10-02T18:32:54+02:00",
+          "postId": "86913",
+          "observedAtUTC": "2026-10-03T03:19:56.844Z"
+        }
+      ]
+    },
+    {
+      "id": "87194b19c4e6cf09d2204628",
+      "previous": {
+        "id": "87194b19c4e6cf09d2204628",
+        "title": "Auf Kante genäht",
+        "published": "2026-08-02T12:06:10+00:00",
+        "episodeUrl": "https://lora924.de/2026/08/02/auf-kante-genaeht/",
+        "audioUrl": "https://www.freie-radios.net/mp3/20190201-giltinmnchen-93394.mp3?dl=1",
+        "feedUrl": "https://lora924.de/feed/",
+        "language": "de",
+        "languageVerified": true,
+        "languageReviewRequired": false
+      },
+      "current": {
+        "id": "87194b19c4e6cf09d2204628",
+        "title": "Auf Kante genäht",
+        "published": "2026-09-30T11:36:42+00:00",
+        "episodeUrl": "https://lora924.de/2026/09/30/auf-kante-genaeht/",
+        "audioUrl": "https://www.freie-radios.net/mp3/20190201-giltinmnchen-93394.mp3?dl=1",
+        "feedUrl": "https://lora924.de/feed/",
+        "language": "de",
+        "languageVerified": true,
+        "languageReviewRequired": false
+      },
+      "sameAudioUrl": true,
+      "observations": [
+        {
+          "url": "https://lora924.de/2026/08/02/auf-kante-genaeht/",
+          "status": 301,
+          "location": "https://lora924.de/2026/09/30/auf-kante-genaeht/",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "canonical": null,
+          "ogUrl": null,
+          "title": null,
+          "published": null,
+          "modified": null,
+          "postId": null,
+          "observedAtUTC": "2026-10-03T03:19:57.115Z"
+        },
+        {
+          "url": "https://lora924.de/2026/09/30/auf-kante-genaeht/",
+          "status": 200,
+          "location": null,
+          "bytes": 173086,
+          "sha256": "c3619fcd70fa3f4a008eb7ccf2d0e3375d382affc4bbc741dd5b839727b52400",
+          "canonical": "https://lora924.de/2026/09/30/auf-kante-genaeht/",
+          "ogUrl": "https://lora924.de/2026/09/30/auf-kante-genaeht/",
+          "title": "Auf Kante genäht",
+          "published": "2026-09-30T13:36:42+02:00",
+          "modified": "2026-09-30T14:08:30+02:00",
+          "postId": "31489",
+          "observedAtUTC": "2026-10-03T03:20:02.981Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "default",
+    "status": 200,
+    "headerMs": 737.1999999992549,
+    "totalMs": 12290.60000000149,
+    "bytes": 1701964,
+    "sha256": "ac2c2f944b814be0fce19129791c39d87c0940f8c82caf47bdc868cc5bcb8b15",
+    "timing": [
+      {
+        "protocol": "h3",
+        "duration": 12281.10000000149
+      }
+    ]
+  },
+  {
+    "name": "http1",
+    "status": 200,
+    "headerMs": 3775,
+    "totalMs": 19410.099999997765,
+    "bytes": 1701964,
+    "sha256": "ac2c2f944b814be0fce19129791c39d87c0940f8c82caf47bdc868cc5bcb8b15",
+    "timing": [
+      {
+        "protocol": "h3",
+        "duration": 19399.79999999702
+      }
+    ]
+  }
+]
