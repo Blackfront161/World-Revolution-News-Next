@@ -14,7 +14,7 @@
     "apps/website/src/features/knowledge/packed/legacy-knowledge-v1.json",
     "docs/evidence/WRN-APP-HANDOFF-INTEGRATION-2026-10-03/input-bindings.json"
   ],
-  "createdAt": "2026-10-03T00:01:59.169Z",
+  "createdAt": "2026-10-03T00:08:11.651Z",
   "hostingShellBytes": 7807982,
   "hostingShellId": "0d72ef4f9334f6a7cc1fec884931157ed3ed3f3ecb2f6214c5ecd6d29fefc7a8",
   "websiteManifestSha256": "599f6db1a4f1dec174d5ac8b53c1b0baf6dfbdf2eb6764547a8a980649aa1d22",
@@ -84,6 +84,11 @@
       "path": "live-home-1440.png",
       "bytes": 1087805,
       "sha256": "3ca68475d31bad06afe153e72bff9552ec77d8c394d1cd1b29a11f8a7671af71"
+    },
+    {
+      "path": "live-home-offline-reopened.png",
+      "bytes": 634026,
+      "sha256": "c0271c8249cbe54f79c3ea1379a051430105b64805b2b2019bcffc811757c320"
     },
     {
       "path": "live-immutable-receipt.json",
