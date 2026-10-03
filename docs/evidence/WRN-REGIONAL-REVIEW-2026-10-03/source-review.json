@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "checkedAtUTC": "2026-10-03T01:10:45.000Z",
+  "reviewReference": "wrn-current-regional-review-2026-10-03",
+  "previousRevision": 3,
+  "previousInputSha256": "4ccb0da681444a8970e16113c7160c840f4cc9d777aafaba82923478ad9672a3",
+  "revision": 4,
+  "inputSha256": "571eb5866536482dc6f5c046b8d82824bc85adedaf127316ac4b79b771d40236",
+  "validUntil": "2026-10-10T01:10:45.000Z",
+  "scope": "Existing scheduled public event metadata rechecked against original pages; no new source admission, copied fulltext/artwork, live upload or native release.",
+  "method": "Fresh bounded original-page HTTP reads plus rendered primary-source web reads; metadata only. No review date inferred from successful build.",
+  "confirmed": [
+    {
+      "eventId": "event-ewoc-workers-circle-2026-10-06",
+      "sourceId": "source-interference-archive",
+      "originalUrl": "https://interferencearchive.org/event/ewoc-workers-circle/",
+      "fields": {
+        "date": "2026-10-06",
+        "localTime": "18:30–20:30",
+        "timeZone": "America/New_York",
+        "venue": "Interference Archive, Brooklyn",
+        "confirmedBy": "Organizer/venue event page; corresponding local timezone provided."
+      },
+      "http": {
+        "url": "https://interferencearchive.org/event/ewoc-workers-circle/",
+        "http": 200,
+        "sha256": "ccf7d21c5f6f72bcc7ae9c79cf56a84e3bc577332f4a2abe4a699473ba554141",
+        "matches": {
+          "2026": true,
+          "Oct6": true,
+          "Oct23": false,
+          "Oct31": false,
+          "Nov7and8": false,
+          "Dec12": false
+        }
+      }
+    },
+    {
+      "eventId": "event-london-constitutionalising-anarchy-launch-2026",
+      "sourceId": "source-isrf",
+      "originalUrl": "https://mailinglist.isrf.org/p/isrf-book-launch-announcement-constitutionalisin",
+      "fields": {
+        "date": "2026-10-23",
+        "localTime": "18:00 BST; catalog retains day precision because end is unknown",
+        "venue": "Bishopsgate Institute, London",
+        "confirmedBy": "ISRF public book launch announcement."
+      },
+      "http": {
+        "url": "https://mailinglist.isrf.org/p/isrf-book-launch-announcement-constitutionalisin",
+        "http": 200,
+        "sha256": "3d9647b1da252734a780445487d40af8087743c54590fb5b3d5a60af2b2e0612",
+        "matches": {
+          "2026": true,
+          "Oct6": false,
+          "Oct23": true,
+          "Oct31": false,
+          "Nov7and8": false,
+          "Dec12": false
+        }
+      }
+    },
+    {
+      "eventId": "event-manchester-salford-anarchist-bookfair-2026",
+      "sourceId": "source-manchester-bookfair",
+      "originalUrl": "https://bookfair.org.uk/",
+      "fields": {
+        "date": "2026-10-31",
+        "localTime": "10:00–16:00",
+        "venue": "People’s History Museum",
+        "confirmedBy": "Organizer homepage and current page title."
+      },
+      "http": {
+        "url": "https://bookfair.org.uk/",
+        "http": 200,
+        "sha256": "f2269e698f3f6168478ac0e451b2cb0f9a39a78d3d3cd9efacd8698279277875",
+        "matches": {
+          "2026": true,
+          "Oct6": false,
+          "Oct23": false,
+          "Oct31": true,
+          "Nov7and8": false,
+          "Dec12": false
+        }
+      }
+    },
+    {
+      "eventId": "event-santiago-encuentro-libro-anarquista-2026",
+      "sourceId": "source-la-zarzamora",
+      "originalUrl": "https://lazarzamora.cl/invitacion-al-8vo-encuentro-del-libro-y-la-propaganda-anarquista-de-santiago-2026/",
+      "fields": {
+        "dates": [
+          "2026-11-07",
+          "2026-11-08"
+        ],
+        "venue": "Not confirmed; preserve null",
+        "confirmedBy": "Attributed public announcement; dates in body, no artwork copied."
+      },
+      "http": {
+        "url": "https://lazarzamora.cl/invitacion-al-8vo-encuentro-del-libro-y-la-propaganda-anarquista-de-santiago-2026/",
+        "http": 200,
+        "sha256": "3554f3c5765aa2fff4d14a55dd9c8a54934ed2f963b070fbb9ed0a7b236f2f70",
+        "matches": {
+          "2026": true,
+          "Oct6": false,
+          "Oct23": false,
+          "Oct31": false,
+          "Nov7and8": true,
+          "Dec12": false
+        }
+      }
+    }
+  ],
+  "held": [
+    {
+      "eventId": "event-sao-paulo-feira-anarquista-2026",
+      "reason": "Original attributed-announcement page timed out in two independent retrieval paths; no fresh date/time/venue confirmation. Temporary hold is not cancellation or permanent source removal.",
+      "originalEvent": {
+        "id": "event-sao-paulo-feira-anarquista-2026",
+        "regionId": "region-sao-paulo",
+        "sourceId": "source-noticias-anarquistas",
+        "title": "XVI Feira Anarquista de São Paulo",
+        "language": "pt",
+        "venue": "ARCO Escola-Cooperativa, Rua Corinto 652, Butantã",
+        "originalUrl": "https://noticiasanarquistas.noblogs.org/post/2026/06/19/iniciamos-os-trabalhos-de-divulgacao-da-xvi-feira-anarquista-de-sao-paulo/",
+        "status": "scheduled",
+        "schedule": {
+          "precision": "minute",
+          "startAt": "2026-12-12T13:00:00.000Z",
+          "endAt": "2026-12-12T22:00:00.000Z",
+          "timeZone": "America/Sao_Paulo"
+        }
+      },
+      "originalSource": {
+        "id": "source-noticias-anarquistas",
+        "name": "Agência de Notícias Anarquistas",
+        "language": "pt",
+        "url": "https://noticiasanarquistas.noblogs.org/post/2026/06/19/iniciamos-os-trabalhos-de-divulgacao-da-xvi-feira-anarquista-de-sao-paulo/",
+        "kind": "attributed-announcement",
+        "checkedOn": "2026-09-25"
+      },
+      "http": {
+        "url": "https://noticiasanarquistas.noblogs.org/post/2026/06/19/iniciamos-os-trabalhos-de-divulgacao-da-xvi-feira-anarquista-de-sao-paulo/",
+        "error": "<urlopen error timed out>"
+      },
+      "restoreRule": "Recheck original/official announcement; restore same event/source IDs only after current metadata confirmation."
+    }
+  ],
+  "unmodifiedContracts": [
+    "Seven-day catalog freshness limit",
+    "48-hour package renewal minimum",
+    "Hash pin integrity",
+    "No unchecked source date refresh",
+    "Timezone precision and metadata-only rights"
+  ],
+  "distribution": "Source candidate only; existing Website live snapshot and Next Code27 internal bundle remain immutable until separate rebuilt package publication."
+}

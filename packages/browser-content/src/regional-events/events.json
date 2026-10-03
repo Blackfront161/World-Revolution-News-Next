@@ -1,14 +1,23 @@
 {
   "schema": "wrn.production-regional-events.v1",
-  "revision": 3,
-  "generatedAt": "2026-09-25T00:00:00.000Z",
-  "validUntil": "2026-10-02T00:00:00.000Z",
+  "revision": 4,
+  "generatedAt": "2026-10-03T01:10:45.000Z",
+  "validUntil": "2026-10-10T01:10:45.000Z",
   "rights": "metadata-references-only",
-  "reviewReference": "wrn-current-regional-review-2026-09-25",
+  "reviewReference": "wrn-current-regional-review-2026-10-03",
   "continents": [
-    { "id": "continent-europe", "name": "Europe" },
-    { "id": "continent-north-america", "name": "North America" },
-    { "id": "continent-south-america", "name": "South America" }
+    {
+      "id": "continent-europe",
+      "name": "Europe"
+    },
+    {
+      "id": "continent-north-america",
+      "name": "North America"
+    },
+    {
+      "id": "continent-south-america",
+      "name": "South America"
+    }
   ],
   "countries": [
     {
@@ -37,15 +46,31 @@
     }
   ],
   "regions": [
-    { "id": "region-london", "countryId": "country-gb", "name": "London" },
+    {
+      "id": "region-london",
+      "countryId": "country-gb",
+      "name": "London"
+    },
     {
       "id": "region-greater-manchester",
       "countryId": "country-gb",
       "name": "Greater Manchester"
     },
-    { "id": "region-new-york", "countryId": "country-us", "name": "New York" },
-    { "id": "region-santiago", "countryId": "country-cl", "name": "Santiago" },
-    { "id": "region-sao-paulo", "countryId": "country-br", "name": "São Paulo" }
+    {
+      "id": "region-new-york",
+      "countryId": "country-us",
+      "name": "New York"
+    },
+    {
+      "id": "region-santiago",
+      "countryId": "country-cl",
+      "name": "Santiago"
+    },
+    {
+      "id": "region-sao-paulo",
+      "countryId": "country-br",
+      "name": "São Paulo"
+    }
   ],
   "sources": [
     {
@@ -54,7 +79,7 @@
       "language": "en",
       "url": "https://interferencearchive.org/",
       "kind": "venue",
-      "checkedOn": "2026-09-25"
+      "checkedOn": "2026-10-03"
     },
     {
       "id": "source-isrf",
@@ -62,7 +87,7 @@
       "language": "en",
       "url": "https://mailinglist.isrf.org/p/isrf-book-launch-announcement-constitutionalisin",
       "kind": "attributed-announcement",
-      "checkedOn": "2026-09-25"
+      "checkedOn": "2026-10-03"
     },
     {
       "id": "source-manchester-bookfair",
@@ -70,7 +95,7 @@
       "language": "en",
       "url": "https://bookfair.org.uk/",
       "kind": "organizer",
-      "checkedOn": "2026-09-25"
+      "checkedOn": "2026-10-03"
     },
     {
       "id": "source-la-zarzamora",
@@ -78,15 +103,7 @@
       "language": "es",
       "url": "https://lazarzamora.cl/invitacion-al-8vo-encuentro-del-libro-y-la-propaganda-anarquista-de-santiago-2026/",
       "kind": "attributed-announcement",
-      "checkedOn": "2026-09-25"
-    },
-    {
-      "id": "source-noticias-anarquistas",
-      "name": "Agência de Notícias Anarquistas",
-      "language": "pt",
-      "url": "https://noticiasanarquistas.noblogs.org/post/2026/06/19/iniciamos-os-trabalhos-de-divulgacao-da-xvi-feira-anarquista-de-sao-paulo/",
-      "kind": "attributed-announcement",
-      "checkedOn": "2026-09-25"
+      "checkedOn": "2026-10-03"
     }
   ],
   "events": [
@@ -152,22 +169,6 @@
         "startDate": "2026-11-07",
         "endDate": "2026-11-08",
         "timeZone": "America/Santiago"
-      }
-    },
-    {
-      "id": "event-sao-paulo-feira-anarquista-2026",
-      "regionId": "region-sao-paulo",
-      "sourceId": "source-noticias-anarquistas",
-      "title": "XVI Feira Anarquista de São Paulo",
-      "language": "pt",
-      "venue": "ARCO Escola-Cooperativa, Rua Corinto 652, Butantã",
-      "originalUrl": "https://noticiasanarquistas.noblogs.org/post/2026/06/19/iniciamos-os-trabalhos-de-divulgacao-da-xvi-feira-anarquista-de-sao-paulo/",
-      "status": "scheduled",
-      "schedule": {
-        "precision": "minute",
-        "startAt": "2026-12-12T13:00:00.000Z",
-        "endAt": "2026-12-12T22:00:00.000Z",
-        "timeZone": "America/Sao_Paulo"
       }
     }
   ]

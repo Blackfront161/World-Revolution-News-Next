@@ -6,24 +6,33 @@ import test from 'node:test';
 import { checkCurrentRegionalEvents } from './check-current-regional-events.mjs';
 
 const workspace = path.resolve(import.meta.dirname, '..');
+const currentSnapshot = JSON.parse(
+  await readFile(
+    path.join(workspace, 'packages/browser-content/src/regional-events/events.json'),
+    'utf8',
+  ),
+);
 
-test('accepts the exact pinned five-event snapshot outside its renewal window', async () => {
+test('accepts the current reviewed pinned snapshot outside its renewal window', async () => {
   const result = await checkCurrentRegionalEvents({
     root: workspace,
-    at: '2026-09-25T14:00:00.000Z',
+    at: Date.parse(currentSnapshot.generatedAt) + 3_600_000,
     minimumHours: 48,
   });
   assert.equal(result.schema, 'wrn.regional-events-freshness-check.v1');
-  assert.equal(result.revision, 3);
-  assert.equal(result.events, 5);
-  assert.equal(result.sources, 5);
-  assert.equal(result.validUntil, '2026-10-02T00:00:00.000Z');
+  assert.equal(result.revision, 4);
+  assert.equal(result.events, 4);
+  assert.equal(result.sources, 4);
+  assert.equal(result.validUntil, currentSnapshot.validUntil);
   assert.equal(result.publicationPerformed, false);
   assert.match(result.sha256, /^[a-f0-9]{64}$/u);
 });
 
 test('requires review before the snapshot expires and at the exact boundary', async () => {
-  for (const at of ['2026-09-30T00:00:00.000Z', '2026-10-02T00:00:00.000Z'])
+  for (const at of [
+    Date.parse(currentSnapshot.validUntil) - 48 * 3_600_000,
+    currentSnapshot.validUntil,
+  ])
     await assert.rejects(
       checkCurrentRegionalEvents({ root: workspace, at, minimumHours: 48 }),
       /regional-events-renewal-required/u,
@@ -46,7 +55,7 @@ test('rejects changed bytes even when the JSON still parses', async () => {
     writeFile(path.join(dataDirectory, 'data.ts'), pin),
   ]);
   await assert.rejects(
-    checkCurrentRegionalEvents({ root, at: '2026-09-25T14:00:00.000Z' }),
+    checkCurrentRegionalEvents({ root, at: currentSnapshot.generatedAt }),
     /regional-hash-pin-mismatch/u,
   );
 });
