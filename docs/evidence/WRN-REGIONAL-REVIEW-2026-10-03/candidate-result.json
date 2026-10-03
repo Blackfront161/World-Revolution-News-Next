@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "productCommit": "03c2aaadcc4988a4911a97522aafd4246fae04bb",
+  "baseProductCommit": "566422758241190f432d8c8a09d67a5f589d90ac",
+  "independentSourceReview": {
+    "result": "PASS",
+    "threadId": "019ff285-63dc-7ed2-88a8-cab5f06ed26e",
+    "turnId": "01a0ff58-4a20-76d2-8ea1-d99b2cd81297",
+    "reproducedTests": {
+      "tools": 8,
+      "regionalContract": 12,
+      "regionalUI": 7
+    },
+    "scope": "source/guard/scope correctness, not independent second live source fetch or release approval"
+  },
+  "localTests": {
+    "tools": 8,
+    "contracts": 38,
+    "mobile": 46
+  },
+  "nodeVersion": "24.19.0",
+  "build": "PASS",
+  "offlineShellBytes": 7805953,
+  "offlineShellBudget": 8388608,
+  "largestJsChunkBytes": 418517,
+  "jsChunkBudget": 500000,
+  "package": {
+    "path": "work/regional-site-candidate",
+    "manifestPath": "work/regional-site-candidate.manifest.json",
+    "manifestSha256": "7608ba6e34ff6cf9ca3795da5549ed5ff51d607a8c91a3c87d492112e7bbbf53",
+    "sourceCommit": "03c2aaadcc4988a4911a97522aafd4246fae04bb",
+    "shellId": "e0a50e0cd362402653bd5257b7e9a41a551900d070d31f2ccdf1230039da2c82",
+    "files": 46,
+    "verification": "reconstructed closure/manifest/bytes PASS"
+  },
+  "browser": {
+    "url": "http://127.0.0.1:43241/#home",
+    "europe": "London and Manchester rendered with updated review dates and original links",
+    "brazil": "No upcoming events; held Sao Paulo is not offered as fresh",
+    "geolocationRequested": false,
+    "regionPersisted": false
+  },
+  "publicationPerformed": false,
+  "nativeArtifactBuilt": false,
+  "remaining": [
+    "Independent final package review",
+    "Coordinate existing Website worker integration",
+    "Production headers/readback/offline release tests",
+    "Next mobile package/source integration; existing Code27 immutable"
+  ]
+}
