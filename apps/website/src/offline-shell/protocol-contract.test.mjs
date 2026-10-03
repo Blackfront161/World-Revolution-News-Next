@@ -28,31 +28,100 @@ test('WRN illustration is optional, uniquely bounded and restricted to its local
   ]) {
     assert.equal(p.metadata({ entries: base, totalBytes: base.length }), true);
     for (const family of ['land-rights', 'austerity']) {
-    const image = {
-      path: `/assets/wrn-${family}-illustration-v1-a.webp`,
+      const image = {
+        path: `/assets/wrn-${family}-illustration-v1-a.webp`,
+        mime: 'image/webp',
+        bytes: 700 * 1024,
+        sha256: 'a'.repeat(64),
+      };
+      const withImage = { entries: [...base, image], totalBytes: base.length + image.bytes };
+      assert.equal(p.metadata(withImage), true);
+      for (const patch of [
+        { bytes: 700 * 1024 + 1 },
+        { mime: 'image/png' },
+        { path: '/assets/foreign-a.webp' },
+        { path: 'https://example.org/assets/wrn-land-rights-illustration-v1-a.webp' },
+        { path: '/assets/wrn-land-rights-illustration-v1-a.webp?unbound=1' },
+      ]) {
+        const invalid = structuredClone(withImage);
+        Object.assign(invalid.entries.at(-1), patch);
+        invalid.totalBytes = invalid.entries.reduce((sum, item) => sum + item.bytes, 0);
+        assert.equal(p.metadata(invalid), false);
+      }
+      const duplicate = structuredClone(withImage);
+      duplicate.entries.push({ ...image, path: '/assets/wrn-land-rights-illustration-v1-b.webp' });
+      duplicate.totalBytes += image.bytes;
+      assert.equal(p.metadata(duplicate), false);
+    }
+  }
+});
+
+test('two additional illustrations preserve required families, unique paths and aggregate limits', async () => {
+  const p = (await import('./protocol.mjs')).createShellProtocol();
+  const base = [
+    ['/index.html', 'text/html; charset=utf-8'],
+    ['/assets/index-a.js', 'text/javascript; charset=utf-8'],
+    ['/assets/index-a.css', 'text/css; charset=utf-8'],
+    ['/assets/solinaridao-header-mark-filled-a.png', 'image/png'],
+    ['/assets/wrn-future-header-white-a.png', 'image/png'],
+    ...['legacy-knowledge-v1', 'legacy-support-v1', 'content-directory-v1'].map((name) => [
+      `/assets/${name}-a.json`,
+      'application/json; charset=utf-8',
+    ]),
+  ].map(([path, mime]) => ({ path, mime, bytes: 1, sha256: 'a'.repeat(64) }));
+  for (const graph of [
+    base,
+    [
+      ...base,
+      {
+        path: '/assets/react-vendor-a.js',
+        mime: 'text/javascript; charset=utf-8',
+        bytes: 1,
+        sha256: 'a'.repeat(64),
+      },
+    ],
+  ]) {
+    const images = ['teachers', 'agroecology'].map((name) => ({
+      path: `/assets/wrn-${name}-illustration-v1-a.webp`,
       mime: 'image/webp',
       bytes: 700 * 1024,
       sha256: 'a'.repeat(64),
-    };
-    const withImage = { entries: [...base, image], totalBytes: base.length + image.bytes };
-    assert.equal(p.metadata(withImage), true);
-    for (const patch of [
+    }));
+    const entries = [...graph, ...images],
+      totalBytes = entries.reduce((sum, item) => sum + item.bytes, 0);
+    assert.equal(p.metadata({ entries, totalBytes }), true);
+    assert.equal(
+      p.metadata({
+        entries: [
+          ...entries,
+          { ...images[0], path: '/assets/wrn-teachers-illustration-v1-b.webp' },
+        ],
+        totalBytes: totalBytes + images[0].bytes,
+      }),
+      false,
+    );
+    for (const altered of [
+      { path: '/assets/wrn-unknown-illustration-v1-a.webp' },
       { bytes: 700 * 1024 + 1 },
       { mime: 'image/png' },
-      { path: '/assets/foreign-a.webp' },
-      { path: 'https://example.org/assets/wrn-land-rights-illustration-v1-a.webp' },
-      { path: '/assets/wrn-land-rights-illustration-v1-a.webp?unbound=1' },
     ]) {
-      const invalid = structuredClone(withImage);
-      Object.assign(invalid.entries.at(-1), patch);
-      invalid.totalBytes = invalid.entries.reduce((sum, item) => sum + item.bytes, 0);
-      assert.equal(p.metadata(invalid), false);
+      const invalid = structuredClone(entries);
+      Object.assign(invalid.at(-1), altered);
+      assert.equal(
+        p.metadata({
+          entries: invalid,
+          totalBytes: invalid.reduce((sum, item) => sum + item.bytes, 0),
+        }),
+        false,
+      );
     }
-    const duplicate = structuredClone(withImage);
-    duplicate.entries.push({ ...image, path: '/assets/wrn-land-rights-illustration-v1-b.webp' });
-    duplicate.totalBytes += image.bytes;
-    assert.equal(p.metadata(duplicate), false);
-    }
+    assert.equal(
+      p.metadata({
+        entries: entries.filter((item) => !item.path.includes('legacy-support')),
+        totalBytes: totalBytes - 1,
+      }),
+      false,
+    );
   }
 });
 

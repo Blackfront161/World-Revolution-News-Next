@@ -19,7 +19,8 @@ const allowedImage =
   /^(solinaridao-header-mark-filled|wrn-future-header-white)-[A-Za-z0-9_-]+\.png$/;
 const allowedAppIcon = /^wrn-app-icon-[A-Za-z0-9_-]+\.png$/;
 const maxAppIconBytes = 16 * 1024;
-const allowedIllustration = /^wrn-austerity-illustration-v1-[A-Za-z0-9_-]+\.webp$/;
+const allowedIllustration =
+  /^wrn-(austerity|teachers|agroecology)-illustration-v1-[A-Za-z0-9_-]+\.webp$/;
 const maxIllustrationBytes = 700 * 1024;
 const approvedIllustration = JSON.parse(
   await readFile(
@@ -27,6 +28,12 @@ const approvedIllustration = JSON.parse(
     'utf8',
   ),
 );
+const approvedAdditionalIllustrations = JSON.parse(
+  await readFile(
+    new URL('../src/features/home/home-additional-illustrations-v1.json', import.meta.url),
+    'utf8',
+  ),
+).entries;
 const allowedJson =
   /^(legacy-knowledge-v1|legacy-support-v1|content-directory-v1|production-events-media-v1)-[A-Za-z0-9_-]+\.json$/;
 const mimeFor = (file) =>
@@ -196,7 +203,12 @@ export async function collectShellManifest({
   const graph = collectViteClosure(vite);
   const appIcons = assets.filter((entry) => allowedAppIcon.test(entry));
   const illustrations = assets.filter((entry) => allowedIllustration.test(entry));
-  if (illustrations.length > 1) throw new Error('Duplicate WRN illustration family');
+  if (
+    illustrations.length > 3 ||
+    new Set(illustrations.map((asset) => allowedIllustration.exec(asset)[1])).size !==
+      illustrations.length
+  )
+    throw new Error('Duplicate WRN illustration family');
   if (appIcons.length > 1) throw new Error('Duplicate app icon family');
   // Preserve historical header-favicon graphs for rollback. The dedicated icon
   // is only admitted when this exact family is referenced by the HTML favicon.
@@ -276,12 +288,20 @@ export async function collectShellManifest({
       throw new Error(`App icon exceeds its 16 KiB byte cap: ${entryPath}`);
     if (allowedIllustration.test(path.basename(entryPath))) {
       const bytes = await readFile(diskPath);
+      const family = allowedIllustration.exec(path.basename(entryPath))[1];
+      const approved =
+        family === 'austerity'
+          ? approvedIllustration
+          : approvedAdditionalIllustrations.find(
+              (entry) => entry.asset === `wrn-${family}-illustration-v1.webp`,
+            );
       if (
+        !approved ||
         details.size > maxIllustrationBytes ||
-        details.size !== approvedIllustration.bytes ||
-        digest(bytes) !== approvedIllustration.sha256 ||
-        approvedIllustration.assetType !== 'wrn-original-generated-illustration' ||
-        approvedIllustration.noForeignSourceImageCopied !== true
+        details.size !== approved.bytes ||
+        digest(bytes) !== approved.sha256 ||
+        approved.assetType !== 'wrn-original-generated-illustration' ||
+        approved.noForeignSourceImageCopied !== true
       )
         throw new Error('WRN illustration does not match the approved handoff');
     }

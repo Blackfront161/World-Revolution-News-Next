@@ -21,9 +21,55 @@
   font-weight: 750;
 }
 .app-start-topics button[aria-pressed='true'] {
-  background: #d71934;
-  color: white;
-  border-color: #d71934;
+  background: var(--wrn-color-action);
+  color: var(--wrn-color-action-contrast);
+  border-color: var(--wrn-color-action);
+}
+
+/* Autonom follows the App's compact image/headline rows. Image provenance stays visible. */
+:root[data-theme='editorial'] .app-start-front,
+:root[data-theme='editorial'] .app-start-grid {
+  display: block;
+}
+:root[data-theme='editorial'] .app-start-lead {
+  padding: 0.8rem;
+}
+:root[data-theme='editorial'] .app-start-story {
+  display: grid;
+  grid-template-columns: minmax(0, 0.45fr) minmax(0, 0.55fr);
+  gap: 1rem;
+  align-items: start;
+  border-top: 0;
+  margin-bottom: 0.8rem;
+}
+:root[data-theme='editorial'] .app-start-story > h2,
+:root[data-theme='editorial'] .app-start-story > h3 {
+  grid-column: 2;
+  font-size: clamp(1.2rem, 2.2vw, 2rem);
+  line-height: 1.2;
+}
+:root[data-theme='editorial'] .app-start-story:not(:has(figure)) {
+  grid-template-columns: minmax(0, 1fr);
+}
+:root[data-theme='editorial'] .app-start-story:not(:has(figure)) > h3,
+:root[data-theme='editorial'] .app-start-story:not(:has(figure)) > h2 {
+  grid-column: 1;
+}
+:root[data-theme='editorial'] .app-start-story__summary,
+:root[data-theme='editorial'] .app-start-story__meta,
+:root[data-theme='editorial'] .app-start-story__topics,
+:root[data-theme='editorial'] .app-start-story .app-start-original {
+  display: none;
+}
+:root[data-theme='editorial'] .app-start-illustration {
+  grid-column: 1;
+  margin: 0;
+}
+@media (max-width: 600px) {
+  :root[data-theme='editorial'] .app-start-story {
+    grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr);
+    gap: 0.7rem;
+  }
 }
 .app-start-front {
   display: grid;
@@ -47,7 +93,7 @@
   background: var(--wrn-color-surface);
   padding: 1.15rem;
   border: 1px solid var(--wrn-color-border);
-  border-top: 5px solid #d71934;
+  border-top: 5px solid var(--wrn-color-action);
 }
 .app-start-lead .app-start-story {
   border-top: 0;
@@ -55,7 +101,7 @@
   padding: 0;
 }
 .app-start-lead .app-start-story__meta {
-  color: #d71934;
+  color: var(--wrn-color-action);
   font-size: 0.8rem;
 }
 .app-start-lead .app-start-story__summary {
@@ -82,7 +128,7 @@
   line-height: 1.5;
 }
 .app-start-story--main .app-start-original {
-  color: #d71934;
+  color: var(--wrn-color-action);
 }
 .app-start-metrics {
   display: flex;
@@ -130,7 +176,7 @@
 }
 .app-start-story {
   min-width: 0;
-  border-top: 3px solid #d71934;
+  border-top: 3px solid var(--wrn-color-action);
   padding: 0.8rem 0 1rem;
   border-bottom: 1px solid var(--wrn-color-border);
 }
@@ -220,7 +266,7 @@
 }
 .app-start-latest .app-start-section-heading {
   margin-top: 0;
-  border-color: #d71934;
+  border-color: var(--wrn-color-action);
 }
 .app-start-latest ol {
   list-style: none;
@@ -234,7 +280,7 @@
   border-bottom: 1px solid var(--wrn-color-border);
 }
 .app-start-latest time {
-  color: #d71934;
+  color: var(--wrn-color-action);
   font-weight: 800;
   font-size: 0.68rem;
 }
@@ -280,7 +326,7 @@
   line-height: 1.25;
 }
 .app-start-briefing b {
-  color: #d71934;
+  color: var(--wrn-color-action);
   font-size: 2rem;
 }
 .app-start-today {

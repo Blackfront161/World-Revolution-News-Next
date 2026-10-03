@@ -308,9 +308,7 @@ describe('website local newsfeed', () => {
 
     fireEvent.click(screen.getAllByRole('button', { name: 'More' })[0]!);
     const selector = screen.getByLabelText('Color theme');
-    expect(within(selector).getByRole('option', { name: 'Editorial black/red' })).toHaveValue(
-      'editorial',
-    );
+    expect(within(selector).getByRole('option', { name: 'Autonom' })).toHaveValue('editorial');
     await user.selectOptions(selector, 'editorial');
     expect(document.documentElement.dataset.theme).toBe('editorial');
     expect(document.documentElement.dataset.themePreference).toBe('editorial');

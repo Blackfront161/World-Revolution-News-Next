@@ -273,6 +273,44 @@ test('only the approved local WRN illustration bytes enter the bounded closed gr
   );
 });
 
+test('additional news illustrations require exact approved bytes and remain uniquely bounded', async (t) => {
+  const { root, dist } = await fixture();
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const registry = JSON.parse(
+    await readFile(
+      path.resolve(
+        import.meta.dirname,
+        '../src/features/home/home-additional-illustrations-v1.json',
+      ),
+      'utf8',
+    ),
+  );
+  const vitePath = path.join(dist, '.vite/manifest.json');
+  const vite = JSON.parse(await readFile(vitePath, 'utf8'));
+  for (const image of registry.entries) {
+    const builtPath = `assets/${image.asset.replace('.webp', '-a.webp')}`;
+    await writeFile(
+      path.join(dist, builtPath),
+      await readFile(path.resolve(import.meta.dirname, '../src/assets', image.asset)),
+    );
+    vite['index.html'].assets.push(builtPath);
+  }
+  await writeFile(vitePath, JSON.stringify(vite));
+  const manifest = await collectShellManifest({ outputDirectory: dist });
+  assert.equal(createShellProtocol().metadata(manifest), true);
+  assert.equal(manifest.entries.filter((entry) => entry.mime === 'image/webp').length, 2);
+  const imagePath = path.join(dist, 'assets/wrn-teachers-illustration-v1-a.webp');
+  const approved = await readFile(imagePath);
+  await writeFile(imagePath, 'altered');
+  await assert.rejects(() => collectShellManifest({ outputDirectory: dist }), /approved handoff/);
+  await writeFile(imagePath, approved);
+  await writeFile(path.join(dist, 'assets/wrn-teachers-illustration-v1-b.webp'), approved);
+  await assert.rejects(
+    () => collectShellManifest({ outputDirectory: dist }),
+    /Duplicate WRN illustration/,
+  );
+});
+
 test('a second app icon and a favicon which does not bind its dedicated file fail closed', async (t) => {
   const { root, dist } = await fixture();
   t.after(() => rm(root, { recursive: true, force: true }));

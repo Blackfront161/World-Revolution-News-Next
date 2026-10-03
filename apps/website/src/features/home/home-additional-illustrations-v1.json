@@ -1,0 +1,30 @@
+{
+  "schema": "wrn.website-home-additional-illustrations.v1",
+  "directoryCommit": "5304fa0032a6761071962e4b74b66cb6f114c49f",
+  "entries": [
+    {
+      "articleId": "news-cf022a0fd6b1dff18da08d530fe6f0fd9ec23a743d1ac65cd8cbc212c00d5f63",
+      "originalUrl": "https://wagingnonviolence.org/2026/10/iran-teachers-movement-perseveres-against-odds/",
+      "originalTitle": "Iran’s teachers movement perseveres against all odds",
+      "asset": "wrn-teachers-illustration-v1.webp",
+      "assetType": "wrn-original-generated-illustration",
+      "noForeignSourceImageCopied": true,
+      "bytes": 172058,
+      "sha256": "2aa705d84cb5ada966e1f0466c4dfdfa36cbb9188c3009ddd4e7941524184922",
+      "originalPngSha256": "2f07c910d455fca9c3009a053e7ebf098710f2a64a7ffaab6e5471db61f6d3c8",
+      "creator": "World Revolution News / OpenAI image generation"
+    },
+    {
+      "articleId": "news-89996c282207e65c3097efb6adccbc8c85fe46c009854f1cad5386ab1cd96389",
+      "originalUrl": "https://agenciatierraviva.com.ar/sastre-sin-fumigaciones-lo-que-deberia-venir-es-la-agroecologia-para-las-futuras-generaciones/",
+      "originalTitle": "Sastre sin fumigaciones: “Lo que debería venir es la agroecología para las futuras generaciones”",
+      "asset": "wrn-agroecology-illustration-v1.webp",
+      "assetType": "wrn-original-generated-illustration",
+      "noForeignSourceImageCopied": true,
+      "bytes": 188830,
+      "sha256": "dda6b30e14e95ab6f61c21be8c26885559a3e488cef114963bffc198695a2bc8",
+      "originalPngSha256": "75b538012349d795638fa721fed044470efc36dffd693b9a5f101e513945c72d",
+      "creator": "World Revolution News / OpenAI image generation"
+    }
+  ]
+}

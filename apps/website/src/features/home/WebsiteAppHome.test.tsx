@@ -2,15 +2,13 @@ import { describe, expect, it } from 'vitest';
 import type { MobileContentDirectory } from '@wrn/content-contracts/mobile-content-directory-v1';
 import directory from '../projection/data/content-directory-v1.json';
 import layout from './app-home-layout-v1.json';
-import { selectAppHomeArticles } from './WebsiteAppHome';
+import { selectAppHomeArticles } from './app-home-selection';
 const document = directory as MobileContentDirectory;
 const data = { document, projection: document };
 describe('actual App Home selection on the Website', () => {
   it('uses the current App lead and reviewed stories in their exact App role order', () => {
     const home = selectAppHomeArticles(data, document.articles);
-    expect(home.lead?.title).toBe(
-      'Make the wealthy pay: AIDC lays out alternative to austerity',
-    );
+    expect(home.lead?.title).toBe('Make the wealthy pay: AIDC lays out alternative to austerity');
     expect(home.top.map((a) => a.title)).toEqual([
       'Nunavut sports hall of fame inductions begin',
       '“If Bolsonaro wins, they kill us; if Lula wins, they let us die.”',

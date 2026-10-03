@@ -1796,13 +1796,10 @@
 /* Code26 masthead and news canvas. Editorial hierarchy stays in the website;
  * the shared content and reader components keep their existing contracts. */
 .website-shell {
-  --website-code26-cyan: #00f0ff;
-  --website-code26-red: #ff334f;
+  --website-code26-cyan: var(--wrn-color-accent-cyan);
+  --website-code26-red: var(--wrn-color-action);
   --wrn-website-system-cyan: var(--website-code26-cyan);
   --wrn-website-action-magenta: var(--website-code26-red);
-  --wrn-color-action: var(--website-code26-red);
-  --wrn-color-accent: var(--website-code26-cyan);
-  --wrn-color-accent-cyan: var(--website-code26-cyan);
   --wrn-brand-glow-primary: var(--website-code26-cyan);
   --wrn-brand-glow-secondary: var(--website-code26-red);
   background-color: var(--wrn-color-canvas);
@@ -2075,48 +2072,9 @@
   }
 }
 
-/* A stored Editorial preference keeps its value while the website displays
- * the same Code26 news typography and cyan/red chrome as the default theme. */
+/* Preserve the stored theme ID; Autonom uses its own compact layout. */
 :root[data-theme='editorial'] .website-shell {
   --wrn-font-editorial: system-ui, sans-serif;
-  --wrn-color-action: #ff334f;
-  --wrn-color-accent: #00f0ff;
-  --wrn-color-accent-cyan: #00f0ff;
-}
-:root:is(
-    [data-theme='violet'],
-    [data-theme='dark'],
-    [data-theme='editorial'],
-    [data-theme='oled'],
-    [data-theme='soft'],
-    [data-theme='pink']
-  )
-  .website-shell {
-  --wrn-color-canvas: #080d12;
-  --wrn-color-surface: #111a22;
-  --wrn-color-surface-raised: #18242e;
-  --wrn-color-chrome: #05090d;
-  --wrn-color-text: #f6f9fb;
-  --wrn-color-muted: #b9c5cc;
-  --wrn-color-border: #465760;
-  --wrn-color-focus: #00f0ff;
-  --wrn-color-accent-cyan: #00f0ff;
-  --wrn-color-accent-magenta: #ff334f;
-  --wrn-color-action: #ff334f;
-  --wrn-color-accent: #00f0ff;
-  --wrn-brand-wordmark-primary: #00f0ff;
-  --wrn-brand-wordmark-secondary: #ff334f;
-}
-:root:is(
-    [data-theme='violet'],
-    [data-theme='dark'],
-    [data-theme='editorial'],
-    [data-theme='oled'],
-    [data-theme='soft'],
-    [data-theme='pink']
-  )
-  body {
-  background: #080d12;
 }
 :root[data-theme='editorial']
   .website-shell
@@ -2267,10 +2225,7 @@
   color: var(--website-code26-red);
 }
 :root:not([data-theme='light']):not([data-theme='contrast']) .website-shell main {
-  background:
-    radial-gradient(ellipse at 70% 27%, rgba(0, 86, 103, 0.27), transparent 49%),
-    radial-gradient(ellipse at 23% 66%, rgba(89, 19, 34, 0.17), transparent 44%),
-    linear-gradient(180deg, #071015, #02070b 85%);
+  background: var(--wrn-color-canvas);
 }
 .site-header .site-nav-compact .primary-nav-icon {
   display: block;

@@ -12,16 +12,12 @@ import {
   subscribeWebsiteContentDirectory,
   type WebsiteContentDirectory,
 } from '../directory/directory-loader';
-import layout from './app-home-layout-v1.json';
-import {
-  appTopics,
-  appTopicLabel,
-  homeReadingSummary,
-  homeArticleIllustration,
-  homeCoverage,
-} from './home-editorial';
+import { selectAppHomeArticles } from './app-home-selection';
+import { appTopics, appTopicLabel, homeReadingSummary, homeCoverage } from './home-editorial';
 import './app-home.css';
-import homeIllustrationAsset from '../../assets/wrn-austerity-illustration-v1.webp';
+import { WebsiteArticleIllustration } from './WebsiteArticleIllustration';
+import { getWebsiteHomeCopy } from './website-home-copy';
+import { DirectoryArticleLink } from '../reader/directory-article-link';
 
 const homeLabels: Record<
   UiLanguage,
@@ -120,27 +116,6 @@ const homeLabels: Record<
 };
 const topics = appTopics;
 
-/** The App's actual Home selection, projected through the existing Website admission guard. */
-export function selectAppHomeArticles(
-  data: WebsiteContentDirectory,
-  admitted: readonly DirectoryArticle[],
-) {
-  const current = admitted.filter((a) => !a.historical);
-  const byId = new Map(current.map((a) => [a.id, a]));
-  const pick = (ids: readonly string[]) =>
-    ids.flatMap((id) => (byId.has(id) ? [byId.get(id)!] : []));
-  const bound = data.document.sourceCommit === layout.directoryCommit;
-  const lead = bound && layout.lead ? (byId.get(layout.lead) ?? null) : null;
-  return {
-    lead,
-    top: bound ? pick(layout.top) : [],
-    sport: bound ? pick(layout.sport) : [],
-    more: bound ? pick(layout.more) : [],
-    briefing: bound ? pick(layout.briefing) : [],
-    current,
-  };
-}
-
 export function WebsiteAppHome({
   language,
   onBrowse,
@@ -157,7 +132,9 @@ export function WebsiteAppHome({
   const [attempt, setAttempt] = useState(0);
   const [topic, setTopic] = useState('');
   const [editionOpen, setEditionOpen] = useState(false);
+  const [now] = useState(() => Date.now());
   const preferences = useSourcePreferences();
+  const copy = getWebsiteHomeCopy(language);
   const labels = homeLabels[language],
     ui = getUiCopy(language),
     directoryCopy = getDirectoryCopy(language),
@@ -167,11 +144,13 @@ export function WebsiteAppHome({
     const unsubscribe = subscribeWebsiteContentDirectory((next) => {
       if (active) setData(next);
     });
-    setFailed(false);
     const controller = new AbortController();
     void loadWebsiteContentDirectory(controller.signal).then(
       (next) => {
-        if (active) setData(next);
+        if (active) {
+          setData(next);
+          setFailed(false);
+        }
       },
       () => {
         if (active) setFailed(true);
@@ -219,8 +198,6 @@ export function WebsiteAppHome({
     );
   const summary = (article: DirectoryArticle) =>
     data ? homeReadingSummary(article, data.document.sourceCommit, language) : null;
-  const illustration = (article: DirectoryArticle) =>
-    data ? homeArticleIllustration(article, data.document.sourceCommit) : null;
   const story = (article: DirectoryArticle, role = 'main', position = 0) => (
     <article
       className={`app-start-story app-start-story--${role}`}
@@ -229,28 +206,13 @@ export function WebsiteAppHome({
         : { 'data-app-home-article': article.id })}
       key={article.id}
     >
-      {illustration(article) && (
-        <figure className="app-start-illustration" data-wrn-illustration={article.id}>
-          <img
-            src={homeIllustrationAsset}
-            alt={language === 'de' ? illustration(article)!.altDe : illustration(article)!.altEn}
-            lang={language === 'de' ? 'de' : 'en'}
-            width="1672"
-            height="941"
-            loading={role === 'lead' ? 'eager' : 'lazy'}
-          />
-          <figcaption lang={language === 'de' ? 'de' : 'en'}>
-            <strong>
-              {language === 'de'
-                ? illustration(article)!.creditDe
-                : illustration(article)!.creditEn}
-            </strong>
-            {' · '}
-            {language === 'de'
-              ? illustration(article)!.captionDe
-              : illustration(article)!.captionEn}
-          </figcaption>
-        </figure>
+      {data && (
+        <WebsiteArticleIllustration
+          article={article}
+          commit={data.document.sourceCommit}
+          language={language}
+          eager={role === 'lead'}
+        />
       )}
       <div className="app-start-story__meta">
         <span>{article.sourceName}</span>
@@ -258,25 +220,15 @@ export function WebsiteAppHome({
       </div>
       {role === 'lead' ? (
         <h2 className="app-start-headline">
-          <a
-            href={article.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            referrerPolicy="no-referrer"
-          >
+          <DirectoryArticleLink id={article.id} language={language}>
             {title(article, position)}
-          </a>
+          </DirectoryArticleLink>
         </h2>
       ) : (
         <h3>
-          <a
-            href={article.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            referrerPolicy="no-referrer"
-          >
+          <DirectoryArticleLink id={article.id} language={language}>
             {title(article, position)}
-          </a>
+          </DirectoryArticleLink>
         </h3>
       )}
       {summary(article) && (
@@ -296,8 +248,7 @@ export function WebsiteAppHome({
         rel="noopener noreferrer"
         referrerPolicy="no-referrer"
       >
-        {language === 'de' ? 'Beitrag beim Original lesen' : directoryCopy.originalLink}{' '}
-        <span aria-hidden="true">↗</span>
+        {directoryCopy.originalLink} <span aria-hidden="true">↗</span>
       </a>
     </article>
   );
@@ -311,7 +262,7 @@ export function WebsiteAppHome({
       )}
     </header>
   );
-  const coverage = selected ? homeCoverage(selected.current, Date.now()) : null;
+  const coverage = selected ? homeCoverage(selected.current, now) : null;
   return (
     <div className="website-app-start">
       <nav className="app-start-topics" aria-label={ui.topics}>
@@ -325,17 +276,21 @@ export function WebsiteAppHome({
         ))}
       </nav>
       {selected && (
-        <p className="app-start-editorial-credit" lang={language === 'de' ? 'de' : 'en'}>
-          {language === 'de'
-            ? 'Die Startauswahl der App · Kurztexte und Schlagzeilen von WRN · Originalbeiträge jeweils verlinkt'
-            : 'The App’s Home selection · Reading notes and headlines by WRN · Original articles linked'}
+        <p className="app-start-editorial-credit" lang={language}>
+          {copy.editorialCredit}
         </p>
       )}
       {!selected ? (
         <div role={failed ? 'alert' : 'status'}>
           <p>{failed ? directoryCopy.loadError : ui.loading}</p>
           {failed && (
-            <button type="button" onClick={() => setAttempt((a) => a + 1)}>
+            <button
+              type="button"
+              onClick={() => {
+                setFailed(false);
+                setAttempt((a) => a + 1);
+              }}
+            >
               {directoryCopy.retry}
             </button>
           )}
@@ -375,14 +330,9 @@ export function WebsiteAppHome({
                     {selected.current.slice(0, 5).map((article, i) => (
                       <li key={article.id} data-home-directory-article={article.id}>
                         <time dateTime={article.publishedAt ?? undefined}>{dated(article)}</time>
-                        <a
-                          href={article.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          referrerPolicy="no-referrer"
-                        >
+                        <DirectoryArticleLink id={article.id} language={language}>
                           {title(article, i + 1)}
-                        </a>
+                        </DirectoryArticleLink>
                         <small>{article.sourceName}</small>
                       </li>
                     ))}
@@ -415,30 +365,21 @@ export function WebsiteAppHome({
                   {selected.briefing.map((a, i) => (
                     <li key={a.id}>
                       <b>{i + 1}</b>
-                      <a
-                        href={a.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        referrerPolicy="no-referrer"
-                      >
+                      <DirectoryArticleLink id={a.id} language={language}>
                         {title(a, i + 16)}
-                      </a>
+                      </DirectoryArticleLink>
                       <small>{a.sourceName}</small>
                     </li>
                   ))}
                 </ol>
               </section>
               <section data-app-home-section="today">
-                {heading(language === 'de' ? 'Heute bei WRN' : 'Today at WRN')}
+                {heading(copy.today)}
                 <div className="app-start-today">
                   <article>
-                    <h3>{language === 'de' ? 'Letzte 24 Stunden' : 'Last 24 hours'}</h3>
+                    <h3>{copy.last24Hours}</h3>
                     <strong>{coverage?.last24Hours}</strong>
-                    <p>
-                      {language === 'de'
-                        ? 'Meldungen im geprüften Nachrichtenstand'
-                        : 'Reports in the reviewed news snapshot'}
-                    </p>
+                    <p>{copy.reports}</p>
                     <button type="button" onClick={onBrowse}>
                       {labels[5]} →
                     </button>
@@ -447,52 +388,39 @@ export function WebsiteAppHome({
                     <h3>{labels[4]}</h3>
                     <dl className="app-start-metrics">
                       <div>
-                        <dt>{language === 'de' ? 'Sprachen' : 'Languages'}</dt>
+                        <dt>{copy.languages}</dt>
                         <dd>{coverage?.languages}</dd>
                       </div>
                       <div>
-                        <dt>{language === 'de' ? 'Regionen' : 'Regions'}</dt>
+                        <dt>{copy.regions}</dt>
                         <dd>{coverage?.regions}</dd>
                       </div>
                       <div>
-                        <dt>{language === 'de' ? 'Quellen' : 'Sources'}</dt>
+                        <dt>{copy.sources}</dt>
                         <dd>{coverage?.sources}</dd>
                       </div>
                     </dl>
-                    <p>
-                      {language === 'de'
-                        ? 'Bis zu 160 Meldungen der letzten sieben Tage.'
-                        : 'Up to 160 reports from the last seven days.'}
-                    </p>
+                    <p>{copy.coverage}</p>
                     <button type="button" onClick={onBrowse}>
                       {ui.discover} →
                     </button>
                   </article>
                   <article>
-                    <h3>{language === 'de' ? 'Tagesausgabe' : 'Daily edition'}</h3>
+                    <h3>{copy.edition}</h3>
                     <strong>{selected.briefing.length}</strong>
-                    <p>
-                      {language === 'de'
-                        ? 'Die Meldungen aus dem App-Briefing kompakt lesen.'
-                        : 'Read the reports from the App briefing together.'}
-                    </p>
+                    <p>{copy.editionIntro}</p>
                     <button
                       type="button"
                       onClick={() => setEditionOpen((open) => !open)}
                       aria-expanded={editionOpen}
                       aria-controls="app-start-edition"
                     >
-                      {language === 'de' ? 'Ausgabe öffnen' : 'Open edition'}{' '}
-                      <span aria-hidden="true">→</span>
+                      {copy.openEdition} <span aria-hidden="true">→</span>
                     </button>
                   </article>
                   <article>
                     <h3>{ui.solidarity}</h3>
-                    <p>
-                      {language === 'de'
-                        ? 'Geprüfte Anlaufstellen und die private Briefwerkstatt.'
-                        : 'Reviewed support contacts and the private letter workshop.'}
-                    </p>
+                    <p>{copy.solidarityIntro}</p>
                     <a href="#solidarity">{ui.solidarity} →</a>
                   </article>
                 </div>
@@ -500,19 +428,15 @@ export function WebsiteAppHome({
                   <section
                     id="app-start-edition"
                     className="app-start-edition"
-                    aria-label={language === 'de' ? 'Tagesausgabe' : 'Daily edition'}
+                    aria-label={copy.edition}
                   >
                     <header>
-                      <h3>{language === 'de' ? 'Tagesausgabe' : 'Daily edition'}</h3>
+                      <h3>{copy.edition}</h3>
                       <button type="button" onClick={() => setEditionOpen(false)}>
-                        {language === 'de' ? 'Schließen' : 'Close'}
+                        {copy.close}
                       </button>
                     </header>
-                    <p>
-                      {language === 'de'
-                        ? 'WRN-Lesenotizen zu den Originalbeiträgen.'
-                        : 'WRN reading notes about the original articles.'}
-                    </p>
+                    <p>{copy.notes}</p>
                     {selected.briefing.map((a, i) => story(a, 'edition', i + 16))}
                   </section>
                 )}

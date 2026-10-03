@@ -27,6 +27,9 @@ import {
   SourcePreferencesNotice,
 } from '../../../../../packages/browser-content/src/source-preferences-ui';
 import { SportSources } from '../../../../../packages/browser-content/src/sport-sources';
+import { DirectoryArticleLink } from '../reader/directory-article-link';
+import { homeReadingSummary } from '../home/home-editorial';
+import { WebsiteArticleIllustration } from '../home/WebsiteArticleIllustration';
 import { SourcePassCards } from '../../../../../packages/browser-content/src/source-pass-ui';
 import {
   matchesSourcePass,
@@ -106,6 +109,19 @@ export function WebsiteContentDirectoryRoute({
   const [sourceTopic, setSourceTopic] = useState('');
   const [sourceMedium, setSourceMedium] = useState('');
   const [shown, setShown] = useState(30);
+  const readerArticleIds = useMemo(
+    () =>
+      new Set(
+        data
+          ? projectDirectorySourcePreferences({
+              articles: data.projection.articles,
+              sources: data.projection.sources,
+              preferences: sourcePreferences.state,
+            }).map((article) => article.id)
+          : [],
+      ),
+    [data, sourcePreferences.state],
+  );
   useEffect(() => {
     const c = new AbortController();
     const unsubscribe = subscribeWebsiteContentDirectory(setData);
@@ -464,6 +480,18 @@ export function WebsiteContentDirectoryRoute({
                       <p>{entry.url}</p>
                       <p>{copy.historicalHttp}</p>
                     </>
+                  ) : section === 'news' && readerArticleIds.has(entry.id) ? (
+                    <DirectoryArticleLink
+                      id={entry.id}
+                      language={language}
+                      contentLanguage={entry.language === 'und' ? undefined : entry.language}
+                    >
+                      {homeReadingSummary(
+                        data.projection.articles.find((article) => article.id === entry.id)!,
+                        data.document.sourceCommit,
+                        language,
+                      )?.headline ?? entry.title}
+                    </DirectoryArticleLink>
                   ) : (
                     <a
                       href={entry.url}
@@ -474,6 +502,13 @@ export function WebsiteContentDirectoryRoute({
                     </a>
                   )}
                   <p>{entry.sourceName ?? entry.languages?.join(' · ') ?? entry.publisher}</p>
+                  {section === 'news' && readerArticleIds.has(entry.id) && (
+                    <WebsiteArticleIllustration
+                      article={data.projection.articles.find((article) => article.id === entry.id)!}
+                      commit={data.document.sourceCommit}
+                      language={language}
+                    />
+                  )}
                   {section === 'sources' && (
                     <p>
                       {sourcePass?.records.some((record) =>

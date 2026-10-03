@@ -14,6 +14,9 @@ import {
 } from '../directory/directory-loader';
 import { useSourcePreferences } from '../../../../../packages/browser-content/src/source-preferences-ui';
 import './following-directory.css';
+import { DirectoryArticleLink } from '../reader/directory-article-link';
+import { homeReadingSummary } from '../home/home-editorial';
+import { WebsiteArticleIllustration } from '../home/WebsiteArticleIllustration';
 
 const pageSize = 30;
 const title: Readonly<Record<UiLanguage, string>> = {
@@ -38,11 +41,6 @@ const note: Readonly<Record<UiLanguage, string>> = {
   el: 'Φιλτραρισμένα μεταδεδομένα και σύνδεσμοι προς τα πρωτότυπα από τον κατάλογο ειδήσεων· δεν είναι ελεγμένα πλήρη κείμενα. Οι επιλογές σας μένουν σε αυτή τη συσκευή.',
   tr: 'Haber dizininden filtrelenmiş üst veriler ve özgün bağlantılar; doğrulanmış tam metin değildir. Seçiminiz bu cihazda kalır.',
 };
-const external = {
-  target: '_blank',
-  rel: 'noopener noreferrer',
-  referrerPolicy: 'no-referrer',
-} as const;
 
 export function WebsiteFollowingDirectory({
   language,
@@ -56,7 +54,8 @@ export function WebsiteFollowingDirectory({
   const [directory, setDirectory] = useState<WebsiteContentDirectory | null>(null);
   const [failed, setFailed] = useState(false);
   const [attempt, setAttempt] = useState(0);
-  const [shown, setShown] = useState(pageSize);
+  const [pagination, setPagination] = useState({ preferences, count: pageSize });
+  const shown = pagination.preferences === preferences ? pagination.count : pageSize;
   const sourcePreferences = useSourcePreferences();
   const copy = getDirectoryCopy(language);
 
@@ -66,11 +65,11 @@ export function WebsiteFollowingDirectory({
       loadDirectory === loadWebsiteContentDirectory
         ? subscribeWebsiteContentDirectory(setDirectory)
         : () => {};
-    setFailed(false);
     loadDirectory(controller.signal)
       .then((loaded) => {
         if (!controller.signal.aborted) {
           setDirectory(loaded);
+          setFailed(false);
           setFailed(false);
         }
       })
@@ -82,7 +81,6 @@ export function WebsiteFollowingDirectory({
       controller.abort();
     };
   }, [loadDirectory, attempt]);
-  useEffect(() => setShown(pageSize), [preferences]);
 
   const articles = useMemo(
     () =>
@@ -112,7 +110,13 @@ export function WebsiteFollowingDirectory({
       {failed && !directory && (
         <>
           <p role="alert">{copy.loadError}</p>
-          <button type="button" onClick={() => setAttempt((current) => current + 1)}>
+          <button
+            type="button"
+            onClick={() => {
+              setFailed(false);
+              setAttempt((current) => current + 1);
+            }}
+          >
             {copy.retry}
           </button>
         </>
@@ -129,13 +133,19 @@ export function WebsiteFollowingDirectory({
           <ol className="website-following-directory__list">
             {articles.slice(0, shown).map((article: DirectoryArticle) => (
               <li key={article.id}>
-                <a
-                  href={article.url}
-                  lang={article.language === 'und' ? undefined : article.language}
-                  {...external}
+                <DirectoryArticleLink
+                  id={article.id}
+                  language={language}
+                  contentLanguage={article.language === 'und' ? undefined : article.language}
                 >
-                  {article.title}
-                </a>
+                  {homeReadingSummary(article, directory.document.sourceCommit, language)
+                    ?.headline ?? article.title}
+                </DirectoryArticleLink>
+                <WebsiteArticleIllustration
+                  article={article}
+                  commit={directory.document.sourceCommit}
+                  language={language}
+                />
                 <p>
                   {article.sourceName}
                   {article.publishedAt && (
@@ -150,7 +160,10 @@ export function WebsiteFollowingDirectory({
             ))}
           </ol>
           {shown < articles.length && (
-            <button type="button" onClick={() => setShown((current) => current + pageSize)}>
+            <button
+              type="button"
+              onClick={() => setPagination({ preferences, count: shown + pageSize })}
+            >
               {copy.loadMore}
             </button>
           )}

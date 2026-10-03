@@ -1,5 +1,9 @@
 import { WebsiteSupportWelcome } from './website-support-welcome';
 import { WebsiteAppHome } from './features/home/WebsiteAppHome';
+import { DirectoryReaderNavigation } from './features/reader/directory-reader-navigation';
+import { isWebsiteNewsId } from './features/reader/directory-article-url';
+import { WebsiteDirectoryReader } from './features/reader/WebsiteDirectoryReader';
+import { WebsiteNewsSaved } from './features/reader/WebsiteNewsSaved';
 import {
   createContext,
   useCallback,
@@ -357,7 +361,7 @@ function uiThemeLabels(copy: UiCopy): Readonly<Record<ThemePreference, string>> 
   return {
     violet: copy.themeViolet,
     dark: copy.themeDark,
-    editorial: copy.themeEditorial,
+    editorial: 'Autonom',
     oled: copy.themeOled,
     soft: copy.themeSoft,
     pink: copy.themePink,
@@ -386,7 +390,10 @@ function readThemePreference(
   initialTheme?: ThemePreference,
 ): ThemePreference {
   if (initialTheme !== undefined) return normalizeThemePreference(initialTheme);
-  if (query.has('theme')) return normalizeThemePreference(query.get('theme'));
+  if (query.has('theme'))
+    return query.get('theme') === 'autonom'
+      ? 'editorial'
+      : normalizeThemePreference(query.get('theme'));
   try {
     const storedPreference = window.localStorage.getItem(themeStorageKey);
     if (storedPreference !== null && !isThemePreference(storedPreference)) {
@@ -1729,7 +1736,11 @@ export function App({
   useEffect(() => {
     let active = true;
     const timeout = window.setTimeout(() => {
-      if (fixtureMode || (readerArticleId === null && archiveRoute === undefined)) {
+      if (
+        fixtureMode ||
+        isWebsiteNewsId(readerArticleId) ||
+        (readerArticleId === null && archiveRoute === undefined)
+      ) {
         setContentRouteAllowed(true);
         return;
       }
@@ -1746,7 +1757,13 @@ export function App({
     };
   }, [archiveRoute, contentAction, fixtureMode, navigationEpoch, readerArticleId]);
   useEffect(() => {
-    if (fixtureMode || contentResult === null || runtime !== null) return;
+    if (
+      fixtureMode ||
+      isWebsiteNewsId(readerArticleId) ||
+      contentResult === null ||
+      runtime !== null
+    )
+      return;
     const timeout = window.setTimeout(() => {
       setSourceConfirmation(null);
       setReaderArticleId(null);
@@ -1754,7 +1771,7 @@ export function App({
       setContentRouteAllowed(false);
     }, 0);
     return () => window.clearTimeout(timeout);
-  }, [contentResult, fixtureMode, runtime]);
+  }, [contentResult, fixtureMode, runtime, readerArticleId]);
   const navigate = (nextTarget: NavigationTargetId, trigger?: HTMLElement | null) => {
     if (
       nextTarget === target &&
@@ -1843,11 +1860,12 @@ export function App({
     });
     return () => window.cancelAnimationFrame(frame);
   }, [searchRequested, target]);
-  const openReader = (articleId: string, trigger: HTMLButtonElement) => {
+  const openReader = (articleId: string, trigger: HTMLElement) => {
     setContentRouteAllowed(fixtureMode);
     readerOriginRef.current = target;
     readerTriggerIdRef.current = trigger.dataset.readerTrigger ?? articleId;
     const nextUrl = new URL(window.location.href);
+    nextUrl.searchParams.delete('archive');
     nextUrl.searchParams.set('article', articleId);
     window.history.pushState(
       {
@@ -2428,396 +2446,412 @@ export function App({
               mainSwipeStartRef.current = null;
             }}
           >
-            {target === 'more' && archiveRoute === undefined && (
-              <section className="more-theme-settings">
-                <label className="theme-selector">
-                  <span id="website-theme-label">{copy.colorTheme}</span>
-                  <span className="wrn-theme-control">
-                    <select
-                      aria-labelledby="website-theme-label"
-                      value={themePreference}
-                      onChange={(event) => selectTheme(event.target.value)}
-                      data-testid="theme-selector"
-                    >
-                      {themePreferenceIds.map((preference) => (
-                        <option key={preference} value={preference}>
-                          {uiThemeLabels(copy)[preference]}
-                        </option>
-                      ))}
-                    </select>
-                    <span
-                      className="wrn-theme-control-value"
-                      data-testid="theme-current-value"
-                      aria-hidden="true"
-                    >
-                      {uiThemeLabels(copy)[themePreference]}
+            <DirectoryReaderNavigation.Provider value={openReader}>
+              {target === 'more' && archiveRoute === undefined && (
+                <section className="more-theme-settings">
+                  <label className="theme-selector">
+                    <span id="website-theme-label">{copy.colorTheme}</span>
+                    <span className="wrn-theme-control">
+                      <select
+                        aria-labelledby="website-theme-label"
+                        value={themePreference}
+                        onChange={(event) => selectTheme(event.target.value)}
+                        data-testid="theme-selector"
+                      >
+                        {themePreferenceIds.map((preference) => (
+                          <option key={preference} value={preference}>
+                            {uiThemeLabels(copy)[preference]}
+                          </option>
+                        ))}
+                      </select>
+                      <span
+                        className="wrn-theme-control-value"
+                        data-testid="theme-current-value"
+                        aria-hidden="true"
+                      >
+                        {uiThemeLabels(copy)[themePreference]}
+                      </span>
                     </span>
-                  </span>
-                </label>
-              </section>
-            )}
-            {productionMode &&
-            (archiveRoute !== undefined ||
-              readerArticleId !== null ||
-              target === 'home' ||
-              target === 'saved' ||
-              target === 'more' ||
-              (target === 'discover' && readWebsiteDirectorySection() === null)) ? (
-              <WebsiteProductionContentArea
-                target={target}
-                articleId={readerArticleId}
-                archiveRoute={archiveRoute}
-                language={uiLanguage}
-                headingRef={pageHeadingRef}
-                onRead={openReader}
-                onArchiveRead={openArchiveReader}
-                onCloseReader={closeReader}
-                onCloseArchive={closeArchive}
-                onOpenArchive={openArchive}
-                shareAdapter={shareAdapter}
-                homeContent={
-                  target === 'home' ? (
-                    <WebsiteAppHome
-                      language={uiLanguage}
-                      onBrowse={() => navigateDirectory('news')}
-                      onSport={() => navigateDirectory('sport')}
-                      regionalEvents={
-                        <CurrentRegionalEvents client="website" language={uiLanguage} />
-                      }
-                    />
-                  ) : undefined
-                }
-                homeDirectory={
-                  target === 'home'
-                    ? {
-                        load: liveWebsiteDirectoryLoader,
-                        onBrowse: () => navigateDirectory('news'),
-                        onBrowseSport: () => navigateDirectory('sport'),
-                        prioritizeCurrentLinks: true,
-                        leadWithCurrentSidebar: true,
-                        prioritizeReviewedImages: true,
-                        automaticTranslation: true,
-                        brandMarkUrl: brandAssetUrls.solinaridaoMark,
-                      }
-                    : undefined
-                }
-                regionalEvents={<CurrentRegionalEvents client="website" language={uiLanguage} />}
-                onCanonical={(id, archive) => {
-                  const url = new URL(window.location.href);
-                  url.searchParams.set(archive ? 'archive' : 'article', id);
-                  url.searchParams.delete(archive ? 'article' : 'archive');
-                  window.history.replaceState(
-                    { ...window.history.state, wrnCanonicalArticleId: id },
-                    '',
-                    `${url.pathname}${url.search}${url.hash}`,
-                  );
-                  if (archive) setArchiveRoute(id);
-                  else setReaderArticleId(id);
-                }}
-              >
-                {readerArticleId === null &&
-                  archiveRoute === undefined &&
-                  (target === 'home' || target === 'discover' || target === 'more') && (
-                    <nav className="secondary-navigation" aria-label={copy.discover}>
-                      {(['news', 'sources', 'sport'] as const).map((section) => (
-                        <a
-                          href={`#discover/${section}`}
-                          key={section}
-                          onClick={(event) => {
-                            event.preventDefault();
-                            navigateDirectory(section);
-                          }}
-                        >
-                          {getDirectoryCopy(uiLanguage)[section]}
-                        </a>
-                      ))}
-                    </nav>
-                  )}
-                {target === 'more' && archiveRoute === undefined && (
-                  <>
-                    <WebsiteShellPanel copy={copy} />
-                    <nav className="secondary-navigation" aria-label={copy.moreAreas}>
-                      {routeLink('help')}
-                      {routeLink('solidarity')}
-                      {routeLink('knowledge')}
-                      {routeLink('events')}
-                      {privacyPolicyLink}
-                    </nav>
-                  </>
-                )}
-              </WebsiteProductionContentArea>
-            ) : productionMode && target === 'following' ? (
-              <WebsitePersonalizationArea
-                language={uiLanguage}
-                headingRef={pageHeadingRef}
-                results={(preferences) => (
-                  <>
-                    <WebsiteProductionContentArea
-                      target={target}
-                      articleId={null}
-                      archiveRoute={undefined}
-                      language={uiLanguage}
-                      headingRef={pageHeadingRef}
-                      onRead={openReader}
-                      onArchiveRead={openArchiveReader}
-                      onCloseReader={closeReader}
-                      onCloseArchive={closeArchive}
-                      onOpenArchive={openArchive}
-                      shareAdapter={shareAdapter}
-                      preferences={preferences}
-                      embedded
-                    />
-                    {preferences && (
-                      <WebsiteFollowingDirectory language={uiLanguage} preferences={preferences} />
-                    )}
-                  </>
-                )}
-              />
-            ) : archiveRoute !== undefined ? (
-              <WebsiteArchiveView
-                fixture={contentRouteAllowed ? archiveFixture : null}
-                requestedId={displayedArchiveRoute ?? null}
-                onRead={openArchiveReader}
-                onClose={closeArchive}
-                shareAdapter={shareAdapter}
-              />
-            ) : readerArticleId !== null ? (
-              <WebsiteReader
-                state={readerState}
-                onClose={closeReader}
-                onConfirmSource={openSourceConfirmation}
-                saved={readerReadingEntry?.savedAt !== undefined}
-                isRead={readerReadingEntry?.readAt !== undefined}
-                progress={readerReadingEntry?.progress?.fraction}
-                onSaveToggle={toggleSaved}
-                onReadToggle={toggleRead}
-                onSaveProgress={saveProgress}
-                onResetProgress={resetProgress}
-                readingActionsDisabled={readingActionsDisabled}
-                readingProtectionMessage={readingActionsDisabled ? readingMessage : null}
-              />
-            ) : target === 'home' ? (
-              <>
-                <section className="website-hero" aria-labelledby="website-page-title">
-                  <p className="hero-kicker">
-                    {shellCopy.brandName} Â· {shellCopy.previewLabel}
-                  </p>
-                  <h1 id="website-page-title" ref={pageHeadingRef} tabIndex={-1}>
-                    {copy.localPreviewHeadline}
-                  </h1>
-                  <p>{copy.localPreviewDetail}</p>
+                  </label>
                 </section>
-                {isReady ? (
-                  <section className="website-feed" aria-label={copy.localNews}>
-                    <div className="feed-context">
-                      <p>{copy.testEdition}</p>
-                      <p data-testid="manifest-revision">
-                        {formatUiCopy(copy.manifestRevision, {
-                          revision: readyState.manifestRevision,
-                        })}
-                      </p>
-                    </div>
-                    <div className="article-grid">
-                      {readyState.articles.map((article) => (
-                        <article
-                          className="website-feed-card"
-                          key={article.id}
-                          data-article-id={article.id}
-                        >
-                          <div
-                            className="media-placeholder"
-                            role="img"
-                            aria-label={copy.unavailableMediaFixture}
+              )}
+              {productionMode && isWebsiteNewsId(readerArticleId) ? (
+                <WebsiteDirectoryReader
+                  key={readerArticleId}
+                  articleId={readerArticleId}
+                  language={uiLanguage}
+                  onClose={closeReader}
+                  headingRef={pageHeadingRef}
+                />
+              ) : productionMode &&
+                (archiveRoute !== undefined ||
+                  readerArticleId !== null ||
+                  target === 'home' ||
+                  target === 'saved' ||
+                  target === 'more' ||
+                  (target === 'discover' && readWebsiteDirectorySection() === null)) ? (
+                <WebsiteProductionContentArea
+                  target={target}
+                  articleId={readerArticleId}
+                  archiveRoute={archiveRoute}
+                  language={uiLanguage}
+                  headingRef={pageHeadingRef}
+                  onRead={openReader}
+                  onArchiveRead={openArchiveReader}
+                  onCloseReader={closeReader}
+                  onCloseArchive={closeArchive}
+                  onOpenArchive={openArchive}
+                  shareAdapter={shareAdapter}
+                  homeContent={
+                    target === 'home' ? (
+                      <WebsiteAppHome
+                        language={uiLanguage}
+                        onBrowse={() => navigateDirectory('news')}
+                        onSport={() => navigateDirectory('sport')}
+                        regionalEvents={
+                          <CurrentRegionalEvents client="website" language={uiLanguage} />
+                        }
+                      />
+                    ) : undefined
+                  }
+                  homeDirectory={
+                    target === 'home'
+                      ? {
+                          load: liveWebsiteDirectoryLoader,
+                          onBrowse: () => navigateDirectory('news'),
+                          onBrowseSport: () => navigateDirectory('sport'),
+                          prioritizeCurrentLinks: true,
+                          leadWithCurrentSidebar: true,
+                          prioritizeReviewedImages: true,
+                          automaticTranslation: true,
+                          brandMarkUrl: brandAssetUrls.solinaridaoMark,
+                        }
+                      : undefined
+                  }
+                  regionalEvents={<CurrentRegionalEvents client="website" language={uiLanguage} />}
+                  onCanonical={(id, archive) => {
+                    const url = new URL(window.location.href);
+                    url.searchParams.set(archive ? 'archive' : 'article', id);
+                    url.searchParams.delete(archive ? 'article' : 'archive');
+                    window.history.replaceState(
+                      { ...window.history.state, wrnCanonicalArticleId: id },
+                      '',
+                      `${url.pathname}${url.search}${url.hash}`,
+                    );
+                    if (archive) setArchiveRoute(id);
+                    else setReaderArticleId(id);
+                  }}
+                >
+                  {target === 'saved' && readerArticleId === null && archiveRoute === undefined && (
+                    <WebsiteNewsSaved language={uiLanguage} />
+                  )}
+                  {readerArticleId === null &&
+                    archiveRoute === undefined &&
+                    (target === 'home' || target === 'discover' || target === 'more') && (
+                      <nav className="secondary-navigation" aria-label={copy.discover}>
+                        {(['news', 'sources', 'sport'] as const).map((section) => (
+                          <a
+                            href={`#discover/${section}`}
+                            key={section}
+                            onClick={(event) => {
+                              event.preventDefault();
+                              navigateDirectory(section);
+                            }}
                           >
-                            <span>{copy.noImage}</span>
-                          </div>
-                          <div className="article-content">
-                            <p className="article-source">{article.sourceName}</p>
-                            <h2>{article.title}</h2>
-                            <p className="article-teaser">{article.teaser}</p>
-                            <dl className="article-meta">
-                              <div>
-                                <dt>{copy.date}</dt>
-                                <dd>{formatUtcDate(article.publishedAt)}</dd>
-                              </div>
-                              <div>
-                                <dt>{copy.language}</dt>
-                                <dd>{article.originalLanguage}</dd>
-                              </div>
-                            </dl>
-                            <ul className="tag-list" aria-label={copy.topics}>
-                              {article.tags.map((tag) => (
-                                <li key={tag}>{tag}</li>
-                              ))}
-                            </ul>
-                            <p className="source-url">
-                              {formatUiCopy(copy.originalUrl, { url: article.originalUrl })}
-                            </p>
-                            <button
-                              type="button"
-                              className="reader-entry"
-                              data-reader-trigger={article.id}
-                              onClick={(event) => openReader(article.id, event.currentTarget)}
+                            {getDirectoryCopy(uiLanguage)[section]}
+                          </a>
+                        ))}
+                      </nav>
+                    )}
+                  {target === 'more' && archiveRoute === undefined && (
+                    <>
+                      <WebsiteShellPanel copy={copy} />
+                      <nav className="secondary-navigation" aria-label={copy.moreAreas}>
+                        {routeLink('help')}
+                        {routeLink('solidarity')}
+                        {routeLink('knowledge')}
+                        {routeLink('events')}
+                        {privacyPolicyLink}
+                      </nav>
+                    </>
+                  )}
+                </WebsiteProductionContentArea>
+              ) : productionMode && target === 'following' ? (
+                <WebsitePersonalizationArea
+                  language={uiLanguage}
+                  headingRef={pageHeadingRef}
+                  results={(preferences) => (
+                    <>
+                      <WebsiteProductionContentArea
+                        target={target}
+                        articleId={null}
+                        archiveRoute={undefined}
+                        language={uiLanguage}
+                        headingRef={pageHeadingRef}
+                        onRead={openReader}
+                        onArchiveRead={openArchiveReader}
+                        onCloseReader={closeReader}
+                        onCloseArchive={closeArchive}
+                        onOpenArchive={openArchive}
+                        shareAdapter={shareAdapter}
+                        preferences={preferences}
+                        embedded
+                      />
+                      {preferences && (
+                        <WebsiteFollowingDirectory
+                          language={uiLanguage}
+                          preferences={preferences}
+                        />
+                      )}
+                    </>
+                  )}
+                />
+              ) : archiveRoute !== undefined ? (
+                <WebsiteArchiveView
+                  fixture={contentRouteAllowed ? archiveFixture : null}
+                  requestedId={displayedArchiveRoute ?? null}
+                  onRead={openArchiveReader}
+                  onClose={closeArchive}
+                  shareAdapter={shareAdapter}
+                />
+              ) : readerArticleId !== null ? (
+                <WebsiteReader
+                  state={readerState}
+                  onClose={closeReader}
+                  onConfirmSource={openSourceConfirmation}
+                  saved={readerReadingEntry?.savedAt !== undefined}
+                  isRead={readerReadingEntry?.readAt !== undefined}
+                  progress={readerReadingEntry?.progress?.fraction}
+                  onSaveToggle={toggleSaved}
+                  onReadToggle={toggleRead}
+                  onSaveProgress={saveProgress}
+                  onResetProgress={resetProgress}
+                  readingActionsDisabled={readingActionsDisabled}
+                  readingProtectionMessage={readingActionsDisabled ? readingMessage : null}
+                />
+              ) : target === 'home' ? (
+                <>
+                  <section className="website-hero" aria-labelledby="website-page-title">
+                    <p className="hero-kicker">
+                      {shellCopy.brandName} Â· {shellCopy.previewLabel}
+                    </p>
+                    <h1 id="website-page-title" ref={pageHeadingRef} tabIndex={-1}>
+                      {copy.localPreviewHeadline}
+                    </h1>
+                    <p>{copy.localPreviewDetail}</p>
+                  </section>
+                  {isReady ? (
+                    <section className="website-feed" aria-label={copy.localNews}>
+                      <div className="feed-context">
+                        <p>{copy.testEdition}</p>
+                        <p data-testid="manifest-revision">
+                          {formatUiCopy(copy.manifestRevision, {
+                            revision: readyState.manifestRevision,
+                          })}
+                        </p>
+                      </div>
+                      <div className="article-grid">
+                        {readyState.articles.map((article) => (
+                          <article
+                            className="website-feed-card"
+                            key={article.id}
+                            data-article-id={article.id}
+                          >
+                            <div
+                              className="media-placeholder"
+                              role="img"
+                              aria-label={copy.unavailableMediaFixture}
                             >
-                              {copy.readArticle}
-                            </button>
-                            <button
-                              type="button"
-                              disabled={readingActionsDisabled}
-                              onClick={() => toggleSaved(article.id)}
-                            >
-                              {visibleReadingState.entries.find(
-                                (entry) => entry.articleId === article.id,
-                              )?.savedAt !== undefined
-                                ? copy.removeFromSaved
-                                : copy.saveForLater}
-                            </button>
-                          </div>
-                        </article>
+                              <span>{copy.noImage}</span>
+                            </div>
+                            <div className="article-content">
+                              <p className="article-source">{article.sourceName}</p>
+                              <h2>{article.title}</h2>
+                              <p className="article-teaser">{article.teaser}</p>
+                              <dl className="article-meta">
+                                <div>
+                                  <dt>{copy.date}</dt>
+                                  <dd>{formatUtcDate(article.publishedAt)}</dd>
+                                </div>
+                                <div>
+                                  <dt>{copy.language}</dt>
+                                  <dd>{article.originalLanguage}</dd>
+                                </div>
+                              </dl>
+                              <ul className="tag-list" aria-label={copy.topics}>
+                                {article.tags.map((tag) => (
+                                  <li key={tag}>{tag}</li>
+                                ))}
+                              </ul>
+                              <p className="source-url">
+                                {formatUiCopy(copy.originalUrl, { url: article.originalUrl })}
+                              </p>
+                              <button
+                                type="button"
+                                className="reader-entry"
+                                data-reader-trigger={article.id}
+                                onClick={(event) => openReader(article.id, event.currentTarget)}
+                              >
+                                {copy.readArticle}
+                              </button>
+                              <button
+                                type="button"
+                                disabled={readingActionsDisabled}
+                                onClick={() => toggleSaved(article.id)}
+                              >
+                                {visibleReadingState.entries.find(
+                                  (entry) => entry.articleId === article.id,
+                                )?.savedAt !== undefined
+                                  ? copy.removeFromSaved
+                                  : copy.saveForLater}
+                              </button>
+                            </div>
+                          </article>
+                        ))}
+                      </div>
+                    </section>
+                  ) : (
+                    <section
+                      className={`feed-status feed-status-${displayedState}`}
+                      aria-labelledby="website-status-title"
+                    >
+                      <h2 id="website-status-title">{stateLabels(copy)[displayedState]}</h2>
+                      <p
+                        role={displayedState === 'error' ? 'alert' : 'status'}
+                        aria-live="polite"
+                        aria-busy={displayedState === 'loading'}
+                      >
+                        {statusMessage(copy, displayedState as Exclude<FeedStateKind, 'ready'>)}
+                      </p>
+                    </section>
+                  )}
+                  <section className="state-panel" aria-labelledby="website-states-title">
+                    <div>
+                      <p className="hero-kicker">{copy.localTestStates}</p>
+                      <h2 id="website-states-title">{copy.statePanelTitle}</h2>
+                    </div>
+                    <div className="state-controls" aria-label={copy.selectFeedState}>
+                      {feedStates.map((candidate) => (
+                        <button
+                          key={candidate}
+                          type="button"
+                          aria-pressed={requestedState === candidate}
+                          onClick={() => setRequestedState(candidate)}
+                        >
+                          {stateLabels(copy)[candidate]}
+                        </button>
                       ))}
                     </div>
                   </section>
+                </>
+              ) : target === 'discover' && readWebsiteDirectorySection() !== null ? (
+                <WebsiteContentDirectoryRoute
+                  section={readWebsiteDirectorySection()!}
+                  language={uiLanguage}
+                  headingRef={pageHeadingRef}
+                  onSectionChange={navigateDirectory}
+                />
+              ) : target === 'discover' ? (
+                discoverArticles !== null &&
+                discoverIndex !== null &&
+                (displayedState === 'ready' || displayedState === 'offline') ? (
+                  <>
+                    {displayedState === 'offline' ? (
+                      <p className="discover-offline" role="status">
+                        {copy.offlineFixtureUsable}
+                      </p>
+                    ) : null}
+                    <WebsiteDiscover
+                      articles={discoverArticles}
+                      index={discoverIndex}
+                      criteria={discoverCriteria}
+                      onCriteria={setDiscoverCriteria}
+                      onRead={openReader}
+                      headingRef={pageHeadingRef}
+                    />
+                  </>
                 ) : (
-                  <section
-                    className={`feed-status feed-status-${displayedState}`}
-                    aria-labelledby="website-status-title"
-                  >
-                    <h2 id="website-status-title">{stateLabels(copy)[displayedState]}</h2>
+                  <section className="migration-panel" aria-labelledby="website-page-title">
+                    <p className="hero-kicker">{copy.localSearchAndFilters}</p>
+                    <h1 id="website-page-title" ref={pageHeadingRef} tabIndex={-1}>
+                      {copy.discover}
+                    </h1>
                     <p
                       role={displayedState === 'error' ? 'alert' : 'status'}
                       aria-live="polite"
                       aria-busy={displayedState === 'loading'}
                     >
-                      {statusMessage(copy, displayedState as Exclude<FeedStateKind, 'ready'>)}
+                      {displayedState === 'ready'
+                        ? copy.discoverIndexLoading
+                        : statusMessage(copy, displayedState as Exclude<FeedStateKind, 'ready'>)}
                     </p>
                   </section>
-                )}
-                <section className="state-panel" aria-labelledby="website-states-title">
-                  <div>
-                    <p className="hero-kicker">{copy.localTestStates}</p>
-                    <h2 id="website-states-title">{copy.statePanelTitle}</h2>
-                  </div>
-                  <div className="state-controls" aria-label={copy.selectFeedState}>
-                    {feedStates.map((candidate) => (
-                      <button
-                        key={candidate}
-                        type="button"
-                        aria-pressed={requestedState === candidate}
-                        onClick={() => setRequestedState(candidate)}
-                      >
-                        {stateLabels(copy)[candidate]}
-                      </button>
-                    ))}
-                  </div>
-                </section>
-              </>
-            ) : target === 'discover' && readWebsiteDirectorySection() !== null ? (
-              <WebsiteContentDirectoryRoute
-                section={readWebsiteDirectorySection()!}
-                language={uiLanguage}
-                headingRef={pageHeadingRef}
-                onSectionChange={navigateDirectory}
-              />
-            ) : target === 'discover' ? (
-              discoverArticles !== null &&
-              discoverIndex !== null &&
-              (displayedState === 'ready' || displayedState === 'offline') ? (
-                <>
-                  {displayedState === 'offline' ? (
-                    <p className="discover-offline" role="status">
-                      {copy.offlineFixtureUsable}
-                    </p>
-                  ) : null}
-                  <WebsiteDiscover
-                    articles={discoverArticles}
-                    index={discoverIndex}
-                    criteria={discoverCriteria}
-                    onCriteria={setDiscoverCriteria}
-                    onRead={openReader}
-                    headingRef={pageHeadingRef}
-                  />
-                </>
+                )
+              ) : target === 'saved' ? (
+                <WebsiteSavedView
+                  state={visibleReadingState}
+                  articles={readyState?.articles ?? []}
+                  unavailableArticleIds={unavailableReadingIds}
+                  onRead={openReader}
+                  onSaveToggle={toggleSaved}
+                  onReadToggle={toggleRead}
+                  onResetProgress={resetProgress}
+                  onRequestClear={requestClear}
+                  message={readingMessage}
+                  readingActionsDisabled={readingActionsDisabled}
+                  headingRef={pageHeadingRef}
+                />
+              ) : productionMode && (target === 'events' || target === 'media') ? (
+                <WebsiteProductionEventsMediaRoute
+                  mode={target}
+                  language={uiLanguage}
+                  headingRef={pageHeadingRef}
+                />
+              ) : target === 'media' ? (
+                <VideoSources language={uiLanguage} headingRef={pageHeadingRef} />
+              ) : target === 'knowledge' ? (
+                <WebsiteKnowledgeRoute language={uiLanguage} headingRef={pageHeadingRef} />
+              ) : target === 'help' || target === 'solidarity' ? (
+                <WebsiteSupportRoute
+                  view={target}
+                  language={uiLanguage}
+                  headingRef={pageHeadingRef}
+                  onNavigationGuardChange={setSupportNavigationGuard}
+                />
               ) : (
                 <section className="migration-panel" aria-labelledby="website-page-title">
-                  <p className="hero-kicker">{copy.localSearchAndFilters}</p>
+                  <p className="hero-kicker">{copy.inProgress}</p>
                   <h1 id="website-page-title" ref={pageHeadingRef} tabIndex={-1}>
-                    {copy.discover}
+                    {navigationLabel(target)}
                   </h1>
-                  <p
-                    role={displayedState === 'error' ? 'alert' : 'status'}
-                    aria-live="polite"
-                    aria-busy={displayedState === 'loading'}
-                  >
-                    {displayedState === 'ready'
-                      ? copy.discoverIndexLoading
-                      : statusMessage(copy, displayedState as Exclude<FeedStateKind, 'ready'>)}
-                  </p>
+                  {target !== 'more' ? (
+                    <>
+                      <p role="status">{copy.notMigrated}</p>
+                      <p>{copy.laterSliceDetail}</p>
+                    </>
+                  ) : null}
+                  {target === 'more' ? (
+                    <>
+                      <WebsiteContentOfflinePanel
+                        result={contentResult}
+                        operationResult={contentOperationResult}
+                        busy={contentOperation !== null}
+                        language={uiLanguage}
+                        onAction={requestContentAction}
+                      />
+                      <WebsiteShellPanel copy={copy} />
+                    </>
+                  ) : null}
+                  <span className="return-link">{routeLink('home', copy.returnHome)}</span>
                 </section>
-              )
-            ) : target === 'saved' ? (
-              <WebsiteSavedView
-                state={visibleReadingState}
-                articles={readyState?.articles ?? []}
-                unavailableArticleIds={unavailableReadingIds}
-                onRead={openReader}
-                onSaveToggle={toggleSaved}
-                onReadToggle={toggleRead}
-                onResetProgress={resetProgress}
-                onRequestClear={requestClear}
-                message={readingMessage}
-                readingActionsDisabled={readingActionsDisabled}
-                headingRef={pageHeadingRef}
-              />
-            ) : productionMode && (target === 'events' || target === 'media') ? (
-              <WebsiteProductionEventsMediaRoute
-                mode={target}
-                language={uiLanguage}
-                headingRef={pageHeadingRef}
-              />
-            ) : target === 'media' ? (
-              <VideoSources language={uiLanguage} headingRef={pageHeadingRef} />
-            ) : target === 'knowledge' ? (
-              <WebsiteKnowledgeRoute language={uiLanguage} headingRef={pageHeadingRef} />
-            ) : target === 'help' || target === 'solidarity' ? (
-              <WebsiteSupportRoute
-                view={target}
-                language={uiLanguage}
-                headingRef={pageHeadingRef}
-                onNavigationGuardChange={setSupportNavigationGuard}
-              />
-            ) : (
-              <section className="migration-panel" aria-labelledby="website-page-title">
-                <p className="hero-kicker">{copy.inProgress}</p>
-                <h1 id="website-page-title" ref={pageHeadingRef} tabIndex={-1}>
-                  {navigationLabel(target)}
-                </h1>
-                {target !== 'more' ? (
-                  <>
-                    <p role="status">{copy.notMigrated}</p>
-                    <p>{copy.laterSliceDetail}</p>
-                  </>
-                ) : null}
-                {target === 'more' ? (
-                  <>
-                    <WebsiteContentOfflinePanel
-                      result={contentResult}
-                      operationResult={contentOperationResult}
-                      busy={contentOperation !== null}
-                      language={uiLanguage}
-                      onAction={requestContentAction}
-                    />
-                    <WebsiteShellPanel copy={copy} />
-                  </>
-                ) : null}
-                <span className="return-link">{routeLink('home', copy.returnHome)}</span>
-              </section>
-            )}
-            {!productionMode && (
-              <aside className="boundary-note" aria-labelledby="boundary-title">
-                <h2 id="boundary-title">{copy.previewBoundary}</h2>
-                <p>{copy.previewBoundaryDetail}</p>
-              </aside>
-            )}
+              )}
+              {!productionMode && (
+                <aside className="boundary-note" aria-labelledby="boundary-title">
+                  <h2 id="boundary-title">{copy.previewBoundary}</h2>
+                  <p>{copy.previewBoundaryDetail}</p>
+                </aside>
+              )}
+            </DirectoryReaderNavigation.Provider>
           </main>
           <nav aria-label={copy.websiteMainNavigation} className="site-nav site-nav-compact">
             {compactNavigationLinks(['home', 'following', 'discover', 'media', 'saved'])}

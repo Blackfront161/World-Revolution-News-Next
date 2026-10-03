@@ -96,11 +96,24 @@ test('two packages have deterministic bytes, exact real closure and immutable in
   const two = await prepare(options(path.join(base, 'two')));
   assert.deepEqual(await readFile(one.manifestPath), await readFile(two.manifestPath));
   assert.deepEqual(await check(one.outputDirectory), await check(two.outputDirectory));
-  assert.equal(manifest.files.length, 46);
+  assert.equal(manifest.files.length, 48);
   const illustrations = manifest.files.filter((entry) =>
     /^assets\/wrn-austerity-illustration-v1-[A-Za-z0-9_-]+\.webp$/.test(entry.path),
   );
   assert.equal(illustrations.length, 1);
+  const additional = JSON.parse(
+    await readFile(
+      path.join(workspace, 'apps/website/src/features/home/home-additional-illustrations-v1.json'),
+      'utf8',
+    ),
+  );
+  for (const approved of additional.entries) {
+    const prefix = `assets/${approved.asset.replace('.webp', '-')}`;
+    const images = manifest.files.filter((entry) => entry.path.startsWith(prefix));
+    assert.equal(images.length, 1);
+    assert.equal(images[0].bytes, approved.bytes);
+    assert.equal(images[0].sha256, approved.sha256);
+  }
   assert.equal(illustrations[0].bytes, 230192);
   assert.equal(
     illustrations[0].sha256,
@@ -129,7 +142,7 @@ test('two packages have deterministic bytes, exact real closure and immutable in
       'articles/wrn-art-f2ad391804423c87773b3351eb79c802/index.html',
     ],
   );
-  assert.equal(manifest.sourceInput.files.length, 43);
+  assert.equal(manifest.sourceInput.files.length, 45);
   assert(manifest.files.some((entry) => entry.path === 'wrn-source-passes/current.json'));
   assert(manifest.files.some((entry) => entry.path === 'wrn-source-pass-revocations/current.json'));
   assert(
@@ -510,7 +523,7 @@ test('CLI succeeds from non-root cwd and rejects full-length unknown, duplicate,
     options('').previousRevocationsFile,
   ];
   const success = await run(process.execPath, [script, ...args], { cwd: base });
-  assert.equal(JSON.parse(success.stdout).files, 46);
+  assert.equal(JSON.parse(success.stdout).files, 48);
   for (const invalid of [
     ['--unknown', ...args.slice(1)],
     [...args.slice(0, 8), '--build', input],

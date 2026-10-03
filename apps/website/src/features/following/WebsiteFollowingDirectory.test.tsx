@@ -13,6 +13,7 @@ import {
 import snapshot from '../directory/data/content-directory-v1.json';
 import type { WebsiteContentDirectory } from '../directory/directory-loader';
 import { WebsiteFollowingDirectory } from './WebsiteFollowingDirectory';
+import { directoryArticlePath } from '../reader/directory-article-url';
 
 const sourcePreference = vi.hoisted(() => ({ state: null as unknown }));
 vi.mock('../../../../../packages/browser-content/src/source-preferences-ui', () => ({
@@ -40,10 +41,14 @@ beforeEach(() => {
 });
 afterEach(() => vi.restoreAllMocks());
 
-it('shows only current local matches as dated source metadata with original links and loads more', async () => {
+it('shows only current local matches as dated source metadata with Website reader links and loads more', async () => {
   const loadDirectory = vi.fn(async (_signal: AbortSignal) => directory);
   render(
-    <WebsiteFollowingDirectory language="en" preferences={preferences} loadDirectory={loadDirectory} />,
+    <WebsiteFollowingDirectory
+      language="en"
+      preferences={preferences}
+      loadDirectory={loadDirectory}
+    />,
   );
   expect(await screen.findByText(`Showing 30 of ${matching.length}`)).toBeVisible();
   expect(loadDirectory).toHaveBeenCalledOnce();
@@ -53,8 +58,11 @@ it('shows only current local matches as dated source metadata with original link
   const list = screen.getByRole('list');
   expect(within(list).getAllByRole('listitem')).toHaveLength(30);
   const first = matching[0]!;
-  expect(within(list).getByRole('link', { name: first.title })).toHaveAttribute('href', first.url);
-  expect(within(list).getByRole('link', { name: first.title })).toHaveAttribute('referrerpolicy', 'no-referrer');
+  expect(within(list).getByRole('link', { name: first.title })).toHaveAttribute(
+    'href',
+    directoryArticlePath(first.id, 'en'),
+  );
+  expect(within(list).getByRole('link', { name: first.title })).not.toHaveAttribute('target');
   fireEvent.click(screen.getByRole('button', { name: 'Load 30 more' }));
   expect(screen.getByText(`Showing ${matching.length} of ${matching.length}`)).toBeVisible();
   expect(within(list).getAllByRole('listitem')).toHaveLength(matching.length);
