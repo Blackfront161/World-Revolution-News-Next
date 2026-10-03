@@ -1,0 +1,136 @@
+{
+  "origin": "http://127.0.0.1:63005",
+  "sourceCommit": "d738a9454161f1f6aff624bcb9c2a9f0bc2ccf60",
+  "observedAtUTC": "2026-10-03T01:52:20.122Z",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "live homepage, coverage and original links",
+      "status": "PASS",
+      "ids": [
+        "news-7956e3311e1bcb7df04798b6a2986cb5054cfd96dcc8d5a3397abcd519159959",
+        "news-09a14b63febedd7dcb177d736523f28b5242a09708b803fd819a4282996f2628",
+        "news-2b5f3c7700ce5f662358d8869d9c6dedfe9459fe28fcf0359943d98d2f16549e",
+        "news-ca355f155367fe855e230b1e6adfb68b1c7c7ede062061fb7ac07bc252892f79",
+        "news-da3cf8526e8ca0f62d63e0408e4cc6f1504c19e7ae53bc5ab6b0ba8825e57841"
+      ],
+      "links": [
+        {
+          "href": "https://english.anf-news.com/news/police-detain-mersin-metropolitan-municipality-mayor-and-58-others-87480",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        },
+        {
+          "href": "https://english.anf-news.com/kurdistan/iran-bombs-kdp-i-camp-87481",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        },
+        {
+          "href": "https://english.anf-news.com/kurdistan/soldiers-attack-martyr-binevs-cemetery-on-mount-gabar-87486",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        },
+        {
+          "href": "https://www.anarchistfederation.net/healing-the-borders-scar-updates-on-khalif-miller/",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        },
+        {
+          "href": "https://www.anarchistfederation.net/the-projet-evasions-needs-a-little-cash/",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        }
+      ]
+    },
+    {
+      "name": "responsive 1440x900",
+      "status": "PASS"
+    },
+    {
+      "name": "responsive 390x844",
+      "status": "PASS"
+    },
+    {
+      "name": "news and sources deep links with unverified labels",
+      "status": "PASS"
+    },
+    {
+      "name": "five public support originals and source-bound 13/17 review states online",
+      "status": "PASS"
+    },
+    {
+      "name": "731 books with all three added original links; four regional events and Brazil empty online",
+      "status": "PASS"
+    },
+    {
+      "name": "all current app catalogues and 167 glossary terms and source-bound 3CR original link online",
+      "status": "PASS"
+    },
+    {
+      "name": "five public support originals and source-bound 13/17 review states after complete offline restart",
+      "status": "PASS"
+    },
+    {
+      "name": "731 books with all three added original links; four regional events and Brazil empty after full offline restart",
+      "status": "PASS"
+    },
+    {
+      "name": "all current catalogues and glossary after complete offline Chrome restart",
+      "status": "PASS"
+    },
+    {
+      "name": "Chrome process closed and restarted offline with persistent test profile, metadata and exact favicon",
+      "status": "PASS"
+    }
+  ],
+  "illustration": {
+    "mime": "image/webp",
+    "bytes": 455444,
+    "sha256": "e33d13ae13efbf10463e6bb1e660f02305b323ae83ef2e4aa22c58f579b111ab",
+    "width": 1672
+  },
+  "icon": {
+    "href": "/assets/wrn-app-icon-CwyuVArd.png",
+    "bytes": 8845,
+    "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+  },
+  "prisonerAlignment": {
+    "profiles": 30,
+    "datedAddressMatches": 13,
+    "needsReview": 17,
+    "publicSupportLinks": 5,
+    "addressesImported": 0,
+    "appProduct": "8c0c0d90a119b7a95b5154fa64c49dfb97c8842e"
+  },
+  "libraryRegional": {
+    "books": 731,
+    "addedBookIds": [
+      "anarchist-library-es-ef9b13d1c8cc429a6d3cd9c0",
+      "anarchist-library-en-49398dbbcd44de50d9e268e6",
+      "anarchist-library-en-2d5b6e24f14f5d4522fd6da6"
+    ],
+    "regionalRevision": 4,
+    "regionalEventIds": [
+      "event-ewoc-workers-circle-2026-10-06",
+      "event-london-constitutionalising-anarchy-launch-2026",
+      "event-manchester-salford-anarchist-bookfair-2026",
+      "event-santiago-encuentro-libro-anarquista-2026"
+    ],
+    "validUntil": "2026-10-10T01:10:45.000Z",
+    "selectionSaved": false
+  },
+  "offline": {
+    "href": "/assets/wrn-app-icon-CwyuVArd.png",
+    "width": 72,
+    "height": 72,
+    "controlled": true,
+    "mime": "image/png",
+    "bytes": 8845,
+    "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+  },
+  "pageErrors": [],
+  "radioSupplement": {
+    "visibleCount": 28,
+    "unsolicitedStreamRequests": []
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "wrn.website-library-regional-validation.v1",
+  "productCommit": "d738a9454161f1f6aff624bcb9c2a9f0bc2ccf60",
+  "observedAtUTC": "2026-10-03T01:58:21.952Z",
+  "status": "PASS-local",
+  "websiteUi": {
+    "files": 38,
+    "tests": 255,
+    "status": "PASS",
+    "command": "node ../../node_modules/vitest/vitest.mjs run src --exclude src/offline-shell/protocol-contract.test.mjs"
+  },
+  "websiteNode": {
+    "tests": 93,
+    "status": "PASS",
+    "scope": "12 configured website modules plus tools/directory/prepare-website-library-refresh.test.mjs (7 cases included)"
+  },
+  "regionalWorkflow": {
+    "tests": 8,
+    "status": "PASS",
+    "files": [
+      "tools/check-current-regional-events.test.mjs",
+      "tools/verify-wrn-content-supply-workflow.test.mjs"
+    ]
+  },
+  "typecheck": "PASS",
+  "scopedEslint": "PASS",
+  "regularBuild": "PASS",
+  "prisonerFrozenEvidenceVerification": {
+    "productCommit": "fe94660d0c830bfab4ca97ea82b9e0b44bacc360",
+    "evidenceCommit": "8dcd793",
+    "files": 12,
+    "productPaths": 9,
+    "websiteFiles": 46,
+    "hostingFiles": 49,
+    "shellBytes": 7829867,
+    "status": "PASS"
+  },
+  "independentWebsiteReview": "PENDING",
+  "publicationPerformed": false
+}
