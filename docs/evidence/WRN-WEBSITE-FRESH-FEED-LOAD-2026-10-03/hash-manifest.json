@@ -1,0 +1,39 @@
+{
+  "schema": "wrn.website-fresh-feed-draft-evidence-hashes.v1",
+  "hotfixCommit": "198e82f23dd0a091a9265b2c0917d77fa5f8df24",
+  "liveCommit": "d738a9454161f1f6aff624bcb9c2a9f0bc2ccf60",
+  "freshFeedIntegrated": false,
+  "publicationPerformed": false,
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 3334,
+      "sha256": "c1683a72d242b1f576d1d328f0c5c1878ff658f921d911c67b1d11f8637db634"
+    },
+    {
+      "path": "fresh-feed-lock.json",
+      "bytes": 1018,
+      "sha256": "f8156de6658d82284ea9ddca71a72be88e377405de5d6f3eba1481157b0b0bc0"
+    },
+    {
+      "path": "fresh-feed-summary.json",
+      "bytes": 979,
+      "sha256": "c272654cb606ce2344f5dce2681ef136ce01ea42fe6a8354a7b94dd26ed6b21d"
+    },
+    {
+      "path": "home-binding-check.json",
+      "bytes": 7600,
+      "sha256": "4c436d52a8ca41fdd3272cafde0fba45fa2943a21849ffae1f4b73f6eaed59b3"
+    },
+    {
+      "path": "projection-input-bindings.json",
+      "bytes": 7776,
+      "sha256": "ad1c0c36644dd3eb77f4f0c8e3b6651fb085dfe129c882f5a689c3f6144b6cf1"
+    },
+    {
+      "path": "published-input-observation.json",
+      "bytes": 1509,
+      "sha256": "cf0edd117adbb57f83bd3eaf97e1ff6ded2b48186920f4e15204228f714fa7c9"
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "schema": "wrn.website-fresh-feed-home-binding.v1",
+  "status": "DRAFT-NOT-INTEGRATED",
+  "hotfixCommit": "198e82f23dd0a091a9265b2c0917d77fa5f8df24",
+  "liveCommit": "d738a9454161f1f6aff624bcb9c2a9f0bc2ccf60",
+  "freshFeedCommit": "5304fa0032a6761071962e4b74b66cb6f114c49f",
+  "homeRows": [
+    {
+      "id": "news-bf7f81a0916bf3c8e14fd76c3ea38c65a8c8ac67c2a6008059ef42a8f74b4fcc",
+      "source": "Elitsha",
+      "url": "https://elitshanews.org.za/2026/10/02/make-the-wealthy-pay-aidc-lays-out-alternative-to-austerity/",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-4805e4b7cf59c5de9e527df647913b42b2e7a9e98c41c0b38e024c33da7d511b",
+      "source": "Nunatsiaq News",
+      "url": "https://nunatsiaq.com/stories/article/nunavut-sport-hall-of-fame-inductions-begin/",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-19ec580a27780de2a9af0ed4eb0fc0441bc442f30d9954d78686e6c655a04cee",
+      "source": "Autonomies",
+      "url": "https://autonomies.org/2026/10/if-bolsonaro-wins-they-kill-us-if-lula-wins-they-let-us-die/",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-cf022a0fd6b1dff18da08d530fe6f0fd9ec23a743d1ac65cd8cbc212c00d5f63",
+      "source": "Waging Nonviolence",
+      "url": "https://wagingnonviolence.org/2026/10/iran-teachers-movement-perseveres-against-odds/",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-4aebfed2089e5861f814b47fdc387997351b655643f164d0fec4fe551a6752e0",
+      "source": "Electronic Frontier Foundation",
+      "url": "https://www.eff.org/deeplinks/2026/10/site-blocking-will-not-defend-ip-no-matter-bills-name",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-e8532636992ed876eefb26694f27f3726fe015c24893f6e7decadacdf1900a00",
+      "source": "Mada Masr (Egypt)",
+      "url": "https://www.madamasr.com/en/2026/10/02/news/u/ethiopia-accuses-sudan-of-backing-opposition-reshuffled-hope-for-idriss-govt-tribal-violence-engulfs-south-darfur-military-opens-road-to-west-kordofan-china-on-sudans-coast/",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-89996c282207e65c3097efb6adccbc8c85fe46c009854f1cad5386ab1cd96389",
+      "source": "Agencia Tierra Viva",
+      "url": "https://agenciatierraviva.com.ar/sastre-sin-fumigaciones-lo-que-deberia-venir-es-la-agroecologia-para-las-futuras-generaciones/",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-f6e3c002e7c2304d8328565c09551f82af3051f1800ec8a83f618df06c96bacf",
+      "source": "MIA Marseille (FR)",
+      "url": "https://mars-infos.org/les-dependances-artificielles-8757",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-d52cfaa043f0bce20c31fa5f04fcc8bce9e50adb2be12f2f366dc19402769081",
+      "source": "Anarchist Library (RU)",
+      "url": "https://ru.anarchistlibraries.net/library/mikhail-bakunin-revoliutsionnyi-katekhizis?v=1790973683",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-71160ece10d3968bc4eef086b079366f9219621d283b98ea3405ab8e49c7dbfe",
+      "source": "Queer Anarchism",
+      "url": "https://queeranarchism.tumblr.com/post/829391404689211392",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-d24f42223b892eb38ec28385fa4e5ccaeb79fb2cedfae3e41560a0d7ae4983fd",
+      "source": "Africa Is a Country",
+      "url": "https://africasacountry.com/2026/10/the-north-african-family-french-critics-couldnt-see",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-4477980f56597e2f0462e36f3d89653f080a521476160fc92f97cc594b29d927",
+      "source": "Indymedia Argentina",
+      "url": "https://argentina.indymedia.org/2026/10/02/sin-la-ayuda-de-mis-hijos-no-puedo-llegar-a-fin-de-mes-otro-miercoles-de-protesta-de-jubilados-por-una-vida-digna/",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-7861eaeeeab2dcb2decc157a80b2cbe3bb6acfb431767c97b8c7b3de7cd9451d",
+      "source": "Radio Kurruf Noticias",
+      "url": "https://radiokurruf.org/comunicado-publico-de-los-presos-politicos-mapuche-de-la-franja-lavkenche-condenados-en-el-caso-grollmus/",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-18819c41d5e1448ddcd93cd96786c015b5ee6afeca445d7095a61f8c47555433",
+      "source": "Libcom Library",
+      "url": "https://libcom.org/article/revolutionary-legacy-balkans-yavor-tarinskis-balkan-federation-and-communes",
+      "presentInFreshMetadataProjection": false,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-63288e1130f25b9db71b153e08bf4f31c1825824bcc602af45c99b8bd208d8fd",
+      "source": "Agência Pública",
+      "url": "https://apublica.org/2026/10/levantamento-aponta-um-caso-de-violencia-politica-a-cada-37-horas-durante-campanha-de-2026/",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-ced541655bbddcfadc012cbfbf3991f3453ca77a69d1c165e0eb0ed27e021197",
+      "source": "Nunatsiaq News",
+      "url": "https://nunatsiaq.com/stories/article/iqaluit-northmart-unveils-completed-in-store-renovations/",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-15bd626de2c3273c503e5e56575ba5f1237b486aed69af133d425062d8ddad5a",
+      "source": "MIA Marseille (FR)",
+      "url": "https://mars-infos.org/formation-psycho-trauma-spaam-8750",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-a37bea00300e766dbeecd9293b3e85e75c4b19f67422e5e963eb50a3091ca27e",
+      "source": "MIA Marseille (FR)",
+      "url": "https://mars-infos.org/fiertes-veneres-pride-radicale-du-8754",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-666950a407216f3604842055c309b462cc056f33cc64b0c1417ba48793f36b7d",
+      "source": "MIA Marseille (FR)",
+      "url": "https://mars-infos.org/1er-jour-d-octobre-et-ca-pete-fort-8760",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    },
+    {
+      "id": "news-d576bb384df539b059557e499aa9f62da650491da4a96162a30f0ef378a39b2c",
+      "source": "Electronic Frontier Foundation",
+      "url": "https://www.eff.org/deeplinks/2026/10/congress-has-another-site-blocking-bill-and-one-targets-vpns",
+      "presentInFreshMetadataProjection": true,
+      "individualHomeAdmission": "PENDING"
+    }
+  ],
+  "present": 19,
+  "failedTests": [
+    "four reviewed-note/illustration binding assertions",
+    "previous App lead selection assertion"
+  ],
+  "reason": "The accepted Home selection and its reading notes bind d7da528. A feed-only commit switch cannot relabel or restore them under5304fa0. Keep guards; coordinate the new individually admitted Home selection before integration.",
+  "productFreshFeedIntegrated": false,
+  "hotfixPublished": false
+}
