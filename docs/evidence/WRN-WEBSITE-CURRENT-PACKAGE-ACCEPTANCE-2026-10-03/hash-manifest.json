@@ -1,0 +1,17 @@
+{
+  "schema": "wrn.evidence-hash-manifest.v1",
+  "sourceCommit": "e20c8002f32103a7f888e907e6603fed792c8b52",
+  "frozenEvidenceCommit": "95a775e479ec7cdfc5641c8a36e93e20edfb35ef",
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 3541,
+      "sha256": "e129d9f1ca60d0457adc73dc91d768a820de415d7aecf6924f196fe3b50efb35"
+    },
+    {
+      "path": "acceptance.json",
+      "bytes": 1923,
+      "sha256": "b3c62587a69e8b38410385554866c86b904c1bbc84ebe034a62715e25d3ac8db"
+    }
+  ]
+}
