@@ -363,8 +363,8 @@
   "evidence": [
     {
       "path": "archive-hashes.json",
-      "bytes": 809,
-      "sha256": "1499648f0d9b195346f968409f8fc8bdc70b1c744cad7dde68f749e77d45e310"
+      "bytes": 782,
+      "sha256": "c7232974b31d5db93e0c6f956a52f9e6e70b69ce4e69418a234d28de0b879950"
     },
     {
       "path": "candidate-receipt.json",
@@ -443,8 +443,8 @@
     },
     {
       "path": "rollback-receipt.json",
-      "bytes": 424,
-      "sha256": "190ede30c5a54e8d45c90bfef0da4d28a783a166bab65db96efaa2404d41b603"
+      "bytes": 415,
+      "sha256": "8256082f18921642ac44115233c6c67c9d77fd9fbcf67201b3c6045d9318c80e"
     },
     {
       "path": "shell-manifest.json",
@@ -453,8 +453,8 @@
     },
     {
       "path": "upload-receipt.json",
-      "bytes": 11590,
-      "sha256": "47bd63d345a560083513eb1232fb2f2ba66f5a8d98976181e736f4f34ade6a7e"
+      "bytes": 11282,
+      "sha256": "28d06af01ee811252a00b223e7089539fcf3d5190a22421ee1b596769dc84c87"
     },
     {
       "path": "validation.json",
