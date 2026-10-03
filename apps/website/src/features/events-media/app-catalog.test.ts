@@ -14,7 +14,7 @@ describe('current app catalogue and preserved historical bytes', () => {
     const result = await unpackWebsiteCatalog(packed, signal());
     expect(
       Object.fromEntries(Object.entries(result.current.collections).map(([k, v]) => [k, v.length])),
-    ).toEqual({ radio: 27, podcasts: 1722, videos: 16, library: 728, events: 6 });
+    ).toEqual({ radio: 27, podcasts: 1777, videos: 16, library: 738, events: 6 });
     expect(result.current.collections.library.filter((r) => r.url.endsWith('.epub'))).toHaveLength(
       715,
     );
@@ -25,8 +25,47 @@ describe('current app catalogue and preserved historical bytes', () => {
     ).toHaveLength(13);
     expect(result.current.collections.library.every((r) => r.publishedAt === null)).toBe(true);
     expect(result.current.commit).toBe('2342289bb126c6356f20088d5a97fe20a08980e1');
+    expect(packed.supplement.commit).toBe('f4f3058bc68a433dba67cf3de114ba91b6cf4f7f');
+    for (const [kind, rows] of Object.entries(packed.current.collections))
+      expect(
+        result.current.collections[kind as keyof typeof result.current.collections].slice(
+          0,
+          (rows as unknown[]).length,
+        ),
+      ).toEqual(rows);
     expect(packed.history.sha256).toBe(createHash('sha256').update(historical).digest('hex'));
     expect(result.history).toEqual(JSON.parse(historical.toString('utf8')));
+  });
+  it.each([
+    'foreign-repository',
+    'collision',
+    'body',
+    'wrong-policy',
+    'excess-count',
+    'bad-input',
+    'unknown-key',
+  ])('rejects unsafe reviewed supplement: %s', async (variant) => {
+    const candidate = structuredClone(packed);
+    const delta = candidate.supplement;
+    if (variant === 'foreign-repository') delta.repository = 'https://example.com/catalog';
+    if (variant === 'collision')
+      delta.collections.podcasts[0].id = candidate.current.collections.podcasts[0].id;
+    if (variant === 'body') delta.collections.podcasts[0].body = 'Unadmitted full text';
+    if (variant === 'wrong-policy') delta.rights = 'full-text';
+    if (variant === 'excess-count') delta.collections.podcasts.push(delta.collections.podcasts[0]);
+    if (variant === 'bad-input') delta.inputs[0].sha256 = 'wrong';
+    if (variant === 'unknown-key') delta.audioUrl = 'https://example.com/audio.mp3';
+    await expect(unpackWebsiteCatalog(candidate, signal())).rejects.toThrow(
+      'website-catalog-supplement-invalid',
+    );
+  });
+  it('still accepts the historical v1 package without an App supplement', async () => {
+    const original = {
+      schema: 'wrn.website-events-media-package.v1',
+      history: packed.history,
+      current: packed.current,
+    };
+    expect((await unpackWebsiteCatalog(original, signal())).current).toEqual(packed.current);
   });
   it.each([
     'javascript:alert(1)',

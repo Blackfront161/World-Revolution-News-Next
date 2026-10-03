@@ -1,4 +1,4 @@
-import { createRef } from 'react';
+import { createRef, StrictMode } from 'react';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { emptySourcePreferences, setSourcePreference } from '@wrn/domain';
@@ -18,6 +18,11 @@ const shared = vi.hoisted(() => ({
   preferences: null as unknown,
   data: null as unknown,
   listeners: new Set<(data: unknown) => void>(),
+  translate: vi.fn(),
+}));
+vi.mock('../translation/shared-article-translation', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../translation/shared-article-translation')>()),
+  translateSharedArticle: shared.translate,
 }));
 vi.mock('../../../../../packages/browser-content/src/source-preferences-ui', () => ({
   useSourcePreferences: () => ({ state: shared.preferences }),
@@ -41,6 +46,7 @@ beforeEach(() => {
   localStorage.clear();
   shared.preferences = emptySourcePreferences();
   shared.data = { document, projection: document };
+  shared.translate.mockReset().mockResolvedValue({ kind: 'unavailable' });
   Object.defineProperty(navigator, 'locks', {
     configurable: true,
     value: {
@@ -55,6 +61,70 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 describe('Website internal news reader', () => {
+  it('automatically translates an opened foreign headline once in StrictMode and shares its translated title with WRN attribution', async () => {
+    const foreign = document.articles.find(
+      (item) => item.language === 'en' && !homeReadingSummary(item, document.sourceCommit, 'de'),
+    )!;
+    shared.translate.mockResolvedValue({
+      kind: 'translated',
+      title: 'Übersetzter Titel',
+      text: '',
+      cache: 'hit',
+    });
+    const share = vi.fn(async () => {});
+    Object.defineProperty(navigator, 'share', { configurable: true, value: share });
+    render(
+      <StrictMode>
+        <WebsiteDirectoryReader {...props()} articleId={foreign.id} />
+      </StrictMode>,
+    );
+    expect(
+      await screen.findByRole('heading', { level: 1, name: 'Übersetzter Titel' }),
+    ).toHaveAttribute('lang', 'de');
+    expect(shared.translate).toHaveBeenCalledOnce();
+    expect(shared.translate.mock.calls[0]![0]).toEqual({
+      title: foreign.title,
+      text: '',
+      sourceLanguage: 'en',
+      targetLanguage: 'de',
+    });
+    fireEvent.click(screen.getByRole('button', { name: /Teilen/ }));
+    expect(share).toHaveBeenCalledWith({
+      title: 'Übersetzter Titel',
+      text: `Übersetzter Titel · ${foreign.sourceName} · Übersetzt mit World Revolution News`,
+      url: `https://solinaridao.com${directoryArticlePath(foreign.id, 'de')}`,
+    });
+    expect(screen.getByText(foreign.title)).toBeInTheDocument();
+  });
+  it('discards a delayed translation after changing language and keeps the Original while waiting', async () => {
+    const foreign = document.articles.find(
+      (item) => item.language === 'en' && !homeReadingSummary(item, document.sourceCommit, 'de'),
+    )!;
+    let resolve!: (value: unknown) => void;
+    shared.translate
+      .mockImplementationOnce(
+        () =>
+          new Promise((done) => {
+            resolve = done;
+          }),
+      )
+      .mockResolvedValueOnce({
+        kind: 'translated',
+        title: 'Titre français',
+        text: '',
+        cache: 'unknown',
+      });
+    const view = render(<WebsiteDirectoryReader {...props()} articleId={foreign.id} />);
+    await waitFor(() => expect(shared.translate).toHaveBeenCalledOnce());
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(foreign.title);
+    view.rerender(<WebsiteDirectoryReader {...props('fr')} articleId={foreign.id} />);
+    expect(
+      await screen.findByRole('heading', { level: 1, name: 'Titre français' }),
+    ).toHaveAttribute('lang', 'fr');
+    resolve({ kind: 'translated', title: 'Stale German title', text: '', cache: 'miss' });
+    await waitFor(() => expect(screen.queryByText('Stale German title')).not.toBeInTheDocument());
+    expect(shared.translate.mock.calls[0]![1].aborted).toBe(true);
+  });
   it.each(uiLanguageIds)(
     'renders an attributed local WRN note and all reader labels in %s',
     async (language) => {

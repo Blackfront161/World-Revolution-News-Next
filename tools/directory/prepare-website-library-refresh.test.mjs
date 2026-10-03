@@ -82,3 +82,28 @@ for (const [name, change, expected] of [
     await assert.rejects(prepareWebsiteLibraryRefresh(args), new RegExp(expected));
     await assert.rejects(fs.access(args.outputFile));
   });
+for (const reverse of [false, true])
+  test(
+    'a newer unreviewed EPUB cannot replace an admitted metadata-only book in either input order ' +
+      reverse,
+    async () => {
+      const { args } = await fixture((feed, previous) => {
+        const book = structuredClone(
+          seed.currentKnowledge.library.books.find(
+            (row) => row.id === 'anarchist-library-de-ba62ecff09594a0105cded9a',
+          ),
+        );
+        assert.ok(book);
+        previous.currentKnowledge.library.books = [book];
+        previous.currentKnowledge.withdrawnIds.books = [book.id];
+        feed.splice(0, feed.length, book, {
+          ...book,
+          updatedAt: '2099-01-01T00:00:00.000Z',
+          downloads: { epub: 'https://de.anarchistlibraries.net/unreviewed.epub' },
+        });
+        if (reverse) feed.reverse();
+      });
+      await assert.rejects(prepareWebsiteLibraryRefresh(args), /existing-record-change/);
+      await assert.rejects(fs.access(args.outputFile));
+    },
+  );

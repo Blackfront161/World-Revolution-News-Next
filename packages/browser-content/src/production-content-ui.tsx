@@ -164,6 +164,11 @@ type ProductionContentAreaDependencies = Readonly<{
   shouldAutoCheck?: (control: ProductionContentOfflineControllerResult['control']) => boolean;
   embeddedCardHeadingLevel?: 3 | 4;
   translationAdapter?: ProductionTranslationAdapter | null;
+  ArticleTranslation?: ComponentType<{
+    view: Extract<ProductionArticleView, { kind: 'ready' }>;
+    language: UiLanguage;
+    route: string;
+  }>;
   deviceSpeechAdapter?: ProductionDeviceSpeechAdapter | null;
   onlinePodcastAdapter?: ProductionOnlinePodcastAdapter | null;
   activityClient?: ActivityClient | null;
@@ -180,6 +185,7 @@ export function createProductionContentArea({
   shouldAutoCheck = (control) => control?.generation === 0 && control.activeKey === null,
   embeddedCardHeadingLevel = 4,
   translationAdapter = null,
+  ArticleTranslation,
   deviceSpeechAdapter = null,
   onlinePodcastAdapter = null,
   activityClient = null,
@@ -649,6 +655,12 @@ export function createProductionContentArea({
       // Guarding temporarily unmounts the reader, so capture only a result that
       // is actually rendered at the instant the user presses Share.
       const renderedTranslation = blocksRef.current?.querySelector('[data-translation-result]');
+      const sharedTranslation = blocksRef.current?.querySelector<HTMLElement>(
+        '[data-wrn-translated-title]',
+      );
+      const sharedTitle = sharedTranslation?.dataset.wrnTranslatedTitle;
+      const sharedLanguage = sharedTranslation?.dataset.wrnTranslationLanguage;
+      const sharedAuthority = sharedTranslation?.dataset.wrnTranslationAuthority;
       const visibleTranslationLanguage = renderedTranslation?.isConnected
         ? renderedTranslation.closest<HTMLElement>('.production-translation')?.lang
         : null;
@@ -683,9 +695,22 @@ export function createProductionContentArea({
         visibleTranslationLanguage === language
           ? language
           : null;
-      const shareOptions = translatedLanguage
-        ? { translationLanguage: translatedLanguage }
-        : undefined;
+      const sharedResult =
+        sameTranslationAuthority &&
+        ArticleTranslation &&
+        sharedTitle &&
+        sharedLanguage &&
+        isUiLanguage(sharedLanguage) &&
+        sharedAuthority === JSON.stringify(refreshedAuthority);
+      const shareOptions = sharedResult
+        ? {
+            translationLanguage: sharedLanguage,
+            title: sharedTitle,
+            sourceName: refreshed.article.source.name,
+          }
+        : translatedLanguage
+          ? { translationLanguage: translatedLanguage }
+          : undefined;
       const publish = (value: string, url?: string) => {
         if (
           shareAttempt.current === attempt &&
@@ -1061,6 +1086,9 @@ export function createProductionContentArea({
                   }
                 />
                 <div className="production-reader-blocks" ref={blocksRef}>
+                  {ArticleTranslation && (
+                    <ArticleTranslation view={view} language={language} route={routeKey} />
+                  )}
                   <ProductionReaderBlocks
                     blocks={view.blocks}
                     translation={

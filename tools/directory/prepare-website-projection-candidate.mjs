@@ -134,7 +134,16 @@ export async function prepareWebsiteProjectionCandidate({
   if (
     catalogAssets.length !== 1 ||
     !(await readFile(resolve(build, 'assets', catalogAssets[0]))).equals(catalogBytes) ||
-    catalog.schema !== 'wrn.website-events-media-package.v1' ||
+    !['wrn.website-events-media-package.v1', 'wrn.website-events-media-package.v2'].includes(
+      catalog.schema,
+    ) ||
+    (catalog.schema === 'wrn.website-events-media-package.v2' &&
+      (!catalog.supplement ||
+        catalog.supplement.commit !== parity.appCommit ||
+        catalog.supplement.repository !==
+          'https://github.com/Blackfront161/World-Revolution-News-App.git' ||
+        catalog.supplement.rights !== 'metadata-original-link-only' ||
+        JSON.stringify(catalog.supplement) !== JSON.stringify(parity.appCatalog.supplement))) ||
     catalog.current.commit !== parity.dataCommit ||
     projectionHash(catalogBytes) !== parity.appCatalog.packed.sha256 ||
     JSON.stringify(catalog.current.inputs) !== JSON.stringify(parity.appCatalog.inputs) ||
@@ -204,6 +213,7 @@ export async function prepareWebsiteProjectionCandidate({
         Object.entries(catalog.current.collections).map(([kind, rows]) => [kind, rows.length]),
       ),
       inputs: catalog.current.inputs,
+      supplement: catalog.supplement ?? null,
       historySha256: catalog.history.sha256,
       packedSha256: projectionHash(catalogBytes),
     },

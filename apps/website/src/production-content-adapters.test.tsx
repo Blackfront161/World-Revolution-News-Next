@@ -14,16 +14,23 @@ import {
 } from './production-reading-state';
 import { App } from './App';
 import { getProductionContentCopy } from '@wrn/ui-language/production-content';
+import { getUiCopy } from '@wrn/ui-language';
 import {
   isVirginPublicationControl,
   useProductionContentOfflineController,
 } from './production-content-ui';
+const sharedTranslation = vi.hoisted(() => ({ translate: vi.fn() }));
+vi.mock('./features/translation/shared-article-translation', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('./features/translation/shared-article-translation')>()),
+  translateSharedArticle: sharedTranslation.translate,
+}));
 
 vi.mock('./production-content-offline-controller', () => ({
   createProductionContentOfflineController: vi.fn(),
 }));
 
 beforeEach(async () => {
+  sharedTranslation.translate.mockReset().mockResolvedValue({ kind: 'unavailable' });
   window.history.replaceState({}, '', '/');
   window.localStorage.clear();
   const runtime = await makeProductionOfflineFixture();
@@ -48,6 +55,59 @@ beforeEach(async () => {
 });
 
 describe('Website production adapter and entry', () => {
+  it('automatically translates only resolved admitted reader text and shares the translated title after a fresh guard', async () => {
+    sharedTranslation.translate.mockResolvedValue({
+      kind: 'translated',
+      title: 'Übersetzter Artikel',
+      text: 'Freigegebener übersetzter Text.',
+      cache: 'hit',
+    });
+    const share = vi.fn<(data: ShareData) => Promise<void>>().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, 'share', { configurable: true, value: share });
+    window.history.replaceState({}, '', `/?lang=de&article=${firstProductionTestId}#home`);
+    render(<App />);
+    expect(
+      (await screen.findByRole('heading', { name: 'Übersetzter Artikel' })).closest('[lang]'),
+    ).toHaveAttribute('lang', 'de');
+    expect(screen.getByText('Freigegebener übersetzter Text.').closest('[lang]')).toHaveAttribute(
+      'lang',
+      'de',
+    );
+    const input = sharedTranslation.translate.mock.calls[0]![0];
+    expect(input).toMatchObject({
+      text: 'Self-authored browser test text.',
+      sourceLanguage: 'en',
+      targetLanguage: 'de',
+    });
+    expect(Object.keys(input).sort()).toEqual([
+      'sourceLanguage',
+      'targetLanguage',
+      'text',
+      'title',
+    ]);
+    const user = userEvent.setup();
+    await user.click(screen.getByRole('button', { name: getUiCopy('de').share }));
+    await waitFor(() => expect(share).toHaveBeenCalledOnce());
+    expect(share.mock.calls[0]![0]).toMatchObject({
+      title: 'Übersetzter Artikel',
+      text: expect.stringContaining('Übersetzt mit World Revolution News'),
+      url: `https://solinaridao.com/articles/${firstProductionTestId}/`,
+    });
+    expect(screen.getByText('Self-authored browser test text.')).toBeVisible();
+  });
+  it('keeps the admitted Original readable when shared translation fails and disables retry until the stated reset', async () => {
+    sharedTranslation.translate.mockResolvedValue({
+      kind: 'error',
+      status: 429,
+      retryAt: Date.now() + 3600000,
+    });
+    window.history.replaceState({}, '', `/?lang=de&article=${firstProductionTestId}#home`);
+    render(<App />);
+    expect(await screen.findByText('Self-authored browser test text.')).toBeVisible();
+    expect(await screen.findByText('Die Übersetzung ist fehlgeschlagen.')).toBeVisible();
+    expect(screen.getByRole('button', { name: 'Erneut übersetzen' })).toBeDisabled();
+    expect(screen.getByText(/Erneut versuchen ab/)).toBeVisible();
+  });
   it('limits automatic publication recovery to untouched controls', () => {
     const virgin = createEmptyProductionContentOfflineControlV1();
     expect(isVirginPublicationControl(virgin)).toBe(true);

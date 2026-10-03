@@ -1,4 +1,5 @@
 import { WebsiteSupportWelcome } from './website-support-welcome';
+import { WebsiteGuide } from './features/guide/WebsiteGuide';
 import { WebsiteAppHome } from './features/home/WebsiteAppHome';
 import { DirectoryReaderNavigation } from './features/reader/directory-reader-navigation';
 import { isWebsiteNewsId } from './features/reader/directory-article-url';
@@ -408,8 +409,12 @@ function readThemePreference(
 }
 function readNavigationTargetFromLocation(): NavigationTargetId {
   const catalogue = readCatalogueLocation(window.location.hash);
-  if (catalogue) return catalogue.kind === 'library' || catalogue.kind === 'lexicon'
-    ? 'knowledge' : catalogue.kind === 'events' ? 'events' : 'media';
+  if (catalogue)
+    return catalogue.kind === 'library' || catalogue.kind === 'lexicon'
+      ? 'knowledge'
+      : catalogue.kind === 'events'
+        ? 'events'
+        : 'media';
   if (/^#discover\/(news|sources|sport)$/u.test(window.location.hash)) return 'discover';
   return resolveNavigationTarget(window.location.hash.replace(/^#\/?/, ''));
 }
@@ -2406,6 +2411,7 @@ export function App({
               </nav>
               <div id="website-more-menu" className="site-more-menu" hidden={!moreMenuOpen}>
                 <p>{copy.moreAreas}</p>
+                <WebsiteGuide language={uiLanguage} />
                 <button
                   type="button"
                   className="reader-entry"

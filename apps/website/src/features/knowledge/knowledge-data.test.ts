@@ -24,11 +24,37 @@ describe('website knowledge snapshot', () => {
     expect(packed.history).toEqual(JSON.parse(bytes.toString('utf8')));
     expect(validateMobileKnowledge(packed.currentKnowledge).ok).toBe(true);
     expect(packed.currentKnowledge.lexicon.terms).toHaveLength(177);
-    expect(packed.currentKnowledge.lexicon.sources).toHaveLength(54);
+    expect(packed.currentKnowledge.lexicon.sources).toHaveLength(55);
     expect(packed.currentKnowledge.input.lexiconSha256).toBe(
-      '7b6fbd2d214fdde5f1df4c88da2771b0026e1083d68942d742b27024e06f40b5',
+      '737cf5e7264ffcfbbca93245fffe0c8f567b477b6e9107648d0b659536f2a903',
     );
-    expect(packed.currentKnowledge.sourceCommit).toBe('e9c8088806f60ad8b9605705f686cc91f2536f90');
+    expect(packed.currentKnowledge.sourceCommit).toBe('f4f3058bc68a433dba67cf3de114ba91b6cf4f7f');
+    expect(packed.currentKnowledge.library.books).toHaveLength(741);
+    const approved = new Set(
+      [
+        'ba62ecff09594a0105cded9a',
+        '174b8a1c8b31483104c78134',
+        '53f177951cf6dc3525a55ad2',
+        '433b2ba94777b2cbc1a40583',
+        'cdd0f47e1835707d18dfbc69',
+        'a66f144a48eed29e9330ce16',
+        'dbfc419a36310497917860c0',
+        '37f710aeecdeffbe215e526b',
+        '4bf827a262200fb3dc1dcf0b',
+        'b3828bd26e2871d376d62575',
+      ].map((id) => 'anarchist-library-de-' + id),
+    );
+    const metadataOnly = packed.currentKnowledge.library.books.filter((book) =>
+      approved.has(book.id),
+    );
+    expect(metadataOnly).toHaveLength(10);
+    expect(
+      metadataOnly.every(
+        (book) =>
+          Object.keys(book.downloads).length === 0 &&
+          book.readUrl.startsWith('https://de.anarchistlibraries.net/library/'),
+      ),
+    ).toBe(true);
     const added = packed.currentKnowledge.lexicon.terms.filter((term) =>
       [
         'agroecology',

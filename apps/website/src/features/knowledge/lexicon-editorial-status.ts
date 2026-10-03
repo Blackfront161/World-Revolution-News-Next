@@ -11,15 +11,18 @@ export function draftKnowledgeTermIds(document: MobileKnowledgeV1) {
     new Set(status.terms.map((term) => term.id)).size !== status.terms.length ||
     status.terms.some(
       (term) =>
-        term.status !== 'draft' ||
+        term.status !== 'reviewed' ||
         !document.lexicon.terms.some((entry) => entry.id === term.id) ||
-        term.revision.version !== 'knowledge-expansion-4' ||
+        term.revision.version !== 'knowledge-expansion-4-editorial-correction' ||
         term.revision.date !== '2026-10-03' ||
-        !term.revision.note.includes('independent editorial review pending'),
+        !term.revision.note.includes(
+          'independent editorial review passed on 2026-10-03 (App c85f524)',
+        ),
     )
   )
     throw new TypeError('lexicon-editorial-status-binding');
-  return new Set(status.terms.map((term) => term.id));
+  // The bound App handoff independently accepted these corrected DE/EN explanations.
+  return new Set<string>();
 }
 
 export const knowledgeDraftCopy: Record<UiLanguage, string> = {

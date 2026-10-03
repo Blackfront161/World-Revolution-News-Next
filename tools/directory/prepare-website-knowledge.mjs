@@ -1,6 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
+import { isDeepStrictEqual } from 'node:util';
 import { createKnowledgeDocument } from '../import-legacy-knowledge.mjs';
 import { prepareWebsiteGlossary } from './prepare-website-glossary.mjs';
 import {
@@ -42,6 +43,24 @@ export async function prepareWebsiteKnowledge({
     throw Error('knowledge-history-drift');
   // Carry historical and previous-current withdrawals into the new snapshot.
   const previousCurrent = previous.currentKnowledge ?? previous.currentGlossary;
+  if (previousCurrent?.library?.books) {
+    const byId = new Map(currentKnowledge.library.books.map((book) => [book.id, book]));
+    if (
+      byId.size !== currentKnowledge.library.books.length ||
+      previousCurrent.library.books.some((book) => !isDeepStrictEqual(book, byId.get(book.id)))
+    )
+      throw Error('knowledge-existing-book-change');
+    const previousIds = new Set(previousCurrent.library.books.map((book) => book.id));
+    const rawBooks = JSON.parse(read('library-feed.json'));
+    for (const book of rawBooks.filter((book) => !previousIds.has(book.id))) {
+      if (
+        book.contentPolicy !== 'metadata_and_links_only' ||
+        Object.keys(book.downloads ?? {}).length ||
+        ['body', 'fullText', 'image', 'imageUrl'].some((key) => book[key])
+      )
+        throw Error('knowledge-new-book-policy');
+    }
+  }
   for (const [field, kinds] of Object.entries({
     withdrawnIds: ['books', 'terms'],
     withdrawnSourceIds: ['library', 'lexicon'],

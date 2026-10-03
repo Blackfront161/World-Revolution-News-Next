@@ -308,6 +308,14 @@ async function plan({
       ([key]) => key !== 'x-robots-tag',
     ),
   );
+  // The Website's article client uses only the installed App's WRN cache.
+  // Staging retains connect-src 'self'; no wildcard or direct provider access.
+  if (security['content-security-policy'].split("connect-src 'self'").length !== 2)
+    throw Error('Production connection policy changed');
+  security['content-security-policy'] = security['content-security-policy'].replace(
+    "connect-src 'self'",
+    "connect-src 'self' https://wrn-translation-cache.paghklo.workers.dev",
+  );
   const packaged = path.join(scratch, 'packaged-shell');
   await mkdir(packaged);
   await writeBound(root, packaged, 'index.html', metaIndex(index, security));

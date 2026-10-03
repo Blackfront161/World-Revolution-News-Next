@@ -63,4 +63,29 @@ describe('browser sharing', () => {
       'unavailable',
     );
   });
+  it('shares a completed translated title and source through native and clipboard sharing', async () => {
+    const options = {
+      translationLanguage: 'fr' as const,
+      title: 'Titre traduit',
+      sourceName: 'Original publisher',
+    };
+    const share = vi.fn(async () => {}),
+      writeText = vi.fn(async () => {});
+    await createBrowserShareAdapter({ navigator: { share } }).share(url, options);
+    await createBrowserShareAdapter({ navigator: { clipboard: { writeText } } }).share(
+      url,
+      options,
+    );
+    expect(share).toHaveBeenCalledWith({
+      title: 'Titre traduit',
+      text: 'Titre traduit · Original publisher\nTraduit avec World Revolution News',
+      url,
+    });
+    expect(writeText).toHaveBeenCalledWith(
+      `Titre traduit · Original publisher\nTraduit avec World Revolution News\n${url}`,
+    );
+    expect(() => canonicalShareText(url, { ...options, title: 'Injected\nextra' })).toThrow(
+      'Invalid share title',
+    );
+  });
 });

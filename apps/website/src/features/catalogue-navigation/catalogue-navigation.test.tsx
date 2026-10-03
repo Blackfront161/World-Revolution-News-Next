@@ -40,11 +40,26 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 describe('website metadata item views', () => {
-  it.each(uiLanguageIds)('shows the original term draft notice in %s', async (language) => {
-    window.history.replaceState({}, '', catalogueHref('lexicon', language, 'worker-cooperative'));
-    render(<WebsiteKnowledgeRoute language={language} headingRef={createRef()} />);
-    expect(await screen.findByText(knowledgeDraftCopy[language])).toBeVisible();
-  });
+  it.each(uiLanguageIds)(
+    'shows the accepted App correction and its specific primary reference in %s',
+    async (language) => {
+      window.history.replaceState({}, '', catalogueHref('lexicon', language, 'worker-cooperative'));
+      render(<WebsiteKnowledgeRoute language={language} headingRef={createRef()} />);
+      const term = document.lexicon.terms.find((term) => term.id === 'worker-cooperative')!;
+      expect(
+        await screen.findByRole('heading', {
+          level: 2,
+          name: term.title[language === 'de' ? 'de' : 'en'],
+        }),
+      ).toBeVisible();
+      expect(screen.queryByText(knowledgeDraftCopy[language])).toBeNull();
+      expect(
+        screen.getByRole('link', {
+          name: 'U.S. Federation of Worker Cooperatives · What is a worker cooperative?',
+        }),
+      ).toHaveAttribute('href', 'https://www.usworker.coop/what-is-a-worker-cooperative/');
+    },
+  );
   it('restores a control and position after StrictMode cancels the initial animation frame', async () => {
     window.history.replaceState(
       {

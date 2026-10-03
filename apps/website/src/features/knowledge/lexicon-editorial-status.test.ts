@@ -3,18 +3,18 @@ import { draftKnowledgeTermIds, knowledgeDraftCopy } from './lexicon-editorial-s
 import { validateMobileKnowledge } from '@wrn/content-contracts/mobile-knowledge-v1';
 import packed from './packed/legacy-knowledge-v1.json';
 
-describe('source-bound glossary draft metadata', () => {
+describe('source-bound independently reviewed glossary metadata', () => {
   const document = validateMobileKnowledge(packed.currentKnowledge).value!;
-  it('retains all ten original drafts and provides the notice in all nine UI languages', () => {
+  it('does not keep obsolete draft notices on the ten accepted App corrections', () => {
     const ids = draftKnowledgeTermIds(document);
-    expect(ids.size).toBe(10);
-    expect(ids.has('worker-cooperative')).toBe(true);
+    expect(ids.size).toBe(0);
+    expect(ids.has('worker-cooperative')).toBe(false);
     expect(ids.has('mutual-aid')).toBe(false);
     expect(Object.keys(knowledgeDraftCopy)).toHaveLength(9);
     expect(Object.values(knowledgeDraftCopy).every((text) => text.length > 20)).toBe(true);
   });
   it.each(['sourceCommit', 'inputLexiconSha256', 'missing-term'])(
-    '%s cannot silently remove draft notices',
+    '%s cannot silently accept unbound editorial metadata',
     (kind) => {
       const changed = structuredClone(document);
       if (kind === 'sourceCommit') Object.assign(changed, { sourceCommit: '0'.repeat(40) });

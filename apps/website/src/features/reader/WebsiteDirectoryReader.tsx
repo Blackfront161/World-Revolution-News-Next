@@ -7,12 +7,13 @@ import {
   type UiLanguage,
 } from '@wrn/ui-language';
 import { getDirectoryCopy } from '@wrn/ui-language/directory';
-import { AutomaticDirectoryTitle } from '../../../../../packages/browser-content/src/automatic-directory-title';
 import {
   createBrowserDeviceSpeechAdapter,
   ProductionPodcastPanel,
 } from '../../../../../packages/browser-content/src/production-podcast';
-import { productionTranslationAdapter } from '../../production-translation-adapter';
+import { useSharedArticleTranslation } from '../translation/use-shared-article-translation';
+import { ArticleTranslationStatus } from '../translation/ArticleTranslationStatus';
+import { getArticleTranslationCopy } from '../translation/translation-copy';
 import { homeReadingSummary } from '../home/home-editorial';
 import { getWebsiteHomeCopy } from '../home/website-home-copy';
 import { WebsiteArticleIllustration } from '../home/WebsiteArticleIllustration';
@@ -56,6 +57,20 @@ export function WebsiteDirectoryReader({
   const article = articles.find((item) => item.id === articleId);
   const commit = data?.document.sourceCommit ?? '';
   const note = article ? homeReadingSummary(article, commit, readingLanguage) : null;
+  const translation = useSharedArticleTranslation(
+    article && !note
+      ? {
+          title: article.title,
+          text: '',
+          sourceLanguage: article.language,
+          targetLanguage: readingLanguage,
+        }
+      : null,
+    `${articleId}:${commit}:${data?.document.observedAt ?? ''}`,
+    data ? Date.parse(data.document.observedAt) + 86400000 : 0,
+  );
+  const translated = translation.outcome?.kind === 'translated' ? translation.outcome : null;
+  const shareTitle = note?.headline ?? translated?.title ?? article?.title ?? '';
   const saved = reading.state.entries.find((entry) => entry.articleId === articleId);
   useEffect(() => {
     headingRef.current?.focus();
@@ -93,11 +108,22 @@ export function WebsiteDirectoryReader({
   };
   const share = async () => {
     if (!article) return;
-    if (typeof navigator.share !== 'function') return copyLink();
+    if (typeof navigator.share !== 'function') {
+      if (!translated) return copyLink();
+      try {
+        await navigator.clipboard.writeText(
+          `${shareTitle} · ${article.sourceName}\n${getArticleTranslationCopy(readingLanguage).attribution}\n${canonical}`,
+        );
+        if (mounted.current) setStatus(copy.copied);
+      } catch {
+        if (mounted.current) setStatus(copy.shareFailed);
+      }
+      return;
+    }
     try {
       await navigator.share({
-        title: note?.headline ?? article.title,
-        text: `${note?.headline ?? article.title} · ${article.sourceName}`,
+        title: shareTitle,
+        text: `${shareTitle} · ${article.sourceName}${translated ? ` · ${getArticleTranslationCopy(readingLanguage).attribution}` : ''}`,
         url: canonical,
       });
     } catch (error) {
@@ -152,17 +178,16 @@ export function WebsiteDirectoryReader({
             id="website-page-title"
             ref={headingRef}
             tabIndex={-1}
-            lang={note?.language ?? (article.language === 'und' ? undefined : article.language)}
+            lang={
+              note?.language ??
+              (translated
+                ? readingLanguage
+                : article.language === 'und'
+                  ? undefined
+                  : article.language)
+            }
           >
-            {note?.headline ?? (
-              <AutomaticDirectoryTitle
-                article={article}
-                directoryRevision={`${commit}:${data.document.observedAt}`}
-                language={readingLanguage}
-                adapter={productionTranslationAdapter}
-                position={0}
-              />
-            )}
+            {shareTitle}
           </h1>
           <div className="news-reader-toolbar" aria-label={ui.localReadingData}>
             <button
@@ -184,9 +209,9 @@ export function WebsiteDirectoryReader({
             <button type="button" onClick={() => void share()}>
               ↗ {ui.share}
             </button>
-            {note && (
+            {
               <label>
-                {copy.versions}
+                {note ? copy.versions : getArticleTranslationCopy(language).language}
                 <select
                   value={readingLanguage}
                   onChange={(event) => {
@@ -203,7 +228,7 @@ export function WebsiteDirectoryReader({
                   ))}
                 </select>
               </label>
-            )}
+            }
             <label>
               {copy.textSize}
               <select value={size} onChange={(event) => setSize(Number(event.target.value))}>
@@ -220,6 +245,9 @@ export function WebsiteDirectoryReader({
           </p>
           <WebsiteArticleIllustration article={article} commit={commit} language={language} eager />
           <div className="news-reader-body" style={{ fontSize: `${size}%` }}>
+            {!note && (
+              <ArticleTranslationStatus translation={translation} language={readingLanguage} />
+            )}
             {note && (
               <section aria-labelledby="news-reader-note">
                 <h2 id="news-reader-note">

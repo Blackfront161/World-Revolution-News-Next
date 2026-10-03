@@ -16,9 +16,9 @@ describe('website knowledge loader', () => {
     );
     const result = await loadWebsiteKnowledge(new AbortController().signal);
     expect(result.projection.terms).toHaveLength(177);
-    expect(result.projection.lexiconSources).toHaveLength(54);
-    expect(result.draftTermIds.size).toBe(10);
-    expect(result.projection.books).toHaveLength(731);
+    expect(result.projection.lexiconSources).toHaveLength(55);
+    expect(result.draftTermIds.size).toBe(0);
+    expect(result.projection.books).toHaveLength(741);
     const aborted = new AbortController();
     aborted.abort();
     await expect(loadWebsiteKnowledge(aborted.signal)).rejects.toMatchObject({

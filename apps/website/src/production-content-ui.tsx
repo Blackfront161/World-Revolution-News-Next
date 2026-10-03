@@ -15,6 +15,7 @@ import {
 } from './production-reading-state';
 import './production-content-ui.css';
 import { WebsiteCoverage } from './features/projection/WebsiteCoverage';
+import { WebsiteAdmittedArticleTranslation } from './features/translation/WebsiteAdmittedArticleTranslation';
 
 const useBaseProductionContentOfflineController = createProductionContentOfflineHook(
   createProductionContentOfflineController,
@@ -121,6 +122,7 @@ const ContentArea = createProductionContentArea({
   productionReadingStateStorageKey,
   headingId: 'website-page-title',
   translationAdapter: productionTranslationAdapter,
+  ArticleTranslation: WebsiteAdmittedArticleTranslation,
   deviceSpeechAdapter: createBrowserDeviceSpeechAdapter(),
   onlinePodcastAdapter: productionOnlinePodcastAdapter,
   archiveTriggerId: 'website-more-archive',
