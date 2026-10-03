@@ -1,0 +1,11 @@
+{
+  "reviewerThreadId": "019ff285-63dc-7ed2-88a8-cab5f06ed26e",
+  "reviewerTitle": "WRN Kontrolleur",
+  "reviewTurnId": "01a1007f-a4ac-7e20-a3ca-cf22fca131e2",
+  "status": "completed",
+  "completedAt": 1791010358,
+  "exactDecision": "GREEN / PASS – keine konkreten Blocker gefunden.\n\nGeprüft:\n\n- Produktcommit `f6649dc804a6029bdcceb4eafe47041aace9587b`\n- Belegcommit `b7f0f0ef9ee8cc8c8a8b4630d63a09e0074404c4`\n- 53/53 Produktdateien und 21/21 Belege hashgleich\n- Websitepaket 48/48, Hostingpaket 51/51\n- fünf Aktivierungs-ZIPs vollständig und bytegenau\n- Rollback 49/49 exakt gegen `d738a94`\n- Website-Tests: 286/286\n- Node-/Pakettests: 88/88\n- Offline-Shell: 7.992.846 Bytes, unter 8 MiB\n- Rechte, Widerrufe, Reader-IDs, separater begrenzter Lesespeicher, neun Sprachen, Bilder, Navigation und Teilen bestanden\n- Home-Auswahl `20b677c` und HTTP/3-Fix `198e82f` enthalten\n\nDas unversionierte `reader-preview-mobile.png` und sonstiger vorhandener WIP gehören nicht zum eingefrorenen Paket. Ich habe nichts verändert oder veröffentlicht.\n\nDer Head Chief wurde informiert. Vor einer Live-/Cloudflare-Freigabe bleiben nach dem autorisierten Upload zwingend: öffentliche Hash-, Header- und Pointer-Prüfung, Browser-Smoke-Test und kompletter Offline-Neustart. Ausschließlich die eingefrorenen ZIPs verwenden, nicht neu aus dem derzeit schmutzigen Arbeitsbaum bauen.\n\n[Abschlussbericht](</C:/Users/patri/Documents/World Revolution News/wrn-next-live-work/docs/evidence/WRN-WEBSITE-NEWS-READER-2026-10-03/REPORT.md>) · [READY.json](</C:/Users/patri/Documents/World Revolution News/wrn-next-live-work/work/website-news-reader-release-f6649dc-final/READY.json>)",
+  "productCommit": "f6649dc804a6029bdcceb4eafe47041aace9587b",
+  "evidenceCommit": "b7f0f0ef9ee8cc8c8a8b4630d63a09e0074404c4",
+  "publicationPerformed": false
+}
