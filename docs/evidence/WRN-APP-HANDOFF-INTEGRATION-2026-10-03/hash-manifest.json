@@ -14,7 +14,7 @@
     "apps/website/src/features/knowledge/packed/legacy-knowledge-v1.json",
     "docs/evidence/WRN-APP-HANDOFF-INTEGRATION-2026-10-03/input-bindings.json"
   ],
-  "createdAt": "2026-10-03T00:08:11.651Z",
+  "createdAt": "2026-10-03T00:09:59.812Z",
   "hostingShellBytes": 7807982,
   "hostingShellId": "0d72ef4f9334f6a7cc1fec884931157ed3ed3f3ecb2f6214c5ecd6d29fefc7a8",
   "websiteManifestSha256": "599f6db1a4f1dec174d5ac8b53c1b0baf6dfbdf2eb6764547a8a980649aa1d22",
@@ -22,8 +22,8 @@
   "files": [
     {
       "path": "REPORT.md",
-      "bytes": 11697,
-      "sha256": "3ea1337d5a009c9466f566b45d92191823f0093b618577cd8762371c1faca004"
+      "bytes": 13285,
+      "sha256": "02be1f61aad670e668186603ac9000334b2e581256b4525e5b61e5caf80f6bcf"
     },
     {
       "path": "archive-hashes.json",
@@ -124,6 +124,16 @@
       "path": "package-browser-result.json",
       "bytes": 3167,
       "sha256": "b65f0daaf8d4fdc7dd07e6ae7b35d78276dcb91e019c3bdfac305690e432a0a6"
+    },
+    {
+      "path": "post-publication-live-full-receipt.json",
+      "bytes": 136713,
+      "sha256": "baf40019bed4c406bdf6a1ea9f1100e27b6a7709b6b5483d4f23bad995d0c104"
+    },
+    {
+      "path": "post-publication-revocations.json",
+      "bytes": 2932,
+      "sha256": "c8ab0a35266d045dabff47ec9a668d0accd55eddcf6087a1bf5b143cd28976c2"
     },
     {
       "path": "private-upload-observation.json",

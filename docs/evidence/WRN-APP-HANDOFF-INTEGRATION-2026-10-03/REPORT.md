@@ -50,3 +50,11 @@ Frischer Widerrufsabruf: PASS, HTTP200,161Bytes, unverändert ohne aktive Rückn
 Die öffentliche Seite https://solinaridao.com ist auf diesem Freeze aktiv. Live-Chromeprüfung PASS:28 Radios einschließlich3CR-Originallink,167 Lexikonbegriffe und vier Lernpfade;728 Bücher,1722 Episoden,16 Videos,6 Events und bestehende Home-Rollen erhalten. Desktop1440/Handy390 ohne horizontalen Überlauf; eigenes Bild und Logo-Favicon bytegenau. Vollständiger Chrome-Prozessabschluss und Offline-Neustart mit persistentem Testprofil PASS; keine PageErrors und kein automatischer Radio-Streamabruf. Live-Belege sind hier versioniert.
 
 Die20 neuen Home-Kandidaten und der gesonderte Gefangenenblock bleiben weitere Arbeit. Diese Veröffentlichung ist kein vollständiger App-Paritäts- oder Gesamt-Release-PASS.
+
+## Frischer Koordinationsnachweis: 3. Oktober 2026, 08:09 Asia/Singapore
+
+Erneuter normaler HTTPS-Readback um00:09:13.728Z:45/45 öffentliche Dateien weiterhin byte-/SHA-identisch mit dem unabhängig akzeptierten Website-Produkt566422758241190f432d8c8a09d67a5f589d90ac; alle erwarteten MIME-/CSP-/CORS-/Cache-Header PASS. Frischer Widerrufsstand um00:09:08.807Z: HTTP200,161Bytes, SHA030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617, PASS. Belege: post-publication-live-full-receipt.json und post-publication-revocations.json.
+
+Die Website-Shell-ID lautet0d72ef4f9334f6a7cc1fec884931157ed3ed3f3ecb2f6214c5ecd6d29fefc7a8. Hostingmanifest-SHA8fde3d56b7ab784c02308947418ef7d6b668217e9922215f77707e173747234d, Websitemanifest-SHA599f6db1a4f1dec174d5ac8b53c1b0baf6dfbdf2eb6764547a8a980649aa1d22. Der Nachrichten-Produktzeiger bleibt wrn-production-news-2026-09-26-v8/sequence8; der Directory-Zeiger bleibt sequence202610020002, Snapshot-SHA3e73cac43faf5ce71b2b79680dee197b7c98d7bc4bed667e6e175e956f91e136, Data-Commitd7da528c9a996a2ec13bf3912c45e18e7d58bdfa. Radio/Lexikon/Lernpfade sind durch die neue Shell gebunden; die unveränderten Nachrichten-/Directory-Zeiger sind keine fehlgeschlagene Umschaltung und keine Aufnahme der20 neuen Home-Kandidaten.
+
+Der vollständige öffentliche Browser-/Offline-Nachweis steht bereits in live-browser-result.json; er wird ohne neue Produktänderung nicht erneut ausgeführt. Der gesonderte Gefangenenblock bleibt ausdrücklich außerhalb dieses Website-Releases. Keine ausgehende Nachricht an andere Chats erforderlich oder gesendet.
