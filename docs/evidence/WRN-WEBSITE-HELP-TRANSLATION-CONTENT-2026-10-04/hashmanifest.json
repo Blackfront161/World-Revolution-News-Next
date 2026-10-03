@@ -93,8 +93,8 @@
     },
     {
       "path": "upload-freeze.json",
-      "bytes": 23496,
-      "sha256": "8c322a754af39c913c4f4413881ce2bbef8510a3f23c73e72653fbf46ea7eaad"
+      "bytes": 22904,
+      "sha256": "0864da4834b6ede22eb7e7c3dfb89745a9c3055e730bde12838d5fa864c70675"
     },
     {
       "path": "verification.json",
