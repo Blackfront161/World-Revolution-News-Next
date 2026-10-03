@@ -23,12 +23,12 @@ describe('website knowledge snapshot', () => {
     expect(projection.terms).toHaveLength(22);
     expect(packed.history).toEqual(JSON.parse(bytes.toString('utf8')));
     expect(validateMobileKnowledge(packed.currentKnowledge).ok).toBe(true);
-    expect(packed.currentKnowledge.lexicon.terms).toHaveLength(167);
-    expect(packed.currentKnowledge.lexicon.sources).toHaveLength(44);
+    expect(packed.currentKnowledge.lexicon.terms).toHaveLength(177);
+    expect(packed.currentKnowledge.lexicon.sources).toHaveLength(54);
     expect(packed.currentKnowledge.input.lexiconSha256).toBe(
-      '32419d539f47377451b2409f2665b8c13da39becde7fc033ad01d0b7c0a7c8b5',
+      '7b6fbd2d214fdde5f1df4c88da2771b0026e1083d68942d742b27024e06f40b5',
     );
-    expect(packed.currentKnowledge.sourceCommit).toBe('75016f6b2356918671e28964397d56219d6367de');
+    expect(packed.currentKnowledge.sourceCommit).toBe('e9c8088806f60ad8b9605705f686cc91f2536f90');
     const added = packed.currentKnowledge.lexicon.terms.filter((term) =>
       [
         'agroecology',

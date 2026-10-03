@@ -6,11 +6,13 @@ import {
 } from '@wrn/content-contracts/mobile-knowledge-v1';
 import assetUrl from './packed/legacy-knowledge-v1.json?url';
 import { readLocalJsonAsset } from '../../local-json-asset';
+import { draftKnowledgeTermIds } from './lexicon-editorial-status';
 
 export type WebsiteKnowledge = Readonly<{
   document: MobileKnowledgeV1;
   projection: ReturnType<typeof projectMobileKnowledge>;
   glossaryDocument: MobileKnowledgeV1;
+  draftTermIds: ReadonlySet<string>;
 }>;
 
 let verified: WebsiteKnowledge | null = null;
@@ -43,6 +45,7 @@ export async function loadWebsiteKnowledge(signal: AbortSignal): Promise<Website
     document: glossary.value,
     projection: projectMobileKnowledge(glossary.value),
     glossaryDocument: glossary.value,
+    draftTermIds: draftKnowledgeTermIds(glossary.value),
   });
   return verified;
 }

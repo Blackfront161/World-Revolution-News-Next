@@ -1,0 +1,97 @@
+{
+  "schema": "wrn.website-lexicon-editorial-status.v1",
+  "sourceCommit": "e9c8088806f60ad8b9605705f686cc91f2536f90",
+  "inputLexiconSha256": "7b6fbd2d214fdde5f1df4c88da2771b0026e1083d68942d742b27024e06f40b5",
+  "terms": [
+    {
+      "id": "free-prior-informed-consent",
+      "status": "draft",
+      "revision": {
+        "version": "knowledge-expansion-4",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN draft with specific primary references and dated or hypothetical examples; independent editorial review pending."
+      }
+    },
+    {
+      "id": "indigenous-data-sovereignty",
+      "status": "draft",
+      "revision": {
+        "version": "knowledge-expansion-4",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN draft with specific primary references and dated or hypothetical examples; independent editorial review pending."
+      }
+    },
+    {
+      "id": "language-revitalisation",
+      "status": "draft",
+      "revision": {
+        "version": "knowledge-expansion-4",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN draft with specific primary references and dated or hypothetical examples; independent editorial review pending."
+      }
+    },
+    {
+      "id": "popular-education",
+      "status": "draft",
+      "revision": {
+        "version": "knowledge-expansion-4",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN draft with specific primary references and dated or hypothetical examples; independent editorial review pending."
+      }
+    },
+    {
+      "id": "social-insertion",
+      "status": "draft",
+      "revision": {
+        "version": "knowledge-expansion-4",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN draft with specific primary references and dated or hypothetical examples; independent editorial review pending."
+      }
+    },
+    {
+      "id": "non-reformist-reforms",
+      "status": "draft",
+      "revision": {
+        "version": "knowledge-expansion-4",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN draft with specific primary references and dated or hypothetical examples; independent editorial review pending."
+      }
+    },
+    {
+      "id": "access-intimacy",
+      "status": "draft",
+      "revision": {
+        "version": "knowledge-expansion-4",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN draft with specific primary references and dated or hypothetical examples; independent editorial review pending."
+      }
+    },
+    {
+      "id": "participatory-budgeting",
+      "status": "draft",
+      "revision": {
+        "version": "knowledge-expansion-4",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN draft with specific primary references and dated or hypothetical examples; independent editorial review pending."
+      }
+    },
+    {
+      "id": "worker-cooperative",
+      "status": "draft",
+      "revision": {
+        "version": "knowledge-expansion-4",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN draft with specific primary references and dated or hypothetical examples; independent editorial review pending."
+      }
+    },
+    {
+      "id": "abolitionist-divestment",
+      "status": "draft",
+      "revision": {
+        "version": "knowledge-expansion-4",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN draft with specific primary references and dated or hypothetical examples; independent editorial review pending."
+      }
+    }
+  ]
+}

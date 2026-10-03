@@ -11,6 +11,7 @@ import { BlackAnarchismResources } from '../../../../../packages/browser-content
 import './knowledge.css';
 import { LearningPaths } from './LearningPaths';
 import { localizedKnowledgeTerm } from './lexicon-locales';
+import { knowledgeDraftCopy } from './lexicon-editorial-status';
 import { CatalogueItemPanel, CatalogueLink } from '../catalogue-navigation/catalogue-navigation';
 
 const pageSize = 30;
@@ -342,6 +343,7 @@ function Lexicon({ data, language }: { data: WebsiteKnowledge; language: UiLangu
             title={selectedText?.title ?? null}
             titleLanguage={selectedText?.language ?? language}
           >
+            {data.draftTermIds.has(selected.id) ? <p>{knowledgeDraftCopy[language]}</p> : null}
             {selectedText?.draft ? (
               <p lang={selectedText.language}>
                 {selectedText.language === 'fr'

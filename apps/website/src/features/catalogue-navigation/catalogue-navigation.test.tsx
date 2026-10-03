@@ -13,6 +13,7 @@ import { WebsiteAppCatalog } from '../events-media/WebsiteAppCatalog';
 import { getWebsiteHomeCopy } from '../home/website-home-copy';
 import { catalogueHref } from './catalogue-location';
 import { emptyCatalogueView } from './catalogue-location';
+import { draftKnowledgeTermIds, knowledgeDraftCopy } from '../knowledge/lexicon-editorial-status';
 const shared = vi.hoisted(() => ({ knowledge: null as unknown }));
 vi.mock('../knowledge/knowledge-loader', () => ({
   loadWebsiteKnowledge: async () => shared.knowledge,
@@ -28,6 +29,7 @@ beforeEach(() => {
     document,
     glossaryDocument: document,
     projection: projectMobileKnowledge(document),
+    draftTermIds: draftKnowledgeTermIds(document),
   };
   window.history.replaceState({}, '', '/');
   vi.spyOn(window, 'scrollTo').mockImplementation(() => {});
@@ -38,6 +40,11 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 describe('website metadata item views', () => {
+  it.each(uiLanguageIds)('shows the original term draft notice in %s', async (language) => {
+    window.history.replaceState({}, '', catalogueHref('lexicon', language, 'worker-cooperative'));
+    render(<WebsiteKnowledgeRoute language={language} headingRef={createRef()} />);
+    expect(await screen.findByText(knowledgeDraftCopy[language])).toBeVisible();
+  });
   it('restores a control and position after StrictMode cancels the initial animation frame', async () => {
     window.history.replaceState(
       {

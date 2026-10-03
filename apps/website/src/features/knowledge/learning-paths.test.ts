@@ -5,6 +5,7 @@ import {
 } from '@wrn/content-contracts/mobile-knowledge-v1';
 import packed from './packed/legacy-knowledge-v1.json';
 import { learningPathsForKnowledge } from './learning-paths';
+import { draftKnowledgeTermIds } from './lexicon-editorial-status';
 const current = () => {
   const validation = validateMobileKnowledge(structuredClone(packed.currentKnowledge));
   if (!validation.ok || !validation.value) throw Error('invalid test fixture');
@@ -13,6 +14,7 @@ const current = () => {
     document,
     glossaryDocument: document,
     projection: projectMobileKnowledge(document),
+    draftTermIds: draftKnowledgeTermIds(document),
   };
 };
 describe('learning paths use current catalogue records and original links', () => {
