@@ -11,6 +11,11 @@ import { type UiLanguage } from '@wrn/ui-language';
 import { getWebsiteSupportCopy } from '@wrn/ui-language/support';
 import type { MobileSupportV1 } from '@wrn/content-contracts/mobile-support-v1';
 import { createWebsiteSupportProjector, loadWebsiteSupport } from './support-loader';
+import {
+  PrisonerReviewBadge,
+  PrisonerSupportLinks,
+  useWebsitePrisonerReviewClock,
+} from './WebsitePrisonerReview';
 import './support.css';
 
 const external = {
@@ -323,6 +328,7 @@ function SolidarityDirectory({
   const copy = getWebsiteSupportCopy(language);
   const projector = useMemo(() => createWebsiteSupportProjector(), []);
   const projection = projector.project(data);
+  const prisonerReviewStates = useWebsitePrisonerReviewClock();
   const [query, setQuery] = useState('');
   const [region, setRegion] = useState('');
   const [draft, setDraft] = useState<Draft>(safeDraft);
@@ -387,6 +393,7 @@ function SolidarityDirectory({
   return (
     <section className="website-support-panel">
       <p role="status">{copy.historicalSnapshot}</p>
+      <PrisonerSupportLinks language={language} />
       <div className="website-content-filters">
         <label>
           {copy.search}
@@ -418,18 +425,26 @@ function SolidarityDirectory({
             <p>
               {item.country} · {item.region}
             </p>
-            {item.contextDe ? (
-              <p lang="de">{item.contextDe}</p>
-            ) : (
-              <p>{copy.historicalDescriptionHidden}</p>
-            )}
-            <p>
-              <small>
-                {copy.historicalVerification}:{' '}
-                <time dateTime={item.verifiedAt}>{item.verifiedAt}</time>; {copy.review}:{' '}
-                <time dateTime={item.nextReviewAt}>{item.nextReviewAt}</time>.
-              </small>
-            </p>
+            <PrisonerReviewBadge
+              profileId={item.id}
+              language={language}
+              state={prisonerReviewStates.get(item.id)}
+            />
+            <details>
+              <summary>{copy.historicalVerification}</summary>
+              {item.contextDe ? (
+                <p lang="de">{item.contextDe}</p>
+              ) : (
+                <p>{copy.historicalDescriptionHidden}</p>
+              )}
+              <p>
+                <small>
+                  {copy.historicalVerification}:{' '}
+                  <time dateTime={item.verifiedAt}>{item.verifiedAt}</time>; {copy.review}:{' '}
+                  <time dateTime={item.nextReviewAt}>{item.nextReviewAt}</time>.
+                </small>
+              </p>
+            </details>
             <p className="website-safe-links">
               <a href={item.profileUrl} {...external}>
                 {copy.profileSource}

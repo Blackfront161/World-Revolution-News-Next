@@ -32,6 +32,28 @@
 .support-print-only {
   display: none;
 }
+.website-prisoner-resources ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+.website-prisoner-resources li {
+  padding: 0.75rem;
+  border: 1px solid var(--border, #d7d7df);
+  overflow-wrap: anywhere;
+}
+.website-prisoner-resources small {
+  display: block;
+  margin-top: 0.4rem;
+}
+.website-prisoner-review {
+  padding: 0.75rem;
+  border-left: 3px solid #b31939;
+  background: #f7f7fa;
+  color: #111;
+}
 @media print {
   body > * {
     display: none !important;
