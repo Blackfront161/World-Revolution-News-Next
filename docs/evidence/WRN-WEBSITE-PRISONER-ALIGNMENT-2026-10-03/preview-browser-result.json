@@ -1,0 +1,30 @@
+{
+  "schema": "wrn.website-prisoner-browser-check.v1",
+  "origin": "http://127.0.0.1:43240",
+  "observedAtUTC": "2026-10-03T00:31:39.733Z",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "responsive, five original links and 13/17 distinct review states 1440x900",
+      "status": "PASS"
+    },
+    {
+      "name": "responsive, five original links and 13/17 distinct review states 390x844",
+      "status": "PASS"
+    },
+    {
+      "name": "open route expires at local midnight without UTC label shift Asia/Singapore",
+      "status": "PASS"
+    },
+    {
+      "name": "open route expires at local midnight without UTC label shift Pacific/Kiritimati",
+      "status": "PASS"
+    },
+    {
+      "name": "open route expires at local midnight without UTC label shift America/Los_Angeles",
+      "status": "PASS"
+    }
+  ],
+  "externalRequests": [],
+  "pageErrors": []
+}

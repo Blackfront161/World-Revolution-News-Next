@@ -1,0 +1,111 @@
+{
+  "origin": "http://127.0.0.1:56874",
+  "sourceCommit": "fe94660d0c830bfab4ca97ea82b9e0b44bacc360",
+  "observedAtUTC": "2026-10-03T00:36:05.002Z",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "live homepage, coverage and original links",
+      "status": "PASS",
+      "ids": [
+        "news-7956e3311e1bcb7df04798b6a2986cb5054cfd96dcc8d5a3397abcd519159959",
+        "news-09a14b63febedd7dcb177d736523f28b5242a09708b803fd819a4282996f2628",
+        "news-2b5f3c7700ce5f662358d8869d9c6dedfe9459fe28fcf0359943d98d2f16549e",
+        "news-ca355f155367fe855e230b1e6adfb68b1c7c7ede062061fb7ac07bc252892f79",
+        "news-da3cf8526e8ca0f62d63e0408e4cc6f1504c19e7ae53bc5ab6b0ba8825e57841"
+      ],
+      "links": [
+        {
+          "href": "https://english.anf-news.com/news/police-detain-mersin-metropolitan-municipality-mayor-and-58-others-87480",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        },
+        {
+          "href": "https://english.anf-news.com/kurdistan/iran-bombs-kdp-i-camp-87481",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        },
+        {
+          "href": "https://english.anf-news.com/kurdistan/soldiers-attack-martyr-binevs-cemetery-on-mount-gabar-87486",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        },
+        {
+          "href": "https://www.anarchistfederation.net/healing-the-borders-scar-updates-on-khalif-miller/",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        },
+        {
+          "href": "https://www.anarchistfederation.net/the-projet-evasions-needs-a-little-cash/",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        }
+      ]
+    },
+    {
+      "name": "responsive 1440x900",
+      "status": "PASS"
+    },
+    {
+      "name": "responsive 390x844",
+      "status": "PASS"
+    },
+    {
+      "name": "news and sources deep links with unverified labels",
+      "status": "PASS"
+    },
+    {
+      "name": "five public support originals and source-bound 13/17 review states online",
+      "status": "PASS"
+    },
+    {
+      "name": "all current app catalogues and 167 glossary terms and source-bound 3CR original link online",
+      "status": "PASS"
+    },
+    {
+      "name": "five public support originals and source-bound 13/17 review states after complete offline restart",
+      "status": "PASS"
+    },
+    {
+      "name": "all current catalogues and glossary after complete offline Chrome restart",
+      "status": "PASS"
+    },
+    {
+      "name": "Chrome process closed and restarted offline with persistent test profile, metadata and exact favicon",
+      "status": "PASS"
+    }
+  ],
+  "illustration": {
+    "mime": "image/webp",
+    "bytes": 455444,
+    "sha256": "e33d13ae13efbf10463e6bb1e660f02305b323ae83ef2e4aa22c58f579b111ab",
+    "width": 1672
+  },
+  "icon": {
+    "href": "/assets/wrn-app-icon-CwyuVArd.png",
+    "bytes": 8845,
+    "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+  },
+  "prisonerAlignment": {
+    "profiles": 30,
+    "datedAddressMatches": 13,
+    "needsReview": 17,
+    "publicSupportLinks": 5,
+    "addressesImported": 0,
+    "appProduct": "8c0c0d90a119b7a95b5154fa64c49dfb97c8842e"
+  },
+  "offline": {
+    "href": "/assets/wrn-app-icon-CwyuVArd.png",
+    "width": 72,
+    "height": 72,
+    "controlled": true,
+    "mime": "image/png",
+    "bytes": 8845,
+    "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+  },
+  "pageErrors": [],
+  "radioSupplement": {
+    "visibleCount": 28,
+    "unsolicitedStreamRequests": []
+  }
+}
