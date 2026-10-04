@@ -8,19 +8,22 @@ const data = { document, projection: document };
 describe('actual App Home selection on the Website', () => {
   it('uses the current App lead and reviewed stories in their exact App role order', () => {
     const home = selectAppHomeArticles(data, document.articles);
-    expect(home.lead?.title).toBe('Make the wealthy pay: AIDC lays out alternative to austerity');
+    expect(home.lead?.id).toBe('news-1275b2a383697835d98166d826a33ccf93080f39aec56e8548d9dfb3e6edf344');
+    expect(home.lead?.title).toBe('Purulia’s Bero-Chandi Pahar Faces Renewed Threat from Granite Mining');
     expect(home.top.map((a) => a.title)).toEqual([
-      'Nunavut sports hall of fame inductions begin',
-      '“If Bolsonaro wins, they kill us; if Lula wins, they let us die.”',
-      'Iran’s teachers movement perseveres against all odds',
-      'Site-Blocking Will Not Defend IP, No Matter the Bill’s Name',
+      'Direct Action (SolFed) #05 1998',
+      'The Algorithm of the Ballot: How Data Decides Democracy Before We Vote',
+      'Lightweight',
+      'Every year, alongside many others, we observe April 15 as Steal Something from Work Day&mdash;an&hellip;',
+      'Redes, moral, identificação e mais: o que as eleições revelam, mas não aparece nas urnas',
     ]);
-    expect(home.more).toHaveLength(6);
-    expect(home.briefing).toHaveLength(4);
+    expect(home.more).toHaveLength(9);
+    expect(home.briefing).toHaveLength(5);
+    expect(home.current).toHaveLength(423);
     expect(home.sport).toHaveLength(0);
-    expect(layout.excludedSelection).toHaveLength(5);
+    expect(layout.excludedSelection).toHaveLength(22);
     const selected = [home.lead, ...home.top, ...home.more, ...home.briefing].map((a) => a?.id);
-    for (const held of layout.excludedSelection) expect(selected).not.toContain(held.articleId);
+    for (const held of layout.excludedSelection) expect(selected).not.toContain(held.id);
   });
   it('cannot restore a withdrawn or source-hidden App article from the layout map', () => {
     const admitted = document.articles.filter(

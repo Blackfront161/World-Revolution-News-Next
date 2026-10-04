@@ -1,4 +1,5 @@
 import { WebsiteSupportWelcome } from './website-support-welcome';
+import atlasIcon from './assets/world-revolution-atlas-punk.svg?raw';
 import { WebsiteGuide } from './features/guide/WebsiteGuide';
 import { WebsiteAppHome } from './features/home/WebsiteAppHome';
 import { DirectoryReaderNavigation } from './features/reader/directory-reader-navigation';
@@ -2305,6 +2306,14 @@ export function App({
                     solinaridao.com ↗
                   </a>
                 </div>
+                <a
+                  className="compact-site-atlas"
+                  aria-label="World Revolution Atlas"
+                  href={`/atlas/?lang=${uiLanguage}`}
+                  data-testid="header-atlas-link"
+                >
+                  <span aria-hidden="true" dangerouslySetInnerHTML={{ __html: atlasIcon }} />
+                </a>
                 <button
                   type="button"
                   className="compact-site-menu"

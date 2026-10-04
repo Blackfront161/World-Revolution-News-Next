@@ -6,7 +6,15 @@ export function selectAppHomeArticles(
   data: WebsiteContentDirectory,
   admitted: readonly DirectoryArticle[],
 ) {
-  const current = admitted.filter((a) => !a.historical);
+  const available = admitted.filter((a) => !a.historical);
+  const visible=new Map(available.map(a=>[a.id,a]));
+  const topics = layout.appTopics as Record<string, string[]>;
+  const current = data.document.sourceCommit === layout.directoryCommit
+    ? layout.visibleIds.flatMap(id => {
+        const article = visible.get(id);
+        return article ? [{ ...article, topics: topics[id] ?? article.topics }] : [];
+      })
+    : available;
   const byId = new Map(current.map((a) => [a.id, a]));
   const pick = (ids: readonly string[]) =>
     ids.flatMap((id) => (byId.has(id) ? [byId.get(id)!] : []));

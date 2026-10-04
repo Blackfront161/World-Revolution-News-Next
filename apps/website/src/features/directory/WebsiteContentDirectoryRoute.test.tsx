@@ -8,7 +8,7 @@ import { afterEach, expect, it, vi } from 'vitest';
 import { emptySourcePreferences, setSourcePreference } from '@wrn/domain';
 import { SourcePreferencesProvider } from '../../../../../packages/browser-content/src/source-preferences-ui';
 import { createSourcePreferencesStore } from '../../../../../packages/browser-content/src/source-preferences-state';
-import snapshot from './data/content-directory-v1.json';
+import snapshot from '../projection/data/content-directory-v1.json';
 import fullOverlayRaw from '../../../../../packages/browser-content/src/data/source-pass-overlay-v1.json?raw';
 import { WebsiteContentDirectoryRoute } from './WebsiteContentDirectoryRoute';
 
@@ -37,7 +37,7 @@ it('finds the existing Direkte Aktion source by domain and name', async () => {
       onSectionChange={() => {}}
     />,
   );
-  await screen.findByText('Showing 30 of 532');
+  await screen.findByText('Showing 30 of 547');
   for (const query of [' DIREKTEAKTION.ORG ', 'Direkte Aktion']) {
     fireEvent.change(screen.getByLabelText('Search'), { target: { value: query } });
     expect(screen.getByText('Showing 1 of 1')).toBeInTheDocument();
@@ -51,7 +51,7 @@ it('finds the existing Direkte Aktion source by domain and name', async () => {
 it('finds every admitted source by recorded names, endpoint and homepage domains', () => {
   if (!validateMobileContentDirectory(snapshot)) throw new Error('Invalid source snapshot');
   const sources = projectMobileContentDirectory(snapshot).sources;
-  expect(sources).toHaveLength(532);
+  expect(sources).toHaveLength(547);
   for (const source of sources) {
     const queries = new Set([
       source.name,
@@ -78,7 +78,7 @@ it('uses recorded aliases and homepage domains in the rendered source search', a
       onSectionChange={() => {}}
     />,
   );
-  await screen.findByText('Showing 30 of 532');
+  await screen.findByText('Showing 30 of 547');
   for (const [query, href] of [
     ['CrimethInc. (Global)', 'https://crimethinc.com/'],
     ['ZNet (Global)', 'https://znetwork.org/'],
@@ -102,17 +102,15 @@ it('opens every available directory article for a selected source', async () => 
   const onSectionChange = vi.fn();
   const props = { language: 'en' as const, headingRef: { current: null }, onSectionChange };
   const view = render(<WebsiteContentDirectoryRoute {...props} section="sources" />);
-  await screen.findByText('Showing 30 of 532');
+  await screen.findByText('Showing 30 of 547');
   fireEvent.change(screen.getByLabelText('Search'), {
     target: { value: 'Indymedia Argentina' },
   });
   expect(screen.getByText('Showing 2 of 2')).toBeInTheDocument();
-  fireEvent.click(screen.getAllByRole('button', { name: 'All news from this source (36)' })[0]!);
+  fireEvent.click(screen.getAllByRole('button', { name: 'All news from this source (20)' })[0]!);
   expect(onSectionChange).toHaveBeenCalledWith('news');
   view.rerender(<WebsiteContentDirectoryRoute {...props} section="news" />);
-  expect(screen.getByText('Showing 30 of 36')).toBeInTheDocument();
-  fireEvent.click(screen.getByRole('button', { name: 'Load 30 more' }));
-  expect(screen.getByText('Showing 36 of 36')).toBeInTheDocument();
+  expect(screen.getByText('Showing 20 of 20')).toBeInTheDocument();
 });
 
 it('hides a legacy article without endpoint IDs but reveals it for an explicit source filter', async () => {
@@ -140,7 +138,7 @@ it('hides a legacy article without endpoint IDs but reveals it for an explicit s
       />
     </SourcePreferencesProvider>,
   );
-  await screen.findByText('Snapshot: 2026-09-09');
+  await screen.findByText('Snapshot: 2026-10-04');
   fireEvent.change(screen.getByLabelText('Search'), { target: { value: article.title } });
   await waitFor(() => expect(screen.getByText('Showing 0 of 0')).toBeVisible());
   expect(screen.queryByRole('link', { name: article.title })).not.toBeInTheDocument();
@@ -156,13 +154,13 @@ it('opens articles from a curated source pass with different pass and endpoint I
   const view = render(<WebsiteContentDirectoryRoute {...props} section="sources" />);
   const button = await screen.findByRole(
     'button',
-    { name: 'All news from this source: Electronic Frontier Foundation (10)' },
+    { name: 'All news from this source: Electronic Frontier Foundation (17)' },
     { timeout: 5000 },
   );
   fireEvent.click(button);
   expect(onSectionChange).toHaveBeenCalledWith('news');
   view.rerender(<WebsiteContentDirectoryRoute {...props} section="news" />);
-  expect(screen.getByText('Showing 10 of 10')).toBeInTheDocument();
+  expect(screen.getByText('Showing 17 of 17')).toBeInTheDocument();
   expect(screen.getByText('Source:')).toBeInTheDocument();
   expect(screen.getByText('Electronic Frontier Foundation', { selector: 'strong' })).toBeInTheDocument();
 });

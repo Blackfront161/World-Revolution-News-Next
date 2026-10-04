@@ -332,6 +332,11 @@ async function plan({
     "connect-src 'self'",
     "connect-src 'self' https://wrn-translation-cache.paghklo.workers.dev",
   );
+  // Only the exact HTTPS origins in the source-bound App image register may
+  // load. Image bytes never enter the hosting packet or offline shell.
+  const images=JSON.parse(await readFile(fileURLToPath(new URL('../src/features/home/app-article-images-v1.json',import.meta.url)),'utf8'));
+  if(images.schema!=='wrn.website-app-image-references.v1'||images.imageBytesHosted!==false||images.imageBytesOffline!==false||!Array.isArray(images.origins)||images.origins.some(value=>{try{const u=new URL(value);return u.protocol!=='https:'||u.origin!==value||!!u.username||!!u.password;}catch{return true;}}))throw Error('App image origin policy differs');
+  security['content-security-policy']=security['content-security-policy'].replace("img-src 'self' data: blob:","img-src 'self' data: blob: "+images.origins.join(' '));
   const packaged = path.join(scratch, 'packaged-shell');
   await mkdir(packaged);
   await writeBound(root, packaged, 'index.html', metaIndex(index, security));

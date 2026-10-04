@@ -19,7 +19,7 @@ beforeEach(() => {
 });
 afterEach(cleanup);
 it.each(uiLanguageIds)(
-  'opens six local tasks and canonical actions without provider, speech or media effects in %s',
+  'opens seven local tasks and canonical actions without provider, speech or media effects in %s',
   async (language) => {
     const fetch = vi.mocked(globalThis.fetch);
     fetch.mockClear();
@@ -29,7 +29,8 @@ it.each(uiLanguageIds)(
     fireEvent.click(trigger);
     const dialog = screen.getByRole('dialog', { name: websiteGuideCopy[language].title });
     expect(dialog).toHaveAttribute('lang', language);
-    expect(dialog.querySelectorAll('details')).toHaveLength(6);
+    expect(dialog.querySelectorAll('details')).toHaveLength(7);
+    expect(screen.getByRole('link', {name:'World Revolution Atlas ↗'})).toHaveAttribute('href', `/atlas/?lang=${language}`);
     for (const [title, text] of websiteGuideCopy[language].tasks) {
       expect(screen.getByText(title)).toBeVisible();
       fireEvent.click(screen.getByText(title));

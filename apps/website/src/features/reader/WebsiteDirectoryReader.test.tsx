@@ -5,7 +5,7 @@ import { emptySourcePreferences, setSourcePreference } from '@wrn/domain';
 import { getUiCopy, uiLanguageIds, type UiLanguage } from '@wrn/ui-language';
 import type { MobileContentDirectory } from '@wrn/content-contracts/mobile-content-directory-v1';
 import directory from '../projection/data/content-directory-v1.json';
-import layout from '../home/app-home-layout-v1.json';
+import editorial from '../home/app-home-editorial-v1.json';
 import { homeReadingSummary } from '../home/home-editorial';
 import { getWebsiteHomeCopy } from '../home/website-home-copy';
 import { WebsiteDirectoryReader } from './WebsiteDirectoryReader';
@@ -35,7 +35,7 @@ vi.mock('../directory/directory-loader', () => ({
   },
 }));
 const document = directory as MobileContentDirectory,
-  article = document.articles.find((item) => item.id === layout.lead)!;
+  article = document.articles.find((item) => item.id === editorial.entries[0]!.articleId)!;
 const props = (language: UiLanguage = 'de') => ({
   articleId: article.id,
   language,
@@ -154,10 +154,11 @@ describe('Website internal news reader', () => {
         'href',
         article.url,
       );
-      expect(screen.getByAltText(`${copy.illustrationCredit} · ${note.headline}`)).toHaveAttribute(
+      expect(screen.getByAltText(article.title)).toHaveAttribute(
         'lang',
-        language,
+        article.language,
       );
+      expect(screen.getByAltText(article.title)).toHaveAttribute('referrerpolicy', 'no-referrer');
     },
   );
   it('switches both headline and note to another available local language without submitting the original article', async () => {

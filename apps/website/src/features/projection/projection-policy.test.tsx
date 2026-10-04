@@ -92,7 +92,7 @@ it('a newer hashed live document cannot bypass the reviewed snapshot admission',
   expect(result.document.articles.find((a) => a.id === latest.id)?.title).toBe(latest.title);
   expect(result.source).toBe('bundled');
   expect(result.transferState).toBe('refresh-unconfirmed');
-  expect(result.coverage?.counts.metadataLinkOnly).toBe(465);
+  expect(result.coverage?.counts.metadataLinkOnly).toBe(475);
 });
 it('live source withdrawal removes rendered homepage links and remains blocked after an offline restart', async () => {
   const server = await transport();
@@ -148,5 +148,5 @@ it('the cache expires and a failed refresh is labelled even while the snapshot i
   const result = await loadWebsiteContentDirectory(new AbortController().signal);
   expect(server.fetch.mock.calls.length).toBeGreaterThan(before);
   expect(result.transferState).toBe('refresh-unconfirmed');
-  expect(result.projection.articles.filter((a) => !a.historical)).toHaveLength(465);
+  expect(result.projection.articles.filter((a) => !a.historical)).toHaveLength(475);
 });

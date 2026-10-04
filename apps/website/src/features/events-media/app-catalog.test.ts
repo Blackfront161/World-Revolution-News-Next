@@ -14,9 +14,9 @@ describe('current app catalogue and preserved historical bytes', () => {
     const result = await unpackWebsiteCatalog(packed, signal());
     expect(
       Object.fromEntries(Object.entries(result.current.collections).map(([k, v]) => [k, v.length])),
-    ).toEqual({ radio: 27, podcasts: 1777, videos: 16, library: 738, events: 6 });
+    ).toEqual({ radio: 28, podcasts: 1839, videos: 15, library: 741, events: 6 });
     expect(result.current.collections.library.filter((r) => r.url.endsWith('.epub'))).toHaveLength(
-      715,
+      718,
     );
     expect(
       result.current.collections.library.filter((r) =>
@@ -24,8 +24,8 @@ describe('current app catalogue and preserved historical bytes', () => {
       ),
     ).toHaveLength(13);
     expect(result.current.collections.library.every((r) => r.publishedAt === null)).toBe(true);
-    expect(result.current.commit).toBe('2342289bb126c6356f20088d5a97fe20a08980e1');
-    expect(packed.supplement.commit).toBe('f4f3058bc68a433dba67cf3de114ba91b6cf4f7f');
+    expect(result.current.commit).toBe('2225f93cacecebf4ee262a595d0ed4ffec93caf2');
+    expect(packed.supplement.commit).toBe('6a8edf0b8e2ddd462db2e750f672c3f114801171');
     for (const [kind, rows] of Object.entries(packed.current.collections))
       expect(
         result.current.collections[kind as keyof typeof result.current.collections].slice(

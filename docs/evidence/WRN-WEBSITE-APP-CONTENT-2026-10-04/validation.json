@@ -1,0 +1,21 @@
+{
+  "publicationPerformed": false,
+  "websiteUnit": {
+    "files": 48,
+    "tests": 382,
+    "status": "PASS"
+  },
+  "node": {
+    "tests": 74,
+    "status": "PASS"
+  },
+  "guideAfterAtlasAddition": {
+    "tests": 9,
+    "status": "PASS"
+  },
+  "typecheck": "PASS",
+  "buildShellBytes": 8355667,
+  "unchangedShellLimit": 8388608,
+  "independentReview": "pending final packet/browser",
+  "atlas": "Previously published r77 unchanged; offline WIP parked"
+}

@@ -1,4 +1,15 @@
 import type { UiLanguage } from '@wrn/ui-language';
+export const websiteAtlasGuideCopy: Record<UiLanguage, string> = {
+  de: 'Öffne den Atlas über das Punk-Icon im Kopf der Seite. Wähle Sprache und Theme; nach dem Start füllt die Karte den Bildschirm. Die Musik schaltest du im Atlas selbst ein. Der Atlas lädt separat und braucht Internet.',
+  en: 'Open the Atlas using the punk icon in the page header. Choose a language and theme; after starting, the map fills the screen. Turn on music inside the Atlas. The Atlas loads separately and needs internet.',
+  es: 'Abre el Atlas con el icono punk de la cabecera. Elige idioma y tema; al iniciar, el mapa ocupa la pantalla. Activa la música dentro del Atlas. El Atlas carga por separado y necesita internet.',
+  fr: 'Ouvre l’Atlas avec l’icône punk en haut de la page. Choisis la langue et le thème ; au démarrage, la carte remplit l’écran. Active la musique dans l’Atlas. L’Atlas charge séparément et nécessite internet.',
+  it: 'Apri l’Atlas dall’icona punk nell’intestazione. Scegli lingua e tema; dopo l’avvio la mappa riempie lo schermo. Attiva la musica nell’Atlas. L’Atlas si carica separatamente e richiede internet.',
+  pt: 'Abre o Atlas pelo ícone punk no cabeçalho. Escolhe idioma e tema; ao iniciar, o mapa ocupa o ecrã. Ativa a música no Atlas. O Atlas carrega separadamente e precisa de internet.',
+  ru: 'Открой Атлас через панк-значок вверху страницы. Выбери язык и тему; после запуска карта занимает экран. Музыку включай в Атласе. Атлас загружается отдельно и требует интернет.',
+  el: 'Άνοιξε τον Άτλαντα από το πανκ εικονίδιο στην κεφαλίδα. Επίλεξε γλώσσα και θέμα· μετά την εκκίνηση ο χάρτης γεμίζει την οθόνη. Ενεργοποίησε τη μουσική στον Άτλαντα. Ο Άτλας φορτώνεται χωριστά και χρειάζεται διαδίκτυο.',
+  tr: 'Atlası sayfa başlığındaki punk simgesinden aç. Dil ve tema seç; başlattıktan sonra harita ekranı doldurur. Müziği Atlas içinde aç. Atlas ayrı yüklenir ve internet gerektirir.',
+};
 export const websiteGuideActions: Record<UiLanguage, readonly [string, string, string, string]> = {
   de: ['Schließen', 'Radio öffnen', 'Podcasts öffnen', 'Bibliothek öffnen'],
   en: ['Close', 'Open radio', 'Open podcasts', 'Open library'],

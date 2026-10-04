@@ -10,6 +10,8 @@ export async function prepareWebsiteAppCatalog({
   outputFile,
   commit,
   observedAt,
+  podcastPolicy = null,
+  libraryAllowedIds = null,
 }) {
   if (
     !/^[a-f0-9]{40}$/.test(commit) ||
@@ -43,7 +45,10 @@ export async function prepareWebsiteAppCatalog({
       throw Error('input-count');
     const records = new Map();
     const kind = kinds[index];
-    for (const item of rows) {
+    for (const rawItem of rows) {
+      if(kind==='library'&&libraryAllowedIds&&!libraryAllowedIds.has(rawItem.id))continue;
+      if(kind==='podcasts'&&podcastPolicy?.episodeIdAliases?.[rawItem.id]&&rows.some(r=>r.id===podcastPolicy.episodeIdAliases[rawItem.id]))continue;
+      const item=kind==='podcasts'&&podcastPolicy?{...rawItem,...podcastPolicy.reviewedEpisodeOverrides?.[rawItem.id]}:rawItem;
       const link = [
         item.website,
         item.episodeUrl,
@@ -59,7 +64,11 @@ export async function prepareWebsiteAppCatalog({
         throw Error('unsafe-original');
       const title = item.title ?? item.name;
       const source = item.sourceName ?? item.source ?? item.quelleName ?? item.name ?? '—';
-      const language = item.language ?? item.languages?.[0] ?? 'und';
+      const unverified=kind==='podcasts'&&podcastPolicy&&(
+        podcastPolicy.unverifiedLanguageSourceIds?.includes(item.sourceId)||
+        podcastPolicy.unverifiedLanguageEpisodeIds?.includes(item.id)||
+        podcastPolicy.languageConflictEpisodeIds?.includes(item.id)||item.languageVerified===false);
+      const language = unverified?'und':(item.language ?? item.languages?.[0] ?? 'und');
       const rawCountry = item.country ?? item.eventCountry;
       const country = typeof rawCountry === 'string' && rawCountry.trim() ? rawCountry : null;
       if (
@@ -78,7 +87,9 @@ export async function prepareWebsiteAppCatalog({
         typeof date === 'string' && Number.isFinite(Date.parse(date))
           ? new Date(date).toISOString()
           : null;
-      const id = 'app-' + hash(kind + ':' + url.href);
+      // LORA's reviewed intake entries remain distinct from its provider GUIDs.
+      const separateLora=kind==='podcasts'&&podcastPolicy&&item.sourceId==='lora-muenchen';
+      const id = 'app-' + hash(kind + ':' + url.href+(separateLora?':'+item.id:''));
       const previous = records.get(id);
       // Multiple GUIDs for one original page cannot prove its audio language.
       const safeLanguage = previous && previous.language !== language ? 'und' : language;

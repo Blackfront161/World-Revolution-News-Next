@@ -1,7 +1,7 @@
 import { cleanup, render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { WebsiteContentDirectoryRoute } from './features/directory/WebsiteContentDirectoryRoute';
-import snapshot from './features/directory/data/content-directory-v1.json';
+import snapshot from './features/projection/data/content-directory-v1.json';
 
 beforeEach(() => {
   vi.spyOn(globalThis, 'fetch').mockResolvedValue(

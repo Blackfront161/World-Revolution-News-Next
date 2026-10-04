@@ -21,7 +21,7 @@ export async function prepareWebsiteKnowledge({
 }) {
   if (!/^[a-f0-9]{40}$/.test(commit)) throw Error('knowledge-commit');
   const read = (name) =>
-    execFileSync('git', ['-C', appDirectory, 'show', `${commit}:${name}`], {
+    execFileSync('git', ['-c', `safe.directory=${appDirectory}`, '-C', appDirectory, 'show', `${commit}:${name}`], {
       maxBuffer: mobileKnowledgeRuntimeMaxBytes,
     }).toString('utf8');
   const source = read('lexicon-tab.js');

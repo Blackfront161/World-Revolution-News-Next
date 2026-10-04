@@ -28,7 +28,7 @@ describe('website knowledge snapshot', () => {
     expect(packed.currentKnowledge.input.lexiconSha256).toBe(
       '737cf5e7264ffcfbbca93245fffe0c8f567b477b6e9107648d0b659536f2a903',
     );
-    expect(packed.currentKnowledge.sourceCommit).toBe('f4f3058bc68a433dba67cf3de114ba91b6cf4f7f');
+    expect(packed.currentKnowledge.sourceCommit).toBe('6a8edf0b8e2ddd462db2e750f672c3f114801171');
     expect(packed.currentKnowledge.library.books).toHaveLength(741);
     const approved = new Set(
       [

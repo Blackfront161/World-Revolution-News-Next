@@ -4,7 +4,7 @@ import crypto from 'node:crypto';
 import { ATLAS_VERSION } from './atlas-route/atlas-contract.js';
 const mime = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.geojson':'application/geo+json','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml','.mp3':'audio/mpeg','.ogg':'audio/ogg','.wav':'audio/wav','.pmtiles':'application/octet-stream','.md':'text/plain; charset=utf-8'};
 export function createAtlasPreviewPlugin(websiteRoot) {
-  const packet = path.resolve(websiteRoot, '../../work/website-atlas-r77-release-final');
+  const packet = path.resolve(websiteRoot, '../../work/website-atlas-r77-live-mime-complete');
   return {
     name: 'wrn-separate-atlas-preview', apply:'serve',
     configureServer(server) {

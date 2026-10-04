@@ -32,7 +32,12 @@ export default defineConfig(({ mode }) => {
     plugins: [code26WebsiteBrandAsset(), react(), createAtlasPreviewPlugin(import.meta.dirname), ...(staging ? [createStagingIsolationPlugin(stagingOrigin!)] : [])],
     resolve: { alias: createBrowserContentAliases(import.meta.dirname) },
     build: {
-      rolldownOptions: { output: { codeSplitting: createProductionCodeSplitting() } },
+      rolldownOptions: { output: { codeSplitting: {
+        ...createProductionCodeSplitting(),
+        groups: createProductionCodeSplitting().groups.map(group => group.name === 'wrn-content-core'
+          ? { ...group, test: /packages[\\/](?:content-contracts|domain)[\\/]|apps[\\/]website[\\/]src[\\/]features[\\/]home[\\/]app-(?:article-images-v1|home-layout-v1)\.json/ }
+          : group),
+      } } },
     },
     test: {
       environment: 'jsdom',

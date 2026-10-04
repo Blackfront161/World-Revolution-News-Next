@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import type { UiLanguage } from '@wrn/ui-language';
 import { catalogueHref } from '../catalogue-navigation/catalogue-location';
-import { websiteGuideCopy, websiteGuideActions } from './website-guide-copy';
+import { websiteGuideCopy, websiteGuideActions, websiteAtlasGuideCopy } from './website-guide-copy';
 import './website-guide.css';
 
 function GuideDialog({
@@ -50,6 +50,11 @@ function GuideDialog({
       </button>
       <h2 id="website-guide-title">{copy.title}</h2>
       <p>{copy.intro}</p>
+      <details>
+        <summary>World Revolution Atlas</summary>
+        <p>{websiteAtlasGuideCopy[language]}</p>
+        <a href={`/atlas/?lang=${language}`}>World Revolution Atlas ↗</a>
+      </details>
       {copy.tasks.map(([title, text]) => (
         <details key={title}>
           <summary>{title}</summary>

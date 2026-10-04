@@ -4,7 +4,7 @@ const copy = {
     back: 'Back to the app',
     language: 'Language',
     title: 'Privacy',
-    updated: 'Updated: 3 October 2026',
+    updated: 'Updated: 4 October 2026',
     overviewTitle: 'What this project collects',
     overview:
       'World Revolution News works without an account, advertising or analytics. We do not build user profiles and we do not sell personal data.',
@@ -19,7 +19,7 @@ const copy = {
       'Translation requests can be processed by Cloudflare and Google Gemini / Hugging Face and cached for no more than seven days. An activated podcast service can use Cloudflare and Microsoft Azure Speech; private audio must follow the retention period published for that activation. These services receive normal connection data such as IP address, user agent and request time.',
     linksTitle: 'External sources and media',
     links:
-      'External articles, donation pages, videos and audio are opened or loaded only after your action. The selected provider then receives normal connection data and applies its own privacy policy.',
+      "External articles, donation pages, videos and audio are opened or loaded only after your action. The selected provider then receives normal connection data and applies its own privacy policy. Original article images load automatically from their image provider when displayed. That provider receives normal connection data; the Website sends no page referrer. These image files are not included in the Website offline package.",
     rightsTitle: 'Control and contact',
     rights:
       'You can stop using online functions, clear local data and ask about access, correction or deletion of server-side data. Contact the World Revolution News project at:',
@@ -29,7 +29,7 @@ const copy = {
     back: 'Zurück zur App',
     language: 'Sprache',
     title: 'Datenschutz',
-    updated: 'Aktualisiert: 3. Oktober 2026',
+    updated: 'Aktualisiert: 4. Oktober 2026',
     overviewTitle: 'Was dieses Projekt erfasst',
     overview:
       'World Revolution News funktioniert ohne Konto, Werbung oder Analyse-Tracking. Wir erstellen keine Nutzer*innenprofile und verkaufen keine personenbezogenen Daten.',
@@ -44,7 +44,7 @@ const copy = {
       'Übersetzungsanfragen können durch Cloudflare und Google Gemini / Hugging Face verarbeitet und höchstens sieben Tage zwischengespeichert werden. Ein aktivierter Podcastdienst kann Cloudflare und Microsoft Azure Speech nutzen; private Audiodateien müssen der für diese Aktivierung veröffentlichten Aufbewahrungsfrist folgen. Diese Dienste erhalten übliche Verbindungsdaten wie IP-Adresse, User-Agent und Anfragezeit.',
     linksTitle: 'Externe Quellen und Medien',
     links:
-      'Externe Artikel, Spendenseiten, Videos und Audios werden erst nach deiner Aktion geöffnet oder geladen. Der gewählte Anbieter erhält dann übliche Verbindungsdaten und wendet seine eigene Datenschutzerklärung an.',
+      "Externe Artikel, Spendenseiten, Videos und Audios werden erst nach deiner Aktion geöffnet oder geladen. Der gewählte Anbieter erhält dann übliche Verbindungsdaten und wendet seine eigene Datenschutzerklärung an. Originale Artikelbilder laden beim Anzeigen automatisch vom jeweiligen Bildanbieter. Dieser erhält übliche Verbindungsdaten; die Website sendet keinen Seitenverweis. Diese Bilddateien gehören nicht zum Offlinepaket der Website.",
     rightsTitle: 'Kontrolle und Kontakt',
     rights:
       'Du kannst Online-Funktionen meiden, lokale Daten löschen und Auskunft, Berichtigung oder Löschung serverseitiger Daten anfragen. Kontaktiere das Projekt World Revolution News unter:',
@@ -54,7 +54,7 @@ const copy = {
     back: 'Volver a la aplicación',
     language: 'Idioma',
     title: 'Privacidad',
-    updated: 'Actualizado: 3 de octubre de 2026',
+    updated: 'Actualizado: 4 de octubre de 2026',
     overviewTitle: 'Qué recopila este proyecto',
     overview:
       'World Revolution News funciona sin cuenta, publicidad ni analítica. No creamos perfiles de las personas usuarias ni vendemos datos personales.',
@@ -69,7 +69,7 @@ const copy = {
       'Cloudflare y Google Gemini / Hugging Face pueden procesar traducciones y guardarlas hasta siete días. Un pódcast activado puede usar Cloudflare y Microsoft Azure Speech; el audio privado debe respetar el plazo publicado para esa activación. Estos servicios reciben datos normales de conexión, como IP, agente de usuario y hora.',
     linksTitle: 'Fuentes y medios externos',
     links:
-      'Los artículos, donaciones, vídeos y audios externos solo se abren o cargan tras tu acción. El proveedor recibe entonces datos normales de conexión y aplica su propia política.',
+      "Los artículos, donaciones, vídeos y audios externos solo se abren o cargan tras tu acción. El proveedor recibe entonces datos normales de conexión y aplica su propia política. Las imágenes originales de los artículos se cargan automáticamente desde su proveedor al mostrarse. El proveedor recibe datos normales de conexión; la web no envía la página de origen. Estos archivos no forman parte del paquete sin conexión de la web.",
     rightsTitle: 'Control y contacto',
     rights:
       'Puedes evitar las funciones en línea, borrar los datos locales y solicitar acceso, corrección o eliminación de datos del servidor. Contacta con World Revolution News:',
@@ -79,7 +79,7 @@ const copy = {
     back: 'Retour à l’application',
     language: 'Langue',
     title: 'Confidentialité',
-    updated: 'Mise à jour : 3 octobre 2026',
+    updated: 'Mise à jour : 4 octobre 2026',
     overviewTitle: 'Données collectées',
     overview:
       'World Revolution News fonctionne sans compte, publicité ni mesure d’audience. Nous ne créons pas de profils et ne vendons aucune donnée personnelle.',
@@ -94,7 +94,7 @@ const copy = {
       'Cloudflare et Google Gemini / Hugging Face peuvent traiter les traductions, mises en cache au plus sept jours. Un podcast activé peut utiliser Cloudflare et Microsoft Azure Speech ; l’audio privé doit suivre la durée publiée lors de l’activation. Ces services reçoivent les données de connexion usuelles.',
     linksTitle: 'Sources et médias externes',
     links:
-      'Les articles, dons, vidéos et fichiers audio externes ne sont ouverts ou chargés qu’après votre action. Le prestataire reçoit alors les données de connexion usuelles et applique sa politique.',
+      "Les articles, dons, vidéos et fichiers audio externes ne sont ouverts ou chargés qu’après votre action. Le prestataire reçoit alors les données de connexion usuelles et applique sa politique. Les images originales des articles se chargent automatiquement auprès de leur fournisseur à l’affichage. Celui-ci reçoit les données habituelles de connexion ; le site n’envoie pas de page référente. Ces fichiers ne font pas partie du paquet hors ligne du site.",
     rightsTitle: 'Contrôle et contact',
     rights:
       'Vous pouvez éviter les fonctions en ligne, effacer les données locales et demander l’accès, la rectification ou l’effacement des données serveur. Contactez World Revolution News :',
@@ -104,7 +104,7 @@ const copy = {
     back: 'Torna all’app',
     language: 'Lingua',
     title: 'Privacy',
-    updated: 'Aggiornato: 3 ottobre 2026',
+    updated: 'Aggiornato: 4 ottobre 2026',
     overviewTitle: 'Dati raccolti dal progetto',
     overview:
       'World Revolution News funziona senza account, pubblicità o analisi. Non creiamo profili utente e non vendiamo dati personali.',
@@ -119,7 +119,7 @@ const copy = {
       'Cloudflare e Google Gemini / Hugging Face possono elaborare le traduzioni e conservarle per non più di sette giorni. Un podcast attivato può usare Cloudflare e Microsoft Azure Speech; l’audio privato deve seguire il periodo pubblicato per l’attivazione. Questi servizi ricevono normali dati di connessione.',
     linksTitle: 'Fonti e media esterni',
     links:
-      'Articoli, donazioni, video e audio esterni si aprono o caricano solo dopo una tua azione. Il fornitore riceve i normali dati di connessione e applica la propria informativa.',
+      "Articoli, donazioni, video e audio esterni si aprono o caricano solo dopo una tua azione. Il fornitore riceve i normali dati di connessione e applica la propria informativa. Le immagini originali degli articoli si caricano automaticamente dal loro fornitore quando vengono mostrate. Il fornitore riceve i normali dati di connessione; il sito non invia la pagina di provenienza. Questi file non fanno parte del pacchetto offline del sito.",
     rightsTitle: 'Controllo e contatto',
     rights:
       'Puoi evitare le funzioni online, cancellare i dati locali e chiedere accesso, correzione o eliminazione dei dati server. Contatta World Revolution News:',
@@ -129,7 +129,7 @@ const copy = {
     back: 'Voltar à aplicação',
     language: 'Idioma',
     title: 'Privacidade',
-    updated: 'Atualizado: 3 de outubro de 2026',
+    updated: 'Atualizado: 4 de outubro de 2026',
     overviewTitle: 'O que o projeto recolhe',
     overview:
       'World Revolution News funciona sem conta, publicidade ou análise. Não criamos perfis de utilizadores nem vendemos dados pessoais.',
@@ -144,7 +144,7 @@ const copy = {
       'Cloudflare e Google Gemini / Hugging Face podem processar traduções, guardadas por no máximo sete dias. Um podcast ativado pode usar Cloudflare e Microsoft Azure Speech; o áudio privado deve seguir o prazo publicado para a ativação. Estes serviços recebem dados normais de ligação.',
     linksTitle: 'Fontes e média externos',
     links:
-      'Artigos, donativos, vídeos e áudio externos só abrem ou carregam após a tua ação. O fornecedor recebe então dados normais de ligação e aplica a sua política.',
+      "Artigos, donativos, vídeos e áudio externos só abrem ou carregam após a tua ação. O fornecedor recebe então dados normais de ligação e aplica a sua política. As imagens originais dos artigos carregam automaticamente do respetivo fornecedor quando são mostradas. O fornecedor recebe os dados habituais de ligação; o site não envia a página de origem. Estes ficheiros não fazem parte do pacote offline do site.",
     rightsTitle: 'Controlo e contacto',
     rights:
       'Podes evitar funções online, apagar dados locais e pedir acesso, correção ou eliminação de dados do servidor. Contacta World Revolution News:',
@@ -154,7 +154,7 @@ const copy = {
     back: 'Вернуться в приложение',
     language: 'Язык',
     title: 'Конфиденциальность',
-    updated: 'Обновлено: 3 октября 2026 г.',
+    updated: 'Обновлено: 4 октября 2026 г.',
     overviewTitle: 'Какие данные собираются',
     overview:
       'World Revolution News работает без учётной записи, рекламы и аналитики. Мы не создаём профили пользователей и не продаём персональные данные.',
@@ -169,7 +169,7 @@ const copy = {
       'Cloudflare и Google Gemini / Hugging Face могут обрабатывать переводы и хранить их не более семи дней. Активированный подкаст может использовать Cloudflare и Microsoft Azure Speech; приватное аудио хранится по сроку, опубликованному при активации. Сервисы получают обычные данные соединения.',
     linksTitle: 'Внешние источники и медиа',
     links:
-      'Внешние статьи, пожертвования, видео и аудио открываются или загружаются только после вашего действия. Поставщик получает обычные данные соединения и применяет свою политику.',
+      "Внешние статьи, пожертвования, видео и аудио открываются или загружаются только после вашего действия. Поставщик получает обычные данные соединения и применяет свою политику. Оригинальные изображения статей автоматически загружаются от поставщика изображений при показе. Поставщик получает обычные данные соединения; сайт не отправляет адрес страницы-источника. Эти файлы не входят в офлайн-пакет сайта.",
     rightsTitle: 'Управление и связь',
     rights:
       'Можно отказаться от сетевых функций, удалить локальные данные и запросить доступ, исправление или удаление серверных данных. Свяжитесь с World Revolution News:',
@@ -179,7 +179,7 @@ const copy = {
     back: 'Πίσω στην εφαρμογή',
     language: 'Γλώσσα',
     title: 'Απόρρητο',
-    updated: 'Ενημέρωση: 3 Οκτωβρίου 2026',
+    updated: 'Ενημέρωση: 4 Οκτωβρίου 2026',
     overviewTitle: 'Τι συλλέγει το έργο',
     overview:
       'Το World Revolution News λειτουργεί χωρίς λογαριασμό, διαφημίσεις ή αναλυτικά στοιχεία. Δεν δημιουργούμε προφίλ χρηστ(ρι)ών και δεν πουλάμε προσωπικά δεδομένα.',
@@ -194,7 +194,7 @@ const copy = {
       'Cloudflare και Google Gemini / Hugging Face μπορούν να επεξεργάζονται μεταφράσεις και να τις αποθηκεύουν έως επτά ημέρες. Ενεργό podcast μπορεί να χρησιμοποιεί Cloudflare και Microsoft Azure Speech· ο ιδιωτικός ήχος ακολουθεί τη δημοσιευμένη περίοδο διατήρησης. Οι υπηρεσίες λαμβάνουν συνήθη δεδομένα σύνδεσης.',
     linksTitle: 'Εξωτερικές πηγές και μέσα',
     links:
-      'Εξωτερικά άρθρα, δωρεές, βίντεο και ήχος ανοίγουν ή φορτώνονται μόνο μετά από δική σας ενέργεια. Ο πάροχος λαμβάνει συνήθη δεδομένα σύνδεσης και εφαρμόζει τη δική του πολιτική.',
+      "Εξωτερικά άρθρα, δωρεές, βίντεο και ήχος ανοίγουν ή φορτώνονται μόνο μετά από δική σας ενέργεια. Ο πάροχος λαμβάνει συνήθη δεδομένα σύνδεσης και εφαρμόζει τη δική του πολιτική. Οι αρχικές εικόνες άρθρων φορτώνονται αυτόματα από τον πάροχο εικόνας όταν εμφανίζονται. Ο πάροχος λαμβάνει τα συνήθη δεδομένα σύνδεσης· ο ιστότοπος δεν στέλνει τη διεύθυνση της σελίδας προέλευσης. Αυτά τα αρχεία δεν περιλαμβάνονται στο πακέτο εκτός σύνδεσης του ιστοτόπου.",
     rightsTitle: 'Έλεγχος και επικοινωνία',
     rights:
       'Μπορείτε να αποφεύγετε τις online λειτουργίες, να διαγράφετε τοπικά δεδομένα και να ζητάτε πρόσβαση, διόρθωση ή διαγραφή δεδομένων διακομιστή. Επικοινωνήστε με το World Revolution News:',
@@ -204,7 +204,7 @@ const copy = {
     back: 'Uygulamaya dön',
     language: 'Dil',
     title: 'Gizlilik',
-    updated: 'Güncelleme: 3 Ekim 2026',
+    updated: 'Güncelleme: 4 Ekim 2026',
     overviewTitle: 'Bu proje neleri toplar',
     overview:
       'World Revolution News hesap, reklam veya analiz olmadan çalışır. Kullanıcı profili oluşturmaz ve kişisel veri satmayız.',
@@ -219,7 +219,7 @@ const copy = {
       'Çeviriler Cloudflare ve Google Gemini / Hugging Face tarafından işlenebilir ve en fazla yedi gün önbellekte tutulabilir. Etkin podcast Cloudflare ve Microsoft Azure Speech kullanabilir; özel ses, etkinleştirme için yayımlanan saklama süresine uymalıdır. Bu hizmetler olağan bağlantı verilerini alır.',
     linksTitle: 'Harici kaynaklar ve medya',
     links:
-      'Harici makaleler, bağış sayfaları, video ve sesler yalnızca eyleminizden sonra açılır veya yüklenir. Sağlayıcı olağan bağlantı verilerini alır ve kendi politikasını uygular.',
+      "Harici makaleler, bağış sayfaları, video ve sesler yalnızca eyleminizden sonra açılır veya yüklenir. Sağlayıcı olağan bağlantı verilerini alır ve kendi politikasını uygular. Özgün makale görselleri gösterildiğinde görsel sağlayıcısından otomatik yüklenir. Sağlayıcı normal bağlantı verilerini alır; site yönlendiren sayfayı göndermez. Bu dosyalar sitenin çevrimdışı paketinde bulunmaz.",
     rightsTitle: 'Denetim ve iletişim',
     rights:
       'Çevrimiçi işlevleri kullanmayabilir, yerel verileri silebilir ve sunucudaki veriler için erişim, düzeltme veya silme isteyebilirsiniz. World Revolution News ile iletişim:',
