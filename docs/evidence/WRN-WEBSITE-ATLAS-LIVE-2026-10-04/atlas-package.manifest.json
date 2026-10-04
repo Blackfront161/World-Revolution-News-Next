@@ -14,8 +14,8 @@
   "files": [
     {
       "path": "atlas/.htaccess",
-      "bytes": 1273,
-      "sha256": "62dc68ce0443b2be254caa78a4ed7e40309856166c5b65903b94e29418e800c2"
+      "bytes": 1320,
+      "sha256": "42c1e8caa842933a10680c65909331c2e77f3d792dd99889b0f1bcf1acff1b6e"
     },
     {
       "path": "atlas/atlas-contract.js",
@@ -64,8 +64,8 @@
     },
     {
       "path": "atlas/versions/r77-564c7ef0fdc9/.htaccess",
-      "bytes": 1576,
-      "sha256": "27b8fdd755c03c97c0c73150492bcce7e4aea16cd01d811aca0a74773af0cf0f"
+      "bytes": 1623,
+      "sha256": "10a7c100150ed42192a8d1a5f1ea9fdb744e5595cefb65bfa43972ae710d515c"
     },
     {
       "path": "atlas/versions/r77-564c7ef0fdc9/assets/brand/atlas-neon-v3.svg",

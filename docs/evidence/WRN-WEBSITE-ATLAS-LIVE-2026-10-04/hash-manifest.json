@@ -8,13 +8,13 @@
     },
     {
       "path": "REPORT.md",
-      "bytes": 2852,
-      "sha256": "258d426c0919bbfb6df37ca8481aebdef98c068e9527552bf4e88581adb7bde2"
+      "bytes": 3204,
+      "sha256": "c2a8cce58a4fb708402e995ab7e797de6d6c81a6382cb019f029e17e175a4a9e"
     },
     {
       "path": "atlas-package.manifest.json",
       "bytes": 45272,
-      "sha256": "81900d8d198ad481d13c28f4f37d263f75f2fd6eca3c3ec53b2ff2527a572f41"
+      "sha256": "82b71392210f5438f01f307c93b43035b639b00bdcc7e83461184b572118c05e"
     },
     {
       "path": "before-public-readback.json",
@@ -25,6 +25,11 @@
       "path": "initial-runtime-readback.json",
       "bytes": 1032636,
       "sha256": "d67a01a88b243589f56257778241ef3c6ad4ce5f337e11f03a51c9afb69d12c0"
+    },
+    {
+      "path": "mime-complete-proof.json",
+      "bytes": 534,
+      "sha256": "d4df5767d0ebcfffaa60a7fe61329912a0f962676b3b785b3ef89b76514d0526"
     },
     {
       "path": "mime-correction-proof.json",

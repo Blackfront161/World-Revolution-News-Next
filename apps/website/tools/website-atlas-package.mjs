@@ -62,7 +62,7 @@ export async function prepareWebsiteAtlasPackage({ snapshotRoot }) {
     'Options -Indexes', 'DirectoryIndex index.html',
     'AddType text/javascript .js', 'AddType text/css .css', 'AddType application/geo+json .geojson',
     'AddType image/svg+xml .svg', 'AddType audio/mpeg .mp3', 'AddType audio/ogg .ogg',
-    'AddType application/octet-stream .pmtiles',
+    'AddType application/octet-stream .pmtiles', 'AddType application/manifest+json .webmanifest',
     '<IfModule mod_headers.c>',
     ...['Content-Security-Policy','X-Frame-Options','X-Content-Type-Options','Referrer-Policy','Permissions-Policy','Cache-Control'].flatMap(name=>[`Header onsuccess unset ${name}`,`Header always unset ${name}`]),
     `Header always set Content-Security-Policy "${contentPolicy}; frame-ancestors 'self'"`,
