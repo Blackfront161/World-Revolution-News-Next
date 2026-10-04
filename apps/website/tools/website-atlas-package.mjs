@@ -6,7 +6,7 @@ import { ATLAS_VERSION } from './atlas-route/atlas-contract.js';
 
 export const SNAPSHOT_SHA256 = '958700b090d3af4ac448117d124ddf5e5d90d4a95277d16bc541247e565fd06b';
 export const SOURCE_COMMIT = '6a8edf0b8e2ddd462db2e750f672c3f114801171';
-const hostFiles = ['index.html', 'atlas-host.css', 'atlas-host.js', 'atlas-contract.js','atlas-settings.js','atlas-presentation.js','atlas-frame.css','atlas-display.css'];
+const hostFiles = ['index.html', 'atlas-host.css', 'atlas-host.js', 'atlas-contract.js','atlas-settings.js','atlas-presentation.js','atlas-frame.css','atlas-display.css','atlas-offline.js','atlas-offline-core.js','atlas.webmanifest'];
 const hostRoot = fileURLToPath(new URL('./atlas-route/', import.meta.url));
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 export function safeRelativePath(value) {
@@ -74,11 +74,21 @@ export async function prepareWebsiteAtlasPackage({ snapshotRoot }) {
   ].join('\n'));
   files.set('atlas/.htaccess', policy('no-cache', wrapperCsp));
   files.set(`atlas/versions/${ATLAS_VERSION}/.htaccess`, policy('public, max-age=31536000, immutable', csp));
+  // Browser maintains the worker itself. Its embedded inventory covers every
+  // public host/runtime byte, including the unchanged Game worker as a file.
+  // Apache policies are private and verified through their public headers.
+  const offlineFiles=[...files].filter(([relative])=>!relative.endsWith('.htaccess')).map(([relative,bytes])=>({path:relative,bytes:bytes.length,sha256:hash(bytes)})).sort((a,b)=>a.path.localeCompare(b.path));
+  const offline={schema:'wrn.website-atlas-offline.v1',version:ATLAS_VERSION,snapshotManifestSha256:SNAPSHOT_SHA256,files:offlineFiles,bytes:offlineFiles.reduce((sum,f)=>sum+f.bytes,0)};
+  offline.id=hash(Buffer.from(JSON.stringify(offline)));
+  const worker=(await regularBytes(hostRoot,'website-atlas-sw.js')).toString('utf8');
+  if(worker.split('__WRN_OFFLINE_PACKAGE__').length!==2)throw Error('Atlas offline worker template differs');
+  files.set('atlas/website-atlas-sw.js',Buffer.from(worker.replace('__WRN_OFFLINE_PACKAGE__',JSON.stringify(offline))));
   const manifest = {
     schema: 'wrn.website-atlas-package.v1', route: '/atlas/', version: ATLAS_VERSION,
     sourceCommit: SOURCE_COMMIT, snapshotManifestSha256: SNAPSHOT_SHA256,
     snapshotFiles: 201, snapshotBytes: total, websiteShellIncluded: false,
     autoStart: false, publicationPerformed: false, publicationAuthorizedByPackage: false,
+    offlinePackageId:offline.id,offlineFiles:offlineFiles.length,offlineBytes:offline.bytes,
     mediaApproval: snapshot.mediaApproval,
     files: [...files].map(([relative, bytes]) => ({path:relative,bytes:bytes.length,sha256:hash(bytes)})).sort((a,b)=>a.path.localeCompare(b.path)),
   };

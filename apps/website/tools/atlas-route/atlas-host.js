@@ -1,6 +1,7 @@
 import { ANDROID_URL, languageFromSearch, publicAtlasUrl, atlasFrameUrl, isAtlasReady, atlasSharePayload } from './atlas-contract.js';
 import {THEME_STORAGE_KEY,themeFromSearch,effectiveTheme,runtimeTheme,themeOptions,controls} from './atlas-settings.js';
 import {attachFramePresentation} from './atlas-presentation.js';
+import {attachOffline} from './atlas-offline.js';
 // UI translations only; the immutable Atlas keeps its own content/review labels.
 const texts = {
   de: ['Sprache','Entdecke Bewegungen, Menschen und die Geschichte des Widerstands.','Der Atlas lädt erst beim Start. Er benötigt Internet und gehört nicht zum Offlinebereich der Website.','Atlas starten','Teilen','Link kopieren','Android-App bei Google Play','Entwurfs-, Quellen- und Rechtehinweise im Atlas gelten weiterhin. Die Sprache der Oberfläche bedeutet keine geprüfte Übersetzung aller Inhalte.','Atlas lädt …','Atlas bereit.','Link kopiert.','Öffentlicher Link','Der Atlas braucht länger zum Laden. Prüfe deine Internetverbindung.'],
@@ -18,6 +19,7 @@ let language = languageFromSearch(location.search), frame, ready = false, timeou
 let storedTheme;
 try {storedTheme=localStorage.getItem(THEME_STORAGE_KEY);}catch{ /* Theme UI works without browser storage. */ }
 let theme=themeFromSearch(location.search,storedTheme), presentation;
+const offline=attachOffline({language:()=>language});
 const colorScheme=matchMedia('(prefers-color-scheme: dark)');
 const byId = id => document.getElementById(id);
 function render() {
@@ -45,6 +47,7 @@ function render() {
   byId('theme').value=theme;
   byId('theme-current').textContent=themeOptions(language).find(item=>item.value===theme).label;
   presentation?.refresh();
+  offline.render();
 }
 function copyFallback() { byId('copy-fallback').hidden = false; byId('public-link').focus(); byId('public-link').select(); }
 async function copy() {

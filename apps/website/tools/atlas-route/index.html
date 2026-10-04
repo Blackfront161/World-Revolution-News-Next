@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="same-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; frame-src 'self'; connect-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; frame-src 'self'; connect-src 'self'; worker-src 'self'">
   <title>World Revolution Atlas · WRN</title>
   <link rel="canonical" href="https://solinaridao.com/atlas/">
   <link rel="icon" type="image/png" href="./wrn-icon.png">
+  <link rel="manifest" href="./atlas.webmanifest">
   <link rel="stylesheet" href="./atlas-host.css">
   <link rel="stylesheet" href="./atlas-theme-tokens.css">
   <link rel="stylesheet" href="./atlas-display.css">
@@ -30,7 +31,7 @@
       <p class="brand">WORLD REVOLUTION NEWS</p>
       <h1>World Revolution Atlas</h1>
       <p id="intro">Entdecke Bewegungen, Menschen und die Geschichte des Widerstands.</p>
-      <p id="availability">Der Atlas lädt erst beim Start. Er benötigt Internet und gehört nicht zum Offlinebereich der Website.</p>
+      <p id="availability">Der Atlas lädt erst beim Start. Mit vollständig geprüftem Offline-Download funktioniert er auch ohne Internet.</p>
       <label class="theme-field"><span id="theme-label">Theme</span><span class="theme-control"><select id="theme" aria-labelledby="theme-label"></select><span id="theme-current" aria-hidden="true"></span></span></label>
       <nav aria-label="Atlas">
         <button id="start" type="button">Atlas starten</button>
@@ -39,6 +40,13 @@
         <button id="fullscreen" type="button" hidden>Bildschirm füllen</button>
         <a id="android" href="https://play.google.com/store/apps/details?id=com.world.revolution" rel="noopener noreferrer">Android-App bei Google Play</a>
       </nav>
+      <section aria-labelledby="offline-title" class="offline-section">
+        <h2 id="offline-title">Atlas offline</h2>
+        <p id="offline-description">Vollständiger Atlas: 104 MB plus Bedienoberfläche. Download nur auf Wunsch.</p>
+        <nav><button id="offline-download" type="button">Offline herunterladen</button><button id="offline-cancel" type="button" hidden>Abbrechen</button><button id="offline-remove" type="button" hidden>Atlas-Download löschen</button></nav>
+        <progress id="offline-progress" aria-labelledby="offline-status" hidden></progress>
+        <p id="offline-status" role="status" aria-live="polite">Noch nicht offline gespeichert.</p>
+      </section>
       <p id="notice">Entwurfs-, Quellen- und Rechtehinweise im Atlas gelten weiterhin. Die Sprache der Oberfläche bedeutet keine geprüfte Übersetzung aller Inhalte.</p>
       <p id="status" role="status" aria-live="polite"></p>
       <div id="copy-fallback" hidden><label for="public-link" id="link-label">Öffentlicher Link</label><input id="public-link" type="url" readonly></div>

@@ -1,0 +1,25 @@
+{
+  "schema": "wrn.evidence-hashes.v1",
+  "files": [
+    {
+      "path": "browser.json",
+      "bytes": 47614,
+      "sha256": "ba57876be5d16d22d341c2758f6b15134e7d66c53b589d1bedfe0ed35e8b2d92"
+    },
+    {
+      "path": "offline-map-and-music.png",
+      "bytes": 32222,
+      "sha256": "489a3474300f3b30c476b2055bc38f8717fbfffdea7cde67efba1413c943c645"
+    },
+    {
+      "path": "package-manifest.json",
+      "bytes": 46051,
+      "sha256": "08e047a9e62f2dd6741072041560a25a0748b3ab165c3491b803f924ab4ef7dd"
+    },
+    {
+      "path": "REPORT.md",
+      "bytes": 1708,
+      "sha256": "965963ec37694d182459084c828b8a2447c9d69196c55726e5a73ae48e987ba2"
+    }
+  ]
+}
