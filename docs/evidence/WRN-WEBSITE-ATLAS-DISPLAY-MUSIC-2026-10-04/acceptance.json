@@ -1,5 +1,5 @@
 {
-  "status": "LOCAL_CHECKS_PASS_INDEPENDENT_REVIEW_PENDING",
+  "status": "LOCAL_CHECKS_AND_INDEPENDENT_REVIEW_PASS",
   "sourceCommit": "6a8edf0b8e2ddd462db2e750f672c3f114801171",
   "version": "r77-564c7ef0fdc9",
   "snapshotManifestSha256": "958700b090d3af4ac448117d124ddf5e5d90d4a95277d16bc541247e565fd06b",
@@ -27,6 +27,15 @@
     "bytes": 8092523
   },
   "publicationPerformed": false,
-  "websiteIndependentReview": "pending",
+  "websiteIndependentReview": {
+    "status": "FINAL_PASS",
+    "productCommit": "423f1963f60ad2fd4fae2cfab6c5257587f55ea7",
+    "baseCommit": "42e25f77eee64d97945ebd90e4e991b865294d68",
+    "patchSha256": "a8319975f2233e094874076976f721f102f758792d1dda0f043471a6cf5bf7b5",
+    "source": "App chat relayed controller final result on 2026-10-04",
+    "sourceThreadId": "01a0f1cf-c71d-70d3-b3db-6342752e52b2",
+    "openP1P2": 0,
+    "scope": "Website host and exact local package; actual Hostinger upload and public acceptance remain open"
+  },
   "appRoadmap": "Human-authorized handoff to existing App chat; native and release work stays there"
 }
