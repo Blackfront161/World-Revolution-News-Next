@@ -30,9 +30,12 @@
     "packedSha256": "6e62f413cd02dd5fc897b1481a973fd896f0eae4cead2cdb1cc764f1428a0571"
   },
   "sourceController": {
-    "status": "in-progress",
+    "status": "SCOPED PASS",
     "threadId": "019ff285-63dc-7ed2-88a8-cab5f06ed26e",
-    "turnId": "01a1056c-a8c5-7963-9988-8bec10ccfbb3"
+    "turnId": "01a1056c-a8c5-7963-9988-8bec10ccfbb3",
+    "statusAtPreparation": "in-progress",
+    "reviewCommit": "3b233c58c08c5140c45971403500d810f4b9130b",
+    "receipt": "source-controller-review.json"
   },
   "mappings": [
     {
