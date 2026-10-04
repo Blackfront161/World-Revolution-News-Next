@@ -1,5 +1,5 @@
 {
-  "publicationPerformed": false,
+  "publicationPerformed": true,
   "websiteUnit": {
     "files": 48,
     "tests": 382,
@@ -16,6 +16,20 @@
   "typecheck": "PASS",
   "buildShellBytes": 8355667,
   "unchangedShellLimit": 8388608,
-  "independentReview": "pending final packet/browser",
-  "atlas": "Previously published r77 unchanged; offline WIP parked"
+  "independentReview": {
+    "status": "PASS",
+    "reviewer": "/root/atlas_offline_review",
+    "sourceCommit": "534f15f3f4bcfc8044f4040038e85632cd8d0b11",
+    "openP1P2": 0
+  },
+  "atlas": "Previously published r77 unchanged; offline WIP parked",
+  "browserLocal": "PASS",
+  "browserLive": "PASS",
+  "coldHttpCacheClearedLocal": "PASS",
+  "coldHttpCacheClearedLive": "PASS",
+  "packagedShellBytes": 8358866,
+  "publicFiles": 50,
+  "publicHeaderChecks": 463,
+  "publicReadback": "PASS",
+  "automaticAppWebsiteFollowup": "OPEN — manual frozen snapshot"
 }
