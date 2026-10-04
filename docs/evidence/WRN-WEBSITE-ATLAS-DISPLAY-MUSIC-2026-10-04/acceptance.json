@@ -1,0 +1,32 @@
+{
+  "status": "LOCAL_CHECKS_PASS_INDEPENDENT_REVIEW_PENDING",
+  "sourceCommit": "6a8edf0b8e2ddd462db2e750f672c3f114801171",
+  "version": "r77-564c7ef0fdc9",
+  "snapshotManifestSha256": "958700b090d3af4ac448117d124ddf5e5d90d4a95277d16bc541247e565fd06b",
+  "packageManifestSha256": "2815156f2af1bf65766c354736e14f9c1e61c46eb3997e1847eb0d2c1a1969c5",
+  "packetDirectory": "work/website-atlas-r77-release-final",
+  "sourceFiles": 201,
+  "sourceBytes": 104323582,
+  "packageFiles": 214,
+  "browserChecks": 28,
+  "focusedNodeTests": 47,
+  "websiteVitest": {
+    "files": 48,
+    "tests": 382,
+    "passed": 382
+  },
+  "websiteTypecheck": "PASS",
+  "sourceGitFilesVerified": 202,
+  "normalRawShell": {
+    "entries": 18,
+    "bytes": 8091333,
+    "byteIdentical": true
+  },
+  "liveShellUnchanged": {
+    "entries": 18,
+    "bytes": 8092523
+  },
+  "publicationPerformed": false,
+  "websiteIndependentReview": "pending",
+  "appRoadmap": "Human-authorized handoff to existing App chat; native and release work stays there"
+}

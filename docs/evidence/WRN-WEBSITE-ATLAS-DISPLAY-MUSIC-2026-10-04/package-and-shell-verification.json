@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "version": "r77-564c7ef0fdc9",
+  "sourceCommit": "6a8edf0b8e2ddd462db2e750f672c3f114801171",
+  "snapshotManifestSha256": "958700b090d3af4ac448117d124ddf5e5d90d4a95277d16bc541247e565fd06b",
+  "packageManifestSha256": "2815156f2af1bf65766c354736e14f9c1e61c46eb3997e1847eb0d2c1a1969c5",
+  "packageFiles": 214,
+  "sourceFiles": 201,
+  "sourceBytes": 104323582,
+  "sourceUnchanged": true,
+  "packageReproduced": true,
+  "normalWebsiteShellByteIdentical": true,
+  "rawShellEntries": 18,
+  "rawShellBytes": 8091333,
+  "publicationPerformed": false
+}

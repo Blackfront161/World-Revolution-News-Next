@@ -1,0 +1,55 @@
+{
+  "schema": "wrn.evidence-hashes.v1",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "REPORT.md",
+      "bytes": 4930,
+      "sha256": "335d5b602f41a2b504c88b029f6e47397e6b9bdd39081ef8b97c2ad9bd46026f"
+    },
+    {
+      "path": "acceptance.json",
+      "bytes": 1015,
+      "sha256": "f944e6fe86dfdbb4e01b5b93a99cb3680ea70988c9165c31a9d175ffddb7943f"
+    },
+    {
+      "path": "atlas-map-1440.png",
+      "bytes": 191229,
+      "sha256": "ea5b9b53c7fb166973b2b4de5b4e230d420f8776413cccb6df0cc3edc2006b4e"
+    },
+    {
+      "path": "atlas-map-390.png",
+      "bytes": 61715,
+      "sha256": "1ebfa944e61e8ec32fc1b6ea3eb3b8c7ee18a2168451fd2c65765643dd337826"
+    },
+    {
+      "path": "atlas-new-music.png",
+      "bytes": 143288,
+      "sha256": "9e39f60bb9c64122442304bcb08dff0451c0b6b112eb2fe7bc5d489eafdd836b"
+    },
+    {
+      "path": "atlas-package.manifest.json",
+      "bytes": 45272,
+      "sha256": "2815156f2af1bf65766c354736e14f9c1e61c46eb3997e1847eb0d2c1a1969c5"
+    },
+    {
+      "path": "browser-result.json",
+      "bytes": 11012,
+      "sha256": "e0b374c6254c9328d2fb2722b7b55320c30686625ddc2f4fd916a775045da0bb"
+    },
+    {
+      "path": "package-and-shell-verification.json",
+      "bytes": 567,
+      "sha256": "f81cc1199d1111b0708d20228b8b5ac99923cc0998eaf75de4817096c1552c76"
+    },
+    {
+      "path": "snapshot-manifest.json",
+      "bytes": 82101,
+      "sha256": "958700b090d3af4ac448117d124ddf5e5d90d4a95277d16bc541247e565fd06b"
+    }
+  ]
+}

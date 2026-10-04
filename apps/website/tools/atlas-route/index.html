@@ -7,17 +7,23 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; frame-src 'self'; connect-src 'none'">
   <title>World Revolution Atlas · WRN</title>
   <link rel="canonical" href="https://solinaridao.com/atlas/">
+  <link rel="icon" type="image/png" href="./wrn-icon.png">
   <link rel="stylesheet" href="./atlas-host.css">
+  <link rel="stylesheet" href="./atlas-theme-tokens.css">
+  <link rel="stylesheet" href="./atlas-display.css">
   <script type="module" src="./atlas-host.js"></script>
 </head>
 <body>
   <header>
-    <a id="home" href="/?lang=de#home">← WRN</a>
+    <a id="home" href="/?lang=de#home" aria-label="WRN"><span>←</span><span class="home-name"> WRN</span></a>
+    <span class="header-title">Atlas</span>
+    <button id="filters" type="button" aria-label="Suche und Filter" aria-expanded="false" hidden>⌕</button>
     <label><span id="language-label">Sprache</span>
       <select id="language" aria-label="Sprache">
-        <option value="de">Deutsch</option><option value="en">English</option><option value="es">Español</option><option value="fr">Français</option><option value="it">Italiano</option><option value="pt">Português</option><option value="ru">Русский</option><option value="el">Ελληνικά</option><option value="tr">Türkçe</option>
+        <option value="de">DE</option><option value="en">EN</option><option value="es">ES</option><option value="fr">FR</option><option value="it">IT</option><option value="pt">PT</option><option value="ru">RU</option><option value="el">EL</option><option value="tr">TR</option>
       </select>
     </label>
+    <button id="options" type="button" aria-label="Optionen" hidden>☰</button>
   </header>
   <main>
     <section class="intro">
@@ -25,10 +31,12 @@
       <h1>World Revolution Atlas</h1>
       <p id="intro">Entdecke Bewegungen, Menschen und die Geschichte des Widerstands.</p>
       <p id="availability">Der Atlas lädt erst beim Start. Er benötigt Internet und gehört nicht zum Offlinebereich der Website.</p>
+      <label class="theme-field"><span id="theme-label">Theme</span><span class="theme-control"><select id="theme" aria-labelledby="theme-label"></select><span id="theme-current" aria-hidden="true"></span></span></label>
       <nav aria-label="Atlas">
         <button id="start" type="button">Atlas starten</button>
         <button id="share" type="button">Teilen</button>
         <button id="copy" type="button">Link kopieren</button>
+        <button id="fullscreen" type="button" hidden>Bildschirm füllen</button>
         <a id="android" href="https://play.google.com/store/apps/details?id=com.world.revolution" rel="noopener noreferrer">Android-App bei Google Play</a>
       </nav>
       <p id="notice">Entwurfs-, Quellen- und Rechtehinweise im Atlas gelten weiterhin. Die Sprache der Oberfläche bedeutet keine geprüfte Übersetzung aller Inhalte.</p>
@@ -37,6 +45,7 @@
       <noscript>Bitte aktiviere JavaScript, um den Atlas zu starten. <a href="/?lang=de#home">Zur WRN-Website</a></noscript>
     </section>
     <section id="game" hidden></section>
+    <dialog id="options-dialog" aria-labelledby="options-title"><div class="dialog-heading"><h2 id="options-title">Optionen</h2><button id="close-options" type="button" aria-label="Schließen">×</button></div></dialog>
   </main>
 </body>
 </html>

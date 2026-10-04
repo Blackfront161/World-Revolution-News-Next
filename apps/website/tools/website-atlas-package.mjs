@@ -4,9 +4,9 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { ATLAS_VERSION } from './atlas-route/atlas-contract.js';
 
-export const SNAPSHOT_SHA256 = 'b14a48b7682f9a153c4e8e8abaca3ab4ae3a45846b4d5eabf33b6db539b20968';
-export const SOURCE_COMMIT = '9029461a94f23042b9ff8ad7ba46594c557c7dbc';
-const hostFiles = ['index.html', 'atlas-host.css', 'atlas-host.js', 'atlas-contract.js'];
+export const SNAPSHOT_SHA256 = '958700b090d3af4ac448117d124ddf5e5d90d4a95277d16bc541247e565fd06b';
+export const SOURCE_COMMIT = '6a8edf0b8e2ddd462db2e750f672c3f114801171';
+const hostFiles = ['index.html', 'atlas-host.css', 'atlas-host.js', 'atlas-contract.js','atlas-settings.js','atlas-presentation.js','atlas-frame.css','atlas-display.css'];
 const hostRoot = fileURLToPath(new URL('./atlas-route/', import.meta.url));
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 export function safeRelativePath(value) {
@@ -27,9 +27,9 @@ async function regularBytes(root, relative) {
 }
 export async function prepareWebsiteAtlasPackage({ snapshotRoot }) {
   const manifestBytes = await regularBytes(snapshotRoot, 'snapshot-manifest.json');
-  if (hash(manifestBytes) !== SNAPSHOT_SHA256) throw Error('Atlas snapshot manifest differs from admitted r76');
+  if (hash(manifestBytes) !== SNAPSHOT_SHA256) throw Error('Atlas snapshot manifest differs from frozen r77');
   const snapshot = JSON.parse(manifestBytes);
-  if (snapshot.version !== ATLAS_VERSION || snapshot.files.length !== 199 || snapshot.bytes !== 104318011) throw Error('Atlas snapshot contract differs');
+  if (snapshot.version !== ATLAS_VERSION || snapshot.files.length !== 201 || snapshot.bytes !== 104323582) throw Error('Atlas snapshot contract differs');
   const files = new Map();
   let total = 0;
   for (const entry of snapshot.files) {
@@ -42,6 +42,14 @@ export async function prepareWebsiteAtlasPackage({ snapshotRoot }) {
   if (total !== snapshot.bytes) throw Error('Atlas snapshot byte total differs');
   files.set(`atlas/versions/${ATLAS_VERSION}/snapshot-manifest.json`, manifestBytes);
   for (const relative of hostFiles) files.set('atlas/' + relative, await regularBytes(hostRoot, relative));
+  files.set('atlas/wrn-icon.png',await regularBytes(fileURLToPath(new URL('../src/assets/',import.meta.url)),'wrn-app-icon.png'));
+  // Reuse the Website's versioned palette bytes without importing the Atlas
+  // into its production bundle. Only semantic theme declarations enter here.
+  const brandRoot=fileURLToPath(new URL('../../../packages/brand-tokens/src/',import.meta.url));
+  const brandCss=(await regularBytes(brandRoot,'styles.css')).toString('utf8');
+  const declarations=brandCss.slice(0,brandCss.indexOf('\n* {'));
+  if(!declarations || !declarations.includes("data-theme='editorial'"))throw Error('Website theme contract differs');
+  files.set('atlas/atlas-theme-tokens.css',Buffer.from(declarations.replaceAll('data-theme','data-wrn-host-theme')+"\n:root[data-wrn-host-theme='autonom']{--wrn-color-canvas:#000;--wrn-color-surface:#0c0c0c;--wrn-color-surface-raised:#171414;--wrn-color-chrome:#000;--wrn-color-text:#fff7f4;--wrn-color-muted:#d7c5c0;--wrn-color-border:#812431;--wrn-color-accent-cyan:#f04a56;--wrn-color-action:#f04a56;--wrn-color-accent:#f04a56;--wrn-color-accent-contrast:#21040a}\n"));
   const gameHtml = files.get(`atlas/versions/${ATLAS_VERSION}/index.html`).toString('utf8');
   const csp = gameHtml.match(/<meta http-equiv="Content-Security-Policy" content="([^"]+)"/i)?.[1];
   if (!csp || /[\r\n]/.test(csp)) throw Error('Atlas CSP missing');
@@ -68,7 +76,7 @@ export async function prepareWebsiteAtlasPackage({ snapshotRoot }) {
   const manifest = {
     schema: 'wrn.website-atlas-package.v1', route: '/atlas/', version: ATLAS_VERSION,
     sourceCommit: SOURCE_COMMIT, snapshotManifestSha256: SNAPSHOT_SHA256,
-    snapshotFiles: 199, snapshotBytes: total, websiteShellIncluded: false,
+    snapshotFiles: 201, snapshotBytes: total, websiteShellIncluded: false,
     autoStart: false, publicationPerformed: false, publicationAuthorizedByPackage: false,
     mediaApproval: snapshot.mediaApproval,
     files: [...files].map(([relative, bytes]) => ({path:relative,bytes:bytes.length,sha256:hash(bytes)})).sort((a,b)=>a.path.localeCompare(b.path)),

@@ -1,4 +1,6 @@
-import { ANDROID_URL, languageFromSearch, publicAtlasUrl, atlasFrameUrl, isAtlasReady } from './atlas-contract.js';
+import { ANDROID_URL, languageFromSearch, publicAtlasUrl, atlasFrameUrl, isAtlasReady, atlasSharePayload } from './atlas-contract.js';
+import {THEME_STORAGE_KEY,themeFromSearch,effectiveTheme,runtimeTheme,themeOptions,controls} from './atlas-settings.js';
+import {attachFramePresentation} from './atlas-presentation.js';
 // UI translations only; the immutable Atlas keeps its own content/review labels.
 const texts = {
   de: ['Sprache','Entdecke Bewegungen, Menschen und die Geschichte des Widerstands.','Der Atlas lädt erst beim Start. Er benötigt Internet und gehört nicht zum Offlinebereich der Website.','Atlas starten','Teilen','Link kopieren','Android-App bei Google Play','Entwurfs-, Quellen- und Rechtehinweise im Atlas gelten weiterhin. Die Sprache der Oberfläche bedeutet keine geprüfte Übersetzung aller Inhalte.','Atlas lädt …','Atlas bereit.','Link kopiert.','Öffentlicher Link','Der Atlas braucht länger zum Laden. Prüfe deine Internetverbindung.'],
@@ -13,18 +15,36 @@ const texts = {
 };
 const ids = ['language-label','intro','availability','start','share','copy','android','notice'];
 let language = languageFromSearch(location.search), frame, ready = false, timeout;
+let storedTheme;
+try {storedTheme=localStorage.getItem(THEME_STORAGE_KEY);}catch{ /* Theme UI works without browser storage. */ }
+let theme=themeFromSearch(location.search,storedTheme), presentation;
+const colorScheme=matchMedia('(prefers-color-scheme: dark)');
 const byId = id => document.getElementById(id);
 function render() {
   document.documentElement.lang = language;
+  const palette=effectiveTheme(theme,colorScheme.matches);
+  document.documentElement.dataset.wrnHostTheme=palette;
+  document.documentElement.dataset.themePreference=theme;
   const text = texts[language];
   ids.forEach((id, index) => { byId(id).textContent = text[index]; });
   byId('language').value = language;
   byId('language').setAttribute('aria-label', text[0]);
-  byId('home').href = `/?lang=${language}#home`;
+  byId('home').href = `/?lang=${language}&theme=${theme==='autonom'?'editorial':theme}#home`;
   byId('android').href = ANDROID_URL;
   byId('public-link').value = publicAtlasUrl(language);
   byId('link-label').textContent = text[11];
   byId('status').textContent = frame ? text[ready ? 9 : 8] : '';
+  const copy=controls[language];
+  byId('theme-label').textContent=copy[0];
+  byId('options-title').textContent=copy[1];
+  byId('options').setAttribute('aria-label',copy[1]);
+  byId('close-options').setAttribute('aria-label',copy[2]);
+  byId('filters').setAttribute('aria-label',copy[3]);
+  byId('fullscreen').textContent=copy[4];
+  byId('theme').replaceChildren(...themeOptions(language).map(item=>{const option=document.createElement('option');option.value=item.value;option.textContent=item.label;return option;}));
+  byId('theme').value=theme;
+  byId('theme-current').textContent=themeOptions(language).find(item=>item.value===theme).label;
+  presentation?.refresh();
 }
 function copyFallback() { byId('copy-fallback').hidden = false; byId('public-link').focus(); byId('public-link').select(); }
 async function copy() {
@@ -34,7 +54,7 @@ async function copy() {
 byId('copy').addEventListener('click', copy);
 byId('share').addEventListener('click', async () => {
   if (!navigator.share) return copy();
-  try { await navigator.share({title:'World Revolution Atlas · WRN',url:publicAtlasUrl(language)}); }
+  try { await navigator.share(atlasSharePayload(language)); }
   catch(error) { if (error?.name !== 'AbortError') copyFallback(); }
 });
 byId('language').addEventListener('change', () => {
@@ -44,14 +64,32 @@ byId('language').addEventListener('change', () => {
   render();
   if (frame) frame.contentWindow.postMessage({source:'wrn-host',protocol:'wrn-atlas-v1',command:'setLanguage',requestId:'website-language',value:language}, location.origin);
 });
+function sendTheme(){if(frame&&ready)frame.contentWindow.postMessage({source:'wrn-host',protocol:'wrn-atlas-v1',command:'setTheme',requestId:'website-theme',value:runtimeTheme(theme)},location.origin);}
+byId('theme').addEventListener('change',()=>{
+  theme=themeFromSearch('?theme='+byId('theme').value);
+  try{localStorage.setItem(THEME_STORAGE_KEY,theme==='autonom'?'editorial':theme);}catch{ /* Selection remains available. */ }
+  render();sendTheme();
+});
+colorScheme.addEventListener('change',()=>{if(theme==='system'){render();sendTheme();}});
+byId('options').addEventListener('click',()=>byId('options-dialog').showModal());
+byId('close-options').addEventListener('click',()=>byId('options-dialog').close());
+byId('options-dialog').addEventListener('close',()=>byId('options').focus());
+byId('filters').addEventListener('click',()=>presentation?.toggleFilters());
+byId('fullscreen').addEventListener('click',async()=>{
+  try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();}
+  catch{ /* The map still fills the browser viewport when OS fullscreen is unavailable. */ }
+});
 byId('start').addEventListener('click', () => {
   if (frame) return;
   frame = document.createElement('iframe');
   frame.title = 'World Revolution Atlas';
   frame.referrerPolicy = 'same-origin';
-  frame.src = atlasFrameUrl(language, location.origin);
+  frame.src = atlasFrameUrl(language, location.origin,runtimeTheme(theme));
   byId('game').hidden = false;
   byId('game').append(frame);
+  document.body.classList.add('atlas-running');
+  byId('options-dialog').append(document.querySelector('.intro'));
+  byId('options').hidden=false;byId('filters').hidden=false;byId('fullscreen').hidden=false;
   byId('start').disabled = true;
   render();
   timeout = setTimeout(() => { if (!ready) byId('status').textContent = texts[language][12]; }, 40000);
@@ -59,7 +97,12 @@ byId('start').addEventListener('click', () => {
 window.addEventListener('message', event => {
   if (!isAtlasReady(event, frame?.contentWindow, location.origin)) return;
   ready = true; clearTimeout(timeout); render();
+  if(!presentation)presentation=attachFramePresentation(frame,{getTheme:()=>effectiveTheme(theme,colorScheme.matches),onLanguage:next=>{
+    language=languageFromSearch('?lang='+next);history.replaceState(null,'','/atlas/?lang='+language);render();
+  },onFilters:open=>byId('filters').setAttribute('aria-expanded',String(open))});
+  sendTheme();
   // No state getter, progress export/import, storage or analytics in this host.
   frame.contentWindow.postMessage({source:'wrn-host',protocol:'wrn-atlas-v1',command:'setLanguage',requestId:'website-language',value:language}, location.origin);
 });
+window.addEventListener('pagehide',()=>presentation?.destroy());
 render();

@@ -62,6 +62,7 @@ afterEach(() => {
 });
 describe('Website internal news reader', () => {
   it('automatically translates an opened foreign headline once in StrictMode and shares its translated title with WRN attribution', async () => {
+    vi.spyOn(Date, 'now').mockReturnValue(Date.parse(document.observedAt) + 60_000);
     const foreign = document.articles.find(
       (item) => item.language === 'en' && !homeReadingSummary(item, document.sourceCommit, 'de'),
     )!;
@@ -97,6 +98,7 @@ describe('Website internal news reader', () => {
     expect(screen.getByText(foreign.title)).toBeInTheDocument();
   });
   it('discards a delayed translation after changing language and keeps the Original while waiting', async () => {
+    vi.spyOn(Date, 'now').mockReturnValue(Date.parse(document.observedAt) + 60_000);
     const foreign = document.articles.find(
       (item) => item.language === 'en' && !homeReadingSummary(item, document.sourceCommit, 'de'),
     )!;
@@ -124,6 +126,15 @@ describe('Website internal news reader', () => {
     resolve({ kind: 'translated', title: 'Stale German title', text: '', cache: 'miss' });
     await waitFor(() => expect(screen.queryByText('Stale German title')).not.toBeInTheDocument());
     expect(shared.translate.mock.calls[0]![1].aborted).toBe(true);
+  });
+  it('keeps the original headline without requesting translation after the snapshot expires', async () => {
+    vi.spyOn(Date, 'now').mockReturnValue(Date.parse(document.observedAt) + 86_400_001);
+    const foreign = document.articles.find(
+      (item) => item.language === 'en' && !homeReadingSummary(item, document.sourceCommit, 'de'),
+    )!;
+    render(<WebsiteDirectoryReader {...props()} articleId={foreign.id} />);
+    expect(await screen.findByRole('heading', { level: 1, name: foreign.title })).toHaveAttribute('lang', 'en');
+    expect(shared.translate).not.toHaveBeenCalled();
   });
   it.each(uiLanguageIds)(
     'renders an attributed local WRN note and all reader labels in %s',
