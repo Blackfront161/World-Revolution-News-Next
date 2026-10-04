@@ -1,0 +1,35 @@
+{
+  "schema": "wrn.evidence-hashes.v1",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "REPORT.md",
+      "bytes": 2852,
+      "sha256": "258d426c0919bbfb6df37ca8481aebdef98c068e9527552bf4e88581adb7bde2"
+    },
+    {
+      "path": "atlas-package.manifest.json",
+      "bytes": 45272,
+      "sha256": "81900d8d198ad481d13c28f4f37d263f75f2fd6eca3c3ec53b2ff2527a572f41"
+    },
+    {
+      "path": "before-public-readback.json",
+      "bytes": 4479,
+      "sha256": "973e9dfb2b210a446de12df0f3b70e40048580f33ac7b57f7b3c35688f49bfdc"
+    },
+    {
+      "path": "initial-runtime-readback.json",
+      "bytes": 1032636,
+      "sha256": "d67a01a88b243589f56257778241ef3c6ad4ce5f337e11f03a51c9afb69d12c0"
+    },
+    {
+      "path": "mime-correction-proof.json",
+      "bytes": 534,
+      "sha256": "9d79e589fa697fb1a64831db48b6e4df75aa7d071c8941aa8471758d71f69101"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "sourceCommit": "6a8edf0b8e2ddd462db2e750f672c3f114801171",
+  "version": "r77-564c7ef0fdc9",
+  "manifestSha256": "81900d8d198ad481d13c28f4f37d263f75f2fd6eca3c3ec53b2ff2527a572f41",
+  "previousManifestSha256": "2815156f2af1bf65766c354736e14f9c1e61c46eb3997e1847eb0d2c1a1969c5",
+  "onlyChangedPayloadFiles": [
+    "atlas/.htaccess",
+    "atlas/versions/r77-564c7ef0fdc9/.htaccess"
+  ],
+  "unchangedPayloadFiles": 212,
+  "gameSourceFilesUnchanged": 202,
+  "focusedNodeTests": 8,
+  "publicationPerformed": false
+}
