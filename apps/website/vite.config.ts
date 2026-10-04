@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import { createStagingIsolationPlugin } from './tools/staging-vite-plugin.mjs';
 import { createBrowserContentAliases } from '../../tools/browser-content-aliases.mjs';
 import { createProductionCodeSplitting } from '../../tools/vite-production-chunks.mjs';
+import { createAtlasPreviewPlugin } from './tools/atlas-vite-plugin.mjs';
 
 const code26Mark = '../../../apps/website/src/assets/solinaridao-header-mark-filled.png';
 const inheritedMark = '../assets/solinaridao-header-mark-filled.png';
@@ -28,7 +29,7 @@ export default defineConfig(({ mode }) => {
   const stagingOrigin = process.env.WRN_STAGING_ORIGIN;
   if (staging && !stagingOrigin) throw new Error('WRN_STAGING_ORIGIN is required for staging mode');
   return {
-    plugins: [code26WebsiteBrandAsset(), react(), ...(staging ? [createStagingIsolationPlugin(stagingOrigin!)] : [])],
+    plugins: [code26WebsiteBrandAsset(), react(), createAtlasPreviewPlugin(import.meta.dirname), ...(staging ? [createStagingIsolationPlugin(stagingOrigin!)] : [])],
     resolve: { alias: createBrowserContentAliases(import.meta.dirname) },
     build: {
       rolldownOptions: { output: { codeSplitting: createProductionCodeSplitting() } },

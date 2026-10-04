@@ -1,0 +1,26 @@
+# WRN Website – separate Atlas route, local candidate
+
+The public /atlas/ route returned HTTP 404 during the read-only check on 4 October 2026, 06:03 UTC. A stable /atlas/ landing page is now prepared in the Website checkout, with nine UI languages, explicit Atlas start, public share/copy links and the Android Google Play link derived from applicationId com.world.revolution. No publication was performed.
+
+## Source and scope
+
+- Admitted runtime: r76-8a0c503f6d00, source freeze 9029461a94f23042b9ff8ad7ba46594c557c7dbc. The source controller's SCOPED PASS is bound by result commit 3b233c58c08c5140c45971403500d810f4b9130b; it does not approve this new Website host or a live upload.
+- Exactly 199 runtime files / 104,318,011 bytes plus the unchanged snapshot manifest. All 200 source files match their frozen Git blobs. Every runtime file is bound by the admitted manifest SHA-256. Media approval, draft, source and rights labels remain byte-identical. No Game/App source changes.
+- Independent deployment packet: work/website-atlas-r76-candidate2, 206 managed files: 199 runtime files, original snapshot manifest, four host files and two directory-scoped Apache policies. Its outer atlas-package.manifest.json is local deployment evidence, not a public website file.
+- Atlas is outside Website public/build input. The serve-only Vite plugin exposes the prepared packet at http://127.0.0.1:43240/atlas/?lang=de and fails closed on unknown/private paths and changed bytes. Missing local packet produces 503, not a misleading Website fallback.
+
+## Behavior and verification
+
+The initial landing page requests only itself, CSS and two small JS files. No runtime or external resources load before the start button. The frame URL is fixed to the admitted version with embed=1, offline=0, supabase=0, welcome=0 and a checked UI language. No incoming filters, preview data, event selection or progress parameters are forwarded. Share payload contains only title and https://solinaridao.com/atlas/?lang=<allowed-language>. Clipboard denial exposes a selectable public link; native share cancellation does not force copying. Native OS share sheets and actual Google Play availability were not tested; browser tests exercise the share API payload with a fixture.
+
+The host consumes only a validated ready lifecycle message from the exact frame and origin. It sends only the existing language command. It never reads/imports/exports progress or installs a worker. The reviewed Game retains its own same-origin storage behavior: this is a trusted first-party lifecycle boundary, not isolation from hostile same-origin code. The Game's existing embedded availability text mentions the News App; the Website landing page explicitly states that this Atlas needs internet and is separate from Website offline availability.
+
+Final actual local Chrome: 14 checks PASS, nine UI languages, canonical sharing, denied clipboard fallback, invalid parameter fallback, 320px and 390px/200% text, explicit start with 674 entries, ready=true and mapReady=true, language switch in the same frame, zero worker registrations, unknown/private path rejection and an already-visible manual-copy field updating its URL and localized label through DE → FR → DE. Zero page errors and failed requests in the final run. Both HTTP policies are applied in preview; this does not claim that Hostinger Apache inheritance has been tested live. The earlier policy candidate exposed a frame-src/child-src fallback conflict; separate wrapper and runtime policies fixed it and final Chrome passed. An earlier readiness sample was taken before asynchronous map readiness; the final check waits for mapReady without weakening that oracle.
+
+41 targeted unit/offline-shell tests PASS and Website typecheck PASS. Raw Vite build has 18 shell entries, 8,091,333 bytes before production HTML security adaptation; no Atlas entry. Existing published shell remains 18 / 8,092,523 bytes. The difference is the production-adapted HTML, not an Atlas budget change. This raw build is not a refreshed news/publication candidate. The published news snapshot is not refreshed by this work.
+
+## Reproduce and publish boundary
+
+From apps/website run node tools/build-website-atlas.mjs <admitted-snapshot-directory> <new-output-directory>. The output directory must not already exist; the producer enforces the exact admitted snapshot hash, all runtime hashes and sizes, regular-file paths and byte total. node --test tools/website-atlas-package.test.mjs runs the focused host contracts. The local ignored packet is required for preview; it is intentionally not copied into normal Vite production output.
+
+Before a future upload, independently review this Website host and directory-scoped policy, then bind publication to this exact packet. Upload versioned runtime assets/policy first, verify all hashes and headers, then expose the four mutable host files and wrapper policy. Do not overwrite the root Website policy or bundle Atlas into its offline shell. Verify actual Hostinger CSP replacement, SAMEORIGIN framing, MIME, cache behavior and a public start smoke after activation. No root Website publication, credentials, CDN operation, App build, APK, push or source-media approval change occurred here. No total Atlas offline/readiness or overall release approval is claimed.

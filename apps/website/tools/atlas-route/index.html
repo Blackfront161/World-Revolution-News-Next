@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="same-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; frame-src 'self'; connect-src 'none'">
+  <title>World Revolution Atlas · WRN</title>
+  <link rel="canonical" href="https://solinaridao.com/atlas/">
+  <link rel="stylesheet" href="./atlas-host.css">
+  <script type="module" src="./atlas-host.js"></script>
+</head>
+<body>
+  <header>
+    <a id="home" href="/?lang=de#home">← WRN</a>
+    <label><span id="language-label">Sprache</span>
+      <select id="language" aria-label="Sprache">
+        <option value="de">Deutsch</option><option value="en">English</option><option value="es">Español</option><option value="fr">Français</option><option value="it">Italiano</option><option value="pt">Português</option><option value="ru">Русский</option><option value="el">Ελληνικά</option><option value="tr">Türkçe</option>
+      </select>
+    </label>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="brand">WORLD REVOLUTION NEWS</p>
+      <h1>World Revolution Atlas</h1>
+      <p id="intro">Entdecke Bewegungen, Menschen und die Geschichte des Widerstands.</p>
+      <p id="availability">Der Atlas lädt erst beim Start. Er benötigt Internet und gehört nicht zum Offlinebereich der Website.</p>
+      <nav aria-label="Atlas">
+        <button id="start" type="button">Atlas starten</button>
+        <button id="share" type="button">Teilen</button>
+        <button id="copy" type="button">Link kopieren</button>
+        <a id="android" href="https://play.google.com/store/apps/details?id=com.world.revolution" rel="noopener noreferrer">Android-App bei Google Play</a>
+      </nav>
+      <p id="notice">Entwurfs-, Quellen- und Rechtehinweise im Atlas gelten weiterhin. Die Sprache der Oberfläche bedeutet keine geprüfte Übersetzung aller Inhalte.</p>
+      <p id="status" role="status" aria-live="polite"></p>
+      <div id="copy-fallback" hidden><label for="public-link" id="link-label">Öffentlicher Link</label><input id="public-link" type="url" readonly></div>
+      <noscript>Bitte aktiviere JavaScript, um den Atlas zu starten. <a href="/?lang=de#home">Zur WRN-Website</a></noscript>
+    </section>
+    <section id="game" hidden></section>
+  </main>
+</body>
+</html>
