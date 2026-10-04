@@ -2,24 +2,49 @@
   "sourceCommit": "534f15f3f4bcfc8044f4040038e85632cd8d0b11",
   "files": [
     {
-      "path": "REPORT.md",
-      "bytes": 4409,
-      "sha256": "1594f7386f135bb36f521e6d3baa20f18f0f5c708ee4b171bbf54aebeaed7f3a"
-    },
-    {
-      "path": "REVIEW.md",
-      "bytes": 751,
-      "sha256": "4c778f577d56e1da747894e1c6eb3bf59dbd3d67a3ba271f60db4ed748fd011d"
-    },
-    {
       "path": "app-handoff-manifest.json",
       "bytes": 7728,
       "sha256": "1868c6d517f0e6ef133872edcb240209a186780d690d74ffb21390782447ad39"
     },
     {
+      "path": "atlas-fresh-desktop.png",
+      "bytes": 191229,
+      "sha256": "ea5b9b53c7fb166973b2b4de5b4e230d420f8776413cccb6df0cc3edc2006b4e"
+    },
+    {
+      "path": "atlas-fresh-frame.json",
+      "bytes": 10728,
+      "sha256": "2e1dc95e30e1bdbd4bd88178bb81fb1317f403b8c304ba60d251edc8eeeedb98"
+    },
+    {
+      "path": "ATLAS-LIVE-FOLLOWUP.md",
+      "bytes": 2288,
+      "sha256": "c93f3a9e5d9e0a3191d061e55dc4c8485eba4e5818eab59acb178d7fdd494dc4"
+    },
+    {
       "path": "atlas-mobile.png",
       "bytes": 61715,
       "sha256": "1ebfa944e61e8ec32fc1b6ea3eb3b8c7ee18a2168451fd2c65765643dd337826"
+    },
+    {
+      "path": "atlas-raw-headers.json",
+      "bytes": 2909,
+      "sha256": "7da913e3fbb350bab4d94dfdf85766c58a8ce1e920c42e593a633cd8d6e2b672"
+    },
+    {
+      "path": "atlas-root-de-loaded.png",
+      "bytes": 24578,
+      "sha256": "7f8df3ebb9bd69c3c0ff63799187db1b12f241c38e9c8b257f4c54cf789740ca"
+    },
+    {
+      "path": "atlas-root-final-de.png",
+      "bytes": 68514,
+      "sha256": "9c9b8f05d99ec3c775cd881053a432592d6be3c78bc8584a7fb474c5f66362f7"
+    },
+    {
+      "path": "atlas-root-fr-loaded.png",
+      "bytes": 24872,
+      "sha256": "0713c44bc74ebedb03fb462aa8fb1b671f2aa77e4455d2c3c77b5db31f94de06"
     },
     {
       "path": "browser-live.json",
@@ -97,14 +122,24 @@
       "sha256": "11986427c2334dc6f8a1340f5b434a4a42d2f7ecfc31b4ffe9c2e720d3a68497"
     },
     {
+      "path": "REPORT.md",
+      "bytes": 4869,
+      "sha256": "28e55429dd68757da801c827742a4598a4a697803356f5fe6c1bfcb75b00fa2f"
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 751,
+      "sha256": "4c778f577d56e1da747894e1c6eb3bf59dbd3d67a3ba271f60db4ed748fd011d"
+    },
+    {
       "path": "upload-freeze.json",
       "bytes": 23282,
       "sha256": "f6b1870d76f063e915cbcb13a30140bc889594ac60c45bc5d3f8df9227ebfc49"
     },
     {
       "path": "validation.json",
-      "bytes": 886,
-      "sha256": "a280d43589286c46f9d0d7a8528ffc8629ee94d3eea307e7041f2284bdf22de1"
+      "bytes": 1302,
+      "sha256": "6712861ea048bad86e8b9d5dc4fc47859dc0d06f59ca317a6d42416fc32884d8"
     },
     {
       "path": "website.manifest.json",

@@ -31,5 +31,13 @@
   "publicFiles": 50,
   "publicHeaderChecks": 463,
   "publicReadback": "PASS",
-  "automaticAppWebsiteFollowup": "OPEN — manual frozen snapshot"
+  "automaticAppWebsiteFollowup": "OPEN — manual frozen snapshot",
+  "atlasLiveFollowup": {
+    "freshChromeNoServiceWorkerNoCacheStorage": "PASS",
+    "freshGermanCodexBrowser": "PASS — visible fully loaded map",
+    "independentRoot": "PASS — fresh DE Header→Host→Start plus fully loaded FR map and FR→DE language change",
+    "historicalGermanRootAttempt": "Single failure preserved; cause not established",
+    "productChanged": false,
+    "headersChanged": false
+  }
 }
