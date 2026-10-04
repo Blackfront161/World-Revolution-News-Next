@@ -36,6 +36,23 @@ jobs:
         with:
           node-version: 24.19.0
           check-latest: false
+      - name: Check delivery configuration without revealing secret values
+        env:
+          WRN_DIRECTORY_PUBLISH_ENABLED: ${{ vars.WRN_DIRECTORY_PUBLISH_ENABLED }}
+          WRN_FTPS_HOST: ${{ secrets.WRN_FTPS_HOST }}
+          WRN_FTPS_IP: ${{ secrets.WRN_FTPS_IP }}
+          WRN_FTPS_USER: ${{ secrets.WRN_FTPS_USER }}
+          WRN_FTPS_PASSWORD: ${{ secrets.WRN_FTPS_PASSWORD }}
+          WRN_FTPS_DIRECTORY: ${{ secrets.WRN_FTPS_DIRECTORY }}
+          EXPLICIT_PUBLISH: ${{ inputs.publish }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$EXPLICIT_PUBLISH" == 'true' ]]; then
+            node tools/directory/check-directory-publication-config.mjs --explicit-publish
+          else
+            node tools/directory/check-directory-publication-config.mjs
+          fi
       - id: upstream
         name: Resolve exact upstream commit
         env:
