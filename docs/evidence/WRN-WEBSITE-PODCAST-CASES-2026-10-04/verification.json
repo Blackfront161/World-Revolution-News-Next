@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "cases": 47,
+  "intake": 31,
+  "corrections": 16,
+  "priorRecords": 1777,
+  "candidateRecords": 1808,
+  "unchangedExistingRecords": 1761,
+  "preservedHistoricalLora": 2,
+  "aliasWithdrawalViaEveryIdentity": true,
+  "negativePolicyCases": 8,
+  "audioOrImageFetched": false,
+  "runtimeImported": false,
+  "publicationPerformed": false
+}
