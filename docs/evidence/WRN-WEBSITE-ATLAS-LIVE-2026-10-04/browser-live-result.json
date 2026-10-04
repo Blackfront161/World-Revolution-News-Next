@@ -1,0 +1,217 @@
+{
+  "checks": [
+    {
+      "name": "all ten theme options, short language and public share de",
+      "status": "PASS"
+    },
+    {
+      "name": "all ten theme options, short language and public share en",
+      "status": "PASS"
+    },
+    {
+      "name": "all ten theme options, short language and public share es",
+      "status": "PASS"
+    },
+    {
+      "name": "all ten theme options, short language and public share fr",
+      "status": "PASS"
+    },
+    {
+      "name": "all ten theme options, short language and public share it",
+      "status": "PASS"
+    },
+    {
+      "name": "all ten theme options, short language and public share pt",
+      "status": "PASS"
+    },
+    {
+      "name": "all ten theme options, short language and public share ru",
+      "status": "PASS"
+    },
+    {
+      "name": "all ten theme options, short language and public share el",
+      "status": "PASS"
+    },
+    {
+      "name": "all ten theme options, short language and public share tr",
+      "status": "PASS"
+    },
+    {
+      "name": "visible fallback follows DE FR DE",
+      "status": "PASS"
+    },
+    {
+      "name": "frame and map fill 1440x900 viewport without overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "frame and map fill 390x844 viewport without overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "frame and map fill 320x800 viewport without overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "320px/200% controls and accessible options with rights notice",
+      "status": "PASS"
+    },
+    {
+      "name": "filters accessible with full-window map",
+      "status": "PASS"
+    },
+    {
+      "name": "theme violet applies to host and game with Website return link",
+      "status": "PASS"
+    },
+    {
+      "name": "theme dark applies to host and game with Website return link",
+      "status": "PASS"
+    },
+    {
+      "name": "theme editorial applies to host and game with Website return link",
+      "status": "PASS"
+    },
+    {
+      "name": "theme oled applies to host and game with Website return link",
+      "status": "PASS"
+    },
+    {
+      "name": "theme soft applies to host and game with Website return link",
+      "status": "PASS"
+    },
+    {
+      "name": "theme pink applies to host and game with Website return link",
+      "status": "PASS"
+    },
+    {
+      "name": "theme light applies to host and game with Website return link",
+      "status": "PASS"
+    },
+    {
+      "name": "theme system applies to host and game with Website return link",
+      "status": "PASS"
+    },
+    {
+      "name": "theme contrast applies to host and game with Website return link",
+      "status": "PASS"
+    },
+    {
+      "name": "theme autonom applies to host and game with Website return link",
+      "status": "PASS"
+    },
+    {
+      "name": "system theme follows both dark and light without restarting frame",
+      "status": "PASS"
+    },
+    {
+      "name": "all short language codes and public share after game starts",
+      "status": "PASS"
+    },
+    {
+      "name": "new Kollektiv score, no autoplay, actual browser AudioContext running after opt-in, volume and mute",
+      "status": "PASS"
+    }
+  ],
+  "origin": "https://solinaridao.com",
+  "publicationPerformed": true,
+  "transport": "default",
+  "status": "PASS",
+  "pageErrors": [],
+  "failedRequests": [],
+  "requests": [
+    "https://solinaridao.com/atlas/?lang=de&preview=secret",
+    "https://solinaridao.com/atlas/atlas-host.css",
+    "https://solinaridao.com/atlas/atlas-theme-tokens.css",
+    "https://solinaridao.com/atlas/atlas-display.css",
+    "https://solinaridao.com/atlas/atlas-host.js",
+    "https://solinaridao.com/atlas/atlas-contract.js",
+    "https://solinaridao.com/atlas/atlas-settings.js",
+    "https://solinaridao.com/atlas/atlas-presentation.js",
+    "https://solinaridao.com/atlas/wrn-icon.png",
+    "https://solinaridao.com/atlas/?lang=en&preview=secret",
+    "https://solinaridao.com/atlas/?lang=es&preview=secret",
+    "https://solinaridao.com/atlas/?lang=fr&preview=secret",
+    "https://solinaridao.com/atlas/?lang=it&preview=secret",
+    "https://solinaridao.com/atlas/?lang=pt&preview=secret",
+    "https://solinaridao.com/atlas/?lang=ru&preview=secret",
+    "https://solinaridao.com/atlas/?lang=el&preview=secret",
+    "https://solinaridao.com/atlas/?lang=tr&preview=secret",
+    "https://solinaridao.com/atlas/?lang=de&theme=violet",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/index.html?embed=1&offline=0&supabase=0&welcome=0&intro=0&lang=de&parentOrigin=https%3A%2F%2Fsolinaridao.com&theme=violet",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/vendor/maplibre-gl.css",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/styles.css",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/newsroom.css",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/media-pilot.css",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/atlas-audio.css",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/atlas-viewport.css",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/vendor/maplibre-gl.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/vendor/pmtiles-4.5.0.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/script.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/assets/brand/world-revolution-atlas-user-v1.png",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/game-core.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/biography-core.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/local-library.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/atlas-api.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/event-follow-up.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/event-reading.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/atlas-embed.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/newsroom-theme.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/newsroom-map.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/atlas-config.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/progress-store.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/i18n.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/mobile-ui.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/map-focus.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/map-projection.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/timeline-core.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/filter-feedback.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/evidence-model.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/route-story.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/terrain-policy.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/media-pilot.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/event-visuals.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/atlas-audio.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/atlas-score.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/event-illustration-batch-r75.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/src/event-illustration-batch-r76.js",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/event-catalog.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/event-metadata.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/event-editorial-overrides.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/routes.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/map-taxonomy.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/relations.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/biography-catalog.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/fallback-events.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/movement-events.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/historical-resistance-events.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-africa.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-asia.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-europe.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-latin-america.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-north-america.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-oceania.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-care-abolition.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-queer-feminist-2.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-worker-peasant-2.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-decolonial-2.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-africa-3.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-asia-oceania-3.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-latin-caribbean-3.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-commons-global-3.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-replacements-3.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-final-3.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-600th.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-indigenous-canada-4.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-black-globalization-4.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-social-achievements-4.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/social-achievements-next.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/expansion-maritime.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/biographies-black.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/biographies-indigenous.json",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/biographies-libertarian.json",
+    "blob:https://solinaridao.com/ab15ae8b-1508-4b50-b6cd-376339e6bd33",
+    "https://solinaridao.com/atlas/atlas-frame.css",
+    "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/data/cartography/ne_110m_land.geojson"
+  ]
+}

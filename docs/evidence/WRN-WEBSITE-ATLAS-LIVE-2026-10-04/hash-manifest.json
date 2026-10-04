@@ -8,8 +8,23 @@
     },
     {
       "path": "REPORT.md",
-      "bytes": 3204,
-      "sha256": "c2a8cce58a4fb708402e995ab7e797de6d6c81a6382cb019f029e17e175a4a9e"
+      "bytes": 6210,
+      "sha256": "9cd2d409b814b7c44eff9a2f273a0c65fcb04acbb99d5fe6ce61ab7a9001476f"
+    },
+    {
+      "path": "atlas-live-map-1440.png",
+      "bytes": 191229,
+      "sha256": "ea5b9b53c7fb166973b2b4de5b4e230d420f8776413cccb6df0cc3edc2006b4e"
+    },
+    {
+      "path": "atlas-live-map-390.png",
+      "bytes": 61715,
+      "sha256": "1ebfa944e61e8ec32fc1b6ea3eb3b8c7ee18a2168451fd2c65765643dd337826"
+    },
+    {
+      "path": "atlas-live-new-music.png",
+      "bytes": 143288,
+      "sha256": "9e39f60bb9c64122442304bcb08dff0451c0b6b112eb2fe7bc5d489eafdd836b"
     },
     {
       "path": "atlas-package.manifest.json",
@@ -20,6 +35,16 @@
       "path": "before-public-readback.json",
       "bytes": 4479,
       "sha256": "973e9dfb2b210a446de12df0f3b70e40048580f33ac7b57f7b3c35688f49bfdc"
+    },
+    {
+      "path": "browser-live-result.json",
+      "bytes": 11130,
+      "sha256": "5341732eaaf9ae785d08269f47d250610308893b5d57581c0b597438a4be3727"
+    },
+    {
+      "path": "initial-live-attempts.json",
+      "bytes": 1392,
+      "sha256": "f611e4dea0cb24126260054d4a299edb8bfbc8ae57cf707267c339e0c58031c1"
     },
     {
       "path": "initial-runtime-readback.json",
@@ -35,6 +60,21 @@
       "path": "mime-correction-proof.json",
       "bytes": 534,
       "sha256": "9d79e589fa697fb1a64831db48b6e4df75aa7d071c8941aa8471758d71f69101"
+    },
+    {
+      "path": "offline-live-result.json",
+      "bytes": 1882,
+      "sha256": "7295ebb10bbac0cc77d6741eade0c12aa097aa836ea1a8111516b796f57b9e82"
+    },
+    {
+      "path": "public-final-readback.json",
+      "bytes": 1080438,
+      "sha256": "14b08c0ddf7326ca98e70f706a609c56d923eb83cca7b30fa9521b3e4cba213a"
+    },
+    {
+      "path": "publication-receipt.json",
+      "bytes": 4573,
+      "sha256": "b1cbbb42f52f60a5632bda5779d68c94198b97b9d525070a7dfae396cb3690b2"
     }
   ]
 }
