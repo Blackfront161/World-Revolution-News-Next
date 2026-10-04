@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "interruptedMute": {
+    "recordingRequests": 0,
+    "status": "Ton aus"
+  },
+  "recordingRequests": 1,
+  "errors": []
+}
