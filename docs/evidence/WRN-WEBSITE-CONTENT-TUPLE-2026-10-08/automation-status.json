@@ -1,0 +1,36 @@
+{
+  "schema": "wrn.website-publication-configuration-status.v1",
+  "observedAt": "2026-10-07T20:28:48.0697776Z",
+  "repository": "Blackfront161/World-Revolution-News-Next",
+  "githubAccessConfirmed": true,
+  "repositorySecretNames": [],
+  "repositoryVariableNames": [],
+  "localNamedEnvironmentPresence": [
+    {
+      "name": "WRN_FTPS_HOST",
+      "present": false
+    },
+    {
+      "name": "WRN_FTPS_IP",
+      "present": false
+    },
+    {
+      "name": "WRN_FTPS_USER",
+      "present": false
+    },
+    {
+      "name": "WRN_FTPS_PASSWORD",
+      "present": false
+    },
+    {
+      "name": "WRN_FTPS_DIRECTORY",
+      "present": false
+    }
+  ],
+  "publicationEnabled": false,
+  "sourceBranch": "codex/next-editorial-home-20260928",
+  "sourceCommit": "4914fb997241b8d45e16e920ed07a221e53d170e",
+  "mainIntegration": "pending Root review of 171 historical predecessors",
+  "blocker": "five required existing FTPS credentials and enable flag absent; no new credentials created",
+  "seedEndpoint": "https://solinaridao.com/wrn-website-content/current.json"
+}

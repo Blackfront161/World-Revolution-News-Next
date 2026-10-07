@@ -398,5 +398,7 @@
       "sha256": "0c41e729340d01af757e9855dd6fd77ebfe4e608c9deaea568efc5eb9d1db9d8",
       "gitBlobSha256": "0c41e729340d01af757e9855dd6fd77ebfe4e608c9deaea568efc5eb9d1db9d8"
     }
-  ]
+  ],
+  "sourceCommit": "4914fb997241b8d45e16e920ed07a221e53d170e",
+  "scope": "Frozen prepared product source at sourceCommit; subsequent evidence-only updates do not change the released product bytes"
 }
