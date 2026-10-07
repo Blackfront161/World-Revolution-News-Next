@@ -96,7 +96,7 @@ test('two packages have deterministic bytes, exact real closure and immutable in
   const two = await prepare(options(path.join(base, 'two')));
   assert.deepEqual(await readFile(one.manifestPath), await readFile(two.manifestPath));
   assert.deepEqual(await check(one.outputDirectory), await check(two.outputDirectory));
-  assert.equal(manifest.files.length, 51);
+  assert.equal(manifest.files.length, 48);
   for (const name of ['privacy.html', 'privacy.css', 'privacy.js']) {
     const privacy = manifest.files.find((entry) => entry.path === name);
     assert.ok(privacy);
@@ -106,28 +106,9 @@ test('two packages have deterministic bytes, exact real closure and immutable in
     );
     assert.equal(manifest.headers[name]['cache-control'], 'no-store');
   }
-  const illustrations = manifest.files.filter((entry) =>
-    /^assets\/wrn-austerity-illustration-v1-[A-Za-z0-9_-]+\.webp$/.test(entry.path),
-  );
-  assert.equal(illustrations.length, 1);
-  const additional = JSON.parse(
-    await readFile(
-      path.join(workspace, 'apps/website/src/features/home/home-additional-illustrations-v1.json'),
-      'utf8',
-    ),
-  );
-  for (const approved of additional.entries) {
-    const prefix = `assets/${approved.asset.replace('.webp', '-')}`;
-    const images = manifest.files.filter((entry) => entry.path.startsWith(prefix));
-    assert.equal(images.length, 1);
-    assert.equal(images[0].bytes, approved.bytes);
-    assert.equal(images[0].sha256, approved.sha256);
-  }
-  assert.equal(illustrations[0].bytes, 230192);
-  assert.equal(
-    illustrations[0].sha256,
-    'b7d83ace0ea59e05d803f1076c524af4a95e05345d1cb272306a7ce2fbec7eb0',
-  );
+  assert.equal(manifest.files.filter(entry=>/^assets\/wrn-(austerity|teachers|agroecology)-illustration-v1-/.test(entry.path)).length,0);
+  const reviewed=JSON.parse(await readFile(path.join(workspace,'apps/website/src/features/home/reviewed-article-images-v1.json'),'utf8'));
+  for(const origin of reviewed.origins)assert(manifest.headers['index.html']['content-security-policy'].includes(origin));
   const icons = manifest.files.filter((entry) =>
     /^assets\/wrn-app-icon-[A-Za-z0-9_-]+\.png$/.test(entry.path),
   );
@@ -151,7 +132,7 @@ test('two packages have deterministic bytes, exact real closure and immutable in
       'articles/wrn-art-f2ad391804423c87773b3351eb79c802/index.html',
     ],
   );
-  assert.equal(manifest.sourceInput.files.length, 48);
+  assert.equal(manifest.sourceInput.files.length, 45);
   assert(manifest.files.some((entry) => entry.path === 'wrn-source-passes/current.json'));
   assert(manifest.files.some((entry) => entry.path === 'wrn-source-pass-revocations/current.json'));
   assert(
@@ -551,7 +532,7 @@ test('CLI succeeds from non-root cwd and rejects full-length unknown, duplicate,
     options('').previousRevocationsFile,
   ];
   const success = await run(process.execPath, [script, ...args], { cwd: base });
-  assert.equal(JSON.parse(success.stdout).files, 51);
+  assert.equal(JSON.parse(success.stdout).files, 48);
   for (const invalid of [
     ['--unknown', ...args.slice(1)],
     [...args.slice(0, 8), '--build', input],

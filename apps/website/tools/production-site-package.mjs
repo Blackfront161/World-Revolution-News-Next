@@ -6,6 +6,7 @@ import { collectShellManifest, buildOfflineShell } from './build-offline-shell.m
 import { loadWebsiteProductionContentReleaseFromDisk } from './production-content-release.mjs';
 import { publishProductionArticleLandings } from './generate-production-article-landings.mjs';
 import { buildStagingSecurityHeaders } from './staging-package.mjs';
+import { validateReviewedArticleImages } from './reviewed-article-images.mjs';
 import {
   isSourcePassRevocationsV1,
   mergeSourcePassRevocationsV1,
@@ -334,9 +335,49 @@ async function plan({
   );
   // Only the exact HTTPS origins in the source-bound App image register may
   // load. Image bytes never enter the hosting packet or offline shell.
-  const images=JSON.parse(await readFile(fileURLToPath(new URL('../src/features/home/app-article-images-v1.json',import.meta.url)),'utf8'));
-  if(images.schema!=='wrn.website-app-image-references.v1'||images.imageBytesHosted!==false||images.imageBytesOffline!==false||!Array.isArray(images.origins)||images.origins.some(value=>{try{const u=new URL(value);return u.protocol!=='https:'||u.origin!==value||!!u.username||!!u.password;}catch{return true;}}))throw Error('App image origin policy differs');
-  security['content-security-policy']=security['content-security-policy'].replace("img-src 'self' data: blob:","img-src 'self' data: blob: "+images.origins.join(' '));
+  const images = JSON.parse(
+    await readFile(
+      fileURLToPath(new URL('../src/features/home/app-article-images-v1.json', import.meta.url)),
+      'utf8',
+    ),
+  );
+  if (
+    images.schema !== 'wrn.website-app-image-references.v1' ||
+    images.imageBytesHosted !== false ||
+    images.imageBytesOffline !== false ||
+    !Array.isArray(images.origins) ||
+    images.origins.some((value) => {
+      try {
+        const u = new URL(value);
+        return u.protocol !== 'https:' || u.origin !== value || !!u.username || !!u.password;
+      } catch {
+        return true;
+      }
+    })
+  )
+    throw Error('App image origin policy differs');
+  const reviewedImages = JSON.parse(
+    await readFile(
+      fileURLToPath(
+        new URL('../src/features/home/reviewed-article-images-v1.json', import.meta.url),
+      ),
+      'utf8',
+    ),
+  );
+  const imageDirectory = JSON.parse(
+    await readFile(
+      fileURLToPath(
+        new URL('../src/features/projection/data/content-directory-v1.json', import.meta.url),
+      ),
+      'utf8',
+    ),
+  );
+  const reviewedOrigins = validateReviewedArticleImages(reviewedImages, imageDirectory, images);
+  const imageOrigins = [...new Set([...images.origins, ...reviewedOrigins])].sort();
+  security['content-security-policy'] = security['content-security-policy'].replace(
+    "img-src 'self' data: blob:",
+    "img-src 'self' data: blob: " + imageOrigins.join(' '),
+  );
   const packaged = path.join(scratch, 'packaged-shell');
   await mkdir(packaged);
   await writeBound(root, packaged, 'index.html', metaIndex(index, security));
