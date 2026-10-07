@@ -1,0 +1,237 @@
+{
+  "status": "PASS",
+  "origin": "https://solinaridao.com",
+  "sourceCommit": "77ec9d431f9001c0b9344c0fc03aa0a16af7da1c",
+  "tupleSha256": "3968005695307dc2751c6b171b59a08ae9571a0d7d7bed7193857997a85db462",
+  "checks": [
+    "All 15 unchanged App home roles have visible decoded source images or labelled own artwork, including the lead",
+    "Nine UI languages retain all roles and localized lead artwork credits/caption without overflow at 320px",
+    "Nine themes including independent Autonom layout retain lead artwork without mobile overflow",
+    "Same lead artwork in internal reader with existing translate/save/read/share controls and saved articles",
+    "Actual 18-file public shell SHA/bytes within 8MiB; browser process restart with cleared HTTP cache and no network retains labelled lead artwork"
+  ],
+  "errors": [],
+  "images": [
+    {
+      "id": "news-af1556a29e670df58a5b85322782fab9101f423308699c6732b81b986209d814",
+      "kind": "WRN-topic-illustration",
+      "src": null,
+      "naturalWidth": null,
+      "caption": "WRN · Themenillustration · Thematische WRN-Illustration. Kein Foto des berichteten Ereignisses.",
+      "renderedWidth": 630.546875
+    },
+    {
+      "id": "news-0070b1acd647a7404b01de8ce4734652fc9769cd26fa1b15f36a476d924277b2",
+      "kind": "WRN-topic-illustration",
+      "src": null,
+      "naturalWidth": null,
+      "caption": "WRN · Themenillustration · Thematische WRN-Illustration. Kein Foto des berichteten Ereignisses.",
+      "renderedWidth": 212.4375
+    },
+    {
+      "id": "news-b3bb2b5130637d8e2d327601136a4a7cf2a02cf531f23056e7be99a8ed6f1076",
+      "kind": "source-image",
+      "src": "https://www.anred.org/wp-content/uploads/2026/10/Conversatorio-Barrio-Crisol-Popular-Barrio-Norita-Cortinas-Barrios-populares-Luchas-populares-Territorio-Derecho-a-la-vivienda-digna-1.jpg",
+      "naturalWidth": 1024,
+      "caption": "ANRed (Argentina) ↗",
+      "renderedWidth": 212.4375
+    },
+    {
+      "id": "news-af1021d3c8237d9be6996601a9c8ac677944236a0ddff01ae706e22f9104ec65",
+      "kind": "WRN-topic-illustration",
+      "src": null,
+      "naturalWidth": null,
+      "caption": "WRN · Themenillustration · Thematische WRN-Illustration. Kein Foto des berichteten Ereignisses.",
+      "renderedWidth": 330.65625
+    },
+    {
+      "id": "news-b745a627893d2ddfe7051802d9431cd2d4a2a4f50b7a50c3b4befeaf0e8dce61",
+      "kind": "source-image",
+      "src": "https://novaramedia.com/wp-content/uploads/2026/10/WhatsApp-Image-2026-10-07-at-15.57.37-864x576.jpeg",
+      "naturalWidth": 864,
+      "caption": "Novara Media (UK) ↗",
+      "renderedWidth": 330.671875
+    },
+    {
+      "id": "news-aa200a74cf86c676489761a014a3ec01bd830fbf91bb957869deb5743115f625",
+      "kind": "source-image",
+      "src": "https://cdn.nunatsiaq.com/wp-content/uploads/2026/10/A-14798.95.jpg",
+      "naturalWidth": 373,
+      "caption": "Nunatsiaq News ↗",
+      "renderedWidth": 330.65625
+    },
+    {
+      "id": "news-d833447047f3c6cd78dc470b9ea0303db721142c243bb13c83ba73f988c0a7ff",
+      "kind": "source-image",
+      "src": "https://www.evrensel.net/images/1280/upload/dosya/365465.jpg",
+      "naturalWidth": 900,
+      "caption": "Evrensel ↗",
+      "renderedWidth": 768
+    },
+    {
+      "id": "news-4300ec2e59ab345fb88de936120127159c87ffcb14d70ee906fe391d9c035943",
+      "kind": "WRN-topic-illustration",
+      "src": null,
+      "naturalWidth": null,
+      "caption": "WRN · Themenillustration · Thematische WRN-Illustration. Kein Foto des berichteten Ereignisses.",
+      "renderedWidth": 330.65625
+    },
+    {
+      "id": "news-d828c8ffcb0ec0dc10ed6568f6a4e3ca8f7d7cfc31bed8a7c3038f294790bb83",
+      "kind": "source-image",
+      "src": "https://apublica.org/wp-content/uploads/2023/10/Qalandia_1_O-caso-da-familia-Sabbagh-ajuda-a-explicar-um-conflito-interminavel.jpg",
+      "naturalWidth": 1400,
+      "caption": "Agência Pública ↗",
+      "renderedWidth": 330.671875
+    },
+    {
+      "id": "news-b70ee56241807ced5c1f5a420355b07ee77b1300d588b7173f755029b40fc694",
+      "kind": "WRN-topic-illustration",
+      "src": null,
+      "naturalWidth": null,
+      "caption": "WRN · Themenillustration · Thematische WRN-Illustration. Kein Foto des berichteten Ereignisses.",
+      "renderedWidth": 330.65625
+    },
+    {
+      "id": "news-9141adf553293ec2bd6639ef70885dd632a20460f4604b98cc20271741843c7c",
+      "kind": "WRN-topic-illustration",
+      "src": null,
+      "naturalWidth": null,
+      "caption": "WRN · Themenillustration · Thematische WRN-Illustration. Kein Foto des berichteten Ereignisses.",
+      "renderedWidth": 330.65625
+    },
+    {
+      "id": "news-bca10aef827c6956c5ff33e4d6e0f4befd53a3d3a8fce0296ee42c6c41f0b47d",
+      "kind": "WRN-topic-illustration",
+      "src": null,
+      "naturalWidth": null,
+      "caption": "WRN · Themenillustration · Thematische WRN-Illustration. Kein Foto des berichteten Ereignisses.",
+      "renderedWidth": 330.671875
+    },
+    {
+      "id": "news-80726740758f9aa7865484775877ee55f0923e2fbd8fa9ec71117df1b03976fe",
+      "kind": "source-image",
+      "src": "https://es.anarchistlibraries.net/sitefiles/es/opengraph.png",
+      "naturalWidth": 300,
+      "caption": "Biblioteca Anarquista (ES) ↗",
+      "renderedWidth": 330.65625
+    },
+    {
+      "id": "news-a62a4aee2a1d906c18b6fa8e95ae5bef2892863ee83fb1259de7bf5661982f69",
+      "kind": "WRN-topic-illustration",
+      "src": null,
+      "naturalWidth": null,
+      "caption": "WRN · Themenillustration · Thematische WRN-Illustration. Kein Foto des berichteten Ereignisses.",
+      "renderedWidth": 330.65625
+    },
+    {
+      "id": "news-ad7f2a5e938ba2a2e42e9ae77a3ba1f515c26562f0a813f6ef743bca037011f3",
+      "kind": "source-image",
+      "src": "https://static.bianet.org/haber/2026/10/07/eylulde-226-is-cinayeti.jpg",
+      "naturalWidth": 1200,
+      "caption": "Bianet Türkçe ↗",
+      "renderedWidth": 330.671875
+    }
+  ],
+  "toolbar": [
+    "☆ Später lesen",
+    "✓ Als gelesen markieren",
+    "↗ Teilen"
+  ],
+  "shell": {
+    "shellId": "ff25e4720e0adc8fdbb553baab99a08b0a051ab6719cf4634d8f7ff1e7d3bb61",
+    "files": [
+      {
+        "path": "assets/content-directory-v1-lIgFHzaN.json",
+        "bytes": 1930048,
+        "sha256": "d4431713a1901deee336b27978b75b0a2eeca94b33e3db40c277ba83a0bd9e30"
+      },
+      {
+        "path": "assets/index-B8ATKFKl.css",
+        "bytes": 88255,
+        "sha256": "f735c7db9f13c171ba6bc64a3aefa9de1c90a3a87cc0d8f7e3830ff987a0789d"
+      },
+      {
+        "path": "assets/index-DzEIgi58.js",
+        "bytes": 424842,
+        "sha256": "379dabb187c92bf65ea47ec6cc821747333f5b0284a82b80868fe85df0141703"
+      },
+      {
+        "path": "assets/legacy-knowledge-v1-FerkkA-o.json",
+        "bytes": 901542,
+        "sha256": "e17fac4837dfd86ce937555391e10d9f8ac53cde917c101f5e3d1994269abff0"
+      },
+      {
+        "path": "assets/legacy-support-v1-CKf2hNYO.json",
+        "bytes": 41012,
+        "sha256": "9bfaced898bcabca449ab7a9e75db1c7bf5caba496eabae01268a58630039525"
+      },
+      {
+        "path": "assets/production-events-media-v1-CkmYeGdS.json",
+        "bytes": 1749109,
+        "sha256": "cead90ce622e968f8174d86fd2f89754d9761879d60e978df0f9311e33b5c0ed"
+      },
+      {
+        "path": "assets/react-vendor-YahHAMAi.js",
+        "bytes": 189620,
+        "sha256": "c5f08825cdca736a015fe6303f97a64ec1e4511a38b5f2f6f589ecb35e815c65"
+      },
+      {
+        "path": "assets/solinaridao-header-mark-filled-D7vg3enZ.png",
+        "bytes": 1123871,
+        "sha256": "9dca207bc008384ef45cf435a134bf170037ae0149d27c43c732b754912b61b9"
+      },
+      {
+        "path": "assets/wrn-agroecology-illustration-v1-DrDVXIYr.webp",
+        "bytes": 188830,
+        "sha256": "dda6b30e14e95ab6f61c21be8c26885559a3e488cef114963bffc198695a2bc8"
+      },
+      {
+        "path": "assets/wrn-app-icon-CwyuVArd.png",
+        "bytes": 8845,
+        "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+      },
+      {
+        "path": "assets/wrn-austerity-illustration-v1-ByTb6ajV.webp",
+        "bytes": 230192,
+        "sha256": "b7d83ace0ea59e05d803f1076c524af4a95e05345d1cb272306a7ce2fbec7eb0"
+      },
+      {
+        "path": "assets/wrn-browser-runtime-Bv2391bc.css",
+        "bytes": 22062,
+        "sha256": "b95ede8f50486489e639c6b93944dd94709a94b22fb8580d34b1f42be670345c"
+      },
+      {
+        "path": "assets/wrn-browser-runtime-CKCXOlft.js",
+        "bytes": 274042,
+        "sha256": "581b21844f051fa045e43695a6430181f2008700deb8b0e82b16e6c1d7b0b045"
+      },
+      {
+        "path": "assets/wrn-content-core-BJSr5FeV.js",
+        "bytes": 364292,
+        "sha256": "119cd51abd8d7e5ed9e011172cd75982f2d40339b7bc53c86ad47a182760c9c2"
+      },
+      {
+        "path": "assets/wrn-future-header-white-D5q8hgPK.png",
+        "bytes": 212123,
+        "sha256": "9da0e22936304a30a55ba1483c2305c6ad6c3b1a057341af2ab3b16fe98a5e2f"
+      },
+      {
+        "path": "assets/wrn-language-CQw_5_ha.js",
+        "bytes": 418529,
+        "sha256": "fcf4643feecaf85273618421041f6b6a5726bec9b4547875a4be0c10d6bede80"
+      },
+      {
+        "path": "assets/wrn-teachers-illustration-v1-eboeU-Ap.webp",
+        "bytes": 172058,
+        "sha256": "2aa705d84cb5ada966e1f0466c4dfdfa36cbb9188c3009ddd4e7941524184922"
+      },
+      {
+        "path": "index.html",
+        "bytes": 4360,
+        "sha256": "a273f292e14495dcba702d34c9362248c3a381aa5bbc4be65f830134e42ccb7e"
+      }
+    ],
+    "bytes": 8343632
+  }
+}

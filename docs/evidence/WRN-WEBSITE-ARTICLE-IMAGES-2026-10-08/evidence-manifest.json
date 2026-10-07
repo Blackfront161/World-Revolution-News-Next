@@ -1,0 +1,88 @@
+{
+  "schema": "wrn.website-article-images-evidence.v1",
+  "sourceCommit": "77ec9d431f9001c0b9344c0fc03aa0a16af7da1c",
+  "publicationPerformed": true,
+  "observedAt": "2026-10-07T21:15:30.076Z",
+  "files": [
+    {
+      "path": "READY.json",
+      "bytes": 8606,
+      "sha256": "41b1216c5022ab0ff3000196a2c721defbd857496b7c2c63b91381ded0aece17"
+    },
+    {
+      "path": "REPORT.md",
+      "bytes": 2633,
+      "sha256": "83b396ca71ccea93df024094dca799d50117f89b9017528b87553b1fb3a454e4"
+    },
+    {
+      "path": "before-readback.json",
+      "bytes": 244985,
+      "sha256": "c5305907c2ec7c80992d23c9b6fa1fd902e55f1525931d366652745a53100c4a"
+    },
+    {
+      "path": "browser-check.mjs",
+      "bytes": 6888,
+      "sha256": "0c0fa86e9de879740afeb5dd0c914a157f246cdbb762eeb670136f088e33f9e8"
+    },
+    {
+      "path": "home-desktop.png",
+      "bytes": 139314,
+      "sha256": "99c430458eb376a5d977738e12a7ddedd6374e6ea5f8a1496970540ab3850349"
+    },
+    {
+      "path": "home-mobile.png",
+      "bytes": 59793,
+      "sha256": "5515cb99936b264205f427cb1a2c891f5a629748184e81cb5cf8d3672d5cbddb"
+    },
+    {
+      "path": "hosting.manifest.json",
+      "bytes": 190764,
+      "sha256": "07827a76097530b10bed1112f4ff720ea465c132ee30c7e088a529996da0466b"
+    },
+    {
+      "path": "offline-home-desktop.png",
+      "bytes": 144443,
+      "sha256": "fb28fa23595efaf74cfd81c9d0c042a7ce04d0370a2cbafe613faf88b40f5b2c"
+    },
+    {
+      "path": "public-browser.json",
+      "bytes": 9495,
+      "sha256": "a00f1ea5a8d333a80c708cde8a1b5fd7849f7dfe49042b0bc1126deb9aad14b3"
+    },
+    {
+      "path": "public-final.json",
+      "bytes": 255350,
+      "sha256": "e7093e126497df664aaf61267220ae78776f9087e1577b1cae1dbb87852991f9"
+    },
+    {
+      "path": "public-headers.json",
+      "bytes": 3203,
+      "sha256": "734faeb79e1dcbf1a2b70d0a093ee127c12d7b51655c19b4f6db327be2b1735b"
+    },
+    {
+      "path": "reader-mobile.png",
+      "bytes": 64721,
+      "sha256": "5be5bbd644437e7174f37ea2fa093c4929d7901457cd9b2122365ae4e9a89c7e"
+    },
+    {
+      "path": "saved-mobile.png",
+      "bytes": 169101,
+      "sha256": "d8374a12d56906c37996f15fd1cd51c9a1e181caa797a37206360ae3f4f6f5c1"
+    },
+    {
+      "path": "source-manifest.json",
+      "bytes": 1629,
+      "sha256": "de5205dee382ccd5b6997cf1b7996e20bae0dede8926a2c11bcbd385d14e8adf"
+    },
+    {
+      "path": "upload-freeze.json",
+      "bytes": 13747,
+      "sha256": "1402ebc406a857ab4fa725d23518eaa7cd8dd67a328af0d9bea708b520f2df6c"
+    },
+    {
+      "path": "website.manifest.json",
+      "bytes": 188760,
+      "sha256": "4c9d146e0bb1782c3f417d1fb315ecd4f1313906173ae1d44796c4b6e365c007"
+    }
+  ]
+}
