@@ -116,7 +116,8 @@
 .app-start-illustration {
   margin: 0 0 1rem;
 }
-.app-start-illustration img {
+.app-start-illustration img,
+.app-start-illustration svg {
   display: block;
   width: 100%;
   height: auto;

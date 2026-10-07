@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { getUiCopy, type UiLanguage } from '@wrn/ui-language';
 import { getWebsiteHomeCopy } from '../home/website-home-copy';
 import { homeReadingSummary } from '../home/home-editorial';
+import { WebsiteArticleIllustration } from '../home/WebsiteArticleIllustration';
 import { DirectoryArticleLink } from './directory-article-link';
 import { useWebsiteNews, useNewsReadingState } from './use-website-news';
 import { changeNewsReadingState, type NewsReadingChange } from './news-reading-state';
@@ -66,6 +67,12 @@ export function WebsiteNewsSaved({ language }: { language: UiLanguage }) {
                         ?.headline ?? article.title}
                     </DirectoryArticleLink>
                     <p>{article.sourceName}</p>
+                    <WebsiteArticleIllustration
+                      article={article}
+                      commit={data.document.sourceCommit}
+                      imageRegister={data.images}
+                      language={language}
+                    />
                   </>
                 ) : (
                   <p>{ui.locallyUnavailable}</p>

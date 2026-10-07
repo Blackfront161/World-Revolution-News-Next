@@ -5,6 +5,7 @@ import { getWebsiteHomeCopy } from './website-home-copy';
 import { websiteArticleIllustration } from './article-illustration';
 import { appArticleImage } from './app-article-images';
 import { useState } from 'react';
+import { WebsiteTopicArtwork } from './WebsiteTopicArtwork';
 import type { WebsiteImageRegister } from '../../../../../packages/content-contracts/src/directory/website-content-tuple-v1';
 export function WebsiteArticleIllustration({
   article,
@@ -48,7 +49,7 @@ export function WebsiteArticleIllustration({
         </figcaption>
       </figure>
     );
-  if (!asset) return null;
+  if (!asset) return <WebsiteTopicArtwork article={article} language={language} />;
   const copy = getWebsiteHomeCopy(language);
   return (
     <figure className="app-start-illustration" data-wrn-illustration={article.id}>
