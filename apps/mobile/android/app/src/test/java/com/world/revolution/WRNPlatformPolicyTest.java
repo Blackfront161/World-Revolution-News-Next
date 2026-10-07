@@ -32,6 +32,21 @@ public class WRNPlatformPolicyTest {
     }
 
     @Test
+    public void shareTextAddsOnlyFixedTranslationAttribution() {
+        String canonical = "https://solinaridao.com/articles/wrn-test-art-cedar/";
+        assertEquals(canonical, WRNPlatformPlugin.shareText(canonical, null));
+        assertEquals(canonical, WRNPlatformPlugin.shareText(canonical, "unknown"));
+        assertEquals(
+            "Übersetzt mit World Revolution News\n" + canonical,
+            WRNPlatformPlugin.shareText(canonical, "de")
+        );
+        assertEquals(
+            "Translated with World Revolution News\n" + canonical,
+            WRNPlatformPlugin.shareText(canonical, "en")
+        );
+    }
+
+    @Test
     public void requiresTheCurrentBackRequestAcknowledgement() {
         WRNPlatformPolicy policy = new WRNPlatformPolicy();
         assertNull(policy.createBackRequestId());

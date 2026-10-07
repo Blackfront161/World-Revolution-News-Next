@@ -4,7 +4,10 @@ import {
   createWebsiteProductionTranslationAdapter,
   productionTranslationAdapter,
 } from './production-translation-adapter';
-import type { ProductionTranslationParagraph } from '../../../packages/browser-content/src/production-translation';
+import type {
+  DirectoryTitleTranslation,
+  ProductionTranslationParagraph,
+} from '../../../packages/browser-content/src/production-translation';
 
 const now = Date.parse('2026-09-11T00:00:00.000Z');
 const config = {
@@ -88,6 +91,72 @@ describe('website production translation adapter', () => {
       Accept: 'application/json',
     });
     expect(fetch).toHaveBeenCalledTimes(1);
+  });
+  it('uses the same cacheable public request across independent clients without local identities', async () => {
+    const bodies: unknown[] = [];
+    const fetch = vi.fn<typeof globalThis.fetch>(async (_url, init) => {
+      bodies.push(JSON.parse(init!.body as string));
+      const value = await reply();
+      return Response.json({
+        ...value,
+        cache: { ...value.cache, status: bodies.length === 1 ? 'miss' : 'hit' },
+      });
+    });
+    const ports = { fetch, now: () => now, online: () => true };
+    const firstClient = createWebsiteProductionTranslationAdapter(config, ports)!;
+    const secondClient = createWebsiteProductionTranslationAdapter(config, ports)!;
+    const first = await firstClient.translate(
+      { ...paragraph, articleId: 'first-local-id', route: 'first-route' },
+      new AbortController().signal,
+      () => true,
+    );
+    const second = await secondClient.translate(
+      { ...paragraph, articleId: 'second-local-id', route: 'second-route' },
+      new AbortController().signal,
+      () => true,
+    );
+    expect(first.kind).toBe('translated');
+    expect(second.kind).toBe('translated');
+    if (first.kind !== 'translated' || second.kind !== 'translated')
+      throw new Error('expected shared translations');
+    expect(first.response.cache.status).toBe('miss');
+    expect(second.response.cache.status).toBe('hit');
+    expect(first.response.translation).toEqual(second.response.translation);
+    expect(first.identity).not.toBe(second.identity);
+    expect(bodies).toHaveLength(2);
+    expect(bodies[0]).toEqual(bodies[1]);
+    expect(JSON.stringify(bodies)).not.toMatch(/first-local-id|second-local-id|route/);
+  });
+  it('translates a directory title without sending its local identity or source choice', async () => {
+    const fetch = vi.fn<typeof globalThis.fetch>().mockResolvedValue(Response.json(await reply()));
+    const adapter = createWebsiteProductionTranslationAdapter(config, {
+      fetch,
+      now: () => now,
+      online: () => true,
+    })!;
+    const title: DirectoryTitleTranslation = {
+      kind: 'directory-title',
+      directoryRevision: 'local-snapshot',
+      articleId: 'private-local-id',
+      sourceLanguage: 'en',
+      targetLanguage: 'de',
+      text: paragraph.text,
+      expiresAt: paragraph.expiresAt,
+    };
+    expect(
+      (await adapter.translateDirectoryTitle!(title, new AbortController().signal, () => true))
+        .kind,
+    ).toBe('translated');
+    const body = JSON.parse(fetch.mock.calls[0]![1]!.body as string);
+    expect(body).toEqual({
+      contractVersion: '1.0.0',
+      mode: 'paragraph',
+      sourceLanguage: 'en',
+      targetLanguage: 'de',
+      text: paragraph.text,
+    });
+    expect(JSON.stringify(body)).not.toContain('private-local-id');
+    expect(JSON.stringify(body)).not.toContain('local-snapshot');
   });
   it('performs no request for same language, offline, cancelled or oversize input', async () => {
     const fetch = vi.fn<typeof globalThis.fetch>();

@@ -1,0 +1,47 @@
+{
+  "schema": "wrn.website-library-refresh.v1",
+  "dataCommit": "5304fa0032a6761071962e4b74b66cb6f114c49f",
+  "observedAt": "2026-10-03T01:44:46.046Z",
+  "glossaryAppCommit": "75016f6b2356918671e28964397d56219d6367de",
+  "glossaryObservedAt": "2026-10-02T22:13:34.285Z",
+  "libraryFeedSha256": "283f3661c2b528e3fe39da753f9ef4b18d5e07109c082705e509f5f4d75e5db8",
+  "libraryFeedBytes": 403986,
+  "previousPackageSha256": "5b3bfa55c8bed4d4b18d9686d8816114054bc535ab5f2ee045fc2571b3049e66",
+  "packedSha256": "8b750ca32f13de7ab7ecf3bc0185971243d080ea6166fe756626584114074ee6",
+  "preservedBooks": 728,
+  "books": 731,
+  "added": [
+    {
+      "id": "anarchist-library-es-ef9b13d1c8cc429a6d3cd9c0",
+      "sourceId": "anarchist-library-es",
+      "title": "Sobre las mujeres",
+      "readUrl": "",
+      "downloads": {
+        "epub": "https://es.anarchistlibraries.net/library/louise-michel-sobre-las-mujeres.epub"
+      }
+    },
+    {
+      "id": "anarchist-library-en-49398dbbcd44de50d9e268e6",
+      "sourceId": "anarchist-library-en",
+      "title": "Actually Existing Multipolarity",
+      "readUrl": "",
+      "downloads": {
+        "epub": "https://theanarchistlibrary.org/library/elia-ayoub-actually-existing-multipolarity.epub"
+      }
+    },
+    {
+      "id": "anarchist-library-en-2d5b6e24f14f5d4522fd6da6",
+      "sourceId": "anarchist-library-en",
+      "title": "Reading “What is Property?” Pt. I — On the Character of Proudhon",
+      "readUrl": "",
+      "downloads": {
+        "epub": "https://theanarchistlibrary.org/library/blazing-truth-reading-what-is-property-pt-i-on-the-character-of-proudhon.epub"
+      }
+    }
+  ],
+  "historyPreserved": true,
+  "glossaryPreserved": true,
+  "withdrawalsPreserved": true,
+  "rights": "metadata-and-original-links-only",
+  "mediaFetched": false
+}

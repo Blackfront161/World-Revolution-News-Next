@@ -364,7 +364,7 @@ export const greekUiCopy: UiCopy = Object.freeze({
     'Δεν ήταν δυνατή η επαλήθευση της τοπικής επιλογής μετά την αλλαγή.',
   personalizationClearFailed: 'Δεν ήταν δυνατή η διαγραφή της τοπικής επιλογής.',
   personalizationResults: 'Αντιστοιχισμένα τοπικά άρθρα',
-  personalizationNoMatches: 'Κανένα επικυρωμένο τοπικό άρθρο δεν ταιριάζει με αυτή την επιλογή.',
+  personalizationNoMatches: 'Κανένα ελεγμένο πλήρες κείμενο δεν ταιριάζει με αυτή την επιλογή.',
   personalizationReloadRequired: 'Επαναφορτώστε την τοπική επιλογή πριν από άλλη αλλαγή.',
   personalizationLoading: 'Γίνεται φόρτωση της τοπικής επιλογής σε αυτή τη συσκευή.',
   readerV2Ambiguous: 'Αυτή η τοπική δομή είναι αμφίσημη· το αρχικό κείμενο παραμένει αμετάβλητο.',

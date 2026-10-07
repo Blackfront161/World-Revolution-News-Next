@@ -1,0 +1,206 @@
+{
+  "schema": "wrn.catalog-knowledge-website-parity.v1",
+  "publicationPerformed": false,
+  "appCommit": "75016f6b2356918671e28964397d56219d6367de",
+  "dataCommit": "2342289bb126c6356f20088d5a97fe20a08980e1",
+  "appCatalog": {
+    "commit": "2342289bb126c6356f20088d5a97fe20a08980e1",
+    "observedAt": "2026-10-02T06:06:35.901Z",
+    "inputs": [
+      {
+        "path": "radio-stations.json",
+        "sha256": "caa83a5678613766765fe1bab2806648461b1f0811388c59bebe7888692b9d85",
+        "bytes": 12787
+      },
+      {
+        "path": "podcasts.json",
+        "sha256": "0961c293c8c847f45eaf71a88aba4a51fc4ef07c7d8e6651d314842763846221",
+        "bytes": 3162161
+      },
+      {
+        "path": "video-feed.json",
+        "sha256": "b1e01de630d117ee3d21ab576a3ac9a463a20d309e8d579639a429ee5a7d7b65",
+        "bytes": 25803
+      },
+      {
+        "path": "library-feed.json",
+        "sha256": "3be196134dba9c994a27999398d71c5311764e093a14fcf20cf2db74ce829449",
+        "bytes": 402330
+      },
+      {
+        "path": "events-feed.json",
+        "sha256": "7d5fd1dac441183452b7979df2b15aeb741e3f6b871f3106218996d82425d4b6",
+        "bytes": 11997
+      }
+    ],
+    "reconciliation": {
+      "radio": {
+        "input": 27,
+        "unique": 27,
+        "duplicateOriginalLinks": 0
+      },
+      "podcasts": {
+        "input": 1778,
+        "unique": 1722,
+        "duplicateOriginalLinks": 56
+      },
+      "videos": {
+        "input": 16,
+        "unique": 16,
+        "duplicateOriginalLinks": 0
+      },
+      "library": {
+        "input": 728,
+        "unique": 728,
+        "duplicateOriginalLinks": 0
+      },
+      "events": {
+        "input": 6,
+        "unique": 6,
+        "duplicateOriginalLinks": 0
+      }
+    },
+    "history": {
+      "bytes": 3317607,
+      "sha256": "003c32358ebe0d5ad22fb9c0b059bf82c242aa0b99a4d869fb67960c86acdc07"
+    },
+    "packed": {
+      "bytes": 1701964,
+      "sha256": "ac2c2f944b814be0fce19129791c39d87c0940f8c82caf47bdc868cc5bcb8b15"
+    }
+  },
+  "knowledge": {
+    "commit": "75016f6b2356918671e28964397d56219d6367de",
+    "observedAt": "2026-10-03T01:44:46.046Z",
+    "books": 731,
+    "terms": 167,
+    "references": 44,
+    "historySha256": "26eb4c118d0483788f07ef0b103c97e1cf53fbf75d36a61ae47456146240726b",
+    "packedSha256": "8b750ca32f13de7ab7ecf3bc0185971243d080ea6166fe756626584114074ee6",
+    "learningPathsSha256": "d2255f2a4f82d8c80b138adb3607db6407a64ba813c165fd29666956351868c4",
+    "lexiconLocalesSha256": "5b59354be8a764fef375e63a3ddae53e21d15c2d63320b224f43ea17067f30b0",
+    "inputs": {
+      "libraryFeedSha256": "283f3661c2b528e3fe39da753f9ef4b18d5e07109c082705e509f5f4d75e5db8",
+      "libraryFeedBytes": 403986,
+      "librarySourcesSha256": "a498bb6d672d4edb8af99d3b337c34d1292bf4e04924a3bedb3b364c4cd81f66",
+      "librarySourcesBytes": 5324,
+      "lexiconSha256": "32419d539f47377451b2409f2665b8c13da39becde7fc033ad01d0b7c0a7c8b5",
+      "lexiconBytes": 280938
+    }
+  },
+  "mediaDirectoriesSha256": "e42fc2fd29ba7860b4d74ebbbd954d9014d3018081810dc7e8b11a9ea9038c2a",
+  "radioOriginalLinks": {
+    "path": "apps/website/src/features/events-media/data/radio-original-links-v1.json",
+    "bytes": 782,
+    "sha256": "0b793dcd67b37a89f401ae49e5c86083c0964de139ebb74a2c92a2663ffa7c39",
+    "handoffCommit": "75016f6b2356918671e28964397d56219d6367de",
+    "rights": "Original-link-only; no offline audio; base catalogue unchanged",
+    "visibleRadioCount": 28
+  },
+  "newsAdmission": {
+    "homeCandidates": 20,
+    "activated": 0,
+    "metadataCandidatesWithExistingPass": 3,
+    "pendingFurtherReview": 17,
+    "oldDirectoryUnchanged": true
+  },
+  "prisonerReview": {
+    "schema": "wrn.website-prisoner-input-bindings.v1",
+    "appProduct": "8c0c0d90a119b7a95b5154fa64c49dfb97c8842e",
+    "appEvidence": "1a87a404e56d884fdc1924557b7a2cf9690bfcb0",
+    "independentReview": {
+      "commit": "7ff60b2",
+      "turnId": "01a0ff1b-9c9f-7d52-b788-a1d11d5816b5",
+      "decision": "PASS"
+    },
+    "appManifestSha256": "d0809ec16211dba0cd7b02302f92679ae239f849c167f6bfcf2a6fcb2087fa72",
+    "appInputSha256": "a4cde7bbac10cb62826fed1222c8c7d20b787e105ad553d63299b309530a477c",
+    "appManifestFilesChecked": 20,
+    "websiteSupplementSha256": "08d7eb7e3a9cac4ef9af446f1bc0eea8ef073cd6ab987439c01218819f6bae0e",
+    "profiles": 30,
+    "datedAddressMatches": 13,
+    "needsReview": 17,
+    "publicSupportLinks": 5,
+    "addressesImported": 0,
+    "biographiesImported": 0,
+    "mediaImported": 0,
+    "mailRulesImported": 0,
+    "liveWebsiteUnchanged": "566422758241190f432d8c8a09d67a5f589d90ac"
+  },
+  "libraryRefresh": {
+    "schema": "wrn.website-library-refresh.v1",
+    "dataCommit": "5304fa0032a6761071962e4b74b66cb6f114c49f",
+    "observedAt": "2026-10-03T01:44:46.046Z",
+    "glossaryAppCommit": "75016f6b2356918671e28964397d56219d6367de",
+    "glossaryObservedAt": "2026-10-02T22:13:34.285Z",
+    "libraryFeedSha256": "283f3661c2b528e3fe39da753f9ef4b18d5e07109c082705e509f5f4d75e5db8",
+    "libraryFeedBytes": 403986,
+    "previousPackageSha256": "5b3bfa55c8bed4d4b18d9686d8816114054bc535ab5f2ee045fc2571b3049e66",
+    "packedSha256": "8b750ca32f13de7ab7ecf3bc0185971243d080ea6166fe756626584114074ee6",
+    "preservedBooks": 728,
+    "books": 731,
+    "added": [
+      {
+        "id": "anarchist-library-es-ef9b13d1c8cc429a6d3cd9c0",
+        "sourceId": "anarchist-library-es",
+        "title": "Sobre las mujeres",
+        "readUrl": "",
+        "downloads": {
+          "epub": "https://es.anarchistlibraries.net/library/louise-michel-sobre-las-mujeres.epub"
+        }
+      },
+      {
+        "id": "anarchist-library-en-49398dbbcd44de50d9e268e6",
+        "sourceId": "anarchist-library-en",
+        "title": "Actually Existing Multipolarity",
+        "readUrl": "",
+        "downloads": {
+          "epub": "https://theanarchistlibrary.org/library/elia-ayoub-actually-existing-multipolarity.epub"
+        }
+      },
+      {
+        "id": "anarchist-library-en-2d5b6e24f14f5d4522fd6da6",
+        "sourceId": "anarchist-library-en",
+        "title": "Reading “What is Property?” Pt. I — On the Character of Proudhon",
+        "readUrl": "",
+        "downloads": {
+          "epub": "https://theanarchistlibrary.org/library/blazing-truth-reading-what-is-property-pt-i-on-the-character-of-proudhon.epub"
+        }
+      }
+    ],
+    "historyPreserved": true,
+    "glossaryPreserved": true,
+    "withdrawalsPreserved": true,
+    "rights": "metadata-and-original-links-only",
+    "mediaFetched": false
+  },
+  "regionalRefresh": {
+    "sourceProduct": "03c2aaadcc4988a491a97522aafd4246fae04bb",
+    "sourceEvidence": "20bb8746eec1cb34c360b775e4438acc051fac98",
+    "integratedProduct": "f2fab69",
+    "integratedEvidence": "6ce7022",
+    "revision": 4,
+    "events": 4,
+    "validUntil": "2026-10-10T01:10:45.000Z",
+    "websiteFinalReview": "PENDING"
+  },
+  "nextCatalogScope": {
+    "dataCommit": "5304fa0032a6761071962e4b74b66cb6f114c49f",
+    "podcasts": {
+      "raw": 1865,
+      "unique": 1806,
+      "addedOriginalUrls": 102,
+      "changed": 6,
+      "removedOriginalUrls": 18,
+      "sourceAddressMigrations": 16,
+      "unresolvedLoraRecords": 2,
+      "integrated": false
+    },
+    "videos": {
+      "added": 2,
+      "removed": 2,
+      "integrated": false
+    },
+    "baseAppCatalogUnchanged": true
+  }
+}

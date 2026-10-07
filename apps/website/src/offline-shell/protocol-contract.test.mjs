@@ -1,6 +1,130 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
+test('WRN illustration is optional, uniquely bounded and restricted to its local WebP family', async () => {
+  const p = (await import('./protocol.mjs')).createShellProtocol();
+  const entries = [
+    ['/index.html', 'text/html; charset=utf-8'],
+    ['/assets/index-a.js', 'text/javascript; charset=utf-8'],
+    ['/assets/index-a.css', 'text/css; charset=utf-8'],
+    ['/assets/solinaridao-header-mark-filled-a.png', 'image/png'],
+    ['/assets/wrn-future-header-white-a.png', 'image/png'],
+    ...['legacy-knowledge-v1', 'legacy-support-v1', 'content-directory-v1'].map((name) => [
+      `/assets/${name}-a.json`,
+      'application/json; charset=utf-8',
+    ]),
+  ].map(([path, mime]) => ({ path, mime, bytes: 1, sha256: 'a'.repeat(64) }));
+  for (const base of [
+    entries,
+    [
+      ...entries,
+      {
+        path: '/assets/react-vendor-a.js',
+        mime: 'text/javascript; charset=utf-8',
+        bytes: 1,
+        sha256: 'a'.repeat(64),
+      },
+    ],
+  ]) {
+    assert.equal(p.metadata({ entries: base, totalBytes: base.length }), true);
+    for (const family of ['land-rights', 'austerity']) {
+      const image = {
+        path: `/assets/wrn-${family}-illustration-v1-a.webp`,
+        mime: 'image/webp',
+        bytes: 700 * 1024,
+        sha256: 'a'.repeat(64),
+      };
+      const withImage = { entries: [...base, image], totalBytes: base.length + image.bytes };
+      assert.equal(p.metadata(withImage), true);
+      for (const patch of [
+        { bytes: 700 * 1024 + 1 },
+        { mime: 'image/png' },
+        { path: '/assets/foreign-a.webp' },
+        { path: 'https://example.org/assets/wrn-land-rights-illustration-v1-a.webp' },
+        { path: '/assets/wrn-land-rights-illustration-v1-a.webp?unbound=1' },
+      ]) {
+        const invalid = structuredClone(withImage);
+        Object.assign(invalid.entries.at(-1), patch);
+        invalid.totalBytes = invalid.entries.reduce((sum, item) => sum + item.bytes, 0);
+        assert.equal(p.metadata(invalid), false);
+      }
+      const duplicate = structuredClone(withImage);
+      duplicate.entries.push({ ...image, path: '/assets/wrn-land-rights-illustration-v1-b.webp' });
+      duplicate.totalBytes += image.bytes;
+      assert.equal(p.metadata(duplicate), false);
+    }
+  }
+});
+
+test('two additional illustrations preserve required families, unique paths and aggregate limits', async () => {
+  const p = (await import('./protocol.mjs')).createShellProtocol();
+  const base = [
+    ['/index.html', 'text/html; charset=utf-8'],
+    ['/assets/index-a.js', 'text/javascript; charset=utf-8'],
+    ['/assets/index-a.css', 'text/css; charset=utf-8'],
+    ['/assets/solinaridao-header-mark-filled-a.png', 'image/png'],
+    ['/assets/wrn-future-header-white-a.png', 'image/png'],
+    ...['legacy-knowledge-v1', 'legacy-support-v1', 'content-directory-v1'].map((name) => [
+      `/assets/${name}-a.json`,
+      'application/json; charset=utf-8',
+    ]),
+  ].map(([path, mime]) => ({ path, mime, bytes: 1, sha256: 'a'.repeat(64) }));
+  for (const graph of [
+    base,
+    [
+      ...base,
+      {
+        path: '/assets/react-vendor-a.js',
+        mime: 'text/javascript; charset=utf-8',
+        bytes: 1,
+        sha256: 'a'.repeat(64),
+      },
+    ],
+  ]) {
+    const images = ['teachers', 'agroecology'].map((name) => ({
+      path: `/assets/wrn-${name}-illustration-v1-a.webp`,
+      mime: 'image/webp',
+      bytes: 700 * 1024,
+      sha256: 'a'.repeat(64),
+    }));
+    const entries = [...graph, ...images],
+      totalBytes = entries.reduce((sum, item) => sum + item.bytes, 0);
+    assert.equal(p.metadata({ entries, totalBytes }), true);
+    assert.equal(
+      p.metadata({
+        entries: [
+          ...entries,
+          { ...images[0], path: '/assets/wrn-teachers-illustration-v1-b.webp' },
+        ],
+        totalBytes: totalBytes + images[0].bytes,
+      }),
+      false,
+    );
+    for (const altered of [
+      { path: '/assets/wrn-unknown-illustration-v1-a.webp' },
+      { bytes: 700 * 1024 + 1 },
+      { mime: 'image/png' },
+    ]) {
+      const invalid = structuredClone(entries);
+      Object.assign(invalid.at(-1), altered);
+      assert.equal(
+        p.metadata({
+          entries: invalid,
+          totalBytes: invalid.reduce((sum, item) => sum + item.bytes, 0),
+        }),
+        false,
+      );
+    }
+    assert.equal(
+      p.metadata({
+        entries: entries.filter((item) => !item.path.includes('legacy-support')),
+        totalBytes: totalBytes - 1,
+      }),
+      false,
+    );
+  }
+});
+
 test('complete nine-entry shell keeps exact original families, new metadata bounds and aggregate identity', async () => {
   const { createShellProtocol } = await import('./protocol.mjs');
   const p = createShellProtocol();
@@ -190,6 +314,37 @@ test('protocol admits historical and bounded static split shell generations', as
   });
   split.totalBytes = split.entries.reduce((sum, item) => sum + item.bytes, 0);
   assert.equal(p.metadata(split), true);
+  for (const base of [current, split]) {
+    const withIcon = structuredClone(base);
+    withIcon.entries.push({
+      ...entry('/assets/wrn-app-icon-a.png'),
+      mime: 'image/png',
+      bytes: 16 * 1024,
+    });
+    withIcon.totalBytes = withIcon.entries.reduce((sum, item) => sum + item.bytes, 0);
+    assert.equal(p.metadata(withIcon), true);
+    for (const patch of [
+      { bytes: 16 * 1024 + 1 },
+      { mime: 'image/webp' },
+      { path: '/assets/foreign-icon-a.png' },
+      { path: '/assets/wrn-app-icon-a.png?unbound=1' },
+      { sha256: 'invalid' },
+      { extra: 'unbound' },
+    ]) {
+      const changed = structuredClone(withIcon);
+      Object.assign(changed.entries.at(-1), patch);
+      changed.totalBytes = changed.entries.reduce((sum, item) => sum + item.bytes, 0);
+      assert.equal(p.metadata(changed), false, JSON.stringify(patch));
+    }
+    const duplicate = structuredClone(withIcon);
+    duplicate.entries.push({ ...duplicate.entries.at(-1), path: '/assets/wrn-app-icon-b.png' });
+    duplicate.totalBytes = duplicate.entries.reduce((sum, item) => sum + item.bytes, 0);
+    assert.equal(p.metadata(duplicate), false);
+    const missingHeader = structuredClone(withIcon);
+    missingHeader.entries.splice(3, 1);
+    missingHeader.totalBytes = missingHeader.entries.reduce((sum, item) => sum + item.bytes, 0);
+    assert.equal(p.metadata(missingHeader), false);
+  }
   const oversizedChunk = structuredClone(split);
   oversizedChunk.entries[2].bytes = 500_001;
   oversizedChunk.totalBytes = oversizedChunk.entries.reduce((sum, item) => sum + item.bytes, 0);

@@ -1,5 +1,28 @@
 # WRN â€“ aktueller Arbeitsstand
 
+Neu 01.10. – Gemeinsamer lokaler Katalog-/Wissenskandidat: 715 Bücher (53 DE), 155 Begriffe mit 32 Referenzen, 19 DE-/EN-Revisionen und drei Entwurfs-Lernpfade mit 30 Werkbezügen. Podcastarchiv aus 1.310 aktiven IDs als 1.256 eindeutige Originalseiten auf der Website; kein neues Medienrecht. App6428cfe/Data4153d5f gebunden, historische Website-Dateien erhalten. Website231 Vitest/84 Node, Typprüfung/Lint/Build und vier Browserfälle bestanden; Offline-Shell7.025.513 Bytes. Noch nicht live, nicht in Code32; unabhängiger Website-Abschlussreview GREEN für83abb0f; lokales Veröffentlichungspaket vorbereitet. [Abschlussbeleg](evidence/WRN-CATALOG-KNOWLEDGE-2026-10-01/REPORT.md).
+
+Neu 30.09., 05:55 UTC – Die jüngste PO-Lenkung zur Website ist umgesetzt und
+live: echte Bildaufmacher zuerst, bebilderte Nebenmeldungen im Desktop-/Tablet-
+Raster und einspaltig auf Handy, eigene Originalmarke/Farben. Produkt `8f5d06f`,
+197 Website-Vitest + 71 Node + 13 Mobile-Home bestanden, beide Typprüfungen,
+Build und unabhängiger UI-Review PASS. Tastatur- und Bildreihenfolge stimmen
+überein; App-Anordnung bleibt erhalten. Nur 16 Shell-Dateien hochgeladen,
+vier Zeiger bytegleich; Live-Reader und 390/820/1440 ohne Überlauf geprüft.
+Bekannte CDN-PNG-Byteabweichung bleibt, keine neue Offline-/Feed-/Play-Freigabe.
+[Bildfront-Beleg](evidence/WRN-WEBSITE-NEWS-FRONT-2026-09-30/REPORT.md).
+
+Neu 30.09. – Nach explizitem PO-Auftrag ist die Website-Korrektur aus
+`3206a25` auf `https://solinaridao.com/` veröffentlicht: App-Aufbau,
+zentrierte Marke und fünf untere Hauptziele. Hostinger-Backup erfolgreich
+09:20 (Anzeigezeit), Cache geleert. Der enge Upload betrifft nur 16
+Shell-Dateien; vier Inhalts-/Quellen-/Widerrufszeiger sind bytegleich
+erhalten. Unabhängiger Paket-/HTTP-Abgleich und Live-Browser-Smoke bestanden.
+Zwei unveränderte CDN-PNG-Antworten bleiben nicht bytegleich; vollständige
+Offline-Shell-Neuinstallation und ursprüngliche AAB26-Vollparität werden
+nicht behauptet. Kein neuer Android-/Play-Upload.
+[Live-Beleg](evidence/WRN-WEBSITE-LIVE-2026-09-30/REPORT.md).
+
 Neu 27.09., 01:56 UTC – Das Atlas-AAB für `com.world.revolution`,
 2.2.0/Code27 wurde mit der lokalen PO-JKS signiert. Die 9.735.118-Byte-Datei
 hat SHA-256 `4e6cfe2b46823c0e4dbdbef617427f1805134a1c9d9dd46ff4a7a0e06b88bcf2`;

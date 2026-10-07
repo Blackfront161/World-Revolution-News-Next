@@ -1,0 +1,31 @@
+{
+  "schema": "wrn.evidence-hash-manifest.v1",
+  "sourceCommit": "9029461a94f23042b9ff8ad7ba46594c557c7dbc",
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 4850,
+      "sha256": "e2a8e3a6f09144657cb02ab23663773d50586f9af77397117337848f4d1228f1"
+    },
+    {
+      "path": "mapping.json",
+      "bytes": 71813,
+      "sha256": "5f2d176a85680ad92b70ecff8019515f74f34d8b226cc0f252992a0e7325d77e"
+    },
+    {
+      "path": "source-acceptance.json",
+      "bytes": 1189,
+      "sha256": "93d52de741fab73b7a24a6c728097c4bfb4547932a46be5da34b2fcdf7392b66"
+    },
+    {
+      "path": "source-controller-review.json",
+      "bytes": 1763,
+      "sha256": "5e6b7710a5ca151d3734aed2c9b06a1308eb520292e634b7bc5b65114a322f97"
+    },
+    {
+      "path": "verification.json",
+      "bytes": 359,
+      "sha256": "4ecde4ad34fa8c7a07a098911be3a838d09831d67098836b82088e24affb864c"
+    }
+  ]
+}

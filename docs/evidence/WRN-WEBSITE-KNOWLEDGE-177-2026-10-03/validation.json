@@ -1,0 +1,29 @@
+{
+  "productCommit": "c334e20d8844c83d9f01e89712b01997b2059dea",
+  "websiteUnit": {
+    "files": 45,
+    "tests": 333,
+    "result": "PASS"
+  },
+  "finalTestOnlyTypeCorrection": {
+    "tests": 4,
+    "result": "PASS"
+  },
+  "scopedLint": "PASS",
+  "websiteTypecheck": "PASS",
+  "viteCompile": {
+    "modules": 234,
+    "result": "PASS"
+  },
+  "browser": {
+    "languages": 9,
+    "width": 390,
+    "textScalePercent": 200,
+    "pageErrors": 0,
+    "externalRequests": 0,
+    "result": "PASS"
+  },
+  "independentWebsiteReview": "PENDING",
+  "publication": false,
+  "hostingOrOfflinePacketPrepared": false
+}

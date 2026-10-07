@@ -357,7 +357,7 @@ export const portugueseUiCopy: UiCopy = Object.freeze({
   personalizationVerificationFailed: 'Não foi possível verificar a seleção local após a alteração.',
   personalizationClearFailed: 'Não foi possível eliminar a seleção local.',
   personalizationResults: 'Artigos locais correspondentes',
-  personalizationNoMatches: 'Nenhum artigo local validado corresponde a esta seleção.',
+  personalizationNoMatches: 'Nenhum texto integral verificado corresponde a esta seleção.',
   personalizationReloadRequired: 'Recarregue a seleção local antes de outra alteração.',
   personalizationLoading: 'A seleção local está a carregar neste dispositivo.',
   readerV2Ambiguous: 'Esta estrutura local é ambígua; o texto original permanece inalterado.',

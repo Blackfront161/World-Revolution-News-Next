@@ -1,11 +1,13 @@
-import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useState, type ReactNode } from 'react';
+import { isTranslationSourceLanguage } from '@wrn/api-contracts/translation-v1';
 import type { LocalSourcePreferencesV1, ProductionArticleV1 } from '@wrn/content-contracts';
 import type {
   DirectoryArticle,
+  DirectorySource,
   DirectorySportNote,
   MobileContentDirectory,
 } from '@wrn/content-contracts/mobile-content-directory-v1';
-import { projectSourcePreferences } from '@wrn/domain';
+import { projectDirectorySourcePreferences, projectSourcePreferences } from '@wrn/domain';
 import { getUiCopy, type UiLanguage } from '@wrn/ui-language';
 import {
   getDirectoryCopy,
@@ -14,13 +16,20 @@ import {
 } from '@wrn/ui-language/directory';
 import { getProductionHomeCopy } from '@wrn/ui-language/production-home';
 import { selectProductionHomeArticles } from './production-home-selection';
+import { AutomaticDirectoryTitle } from './automatic-directory-title';
+import { reserveAutomaticHomeTranslationRequests } from './production-home-translation';
+import type { ProductionTranslationAdapter } from './production-translation';
 
 export type ProductionHomeDirectory = Readonly<{
   document: MobileContentDirectory;
   projection: MobileContentDirectory;
 }>;
 
-type HomeCard = (article: ProductionArticleV1, role: 'lead' | 'main' | 'further') => ReactNode;
+type HomeCard = (
+  article: ProductionArticleV1,
+  role: 'lead' | 'main' | 'further',
+  translateHomeText?: boolean,
+) => ReactNode;
 type SportCategory = 'football' | 'fan-culture' | 'women';
 type SportHomeItem =
   | { kind: 'article'; article: ProductionArticleV1; category: SportCategory | undefined }
@@ -44,16 +53,16 @@ function orderDirectoryArticles(
 
 function selectArchiveArticles(
   articles: readonly DirectoryArticle[],
+  sources: readonly DirectorySource[],
   language: UiLanguage,
   preferences: LocalSourcePreferencesV1,
   recentFirst = false,
 ) {
-  return projectSourcePreferences(
-    orderDirectoryArticles(articles, language, recentFirst),
+  return projectDirectorySourcePreferences({
+    articles: orderDirectoryArticles(articles, language, recentFirst),
+    sources,
     preferences,
-    'directory',
-    (article) => article.endpointIds,
-  ).slice(0, 5);
+  }).slice(0, 5);
 }
 
 const websiteFreshnessCopy: Readonly<
@@ -167,7 +176,11 @@ export function ProductionHome({
   onBrowseSport,
   regionalEvents,
   prioritizeCurrentLinks = false,
+  leadWithCurrentSidebar = false,
+  prioritizeReviewedImages = false,
   brandMarkUrl,
+  translationAdapter = null,
+  contentReady = true,
 }: Readonly<{
   articles: readonly ProductionArticleV1[];
   language: UiLanguage;
@@ -179,7 +192,11 @@ export function ProductionHome({
   onBrowseSport?: (() => void) | undefined;
   regionalEvents?: ReactNode;
   prioritizeCurrentLinks?: boolean | undefined;
+  leadWithCurrentSidebar?: boolean | undefined;
+  prioritizeReviewedImages?: boolean | undefined;
   brandMarkUrl?: string | undefined;
+  translationAdapter?: ProductionTranslationAdapter | null;
+  contentReady?: boolean;
 }>) {
   const copy = getProductionHomeCopy(language);
   const freshnessCopy = websiteFreshnessCopy[language];
@@ -233,11 +250,44 @@ export function ProductionHome({
       ),
     [articles, currentDirectory],
   );
+  const frontPage = useMemo(() => {
+    const top = selection.lead ? [selection.lead, ...selection.main] : [...selection.main];
+    const imageIndex = hasOriginalImage ? top.findIndex(hasOriginalImage) : -1;
+    const lead = imageIndex > 0 ? (top[imageIndex] ?? null) : selection.lead;
+    const main = imageIndex > 0 ? top.filter((_, index) => index !== imageIndex) : selection.main;
+    // Website image priority must also govern DOM and keyboard order. The App
+    // retains its existing order because this presentation option defaults off.
+    return {
+      lead,
+      main:
+        prioritizeReviewedImages && hasOriginalImage
+          ? [...main].sort(
+              (left, right) => Number(hasOriginalImage(right)) - Number(hasOriginalImage(left)),
+            )
+          : main,
+    };
+  }, [selection, hasOriginalImage, prioritizeReviewedImages]);
+  const reviewedTranslationRequests = !contentReady
+    ? 7
+    : [frontPage.lead, ...frontPage.main].reduce((count, article, index) => {
+        if (
+          !article ||
+          !isTranslationSourceLanguage(article.originalLanguage) ||
+          article.originalLanguage === language
+        )
+          return count;
+        return count + 1 + (index === 0 && frontPage.lead && article.teaser ? 1 : 0);
+      }, 0);
+  useLayoutEffect(() => {
+    reserveAutomaticHomeTranslationRequests(translationAdapter ? reviewedTranslationRequests : 0);
+    return () => reserveAutomaticHomeTranslationRequests(0);
+  }, [reviewedTranslationRequests, translationAdapter]);
   const archive = useMemo(
     () =>
       currentDirectory
         ? selectArchiveArticles(
             currentDirectory.projection.articles,
+            currentDirectory.projection.sources,
             language,
             sourcePreferences,
             prioritizeCurrentLinks,
@@ -304,16 +354,22 @@ export function ProductionHome({
         })}
       </p>
       <ul className="production-home__archive">
-        {archive.map((article) => (
+        {archive.map((article, position) => (
           <li key={article.id} data-home-directory-article={article.id}>
             <a
               href={article.url}
               target="_blank"
               rel="noopener noreferrer"
               referrerPolicy="no-referrer"
-              lang={article.language}
+              lang={article.language === 'und' ? undefined : article.language}
             >
-              {article.title}
+              <AutomaticDirectoryTitle
+                article={article}
+                directoryRevision={`${currentDirectory.document.sourceCommit}:${currentDirectory.document.observedAt}`}
+                language={language}
+                adapter={translationAdapter}
+                position={position}
+              />
               <span aria-hidden="true"> ↗</span>
             </a>
             <span>
@@ -332,41 +388,62 @@ export function ProductionHome({
       )}
     </section>
   );
+  const currentHeadlineSection = directoryNews || (
+    <section aria-labelledby="production-home-archive">
+      <h2 id="production-home-archive">{freshnessCopy.current}</h2>
+      {failed ? (
+        <>
+          <p role="alert">{directoryCopy.loadError}</p>
+          <button type="button" onClick={() => setAttempt((value) => value + 1)}>
+            {directoryCopy.retry}
+          </button>
+        </>
+      ) : (
+        <p role="status">{directoryCopy.loading}</p>
+      )}
+    </section>
+  );
+  const featuredSection = frontPage.lead && (
+    <section aria-labelledby="production-home-lead">
+      <h2 id="production-home-lead">
+        {prioritizeCurrentLinks ? freshnessCopy.featured : copy.featured}
+      </h2>
+      {renderCard(frontPage.lead, 'lead', true)}
+    </section>
+  );
+  const reviewedSection = frontPage.main.length > 0 && (
+    <section aria-labelledby="production-home-main">
+      <h2 id="production-home-main">
+        {prioritizeCurrentLinks ? freshnessCopy.latest : copy.latest}
+      </h2>
+      <div className="production-home__compact">
+        {frontPage.main.map((article) => renderCard(article, 'main', true))}
+      </div>
+    </section>
+  );
+  const showCurrentSidebar = leadWithCurrentSidebar && prioritizeCurrentLinks && featuredSection;
   return (
     <div className="production-home" data-testid="production-home">
-      {prioritizeCurrentLinks &&
-        (directoryNews || (
-          <section aria-labelledby="production-home-archive">
-            <h2 id="production-home-archive">{freshnessCopy.current}</h2>
-            {failed ? (
-              <>
-                <p role="alert">{directoryCopy.loadError}</p>
-                <button type="button" onClick={() => setAttempt((value) => value + 1)}>
-                  {directoryCopy.retry}
-                </button>
-              </>
-            ) : (
-              <p role="status">{directoryCopy.loading}</p>
-            )}
-          </section>
-        ))}
-      {selection.lead && (
-        <section aria-labelledby="production-home-lead">
-          <h2 id="production-home-lead">
-            {prioritizeCurrentLinks ? freshnessCopy.featured : copy.featured}
-          </h2>
-          {renderCard(selection.lead, 'lead')}
-        </section>
-      )}
-      {selection.main.length > 0 && (
-        <section aria-labelledby="production-home-main">
-          <h2 id="production-home-main">
-            {prioritizeCurrentLinks ? freshnessCopy.latest : copy.latest}
-          </h2>
-          <div className="production-home__compact">
-            {selection.main.map((article) => renderCard(article, 'main'))}
+      {showCurrentSidebar ? (
+        <>
+          <div className="production-home__front-grid">
+            {featuredSection}
+            {currentHeadlineSection}
           </div>
-        </section>
+          {reviewedSection && (
+            <div className="production-home__reviewed-grid">{reviewedSection}</div>
+          )}
+        </>
+      ) : (
+        <>
+          {prioritizeCurrentLinks && currentHeadlineSection}
+          {(featuredSection || reviewedSection) && (
+            <div className="production-home__lead-grid">
+              {featuredSection}
+              {reviewedSection}
+            </div>
+          )}
+        </>
       )}
       {loadDirectory && (
         <>

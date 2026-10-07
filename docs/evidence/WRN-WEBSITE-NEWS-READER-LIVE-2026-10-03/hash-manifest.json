@@ -1,0 +1,25 @@
+{
+  "schema": "wrn.website-news-reader-release-status.v1",
+  "productCommit": "f6649dc804a6029bdcceb4eafe47041aace9587b",
+  "evidenceCommit": "b7f0f0ef9ee8cc8c8a8b4630d63a09e0074404c4",
+  "independentReview": "PASS",
+  "publicationPerformed": false,
+  "deploymentStatus": "BLOCKED_NEW_HOSTINGER_SESSION_APPROVAL",
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 2806,
+      "sha256": "a9a083ffdcd96cc7d359411da494a468b2726f76c94915510abf06980e4ca023"
+    },
+    {
+      "path": "controller-acceptance.json",
+      "bytes": 1847,
+      "sha256": "5ebfe0ac937502ac065c8722d278ea94b38e83a2534b68a42f28f38d0ae4c865"
+    },
+    {
+      "path": "rollback-before-upload-readback.json",
+      "bytes": 11950,
+      "sha256": "68b8d2b643652d003ce82bb0352d8afd001dc4175fbb465672465fb4730b26dc"
+    }
+  ]
+}

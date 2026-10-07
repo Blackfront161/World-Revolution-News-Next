@@ -6,6 +6,7 @@ import { collectShellManifest, buildOfflineShell } from './build-offline-shell.m
 import { loadWebsiteProductionContentReleaseFromDisk } from './production-content-release.mjs';
 import { publishProductionArticleLandings } from './generate-production-article-landings.mjs';
 import { buildStagingSecurityHeaders } from './staging-package.mjs';
+import { validateReviewedArticleImages } from './reviewed-article-images.mjs';
 import {
   isSourcePassRevocationsV1,
   mergeSourcePassRevocationsV1,
@@ -131,6 +132,19 @@ function policies(security, shell) {
     'AddType application/xml .xml',
     'AddType text/plain .txt',
     'AddType image/png .png',
+    'AddType image/webp .webp',
+    ...Object.entries({
+      html: 'text/html',
+      js: 'text/javascript',
+      css: 'text/css',
+      json: 'application/json',
+      xml: 'application/xml',
+      txt: 'text/plain',
+    }).flatMap(([extension, mime]) => [
+      '<FilesMatch "\\.' + extension + '$">',
+      ...noDuplicateHeader('Content-Type', mime + '; charset=utf-8'),
+      '</FilesMatch>',
+    ]),
     ...Object.entries(rootHeaders).flatMap(([k, v]) => noDuplicateHeader(k, v)),
     ...noDuplicateHeader('Access-Control-Allow-Origin'),
     ...noDuplicateHeader('Access-Control-Allow-Credentials'),
@@ -270,6 +284,18 @@ async function plan({
       throw Error('Static publication bytes/identity mismatch: ' + rel);
   }
   const index = await take('index.html');
+  // Public network disclosures travel with the reviewed release, not an older
+  // separately hosted privacy page. Capture only these three bounded local files.
+  const privacyHtml = await take('privacy.html');
+  for (const name of ['privacy.html', 'privacy.css', 'privacy.js']) {
+    const bytes = name === 'privacy.html' ? privacyHtml : await take(name);
+    const limit = name === 'privacy.js' ? 262144 : 65536;
+    if (
+      bytes.length > limit ||
+      !bytes.equals(await readBound(root, root, 'apps/website/public/' + name))
+    )
+      throw Error('Privacy publication bytes/identity mismatch: ' + name);
+  }
   await take('.vite/manifest.json');
   const assetDirectory = await inspect(root, path.join(build, 'assets'), true);
   const sourceAssets = await readdir(assetDirectory, { withFileTypes: true });
@@ -289,11 +315,68 @@ async function plan({
   });
   if (sourceShell.entries.length !== shellPaths.length + 1)
     throw Error('Incomplete production shell');
-  const allHtml = [index, ...publication.landingPages.map((e) => captured.get(e.path))];
+  const allHtml = [
+    index,
+    privacyHtml,
+    ...publication.landingPages.map((e) => captured.get(e.path)),
+  ];
   const security = Object.fromEntries(
     Object.entries(buildStagingSecurityHeaders(allHtml.map((b) => b.toString('utf8')))).filter(
       ([key]) => key !== 'x-robots-tag',
     ),
+  );
+  // The Website's article client uses only the installed App's WRN cache.
+  // Staging retains connect-src 'self'; no wildcard or direct provider access.
+  if (security['content-security-policy'].split("connect-src 'self'").length !== 2)
+    throw Error('Production connection policy changed');
+  security['content-security-policy'] = security['content-security-policy'].replace(
+    "connect-src 'self'",
+    "connect-src 'self' https://wrn-translation-cache.paghklo.workers.dev",
+  );
+  // Only the exact HTTPS origins in the source-bound App image register may
+  // load. Image bytes never enter the hosting packet or offline shell.
+  const images = JSON.parse(
+    await readFile(
+      fileURLToPath(new URL('../src/features/home/app-article-images-v1.json', import.meta.url)),
+      'utf8',
+    ),
+  );
+  if (
+    images.schema !== 'wrn.website-app-image-references.v1' ||
+    images.imageBytesHosted !== false ||
+    images.imageBytesOffline !== false ||
+    !Array.isArray(images.origins) ||
+    images.origins.some((value) => {
+      try {
+        const u = new URL(value);
+        return u.protocol !== 'https:' || u.origin !== value || !!u.username || !!u.password;
+      } catch {
+        return true;
+      }
+    })
+  )
+    throw Error('App image origin policy differs');
+  const reviewedImages = JSON.parse(
+    await readFile(
+      fileURLToPath(
+        new URL('../src/features/home/reviewed-article-images-v1.json', import.meta.url),
+      ),
+      'utf8',
+    ),
+  );
+  const imageDirectory = JSON.parse(
+    await readFile(
+      fileURLToPath(
+        new URL('../src/features/projection/data/content-directory-v1.json', import.meta.url),
+      ),
+      'utf8',
+    ),
+  );
+  const reviewedOrigins = validateReviewedArticleImages(reviewedImages, imageDirectory, images);
+  const imageOrigins = [...new Set([...images.origins, ...reviewedOrigins])].sort();
+  security['content-security-policy'] = security['content-security-policy'].replace(
+    "img-src 'self' data: blob:",
+    "img-src 'self' data: blob: " + imageOrigins.join(' '),
   );
   const packaged = path.join(scratch, 'packaged-shell');
   await mkdir(packaged);

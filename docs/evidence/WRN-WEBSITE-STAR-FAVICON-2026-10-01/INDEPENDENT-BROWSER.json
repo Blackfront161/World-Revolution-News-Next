@@ -1,0 +1,31 @@
+{
+  "origin": "https://solinaridao.com",
+  "sourceCommit": "f202ec5d702e875127c01292b26b6e0b9edfe38e",
+  "observedAtUTC": "2026-10-01T00:02:43.079Z",
+  "status": "PASS",
+  "profile": "C:\\Users\\patri\\AppData\\Local\\Temp\\wrn-chief-star-HZKoDt",
+  "checks": [
+    "six live article IDs, 480/500, exact original icon, separate unchanged header, no mobile overflow",
+    "explicit save action, active worker, Chrome process fully closed",
+    "same profile restarted without network; exact star, active controller and identical article order"
+  ],
+  "offline": {
+    "href": "/assets/wrn-app-icon-CwyuVArd.png",
+    "width": 72,
+    "height": 72,
+    "bytes": 8845,
+    "mime": "image/png",
+    "controlled": true,
+    "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+  },
+  "articleIds": [
+    "news-8ababeeeb75fc37dc0d57b88412c3032453e0dea49476cba45cafe4c117f1ad1",
+    "news-42c16a577ae4f5d8feda3f1331221ed9e3fdb7df8c4d4c14cbd0626752dd74c6",
+    "news-8ca1b562638d82e207044e9aee80c7dfe6f4a20c33d3d0d47321d0fedca3a997",
+    "news-1e632c403fa3929019ce963a29f129f3f63b9fbdbb3ef289318c538aa6d16d52",
+    "news-3e4f102d7da6f55b804b6262823f443e2cc1483cdbe4fd3b602975d0f85b6efa",
+    "news-bfe2c200371161d1ba5a7a886e1d8de139536716d601d793ef72d7f8e2449bdf"
+  ],
+  "pageErrors": [],
+  "profileRemoved": true
+}

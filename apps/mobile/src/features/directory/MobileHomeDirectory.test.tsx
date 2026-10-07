@@ -18,6 +18,28 @@ const data = { document, projection: projectMobileContentDirectory(document) };
 afterEach(() => localStorage.removeItem('wrn.mobile.source-preferences.v1'));
 
 describe('real Home directory selection', () => {
+  it('hides a recorded source even when its article has no endpoint ID', () => {
+    const source = data.projection.sources.find((entry) => entry.name === 'Electronic Frontier Foundation')!;
+    const article = data.projection.articles.find(
+      (entry) => entry.sourceName === source.name && entry.endpointIds.length === 0,
+    )!;
+    const other = data.projection.articles.find((entry) => entry.sourceName !== source.name)!;
+    const articles = [
+      { ...article, id: 'article-0', language: 'en', publishedAt: '2026-09-25T00:00:00.000Z' },
+      ...Array.from({ length: 5 }, (_, index) => ({
+        ...other,
+        id: `article-${index + 1}`,
+        language: 'en',
+        publishedAt: '2026-09-25T00:00:00.000Z',
+      })),
+    ];
+    const hidden = setSourcePreference(emptySourcePreferences(), 'directory', source.id, 'hide')!;
+    expect(selectHomeDirectoryArticles(articles, 'en', emptySourcePreferences(), data.projection.sources))
+      .toContainEqual(articles[0]);
+    expect(selectHomeDirectoryArticles(articles, 'en', hidden, data.projection.sources))
+      .not.toContainEqual(articles[0]);
+  });
+
   it('projects scoped followed/hidden endpoints after stable sorting and before the five-slot cap', () => {
     const base = data.projection.articles[0]!;
     const hiddenId = `source-${'a'.repeat(64)}`;

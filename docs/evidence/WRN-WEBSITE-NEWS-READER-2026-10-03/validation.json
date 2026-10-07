@@ -1,0 +1,47 @@
+{
+  "productCommit": "f6649dc804a6029bdcceb4eafe47041aace9587b",
+  "status": "LOCAL-PASS",
+  "publicationPerformed": false,
+  "independentReview": "PENDING",
+  "typecheck": "PASS",
+  "scopedEslint": "PASS",
+  "wholeWebsite": {
+    "files": 42,
+    "tests": 286,
+    "status": "PASS"
+  },
+  "websiteNode": {
+    "modules": 12,
+    "tests": 88,
+    "status": "PASS after affected 13-test package-module rerun; remaining modules unchanged"
+  },
+  "focusedOffline": {
+    "tests": 39,
+    "status": "PASS"
+  },
+  "compressedBrowser": {
+    "status": "PASS",
+    "checks": 14,
+    "allNineThemes": true,
+    "ownNoteLanguages": 9,
+    "allThreeImageHashes": true,
+    "fullOfflineChromeRestart": true
+  },
+  "pictureDecode": {
+    "status": "PASS",
+    "images": 3,
+    "themes": [
+      "light",
+      "editorial"
+    ]
+  },
+  "shell": {
+    "id": "6e835aa041b0f722429b2ea3ea7e7485146264c8a2229fd58a45fec0acd93f0b",
+    "bytes": 7992846,
+    "maxBytes": 8388608
+  },
+  "websiteFiles": 48,
+  "hostingFiles": 51,
+  "newForeignFulltexts": 0,
+  "wholeAppParity": "NOT CLAIMED"
+}

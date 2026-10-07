@@ -1,0 +1,51 @@
+{
+  "sourceCommit": "448c82fdf31f4ce10ea17d60d35ad937faf76b10",
+  "observedAtUTC": "2026-10-03T20:15:40.801Z",
+  "publicationPerformed": false,
+  "websiteVitest": {
+    "files": 48,
+    "passed": 381,
+    "failed": 0,
+    "success": true
+  },
+  "websiteTypecheck": "PASS",
+  "targetedTypeScriptEslint": "PASS",
+  "sharedMobileDefaultRegression": {
+    "files": 3,
+    "passed": 28
+  },
+  "nodeTests": {
+    "shellProtocolAndPackagerPrePrivacy": 53,
+    "finalPackagerIncludingPrivacy": 14,
+    "closedAstAndLibraryRightsRefresh": 15,
+    "privacyPage": 1
+  },
+  "browserChecks": {
+    "functional18": "PASS",
+    "actualSharedServiceAndGuide3": "PASS",
+    "coldChromeServerStoppedAnd503Rejection2": "PASS",
+    "finalPrivacyAndHelp2": "PASS"
+  },
+  "shellBytes": 8091333,
+  "shellLimit": 8388608,
+  "shellId": "d096826b7ecd07a2c52da70aa558d1390bac19e5666078610c86153910fc15e6",
+  "websiteFiles": 51,
+  "hostingFiles": 54,
+  "publicReadbackRequiredAfterPublication": 50,
+  "rollback": {
+    "sourceCommit": "e20c8002f32103a7f888e907e6603fed792c8b52",
+    "files": 51,
+    "verifiedAllBytes": true
+  },
+  "strictV1TranslationAdapter": "unconfigured; separate actual App legacy wire client",
+  "fulltextTranslationNetworkSmoke": "not performed; admitted body path and quota/error handled with genuine-ready unit fixtures",
+  "newPublisherBodyOrMediaAdmission": 0,
+  "finalControllerReview": "pending",
+  "livePublication": "not performed for this source",
+  "earlierFailures": {
+    "translationLocator": "initial loading heading mistaken for translated title; explicit completion wait corrected; no product gate relaxed",
+    "privacy": "Russian long heading overflow at390px; source CSS wrapping fixed; all9 languages plus200% now pass",
+    "packager": "old48/45 file assertions and V3 test fixture omitted new privacy files; updated exact51/48 bounds and missing/altered negative test; final14 pass"
+  },
+  "eslintBaseline": "Two pre-existing react-refresh export warnings in apps/website/src/production-content-ui.tsx; this wrapper only injects the Website slot; baseline errors not included in targeted PASS"
+}

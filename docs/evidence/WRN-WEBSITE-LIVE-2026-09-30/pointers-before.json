@@ -1,0 +1,22 @@
+[
+  {
+    "path": "wrn-content-directory/current.json",
+    "sha256": "5413b74c72723e877550b474072f750eca5d22a5f83032a378e01ecb00da8b57",
+    "bytes": 512
+  },
+  {
+    "path": "wrn-production-content/current.json",
+    "sha256": "16c1644e9f4205e334279f206d1d63202603d22adbd47edeb17175e7a65cf8be",
+    "bytes": 276
+  },
+  {
+    "path": "wrn-source-passes/current.json",
+    "sha256": "bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa",
+    "bytes": 83783
+  },
+  {
+    "path": "wrn-source-pass-revocations/current.json",
+    "sha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617",
+    "bytes": 161
+  }
+]

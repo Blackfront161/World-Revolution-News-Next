@@ -1,0 +1,203 @@
+{
+  "status": "PASS",
+  "origin": "https://solinaridao.com",
+  "sourceCommit": "be1de3094289c89b5aa3f17633d69d1677da3a79",
+  "tupleSha256": "3968005695307dc2751c6b171b59a08ae9571a0d7d7bed7193857997a85db462",
+  "errors": [],
+  "images": [
+    {
+      "id": "news-af1556a29e670df58a5b85322782fab9101f423308699c6732b81b986209d814",
+      "src": "https://b1867527.assetcdn.net/1867527/wp-content/uploads/2026/10/Health-Minister-Marjorie-Michel-1024x576.jpg?lossy=1&strip=1&webp=1",
+      "naturalWidth": 1024,
+      "caption": "APTN News ↗ · Adrian Wyld / The Canadian Press",
+      "unrelated": false
+    },
+    {
+      "id": "news-0070b1acd647a7404b01de8ce4734652fc9769cd26fa1b15f36a476d924277b2",
+      "src": "https://rote-hilfe.de/sites/default/files/styles/responsive_10_4_1000w/public/2026-09/freemaja.jpeg?h=2e917df8&itok=7RnGQR9D",
+      "naturalWidth": 1000,
+      "caption": "Rote Hilfe ↗",
+      "unrelated": false
+    },
+    {
+      "id": "news-b3bb2b5130637d8e2d327601136a4a7cf2a02cf531f23056e7be99a8ed6f1076",
+      "src": "https://www.anred.org/wp-content/uploads/2026/10/Conversatorio-Barrio-Crisol-Popular-Barrio-Norita-Cortinas-Barrios-populares-Luchas-populares-Territorio-Derecho-a-la-vivienda-digna-1.jpg",
+      "naturalWidth": 1024,
+      "caption": "ANRed (Argentina) ↗",
+      "unrelated": false
+    },
+    {
+      "id": "news-af1021d3c8237d9be6996601a9c8ac677944236a0ddff01ae706e22f9104ec65",
+      "src": null,
+      "naturalWidth": null,
+      "caption": null,
+      "unrelated": false,
+      "unavailableOriginal": "https://www.madamasr.com/wp-content/uploads/2026/10/33snapshotc.jpg"
+    },
+    {
+      "id": "news-b745a627893d2ddfe7051802d9431cd2d4a2a4f50b7a50c3b4befeaf0e8dce61",
+      "src": "https://novaramedia.com/wp-content/uploads/2026/10/WhatsApp-Image-2026-10-07-at-15.57.37-864x576.jpeg",
+      "naturalWidth": 864,
+      "caption": "Novara Media (UK) ↗",
+      "unrelated": false
+    },
+    {
+      "id": "news-aa200a74cf86c676489761a014a3ec01bd830fbf91bb957869deb5743115f625",
+      "src": "https://cdn.nunatsiaq.com/wp-content/uploads/2026/10/A-14798.95.jpg",
+      "naturalWidth": 373,
+      "caption": "Nunatsiaq News ↗",
+      "unrelated": false
+    },
+    {
+      "id": "news-d833447047f3c6cd78dc470b9ea0303db721142c243bb13c83ba73f988c0a7ff",
+      "src": "https://www.evrensel.net/images/1280/upload/dosya/365465.jpg",
+      "naturalWidth": 1280,
+      "caption": "Evrensel ↗",
+      "unrelated": false
+    },
+    {
+      "id": "news-4300ec2e59ab345fb88de936120127159c87ffcb14d70ee906fe391d9c035943",
+      "src": "https://omniatv.com/wp-content/uploads/2026/10/uHEP29s2pzw24k0ayzdOzlvqQMr.jpg",
+      "naturalWidth": 780,
+      "caption": "OmniaTV (GR) ↗",
+      "unrelated": false
+    },
+    {
+      "id": "news-d828c8ffcb0ec0dc10ed6568f6a4e3ca8f7d7cfc31bed8a7c3038f294790bb83",
+      "src": "https://i0.wp.com/apublica.org/wp-content/uploads/2026/10/1-Ha-tres-anos-os-palestinos-pagam-pelo-7-de-outubro.jpg?resize=640%2C535&ssl=1",
+      "naturalWidth": 640,
+      "caption": "Agência Pública ↗",
+      "unrelated": false
+    },
+    {
+      "id": "news-b70ee56241807ced5c1f5a420355b07ee77b1300d588b7173f755029b40fc694",
+      "src": "https://kolektiva.media/lazy-static/thumbnails/ed76736f-4fa6-4200-b138-c4b63dd5ccb5.png",
+      "naturalWidth": 1920,
+      "caption": "Kolektiva Media (Video) ↗",
+      "unrelated": false
+    },
+    {
+      "id": "news-9141adf553293ec2bd6639ef70885dd632a20460f4604b98cc20271741843c7c",
+      "src": "https://labornotes.org/sites/default/files/styles/full_width/public/main/articles/Delivery%20Protection%20Act.jpg?itok=v5gpqCmx",
+      "naturalWidth": 1030,
+      "caption": "Labor Notes ↗ · Teamsters",
+      "unrelated": false
+    },
+    {
+      "id": "news-bca10aef827c6956c5ff33e4d6e0f4befd53a3d3a8fce0296ee42c6c41f0b47d",
+      "src": "https://infolibre.gr/wp-content/uploads/2026/10/Naza-Banner-735x400.webp",
+      "naturalWidth": 735,
+      "caption": "Infolibre (GR) ↗",
+      "unrelated": false
+    },
+    {
+      "id": "news-80726740758f9aa7865484775877ee55f0923e2fbd8fa9ec71117df1b03976fe",
+      "src": null,
+      "naturalWidth": null,
+      "caption": null,
+      "unrelated": false
+    },
+    {
+      "id": "news-a62a4aee2a1d906c18b6fa8e95ae5bef2892863ee83fb1259de7bf5661982f69",
+      "src": "https://umanitanova.org/wp-content/uploads/2026/10/Afshin-65-840x480.png",
+      "naturalWidth": 840,
+      "caption": "Umanita Nova (IT) ↗",
+      "unrelated": false
+    },
+    {
+      "id": "news-ad7f2a5e938ba2a2e42e9ae77a3ba1f515c26562f0a813f6ef743bca037011f3",
+      "src": "https://static.bianet.org/haber/2026/10/07/eylulde-226-is-cinayeti.jpg",
+      "naturalWidth": 1200,
+      "caption": "Bianet Türkçe ↗",
+      "unrelated": false
+    }
+  ],
+  "checks": [
+    "15 exact App roles: only their actual verified article pictures, no unrelated art/site logo; lead photo decoded with photographer credit",
+    "Nine UI languages retain exact original lead photograph and credit; 320px without overflow",
+    "Nine themes, including separate Autonom layout, show the actual article photo without mobile overflow",
+    "Internal reader/save/read/share controls and Saved retain the same correctly bound original article photo",
+    "15 actual shell files SHA/bytes within unchanged8MiB; full browser restart without HTTP cache/network preserves news and does not invent substitutes for unavailable remote images"
+  ],
+  "shell": {
+    "shellId": "f9b77a397887c003fb8ad2ccf9e5ca62aad4edb3d367f658b17f56cb2b3bafc2",
+    "files": [
+      {
+        "path": "assets/content-directory-v1-lIgFHzaN.json",
+        "bytes": 1930048,
+        "sha256": "d4431713a1901deee336b27978b75b0a2eeca94b33e3db40c277ba83a0bd9e30"
+      },
+      {
+        "path": "assets/index-B8ATKFKl.css",
+        "bytes": 88255,
+        "sha256": "f735c7db9f13c171ba6bc64a3aefa9de1c90a3a87cc0d8f7e3830ff987a0789d"
+      },
+      {
+        "path": "assets/index-CV_9YsnY.js",
+        "bytes": 422730,
+        "sha256": "d5c70652d5a334038d70da23ab0040e0331858d805e8001d50b8a6f8219df726"
+      },
+      {
+        "path": "assets/legacy-knowledge-v1-FerkkA-o.json",
+        "bytes": 901542,
+        "sha256": "e17fac4837dfd86ce937555391e10d9f8ac53cde917c101f5e3d1994269abff0"
+      },
+      {
+        "path": "assets/legacy-support-v1-CKf2hNYO.json",
+        "bytes": 41012,
+        "sha256": "9bfaced898bcabca449ab7a9e75db1c7bf5caba496eabae01268a58630039525"
+      },
+      {
+        "path": "assets/production-events-media-v1-CkmYeGdS.json",
+        "bytes": 1749109,
+        "sha256": "cead90ce622e968f8174d86fd2f89754d9761879d60e978df0f9311e33b5c0ed"
+      },
+      {
+        "path": "assets/react-vendor-YahHAMAi.js",
+        "bytes": 189620,
+        "sha256": "c5f08825cdca736a015fe6303f97a64ec1e4511a38b5f2f6f589ecb35e815c65"
+      },
+      {
+        "path": "assets/solinaridao-header-mark-filled-D7vg3enZ.png",
+        "bytes": 1123871,
+        "sha256": "9dca207bc008384ef45cf435a134bf170037ae0149d27c43c732b754912b61b9"
+      },
+      {
+        "path": "assets/wrn-app-icon-CwyuVArd.png",
+        "bytes": 8845,
+        "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+      },
+      {
+        "path": "assets/wrn-browser-runtime-Bv2391bc.css",
+        "bytes": 22062,
+        "sha256": "b95ede8f50486489e639c6b93944dd94709a94b22fb8580d34b1f42be670345c"
+      },
+      {
+        "path": "assets/wrn-browser-runtime-CKCXOlft.js",
+        "bytes": 274042,
+        "sha256": "581b21844f051fa045e43695a6430181f2008700deb8b0e82b16e6c1d7b0b045"
+      },
+      {
+        "path": "assets/wrn-content-core-BJSr5FeV.js",
+        "bytes": 364292,
+        "sha256": "119cd51abd8d7e5ed9e011172cd75982f2d40339b7bc53c86ad47a182760c9c2"
+      },
+      {
+        "path": "assets/wrn-future-header-white-D5q8hgPK.png",
+        "bytes": 212123,
+        "sha256": "9da0e22936304a30a55ba1483c2305c6ad6c3b1a057341af2ab3b16fe98a5e2f"
+      },
+      {
+        "path": "assets/wrn-language-CQw_5_ha.js",
+        "bytes": 418529,
+        "sha256": "fcf4643feecaf85273618421041f6b6a5726bec9b4547875a4be0c10d6bede80"
+      },
+      {
+        "path": "index.html",
+        "bytes": 4503,
+        "sha256": "534f37f393f68940cd5a4591a65c95be3b7cdbdb88a00261d72397db20154a43"
+      }
+    ],
+    "bytes": 7750583
+  }
+}

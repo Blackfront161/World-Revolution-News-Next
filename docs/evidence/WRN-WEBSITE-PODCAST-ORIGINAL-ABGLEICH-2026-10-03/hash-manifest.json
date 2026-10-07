@@ -1,0 +1,34 @@
+{
+  "schema": "wrn.website-podcast-original-evidence.v1",
+  "productChanged": false,
+  "publicationPerformed": false,
+  "dataCommit": "5304fa0032a6761071962e4b74b66cb6f114c49f",
+  "alignmentPlanSha256": "88aae4b01e1b75c5a8ffad16cf5412f5e164c71b2e8fdc5d5563e8c935644a3e",
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 2754,
+      "sha256": "2a1f1f5011398e93ce9502421ed416d3962b3869133a4aa57f56acb59261a29d"
+    },
+    {
+      "path": "final-straw-feed-observations.json",
+      "bytes": 739,
+      "sha256": "c7c7c0d0c72b2a4d935877bf8e48f41609983d46e06184e3ff6221ea7396f96d"
+    },
+    {
+      "path": "final-straw-observations.json",
+      "bytes": 26627,
+      "sha256": "8aea53a1d29e90762360fd1b75a2b1f09dea9941911456e8aa2260f4e1d033c2"
+    },
+    {
+      "path": "new-original-observations.json",
+      "bytes": 49674,
+      "sha256": "f28ab1c553467ec8dd38341b4f9160dc67cb37563d6aa23fc5db2011b6062157"
+    },
+    {
+      "path": "scope.json",
+      "bytes": 3714,
+      "sha256": "46cc2308e11fcce8cb7ac2ee15f6f29a3ef03f8eea10c3343d30560d807019b7"
+    }
+  ]
+}

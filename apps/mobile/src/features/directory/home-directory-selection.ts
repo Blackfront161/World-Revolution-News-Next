@@ -1,7 +1,10 @@
 import type { UiLanguage } from '@wrn/ui-language';
-import type { DirectoryArticle } from '@wrn/content-contracts/mobile-content-directory-v1';
+import type {
+  DirectoryArticle,
+  DirectorySource,
+} from '@wrn/content-contracts/mobile-content-directory-v1';
 import type { LocalSourcePreferencesV1 } from '@wrn/content-contracts';
-import { emptySourcePreferences, projectSourcePreferences } from '@wrn/domain';
+import { emptySourcePreferences, projectDirectorySourcePreferences } from '@wrn/domain';
 
 /** Select only from the validated, withdrawal-filtered projection.
  * Prefer the interface language, then publication time, with stable ID ties.
@@ -11,6 +14,7 @@ export function selectHomeDirectoryArticles(
   articles: readonly DirectoryArticle[],
   language: UiLanguage,
   sourcePreferences: LocalSourcePreferencesV1 = emptySourcePreferences(),
+  sources: readonly DirectorySource[] = [],
 ) {
   const ordered = [...articles].sort((a, b) => {
     const preferred = Number(b.language === language) - Number(a.language === language);
@@ -20,10 +24,9 @@ export function selectHomeDirectoryArticles(
     if (first !== second) return second > first ? 1 : -1;
     return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
   });
-  return projectSourcePreferences(
-    ordered,
-    sourcePreferences,
-    'directory',
-    (article) => article.endpointIds,
-  ).slice(0, 5);
+  return projectDirectorySourcePreferences({
+    articles: ordered,
+    sources,
+    preferences: sourcePreferences,
+  }).slice(0, 5);
 }

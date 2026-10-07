@@ -1,0 +1,33 @@
+{
+  "mode": "candidate compiled browser; isolated HTTPS origin; not a publication",
+  "build": "C:\\Users\\patri\\Documents\\World Revolution News\\wrn-next-live-work\\work\\website-help-translation-candidate-20261003\\build-browser-cmd-20261004",
+  "checks": [
+    {
+      "name": "nine languages, six tasks, three actions, Escape and focus return",
+      "status": "PASS"
+    },
+    {
+      "name": "all nine themes at1440/390 and200% without overflow or provider requests",
+      "status": "PASS"
+    }
+  ],
+  "providerRequests": [
+    {
+      "url": "https://wrn-translation-cache.paghklo.workers.dev/",
+      "method": "POST",
+      "body": {
+        "action": "translate",
+        "targetLanguage": "de",
+        "mode": "continuation",
+        "title": "",
+        "text": "Barricades, Internet Shutdown, Mass Detentions: Delhi Police Violent Crack Down on Protest against CEC Gyanesh Kumar and SIR",
+        "cacheVersion": 1
+      }
+    }
+  ],
+  "pageErrors": [],
+  "networkFailures": [],
+  "status": "FAIL",
+  "error": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  getByRole('heading', { level: 1 })\nExpected: \"de\"\nReceived: \"en\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"to.have.attribute.value\" with timeout 5000ms\n  - waiting for getByRole('heading', { level: 1 })\n    - locator resolved to <h1 tabindex=\"-1\" id=\"website-page-title\">Nachrichten</h1>\n    - unexpected value \"null\"\n    13 × locator resolved to <h1 lang=\"en\" tabindex=\"-1\" id=\"website-page-title\">Barricades, Internet Shutdown, Mass Detentions: D…</h1>\n       - unexpected value \"en\"\n",
+  "failureUI": "Zum Hauptinhalt springen\nWORLD REVOLUTION NEWS\nsolinaridao.com ↗\n▷\n♡\nOberflächensprache\nEN\nDE\nES\nFR\nIT\nPT\nRU\nEL\nTR\nStart\nFür mich\nEntdecken\nMedien\nGespeichert\nNachrichten\nQuellen\nSport-Lesehinweise\nEvents\nWissen\nSolidarität\n← Zurück\n\nGroundxero · 2. Oktober 2026\n\nBarricades, Internet Shutdown, Mass Detentions: Delhi Police Violent Crack Down on Protest against CEC Gyanesh Kumar and SIR\n☆ Später lesen\n✓ Als gelesen markieren\n↗ Teilen\nSprache\nEnglish\nDeutsch\nEspañol\nFrançais\nItaliano\nPortuguês\nРусский\nΕλληνικά\nTürkçe\nTextgröße\n100%\n125%\n150%\n200%\n\nÖffentliche Überschrift und freigegebener Text werden an den WRN-Übersetzungsdienst gesendet. Gemeinsame Übersetzungen können wiederverwendet werden. Das Original bleibt erhalten.\n\nÜbersetzung wird geladen.\n\nDer vollständige Originaltext ist hier nicht freigegeben. Du kannst ihn bei der Quelle lesen.\n\nOriginalquelle öffnen ↗\nOriginal-Schlagzeile\nLink kopieren\nLink kopieren\nWorld Revolution News"
+}

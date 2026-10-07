@@ -1,0 +1,170 @@
+{
+  "schema": "wrn.catalog-knowledge-website-parity.v1",
+  "publicationPerformed": false,
+  "appCommit": "e9c8088806f60ad8b9605705f686cc91f2536f90",
+  "dataCommit": "2342289bb126c6356f20088d5a97fe20a08980e1",
+  "appCatalog": {
+    "commit": "2342289bb126c6356f20088d5a97fe20a08980e1",
+    "observedAt": "2026-10-02T06:06:35.901Z",
+    "inputs": [
+      {
+        "path": "radio-stations.json",
+        "sha256": "caa83a5678613766765fe1bab2806648461b1f0811388c59bebe7888692b9d85",
+        "bytes": 12787
+      },
+      {
+        "path": "podcasts.json",
+        "sha256": "0961c293c8c847f45eaf71a88aba4a51fc4ef07c7d8e6651d314842763846221",
+        "bytes": 3162161
+      },
+      {
+        "path": "video-feed.json",
+        "sha256": "b1e01de630d117ee3d21ab576a3ac9a463a20d309e8d579639a429ee5a7d7b65",
+        "bytes": 25803
+      },
+      {
+        "path": "library-feed.json",
+        "sha256": "3be196134dba9c994a27999398d71c5311764e093a14fcf20cf2db74ce829449",
+        "bytes": 402330
+      },
+      {
+        "path": "events-feed.json",
+        "sha256": "7d5fd1dac441183452b7979df2b15aeb741e3f6b871f3106218996d82425d4b6",
+        "bytes": 11997
+      }
+    ],
+    "reconciliation": {
+      "radio": {
+        "input": 27,
+        "unique": 27,
+        "duplicateOriginalLinks": 0
+      },
+      "podcasts": {
+        "input": 1778,
+        "unique": 1722,
+        "duplicateOriginalLinks": 56
+      },
+      "videos": {
+        "input": 16,
+        "unique": 16,
+        "duplicateOriginalLinks": 0
+      },
+      "library": {
+        "input": 728,
+        "unique": 728,
+        "duplicateOriginalLinks": 0
+      },
+      "events": {
+        "input": 6,
+        "unique": 6,
+        "duplicateOriginalLinks": 0
+      }
+    },
+    "history": {
+      "bytes": 3317607,
+      "sha256": "003c32358ebe0d5ad22fb9c0b059bf82c242aa0b99a4d869fb67960c86acdc07"
+    },
+    "packed": {
+      "bytes": 1701964,
+      "sha256": "ac2c2f944b814be0fce19129791c39d87c0940f8c82caf47bdc868cc5bcb8b15"
+    }
+  },
+  "knowledge": {
+    "commit": "e9c8088806f60ad8b9605705f686cc91f2536f90",
+    "observedAt": "2026-10-03T08:06:26.135Z",
+    "books": 731,
+    "terms": 177,
+    "references": 54,
+    "historySha256": "26eb4c118d0483788f07ef0b103c97e1cf53fbf75d36a61ae47456146240726b",
+    "packedSha256": "e3479e68fd7525bda9c685bb2b2718ff0ded82fc525eeab8205bfeb0e4dbfece",
+    "learningPathsSha256": "169185cbf4c8be46dce9ccfb26593857de9ece5dcb630518e6e61f02de82a2ee",
+    "lexiconLocalesSha256": "5b59354be8a764fef375e63a3ddae53e21d15c2d63320b224f43ea17067f30b0",
+    "editorialStatusSha256": "84c7be193c86d66c792a4b148b4cc9c0af1abada41a837033cf36b74e2031a90",
+    "inputs": {
+      "libraryFeedSha256": "283f3661c2b528e3fe39da753f9ef4b18d5e07109c082705e509f5f4d75e5db8",
+      "libraryFeedBytes": 403986,
+      "librarySourcesSha256": "a498bb6d672d4edb8af99d3b337c34d1292bf4e04924a3bedb3b364c4cd81f66",
+      "librarySourcesBytes": 5324,
+      "lexiconSha256": "7b6fbd2d214fdde5f1df4c88da2771b0026e1083d68942d742b27024e06f40b5",
+      "lexiconBytes": 277309
+    }
+  },
+  "radioOriginalLinks": {
+    "path": "apps/website/src/features/events-media/data/radio-original-links-v1.json",
+    "bytes": 782,
+    "sha256": "0b793dcd67b37a89f401ae49e5c86083c0964de139ebb74a2c92a2663ffa7c39",
+    "handoffCommit": "75016f6b2356918671e28964397d56219d6367de",
+    "rights": "Original-link-only; no offline audio; base catalogue unchanged",
+    "visibleRadioCount": 28
+  },
+  "preparationNote": "Accepted Reader f6649dc + Navigation5d45eeb + Knowledge177c334e20; unchanged atomic App catalogue2342289; offline adapters and unadmitted Podcast candidates excluded.",
+  "independentReviews": {
+    "reader": {
+      "product": "f6649dc804a6029bdcceb4eafe47041aace9587b",
+      "turn": "01a1007f-a4ac-7e20-a3ca-cf22fca131e2",
+      "decision": "PASS"
+    },
+    "navigation": {
+      "product": "5d45eeb8a9b8c6bd6dd988ad74525e6f5f30bfca",
+      "evidence": "531b6552eb0fbcde178ae059baf53271fc53735d",
+      "turn": "01a100f2-fab4-7ff3-a563-170ee699e2b5",
+      "decision": "PASS"
+    },
+    "knowledge": {
+      "product": "c334e20d8844c83d9f01e89712b01997b2059dea",
+      "evidence": "d835b603b69db6fd763ab6177303f988baf7d7c2",
+      "turn": "01a100f2-fab4-7ff3-a563-170ee699e2b5",
+      "decision": "PASS"
+    }
+  },
+  "admissionClasses": {
+    "schema": "wrn.website-admission-classes.v1",
+    "upstreamCommit": "5304fa0032a6761071962e4b74b66cb6f114c49f",
+    "directorySha256": "f09accb635582fa41764a38cbf987d9085502a3c9694cb72d8dc630a03deadb2",
+    "publicationStatus": {
+      "liveDeviationResolved": false,
+      "directoryParity": "bound-local-snapshot-only",
+      "directoryProjectionPublication": "pending",
+      "websitePublication": "pending",
+      "liveVerification": "not-performed"
+    },
+    "classes": {
+      "individuallyAdmittedFulltext": {
+        "articles": 12,
+        "sourceProfiles": 3,
+        "revision": "wrn-production-news-2026-09-26-v8",
+        "corpus": "existing-separate-production-admission"
+      },
+      "newFulltextOrMedia": {
+        "articles": 0,
+        "sourceEndpoints": 0
+      },
+      "metadataLinkOnly": {
+        "articles": 465,
+        "sourceEndpoints": 427,
+        "withoutConfirmedSourcePass": 463,
+        "editorialVerification": false,
+        "reuseRightsGranted": false
+      },
+      "directoryOnly": {
+        "articles": 0,
+        "sourceEndpoints": 2
+      },
+      "excluded": {
+        "articles": 35,
+        "sourceEndpoints": 9,
+        "reasons": {
+          "incomplete-source-provenance": 4,
+          "identity-conflict": 20,
+          "insecure-url": 10,
+          "invalid-schema": 1
+        }
+      },
+      "upstream": {
+        "articles": 500,
+        "sourceEndpoints": 438,
+        "recordedFeedSourceNames": 102
+      }
+    }
+  }
+}

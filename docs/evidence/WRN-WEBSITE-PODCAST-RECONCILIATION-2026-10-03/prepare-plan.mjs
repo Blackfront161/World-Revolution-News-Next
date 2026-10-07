@@ -1,0 +1,31 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+const app='C:/Users/patri/Documents/World Rev Ne/wrn-github-app-current';
+const data='C:/Users/patri/Documents/World Rev Ne/wrn-data-autonom-current';
+const commit='5304fa0032a6761071962e4b74b66cb6f114c49f';
+const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const sourceBytes=fs.readFileSync(app+'/podcast-sources.json');
+const appBinding=JSON.parse(fs.readFileSync(app+'/docs/evidence/WRN-APP-NAVIGATION-2026-10-03/catalog-parity-before.json'));
+if(hash(sourceBytes)!==appBinding.bindings.app.files['podcast-sources.json'].sha256)throw Error('App source policy snapshot drift');
+const sources=JSON.parse(sourceBytes),sourceMap=new Map(sources.map(s=>[s.id,s]));
+const bytes=execFileSync('git',['-c','safe.directory='+data,'-C',data,'show',commit+':podcasts.json'],{maxBuffer:5e6});
+const rows=JSON.parse(bytes);
+const base=JSON.parse(fs.readFileSync('apps/website/src/features/events-media/packed/production-events-media-v1.json')).current;
+const next=JSON.parse(fs.readFileSync('work/main-parity-20261003/catalog-candidate.json')).current;
+const oldByUrl=new Map(base.collections.podcasts.map(r=>[r.url,r]));
+const oldIds=JSON.parse(execFileSync('git',['-c','safe.directory='+data,'-C',data,'show',base.commit+':podcasts.json'],{maxBuffer:5e6}));
+const oldById=new Map(oldIds.map(r=>[r.id,r]));
+const blocked=sources.filter(s=>s.enabled===false||s.catalogReview?.episodeIntake==='hold');
+const byUrl=new Map();for(const row of rows){const url=new URL(row.episodeUrl).href;byUrl.set(url,[...(byUrl.get(url)??[]),row]);}
+const candidates=next.collections.podcasts.filter(r=>!oldByUrl.has(r.url)).map(record=>{
+ const input=byUrl.get(record.url);if(!input?.length)throw Error('Unbound projected URL');
+ const sourceIds=[...new Set(input.map(r=>r.sourceId))];
+ const held=sourceIds.filter(id=>!sourceMap.has(id)||sourceMap.get(id).enabled===false||sourceMap.get(id).catalogReview?.episodeIntake==='hold');
+ const previous=input.map(r=>oldById.get(r.id)).filter(r=>r&&new URL(r.episodeUrl).href!==record.url).map(r=>({upstreamId:r.id,url:r.episodeUrl,published:r.published,title:r.title}));
+ const languageVerified=input.every(r=>r.languageVerified===true&&r.languageReviewRequired===false)&&new Set(input.map(r=>r.language)).size===1;
+ return {record,sourceIds,upstreamIds:input.map(r=>r.id),languageVerified,declaredLanguage:record.language,safeLanguage:languageVerified?record.language:'und',previous,rights:'metadata-original-link-only',status:held.length?'SOURCE-POLICY-HOLD':previous.length?'IDENTITY-MIGRATION-REVIEW':'METADATA-CANDIDATE-NOT-ADMITTED',heldSourceIds:held};
+});
+const removed=base.collections.podcasts.filter(r=>!next.collections.podcasts.some(n=>n.url===r.url));
+const result={schema:'wrn.website-podcast-alignment-plan.v1',status:'NOT-INTEGRATED-NOT-ADMITTED',observedAtUTC:new Date().toISOString(),productChanged:false,mediaFetched:false,baseCommit:base.commit,dataCommit:commit,bindings:{podcasts:{sha256:hash(bytes),bytes:bytes.length},appSourcePolicy:{contextCommit:appBinding.bindings.app.commit,sha256:hash(sourceBytes),bytes:sourceBytes.length,inputKind:'worktree-snapshot-hash-is-authoritative'}},counts:{rawRows:rows.length,uniqueOriginalPages:next.collections.podcasts.length,existingWebsiteRecords:base.collections.podcasts.length,addedOriginalUrls:candidates.length,removedOriginalUrls:removed.length,heldSources:blocked.length,heldDataRows:rows.filter(r=>blocked.some(s=>s.id===r.sourceId)).length,metadataCandidates:candidates.filter(r=>r.status==='METADATA-CANDIDATE-NOT-ADMITTED').length,migrationCandidates:candidates.filter(r=>r.status==='IDENTITY-MIGRATION-REVIEW').length,blockedNewUrls:candidates.filter(r=>r.status==='SOURCE-POLICY-HOLD').length,unverifiedNewLanguages:candidates.filter(r=>!r.languageVerified).length},heldSources:blocked.map(s=>({id:s.id,name:s.name,enabled:s.enabled,episodeIntake:s.catalogReview?.episodeIntake,disposition:s.catalogReview?.disposition,rightsStatus:s.rightsStatus})),candidates,retainedPreviousUrls:removed,requirements:['Keep original base/history bytes and provenance intact.','No automatic ID alias, removal, source enabling or date replacement.','Preserve all three source-intake holds; 89 existing feed rows confer no intake permission.','Project unknown or conflicting episode languages as und; channel language is not proof.','Source bindings and individual metadata admission need review before product integration.','No audio, artwork, transcript or offline audio rights inferred.','Keep video changes in their separate editorial review.']};
+fs.mkdirSync('work/podcast-reconciliation-20261003',{recursive:true});fs.writeFileSync('work/podcast-reconciliation-20261003/alignment-plan.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result.counts));

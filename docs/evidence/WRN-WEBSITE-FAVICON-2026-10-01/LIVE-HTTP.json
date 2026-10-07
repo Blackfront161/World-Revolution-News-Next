@@ -1,0 +1,841 @@
+{
+  "schema": "wrn.website-live-http-evidence.v1",
+  "origin": "https://solinaridao.com",
+  "sourceCommit": "5df01f13937b4c7957aeb097b7116587b86eb144",
+  "headerProfiles": [
+    {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; base-uri 'none'; connect-src 'self'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; img-src 'self' data: blob:; manifest-src 'self'; media-src https://dn721204.ca.archive.org; object-src 'none'; script-src 'self' 'sha256-3VeQnkimSKLdOsPrVac9yDeXm8QXkaFRcjW11E/lCi8=' 'sha256-4+DUuV1nfDmnCxNkHmLYCj4PcrvXrCtobvqIljG8OFo=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-78NbkatXW+zvVNZ0c6K5E3vAL8qe6EOZyWW0+VVm/aY=' 'sha256-EP/Hxej0o558QBQyv5ocl37J48KFjcI8QYcf+XoVvSQ=' 'sha256-H+KuAxumV8Uq26WybgLtPk2Pg+OxAEZx/4z6nQ6XxqM=' 'sha256-L5isiUL5mVTeU1BvL+97uOKAgWg7ZSGolJ0Wp4z/x5k=' 'sha256-VAoRvH5X5+PGRNlXlTvjVxgpY3uRqcr+SMXiQGiX4us=' 'sha256-VLn05fM4LtqlyRRt/+fPSc9LC4AsLcYaXR+iEHxYO0w=' 'sha256-WuZFxx6L2FBm1VTpWlkclFhrgkmmRUQYqNn0pMaWU7U=' 'sha256-dQyXglDKI9Qh30Zlg77C+d8hXrATMStCYz4A9JAjxLY=' 'sha256-kN/E+P035UBgDfcuX4YkJJUqmi47cnItXoBVd/nJcxA=' 'sha256-u9FBptH4POThmVSDNoFlOmaX4eibLPJTRUfIYECVfp0='; style-src 'self' 'sha256-TqMrWmBIyC9pBldcgLu8TIZVQ3mHkO3q2Dzj0yJaN5U='; worker-src 'self'; upgrade-insecure-requests",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=31536000",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "content-type": "application/json; charset=utf-8"
+    },
+    {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; base-uri 'none'; connect-src 'self'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; img-src 'self' data: blob:; manifest-src 'self'; media-src https://dn721204.ca.archive.org; object-src 'none'; script-src 'self' 'sha256-3VeQnkimSKLdOsPrVac9yDeXm8QXkaFRcjW11E/lCi8=' 'sha256-4+DUuV1nfDmnCxNkHmLYCj4PcrvXrCtobvqIljG8OFo=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-78NbkatXW+zvVNZ0c6K5E3vAL8qe6EOZyWW0+VVm/aY=' 'sha256-EP/Hxej0o558QBQyv5ocl37J48KFjcI8QYcf+XoVvSQ=' 'sha256-H+KuAxumV8Uq26WybgLtPk2Pg+OxAEZx/4z6nQ6XxqM=' 'sha256-L5isiUL5mVTeU1BvL+97uOKAgWg7ZSGolJ0Wp4z/x5k=' 'sha256-VAoRvH5X5+PGRNlXlTvjVxgpY3uRqcr+SMXiQGiX4us=' 'sha256-VLn05fM4LtqlyRRt/+fPSc9LC4AsLcYaXR+iEHxYO0w=' 'sha256-WuZFxx6L2FBm1VTpWlkclFhrgkmmRUQYqNn0pMaWU7U=' 'sha256-dQyXglDKI9Qh30Zlg77C+d8hXrATMStCYz4A9JAjxLY=' 'sha256-kN/E+P035UBgDfcuX4YkJJUqmi47cnItXoBVd/nJcxA=' 'sha256-u9FBptH4POThmVSDNoFlOmaX4eibLPJTRUfIYECVfp0='; style-src 'self' 'sha256-TqMrWmBIyC9pBldcgLu8TIZVQ3mHkO3q2Dzj0yJaN5U='; worker-src 'self'; upgrade-insecure-requests",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=31536000",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "content-type": "text/html; charset=utf-8"
+    },
+    {
+      "cache-control": "public, max-age=31536000, immutable",
+      "content-security-policy": "default-src 'self'; base-uri 'none'; connect-src 'self'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; img-src 'self' data: blob:; manifest-src 'self'; media-src https://dn721204.ca.archive.org; object-src 'none'; script-src 'self' 'sha256-3VeQnkimSKLdOsPrVac9yDeXm8QXkaFRcjW11E/lCi8=' 'sha256-4+DUuV1nfDmnCxNkHmLYCj4PcrvXrCtobvqIljG8OFo=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-78NbkatXW+zvVNZ0c6K5E3vAL8qe6EOZyWW0+VVm/aY=' 'sha256-EP/Hxej0o558QBQyv5ocl37J48KFjcI8QYcf+XoVvSQ=' 'sha256-H+KuAxumV8Uq26WybgLtPk2Pg+OxAEZx/4z6nQ6XxqM=' 'sha256-L5isiUL5mVTeU1BvL+97uOKAgWg7ZSGolJ0Wp4z/x5k=' 'sha256-VAoRvH5X5+PGRNlXlTvjVxgpY3uRqcr+SMXiQGiX4us=' 'sha256-VLn05fM4LtqlyRRt/+fPSc9LC4AsLcYaXR+iEHxYO0w=' 'sha256-WuZFxx6L2FBm1VTpWlkclFhrgkmmRUQYqNn0pMaWU7U=' 'sha256-dQyXglDKI9Qh30Zlg77C+d8hXrATMStCYz4A9JAjxLY=' 'sha256-kN/E+P035UBgDfcuX4YkJJUqmi47cnItXoBVd/nJcxA=' 'sha256-u9FBptH4POThmVSDNoFlOmaX4eibLPJTRUfIYECVfp0='; style-src 'self' 'sha256-TqMrWmBIyC9pBldcgLu8TIZVQ3mHkO3q2Dzj0yJaN5U='; worker-src 'self'; upgrade-insecure-requests",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=31536000",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "content-type": "application/json; charset=utf-8"
+    },
+    {
+      "cache-control": "public, max-age=31536000, immutable",
+      "content-security-policy": "default-src 'self'; base-uri 'none'; connect-src 'self'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; img-src 'self' data: blob:; manifest-src 'self'; media-src https://dn721204.ca.archive.org; object-src 'none'; script-src 'self' 'sha256-3VeQnkimSKLdOsPrVac9yDeXm8QXkaFRcjW11E/lCi8=' 'sha256-4+DUuV1nfDmnCxNkHmLYCj4PcrvXrCtobvqIljG8OFo=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-78NbkatXW+zvVNZ0c6K5E3vAL8qe6EOZyWW0+VVm/aY=' 'sha256-EP/Hxej0o558QBQyv5ocl37J48KFjcI8QYcf+XoVvSQ=' 'sha256-H+KuAxumV8Uq26WybgLtPk2Pg+OxAEZx/4z6nQ6XxqM=' 'sha256-L5isiUL5mVTeU1BvL+97uOKAgWg7ZSGolJ0Wp4z/x5k=' 'sha256-VAoRvH5X5+PGRNlXlTvjVxgpY3uRqcr+SMXiQGiX4us=' 'sha256-VLn05fM4LtqlyRRt/+fPSc9LC4AsLcYaXR+iEHxYO0w=' 'sha256-WuZFxx6L2FBm1VTpWlkclFhrgkmmRUQYqNn0pMaWU7U=' 'sha256-dQyXglDKI9Qh30Zlg77C+d8hXrATMStCYz4A9JAjxLY=' 'sha256-kN/E+P035UBgDfcuX4YkJJUqmi47cnItXoBVd/nJcxA=' 'sha256-u9FBptH4POThmVSDNoFlOmaX4eibLPJTRUfIYECVfp0='; style-src 'self' 'sha256-TqMrWmBIyC9pBldcgLu8TIZVQ3mHkO3q2Dzj0yJaN5U='; worker-src 'self'; upgrade-insecure-requests",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=31536000",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "content-type": "text/javascript; charset=utf-8"
+    },
+    {
+      "cache-control": "public, max-age=31536000, immutable",
+      "content-security-policy": "default-src 'self'; base-uri 'none'; connect-src 'self'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; img-src 'self' data: blob:; manifest-src 'self'; media-src https://dn721204.ca.archive.org; object-src 'none'; script-src 'self' 'sha256-3VeQnkimSKLdOsPrVac9yDeXm8QXkaFRcjW11E/lCi8=' 'sha256-4+DUuV1nfDmnCxNkHmLYCj4PcrvXrCtobvqIljG8OFo=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-78NbkatXW+zvVNZ0c6K5E3vAL8qe6EOZyWW0+VVm/aY=' 'sha256-EP/Hxej0o558QBQyv5ocl37J48KFjcI8QYcf+XoVvSQ=' 'sha256-H+KuAxumV8Uq26WybgLtPk2Pg+OxAEZx/4z6nQ6XxqM=' 'sha256-L5isiUL5mVTeU1BvL+97uOKAgWg7ZSGolJ0Wp4z/x5k=' 'sha256-VAoRvH5X5+PGRNlXlTvjVxgpY3uRqcr+SMXiQGiX4us=' 'sha256-VLn05fM4LtqlyRRt/+fPSc9LC4AsLcYaXR+iEHxYO0w=' 'sha256-WuZFxx6L2FBm1VTpWlkclFhrgkmmRUQYqNn0pMaWU7U=' 'sha256-dQyXglDKI9Qh30Zlg77C+d8hXrATMStCYz4A9JAjxLY=' 'sha256-kN/E+P035UBgDfcuX4YkJJUqmi47cnItXoBVd/nJcxA=' 'sha256-u9FBptH4POThmVSDNoFlOmaX4eibLPJTRUfIYECVfp0='; style-src 'self' 'sha256-TqMrWmBIyC9pBldcgLu8TIZVQ3mHkO3q2Dzj0yJaN5U='; worker-src 'self'; upgrade-insecure-requests",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=31536000",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "content-type": "text/css; charset=utf-8"
+    },
+    {
+      "cache-control": "public, max-age=31536000, immutable",
+      "content-security-policy": "default-src 'self'; base-uri 'none'; connect-src 'self'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; img-src 'self' data: blob:; manifest-src 'self'; media-src https://dn721204.ca.archive.org; object-src 'none'; script-src 'self' 'sha256-3VeQnkimSKLdOsPrVac9yDeXm8QXkaFRcjW11E/lCi8=' 'sha256-4+DUuV1nfDmnCxNkHmLYCj4PcrvXrCtobvqIljG8OFo=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-78NbkatXW+zvVNZ0c6K5E3vAL8qe6EOZyWW0+VVm/aY=' 'sha256-EP/Hxej0o558QBQyv5ocl37J48KFjcI8QYcf+XoVvSQ=' 'sha256-H+KuAxumV8Uq26WybgLtPk2Pg+OxAEZx/4z6nQ6XxqM=' 'sha256-L5isiUL5mVTeU1BvL+97uOKAgWg7ZSGolJ0Wp4z/x5k=' 'sha256-VAoRvH5X5+PGRNlXlTvjVxgpY3uRqcr+SMXiQGiX4us=' 'sha256-VLn05fM4LtqlyRRt/+fPSc9LC4AsLcYaXR+iEHxYO0w=' 'sha256-WuZFxx6L2FBm1VTpWlkclFhrgkmmRUQYqNn0pMaWU7U=' 'sha256-dQyXglDKI9Qh30Zlg77C+d8hXrATMStCYz4A9JAjxLY=' 'sha256-kN/E+P035UBgDfcuX4YkJJUqmi47cnItXoBVd/nJcxA=' 'sha256-u9FBptH4POThmVSDNoFlOmaX4eibLPJTRUfIYECVfp0='; style-src 'self' 'sha256-TqMrWmBIyC9pBldcgLu8TIZVQ3mHkO3q2Dzj0yJaN5U='; worker-src 'self'; upgrade-insecure-requests",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=31536000",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "content-type": "image/png"
+    },
+    {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; base-uri 'none'; connect-src 'self'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; img-src 'self' data: blob:; manifest-src 'self'; media-src https://dn721204.ca.archive.org; object-src 'none'; script-src 'self' 'sha256-3VeQnkimSKLdOsPrVac9yDeXm8QXkaFRcjW11E/lCi8=' 'sha256-4+DUuV1nfDmnCxNkHmLYCj4PcrvXrCtobvqIljG8OFo=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-78NbkatXW+zvVNZ0c6K5E3vAL8qe6EOZyWW0+VVm/aY=' 'sha256-EP/Hxej0o558QBQyv5ocl37J48KFjcI8QYcf+XoVvSQ=' 'sha256-H+KuAxumV8Uq26WybgLtPk2Pg+OxAEZx/4z6nQ6XxqM=' 'sha256-L5isiUL5mVTeU1BvL+97uOKAgWg7ZSGolJ0Wp4z/x5k=' 'sha256-VAoRvH5X5+PGRNlXlTvjVxgpY3uRqcr+SMXiQGiX4us=' 'sha256-VLn05fM4LtqlyRRt/+fPSc9LC4AsLcYaXR+iEHxYO0w=' 'sha256-WuZFxx6L2FBm1VTpWlkclFhrgkmmRUQYqNn0pMaWU7U=' 'sha256-dQyXglDKI9Qh30Zlg77C+d8hXrATMStCYz4A9JAjxLY=' 'sha256-kN/E+P035UBgDfcuX4YkJJUqmi47cnItXoBVd/nJcxA=' 'sha256-u9FBptH4POThmVSDNoFlOmaX4eibLPJTRUfIYECVfp0='; style-src 'self' 'sha256-TqMrWmBIyC9pBldcgLu8TIZVQ3mHkO3q2Dzj0yJaN5U='; worker-src 'self'; upgrade-insecure-requests",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=31536000",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "content-type": "text/plain; charset=utf-8"
+    },
+    {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; base-uri 'none'; connect-src 'self'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; img-src 'self' data: blob:; manifest-src 'self'; media-src https://dn721204.ca.archive.org; object-src 'none'; script-src 'self' 'sha256-3VeQnkimSKLdOsPrVac9yDeXm8QXkaFRcjW11E/lCi8=' 'sha256-4+DUuV1nfDmnCxNkHmLYCj4PcrvXrCtobvqIljG8OFo=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-78NbkatXW+zvVNZ0c6K5E3vAL8qe6EOZyWW0+VVm/aY=' 'sha256-EP/Hxej0o558QBQyv5ocl37J48KFjcI8QYcf+XoVvSQ=' 'sha256-H+KuAxumV8Uq26WybgLtPk2Pg+OxAEZx/4z6nQ6XxqM=' 'sha256-L5isiUL5mVTeU1BvL+97uOKAgWg7ZSGolJ0Wp4z/x5k=' 'sha256-VAoRvH5X5+PGRNlXlTvjVxgpY3uRqcr+SMXiQGiX4us=' 'sha256-VLn05fM4LtqlyRRt/+fPSc9LC4AsLcYaXR+iEHxYO0w=' 'sha256-WuZFxx6L2FBm1VTpWlkclFhrgkmmRUQYqNn0pMaWU7U=' 'sha256-dQyXglDKI9Qh30Zlg77C+d8hXrATMStCYz4A9JAjxLY=' 'sha256-kN/E+P035UBgDfcuX4YkJJUqmi47cnItXoBVd/nJcxA=' 'sha256-u9FBptH4POThmVSDNoFlOmaX4eibLPJTRUfIYECVfp0='; style-src 'self' 'sha256-TqMrWmBIyC9pBldcgLu8TIZVQ3mHkO3q2Dzj0yJaN5U='; worker-src 'self'; upgrade-insecure-requests",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=31536000",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "content-type": "application/xml; charset=utf-8"
+    },
+    {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; base-uri 'none'; connect-src 'self'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; img-src 'self' data: blob:; manifest-src 'self'; media-src https://dn721204.ca.archive.org; object-src 'none'; script-src 'self' 'sha256-3VeQnkimSKLdOsPrVac9yDeXm8QXkaFRcjW11E/lCi8=' 'sha256-4+DUuV1nfDmnCxNkHmLYCj4PcrvXrCtobvqIljG8OFo=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-78NbkatXW+zvVNZ0c6K5E3vAL8qe6EOZyWW0+VVm/aY=' 'sha256-EP/Hxej0o558QBQyv5ocl37J48KFjcI8QYcf+XoVvSQ=' 'sha256-H+KuAxumV8Uq26WybgLtPk2Pg+OxAEZx/4z6nQ6XxqM=' 'sha256-L5isiUL5mVTeU1BvL+97uOKAgWg7ZSGolJ0Wp4z/x5k=' 'sha256-VAoRvH5X5+PGRNlXlTvjVxgpY3uRqcr+SMXiQGiX4us=' 'sha256-VLn05fM4LtqlyRRt/+fPSc9LC4AsLcYaXR+iEHxYO0w=' 'sha256-WuZFxx6L2FBm1VTpWlkclFhrgkmmRUQYqNn0pMaWU7U=' 'sha256-dQyXglDKI9Qh30Zlg77C+d8hXrATMStCYz4A9JAjxLY=' 'sha256-kN/E+P035UBgDfcuX4YkJJUqmi47cnItXoBVd/nJcxA=' 'sha256-u9FBptH4POThmVSDNoFlOmaX4eibLPJTRUfIYECVfp0='; style-src 'self' 'sha256-TqMrWmBIyC9pBldcgLu8TIZVQ3mHkO3q2Dzj0yJaN5U='; worker-src 'self'; upgrade-insecure-requests",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "referrer-policy": "no-referrer",
+      "service-worker-allowed": "/",
+      "strict-transport-security": "max-age=31536000",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "content-type": "text/javascript; charset=utf-8"
+    },
+    {
+      "access-control-allow-origin": "*",
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; base-uri 'none'; connect-src 'self'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; img-src 'self' data: blob:; manifest-src 'self'; media-src https://dn721204.ca.archive.org; object-src 'none'; script-src 'self' 'sha256-3VeQnkimSKLdOsPrVac9yDeXm8QXkaFRcjW11E/lCi8=' 'sha256-4+DUuV1nfDmnCxNkHmLYCj4PcrvXrCtobvqIljG8OFo=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-78NbkatXW+zvVNZ0c6K5E3vAL8qe6EOZyWW0+VVm/aY=' 'sha256-EP/Hxej0o558QBQyv5ocl37J48KFjcI8QYcf+XoVvSQ=' 'sha256-H+KuAxumV8Uq26WybgLtPk2Pg+OxAEZx/4z6nQ6XxqM=' 'sha256-L5isiUL5mVTeU1BvL+97uOKAgWg7ZSGolJ0Wp4z/x5k=' 'sha256-VAoRvH5X5+PGRNlXlTvjVxgpY3uRqcr+SMXiQGiX4us=' 'sha256-VLn05fM4LtqlyRRt/+fPSc9LC4AsLcYaXR+iEHxYO0w=' 'sha256-WuZFxx6L2FBm1VTpWlkclFhrgkmmRUQYqNn0pMaWU7U=' 'sha256-dQyXglDKI9Qh30Zlg77C+d8hXrATMStCYz4A9JAjxLY=' 'sha256-kN/E+P035UBgDfcuX4YkJJUqmi47cnItXoBVd/nJcxA=' 'sha256-u9FBptH4POThmVSDNoFlOmaX4eibLPJTRUfIYECVfp0='; style-src 'self' 'sha256-TqMrWmBIyC9pBldcgLu8TIZVQ3mHkO3q2Dzj0yJaN5U='; worker-src 'self'; upgrade-insecure-requests",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "cross-origin",
+      "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=31536000",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "content-type": "application/json; charset=utf-8"
+    },
+    {
+      "access-control-allow-origin": "*",
+      "cache-control": "public, max-age=31536000, immutable",
+      "content-security-policy": "default-src 'self'; base-uri 'none'; connect-src 'self'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; img-src 'self' data: blob:; manifest-src 'self'; media-src https://dn721204.ca.archive.org; object-src 'none'; script-src 'self' 'sha256-3VeQnkimSKLdOsPrVac9yDeXm8QXkaFRcjW11E/lCi8=' 'sha256-4+DUuV1nfDmnCxNkHmLYCj4PcrvXrCtobvqIljG8OFo=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-78NbkatXW+zvVNZ0c6K5E3vAL8qe6EOZyWW0+VVm/aY=' 'sha256-EP/Hxej0o558QBQyv5ocl37J48KFjcI8QYcf+XoVvSQ=' 'sha256-H+KuAxumV8Uq26WybgLtPk2Pg+OxAEZx/4z6nQ6XxqM=' 'sha256-L5isiUL5mVTeU1BvL+97uOKAgWg7ZSGolJ0Wp4z/x5k=' 'sha256-VAoRvH5X5+PGRNlXlTvjVxgpY3uRqcr+SMXiQGiX4us=' 'sha256-VLn05fM4LtqlyRRt/+fPSc9LC4AsLcYaXR+iEHxYO0w=' 'sha256-WuZFxx6L2FBm1VTpWlkclFhrgkmmRUQYqNn0pMaWU7U=' 'sha256-dQyXglDKI9Qh30Zlg77C+d8hXrATMStCYz4A9JAjxLY=' 'sha256-kN/E+P035UBgDfcuX4YkJJUqmi47cnItXoBVd/nJcxA=' 'sha256-u9FBptH4POThmVSDNoFlOmaX4eibLPJTRUfIYECVfp0='; style-src 'self' 'sha256-TqMrWmBIyC9pBldcgLu8TIZVQ3mHkO3q2Dzj0yJaN5U='; worker-src 'self'; upgrade-insecure-requests",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "cross-origin",
+      "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=31536000",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "content-type": "application/json; charset=utf-8"
+    }
+  ],
+  "own": {
+    "observedAtUTC": "2026-09-30T23:17:43.976Z",
+    "files": [
+      {
+        "path": "article-publication-manifest.json",
+        "httpStatus": 200,
+        "bytes": 5946,
+        "sha256": "dfd8a56c07709cefe82aa957fa020384f914ad27a8697aa272151a967ae03a30",
+        "observedAtUTC": "2026-09-30T23:17:41.090Z",
+        "headerProfile": 0
+      },
+      {
+        "path": "articles/wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c/index.html",
+        "httpStatus": 200,
+        "bytes": 13852,
+        "sha256": "6e6fb4338b9808a7d2d13ce5736dff640a45d3346c92678ed76cf80eb0c637bc",
+        "observedAtUTC": "2026-09-30T23:17:41.105Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-612a467e3e256a336d6bb635ba3516d0/index.html",
+        "httpStatus": 200,
+        "bytes": 170365,
+        "sha256": "57c42e8e095b40ceee9ef9b9388186277269e46b8bf4f7891202612b420081f4",
+        "observedAtUTC": "2026-09-30T23:17:41.307Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-67bca5d4b29dab78f8ae26ccd996a9d8/index.html",
+        "httpStatus": 200,
+        "bytes": 25237,
+        "sha256": "2be9b1f542bc80676aa4502d8828b05bc04c525292320437ab4863fdec58b6d5",
+        "observedAtUTC": "2026-09-30T23:17:41.109Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-8a5c375e96abe85721e4ba918c3f73e2/index.html",
+        "httpStatus": 200,
+        "bytes": 18777,
+        "sha256": "bec2c15e7eb86f262013336cdc3067ffe08e3a520bb71d6c9ff5e1a991c3ab74",
+        "observedAtUTC": "2026-09-30T23:17:41.096Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-a772ab86c915a036c6177f1bfe958d4d/index.html",
+        "httpStatus": 200,
+        "bytes": 218496,
+        "sha256": "53a2940101579c19e1a3139e8fde7f7effef079d357b2c659f92c330a020d897",
+        "observedAtUTC": "2026-09-30T23:17:41.323Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-ba76ef8b7afb34885bd5f64bc7135f6c/index.html",
+        "httpStatus": 200,
+        "bytes": 20784,
+        "sha256": "f91341a9ea8c91a7556eb8ca9a222951d1b788ef7047a426688dfcf01b4f2ccd",
+        "observedAtUTC": "2026-09-30T23:17:41.583Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-bdb90712e1c72ee72293c70904b50889/index.html",
+        "httpStatus": 200,
+        "bytes": 267350,
+        "sha256": "85070b91f9b11e3e6a9954c42291ee1cad8062c7fa7759475446ae414a06f798",
+        "observedAtUTC": "2026-09-30T23:17:41.807Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-c273494fad3a4c822cb7655ec5e157ef/index.html",
+        "httpStatus": 200,
+        "bytes": 261922,
+        "sha256": "208577a9815439fa08ba9a6a32c6b789e509a8f4a514a7ca7b1c4cdf4ba4f261",
+        "observedAtUTC": "2026-09-30T23:17:41.663Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-c6c6c2fd56d7a3965b4da062d0f73981/index.html",
+        "httpStatus": 200,
+        "bytes": 14317,
+        "sha256": "48e851cf5a6f29a75e81117e4137413b56a7b3769cc2f448557b1af33d09b305",
+        "observedAtUTC": "2026-09-30T23:17:41.591Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-d96004b71171145d4aab1c6e37eb28ca/index.html",
+        "httpStatus": 200,
+        "bytes": 10468,
+        "sha256": "c5ae06dedd9ae4d6a21930cca4e5c751328151a759d2849e025d78b033b63b9e",
+        "observedAtUTC": "2026-09-30T23:17:41.576Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-e9c523735fe8b7a61922b09d2bcc84fb/index.html",
+        "httpStatus": 200,
+        "bytes": 110077,
+        "sha256": "3c00081c81696c1ca03e107795674b4654104b5e5cf511894fcadd6b49d201c4",
+        "observedAtUTC": "2026-09-30T23:17:41.598Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-f2ad391804423c87773b3351eb79c802/index.html",
+        "httpStatus": 200,
+        "bytes": 199637,
+        "sha256": "9b3d3dfd4b03dc4a045b6cae5e5776966f2f9b2e21490c61b9188731d4191ceb",
+        "observedAtUTC": "2026-09-30T23:17:42.263Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "assets/content-directory-v1-BYqcvYL_.json",
+        "httpStatus": 200,
+        "bytes": 1923594,
+        "sha256": "72fea07011df07b18ea274524530a53bc6485b1b17f575c050d8e4857bbf71ff",
+        "observedAtUTC": "2026-09-30T23:17:42.144Z",
+        "headerProfile": 2
+      },
+      {
+        "path": "assets/index-D1tHYQ7a.js",
+        "httpStatus": 200,
+        "bytes": 162587,
+        "sha256": "b53516d1e8fa87f27e777b085109c57fd779038b5c0fbf01499d479c44b6d72e",
+        "observedAtUTC": "2026-09-30T23:17:42.065Z",
+        "headerProfile": 3
+      },
+      {
+        "path": "assets/index-DvAbKicR.css",
+        "httpStatus": 200,
+        "bytes": 69393,
+        "sha256": "432b125d1da71524d765b9467444f1b204b973d2e4936204ea11005f764f7e35",
+        "observedAtUTC": "2026-09-30T23:17:42.084Z",
+        "headerProfile": 4
+      },
+      {
+        "path": "assets/legacy-knowledge-v1-mfukn68x.json",
+        "httpStatus": 200,
+        "bytes": 462654,
+        "sha256": "26eb4c118d0483788f07ef0b103c97e1cf53fbf75d36a61ae47456146240726b",
+        "observedAtUTC": "2026-09-30T23:17:42.182Z",
+        "headerProfile": 2
+      },
+      {
+        "path": "assets/legacy-support-v1-CKf2hNYO.json",
+        "httpStatus": 200,
+        "bytes": 41012,
+        "sha256": "9bfaced898bcabca449ab7a9e75db1c7bf5caba496eabae01268a58630039525",
+        "observedAtUTC": "2026-09-30T23:17:42.060Z",
+        "headerProfile": 2
+      },
+      {
+        "path": "assets/production-events-media-v1-DqjyU-f0.json",
+        "httpStatus": 200,
+        "bytes": 3317607,
+        "sha256": "003c32358ebe0d5ad22fb9c0b059bf82c242aa0b99a4d869fb67960c86acdc07",
+        "observedAtUTC": "2026-09-30T23:17:42.749Z",
+        "headerProfile": 2
+      },
+      {
+        "path": "assets/react-vendor-YahHAMAi.js",
+        "httpStatus": 200,
+        "bytes": 189620,
+        "sha256": "c5f08825cdca736a015fe6303f97a64ec1e4511a38b5f2f6f589ecb35e815c65",
+        "observedAtUTC": "2026-09-30T23:17:42.517Z",
+        "headerProfile": 3
+      },
+      {
+        "path": "assets/solinaridao-header-mark-filled-D7vg3enZ.png",
+        "httpStatus": 200,
+        "bytes": 1123871,
+        "sha256": "9dca207bc008384ef45cf435a134bf170037ae0149d27c43c732b754912b61b9",
+        "observedAtUTC": "2026-09-30T23:17:42.704Z",
+        "headerProfile": 5
+      },
+      {
+        "path": "assets/wrn-browser-runtime--mSyaIxC.css",
+        "httpStatus": 200,
+        "bytes": 22062,
+        "sha256": "050886f4b2b5aa1221a6b41e2a1016316a350b8a857cc1e73b1e97f3f49e4d46",
+        "observedAtUTC": "2026-09-30T23:17:42.524Z",
+        "headerProfile": 4
+      },
+      {
+        "path": "assets/wrn-browser-runtime-CUU7bftF.js",
+        "httpStatus": 200,
+        "bytes": 267628,
+        "sha256": "90f619af7a0f2ed214d766011a51658c082c020f7fc86384ad164f564782bb20",
+        "observedAtUTC": "2026-09-30T23:17:42.559Z",
+        "headerProfile": 3
+      },
+      {
+        "path": "assets/wrn-content-core-DHcBcW6g.js",
+        "httpStatus": 200,
+        "bytes": 152898,
+        "sha256": "572929166f463a8ddebf7ef66687458b27fad96a2a97253cf527245ff8eb54d6",
+        "observedAtUTC": "2026-09-30T23:17:42.521Z",
+        "headerProfile": 3
+      },
+      {
+        "path": "assets/wrn-future-header-white-D5q8hgPK.png",
+        "httpStatus": 200,
+        "bytes": 212123,
+        "sha256": "9da0e22936304a30a55ba1483c2305c6ad6c3b1a057341af2ab3b16fe98a5e2f",
+        "observedAtUTC": "2026-09-30T23:17:43.005Z",
+        "headerProfile": 5
+      },
+      {
+        "path": "assets/wrn-language-DlPVnXrh.js",
+        "httpStatus": 200,
+        "bytes": 418517,
+        "sha256": "9fc03e2601190a116a77ee490f6fc13b58a265d1f9fd22dd78fb806cd0514cd7",
+        "observedAtUTC": "2026-09-30T23:17:43.015Z",
+        "headerProfile": 3
+      },
+      {
+        "path": "index.html",
+        "httpStatus": 200,
+        "bytes": 2319,
+        "sha256": "f2f581ce03f1bdb1f49e4d22df225c3fb1b8988fcf4131d564d2b74a7a071f06",
+        "observedAtUTC": "2026-09-30T23:17:42.997Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "robots.txt",
+        "httpStatus": 200,
+        "bytes": 68,
+        "sha256": "44614f978d8565d1fec4e418bd48a8e2d990c326c6c82aac4ced480d94558e17",
+        "observedAtUTC": "2026-09-30T23:17:43.005Z",
+        "headerProfile": 6
+      },
+      {
+        "path": "sitemap.xml",
+        "httpStatus": 200,
+        "bytes": 1646,
+        "sha256": "14dff9adf32197a7cab90a62df217c111356c406e820aba72345ca18af378a20",
+        "observedAtUTC": "2026-09-30T23:17:42.998Z",
+        "headerProfile": 7
+      },
+      {
+        "path": "website-shell-sw.js",
+        "httpStatus": 200,
+        "bytes": 27139,
+        "sha256": "af2569bd4bf24e994585aba08665fd1b3073b899f918ce1ead66346c875265e6",
+        "observedAtUTC": "2026-09-30T23:17:42.999Z",
+        "headerProfile": 8
+      },
+      {
+        "path": "wrn-content-directory/current.json",
+        "httpStatus": 200,
+        "bytes": 512,
+        "sha256": "437228ff555434a3fa78308db8d53126d747913f8097d9ba881401a0c86a2bfa",
+        "observedAtUTC": "2026-09-30T23:17:43.272Z",
+        "headerProfile": 9
+      },
+      {
+        "path": "wrn-content-directory/snapshots/directory-202609301530-72fea07011df07b18ea274524530a53bc6485b1b17f575c050d8e4857bbf71ff.json",
+        "httpStatus": 200,
+        "bytes": 1923594,
+        "sha256": "72fea07011df07b18ea274524530a53bc6485b1b17f575c050d8e4857bbf71ff",
+        "observedAtUTC": "2026-09-30T23:17:43.304Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-production-content/current.json",
+        "httpStatus": 200,
+        "bytes": 276,
+        "sha256": "16c1644e9f4205e334279f206d1d63202603d22adbd47edeb17175e7a65cf8be",
+        "observedAtUTC": "2026-09-30T23:17:43.267Z",
+        "headerProfile": 9
+      },
+      {
+        "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/admission.json",
+        "httpStatus": 200,
+        "bytes": 16160,
+        "sha256": "b726c4bc5d669fca1551e2fd736575050b72413e6f25f724ae4947174aded02e",
+        "observedAtUTC": "2026-09-30T23:17:43.277Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/archive-lifecycle.json",
+        "httpStatus": 200,
+        "bytes": 1822,
+        "sha256": "327d6a623739815db43479471fab25b95bb4038b13145b8c7944f4df20fe8982",
+        "observedAtUTC": "2026-09-30T23:17:43.263Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/articles.json",
+        "httpStatus": 200,
+        "bytes": 18685,
+        "sha256": "4edd91969f49ff079e23183dec13eae3633f51157dd87b41c9f895f93c09a584",
+        "observedAtUTC": "2026-09-30T23:17:43.267Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/discover-index.json",
+        "httpStatus": 200,
+        "bytes": 1964,
+        "sha256": "74a42a185d31c85def388f0a5b767d9249ba857af1ce6249b1cc8cba42135433",
+        "observedAtUTC": "2026-09-30T23:17:43.542Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/manifest.json",
+        "httpStatus": 200,
+        "bytes": 1445,
+        "sha256": "3a397f3b6b9fc912ca92f40bf4942bd072b662b551ccce45ace28cc9a2e8e32e",
+        "observedAtUTC": "2026-09-30T23:17:43.551Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/reader-details.json",
+        "httpStatus": 200,
+        "bytes": 1243454,
+        "sha256": "6b841a0971e18667325d110601a4c67eca6cf1ac214f023024d521d3126cb079",
+        "observedAtUTC": "2026-09-30T23:17:43.722Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/release-descriptor.json",
+        "httpStatus": 200,
+        "bytes": 880,
+        "sha256": "811530a2973bcb4a965b81376f0931d9b3b7ea24a7e32d0f78c481d71e72064f",
+        "observedAtUTC": "2026-09-30T23:17:43.708Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/website-publication.json",
+        "httpStatus": 200,
+        "bytes": 2003,
+        "sha256": "45c62aeb8a11fa82391e342dd5f660a395cdf0935d47536b2c7c88ee8507ecd2",
+        "observedAtUTC": "2026-09-30T23:17:43.705Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-source-pass-revocations/current.json",
+        "httpStatus": 200,
+        "bytes": 161,
+        "sha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617",
+        "observedAtUTC": "2026-09-30T23:17:43.546Z",
+        "headerProfile": 9
+      },
+      {
+        "path": "wrn-source-passes/current.json",
+        "httpStatus": 200,
+        "bytes": 83783,
+        "sha256": "bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa",
+        "observedAtUTC": "2026-09-30T23:17:43.961Z",
+        "headerProfile": 0
+      }
+    ]
+  },
+  "independent": {
+    "observedAtUTC": "2026-09-30T23:20:16.040Z",
+    "controllerThread": "019ff285-63dc-7ed2-88a8-cab5f06ed26e",
+    "files": [
+      {
+        "path": "article-publication-manifest.json",
+        "httpStatus": 200,
+        "bytes": 5946,
+        "sha256": "dfd8a56c07709cefe82aa957fa020384f914ad27a8697aa272151a967ae03a30",
+        "observedAtUTC": "2026-09-30T23:20:13.509Z",
+        "headerProfile": 0
+      },
+      {
+        "path": "articles/wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c/index.html",
+        "httpStatus": 200,
+        "bytes": 13852,
+        "sha256": "6e6fb4338b9808a7d2d13ce5736dff640a45d3346c92678ed76cf80eb0c637bc",
+        "observedAtUTC": "2026-09-30T23:20:13.480Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-612a467e3e256a336d6bb635ba3516d0/index.html",
+        "httpStatus": 200,
+        "bytes": 170365,
+        "sha256": "57c42e8e095b40ceee9ef9b9388186277269e46b8bf4f7891202612b420081f4",
+        "observedAtUTC": "2026-09-30T23:20:13.648Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-67bca5d4b29dab78f8ae26ccd996a9d8/index.html",
+        "httpStatus": 200,
+        "bytes": 25237,
+        "sha256": "2be9b1f542bc80676aa4502d8828b05bc04c525292320437ab4863fdec58b6d5",
+        "observedAtUTC": "2026-09-30T23:20:13.552Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-8a5c375e96abe85721e4ba918c3f73e2/index.html",
+        "httpStatus": 200,
+        "bytes": 18777,
+        "sha256": "bec2c15e7eb86f262013336cdc3067ffe08e3a520bb71d6c9ff5e1a991c3ab74",
+        "observedAtUTC": "2026-09-30T23:20:13.477Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-a772ab86c915a036c6177f1bfe958d4d/index.html",
+        "httpStatus": 200,
+        "bytes": 218496,
+        "sha256": "53a2940101579c19e1a3139e8fde7f7effef079d357b2c659f92c330a020d897",
+        "observedAtUTC": "2026-09-30T23:20:13.724Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-ba76ef8b7afb34885bd5f64bc7135f6c/index.html",
+        "httpStatus": 200,
+        "bytes": 20784,
+        "sha256": "f91341a9ea8c91a7556eb8ca9a222951d1b788ef7047a426688dfcf01b4f2ccd",
+        "observedAtUTC": "2026-09-30T23:20:13.971Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-bdb90712e1c72ee72293c70904b50889/index.html",
+        "httpStatus": 200,
+        "bytes": 267350,
+        "sha256": "85070b91f9b11e3e6a9954c42291ee1cad8062c7fa7759475446ae414a06f798",
+        "observedAtUTC": "2026-09-30T23:20:14.201Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-c273494fad3a4c822cb7655ec5e157ef/index.html",
+        "httpStatus": 200,
+        "bytes": 261922,
+        "sha256": "208577a9815439fa08ba9a6a32c6b789e509a8f4a514a7ca7b1c4cdf4ba4f261",
+        "observedAtUTC": "2026-09-30T23:20:14.058Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-c6c6c2fd56d7a3965b4da062d0f73981/index.html",
+        "httpStatus": 200,
+        "bytes": 14317,
+        "sha256": "48e851cf5a6f29a75e81117e4137413b56a7b3769cc2f448557b1af33d09b305",
+        "observedAtUTC": "2026-09-30T23:20:13.976Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-d96004b71171145d4aab1c6e37eb28ca/index.html",
+        "httpStatus": 200,
+        "bytes": 10468,
+        "sha256": "c5ae06dedd9ae4d6a21930cca4e5c751328151a759d2849e025d78b033b63b9e",
+        "observedAtUTC": "2026-09-30T23:20:13.967Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-e9c523735fe8b7a61922b09d2bcc84fb/index.html",
+        "httpStatus": 200,
+        "bytes": 110077,
+        "sha256": "3c00081c81696c1ca03e107795674b4654104b5e5cf511894fcadd6b49d201c4",
+        "observedAtUTC": "2026-09-30T23:20:14.005Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "articles/wrn-art-f2ad391804423c87773b3351eb79c802/index.html",
+        "httpStatus": 200,
+        "bytes": 199637,
+        "sha256": "9b3d3dfd4b03dc4a045b6cae5e5776966f2f9b2e21490c61b9188731d4191ceb",
+        "observedAtUTC": "2026-09-30T23:20:14.628Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "assets/content-directory-v1-BYqcvYL_.json",
+        "httpStatus": 200,
+        "bytes": 1923594,
+        "sha256": "72fea07011df07b18ea274524530a53bc6485b1b17f575c050d8e4857bbf71ff",
+        "observedAtUTC": "2026-09-30T23:20:14.347Z",
+        "headerProfile": 2
+      },
+      {
+        "path": "assets/index-D1tHYQ7a.js",
+        "httpStatus": 200,
+        "bytes": 162587,
+        "sha256": "b53516d1e8fa87f27e777b085109c57fd779038b5c0fbf01499d479c44b6d72e",
+        "observedAtUTC": "2026-09-30T23:20:14.278Z",
+        "headerProfile": 3
+      },
+      {
+        "path": "assets/index-DvAbKicR.css",
+        "httpStatus": 200,
+        "bytes": 69393,
+        "sha256": "432b125d1da71524d765b9467444f1b204b973d2e4936204ea11005f764f7e35",
+        "observedAtUTC": "2026-09-30T23:20:14.290Z",
+        "headerProfile": 4
+      },
+      {
+        "path": "assets/legacy-knowledge-v1-mfukn68x.json",
+        "httpStatus": 200,
+        "bytes": 462654,
+        "sha256": "26eb4c118d0483788f07ef0b103c97e1cf53fbf75d36a61ae47456146240726b",
+        "observedAtUTC": "2026-09-30T23:20:14.388Z",
+        "headerProfile": 2
+      },
+      {
+        "path": "assets/legacy-support-v1-CKf2hNYO.json",
+        "httpStatus": 200,
+        "bytes": 41012,
+        "sha256": "9bfaced898bcabca449ab7a9e75db1c7bf5caba496eabae01268a58630039525",
+        "observedAtUTC": "2026-09-30T23:20:14.279Z",
+        "headerProfile": 2
+      },
+      {
+        "path": "assets/production-events-media-v1-DqjyU-f0.json",
+        "httpStatus": 200,
+        "bytes": 3317607,
+        "sha256": "003c32358ebe0d5ad22fb9c0b059bf82c242aa0b99a4d869fb67960c86acdc07",
+        "observedAtUTC": "2026-09-30T23:20:14.928Z",
+        "headerProfile": 2
+      },
+      {
+        "path": "assets/react-vendor-YahHAMAi.js",
+        "httpStatus": 200,
+        "bytes": 189620,
+        "sha256": "c5f08825cdca736a015fe6303f97a64ec1e4511a38b5f2f6f589ecb35e815c65",
+        "observedAtUTC": "2026-09-30T23:20:14.873Z",
+        "headerProfile": 3
+      },
+      {
+        "path": "assets/solinaridao-header-mark-filled-D7vg3enZ.png",
+        "httpStatus": 200,
+        "bytes": 1123871,
+        "sha256": "9dca207bc008384ef45cf435a134bf170037ae0149d27c43c732b754912b61b9",
+        "observedAtUTC": "2026-09-30T23:20:14.887Z",
+        "headerProfile": 5
+      },
+      {
+        "path": "assets/wrn-browser-runtime--mSyaIxC.css",
+        "httpStatus": 200,
+        "bytes": 22062,
+        "sha256": "050886f4b2b5aa1221a6b41e2a1016316a350b8a857cc1e73b1e97f3f49e4d46",
+        "observedAtUTC": "2026-09-30T23:20:14.706Z",
+        "headerProfile": 4
+      },
+      {
+        "path": "assets/wrn-browser-runtime-CUU7bftF.js",
+        "httpStatus": 200,
+        "bytes": 267628,
+        "sha256": "90f619af7a0f2ed214d766011a51658c082c020f7fc86384ad164f564782bb20",
+        "observedAtUTC": "2026-09-30T23:20:14.752Z",
+        "headerProfile": 3
+      },
+      {
+        "path": "assets/wrn-content-core-DHcBcW6g.js",
+        "httpStatus": 200,
+        "bytes": 152898,
+        "sha256": "572929166f463a8ddebf7ef66687458b27fad96a2a97253cf527245ff8eb54d6",
+        "observedAtUTC": "2026-09-30T23:20:15.005Z",
+        "headerProfile": 3
+      },
+      {
+        "path": "assets/wrn-future-header-white-D5q8hgPK.png",
+        "httpStatus": 200,
+        "bytes": 212123,
+        "sha256": "9da0e22936304a30a55ba1483c2305c6ad6c3b1a057341af2ab3b16fe98a5e2f",
+        "observedAtUTC": "2026-09-30T23:20:15.084Z",
+        "headerProfile": 5
+      },
+      {
+        "path": "assets/wrn-language-DlPVnXrh.js",
+        "httpStatus": 200,
+        "bytes": 418517,
+        "sha256": "9fc03e2601190a116a77ee490f6fc13b58a265d1f9fd22dd78fb806cd0514cd7",
+        "observedAtUTC": "2026-09-30T23:20:15.265Z",
+        "headerProfile": 3
+      },
+      {
+        "path": "index.html",
+        "httpStatus": 200,
+        "bytes": 2319,
+        "sha256": "f2f581ce03f1bdb1f49e4d22df225c3fb1b8988fcf4131d564d2b74a7a071f06",
+        "observedAtUTC": "2026-09-30T23:20:15.242Z",
+        "headerProfile": 1
+      },
+      {
+        "path": "robots.txt",
+        "httpStatus": 200,
+        "bytes": 68,
+        "sha256": "44614f978d8565d1fec4e418bd48a8e2d990c326c6c82aac4ced480d94558e17",
+        "observedAtUTC": "2026-09-30T23:20:15.243Z",
+        "headerProfile": 6
+      },
+      {
+        "path": "sitemap.xml",
+        "httpStatus": 200,
+        "bytes": 1646,
+        "sha256": "14dff9adf32197a7cab90a62df217c111356c406e820aba72345ca18af378a20",
+        "observedAtUTC": "2026-09-30T23:20:15.263Z",
+        "headerProfile": 7
+      },
+      {
+        "path": "website-shell-sw.js",
+        "httpStatus": 200,
+        "bytes": 27139,
+        "sha256": "af2569bd4bf24e994585aba08665fd1b3073b899f918ce1ead66346c875265e6",
+        "observedAtUTC": "2026-09-30T23:20:15.261Z",
+        "headerProfile": 8
+      },
+      {
+        "path": "wrn-content-directory/current.json",
+        "httpStatus": 200,
+        "bytes": 512,
+        "sha256": "437228ff555434a3fa78308db8d53126d747913f8097d9ba881401a0c86a2bfa",
+        "observedAtUTC": "2026-09-30T23:20:15.501Z",
+        "headerProfile": 9
+      },
+      {
+        "path": "wrn-content-directory/snapshots/directory-202609301530-72fea07011df07b18ea274524530a53bc6485b1b17f575c050d8e4857bbf71ff.json",
+        "httpStatus": 200,
+        "bytes": 1923594,
+        "sha256": "72fea07011df07b18ea274524530a53bc6485b1b17f575c050d8e4857bbf71ff",
+        "observedAtUTC": "2026-09-30T23:20:15.362Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-production-content/current.json",
+        "httpStatus": 200,
+        "bytes": 276,
+        "sha256": "16c1644e9f4205e334279f206d1d63202603d22adbd47edeb17175e7a65cf8be",
+        "observedAtUTC": "2026-09-30T23:20:15.504Z",
+        "headerProfile": 9
+      },
+      {
+        "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/admission.json",
+        "httpStatus": 200,
+        "bytes": 16160,
+        "sha256": "b726c4bc5d669fca1551e2fd736575050b72413e6f25f724ae4947174aded02e",
+        "observedAtUTC": "2026-09-30T23:20:15.343Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/archive-lifecycle.json",
+        "httpStatus": 200,
+        "bytes": 1822,
+        "sha256": "327d6a623739815db43479471fab25b95bb4038b13145b8c7944f4df20fe8982",
+        "observedAtUTC": "2026-09-30T23:20:15.336Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/articles.json",
+        "httpStatus": 200,
+        "bytes": 18685,
+        "sha256": "4edd91969f49ff079e23183dec13eae3633f51157dd87b41c9f895f93c09a584",
+        "observedAtUTC": "2026-09-30T23:20:15.342Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/discover-index.json",
+        "httpStatus": 200,
+        "bytes": 1964,
+        "sha256": "74a42a185d31c85def388f0a5b767d9249ba857af1ce6249b1cc8cba42135433",
+        "observedAtUTC": "2026-09-30T23:20:15.577Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/manifest.json",
+        "httpStatus": 200,
+        "bytes": 1445,
+        "sha256": "3a397f3b6b9fc912ca92f40bf4942bd072b662b551ccce45ace28cc9a2e8e32e",
+        "observedAtUTC": "2026-09-30T23:20:15.576Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/reader-details.json",
+        "httpStatus": 200,
+        "bytes": 1243454,
+        "sha256": "6b841a0971e18667325d110601a4c67eca6cf1ac214f023024d521d3126cb079",
+        "observedAtUTC": "2026-09-30T23:20:15.781Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/release-descriptor.json",
+        "httpStatus": 200,
+        "bytes": 880,
+        "sha256": "811530a2973bcb4a965b81376f0931d9b3b7ea24a7e32d0f78c481d71e72064f",
+        "observedAtUTC": "2026-09-30T23:20:15.586Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/website-publication.json",
+        "httpStatus": 200,
+        "bytes": 2003,
+        "sha256": "45c62aeb8a11fa82391e342dd5f660a395cdf0935d47536b2c7c88ee8507ecd2",
+        "observedAtUTC": "2026-09-30T23:20:15.585Z",
+        "headerProfile": 10
+      },
+      {
+        "path": "wrn-source-pass-revocations/current.json",
+        "httpStatus": 200,
+        "bytes": 161,
+        "sha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617",
+        "observedAtUTC": "2026-09-30T23:20:15.747Z",
+        "headerProfile": 9
+      },
+      {
+        "path": "wrn-source-passes/current.json",
+        "httpStatus": 200,
+        "bytes": 83783,
+        "sha256": "bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa",
+        "observedAtUTC": "2026-09-30T23:20:16.023Z",
+        "headerProfile": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "sourceCommit": "be1de3094289c89b5aa3f17633d69d1677da3a79",
+  "files": [
+    {
+      "path": "apps/website/src/features/home/WebsiteArticleIllustration.test.tsx",
+      "sha256": "db70e75c98e347a2f4156a1db27932b45bfe0a6788a2d531b8a03f6aad856d16",
+      "bytes": 4182
+    },
+    {
+      "path": "apps/website/src/features/home/WebsiteArticleIllustration.tsx",
+      "sha256": "ff5fd0562a0ccf8f45535d8501777de333d7ee873da48a9e53873ef8679d7b66",
+      "bytes": 1644
+    },
+    {
+      "path": "apps/website/src/features/home/WebsiteTopicArtwork.tsx",
+      "deleted": true
+    },
+    {
+      "path": "apps/website/src/features/home/reviewed-article-images-v1.json",
+      "sha256": "070e21fb5467926ec18546a67d7338f3921e4be1a2ca3c13b80b4206ff2ef70d",
+      "bytes": 7702
+    },
+    {
+      "path": "apps/website/src/features/home/reviewed-article-images.ts",
+      "sha256": "12a529f4c3e4a4c7baf6e904b08541e455671067ce390c51d7f8cd28d432f0fb",
+      "bytes": 1273
+    },
+    {
+      "path": "apps/website/tools/production-site-package.mjs",
+      "sha256": "b0b812383085003116a4d45bf0ba5561da7d46f4624f14ce2fc52003bfd5ef86",
+      "bytes": 22679
+    },
+    {
+      "path": "apps/website/tools/production-site-package.test.mjs",
+      "sha256": "80d42152f2ded8d45adae3d98788d386e8fc1ea1a6be49c062f4581c715ceeb7",
+      "bytes": 24461
+    },
+    {
+      "path": "apps/website/tools/reviewed-article-images.mjs",
+      "sha256": "ed81377c733b7ebe2e0c246c637b2d1be36d4a14c70eef3b54ea75a58f1be9b9",
+      "bytes": 1890
+    },
+    {
+      "path": "apps/website/tools/reviewed-article-images.test.mjs",
+      "sha256": "e311e655fa509da6fdde324f4ff8b3246af719dae44b4de7e05091f054ff604e",
+      "bytes": 1672
+    }
+  ]
+}

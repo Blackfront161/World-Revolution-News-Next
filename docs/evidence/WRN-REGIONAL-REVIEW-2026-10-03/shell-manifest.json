@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "compatibility": "g3-015-v1",
+  "workerProtocolRevision": "wrn.website-shell.worker.v1.3.a6da4b64a349953f6d5af12825c45e3d2c6fc55b89ad5fc5e2e7ef6deeb35932",
+  "shellId": "c984dab422a322c12cc090d5cc0a4ec6ce639d58e1dd25bfa90ab62096822c8d",
+  "totalBytes": 7805953,
+  "entries": [
+    {
+      "path": "/assets/content-directory-v1-B_klH-td.json",
+      "mime": "application/json; charset=utf-8",
+      "bytes": 1953524,
+      "sha256": "3e73cac43faf5ce71b2b79680dee197b7c98d7bc4bed667e6e175e956f91e136"
+    },
+    {
+      "path": "/assets/index-C_x-e4Ex.js",
+      "mime": "text/javascript; charset=utf-8",
+      "bytes": 303895,
+      "sha256": "75dd7aa8bcfafcd8bc4a1e78753cf9d18887bffa5a3d34087044dbffef0c83b3"
+    },
+    {
+      "path": "/assets/index-Cl-Am72h.css",
+      "mime": "text/css; charset=utf-8",
+      "bytes": 82967,
+      "sha256": "b3670a93f481315e2341cbf554eceeade85acc17f940257974ee79c2e964ffc7"
+    },
+    {
+      "path": "/assets/legacy-knowledge-v1-ulVimWK0.json",
+      "mime": "application/json; charset=utf-8",
+      "bytes": 871749,
+      "sha256": "5b3bfa55c8bed4d4b18d9686d8816114054bc535ab5f2ee045fc2571b3049e66"
+    },
+    {
+      "path": "/assets/legacy-support-v1-CKf2hNYO.json",
+      "mime": "application/json; charset=utf-8",
+      "bytes": 41012,
+      "sha256": "9bfaced898bcabca449ab7a9e75db1c7bf5caba496eabae01268a58630039525"
+    },
+    {
+      "path": "/assets/production-events-media-v1-oJB41y0C.json",
+      "mime": "application/json; charset=utf-8",
+      "bytes": 1701964,
+      "sha256": "ac2c2f944b814be0fce19129791c39d87c0940f8c82caf47bdc868cc5bcb8b15"
+    },
+    {
+      "path": "/assets/react-vendor-YahHAMAi.js",
+      "mime": "text/javascript; charset=utf-8",
+      "bytes": 189620,
+      "sha256": "c5f08825cdca736a015fe6303f97a64ec1e4511a38b5f2f6f589ecb35e815c65"
+    },
+    {
+      "path": "/assets/solinaridao-header-mark-filled-D7vg3enZ.png",
+      "mime": "image/png",
+      "bytes": 1123871,
+      "sha256": "9dca207bc008384ef45cf435a134bf170037ae0149d27c43c732b754912b61b9"
+    },
+    {
+      "path": "/assets/wrn-app-icon-CwyuVArd.png",
+      "mime": "image/png",
+      "bytes": 8845,
+      "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+    },
+    {
+      "path": "/assets/wrn-browser-runtime-6Ai8jmEa.js",
+      "mime": "text/javascript; charset=utf-8",
+      "bytes": 266321,
+      "sha256": "8a2ef6a39ab284b92f1e4c65fb492c7bbd5a03e3f0b0f98d7f63f50a0c962cf1"
+    },
+    {
+      "path": "/assets/wrn-browser-runtime-Bv2391bc.css",
+      "mime": "text/css; charset=utf-8",
+      "bytes": 22062,
+      "sha256": "b95ede8f50486489e639c6b93944dd94709a94b22fb8580d34b1f42be670345c"
+    },
+    {
+      "path": "/assets/wrn-content-core-8GxI7iaF.js",
+      "mime": "text/javascript; charset=utf-8",
+      "bytes": 152878,
+      "sha256": "51af0071bb562932e7faa892f4b35a4e8ff79f38ac183df346b6d8e7b236d9d0"
+    },
+    {
+      "path": "/assets/wrn-future-header-white-D5q8hgPK.png",
+      "mime": "image/png",
+      "bytes": 212123,
+      "sha256": "9da0e22936304a30a55ba1483c2305c6ad6c3b1a057341af2ab3b16fe98a5e2f"
+    },
+    {
+      "path": "/assets/wrn-land-rights-illustration-v1-Dz0ucIps.webp",
+      "mime": "image/webp",
+      "bytes": 455444,
+      "sha256": "e33d13ae13efbf10463e6bb1e660f02305b323ae83ef2e4aa22c58f579b111ab"
+    },
+    {
+      "path": "/assets/wrn-language-DVQEbUJp.js",
+      "mime": "text/javascript; charset=utf-8",
+      "bytes": 418517,
+      "sha256": "a063fbde6a8bbfe7a25c310c4664f3569d276f1be83ac91ec33419d1f17d0d72"
+    },
+    {
+      "path": "/index.html",
+      "mime": "text/html; charset=utf-8",
+      "bytes": 1161,
+      "sha256": "539efb2a65c20a3337f498bf123ceb26177eba7e1926c254d99347e9169e9b7c"
+    }
+  ]
+}

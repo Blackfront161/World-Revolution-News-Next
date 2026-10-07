@@ -1,0 +1,73 @@
+{
+  "startedAtUTC": "2026-10-03T08:36:23.770Z",
+  "checks": [
+    {
+      "lang": "de",
+      "draftNotice": true,
+      "width": 390,
+      "textScale": 200,
+      "overflow": false
+    },
+    {
+      "lang": "en",
+      "draftNotice": true,
+      "width": 390,
+      "textScale": 200,
+      "overflow": false
+    },
+    {
+      "lang": "es",
+      "draftNotice": true,
+      "width": 390,
+      "textScale": 200,
+      "overflow": false
+    },
+    {
+      "lang": "fr",
+      "draftNotice": true,
+      "width": 390,
+      "textScale": 200,
+      "overflow": false
+    },
+    {
+      "lang": "it",
+      "draftNotice": true,
+      "width": 390,
+      "textScale": 200,
+      "overflow": false
+    },
+    {
+      "lang": "pt",
+      "draftNotice": true,
+      "width": 390,
+      "textScale": 200,
+      "overflow": false
+    },
+    {
+      "lang": "ru",
+      "draftNotice": true,
+      "width": 390,
+      "textScale": 200,
+      "overflow": false
+    },
+    {
+      "lang": "el",
+      "draftNotice": true,
+      "width": 390,
+      "textScale": 200,
+      "overflow": false
+    },
+    {
+      "lang": "tr",
+      "draftNotice": true,
+      "width": 390,
+      "textScale": 200,
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "status": "PASS",
+  "completedAtUTC": "2026-10-03T08:36:29.448Z",
+  "inputKnowledgeSha256": "e3479e68fd7525bda9c685bb2b2718ff0ded82fc525eeab8205bfeb0e4dbfece"
+}

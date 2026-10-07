@@ -1,0 +1,19 @@
+{
+  "status": "PREPARED_NOT_INTEGRATED",
+  "handoffCommit": "75016f6b2356918671e28964397d56219d6367de",
+  "runtimeCommit": "74e92546a4133ddc92ce51213f8d3f4a1eff7a68",
+  "observedAt": "2026-10-02T22:13:34.285Z",
+  "books": 728,
+  "terms": 167,
+  "references": 44,
+  "historyUnchanged": true,
+  "withdrawalsPreserved": true,
+  "packedBytes": 871749,
+  "packedSha256": "5b3bfa55c8bed4d4b18d9686d8816114054bc535ab5f2ee045fc2571b3049e66",
+  "lexiconHandoffSha256": "32419d539f47377451b2409f2665b8c13da39becde7fc033ad01d0b7c0a7c8b5",
+  "limits": [
+    "Existing App-script extractor rejects new dynamic lexicon expansion; no source script executed and no parser safeguard weakened",
+    "Candidate uses committed, hash-verified handoff data literals through the existing knowledge contract",
+    "New glossary references and editorial additions await focused independent review; not integrated in ef5ac42"
+  ]
+}

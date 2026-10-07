@@ -161,6 +161,177 @@ test('builds a canonical closed shell manifest and byte-identical worker twice',
   assert.ok(first.totalBytes > 0 && first.totalBytes < 8 * 1024 * 1024);
 });
 
+test('tab icon reuses the approved offline header image and rejects other references', async (t) => {
+  const { root, dist } = await fixture();
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const htmlPath = path.join(dist, 'index.html');
+  const html = await readFile(htmlPath, 'utf8');
+  const baseline = await collectShellManifest({ outputDirectory: dist });
+  await writeFile(
+    htmlPath,
+    `${html}<link rel="icon" type="image/png" href="/assets/solinaridao-header-mark-filled-a.png" />`,
+  );
+  const withIcon = await collectShellManifest({ outputDirectory: dist });
+  assert.deepEqual(
+    withIcon.entries.map((entry) => entry.path),
+    baseline.entries.map((entry) => entry.path),
+  );
+  assert.notEqual(withIcon.shellId, baseline.shellId);
+  for (const icon of [
+    'solinaridao-header-mark-filled-missing.png',
+    'wrn-future-header-white-a.png',
+    'other.png',
+  ]) {
+    await writeFile(htmlPath, `${html}<link rel="icon" type="image/png" href="/assets/${icon}" />`);
+    await assert.rejects(
+      () => collectShellManifest({ outputDirectory: dist }),
+      /approved shell image|Vite manifest/,
+    );
+  }
+});
+
+test('dedicated original app icon is bound separately and historical shell graphs remain valid', async (t) => {
+  for (const names of [jsonNames, completeJsonNames]) {
+    const { root, dist } = await fixture(names);
+    t.after(() => rm(root, { recursive: true, force: true }));
+    const baseline = await collectShellManifest({ outputDirectory: dist });
+    const icon = await readFile(
+      path.resolve(import.meta.dirname, '../src/assets/wrn-app-icon.png'),
+    );
+    assert.equal(icon.length, 8845);
+    assert.equal(
+      createHash('sha256').update(icon).digest('hex'),
+      '78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f',
+    );
+    await writeFile(path.join(dist, 'assets/wrn-app-icon-a.png'), icon);
+    const vitePath = path.join(dist, '.vite/manifest.json');
+    const vite = JSON.parse(await readFile(vitePath, 'utf8'));
+    vite['index.html'].assets.push('assets/wrn-app-icon-a.png');
+    await writeFile(vitePath, JSON.stringify(vite));
+    const htmlPath = path.join(dist, 'index.html');
+    const html = await readFile(htmlPath, 'utf8');
+    await assert.rejects(
+      () => collectShellManifest({ outputDirectory: dist }),
+      /approved shell image/,
+    );
+    await writeFile(
+      htmlPath,
+      html + '<link rel="icon" type="image/png" href="/assets/wrn-app-icon-a.png" />',
+    );
+    const withIcon = await buildOfflineShell({ outputDirectory: dist });
+    assert.equal(withIcon.entries.length, baseline.entries.length + 1);
+    assert.equal(createShellProtocol().metadata(withIcon.manifest), true);
+    assert.equal(createShellProtocol().metadata(baseline), true);
+    assert.deepEqual(
+      withIcon.entries.filter(
+        (entry) => entry.path !== '/index.html' && !entry.path.includes('wrn-app-icon-'),
+      ),
+      baseline.entries.filter((entry) => entry.path !== '/index.html'),
+    );
+    const entry = withIcon.entries.find((entry) => entry.path === '/assets/wrn-app-icon-a.png');
+    assert.equal(entry.mime, 'image/png');
+    assert.equal(entry.bytes, icon.length);
+    assert.equal(entry.sha256, createHash('sha256').update(icon).digest('hex'));
+    await writeFile(path.join(dist, 'assets/wrn-app-icon-a.png'), new Uint8Array(16 * 1024 + 1));
+    await assert.rejects(() => collectShellManifest({ outputDirectory: dist }), /App icon exceeds/);
+  }
+});
+
+test('only the approved local WRN illustration bytes enter the bounded closed graph', async (t) => {
+  const { root, dist } = await fixture();
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const baseline = await collectShellManifest({ outputDirectory: dist });
+  const bytes = await readFile(
+    path.resolve(import.meta.dirname, '../src/assets/wrn-austerity-illustration-v1.webp'),
+  );
+  const imagePath = 'assets/wrn-austerity-illustration-v1-a.webp';
+  await writeFile(path.join(dist, imagePath), bytes);
+  const vitePath = path.join(dist, '.vite/manifest.json');
+  const vite = JSON.parse(await readFile(vitePath, 'utf8'));
+  vite['index.html'].assets.push(imagePath);
+  await writeFile(vitePath, JSON.stringify(vite));
+  const built = await buildOfflineShell({ outputDirectory: dist });
+  assert.equal(createShellProtocol().metadata(baseline), true);
+  assert.equal(createShellProtocol().metadata(built.manifest), true);
+  assert.equal(built.entries.length, baseline.entries.length + 1);
+  assert.deepEqual(
+    built.entries.find((entry) => entry.path === '/' + imagePath),
+    {
+      path: '/' + imagePath,
+      mime: 'image/webp',
+      bytes: 230192,
+      sha256: 'b7d83ace0ea59e05d803f1076c524af4a95e05345d1cb272306a7ce2fbec7eb0',
+    },
+  );
+  await writeFile(path.join(dist, imagePath), Buffer.from('changed'));
+  await assert.rejects(() => collectShellManifest({ outputDirectory: dist }), /approved handoff/);
+  await writeFile(path.join(dist, imagePath), bytes);
+  await writeFile(path.join(dist, 'assets/wrn-austerity-illustration-v1-b.webp'), bytes);
+  await assert.rejects(
+    () => collectShellManifest({ outputDirectory: dist }),
+    /Duplicate WRN illustration/,
+  );
+});
+
+test('additional news illustrations require exact approved bytes and remain uniquely bounded', async (t) => {
+  const { root, dist } = await fixture();
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const registry = JSON.parse(
+    await readFile(
+      path.resolve(
+        import.meta.dirname,
+        '../src/features/home/home-additional-illustrations-v1.json',
+      ),
+      'utf8',
+    ),
+  );
+  const vitePath = path.join(dist, '.vite/manifest.json');
+  const vite = JSON.parse(await readFile(vitePath, 'utf8'));
+  for (const image of registry.entries) {
+    const builtPath = `assets/${image.asset.replace('.webp', '-a.webp')}`;
+    await writeFile(
+      path.join(dist, builtPath),
+      await readFile(path.resolve(import.meta.dirname, '../src/assets', image.asset)),
+    );
+    vite['index.html'].assets.push(builtPath);
+  }
+  await writeFile(vitePath, JSON.stringify(vite));
+  const manifest = await collectShellManifest({ outputDirectory: dist });
+  assert.equal(createShellProtocol().metadata(manifest), true);
+  assert.equal(manifest.entries.filter((entry) => entry.mime === 'image/webp').length, 2);
+  const imagePath = path.join(dist, 'assets/wrn-teachers-illustration-v1-a.webp');
+  const approved = await readFile(imagePath);
+  await writeFile(imagePath, 'altered');
+  await assert.rejects(() => collectShellManifest({ outputDirectory: dist }), /approved handoff/);
+  await writeFile(imagePath, approved);
+  await writeFile(path.join(dist, 'assets/wrn-teachers-illustration-v1-b.webp'), approved);
+  await assert.rejects(
+    () => collectShellManifest({ outputDirectory: dist }),
+    /Duplicate WRN illustration/,
+  );
+});
+
+test('a second app icon and a favicon which does not bind its dedicated file fail closed', async (t) => {
+  const { root, dist } = await fixture();
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const htmlPath = path.join(dist, 'index.html');
+  const html = await readFile(htmlPath, 'utf8');
+  await writeFile(path.join(dist, 'assets/wrn-app-icon-a.png'), 'icon');
+  await writeFile(
+    htmlPath,
+    html + '<link rel="icon" type="image/png" href="/assets/wrn-app-icon-missing.png" />',
+  );
+  await assert.rejects(
+    () => collectShellManifest({ outputDirectory: dist }),
+    /approved shell image/,
+  );
+  await writeFile(path.join(dist, 'assets/wrn-app-icon-b.png'), 'second');
+  await assert.rejects(
+    () => collectShellManifest({ outputDirectory: dist }),
+    /Duplicate app icon family/,
+  );
+});
+
 test('binds a bounded static multi-chunk graph and rejects manifest/source disagreement', async (t) => {
   const { root, dist } = await fixture();
   t.after(() => rm(root, { recursive: true, force: true }));
@@ -431,3 +602,117 @@ test('many tiny extra files cannot expand the closed five-entry metadata graph',
     collectShellManifest({ outputDirectory: dist, compatibility: 'g3-015-v1' }),
   );
 });
+
+// Exercise the serialized worker installer, including ready publication and
+// cleanup. Protocol/storage lifecycle behavior has its own contract suite.
+async function installResponse(body, headers, expectedBody = 'bound shell bytes', status = 200) {
+  const entry = {
+    path: '/index.html',
+    mime: 'text/html; charset=utf-8',
+    bytes: Buffer.byteLength(expectedBody),
+    sha256: createHash('sha256').update(expectedBody).digest('hex'),
+  };
+  const manifest = {
+    version: 1,
+    compatibility: 'g3-015-v1',
+    shellId: 'a'.repeat(64),
+    totalBytes: entry.bytes,
+    entries: [entry],
+  };
+  const protocol = createShellProtocol();
+  let control = protocol.initial(1);
+  const caches = new Map();
+  const storage = {
+    open: async (name) => {
+      if (!caches.has(name)) caches.set(name, new Map());
+      return { put: async (key, value) => caches.get(name).set(key, value.clone()) };
+    },
+    match: async (key, options) => caches.get(options.cacheName)?.get(key)?.clone(),
+    delete: async (name) => caches.delete(name),
+    has: async (name) => caches.has(name),
+  };
+  const p = {
+    ...protocol,
+    metadata: () => true,
+    inventory: async () => {},
+    read: async () => ({ kind: 'known', value: structuredClone(control) }),
+    write: async (_storage, value) => {
+      control = structuredClone(value);
+    },
+  };
+  const handlers = new Map();
+  const scope = {
+    caches: storage,
+    navigator: { locks: { request: async (_key, _options, task) => task() } },
+    clients: { matchAll: async () => [] },
+    addEventListener: (name, handler) => handlers.set(name, handler),
+  };
+  vm.runInNewContext('(' + installWebsiteShellRuntime.toString() + ')(self, manifest, p)', {
+    self: scope,
+    manifest,
+    p,
+    performance,
+    crypto,
+    Response,
+    AbortSignal,
+    URL,
+    fetch: async () =>
+      new Response(body, { status, headers: { 'content-type': entry.mime, ...headers } }),
+  });
+  let installation;
+  handlers.get('install')({
+    waitUntil: (value) => {
+      installation = value;
+    },
+  });
+  try {
+    await installation;
+  } catch (error) {
+    return { error: error.message, control, caches };
+  }
+  return { control, caches };
+}
+
+for (const encoding of ['br', 'gzip', 'deflate'])
+  test(`decoded ${encoding} response accepts encoded Content-Length and stores verified identity bytes`, async () => {
+    const result = await installResponse('bound shell bytes', {
+      'content-encoding': encoding,
+      'content-length': '7',
+    });
+    assert.equal(result.error, undefined);
+    assert.equal(result.control.generations[0].ready, true);
+    const response = result.caches.values().next().value.get('/index.html');
+    assert.equal(await response.text(), 'bound shell bytes');
+    assert.equal(response.headers.get('content-encoding'), null);
+    assert.equal(response.headers.get('content-length'), null);
+  });
+
+for (const encoding of [undefined, 'identity'])
+  test(`incorrect identity Content-Length rejects before ready (${encoding ?? 'absent'})`, async () => {
+    const result = await installResponse('bound shell bytes', {
+      'content-length': '7',
+      ...(encoding ? { 'content-encoding': encoding } : {}),
+    });
+    assert.equal(result.error, 'integrity');
+    assert.equal(result.control.generations.length, 0);
+    assert.equal(result.caches.size, 0);
+  });
+
+for (const [name, body, headers, error, status] of [
+  ['decoded overrun', 'bound shell bytes!', {}, 'budget', 200],
+  ['decoded truncation', 'bound shell byte', {}, 'integrity', 200],
+  ['decoded wrong digest', 'wrong shell bytes', {}, 'integrity', 200],
+  ['wrong MIME', 'bound shell bytes', { 'content-type': 'text/plain' }, 'integrity', 200],
+  ['wrong status', 'bound shell bytes', {}, 'integrity', 206],
+])
+  test(`compressed ${name} cannot publish ready and cleans partial payload`, async () => {
+    const result = await installResponse(
+      body,
+      { 'content-encoding': 'br', 'content-length': '7', ...headers },
+      'bound shell bytes',
+      status,
+    );
+    assert.equal(result.error, error);
+    assert.equal(result.control.generations.length, 0);
+    assert.equal(result.caches.size, 0);
+  });

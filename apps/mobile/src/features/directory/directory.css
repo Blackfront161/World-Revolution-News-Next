@@ -19,6 +19,23 @@
   list-style: none;
   padding: 0;
 }
+.content-directory-personalized {
+  margin-block: 1.5rem;
+  padding-block-start: 1rem;
+  border-block-start: 2px solid var(--wrn-color-accent-magenta);
+}
+.content-directory-personalized h3 {
+  margin-block: 0 0.4rem;
+  color: var(--wrn-color-accent-cyan);
+  font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+}
+.content-directory-personalized h4 {
+  margin-block: 0 0.5rem;
+}
+.content-directory-personalized .content-directory__list {
+  list-style: none;
+  padding: 0;
+}
 .content-directory__filters {
   display: grid;
   gap: 0.75rem;

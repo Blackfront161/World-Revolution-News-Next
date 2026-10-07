@@ -1,0 +1,125 @@
+[
+  {
+    "directoryLinks": 5,
+    "height": 1180,
+    "lead": [
+      {
+        "natural": 1200,
+        "ready": true,
+        "top": 213.375
+      }
+    ],
+    "main": [
+      {
+        "image": "available",
+        "order": "0",
+        "top": 212.70834350585935
+      },
+      {
+        "image": "available",
+        "order": "0",
+        "top": 783.96875
+      },
+      {
+        "image": "unavailable",
+        "order": "0",
+        "top": 1315.5833740234375
+      },
+      {
+        "image": "unavailable",
+        "order": "0",
+        "top": 1620.0833740234375
+      },
+      {
+        "image": "unavailable",
+        "order": "0",
+        "top": 1904.760498046875
+      }
+    ],
+    "overflow": false,
+    "scrollY": 0,
+    "width": 820
+  },
+  {
+    "directoryLinks": 5,
+    "height": 844,
+    "lead": [
+      {
+        "natural": 1200,
+        "ready": true,
+        "top": 172.55209350585938
+      }
+    ],
+    "main": [
+      {
+        "image": "available",
+        "order": "0",
+        "top": 861.625
+      },
+      {
+        "image": "available",
+        "order": "0",
+        "top": 1426
+      },
+      {
+        "image": "unavailable",
+        "order": "0",
+        "top": 1970.5521240234375
+      },
+      {
+        "image": "unavailable",
+        "order": "0",
+        "top": 2255.229248046875
+      },
+      {
+        "image": "unavailable",
+        "order": "0",
+        "top": 2539.90625
+      }
+    ],
+    "overflow": false,
+    "scrollY": 0,
+    "width": 390
+  },
+  {
+    "directoryLinks": 5,
+    "height": 900,
+    "lead": [
+      {
+        "natural": 1200,
+        "ready": true,
+        "top": 219.375
+      }
+    ],
+    "main": [
+      {
+        "image": "available",
+        "order": "0",
+        "top": 218.70834350585935
+      },
+      {
+        "image": "available",
+        "order": "0",
+        "top": 733.1041870117188
+      },
+      {
+        "image": "unavailable",
+        "order": "0",
+        "top": 1222.9583740234375
+      },
+      {
+        "image": "unavailable",
+        "order": "0",
+        "top": 1476.28125
+      },
+      {
+        "image": "unavailable",
+        "order": "0",
+        "top": 1729.604248046875
+      }
+    ],
+    "overflow": false,
+    "scrollY": 0,
+    "width": 1440
+  }
+]

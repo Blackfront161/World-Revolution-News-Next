@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>World Revolution News — media playback review, Code 34</title></head>
+<body>
+<h1>World Revolution News — user-initiated media playback</h1>
+<p>Android release 2.1.2, version code 34. This 35-second screen recording shows the isolated Android API 36 QA emulator. It is not a physical-device recording. The QA app uses the frozen release source and native media service; only the application ID differs for isolation.</p>
+<video controls playsinline preload="metadata" width="270"><source src="wrn-code34-media-playback-demo.mp4" type="video/mp4">Your browser can open the MP4 directly using the link below.</video>
+<p><a href="wrn-code34-media-playback-demo.mp4">Open or download the demonstration video (MP4)</a></p>
+<ol>
+<li>The user selects Radio CORAX and taps the visible Play button. The live stream connects and playback starts.</li>
+<li>The user leaves the app. The Android media card remains visible while playback continues.</li>
+<li>The user taps Pause and Play on the media card, then taps the station card to return to the app.</li>
+<li>The user taps Stop in the app. The player closes; the native test also verifies removal of the system media notification.</li>
+</ol>
+<p>The video has no audio track. The accompanying native instrumentation test independently checks real audio-time advancement before backgrounding and after the system Play action. This demonstration covers live radio only.</p>
+<p>The foreground service is used only for playback explicitly started by the user. Delaying or interrupting it delays or stops the selected audio. The app provides user-controlled Pause, Play and Stop. After a long pause, resuming requires visible app interaction; the app does not silently restart a destroyed player.</p>
+<p>App source: ec5c332f49dcb6059c38cae601eabd7c65ca66bf.<br>MP4 SHA-256: B22242B79558EEDFD2D4DE52A6064D47C7CB53293183A3A93D41474C2FEF3B7E.</p>
+</body>
+</html>

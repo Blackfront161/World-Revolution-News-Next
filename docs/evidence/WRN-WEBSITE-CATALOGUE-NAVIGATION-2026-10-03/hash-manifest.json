@@ -1,0 +1,90 @@
+{
+  "schema": "wrn.website-catalogue-navigation-evidence.v1",
+  "productCommit": "5d45eeb8a9b8c6bd6dd988ad74525e6f5f30bfca",
+  "productPaths": [
+    {
+      "path": "apps/website/src/App.tsx",
+      "bytes": 112000,
+      "sha256": "1328a024f0795b485bef895743793a32e2cc1bf4b21dbf9f9f5109a5172d740f"
+    },
+    {
+      "path": "apps/website/src/features/catalogue-navigation/catalogue-location.test.ts",
+      "bytes": 3435,
+      "sha256": "212bdbf42d5274c2959db88a1ea7922b0929144632acab7d3d9908b18be328f3"
+    },
+    {
+      "path": "apps/website/src/features/catalogue-navigation/catalogue-location.ts",
+      "bytes": 4483,
+      "sha256": "27f8e5544d34dee652aba8968e8745456cea78569bd73137d32c0955149b1e6f"
+    },
+    {
+      "path": "apps/website/src/features/catalogue-navigation/catalogue-navigation-state.ts",
+      "bytes": 6250,
+      "sha256": "dec2e0be09bd90e41af1570ee5ef70cb89f11e4470547edc3daca508725a41c0"
+    },
+    {
+      "path": "apps/website/src/features/catalogue-navigation/catalogue-navigation.test.tsx",
+      "bytes": 6900,
+      "sha256": "76d57b9746b7fad83a5295cfd7b7028fa713da8dea04cb11025fdc945641ace8"
+    },
+    {
+      "path": "apps/website/src/features/catalogue-navigation/catalogue-navigation.tsx",
+      "bytes": 4109,
+      "sha256": "3548dec0378e064d18a5ca27c3e5b27377d87005e12b5d634b0ee4255341397a"
+    },
+    {
+      "path": "apps/website/src/features/events-media/WebsiteAppCatalog.tsx",
+      "bytes": 13628,
+      "sha256": "aaeeeaa556eba746e84a776d576970827cc63d510d528db892f613edf988372f"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/LearningPaths.tsx",
+      "bytes": 3889,
+      "sha256": "09ca29572b0c8c33aba6c5131297e8a5f7165daeb39b2f27eda9dc1cdc58540b"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/WebsiteKnowledgeRoute.tsx",
+      "bytes": 18697,
+      "sha256": "02ccad1aac1758c0aa22b279975cf4062c14594bd0bc15a5dcdd34a71921a3a9"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/knowledge.css",
+      "bytes": 3483,
+      "sha256": "3373c901d69d09154085f2d96c4d2036b8c0021a252228d1d1a5dbf2b3ec2bec"
+    }
+  ],
+  "evidenceFiles": [
+    {
+      "path": "knowledge-lexicon-390-200.png",
+      "bytes": 107099,
+      "sha256": "567cb0ac9c64a7c272dc6ba6a57c60a4fb0e324bc45365fb86c81e6da1d3f5db"
+    },
+    {
+      "path": "knowledge-library-390-200.png",
+      "bytes": 133008,
+      "sha256": "0d766084ac1eb9da7a6c931837a64904b5da56dfa4df58f9067fa3074e5cb979"
+    },
+    {
+      "path": "media-podcasts-390-200.png",
+      "bytes": 49711,
+      "sha256": "40c8afb0c1d2e10adcd0896ed832c862b8ca50ee71efa333e9b331de45b0c5ef"
+    },
+    {
+      "path": "REPORT.md",
+      "bytes": 2722,
+      "sha256": "a117e4cd096d61efab2eeee2b6f5cd875dde9ea7d5c269a96324a3a3d6dc8874"
+    },
+    {
+      "path": "result.json",
+      "bytes": 1388,
+      "sha256": "13d75b642f66734ae2c8f83e3b1c721d13922fe9b0dfabed1f00e1af7cb5b19d"
+    },
+    {
+      "path": "validation.json",
+      "bytes": 1201,
+      "sha256": "e18cd9d5f1460a63845b540d13c128a6a73d10374e6c9fd9c16f413a71f70d34"
+    }
+  ],
+  "independentReview": "PENDING",
+  "publicationPerformed": false
+}

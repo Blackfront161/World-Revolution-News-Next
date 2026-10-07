@@ -1,0 +1,83 @@
+{
+  "origin": "https://solinaridao.com",
+  "sourceCommit": "f202ec5d702e875127c01292b26b6e0b9edfe38e",
+  "observedAtUTC": "2026-10-01T00:01:20.966Z",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "live homepage, coverage and original links",
+      "status": "PASS",
+      "ids": [
+        "news-8ababeeeb75fc37dc0d57b88412c3032453e0dea49476cba45cafe4c117f1ad1",
+        "news-42c16a577ae4f5d8feda3f1331221ed9e3fdb7df8c4d4c14cbd0626752dd74c6",
+        "news-8ca1b562638d82e207044e9aee80c7dfe6f4a20c33d3d0d47321d0fedca3a997",
+        "news-1e632c403fa3929019ce963a29f129f3f63b9fbdbb3ef289318c538aa6d16d52",
+        "news-3e4f102d7da6f55b804b6262823f443e2cc1483cdbe4fd3b602975d0f85b6efa",
+        "news-bfe2c200371161d1ba5a7a886e1d8de139536716d601d793ef72d7f8e2449bdf"
+      ],
+      "links": [
+        {
+          "href": "https://english.anf-news.com/rojava-syria/mazloum-abdi-issues-message-on-kurdish-language-education-87460",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        },
+        {
+          "href": "https://english.anf-news.com/features/mother-of-nato-prisoner-we-are-now-victims-of-the-judiciary-too-87449",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        },
+        {
+          "href": "https://english.anf-news.com/news/against-male-violence-and-male-domination-87463",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        },
+        {
+          "href": "https://english.anf-news.com/news/Ocalan-must-be-able-to-carry-out-his-work-as-coordinator-for-peace-and-political-transition-87462",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        },
+        {
+          "href": "https://nunatsiaq.com/stories/article/pqs-sonia-caron-looks-to-switch-from-education-to-politics/",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        },
+        {
+          "href": "https://argentina.indymedia.org/2026/09/30/el-pueblo-mbya-resiste-y-lucha/",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        }
+      ]
+    },
+    {
+      "name": "responsive 1440x900",
+      "status": "PASS"
+    },
+    {
+      "name": "responsive 390x844",
+      "status": "PASS"
+    },
+    {
+      "name": "news and sources deep links with unverified labels",
+      "status": "PASS"
+    },
+    {
+      "name": "Chrome process closed and restarted offline with persistent test profile, metadata and exact favicon",
+      "status": "PASS"
+    }
+  ],
+  "icon": {
+    "href": "/assets/wrn-app-icon-CwyuVArd.png",
+    "bytes": 8845,
+    "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+  },
+  "offline": {
+    "href": "/assets/wrn-app-icon-CwyuVArd.png",
+    "width": 72,
+    "height": 72,
+    "controlled": true,
+    "mime": "image/png",
+    "bytes": 8845,
+    "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+  },
+  "pageErrors": []
+}

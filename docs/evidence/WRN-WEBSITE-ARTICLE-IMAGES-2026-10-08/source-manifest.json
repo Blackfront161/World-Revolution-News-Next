@@ -1,0 +1,40 @@
+{
+  "sourceCommit": "77ec9d431f9001c0b9344c0fc03aa0a16af7da1c",
+  "files": [
+    {
+      "path": "apps/website/src/features/home/WebsiteTopicArtwork.tsx",
+      "bytes": 6671,
+      "sha256": "cb79d013be00ee8c0cbcbf796214bab7a529ea10920db557b66f27a2b42f63d8",
+      "gitBlobBytes": 6671,
+      "gitBlobSha256": "cb79d013be00ee8c0cbcbf796214bab7a529ea10920db557b66f27a2b42f63d8"
+    },
+    {
+      "path": "apps/website/src/features/home/WebsiteArticleIllustration.tsx",
+      "bytes": 2558,
+      "sha256": "c25f2d8f0a04759715ab19e75b040415b0fa26531a2550b2fbe99951f6ba731c",
+      "gitBlobBytes": 2558,
+      "gitBlobSha256": "c25f2d8f0a04759715ab19e75b040415b0fa26531a2550b2fbe99951f6ba731c"
+    },
+    {
+      "path": "apps/website/src/features/home/WebsiteArticleIllustration.test.tsx",
+      "bytes": 3006,
+      "sha256": "da94e5b76a19fc11645a3907c15c37b50861d21fd0eb403478d77151e7e75919",
+      "gitBlobBytes": 3006,
+      "gitBlobSha256": "da94e5b76a19fc11645a3907c15c37b50861d21fd0eb403478d77151e7e75919"
+    },
+    {
+      "path": "apps/website/src/features/home/app-home.css",
+      "bytes": 9183,
+      "sha256": "be06fb192b491b42222e93fd4b720c546c11277aeb7cda86d0961b9b970d15bc",
+      "gitBlobBytes": 9183,
+      "gitBlobSha256": "be06fb192b491b42222e93fd4b720c546c11277aeb7cda86d0961b9b970d15bc"
+    },
+    {
+      "path": "apps/website/src/features/reader/WebsiteNewsSaved.tsx",
+      "bytes": 4433,
+      "sha256": "74e8ae6736fcfb30bc99bb85ccb9f7e1a9731f1d791d599687bb70911a6e7185",
+      "gitBlobBytes": 4433,
+      "gitBlobSha256": "74e8ae6736fcfb30bc99bb85ccb9f7e1a9731f1d791d599687bb70911a6e7185"
+    }
+  ]
+}

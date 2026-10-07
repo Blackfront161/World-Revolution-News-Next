@@ -1,0 +1,97 @@
+{
+  "schema": "wrn.website-lexicon-editorial-status.v1",
+  "sourceCommit": "7dd4e9e428cae4ae5c25caa98402df901f861981",
+  "inputLexiconSha256": "737cf5e7264ffcfbbca93245fffe0c8f567b477b6e9107648d0b659536f2a903",
+  "terms": [
+    {
+      "id": "free-prior-informed-consent",
+      "status": "reviewed",
+      "revision": {
+        "version": "knowledge-expansion-4-editorial-correction",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN explanation with individually described references and dated or hypothetical examples; independent editorial review passed on 2026-10-03 (App c85f524)."
+      }
+    },
+    {
+      "id": "indigenous-data-sovereignty",
+      "status": "reviewed",
+      "revision": {
+        "version": "knowledge-expansion-4-editorial-correction",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN explanation with individually described references and dated or hypothetical examples; independent editorial review passed on 2026-10-03 (App c85f524)."
+      }
+    },
+    {
+      "id": "language-revitalisation",
+      "status": "reviewed",
+      "revision": {
+        "version": "knowledge-expansion-4-editorial-correction",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN explanation with individually described references and dated or hypothetical examples; independent editorial review passed on 2026-10-03 (App c85f524)."
+      }
+    },
+    {
+      "id": "popular-education",
+      "status": "reviewed",
+      "revision": {
+        "version": "knowledge-expansion-4-editorial-correction",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN explanation with individually described references and dated or hypothetical examples; independent editorial review passed on 2026-10-03 (App c85f524)."
+      }
+    },
+    {
+      "id": "social-insertion",
+      "status": "reviewed",
+      "revision": {
+        "version": "knowledge-expansion-4-editorial-correction",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN explanation with individually described references and dated or hypothetical examples; independent editorial review passed on 2026-10-03 (App c85f524)."
+      }
+    },
+    {
+      "id": "non-reformist-reforms",
+      "status": "reviewed",
+      "revision": {
+        "version": "knowledge-expansion-4-editorial-correction",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN explanation with individually described references and dated or hypothetical examples; independent editorial review passed on 2026-10-03 (App c85f524)."
+      }
+    },
+    {
+      "id": "access-intimacy",
+      "status": "reviewed",
+      "revision": {
+        "version": "knowledge-expansion-4-editorial-correction",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN explanation with individually described references and dated or hypothetical examples; independent editorial review passed on 2026-10-03 (App c85f524)."
+      }
+    },
+    {
+      "id": "participatory-budgeting",
+      "status": "reviewed",
+      "revision": {
+        "version": "knowledge-expansion-4-editorial-correction",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN explanation with individually described references and dated or hypothetical examples; independent editorial review passed on 2026-10-03 (App c85f524)."
+      }
+    },
+    {
+      "id": "worker-cooperative",
+      "status": "reviewed",
+      "revision": {
+        "version": "knowledge-expansion-4-editorial-correction",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN explanation with individually described references and dated or hypothetical examples; independent editorial review passed on 2026-10-03 (App c85f524)."
+      }
+    },
+    {
+      "id": "abolitionist-divestment",
+      "status": "reviewed",
+      "revision": {
+        "version": "knowledge-expansion-4-editorial-correction",
+        "date": "2026-10-03",
+        "note": "Original WRN DE/EN explanation with individually described references and dated or hypothetical examples; independent editorial review passed on 2026-10-03 (App c85f524)."
+      }
+    }
+  ]
+}

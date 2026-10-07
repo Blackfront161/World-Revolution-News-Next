@@ -1,0 +1,30 @@
+{
+  "schema": "wrn.evidence-hashes.v1",
+  "files": [
+    {
+      "path": "horizonte-de.png",
+      "bytes": 32267,
+      "sha256": "d251a03e1d61998d8db0d1eb035d55ffd5e70a453a36b7ded97e0f52db0530a9"
+    },
+    {
+      "path": "music-manifest.json",
+      "bytes": 1915,
+      "sha256": "090d47683ce8b61e347a571d57d1b176293f00c548cb9d025d8711938ffec2ea"
+    },
+    {
+      "path": "offline-browser.json",
+      "bytes": 48036,
+      "sha256": "57f06092971e795c524bf58a74fcdc5ba6401d0da8434eb73598c260363ee393"
+    },
+    {
+      "path": "REPORT.md",
+      "bytes": 2257,
+      "sha256": "8ce3afb8700d353d5456bd3843a6d19a05050579d609e058e2e1cded77a73802"
+    },
+    {
+      "path": "ui-browser.json",
+      "bytes": 145,
+      "sha256": "356b9279db7d6a2e5d3aac541ece89be8ac7bf6ab90f6d3b1560e67cbffdacf9"
+    }
+  ]
+}

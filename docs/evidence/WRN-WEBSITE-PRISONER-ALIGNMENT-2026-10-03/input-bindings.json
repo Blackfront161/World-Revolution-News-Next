@@ -1,0 +1,23 @@
+{
+  "schema": "wrn.website-prisoner-input-bindings.v1",
+  "appProduct": "8c0c0d90a119b7a95b5154fa64c49dfb97c8842e",
+  "appEvidence": "1a87a404e56d884fdc1924557b7a2cf9690bfcb0",
+  "independentReview": {
+    "commit": "7ff60b2",
+    "turnId": "01a0ff1b-9c9f-7d52-b788-a1d11d5816b5",
+    "decision": "PASS"
+  },
+  "appManifestSha256": "d0809ec16211dba0cd7b02302f92679ae239f849c167f6bfcf2a6fcb2087fa72",
+  "appInputSha256": "a4cde7bbac10cb62826fed1222c8c7d20b787e105ad553d63299b309530a477c",
+  "appManifestFilesChecked": 20,
+  "websiteSupplementSha256": "08d7eb7e3a9cac4ef9af446f1bc0eea8ef073cd6ab987439c01218819f6bae0e",
+  "profiles": 30,
+  "datedAddressMatches": 13,
+  "needsReview": 17,
+  "publicSupportLinks": 5,
+  "addressesImported": 0,
+  "biographiesImported": 0,
+  "mediaImported": 0,
+  "mailRulesImported": 0,
+  "liveWebsiteUnchanged": "566422758241190f432d8c8a09d67a5f589d90ac"
+}

@@ -1,0 +1,90 @@
+{
+  "schema": "wrn.website-review-freeze.v1",
+  "productCommit": "c334e20d8844c83d9f01e89712b01997b2059dea",
+  "independentReview": "PENDING",
+  "publication": false,
+  "productPaths": [
+    {
+      "path": "apps/website/src/features/catalogue-navigation/catalogue-navigation.test.tsx",
+      "bytes": 7413,
+      "sha256": "c0973ab20f2f417d724e9220ddc1ee3a26457d06886374bf5f673ba9e8b47337"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/WebsiteKnowledgeRoute.tsx",
+      "bytes": 18858,
+      "sha256": "413624020bcf2e53cd8bab218ebb7f68a131ab0a8839cf63a2700f65528898c5"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/data/learning-paths.json",
+      "bytes": 23741,
+      "sha256": "169185cbf4c8be46dce9ccfb26593857de9ece5dcb630518e6e61f02de82a2ee"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/data/lexicon-editorial-status.json",
+      "bytes": 3499,
+      "sha256": "84c7be193c86d66c792a4b148b4cc9c0af1abada41a837033cf36b74e2031a90"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/knowledge-data.test.ts",
+      "bytes": 2401,
+      "sha256": "a5d46386f4ee2c4c7e50154086af5b711ca8b3633d7e75be576d3c8dce9e4c19"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/knowledge-loader.test.ts",
+      "bytes": 2198,
+      "sha256": "7a4e8efff2c15350afc9fda0a1b8e5477fbbb370791654f4b94889f99ae25f61"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/knowledge-loader.ts",
+      "bytes": 2050,
+      "sha256": "5d741d1cf1929d03c81bb5fdf752c87311c1aea268e49e2b7c46d9f52c311aaf"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/learning-paths.test.ts",
+      "bytes": 2645,
+      "sha256": "bf4ebc7e4b41fab65cade33a39c5c420dc3a83701033a3a1765b7d0992249d02"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/lexicon-editorial-status.test.ts",
+      "bytes": 1525,
+      "sha256": "141173e2cca8ab2d9734fe9e815fc253287a9b109a9283cc8d7e9a6ea26a205e"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/lexicon-editorial-status.ts",
+      "bytes": 1878,
+      "sha256": "5aec349ee046f824b93fc3703567eaa781b0febf7e623628ad6b889bed668cbe"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/packed/legacy-knowledge-v1.json",
+      "bytes": 893344,
+      "sha256": "e3479e68fd7525bda9c685bb2b2718ff0ded82fc525eeab8205bfeb0e4dbfece"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "browser-result.json",
+      "bytes": 1415,
+      "sha256": "6444ea3fbf16f65e193a7650106e0dd1e1876f58da553dda1c981bf606350a5e"
+    },
+    {
+      "path": "draft-de-390-200.png",
+      "bytes": 569465,
+      "sha256": "803873a4dd42b62a832dc74ef0eab9b95faccea3eec0c31e856b9d1704d783ea"
+    },
+    {
+      "path": "import-result.json",
+      "bytes": 1037,
+      "sha256": "bee28d5469b04253ff4c6fde226b8eaa7abb1423f62fa668b7d62cb92e36a75d"
+    },
+    {
+      "path": "REPORT.md",
+      "bytes": 2252,
+      "sha256": "33c94a52400afa6c2844af500337fbe51fc16b9db13e1b90c1c8e57ef0a1363c"
+    },
+    {
+      "path": "validation.json",
+      "bytes": 606,
+      "sha256": "4579612068e9b9c7e441409a2d8df5becd714cb20120ca0b733defae9211615a"
+    }
+  ]
+}

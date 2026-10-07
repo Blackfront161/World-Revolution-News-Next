@@ -1,0 +1,9 @@
+{
+  "privatePolicies": "previous approved abd0209 hosting packet",
+  "sha256": "21e0ba23cf8d2bf4e80d75ec03f98fd67424a4131bc336d0601004243512c71b",
+  "archive": "rollback-before-ef5ac42-abd0209.zip",
+  "publicationPerformed": false,
+  "files": 48,
+  "publicReadbackReceipt": "live-full-1790976956473/receipt.json",
+  "previousCommit": "abd0209dc45a41dbc4e4c41225ed9d7ad5371003"
+}

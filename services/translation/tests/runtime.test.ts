@@ -21,6 +21,7 @@ const request = () =>
   });
 const quota = { reserve: vi.fn(async () => true) };
 const cache = { get: vi.fn(async () => undefined), put: vi.fn(async () => {}) };
+const contentAdmission = { allows: vi.fn(async () => true) };
 
 function bindings(overrides = {}) {
   return {
@@ -38,6 +39,7 @@ function bindings(overrides = {}) {
         ),
     ),
     cache,
+    contentAdmission,
     readQuota: quota,
     providerQuota: quota,
     writeQuota: quota,
@@ -56,6 +58,7 @@ function environment(overrides = {}) {
     TRANSLATION_CACHE_TTL_SECONDS: '60',
     TRANSLATION_SUPPORTED_SOURCE_LANGUAGES: JSON.stringify(['en']),
     TRANSLATION_CACHE: cache,
+    TRANSLATION_CONTENT_ADMISSION: contentAdmission,
     TRANSLATION_READ_QUOTA: quota,
     TRANSLATION_PROVIDER_QUOTA: quota,
     TRANSLATION_WRITE_QUOTA: quota,
@@ -179,5 +182,29 @@ describe('explicit translation runtime bindings', () => {
     )(request());
     expect(response.status).toBe(200);
     expect(fetch).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps native M2M100 disabled without AI binding and admission, then uses one bound attempt', async () => {
+    const run = vi.fn(async () => ({ translated_text: 'Übersetzt.' }));
+    const model = '@cf/meta/m2m100-1.2b';
+    const missing = await createTranslationRuntimeFetchFromEnvironment(
+      environment({ TRANSLATION_MODEL: model, GEMINI_API_KEY: undefined }),
+    )(request());
+    expect(missing.status).toBe(503);
+    const noAdmission = await createTranslationRuntimeFetchFromEnvironment(
+      environment({
+        TRANSLATION_MODEL: model,
+        GEMINI_API_KEY: undefined,
+        AI: { run },
+        TRANSLATION_CONTENT_ADMISSION: undefined,
+      }),
+    )(request());
+    expect(noAdmission.status).toBe(503);
+    expect(run).not.toHaveBeenCalled();
+    const response = await createTranslationRuntimeFetchFromEnvironment(
+      environment({ TRANSLATION_MODEL: model, GEMINI_API_KEY: undefined, AI: { run } }),
+    )(request());
+    expect(response.status).toBe(200);
+    expect(run).toHaveBeenCalledTimes(1);
   });
 });

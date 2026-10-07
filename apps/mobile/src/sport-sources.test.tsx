@@ -30,11 +30,11 @@ describe('sport source directory supplement', () => {
     );
     expect(globalThis.fetch).not.toHaveBeenCalled();
   });
-  it('keeps nine localized directory-only source records and never fetches them', () => {
+  it('keeps sixteen localized directory-only source records and never fetches them', () => {
     for (const language of uiLanguageIds) {
       const rendered = render(<SportSources language={language} />);
       const section = screen.getByTestId('sport-sources');
-      expect(within(section).getAllByTestId(/^sport-source-/u)).toHaveLength(9);
+      expect(within(section).getAllByTestId(/^sport-source-/u)).toHaveLength(16);
       const fanSection = screen.getByTestId('sport-fan-sources');
       expect(within(fanSection).getAllByTestId(/^sport-fan-source-/u)).toHaveLength(31);
       expect(within(fanSection).getByTestId('sport-fan-sources-summary')).not.toHaveTextContent(
@@ -46,6 +46,29 @@ describe('sport source directory supplement', () => {
         expect(link.getAttribute('href')).toMatch(/^https:\/\//u);
       }
       rendered.unmount();
+    }
+    expect(globalThis.fetch).not.toHaveBeenCalled();
+  });
+
+  it('lists the seven new organizations without feeds or content imports', () => {
+    render(<SportSources language="en" open />);
+    const section = screen.getByTestId('sport-sources');
+    for (const id of [
+      'sport-and-rights-alliance',
+      'futbol-mas',
+      'women-in-sport',
+      'common-goal',
+      'moving-the-goalposts-kenya',
+      'magic-bus-india',
+      'discover-football',
+    ]) {
+      const record = within(section).getByTestId(`sport-source-${id}`);
+      expect(within(record).getByText('Directory link only.')).toBeInTheDocument();
+      expect(within(record).getByText('Reuse rights are not recorded.')).toBeInTheDocument();
+      expect(
+        within(record).getByText('Feed availability has not been checked.'),
+      ).toBeInTheDocument();
+      expect(within(record).getByText('Recorded: 2026-09-29')).toBeInTheDocument();
     }
     expect(globalThis.fetch).not.toHaveBeenCalled();
   });
@@ -90,7 +113,7 @@ describe('sport source directory supplement', () => {
       <MobileContentDirectoryRoute language="en" section="sport" headingRef={{ current: null }} />,
     );
     expect(await screen.findByTestId('sport-sources-summary')).toHaveTextContent(
-      'Sport sources (9)',
+      'Sport sources (16)',
     );
     expect(screen.getByTestId('sport-sources-summary').closest('details')).toHaveAttribute('open');
   });

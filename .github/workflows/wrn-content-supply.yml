@@ -49,15 +49,22 @@ jobs:
           status="$output_parent/regional-events-status.json"
           node tools/check-current-regional-events.mjs --minimum-hours 48 > "$status"
           node --input-type=module - "$status" <<'NODE'
+          import { createHash } from 'node:crypto';
           import { appendFile, readFile } from 'node:fs/promises';
 
           const status = JSON.parse(await readFile(process.argv[2], 'utf8'));
+          const reviewedBytes = await readFile('packages/browser-content/src/regional-events/events.json');
+          const reviewed = JSON.parse(reviewedBytes.toString('utf8'));
           if (
             status?.schema !== 'wrn.regional-events-freshness-check.v1' ||
             status?.publicationPerformed !== false ||
             status?.minimumHours !== 48 ||
-            status?.events !== 5 ||
-            status?.sources !== 5
+            status?.revision !== reviewed.revision ||
+            status?.generatedAt !== reviewed.generatedAt ||
+            status?.validUntil !== reviewed.validUntil ||
+            status?.sha256 !== createHash('sha256').update(reviewedBytes).digest('hex') ||
+            status?.events !== reviewed.events.length ||
+            status?.sources !== reviewed.sources.length
           )
             throw new Error('invalid regional-events freshness status');
           await appendFile(

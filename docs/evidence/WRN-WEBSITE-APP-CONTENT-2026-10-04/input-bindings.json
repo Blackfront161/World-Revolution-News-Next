@@ -1,0 +1,197 @@
+{
+  "schema": "wrn.catalog-knowledge-website-parity.v1",
+  "publicationPerformed": false,
+  "appCommit": "6a8edf0b8e2ddd462db2e750f672c3f114801171",
+  "dataCommit": "2225f93cacecebf4ee262a595d0ed4ffec93caf2",
+  "observedAt": "2026-10-04T15:17:38.040Z",
+  "observations": [
+    {
+      "path": "radio-stations.json",
+      "sha256": "19546104f211dcd8a16dcdf359f99518e66996eb9ddef9f20e069161d0bf17a9",
+      "bytes": 13644,
+      "publishedEqualsPinned": true,
+      "appSha256": "19546104f211dcd8a16dcdf359f99518e66996eb9ddef9f20e069161d0bf17a9",
+      "appBytes": 13644
+    },
+    {
+      "path": "podcasts.json",
+      "sha256": "ef2aea824b64ecf05f92d7683c37edb9a28684033ef89ccaa9848df5c7f0aa6f",
+      "bytes": 3412351,
+      "publishedEqualsPinned": true,
+      "appSha256": "b3a064efdce15c231c4119900f8093f4d451a9e92780d1e4bc974ffc6c270a6a",
+      "appBytes": 3260082
+    },
+    {
+      "path": "video-feed.json",
+      "sha256": "87fcd06531998c5e585f4cae0481e9194d42861d650e4a306c246de885a5f422",
+      "bytes": 22856,
+      "publishedEqualsPinned": true,
+      "appSha256": "53ebf5be1a058ed9395f77620ad4b5c7f8eaac7fae6e9dc3f7204b525823983c",
+      "appBytes": 19259
+    },
+    {
+      "path": "library-feed.json",
+      "sha256": "19258f2eaf2a40047bbd1156e694741d2a1e433dc33ce8bc747e69881572d64c",
+      "bytes": 416347,
+      "publishedEqualsPinned": true,
+      "appSha256": "6aafcf161978c221ce40293da03aa330cc66318edc4a2cf2c536dcc84d96e1d4",
+      "appBytes": 415835
+    },
+    {
+      "path": "events-feed.json",
+      "sha256": "7d5fd1dac441183452b7979df2b15aeb741e3f6b871f3106218996d82425d4b6",
+      "bytes": 11997,
+      "publishedEqualsPinned": true,
+      "appSha256": "55ee8012f583b30f88e01a68bc0014783da8ea3791f7cf3393373a5e3d1eea81",
+      "appBytes": 1754542
+    }
+  ],
+  "podcastPolicySha256": "80fec702aa0f7018954dbe69eb1563289813851fceb529db9a4d5d222e751bcb",
+  "libraryDataOnlyNotAdmitted": [
+    {
+      "id": "anarchist-library-es-873e1376342f81b8ddd87aff",
+      "title": "Nuestro programa",
+      "decision": "Not present in frozen approved App intake; metadata withheld from public library"
+    }
+  ],
+  "appCatalog": {
+    "commit": "2225f93cacecebf4ee262a595d0ed4ffec93caf2",
+    "observedAt": "2026-10-04T15:17:38.040Z",
+    "inputs": [
+      {
+        "path": "radio-stations.json",
+        "sha256": "19546104f211dcd8a16dcdf359f99518e66996eb9ddef9f20e069161d0bf17a9",
+        "bytes": 13644
+      },
+      {
+        "path": "podcasts.json",
+        "sha256": "ef2aea824b64ecf05f92d7683c37edb9a28684033ef89ccaa9848df5c7f0aa6f",
+        "bytes": 3412351
+      },
+      {
+        "path": "video-feed.json",
+        "sha256": "87fcd06531998c5e585f4cae0481e9194d42861d650e4a306c246de885a5f422",
+        "bytes": 22856
+      },
+      {
+        "path": "library-feed.json",
+        "sha256": "19258f2eaf2a40047bbd1156e694741d2a1e433dc33ce8bc747e69881572d64c",
+        "bytes": 416347
+      },
+      {
+        "path": "events-feed.json",
+        "sha256": "7d5fd1dac441183452b7979df2b15aeb741e3f6b871f3106218996d82425d4b6",
+        "bytes": 11997
+      }
+    ],
+    "reconciliation": {
+      "radio": {
+        "input": 28,
+        "unique": 28,
+        "duplicateOriginalLinks": 0
+      },
+      "podcasts": {
+        "input": 1911,
+        "unique": 1837,
+        "duplicateOriginalLinks": 74
+      },
+      "videos": {
+        "input": 15,
+        "unique": 15,
+        "duplicateOriginalLinks": 0
+      },
+      "library": {
+        "input": 742,
+        "unique": 741,
+        "duplicateOriginalLinks": 1
+      },
+      "events": {
+        "input": 6,
+        "unique": 6,
+        "duplicateOriginalLinks": 0
+      }
+    },
+    "history": {
+      "bytes": 3317607,
+      "sha256": "003c32358ebe0d5ad22fb9c0b059bf82c242aa0b99a4d869fb67960c86acdc07"
+    },
+    "packed": {
+      "bytes": 1745483,
+      "sha256": "0823a4168d3b992168d91315ca19a232f03a3584c76f111d89ec96ccaee5c767"
+    },
+    "supplement": {
+      "schema": "wrn.website-reviewed-app-catalog-delta.v1",
+      "rights": "metadata-original-link-only",
+      "repository": "https://github.com/Blackfront161/World-Revolution-News-App.git",
+      "commit": "6a8edf0b8e2ddd462db2e750f672c3f114801171",
+      "baselineCommit": "75016f6b2356918671e28964397d56219d6367de",
+      "observedAt": "2026-10-04T15:17:38.040Z",
+      "inputs": [
+        {
+          "path": "podcasts.json",
+          "sha256": "b3a064efdce15c231c4119900f8093f4d451a9e92780d1e4bc974ffc6c270a6a",
+          "bytes": 3260082
+        },
+        {
+          "path": "library-feed.json",
+          "sha256": "6aafcf161978c221ce40293da03aa330cc66318edc4a2cf2c536dcc84d96e1d4",
+          "bytes": 415835
+        },
+        {
+          "path": "podcast-content-policy.json",
+          "sha256": "80fec702aa0f7018954dbe69eb1563289813851fceb529db9a4d5d222e751bcb",
+          "bytes": 40187
+        }
+      ],
+      "collections": {
+        "podcasts": [
+          {
+            "id": "app-cdae5e54430d1d67035a80d6d2cc3b9cb8171e9f4adf77c70428db5038cab939",
+            "title": "Auf Kante genäht",
+            "source": "LORA München",
+            "url": "https://lora924.de/2026/09/30/auf-kante-genaeht/",
+            "language": "und",
+            "publishedAt": "2026-09-30T11:36:42.000Z",
+            "country": "DE"
+          },
+          {
+            "id": "app-7b29642ccf7df330f9aa6253d020bf14ef87cbe67b61c68107f9e536548ca167",
+            "title": "Sendling-Perspektiven",
+            "source": "LORA München",
+            "url": "https://lora924.de/2026/10/02/sendling-perspektiven/",
+            "language": "und",
+            "publishedAt": "2026-10-02T15:26:29.000Z",
+            "country": "DE"
+          }
+        ],
+        "library": []
+      }
+    }
+  },
+  "knowledge": {
+    "commit": "6a8edf0b8e2ddd462db2e750f672c3f114801171",
+    "observedAt": "2026-10-04T15:17:38.040Z",
+    "books": 741,
+    "terms": 177,
+    "references": 55,
+    "historySha256": "26eb4c118d0483788f07ef0b103c97e1cf53fbf75d36a61ae47456146240726b",
+    "packedSha256": "72e95167485aa72ee5d2d17f283b5b1955c670ae6d54b3f0e4ebc228b6bad4a2",
+    "learningPathsSha256": "169185cbf4c8be46dce9ccfb26593857de9ece5dcb630518e6e61f02de82a2ee",
+    "lexiconLocalesSha256": "5b59354be8a764fef375e63a3ddae53e21d15c2d63320b224f43ea17067f30b0",
+    "inputs": {
+      "libraryFeedSha256": "6aafcf161978c221ce40293da03aa330cc66318edc4a2cf2c536dcc84d96e1d4",
+      "libraryFeedBytes": 415835,
+      "librarySourcesSha256": "a498bb6d672d4edb8af99d3b337c34d1292bf4e04924a3bedb3b364c4cd81f66",
+      "librarySourcesBytes": 5324,
+      "lexiconSha256": "737cf5e7264ffcfbbca93245fffe0c8f567b477b6e9107648d0b659536f2a903",
+      "lexiconBytes": 278765
+    }
+  },
+  "helpComparison": {
+    "frozenAppGuideSha256": "e0ba6fdd0b0379f9150672067823630a9e4ec80356b5dd6b0d385d8b5e693498",
+    "solidarityNetworkSha256": "c4127417bd4078e86a4e0526542d7f9832b5f811d176f2ee4ff6f4c9641e96d2",
+    "networkInputUnchanged": true,
+    "websiteGuidance": "Existing nine-language Website-specific instructions retained; Atlas instructions and language-bound link added. Native-only App operations are not falsely exposed.",
+    "prisonerPolicy": "Existing reviewed Website support profiles and 17 holds retained; no automatic import of addresses or new App profiles."
+  }
+}

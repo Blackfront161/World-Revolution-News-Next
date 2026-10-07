@@ -1,0 +1,1488 @@
+{
+  "source": {
+    "repository": "https://github.com/Blackfront161/World-Revolution-News-App.git",
+    "commit": "9029461a94f23042b9ff8ad7ba46594c557c7dbc",
+    "inputs": [
+      {
+        "path": "podcasts.json",
+        "bytes": 3260082,
+        "sha256": "b3a064efdce15c231c4119900f8093f4d451a9e92780d1e4bc974ffc6c270a6a"
+      },
+      {
+        "path": "podcast-content-policy.json",
+        "bytes": 40187,
+        "sha256": "80fec702aa0f7018954dbe69eb1563289813851fceb529db9a4d5d222e751bcb"
+      },
+      {
+        "path": "docs/evidence/WRN-PODCAST-CASES-2026-10-04/resolutions.json",
+        "bytes": 88745,
+        "sha256": "197a8fe060f0eb870ee56d4285e0f6bfef82f6f852075f97b32bc641da5cfc69"
+      },
+      {
+        "path": "docs/evidence/WRN-PODCAST-CASES-2026-10-04/primary-observations.json",
+        "bytes": 79015,
+        "sha256": "ec2b02cff275a65589f97fe8de8e9c9be3284c126df94d4bed5ed8d600ca249c"
+      }
+    ]
+  },
+  "websiteBaseline": {
+    "sourceCommit": "448c82fdf31f4ce10ea17d60d35ad937faf76b10",
+    "packedSha256": "6e62f413cd02dd5fc897b1481a973fd896f0eae4cead2cdb1cc764f1428a0571"
+  },
+  "sourceController": {
+    "status": "SCOPED PASS",
+    "threadId": "019ff285-63dc-7ed2-88a8-cab5f06ed26e",
+    "turnId": "01a1056c-a8c5-7963-9988-8bec10ccfbb3",
+    "statusAtPreparation": "in-progress",
+    "reviewCommit": "3b233c58c08c5140c45971403500d810f4b9130b",
+    "receipt": "source-controller-review.json"
+  },
+  "mappings": [
+    {
+      "caseId": "app-dfc8e42bc11622fe267262970dbba983efd4b1d39fc3e45c35fbfa429ed6bb9a",
+      "appRecordId": "reviewed-a0cbdf6456b5ca4bffd59556",
+      "rawAliases": [],
+      "websiteId": "app-dfc8e42bc11622fe267262970dbba983efd4b1d39fc3e45c35fbfa429ed6bb9a",
+      "canonicalUrlId": "app-dfc8e42bc11622fe267262970dbba983efd4b1d39fc3e45c35fbfa429ed6bb9a",
+      "originalUrl": "https://lora924.de/2026/09/30/auf-kante-genaeht/",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "lora-muenchen",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": "87194b19c4e6cf09d2204628",
+      "previousOriginalUrl": "https://lora924.de/2026/08/02/auf-kante-genaeht/",
+      "withdrawalIdentities": [
+        "reviewed-a0cbdf6456b5ca4bffd59556",
+        "app-dfc8e42bc11622fe267262970dbba983efd4b1d39fc3e45c35fbfa429ed6bb9a"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-1eb0c6894a287fc983192916bb3a3451405dbc3f9b9764fec1b8520c484b0cb2",
+      "appRecordId": "reviewed-104f09b49cdfd4841526937b",
+      "rawAliases": [],
+      "websiteId": "app-1eb0c6894a287fc983192916bb3a3451405dbc3f9b9764fec1b8520c484b0cb2",
+      "canonicalUrlId": "app-1eb0c6894a287fc983192916bb3a3451405dbc3f9b9764fec1b8520c484b0cb2",
+      "originalUrl": "https://lora924.de/2026/10/02/sendling-perspektiven/",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "lora-muenchen",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": "35ae67d13d7b4483de96f839",
+      "previousOriginalUrl": "https://lora924.de/2026/08/06/sendling-perspektiven/",
+      "withdrawalIdentities": [
+        "reviewed-104f09b49cdfd4841526937b",
+        "app-1eb0c6894a287fc983192916bb3a3451405dbc3f9b9764fec1b8520c484b0cb2"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-f9f3200f534c8c91bbc56d1e9c115152714d6a1f777c6f3e1e40c3e5a2ba18fa",
+      "appRecordId": "e9e40c4ffbb347c811ef1162",
+      "rawAliases": [],
+      "websiteId": "app-cec6a71678bcc68047f66661c7911f80f20fa44d61fd132da28665d0b5be5884",
+      "canonicalUrlId": "app-f9f3200f534c8c91bbc56d1e9c115152714d6a1f777c6f3e1e40c3e5a2ba18fa",
+      "originalUrl": "https://thefinalstrawradio.mayfirst.info/2026/04/26/dr-terence-keel-on-u-s-deaths-in-custody-and-public-accountability/",
+      "disposition": "canonical-link-corrected",
+      "sourceId": "final-straw",
+      "language": "existing metadata unchanged; no new verification",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "e9e40c4ffbb347c811ef1162",
+        "app-f9f3200f534c8c91bbc56d1e9c115152714d6a1f777c6f3e1e40c3e5a2ba18fa",
+        "app-cec6a71678bcc68047f66661c7911f80f20fa44d61fd132da28665d0b5be5884"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-19f6d158b06eeced89201d26b4c37777dcbf7afffa845c4ed62330a48b2f338f",
+      "appRecordId": "7c73633afa2f217ba9336b4f",
+      "rawAliases": [],
+      "websiteId": "app-0784bed1e2e0ca5cdb6b368e4444240e758b37e5fde0af640641663cd4f1ba7c",
+      "canonicalUrlId": "app-19f6d158b06eeced89201d26b4c37777dcbf7afffa845c4ed62330a48b2f338f",
+      "originalUrl": "https://thefinalstrawradio.mayfirst.info/2026/05/10/the-religious-function-of-whiteness-and-mass-criminalization-in-the-us-with-andrew-krinks/",
+      "disposition": "canonical-link-corrected",
+      "sourceId": "final-straw",
+      "language": "existing metadata unchanged; no new verification",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "7c73633afa2f217ba9336b4f",
+        "app-19f6d158b06eeced89201d26b4c37777dcbf7afffa845c4ed62330a48b2f338f",
+        "app-0784bed1e2e0ca5cdb6b368e4444240e758b37e5fde0af640641663cd4f1ba7c"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-9475663347a48e0fe45e60ef83c8ec1bc76caf62a0bde72a80af548e5dce18c8",
+      "appRecordId": "3b81ee67adc7725475704cdb",
+      "rawAliases": [],
+      "websiteId": "app-865f4829e454b7412f454f1a5d8d0b302e4976e23c0c1a946b31ab8d41b84c0a",
+      "canonicalUrlId": "app-9475663347a48e0fe45e60ef83c8ec1bc76caf62a0bde72a80af548e5dce18c8",
+      "originalUrl": "https://thefinalstrawradio.mayfirst.info/2026/05/17/revolutionary-lessons-and-internationalism-from-below-with-the-peoples-want/",
+      "disposition": "canonical-link-corrected",
+      "sourceId": "final-straw",
+      "language": "existing metadata unchanged; no new verification",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "3b81ee67adc7725475704cdb",
+        "app-9475663347a48e0fe45e60ef83c8ec1bc76caf62a0bde72a80af548e5dce18c8",
+        "app-865f4829e454b7412f454f1a5d8d0b302e4976e23c0c1a946b31ab8d41b84c0a"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-5fc80dc37415abf503101e047d54555e38c1ba041ed3626fc32d6f042db4bc3f",
+      "appRecordId": "b4551355733affb99f9bc552",
+      "rawAliases": [],
+      "websiteId": "app-5b91173470c87b2672d04fe36e345fbcd264516a3bbe9b1ef9da6dd8c0f48ff9",
+      "canonicalUrlId": "app-5fc80dc37415abf503101e047d54555e38c1ba041ed3626fc32d6f042db4bc3f",
+      "originalUrl": "https://thefinalstrawradio.mayfirst.info/2026/05/24/national-special-security-events-homeless-sweeps-and-police-militarization/",
+      "disposition": "canonical-link-corrected",
+      "sourceId": "final-straw",
+      "language": "existing metadata unchanged; no new verification",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "b4551355733affb99f9bc552",
+        "app-5fc80dc37415abf503101e047d54555e38c1ba041ed3626fc32d6f042db4bc3f",
+        "app-5b91173470c87b2672d04fe36e345fbcd264516a3bbe9b1ef9da6dd8c0f48ff9"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-1391bb6f097da91074ed2fa3234225ae2bf416f3ef54d713803f3c6ba27a80c3",
+      "appRecordId": "b00b23cc6993206f2a6785b6",
+      "rawAliases": [],
+      "websiteId": "app-d2d8d1ceac0a1e8c62501f0b2cd55ff31f067b8f35caaa4694e1f3cf5dcfa56a",
+      "canonicalUrlId": "app-1391bb6f097da91074ed2fa3234225ae2bf416f3ef54d713803f3c6ba27a80c3",
+      "originalUrl": "https://thefinalstrawradio.mayfirst.info/2026/05/31/jules-boykoff-on-sportswashing-and-the-2026-fifa-world-cup/",
+      "disposition": "canonical-link-corrected",
+      "sourceId": "final-straw",
+      "language": "existing metadata unchanged; no new verification",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "b00b23cc6993206f2a6785b6",
+        "app-1391bb6f097da91074ed2fa3234225ae2bf416f3ef54d713803f3c6ba27a80c3",
+        "app-d2d8d1ceac0a1e8c62501f0b2cd55ff31f067b8f35caaa4694e1f3cf5dcfa56a"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-0e1682badabfb85861f617d936e8fda586ee1ecea2c64c717231c92b3441c08c",
+      "appRecordId": "3f7be1258f7c96ea1ebfa2ce",
+      "rawAliases": [],
+      "websiteId": "app-fefa09df56c88942879db47c3fd777d71b35c4b3b1a4ae96256ba230a3287f27",
+      "canonicalUrlId": "app-0e1682badabfb85861f617d936e8fda586ee1ecea2c64c717231c92b3441c08c",
+      "originalUrl": "https://thefinalstrawradio.mayfirst.info/2026/06/07/bridging-the-rift-through-kumeyaay-territory-tijuana-and-san-diego/",
+      "disposition": "canonical-link-corrected",
+      "sourceId": "final-straw",
+      "language": "existing metadata unchanged; no new verification",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "3f7be1258f7c96ea1ebfa2ce",
+        "app-0e1682badabfb85861f617d936e8fda586ee1ecea2c64c717231c92b3441c08c",
+        "app-fefa09df56c88942879db47c3fd777d71b35c4b3b1a4ae96256ba230a3287f27"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-5607c7316516b4316266d70073a5d7a1d7fe059b22738607d494363dab8ef43d",
+      "appRecordId": "0b8ba0d74c08ae2911d6f3f7",
+      "rawAliases": [],
+      "websiteId": "app-dd9dfe1b4f14138ef3033eba1950187ed8fce953d654d4dfc4420ae7da8e5cfc",
+      "canonicalUrlId": "app-5607c7316516b4316266d70073a5d7a1d7fe059b22738607d494363dab8ef43d",
+      "originalUrl": "https://thefinalstrawradio.mayfirst.info/2026/06/14/bad-news-102-from-the-a-radio-network/",
+      "disposition": "canonical-link-corrected",
+      "sourceId": "final-straw",
+      "language": "existing metadata unchanged; no new verification",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "0b8ba0d74c08ae2911d6f3f7",
+        "app-5607c7316516b4316266d70073a5d7a1d7fe059b22738607d494363dab8ef43d",
+        "app-dd9dfe1b4f14138ef3033eba1950187ed8fce953d654d4dfc4420ae7da8e5cfc"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-40bfff5e76ef883ca4988cb6d9176fa3ab5b438de9fab6feb05e558e814c1f3e",
+      "appRecordId": "9fb7e4f8d1d6b28a685be834",
+      "rawAliases": [],
+      "websiteId": "app-dc8ff6f563a48b91001aa7af58d6c878f30164c9f6960cad6b0d9af648cc187d",
+      "canonicalUrlId": "app-40bfff5e76ef883ca4988cb6d9176fa3ab5b438de9fab6feb05e558e814c1f3e",
+      "originalUrl": "https://thefinalstrawradio.mayfirst.info/2026/06/21/flint-taylor-of-the-peoples-law-office-on-challenging-chicago-pd-violence-and-government-corruption-in-courts/",
+      "disposition": "canonical-link-corrected",
+      "sourceId": "final-straw",
+      "language": "existing metadata unchanged; no new verification",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "9fb7e4f8d1d6b28a685be834",
+        "app-40bfff5e76ef883ca4988cb6d9176fa3ab5b438de9fab6feb05e558e814c1f3e",
+        "app-dc8ff6f563a48b91001aa7af58d6c878f30164c9f6960cad6b0d9af648cc187d"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-8c2090c8b9b853bdaefb89eb702efc80d594c60bed2795590f86770578728fb5",
+      "appRecordId": "9a48dce5272037ba856c5949",
+      "rawAliases": [],
+      "websiteId": "app-87847b0af3d0b06bcc46dd9daf4da3e7f91932aa0c45df2d08d46b527b5b46b4",
+      "canonicalUrlId": "app-8c2090c8b9b853bdaefb89eb702efc80d594c60bed2795590f86770578728fb5",
+      "originalUrl": "https://thefinalstrawradio.mayfirst.info/2026/06/28/thoughts-on-houseless-solidarity-in-durham-nc/",
+      "disposition": "canonical-link-corrected",
+      "sourceId": "final-straw",
+      "language": "existing metadata unchanged; no new verification",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "9a48dce5272037ba856c5949",
+        "app-8c2090c8b9b853bdaefb89eb702efc80d594c60bed2795590f86770578728fb5",
+        "app-87847b0af3d0b06bcc46dd9daf4da3e7f91932aa0c45df2d08d46b527b5b46b4"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-4bc7a09b1942f245424c5ab16dd8a81ea603b353650010a15e57e94bff7965b6",
+      "appRecordId": "8b22e2cb009f9e863a0fb334",
+      "rawAliases": [],
+      "websiteId": "app-57deb3ff18513043ec77709a45ce023f845f943f35f86c2d71015560ca8e6b17",
+      "canonicalUrlId": "app-4bc7a09b1942f245424c5ab16dd8a81ea603b353650010a15e57e94bff7965b6",
+      "originalUrl": "https://thefinalstrawradio.mayfirst.info/2026/07/05/prairieland-defendants-federal-sentencing-plus-flock-sabotage-in-the-great-lakes/",
+      "disposition": "canonical-link-corrected",
+      "sourceId": "final-straw",
+      "language": "existing metadata unchanged; no new verification",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "8b22e2cb009f9e863a0fb334",
+        "app-4bc7a09b1942f245424c5ab16dd8a81ea603b353650010a15e57e94bff7965b6",
+        "app-57deb3ff18513043ec77709a45ce023f845f943f35f86c2d71015560ca8e6b17"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-652572c3178a15c32a5a6d07dde762295c7da27e3154b6e3bdc4383e704188b6",
+      "appRecordId": "b5c6989de4abdd6899e458ce",
+      "rawAliases": [],
+      "websiteId": "app-cb86b363bbdab2a42bc42e0e32df80c2a779edc6a25353c111f9d6e2e7134cfd",
+      "canonicalUrlId": "app-652572c3178a15c32a5a6d07dde762295c7da27e3154b6e3bdc4383e704188b6",
+      "originalUrl": "https://thefinalstrawradio.mayfirst.info/2026/07/12/padraig-og-o-ruairc-on-june-26-anti-immigrant-pogroms-in-belfast-fascism-and-anti-fascism-in-ireland/",
+      "disposition": "canonical-link-corrected",
+      "sourceId": "final-straw",
+      "language": "existing metadata unchanged; no new verification",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "b5c6989de4abdd6899e458ce",
+        "app-652572c3178a15c32a5a6d07dde762295c7da27e3154b6e3bdc4383e704188b6",
+        "app-cb86b363bbdab2a42bc42e0e32df80c2a779edc6a25353c111f9d6e2e7134cfd"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-b93ab87d8dbae2b1a8835c28a18aa9d5f675bd2eec954d5d487fc0269fffc112",
+      "appRecordId": "499c99f3d0da981ca49b29c6",
+      "rawAliases": [],
+      "websiteId": "app-e7a80d781bdbad08e70d237e4dc8aae4b22e77a03e878d092641859e15e473d2",
+      "canonicalUrlId": "app-b93ab87d8dbae2b1a8835c28a18aa9d5f675bd2eec954d5d487fc0269fffc112",
+      "originalUrl": "https://thefinalstrawradio.mayfirst.info/2026/07/19/a-long-and-deadly-con-nuclear-power-and-weapons-with-m-v-ramana/",
+      "disposition": "canonical-link-corrected",
+      "sourceId": "final-straw",
+      "language": "existing metadata unchanged; no new verification",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "499c99f3d0da981ca49b29c6",
+        "app-b93ab87d8dbae2b1a8835c28a18aa9d5f675bd2eec954d5d487fc0269fffc112",
+        "app-e7a80d781bdbad08e70d237e4dc8aae4b22e77a03e878d092641859e15e473d2"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-08d09a1c2d945e603d30fc43ac5a271673ad1017cbe3e4ea9520694385082ac0",
+      "appRecordId": "45d074093a82cbcea2aacc46",
+      "rawAliases": [],
+      "websiteId": "app-955235f96b53fffd5bd6fb16e7376735ccafbb3ae20cc985f5469fb5e2083321",
+      "canonicalUrlId": "app-08d09a1c2d945e603d30fc43ac5a271673ad1017cbe3e4ea9520694385082ac0",
+      "originalUrl": "https://thefinalstrawradio.mayfirst.info/2026/07/26/appalachians-against-uranium-the-ulm-5/",
+      "disposition": "canonical-link-corrected",
+      "sourceId": "final-straw",
+      "language": "existing metadata unchanged; no new verification",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "45d074093a82cbcea2aacc46",
+        "app-08d09a1c2d945e603d30fc43ac5a271673ad1017cbe3e4ea9520694385082ac0",
+        "app-955235f96b53fffd5bd6fb16e7376735ccafbb3ae20cc985f5469fb5e2083321"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-83a3079b594a4a4a64d500a9df64cce9b8eb18a9ecc29479ba89e243d4a672ec",
+      "appRecordId": "6c8dbc75038e4ed3e8b8126b",
+      "rawAliases": [],
+      "websiteId": "app-a3cf4564a3e0e5dfd83178d98c22067be8a3b92a8a9bb9929945945206bfb892",
+      "canonicalUrlId": "app-83a3079b594a4a4a64d500a9df64cce9b8eb18a9ecc29479ba89e243d4a672ec",
+      "originalUrl": "https://thefinalstrawradio.mayfirst.info/2026/08/02/clare-follman-on-humans-in-nature-and-how-we-imagine-belonging/",
+      "disposition": "canonical-link-corrected",
+      "sourceId": "final-straw",
+      "language": "existing metadata unchanged; no new verification",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "6c8dbc75038e4ed3e8b8126b",
+        "app-83a3079b594a4a4a64d500a9df64cce9b8eb18a9ecc29479ba89e243d4a672ec",
+        "app-a3cf4564a3e0e5dfd83178d98c22067be8a3b92a8a9bb9929945945206bfb892"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-7e54c8246f8b94cde92030f8ecc3a5b6af8137d0e11bfe0df454f4c24b95d1c4",
+      "appRecordId": "353c3fe1afa90bc631c11ab0",
+      "rawAliases": [],
+      "websiteId": "app-7c91f212ad6c6014e6977eb7b3f5e200e5c42b72d92a0806eb03305d3908c706",
+      "canonicalUrlId": "app-7e54c8246f8b94cde92030f8ecc3a5b6af8137d0e11bfe0df454f4c24b95d1c4",
+      "originalUrl": "https://thefinalstrawradio.mayfirst.info/2026/08/09/discussion-on-organizing-against-surveillance-in-the-us-south/",
+      "disposition": "canonical-link-corrected",
+      "sourceId": "final-straw",
+      "language": "existing metadata unchanged; no new verification",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "353c3fe1afa90bc631c11ab0",
+        "app-7e54c8246f8b94cde92030f8ecc3a5b6af8137d0e11bfe0df454f4c24b95d1c4",
+        "app-7c91f212ad6c6014e6977eb7b3f5e200e5c42b72d92a0806eb03305d3908c706"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-896174504da3007f5c2f40b8afd862d54e3fe47dfc207af8cafd5fa51fc1f371",
+      "appRecordId": "32c31c73091163ff9abc4e87",
+      "rawAliases": [],
+      "websiteId": "app-c77b8fb8c2d976e5004c8dfa39db3dbdc586d9246610ed12f6f9b1848ec61f51",
+      "canonicalUrlId": "app-896174504da3007f5c2f40b8afd862d54e3fe47dfc207af8cafd5fa51fc1f371",
+      "originalUrl": "https://thefinalstrawradio.mayfirst.info/post/2026/05/03/vicky-osterweil-on-disney-intellectual-property-and-storytelling/",
+      "disposition": "canonical-link-corrected",
+      "sourceId": "final-straw",
+      "language": "existing metadata unchanged; no new verification",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "32c31c73091163ff9abc4e87",
+        "app-896174504da3007f5c2f40b8afd862d54e3fe47dfc207af8cafd5fa51fc1f371",
+        "app-c77b8fb8c2d976e5004c8dfa39db3dbdc586d9246610ed12f6f9b1848ec61f51"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-a7847685035ca207f6e543adc391393cdf4dd738792676255e7c14b5f8e79d7f",
+      "appRecordId": "60482d2442b235d703dbb34a",
+      "rawAliases": [],
+      "websiteId": "app-49836436746e3f6537cb113e21da47e1ef33db60ec6260c115c60054a5cce42e",
+      "canonicalUrlId": "app-49836436746e3f6537cb113e21da47e1ef33db60ec6260c115c60054a5cce42e",
+      "originalUrl": "https://www.buzzsprout.com/1776729/episodes/19670426-5",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "jalsa-arabic",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "60482d2442b235d703dbb34a",
+        "app-a7847685035ca207f6e543adc391393cdf4dd738792676255e7c14b5f8e79d7f",
+        "app-49836436746e3f6537cb113e21da47e1ef33db60ec6260c115c60054a5cce42e"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-2adbebc11df85a380e666977db193b5a07ec0650d820be36d3372e464ef8c53d",
+      "appRecordId": "77aeb757eec06a8f834758da",
+      "rawAliases": [],
+      "websiteId": "app-2adbebc11df85a380e666977db193b5a07ec0650d820be36d3372e464ef8c53d",
+      "canonicalUrlId": "app-2adbebc11df85a380e666977db193b5a07ec0650d820be36d3372e464ef8c53d",
+      "originalUrl": "https://omny.fm/shows/eapenasfumaca/10-umas-ma-s-podres-fronteira-do-medo-s-rie",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "fumaca",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "77aeb757eec06a8f834758da",
+        "app-2adbebc11df85a380e666977db193b5a07ec0650d820be36d3372e464ef8c53d"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-f022824c888fdafd7ce4c0dddfc15ff62b177ae50e58250d0bbf47d4202bf8c6",
+      "appRecordId": "32c8d211b4b280ccf7547435",
+      "rawAliases": [],
+      "websiteId": "app-f022824c888fdafd7ce4c0dddfc15ff62b177ae50e58250d0bbf47d4202bf8c6",
+      "canonicalUrlId": "app-f022824c888fdafd7ce4c0dddfc15ff62b177ae50e58250d0bbf47d4202bf8c6",
+      "originalUrl": "https://omny.fm/shows/eapenasfumaca/11-o-falc-o-pol-cia-fronteira-do-medo-s-rie",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "fumaca",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "32c8d211b4b280ccf7547435",
+        "app-f022824c888fdafd7ce4c0dddfc15ff62b177ae50e58250d0bbf47d4202bf8c6"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-68639d72be06e66dd63122ee25cdf6229a7c365aa5f0309affbf1533e4c72aec",
+      "appRecordId": "afbbf46015400e5b5895d981",
+      "rawAliases": [],
+      "websiteId": "app-68639d72be06e66dd63122ee25cdf6229a7c365aa5f0309affbf1533e4c72aec",
+      "canonicalUrlId": "app-68639d72be06e66dd63122ee25cdf6229a7c365aa5f0309affbf1533e4c72aec",
+      "originalUrl": "https://omny.fm/shows/eapenasfumaca/12-garfo-de-ouro-fronteira-do-medo-s-rie",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "fumaca",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "afbbf46015400e5b5895d981",
+        "app-68639d72be06e66dd63122ee25cdf6229a7c365aa5f0309affbf1533e4c72aec"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-7351ade9744ffeaef68c926e79da41878e08f4f7da10133821de280f379506a0",
+      "appRecordId": "8d09e5d2aab9d2b4b2b21e63",
+      "rawAliases": [],
+      "websiteId": "app-7351ade9744ffeaef68c926e79da41878e08f4f7da10133821de280f379506a0",
+      "canonicalUrlId": "app-7351ade9744ffeaef68c926e79da41878e08f4f7da10133821de280f379506a0",
+      "originalUrl": "https://omny.fm/shows/eapenasfumaca/13-estado-versus-pedro-fronteira-do-medo-s-rie",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "fumaca",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "8d09e5d2aab9d2b4b2b21e63",
+        "app-7351ade9744ffeaef68c926e79da41878e08f4f7da10133821de280f379506a0"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-b514e5f03fbb369b40505ca1094b566bfd9af22ecd66e6531407ae5c46c4b0b0",
+      "appRecordId": "96b63fde870bfa7216e9a949",
+      "rawAliases": [],
+      "websiteId": "app-b514e5f03fbb369b40505ca1094b566bfd9af22ecd66e6531407ae5c46c4b0b0",
+      "canonicalUrlId": "app-b514e5f03fbb369b40505ca1094b566bfd9af22ecd66e6531407ae5c46c4b0b0",
+      "originalUrl": "https://omny.fm/shows/eapenasfumaca/6-lugares-de-exce-o-fronteira-do-medo-s-rie",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "fumaca",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "96b63fde870bfa7216e9a949",
+        "app-b514e5f03fbb369b40505ca1094b566bfd9af22ecd66e6531407ae5c46c4b0b0"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-139f11069262e16b5fca152f7342a88fed1cb3505e1f2ed202f672f86d6d2d22",
+      "appRecordId": "7ee0ed894fd0c6f40ac5b8bd",
+      "rawAliases": [],
+      "websiteId": "app-139f11069262e16b5fca152f7342a88fed1cb3505e1f2ed202f672f86d6d2d22",
+      "canonicalUrlId": "app-139f11069262e16b5fca152f7342a88fed1cb3505e1f2ed202f672f86d6d2d22",
+      "originalUrl": "https://omny.fm/shows/eapenasfumaca/7-ovo-ou-galinha-fronteira-do-medo-s-rie",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "fumaca",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "7ee0ed894fd0c6f40ac5b8bd",
+        "app-139f11069262e16b5fca152f7342a88fed1cb3505e1f2ed202f672f86d6d2d22"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-3e321800b2617419cade4f0afca6c4f5e69375c1e96b19bc4fc99c8675e9ca54",
+      "appRecordId": "7c4454924bcf5d84fa6faed4",
+      "rawAliases": [],
+      "websiteId": "app-3e321800b2617419cade4f0afca6c4f5e69375c1e96b19bc4fc99c8675e9ca54",
+      "canonicalUrlId": "app-3e321800b2617419cade4f0afca6c4f5e69375c1e96b19bc4fc99c8675e9ca54",
+      "originalUrl": "https://omny.fm/shows/eapenasfumaca/8-auto-de-not-cia-fronteira-do-medo-s-rie",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "fumaca",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "7c4454924bcf5d84fa6faed4",
+        "app-3e321800b2617419cade4f0afca6c4f5e69375c1e96b19bc4fc99c8675e9ca54"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-c71ec28e226e2e43835d0e1a9c3ee478ffe28dc7b1989acffff2dca9f75856da",
+      "appRecordId": "b66b08daa6246b189c6f2c15",
+      "rawAliases": [],
+      "websiteId": "app-c71ec28e226e2e43835d0e1a9c3ee478ffe28dc7b1989acffff2dca9f75856da",
+      "canonicalUrlId": "app-c71ec28e226e2e43835d0e1a9c3ee478ffe28dc7b1989acffff2dca9f75856da",
+      "originalUrl": "https://omny.fm/shows/eapenasfumaca/9-carta-do-monop-lio-fronteira-do-medo-s-rie",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "fumaca",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "b66b08daa6246b189c6f2c15",
+        "app-c71ec28e226e2e43835d0e1a9c3ee478ffe28dc7b1989acffff2dca9f75856da"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-2186e7bbecdc32f7747891fb224a09fc5bba956248ce7df2de19086435efd01e",
+      "appRecordId": "280ae33f3e40a32c1978b794",
+      "rawAliases": [],
+      "websiteId": "app-2186e7bbecdc32f7747891fb224a09fc5bba956248ce7df2de19086435efd01e",
+      "canonicalUrlId": "app-2186e7bbecdc32f7747891fb224a09fc5bba956248ce7df2de19086435efd01e",
+      "originalUrl": "https://omny.fm/shows/eapenasfumaca/o-trabalho-do-sexo-n-o-feminista-newsletter",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "fumaca",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "280ae33f3e40a32c1978b794",
+        "app-2186e7bbecdc32f7747891fb224a09fc5bba956248ce7df2de19086435efd01e"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-9539a1b1181f77efb093fe8b930a5612e9ce203f69a6bf446854b4e260ab08b0",
+      "appRecordId": "61d828283954235ef954ba7f",
+      "rawAliases": [],
+      "websiteId": "app-f30d95b11c2f6f59d4c81497593ab4bb5d0e03fca857f497b59cf9a94daafbb4",
+      "canonicalUrlId": "app-f30d95b11c2f6f59d4c81497593ab4bb5d0e03fca857f497b59cf9a94daafbb4",
+      "originalUrl": "https://creators.spotify.com/pod/profile/epanastash/episodes/1789-1799-33-e3ob1g2",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "epanastasi-greece",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "61d828283954235ef954ba7f",
+        "app-9539a1b1181f77efb093fe8b930a5612e9ce203f69a6bf446854b4e260ab08b0",
+        "app-f30d95b11c2f6f59d4c81497593ab4bb5d0e03fca857f497b59cf9a94daafbb4"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-857d37cd52183aee8e8547a3b1d3d3e7792f0776f3fc36e788870636c7cae231",
+      "appRecordId": "806859dcfa779a53e81a8a38",
+      "rawAliases": [],
+      "websiteId": "app-2a5e26dbe8d9878472ad7eb260593662c9669a063846e36c1b523be7161c1acf",
+      "canonicalUrlId": "app-2a5e26dbe8d9878472ad7eb260593662c9669a063846e36c1b523be7161c1acf",
+      "originalUrl": "https://creators.spotify.com/pod/profile/epanastash/episodes/1973-e3on9qp",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "epanastasi-greece",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "806859dcfa779a53e81a8a38",
+        "app-857d37cd52183aee8e8547a3b1d3d3e7792f0776f3fc36e788870636c7cae231",
+        "app-2a5e26dbe8d9878472ad7eb260593662c9669a063846e36c1b523be7161c1acf"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-de4af96bf59e98f44c3831bb502fe4ba30884a33abcad4b6d2529cf7c3507771",
+      "appRecordId": "2b8891ba99c89e42a3bcf07e",
+      "rawAliases": [],
+      "websiteId": "app-0f97afa232ea760682b6718313968d1553fa346a9d99ad389102479d62019516",
+      "canonicalUrlId": "app-0f97afa232ea760682b6718313968d1553fa346a9d99ad389102479d62019516",
+      "originalUrl": "https://creators.spotify.com/pod/profile/epanastash/episodes/22-e3p1h7c",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "epanastasi-greece",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "2b8891ba99c89e42a3bcf07e",
+        "app-de4af96bf59e98f44c3831bb502fe4ba30884a33abcad4b6d2529cf7c3507771",
+        "app-0f97afa232ea760682b6718313968d1553fa346a9d99ad389102479d62019516"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-feb5283deb86d8e56fa87531c849400bffa3043533e3362e9898be8fb9d264d9",
+      "appRecordId": "7163bf0824776abdb9be82e7",
+      "rawAliases": [],
+      "websiteId": "app-357df17a140f4e9cd7463fa75af3c3932aef155c228eb4c89f042f6e2222bf57",
+      "canonicalUrlId": "app-357df17a140f4e9cd7463fa75af3c3932aef155c228eb4c89f042f6e2222bf57",
+      "originalUrl": "https://creators.spotify.com/pod/profile/epanastash/episodes/ep-e3pcbg5",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "epanastasi-greece",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "7163bf0824776abdb9be82e7",
+        "app-feb5283deb86d8e56fa87531c849400bffa3043533e3362e9898be8fb9d264d9",
+        "app-357df17a140f4e9cd7463fa75af3c3932aef155c228eb4c89f042f6e2222bf57"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-429b687efb4d4bee4c8b8a36e95a1246c40dd6f30aba973d588a45414f64ee8c",
+      "appRecordId": "1389b6568e61d4b6fea101de",
+      "rawAliases": [],
+      "websiteId": "app-429b687efb4d4bee4c8b8a36e95a1246c40dd6f30aba973d588a45414f64ee8c",
+      "canonicalUrlId": "app-429b687efb4d4bee4c8b8a36e95a1246c40dd6f30aba973d588a45414f64ee8c",
+      "originalUrl": "https://radioblackout.org/2026/10/blocchi-nei-licei-in-francia-la-protesta-continua-e-si-espande/",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "radio-blackout",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "1389b6568e61d4b6fea101de",
+        "app-429b687efb4d4bee4c8b8a36e95a1246c40dd6f30aba973d588a45414f64ee8c"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-91c2099e10dbedb5cf2a459b3bcf835d63affc585b43635c901646f674598e67",
+      "appRecordId": "cc64b0b9d1dc0ef7543f7fb5",
+      "rawAliases": [
+        "73eb8c018e0da22fc51a5f06"
+      ],
+      "websiteId": "app-91c2099e10dbedb5cf2a459b3bcf835d63affc585b43635c901646f674598e67",
+      "canonicalUrlId": "app-91c2099e10dbedb5cf2a459b3bcf835d63affc585b43635c901646f674598e67",
+      "originalUrl": "https://radioblackout.org/2026/10/in-spagna-giornate-calde-per-il-diritto-allabitare/",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "radio-blackout",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "cc64b0b9d1dc0ef7543f7fb5",
+        "73eb8c018e0da22fc51a5f06",
+        "app-91c2099e10dbedb5cf2a459b3bcf835d63affc585b43635c901646f674598e67"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-53b6a3817df8366a8ced78316dbf0c6b27ed1310e094397fcff1e0960b8ee263",
+      "appRecordId": "3be64ef1f67af27aa5c89728",
+      "rawAliases": [],
+      "websiteId": "app-53b6a3817df8366a8ced78316dbf0c6b27ed1310e094397fcff1e0960b8ee263",
+      "canonicalUrlId": "app-53b6a3817df8366a8ced78316dbf0c6b27ed1310e094397fcff1e0960b8ee263",
+      "originalUrl": "https://radioblackout.org/2026/10/israele-netanyahu-alla-ricerca-di-consenso-verso-le-elezioni/",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "radio-blackout",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "3be64ef1f67af27aa5c89728",
+        "app-53b6a3817df8366a8ced78316dbf0c6b27ed1310e094397fcff1e0960b8ee263"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-f92ddc0dc5daf2a934f2e563588272f2843f3fdabe18edb7ff84c6b8d2cfefbc",
+      "appRecordId": "d4b9425b301a8a1b8079ac83",
+      "rawAliases": [],
+      "websiteId": "app-f92ddc0dc5daf2a934f2e563588272f2843f3fdabe18edb7ff84c6b8d2cfefbc",
+      "canonicalUrlId": "app-f92ddc0dc5daf2a934f2e563588272f2843f3fdabe18edb7ff84c6b8d2cfefbc",
+      "originalUrl": "https://radioblackout.org/2026/10/lumbria-va-alla-guerra/",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "radio-blackout",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "d4b9425b301a8a1b8079ac83",
+        "app-f92ddc0dc5daf2a934f2e563588272f2843f3fdabe18edb7ff84c6b8d2cfefbc"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-128610e991e7d8d50a291587fe91fa959cacca67e1481864f65e12d162d0fb18",
+      "appRecordId": "c06dacfea2a2f21283437b8a",
+      "rawAliases": [],
+      "websiteId": "app-128610e991e7d8d50a291587fe91fa959cacca67e1481864f65e12d162d0fb18",
+      "canonicalUrlId": "app-128610e991e7d8d50a291587fe91fa959cacca67e1481864f65e12d162d0fb18",
+      "originalUrl": "https://radioblackout.org/2026/10/saluzzo-bilancio-di-unaltra-stagione-di-sfruttamento-in-agricoltura/",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "radio-blackout",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "c06dacfea2a2f21283437b8a",
+        "app-128610e991e7d8d50a291587fe91fa959cacca67e1481864f65e12d162d0fb18"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-9b50e3e44498d87545c8fedce0253da7cf565b2512538682de8877c0565f9727",
+      "appRecordId": "3f6a13eea4a82ca98785581d",
+      "rawAliases": [],
+      "websiteId": "app-9b50e3e44498d87545c8fedce0253da7cf565b2512538682de8877c0565f9727",
+      "canonicalUrlId": "app-9b50e3e44498d87545c8fedce0253da7cf565b2512538682de8877c0565f9727",
+      "originalUrl": "https://radioblackout.org/podcast/avvoltoio-vola-via-da-casa-mia-vola-via-da-puerta-de-sol-e-avvoltoio-ando-in-sudan/",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "radio-blackout",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "3f6a13eea4a82ca98785581d",
+        "app-9b50e3e44498d87545c8fedce0253da7cf565b2512538682de8877c0565f9727"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-d069738d8adbe8b57d5d2cac3adeb07e3fc8063111fd56bfa3c072ce330fa820",
+      "appRecordId": "aeb31ab3de0c5edc14f52427",
+      "rawAliases": [],
+      "websiteId": "app-d069738d8adbe8b57d5d2cac3adeb07e3fc8063111fd56bfa3c072ce330fa820",
+      "canonicalUrlId": "app-d069738d8adbe8b57d5d2cac3adeb07e3fc8063111fd56bfa3c072ce330fa820",
+      "originalUrl": "https://rdl.de/beitrag/bluesclubradio-27",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "radio-dreyeckland",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "aeb31ab3de0c5edc14f52427",
+        "app-d069738d8adbe8b57d5d2cac3adeb07e3fc8063111fd56bfa3c072ce330fa820"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-1cfca80f74c55fc3d87a746c3d77be39a964747a3f8bc8e6eddfd36dbdac1695",
+      "appRecordId": "cc39723476a23282e3175d24",
+      "rawAliases": [],
+      "websiteId": "app-1cfca80f74c55fc3d87a746c3d77be39a964747a3f8bc8e6eddfd36dbdac1695",
+      "canonicalUrlId": "app-1cfca80f74c55fc3d87a746c3d77be39a964747a3f8bc8e6eddfd36dbdac1695",
+      "originalUrl": "https://rdl.de/beitrag/die-welt-ist-eine-scheibe-02102026",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "radio-dreyeckland",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "cc39723476a23282e3175d24",
+        "app-1cfca80f74c55fc3d87a746c3d77be39a964747a3f8bc8e6eddfd36dbdac1695"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-39ef9ebd6c84dd9fc11afd47784b546d9d491687cdf795f582f85b6152bee109",
+      "appRecordId": "f6ee7f4f4641835188a7d655",
+      "rawAliases": [],
+      "websiteId": "app-39ef9ebd6c84dd9fc11afd47784b546d9d491687cdf795f582f85b6152bee109",
+      "canonicalUrlId": "app-39ef9ebd6c84dd9fc11afd47784b546d9d491687cdf795f582f85b6152bee109",
+      "originalUrl": "https://rdl.de/beitrag/gehen-die-proteste-gegen-zwangsr-umung-einen-generalstreik-gegen-die-wohnungsmisere-ber",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "radio-dreyeckland",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "f6ee7f4f4641835188a7d655",
+        "app-39ef9ebd6c84dd9fc11afd47784b546d9d491687cdf795f582f85b6152bee109"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-29ef35cadcf9c39792b2aa03ebc8afe38d482dd0c9c11453b4ef2a115fd46db5",
+      "appRecordId": "176eb0356f7510a5d94ec3eb",
+      "rawAliases": [],
+      "websiteId": "app-29ef35cadcf9c39792b2aa03ebc8afe38d482dd0c9c11453b4ef2a115fd46db5",
+      "canonicalUrlId": "app-29ef35cadcf9c39792b2aa03ebc8afe38d482dd0c9c11453b4ef2a115fd46db5",
+      "originalUrl": "https://rdl.de/beitrag/gro-e-proteste-franz-sischen-schulen-sto-en-auf-ua-rassistische-gegenkampagne",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "radio-dreyeckland",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "176eb0356f7510a5d94ec3eb",
+        "app-29ef35cadcf9c39792b2aa03ebc8afe38d482dd0c9c11453b4ef2a115fd46db5"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-ca2db86044ff75f313cf492a2ffba6a5a844f9e531b57f5029136ef3006a745a",
+      "appRecordId": "c18d6d7d42aa8484a6561516",
+      "rawAliases": [],
+      "websiteId": "app-ca2db86044ff75f313cf492a2ffba6a5a844f9e531b57f5029136ef3006a745a",
+      "canonicalUrlId": "app-ca2db86044ff75f313cf492a2ffba6a5a844f9e531b57f5029136ef3006a745a",
+      "originalUrl": "https://rdl.de/beitrag/historisches-tagesinfo-02102026",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "radio-dreyeckland",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "c18d6d7d42aa8484a6561516",
+        "app-ca2db86044ff75f313cf492a2ffba6a5a844f9e531b57f5029136ef3006a745a"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-a9c16551f4f7a06c8788ed01f8a2e70ded47df23413f200b6c6ca5b0e655a9ea",
+      "appRecordId": "68b2faab6bfad1b616083098",
+      "rawAliases": [],
+      "websiteId": "app-a9c16551f4f7a06c8788ed01f8a2e70ded47df23413f200b6c6ca5b0e655a9ea",
+      "canonicalUrlId": "app-a9c16551f4f7a06c8788ed01f8a2e70ded47df23413f200b6c6ca5b0e655a9ea",
+      "originalUrl": "https://rdl.de/beitrag/infomagazin-02102026",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "radio-dreyeckland",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "68b2faab6bfad1b616083098",
+        "app-a9c16551f4f7a06c8788ed01f8a2e70ded47df23413f200b6c6ca5b0e655a9ea"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-e32d0cc8a2fa43f8a8aeb6de1e896b191279cbd8eb474b1bd8825e983fc77472",
+      "appRecordId": "7e52c83d8ea4c5b3a976400d",
+      "rawAliases": [],
+      "websiteId": "app-e32d0cc8a2fa43f8a8aeb6de1e896b191279cbd8eb474b1bd8825e983fc77472",
+      "canonicalUrlId": "app-e32d0cc8a2fa43f8a8aeb6de1e896b191279cbd8eb474b1bd8825e983fc77472",
+      "originalUrl": "https://rdl.de/beitrag/lange-nacht-der-demokratie-staufen",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "radio-dreyeckland",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "7e52c83d8ea4c5b3a976400d",
+        "app-e32d0cc8a2fa43f8a8aeb6de1e896b191279cbd8eb474b1bd8825e983fc77472"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-8269e6d2187cd1c6bbcfcd0e81ac7fe6f02d4bcd8921274ae2a7b9ae430bc09f",
+      "appRecordId": "ce0e6cc0e0a1f6e0f5d68925",
+      "rawAliases": [],
+      "websiteId": "app-8269e6d2187cd1c6bbcfcd0e81ac7fe6f02d4bcd8921274ae2a7b9ae430bc09f",
+      "canonicalUrlId": "app-8269e6d2187cd1c6bbcfcd0e81ac7fe6f02d4bcd8921274ae2a7b9ae430bc09f",
+      "originalUrl": "https://rdl.de/beitrag/o-ton-playback-02102026",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "radio-dreyeckland",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "ce0e6cc0e0a1f6e0f5d68925",
+        "app-8269e6d2187cd1c6bbcfcd0e81ac7fe6f02d4bcd8921274ae2a7b9ae430bc09f"
+      ],
+      "withdrawn": false
+    },
+    {
+      "caseId": "app-099dba774725b0243ead22eccf229db8e07c7851256d36e24d1a40fcf4cc3960",
+      "appRecordId": "0dc1618526f0310e2bf1ae6d",
+      "rawAliases": [],
+      "websiteId": "app-099dba774725b0243ead22eccf229db8e07c7851256d36e24d1a40fcf4cc3960",
+      "canonicalUrlId": "app-099dba774725b0243ead22eccf229db8e07c7851256d36e24d1a40fcf4cc3960",
+      "originalUrl": "https://rdl.de/beitrag/unser-langj-hriger-musikredakteur-g-tz-adler-ist-im-alter-von-56-jahren-gestorben",
+      "disposition": "admitted-original-link-only",
+      "sourceId": "radio-dreyeckland",
+      "language": "und",
+      "rights": "metadata-original-link-only",
+      "previousRecordId": null,
+      "previousOriginalUrl": null,
+      "withdrawalIdentities": [
+        "0dc1618526f0310e2bf1ae6d",
+        "app-099dba774725b0243ead22eccf229db8e07c7851256d36e24d1a40fcf4cc3960"
+      ],
+      "withdrawn": false
+    }
+  ],
+  "intake": [
+    {
+      "id": "app-dfc8e42bc11622fe267262970dbba983efd4b1d39fc3e45c35fbfa429ed6bb9a",
+      "title": "Auf Kante genäht",
+      "source": "LORA München",
+      "url": "https://lora924.de/2026/09/30/auf-kante-genaeht/",
+      "language": "und",
+      "publishedAt": "2026-09-30T11:36:42.000Z",
+      "country": "DE"
+    },
+    {
+      "id": "app-1eb0c6894a287fc983192916bb3a3451405dbc3f9b9764fec1b8520c484b0cb2",
+      "title": "Sendling-Perspektiven",
+      "source": "LORA München",
+      "url": "https://lora924.de/2026/10/02/sendling-perspektiven/",
+      "language": "und",
+      "publishedAt": "2026-10-02T15:26:29.000Z",
+      "country": "DE"
+    },
+    {
+      "id": "app-49836436746e3f6537cb113e21da47e1ef33db60ec6260c115c60054a5cce42e",
+      "title": "الحلقة 5: الإبادة الفكرية",
+      "source": "Jalsa | جلسة",
+      "url": "https://www.buzzsprout.com/1776729/episodes/19670426-5",
+      "language": "und",
+      "publishedAt": "2026-08-19T14:00:00.000Z",
+      "country": "LB"
+    },
+    {
+      "id": "app-2adbebc11df85a380e666977db193b5a07ec0650d820be36d3372e464ef8c53d",
+      "title": "10: Umas maçãs podres | Fronteira do Medo (Série)",
+      "source": "Fumaça",
+      "url": "https://omny.fm/shows/eapenasfumaca/10-umas-ma-s-podres-fronteira-do-medo-s-rie",
+      "language": "und",
+      "publishedAt": "2026-09-10T06:00:00.000Z",
+      "country": "PT"
+    },
+    {
+      "id": "app-f022824c888fdafd7ce4c0dddfc15ff62b177ae50e58250d0bbf47d4202bf8c6",
+      "title": "11: O falcão polícia | Fronteira do Medo (Série)",
+      "source": "Fumaça",
+      "url": "https://omny.fm/shows/eapenasfumaca/11-o-falc-o-pol-cia-fronteira-do-medo-s-rie",
+      "language": "und",
+      "publishedAt": "2026-09-17T06:00:00.000Z",
+      "country": "PT"
+    },
+    {
+      "id": "app-68639d72be06e66dd63122ee25cdf6229a7c365aa5f0309affbf1533e4c72aec",
+      "title": "12: Garfo de ouro | Fronteira do Medo (Série)",
+      "source": "Fumaça",
+      "url": "https://omny.fm/shows/eapenasfumaca/12-garfo-de-ouro-fronteira-do-medo-s-rie",
+      "language": "und",
+      "publishedAt": "2026-09-24T06:00:00.000Z",
+      "country": "PT"
+    },
+    {
+      "id": "app-7351ade9744ffeaef68c926e79da41878e08f4f7da10133821de280f379506a0",
+      "title": "13: Estado versus Pedro | Fronteira do Medo (Série)",
+      "source": "Fumaça",
+      "url": "https://omny.fm/shows/eapenasfumaca/13-estado-versus-pedro-fronteira-do-medo-s-rie",
+      "language": "und",
+      "publishedAt": "2026-10-01T06:00:00.000Z",
+      "country": "PT"
+    },
+    {
+      "id": "app-b514e5f03fbb369b40505ca1094b566bfd9af22ecd66e6531407ae5c46c4b0b0",
+      "title": "6: Lugares de exceção | Fronteira do Medo (Série)",
+      "source": "Fumaça",
+      "url": "https://omny.fm/shows/eapenasfumaca/6-lugares-de-exce-o-fronteira-do-medo-s-rie",
+      "language": "und",
+      "publishedAt": "2026-08-13T06:00:00.000Z",
+      "country": "PT"
+    },
+    {
+      "id": "app-139f11069262e16b5fca152f7342a88fed1cb3505e1f2ed202f672f86d6d2d22",
+      "title": "7: Ovo ou galinha | Fronteira do Medo (Série)",
+      "source": "Fumaça",
+      "url": "https://omny.fm/shows/eapenasfumaca/7-ovo-ou-galinha-fronteira-do-medo-s-rie",
+      "language": "und",
+      "publishedAt": "2026-08-20T06:00:00.000Z",
+      "country": "PT"
+    },
+    {
+      "id": "app-3e321800b2617419cade4f0afca6c4f5e69375c1e96b19bc4fc99c8675e9ca54",
+      "title": "8: Auto de notícia | Fronteira do Medo (Série)",
+      "source": "Fumaça",
+      "url": "https://omny.fm/shows/eapenasfumaca/8-auto-de-not-cia-fronteira-do-medo-s-rie",
+      "language": "und",
+      "publishedAt": "2026-08-27T06:00:00.000Z",
+      "country": "PT"
+    },
+    {
+      "id": "app-c71ec28e226e2e43835d0e1a9c3ee478ffe28dc7b1989acffff2dca9f75856da",
+      "title": "9: Carta do Monopólio | Fronteira do Medo (Série)",
+      "source": "Fumaça",
+      "url": "https://omny.fm/shows/eapenasfumaca/9-carta-do-monop-lio-fronteira-do-medo-s-rie",
+      "language": "und",
+      "publishedAt": "2026-09-03T06:00:00.000Z",
+      "country": "PT"
+    },
+    {
+      "id": "app-2186e7bbecdc32f7747891fb224a09fc5bba956248ce7df2de19086435efd01e",
+      "title": "O trabalho do sexo não é feminista (Newsletter)",
+      "source": "Fumaça",
+      "url": "https://omny.fm/shows/eapenasfumaca/o-trabalho-do-sexo-n-o-feminista-newsletter",
+      "language": "und",
+      "publishedAt": "2026-10-01T10:00:00.000Z",
+      "country": "PT"
+    },
+    {
+      "id": "app-f30d95b11c2f6f59d4c81497593ab4bb5d0e03fca857f497b59cf9a94daafbb4",
+      "title": "Γαλλική Επανάσταση 1789-1799 (3/3): Από την άνοδο των Γιακωβίνων στον Ναπολέοντα",
+      "source": "ΕΠΑΝΑΣΤΑΣΗ podcast",
+      "url": "https://creators.spotify.com/pod/profile/epanastash/episodes/1789-1799-33-e3ob1g2",
+      "language": "und",
+      "publishedAt": "2026-09-04T08:02:18.000Z",
+      "country": "GR"
+    },
+    {
+      "id": "app-2a5e26dbe8d9878472ad7eb260593662c9669a063846e36c1b523be7161c1acf",
+      "title": "Χιλή: Η επανάσταση και το πραξικόπημα του 1973",
+      "source": "ΕΠΑΝΑΣΤΑΣΗ podcast",
+      "url": "https://creators.spotify.com/pod/profile/epanastash/episodes/1973-e3on9qp",
+      "language": "und",
+      "publishedAt": "2026-09-11T13:38:43.000Z",
+      "country": "GR"
+    },
+    {
+      "id": "app-0f97afa232ea760682b6718313968d1553fa346a9d99ad389102479d62019516",
+      "title": "Τεντ Γκραντ: Η ζωή και οι ιδέες του (2/2)",
+      "source": "ΕΠΑΝΑΣΤΑΣΗ podcast",
+      "url": "https://creators.spotify.com/pod/profile/epanastash/episodes/22-e3p1h7c",
+      "language": "und",
+      "publishedAt": "2026-09-18T09:57:25.000Z",
+      "country": "GR"
+    },
+    {
+      "id": "app-357df17a140f4e9cd7463fa75af3c3932aef155c228eb4c89f042f6e2222bf57",
+      "title": "«Κράτος και Επανάσταση» (Β.Ι. Λένιν)",
+      "source": "ΕΠΑΝΑΣΤΑΣΗ podcast",
+      "url": "https://creators.spotify.com/pod/profile/epanastash/episodes/ep-e3pcbg5",
+      "language": "und",
+      "publishedAt": "2026-09-25T08:46:29.000Z",
+      "country": "GR"
+    },
+    {
+      "id": "app-429b687efb4d4bee4c8b8a36e95a1246c40dd6f30aba973d588a45414f64ee8c",
+      "title": "Blocchi nei licei in Francia: la protesta continua e si espande",
+      "source": "Radio Blackout Torino",
+      "url": "https://radioblackout.org/2026/10/blocchi-nei-licei-in-francia-la-protesta-continua-e-si-espande/",
+      "language": "und",
+      "publishedAt": "2026-10-02T07:29:20.000Z",
+      "country": "IT"
+    },
+    {
+      "id": "app-91c2099e10dbedb5cf2a459b3bcf835d63affc585b43635c901646f674598e67",
+      "title": "In Spagna, giornate calde per il diritto all’abitare@1",
+      "source": "Radio Blackout Torino",
+      "url": "https://radioblackout.org/2026/10/in-spagna-giornate-calde-per-il-diritto-allabitare/",
+      "language": "und",
+      "publishedAt": "2026-10-02T13:07:47.000Z",
+      "country": "IT"
+    },
+    {
+      "id": "app-53b6a3817df8366a8ced78316dbf0c6b27ed1310e094397fcff1e0960b8ee263",
+      "title": "Israele: Netanyahu alla ricerca di consenso verso le elezioni",
+      "source": "Radio Blackout Torino",
+      "url": "https://radioblackout.org/2026/10/israele-netanyahu-alla-ricerca-di-consenso-verso-le-elezioni/",
+      "language": "und",
+      "publishedAt": "2026-10-02T07:05:06.000Z",
+      "country": "IT"
+    },
+    {
+      "id": "app-f92ddc0dc5daf2a934f2e563588272f2843f3fdabe18edb7ff84c6b8d2cfefbc",
+      "title": "L’Umbria va alla guerra",
+      "source": "Radio Blackout Torino",
+      "url": "https://radioblackout.org/2026/10/lumbria-va-alla-guerra/",
+      "language": "und",
+      "publishedAt": "2026-10-02T07:39:08.000Z",
+      "country": "IT"
+    },
+    {
+      "id": "app-128610e991e7d8d50a291587fe91fa959cacca67e1481864f65e12d162d0fb18",
+      "title": "Saluzzo: bilancio di un’altra stagione di sfruttamento in agricoltura",
+      "source": "Radio Blackout Torino",
+      "url": "https://radioblackout.org/2026/10/saluzzo-bilancio-di-unaltra-stagione-di-sfruttamento-in-agricoltura/",
+      "language": "und",
+      "publishedAt": "2026-10-02T13:39:25.000Z",
+      "country": "IT"
+    },
+    {
+      "id": "app-9b50e3e44498d87545c8fedce0253da7cf565b2512538682de8877c0565f9727",
+      "title": "Avvoltoio vola via da casa mia, vola via da Puerta de Sol; e avvoltoio andò in Sudan…",
+      "source": "Radio Blackout Torino",
+      "url": "https://radioblackout.org/podcast/avvoltoio-vola-via-da-casa-mia-vola-via-da-puerta-de-sol-e-avvoltoio-ando-in-sudan/",
+      "language": "und",
+      "publishedAt": "2026-10-02T23:41:47.000Z",
+      "country": "IT"
+    },
+    {
+      "id": "app-d069738d8adbe8b57d5d2cac3adeb07e3fc8063111fd56bfa3c072ce330fa820",
+      "title": "BLUESCLUBRADIO",
+      "source": "Radio Dreyeckland – Mediathek",
+      "url": "https://rdl.de/beitrag/bluesclubradio-27",
+      "language": "und",
+      "publishedAt": "2026-10-02T07:46:14.000Z",
+      "country": null
+    },
+    {
+      "id": "app-1cfca80f74c55fc3d87a746c3d77be39a964747a3f8bc8e6eddfd36dbdac1695",
+      "title": "Die Welt ist eine Scheibe 02.10.2026",
+      "source": "Radio Dreyeckland – Mediathek",
+      "url": "https://rdl.de/beitrag/die-welt-ist-eine-scheibe-02102026",
+      "language": "und",
+      "publishedAt": "2026-10-02T19:07:01.000Z",
+      "country": null
+    },
+    {
+      "id": "app-39ef9ebd6c84dd9fc11afd47784b546d9d491687cdf795f582f85b6152bee109",
+      "title": "Gehen die Proteste gegen Zwangsräumung in einen Generalstreik gegen die Wohnungsmisere über?",
+      "source": "Radio Dreyeckland – Mediathek",
+      "url": "https://rdl.de/beitrag/gehen-die-proteste-gegen-zwangsr-umung-einen-generalstreik-gegen-die-wohnungsmisere-ber",
+      "language": "und",
+      "publishedAt": "2026-10-02T08:49:35.000Z",
+      "country": null
+    },
+    {
+      "id": "app-29ef35cadcf9c39792b2aa03ebc8afe38d482dd0c9c11453b4ef2a115fd46db5",
+      "title": "Große Proteste an französischen Schulen stoßen auf u.a. rassistische Gegenkampagne",
+      "source": "Radio Dreyeckland – Mediathek",
+      "url": "https://rdl.de/beitrag/gro-e-proteste-franz-sischen-schulen-sto-en-auf-ua-rassistische-gegenkampagne",
+      "language": "und",
+      "publishedAt": "2026-10-02T08:25:57.000Z",
+      "country": null
+    },
+    {
+      "id": "app-ca2db86044ff75f313cf492a2ffba6a5a844f9e531b57f5029136ef3006a745a",
+      "title": "Historisches Tagesinfo 02.10.2026",
+      "source": "Radio Dreyeckland – Mediathek",
+      "url": "https://rdl.de/beitrag/historisches-tagesinfo-02102026",
+      "language": "und",
+      "publishedAt": "2026-10-02T08:07:02.000Z",
+      "country": null
+    },
+    {
+      "id": "app-a9c16551f4f7a06c8788ed01f8a2e70ded47df23413f200b6c6ca5b0e655a9ea",
+      "title": "Infomagazin 02.10.2026",
+      "source": "Radio Dreyeckland – Mediathek",
+      "url": "https://rdl.de/beitrag/infomagazin-02102026",
+      "language": "und",
+      "publishedAt": "2026-10-02T16:07:01.000Z",
+      "country": null
+    },
+    {
+      "id": "app-e32d0cc8a2fa43f8a8aeb6de1e896b191279cbd8eb474b1bd8825e983fc77472",
+      "title": "Lange Nacht der Demokratie in Staufen",
+      "source": "Radio Dreyeckland – Mediathek",
+      "url": "https://rdl.de/beitrag/lange-nacht-der-demokratie-staufen",
+      "language": "und",
+      "publishedAt": "2026-10-01T09:55:12.000Z",
+      "country": null
+    },
+    {
+      "id": "app-8269e6d2187cd1c6bbcfcd0e81ac7fe6f02d4bcd8921274ae2a7b9ae430bc09f",
+      "title": "O-Ton Playback 02.10.2026",
+      "source": "Radio Dreyeckland – Mediathek",
+      "url": "https://rdl.de/beitrag/o-ton-playback-02102026",
+      "language": "und",
+      "publishedAt": "2026-10-02T17:07:01.000Z",
+      "country": null
+    },
+    {
+      "id": "app-099dba774725b0243ead22eccf229db8e07c7851256d36e24d1a40fcf4cc3960",
+      "title": "Unser langjähriger Musikredakteur Götz Adler ist im Alter von 56 Jahren gestorben",
+      "source": "Radio Dreyeckland – Mediathek",
+      "url": "https://rdl.de/beitrag/unser-langj-hriger-musikredakteur-g-tz-adler-ist-im-alter-von-56-jahren-gestorben",
+      "language": "und",
+      "publishedAt": "2026-10-02T22:27:21.000Z",
+      "country": null
+    }
+  ],
+  "corrections": [
+    {
+      "id": "app-cec6a71678bcc68047f66661c7911f80f20fa44d61fd132da28665d0b5be5884",
+      "previousUrl": "https://thefinalstrawradio.noblogs.org/post/2026/04/26/dr-terrence-keel-on-u-s-deaths-in-custody-and-public-accountability/",
+      "canonicalUrlId": "app-f9f3200f534c8c91bbc56d1e9c115152714d6a1f777c6f3e1e40c3e5a2ba18fa",
+      "next": {
+        "id": "app-cec6a71678bcc68047f66661c7911f80f20fa44d61fd132da28665d0b5be5884",
+        "title": "Dr. Terence Keel on U.S. Deaths in Custody and Public Accountability",
+        "source": "The Final Straw Radio",
+        "url": "https://thefinalstrawradio.mayfirst.info/2026/04/26/dr-terence-keel-on-u-s-deaths-in-custody-and-public-accountability/",
+        "language": "en",
+        "publishedAt": "2026-04-26T13:00:00.000Z",
+        "country": "US"
+      }
+    },
+    {
+      "id": "app-0784bed1e2e0ca5cdb6b368e4444240e758b37e5fde0af640641663cd4f1ba7c",
+      "previousUrl": "https://thefinalstrawradio.noblogs.org/post/2026/05/10/the-religious-function-of-whiteness-and-mass-criminalization-in-the-us-with-andrew-krinks/",
+      "canonicalUrlId": "app-19f6d158b06eeced89201d26b4c37777dcbf7afffa845c4ed62330a48b2f338f",
+      "next": {
+        "id": "app-0784bed1e2e0ca5cdb6b368e4444240e758b37e5fde0af640641663cd4f1ba7c",
+        "title": "The Religious Function of Whiteness and Mass Criminalization in the US (with Andrew Krinks)",
+        "source": "The Final Straw Radio",
+        "url": "https://thefinalstrawradio.mayfirst.info/2026/05/10/the-religious-function-of-whiteness-and-mass-criminalization-in-the-us-with-andrew-krinks/",
+        "language": "en",
+        "publishedAt": "2026-05-10T13:00:00.000Z",
+        "country": "US"
+      }
+    },
+    {
+      "id": "app-865f4829e454b7412f454f1a5d8d0b302e4976e23c0c1a946b31ab8d41b84c0a",
+      "previousUrl": "https://thefinalstrawradio.noblogs.org/post/2026/05/17/revolutionary-lessons-and-internationalism-from-below-with-the-peoples-want/",
+      "canonicalUrlId": "app-9475663347a48e0fe45e60ef83c8ec1bc76caf62a0bde72a80af548e5dce18c8",
+      "next": {
+        "id": "app-865f4829e454b7412f454f1a5d8d0b302e4976e23c0c1a946b31ab8d41b84c0a",
+        "title": "Revolutionary Lessons and Internationalism from Below (with The Peoples Want)",
+        "source": "The Final Straw Radio",
+        "url": "https://thefinalstrawradio.mayfirst.info/2026/05/17/revolutionary-lessons-and-internationalism-from-below-with-the-peoples-want/",
+        "language": "en",
+        "publishedAt": "2026-05-17T13:00:00.000Z",
+        "country": "US"
+      }
+    },
+    {
+      "id": "app-5b91173470c87b2672d04fe36e345fbcd264516a3bbe9b1ef9da6dd8c0f48ff9",
+      "previousUrl": "https://thefinalstrawradio.noblogs.org/post/2026/05/24/national-special-security-events-homeless-sweeps-and-police-militarization/",
+      "canonicalUrlId": "app-5fc80dc37415abf503101e047d54555e38c1ba041ed3626fc32d6f042db4bc3f",
+      "next": {
+        "id": "app-5b91173470c87b2672d04fe36e345fbcd264516a3bbe9b1ef9da6dd8c0f48ff9",
+        "title": "National Special Security Events, Homeless Sweeps and Police Militarization",
+        "source": "The Final Straw Radio",
+        "url": "https://thefinalstrawradio.mayfirst.info/2026/05/24/national-special-security-events-homeless-sweeps-and-police-militarization/",
+        "language": "en",
+        "publishedAt": "2026-05-25T01:39:00.000Z",
+        "country": "US"
+      }
+    },
+    {
+      "id": "app-d2d8d1ceac0a1e8c62501f0b2cd55ff31f067b8f35caaa4694e1f3cf5dcfa56a",
+      "previousUrl": "https://thefinalstrawradio.noblogs.org/post/2026/05/31/jules-boykoff-on-sportswashing-and-the-2026-fifa-world-cup/",
+      "canonicalUrlId": "app-1391bb6f097da91074ed2fa3234225ae2bf416f3ef54d713803f3c6ba27a80c3",
+      "next": {
+        "id": "app-d2d8d1ceac0a1e8c62501f0b2cd55ff31f067b8f35caaa4694e1f3cf5dcfa56a",
+        "title": "Jules Boykoff on Sportswashing and the 2026 FIFA World Cup",
+        "source": "The Final Straw Radio",
+        "url": "https://thefinalstrawradio.mayfirst.info/2026/05/31/jules-boykoff-on-sportswashing-and-the-2026-fifa-world-cup/",
+        "language": "en",
+        "publishedAt": "2026-05-31T13:00:00.000Z",
+        "country": "US"
+      }
+    },
+    {
+      "id": "app-fefa09df56c88942879db47c3fd777d71b35c4b3b1a4ae96256ba230a3287f27",
+      "previousUrl": "https://thefinalstrawradio.noblogs.org/post/2026/06/07/bridging-the-rift-through-kumeyaay-territory-tijuana-and-san-diego/",
+      "canonicalUrlId": "app-0e1682badabfb85861f617d936e8fda586ee1ecea2c64c717231c92b3441c08c",
+      "next": {
+        "id": "app-fefa09df56c88942879db47c3fd777d71b35c4b3b1a4ae96256ba230a3287f27",
+        "title": "Bridging The Rift Through Kumeyaay Territory + 2026 June 11th Call",
+        "source": "The Final Straw Radio",
+        "url": "https://thefinalstrawradio.mayfirst.info/2026/06/07/bridging-the-rift-through-kumeyaay-territory-tijuana-and-san-diego/",
+        "language": "en",
+        "publishedAt": "2026-06-07T13:00:00.000Z",
+        "country": "US"
+      }
+    },
+    {
+      "id": "app-dd9dfe1b4f14138ef3033eba1950187ed8fce953d654d4dfc4420ae7da8e5cfc",
+      "previousUrl": "https://thefinalstrawradio.noblogs.org/post/2026/06/14/bad-news-102-from-the-a-radio-network/",
+      "canonicalUrlId": "app-5607c7316516b4316266d70073a5d7a1d7fe059b22738607d494363dab8ef43d",
+      "next": {
+        "id": "app-dd9dfe1b4f14138ef3033eba1950187ed8fce953d654d4dfc4420ae7da8e5cfc",
+        "title": "B(A)D News 102 (from the A-Radio Network)",
+        "source": "The Final Straw Radio",
+        "url": "https://thefinalstrawradio.mayfirst.info/2026/06/14/bad-news-102-from-the-a-radio-network/",
+        "language": "en",
+        "publishedAt": "2026-06-14T10:00:00.000Z",
+        "country": "US"
+      }
+    },
+    {
+      "id": "app-dc8ff6f563a48b91001aa7af58d6c878f30164c9f6960cad6b0d9af648cc187d",
+      "previousUrl": "https://thefinalstrawradio.noblogs.org/post/2026/06/21/flint-taylor-of-the-peoples-law-office-on-challenging-chicago-pd-violence-and-government-corruption-in-courts/",
+      "canonicalUrlId": "app-40bfff5e76ef883ca4988cb6d9176fa3ab5b438de9fab6feb05e558e814c1f3e",
+      "next": {
+        "id": "app-dc8ff6f563a48b91001aa7af58d6c878f30164c9f6960cad6b0d9af648cc187d",
+        "title": "Flint Taylor of the Peoples Law Office on Challenging Chicago PD Violence and Government Corruption In Courts",
+        "source": "The Final Straw Radio",
+        "url": "https://thefinalstrawradio.mayfirst.info/2026/06/21/flint-taylor-of-the-peoples-law-office-on-challenging-chicago-pd-violence-and-government-corruption-in-courts/",
+        "language": "en",
+        "publishedAt": "2026-06-21T10:00:00.000Z",
+        "country": "US"
+      }
+    },
+    {
+      "id": "app-87847b0af3d0b06bcc46dd9daf4da3e7f91932aa0c45df2d08d46b527b5b46b4",
+      "previousUrl": "https://thefinalstrawradio.noblogs.org/post/2026/06/28/thoughts-on-houseless-solidarity-in-durham-nc/",
+      "canonicalUrlId": "app-8c2090c8b9b853bdaefb89eb702efc80d594c60bed2795590f86770578728fb5",
+      "next": {
+        "id": "app-87847b0af3d0b06bcc46dd9daf4da3e7f91932aa0c45df2d08d46b527b5b46b4",
+        "title": "Thoughts on Houseless Solidarity in Durham, NC",
+        "source": "The Final Straw Radio",
+        "url": "https://thefinalstrawradio.mayfirst.info/2026/06/28/thoughts-on-houseless-solidarity-in-durham-nc/",
+        "language": "en",
+        "publishedAt": "2026-06-28T13:00:00.000Z",
+        "country": "US"
+      }
+    },
+    {
+      "id": "app-57deb3ff18513043ec77709a45ce023f845f943f35f86c2d71015560ca8e6b17",
+      "previousUrl": "https://thefinalstrawradio.noblogs.org/post/2026/07/05/prairieland-defendants-federal-sentencing-plus-flock-sabotage-in-the-great-lakes/",
+      "canonicalUrlId": "app-4bc7a09b1942f245424c5ab16dd8a81ea603b353650010a15e57e94bff7965b6",
+      "next": {
+        "id": "app-57deb3ff18513043ec77709a45ce023f845f943f35f86c2d71015560ca8e6b17",
+        "title": "Prairieland Defendants Federal Sentencing plus Flock Sabotage in the Great Lakes",
+        "source": "The Final Straw Radio",
+        "url": "https://thefinalstrawradio.mayfirst.info/2026/07/05/prairieland-defendants-federal-sentencing-plus-flock-sabotage-in-the-great-lakes/",
+        "language": "en",
+        "publishedAt": "2026-07-05T15:31:00.000Z",
+        "country": "US"
+      }
+    },
+    {
+      "id": "app-cb86b363bbdab2a42bc42e0e32df80c2a779edc6a25353c111f9d6e2e7134cfd",
+      "previousUrl": "https://thefinalstrawradio.noblogs.org/post/2026/07/12/padraig-og-o-ruairc-on-june-26-anti-immigrant-pogroms-in-belfast-fascism-and-anti-fascism-in-ireland/",
+      "canonicalUrlId": "app-652572c3178a15c32a5a6d07dde762295c7da27e3154b6e3bdc4383e704188b6",
+      "next": {
+        "id": "app-cb86b363bbdab2a42bc42e0e32df80c2a779edc6a25353c111f9d6e2e7134cfd",
+        "title": "Pádraig Óg Ó Ruairc on June '26 Anti-Immigrant Pogroms in Belfast, Fascism and Anti-Fascism in Ireland",
+        "source": "The Final Straw Radio",
+        "url": "https://thefinalstrawradio.mayfirst.info/2026/07/12/padraig-og-o-ruairc-on-june-26-anti-immigrant-pogroms-in-belfast-fascism-and-anti-fascism-in-ireland/",
+        "language": "en",
+        "publishedAt": "2026-07-12T13:00:00.000Z",
+        "country": "US"
+      }
+    },
+    {
+      "id": "app-e7a80d781bdbad08e70d237e4dc8aae4b22e77a03e878d092641859e15e473d2",
+      "previousUrl": "https://thefinalstrawradio.noblogs.org/post/2026/07/19/a-long-and-deadly-con-nuclear-power-and-weapons-with-m-v-ramana/",
+      "canonicalUrlId": "app-b93ab87d8dbae2b1a8835c28a18aa9d5f675bd2eec954d5d487fc0269fffc112",
+      "next": {
+        "id": "app-e7a80d781bdbad08e70d237e4dc8aae4b22e77a03e878d092641859e15e473d2",
+        "title": "A Long and Deadly Con: Nuclear Power and Weapons with M.V. Ramana",
+        "source": "The Final Straw Radio",
+        "url": "https://thefinalstrawradio.mayfirst.info/2026/07/19/a-long-and-deadly-con-nuclear-power-and-weapons-with-m-v-ramana/",
+        "language": "en",
+        "publishedAt": "2026-07-19T13:00:00.000Z",
+        "country": "US"
+      }
+    },
+    {
+      "id": "app-955235f96b53fffd5bd6fb16e7376735ccafbb3ae20cc985f5469fb5e2083321",
+      "previousUrl": "https://thefinalstrawradio.noblogs.org/post/2026/07/26/appalachians-against-uranium-the-ulm-5/",
+      "canonicalUrlId": "app-08d09a1c2d945e603d30fc43ac5a271673ad1017cbe3e4ea9520694385082ac0",
+      "next": {
+        "id": "app-955235f96b53fffd5bd6fb16e7376735ccafbb3ae20cc985f5469fb5e2083321",
+        "title": "Appalachians Against Uranium + the Case of the Ulm 5",
+        "source": "The Final Straw Radio",
+        "url": "https://thefinalstrawradio.mayfirst.info/2026/07/26/appalachians-against-uranium-the-ulm-5/",
+        "language": "en",
+        "publishedAt": "2026-07-26T13:00:00.000Z",
+        "country": "US"
+      }
+    },
+    {
+      "id": "app-a3cf4564a3e0e5dfd83178d98c22067be8a3b92a8a9bb9929945945206bfb892",
+      "previousUrl": "https://thefinalstrawradio.noblogs.org/post/2026/08/02/clare-follman-on-humans-in-nature-and-how-we-imagine-belonging/",
+      "canonicalUrlId": "app-83a3079b594a4a4a64d500a9df64cce9b8eb18a9ecc29479ba89e243d4a672ec",
+      "next": {
+        "id": "app-a3cf4564a3e0e5dfd83178d98c22067be8a3b92a8a9bb9929945945206bfb892",
+        "title": "Clare Follman on Humans in Nature and How We Imagine Belonging",
+        "source": "The Final Straw Radio",
+        "url": "https://thefinalstrawradio.mayfirst.info/2026/08/02/clare-follman-on-humans-in-nature-and-how-we-imagine-belonging/",
+        "language": "en",
+        "publishedAt": "2026-08-02T13:00:00.000Z",
+        "country": "US"
+      }
+    },
+    {
+      "id": "app-7c91f212ad6c6014e6977eb7b3f5e200e5c42b72d92a0806eb03305d3908c706",
+      "previousUrl": "https://thefinalstrawradio.noblogs.org/post/2026/08/09/discussion-on-organizing-against-surveillance-in-the-us-south/",
+      "canonicalUrlId": "app-7e54c8246f8b94cde92030f8ecc3a5b6af8137d0e11bfe0df454f4c24b95d1c4",
+      "next": {
+        "id": "app-7c91f212ad6c6014e6977eb7b3f5e200e5c42b72d92a0806eb03305d3908c706",
+        "title": "Discussion on Organizing Against Surveillance in the US South",
+        "source": "The Final Straw Radio",
+        "url": "https://thefinalstrawradio.mayfirst.info/2026/08/09/discussion-on-organizing-against-surveillance-in-the-us-south/",
+        "language": "en",
+        "publishedAt": "2026-08-09T13:00:00.000Z",
+        "country": "US"
+      }
+    },
+    {
+      "id": "app-c77b8fb8c2d976e5004c8dfa39db3dbdc586d9246610ed12f6f9b1848ec61f51",
+      "previousUrl": "https://thefinalstrawradio.noblogs.org/post/2026/05/03/vicky-osterweil-on-disney-intellectual-property-and-storytelling/",
+      "canonicalUrlId": "app-896174504da3007f5c2f40b8afd862d54e3fe47dfc207af8cafd5fa51fc1f371",
+      "next": {
+        "id": "app-c77b8fb8c2d976e5004c8dfa39db3dbdc586d9246610ed12f6f9b1848ec61f51",
+        "title": "Vicky Osterweil on Disney, Intellectual Property and Storytelling",
+        "source": "The Final Straw Radio",
+        "url": "https://thefinalstrawradio.mayfirst.info/post/2026/05/03/vicky-osterweil-on-disney-intellectual-property-and-storytelling/",
+        "language": "en",
+        "publishedAt": "2026-05-03T13:29:00.000Z",
+        "country": "US"
+      }
+    }
+  ],
+  "alias": {
+    "73eb8c018e0da22fc51a5f06": "cc64b0b9d1dc0ef7543f7fb5"
+  },
+  "checks": {
+    "status": "PASS",
+    "cases": 47,
+    "intake": 31,
+    "corrections": 16,
+    "priorRecords": 1777,
+    "candidateRecords": 1808,
+    "unchangedExistingRecords": 1761,
+    "preservedHistoricalLora": 2,
+    "aliasWithdrawalViaEveryIdentity": true,
+    "negativePolicyCases": 8,
+    "audioOrImageFetched": false,
+    "runtimeImported": false,
+    "publicationPerformed": false
+  },
+  "candidate": {
+    "path": "work/website-podcast-cases-9029461/candidate.json",
+    "sha256": "7262c034afa2e30cc37310c623730ad7734496ae846992b7a028c737b1c51f69"
+  }
+}

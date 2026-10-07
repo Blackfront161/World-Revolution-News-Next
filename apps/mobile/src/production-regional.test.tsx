@@ -19,7 +19,7 @@ import {
 import { ProductionHome } from '../../../packages/browser-content/src/production-home';
 import { ProductionEventsMediaDirectory } from '../../../packages/browser-content/src/events-media-directory';
 
-const now = Date.parse('2026-09-25T14:00:00.000Z');
+const now = Date.parse('2026-10-03T14:00:00.000Z');
 beforeEach(() => {
   vi.spyOn(Date, 'now').mockReturnValue(now);
 });
@@ -30,11 +30,14 @@ afterEach(() => {
 describe('actual regional client', () => {
   it('pins the reviewed actual input and projects only the explicitly chosen region', async () => {
     expect(regionalInputSha256).toBe(
-      '4ccb0da681444a8970e16113c7160c840f4cc9d777aafaba82923478ad9672a3',
+      '571eb5866536482dc6f5c046b8d82824bc85adedaf127316ac4b79b771d40236',
     );
     const catalog = await loadCurrentRegionalEvents();
-    expect(catalog?.events).toHaveLength(5);
-    expect(catalog?.sources.every((source) => source.checkedOn === '2026-09-25')).toBe(true);
+    expect(catalog?.events).toHaveLength(4);
+    expect(catalog?.sources.every((source) => source.checkedOn === '2026-10-03')).toBe(true);
+    expect(
+      catalog?.events.some((event) => event.id === 'event-sao-paulo-feira-anarquista-2026'),
+    ).toBe(false);
     expect(projectProductionRegionalEventsV1(catalog!, emptyRegionalSelection, now).status).toBe(
       'unselected',
     );
@@ -97,7 +100,7 @@ describe('actual regional client', () => {
     fireEvent.change(continent, { target: { value: 'continent-south-america' } });
     expect(screen.getByLabelText('Land')).toHaveValue('');
     expect(screen.getByLabelText('Region')).toHaveValue('');
-    expect(screen.getAllByRole('article')).toHaveLength(2);
+    expect(screen.getAllByRole('article')).toHaveLength(1);
   });
   it('removes the current event list when the clock reaches validUntil', async () => {
     render(<CurrentRegionalEvents client="website" language="de" />);
@@ -105,7 +108,8 @@ describe('actual regional client', () => {
       target: { value: 'continent-europe' },
     });
     expect(screen.getAllByRole('article')).toHaveLength(2);
-    vi.mocked(Date.now).mockReturnValue(Date.parse('2026-10-02T00:00:00.000Z'));
+    const catalog = (await loadCurrentRegionalEvents())!;
+    vi.mocked(Date.now).mockReturnValue(Date.parse(catalog.validUntil));
     fireEvent.focus(window);
     expect(screen.queryAllByRole('article')).toHaveLength(0);
     expect(screen.getByText(/Dieser Stand ist nicht mehr aktuell/)).toBeVisible();

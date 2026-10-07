@@ -1,0 +1,38 @@
+{
+  "productCommit": "20b677c7fa773c8e9a23264077fdf7604d7e93f3",
+  "status": "LOCAL-PASS",
+  "publicationPerformed": false,
+  "typecheck": "PASS",
+  "wholeWebsite": {
+    "files": 39,
+    "tests": 260,
+    "status": "PASS"
+  },
+  "focusedFinalHomeOfflineAdapter": {
+    "tests": 21,
+    "status": "PASS"
+  },
+  "websiteNodeProtocol": {
+    "modules": 12,
+    "tests": 86,
+    "status": "PASS"
+  },
+  "sourcePassDirectoryRefresh": {
+    "tests": 18,
+    "status": "PASS"
+  },
+  "scopedEslint": {
+    "status": "Three unchanged baseline findings",
+    "file": "apps/website/src/features/home/WebsiteAppHome.tsx",
+    "lines": [
+      124,
+      170,
+      314
+    ],
+    "baselineVerifiedWithGitHeadStdin": true
+  },
+  "build": "PASS",
+  "closedPackage": "PASS",
+  "compressedBrowserOffline": "PASS",
+  "independentWebsiteReview": "PENDING"
+}

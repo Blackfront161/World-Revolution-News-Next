@@ -1,0 +1,326 @@
+{
+  "schema": "wrn.website-star-favicon-evidence.v1",
+  "generatedAtUTC": "2026-10-01T00:05:42.361Z",
+  "sourceCommit": "f202ec5d702e875127c01292b26b6e0b9edfe38e",
+  "publicationPerformed": true,
+  "scope": "website favicon and bound offline asset family",
+  "shellId": "91367d2e6f35cf42d45f0a7d4e84adcca00b74a225e71b64bbba786293f64506",
+  "websiteManifestSha256": "e64d91953716dbd2150c0ed7d7df3dd0d6069445b5a0c188d17bb8a2f965d359",
+  "hostingManifestSha256": "002fc01ee8507457b8a96ba4ec9709bc68b051128d57db145a50d03d5858c4dc",
+  "originalIcon": {
+    "path": "android-wrapper/android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+    "appCommit": "260fed388385cbc8ef203a2f534d97d694d92e54",
+    "bytes": 8845,
+    "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f",
+    "width": 72,
+    "height": 72
+  },
+  "ownLivePublicFiles": 44,
+  "independentLivePublicFiles": 44,
+  "independentHttpFullReceiptSaved": false,
+  "independentLiveDecision": "PASS",
+  "independentLiveReceipts": [],
+  "publishedFiles": [
+    {
+      "bytes": 4732,
+      "path": ".htaccess",
+      "sha256": "e3909d84fbe1d82e138aa15fcda508b5c9143368d5cfd557b10d7f79e88ffa52"
+    },
+    {
+      "bytes": 5946,
+      "path": "article-publication-manifest.json",
+      "sha256": "dfd8a56c07709cefe82aa957fa020384f914ad27a8697aa272151a967ae03a30"
+    },
+    {
+      "bytes": 13852,
+      "path": "articles/wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c/index.html",
+      "sha256": "6e6fb4338b9808a7d2d13ce5736dff640a45d3346c92678ed76cf80eb0c637bc"
+    },
+    {
+      "bytes": 170365,
+      "path": "articles/wrn-art-612a467e3e256a336d6bb635ba3516d0/index.html",
+      "sha256": "57c42e8e095b40ceee9ef9b9388186277269e46b8bf4f7891202612b420081f4"
+    },
+    {
+      "bytes": 25237,
+      "path": "articles/wrn-art-67bca5d4b29dab78f8ae26ccd996a9d8/index.html",
+      "sha256": "2be9b1f542bc80676aa4502d8828b05bc04c525292320437ab4863fdec58b6d5"
+    },
+    {
+      "bytes": 18777,
+      "path": "articles/wrn-art-8a5c375e96abe85721e4ba918c3f73e2/index.html",
+      "sha256": "bec2c15e7eb86f262013336cdc3067ffe08e3a520bb71d6c9ff5e1a991c3ab74"
+    },
+    {
+      "bytes": 218496,
+      "path": "articles/wrn-art-a772ab86c915a036c6177f1bfe958d4d/index.html",
+      "sha256": "53a2940101579c19e1a3139e8fde7f7effef079d357b2c659f92c330a020d897"
+    },
+    {
+      "bytes": 20784,
+      "path": "articles/wrn-art-ba76ef8b7afb34885bd5f64bc7135f6c/index.html",
+      "sha256": "f91341a9ea8c91a7556eb8ca9a222951d1b788ef7047a426688dfcf01b4f2ccd"
+    },
+    {
+      "bytes": 267350,
+      "path": "articles/wrn-art-bdb90712e1c72ee72293c70904b50889/index.html",
+      "sha256": "85070b91f9b11e3e6a9954c42291ee1cad8062c7fa7759475446ae414a06f798"
+    },
+    {
+      "bytes": 261922,
+      "path": "articles/wrn-art-c273494fad3a4c822cb7655ec5e157ef/index.html",
+      "sha256": "208577a9815439fa08ba9a6a32c6b789e509a8f4a514a7ca7b1c4cdf4ba4f261"
+    },
+    {
+      "bytes": 14317,
+      "path": "articles/wrn-art-c6c6c2fd56d7a3965b4da062d0f73981/index.html",
+      "sha256": "48e851cf5a6f29a75e81117e4137413b56a7b3769cc2f448557b1af33d09b305"
+    },
+    {
+      "bytes": 10468,
+      "path": "articles/wrn-art-d96004b71171145d4aab1c6e37eb28ca/index.html",
+      "sha256": "c5ae06dedd9ae4d6a21930cca4e5c751328151a759d2849e025d78b033b63b9e"
+    },
+    {
+      "bytes": 110077,
+      "path": "articles/wrn-art-e9c523735fe8b7a61922b09d2bcc84fb/index.html",
+      "sha256": "3c00081c81696c1ca03e107795674b4654104b5e5cf511894fcadd6b49d201c4"
+    },
+    {
+      "bytes": 199637,
+      "path": "articles/wrn-art-f2ad391804423c87773b3351eb79c802/index.html",
+      "sha256": "9b3d3dfd4b03dc4a045b6cae5e5776966f2f9b2e21490c61b9188731d4191ceb"
+    },
+    {
+      "bytes": 1923594,
+      "path": "assets/content-directory-v1-BYqcvYL_.json",
+      "sha256": "72fea07011df07b18ea274524530a53bc6485b1b17f575c050d8e4857bbf71ff"
+    },
+    {
+      "bytes": 162789,
+      "path": "assets/index-D93O2XYI.js",
+      "sha256": "af6715b4de76d62dc5b11a0ce3be1ba63c9686c7950d0614da034b9cb1d19703"
+    },
+    {
+      "bytes": 69393,
+      "path": "assets/index-DvAbKicR.css",
+      "sha256": "432b125d1da71524d765b9467444f1b204b973d2e4936204ea11005f764f7e35"
+    },
+    {
+      "bytes": 462654,
+      "path": "assets/legacy-knowledge-v1-mfukn68x.json",
+      "sha256": "26eb4c118d0483788f07ef0b103c97e1cf53fbf75d36a61ae47456146240726b"
+    },
+    {
+      "bytes": 41012,
+      "path": "assets/legacy-support-v1-CKf2hNYO.json",
+      "sha256": "9bfaced898bcabca449ab7a9e75db1c7bf5caba496eabae01268a58630039525"
+    },
+    {
+      "bytes": 3317607,
+      "path": "assets/production-events-media-v1-DqjyU-f0.json",
+      "sha256": "003c32358ebe0d5ad22fb9c0b059bf82c242aa0b99a4d869fb67960c86acdc07"
+    },
+    {
+      "bytes": 189620,
+      "path": "assets/react-vendor-YahHAMAi.js",
+      "sha256": "c5f08825cdca736a015fe6303f97a64ec1e4511a38b5f2f6f589ecb35e815c65"
+    },
+    {
+      "bytes": 1123871,
+      "path": "assets/solinaridao-header-mark-filled-D7vg3enZ.png",
+      "sha256": "9dca207bc008384ef45cf435a134bf170037ae0149d27c43c732b754912b61b9"
+    },
+    {
+      "bytes": 8845,
+      "path": "assets/wrn-app-icon-CwyuVArd.png",
+      "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+    },
+    {
+      "bytes": 22062,
+      "path": "assets/wrn-browser-runtime--mSyaIxC.css",
+      "sha256": "050886f4b2b5aa1221a6b41e2a1016316a350b8a857cc1e73b1e97f3f49e4d46"
+    },
+    {
+      "bytes": 267628,
+      "path": "assets/wrn-browser-runtime-CUU7bftF.js",
+      "sha256": "90f619af7a0f2ed214d766011a51658c082c020f7fc86384ad164f564782bb20"
+    },
+    {
+      "bytes": 152898,
+      "path": "assets/wrn-content-core-DHcBcW6g.js",
+      "sha256": "572929166f463a8ddebf7ef66687458b27fad96a2a97253cf527245ff8eb54d6"
+    },
+    {
+      "bytes": 212123,
+      "path": "assets/wrn-future-header-white-D5q8hgPK.png",
+      "sha256": "9da0e22936304a30a55ba1483c2305c6ad6c3b1a057341af2ab3b16fe98a5e2f"
+    },
+    {
+      "bytes": 418517,
+      "path": "assets/wrn-language-DlPVnXrh.js",
+      "sha256": "9fc03e2601190a116a77ee490f6fc13b58a265d1f9fd22dd78fb806cd0514cd7"
+    },
+    {
+      "bytes": 2301,
+      "path": "index.html",
+      "sha256": "2cce541255bfbeb09207853e5280a01f232a6c408774a9960a9c90d96df03ad5"
+    },
+    {
+      "bytes": 68,
+      "path": "robots.txt",
+      "sha256": "44614f978d8565d1fec4e418bd48a8e2d990c326c6c82aac4ced480d94558e17"
+    },
+    {
+      "bytes": 1646,
+      "path": "sitemap.xml",
+      "sha256": "14dff9adf32197a7cab90a62df217c111356c406e820aba72345ca18af378a20"
+    },
+    {
+      "bytes": 27558,
+      "path": "website-shell-sw.js",
+      "sha256": "8920f26fa7e4a2a461fe793b2912e79a301d0f4fbbbea0743485254ae4d974c9"
+    },
+    {
+      "bytes": 814,
+      "path": "wrn-content-directory/.htaccess",
+      "sha256": "284092d1cafe21961f570e13447780f776f1b0e2b1bc668bfea7a546236971aa"
+    },
+    {
+      "bytes": 512,
+      "path": "wrn-content-directory/current.json",
+      "sha256": "437228ff555434a3fa78308db8d53126d747913f8097d9ba881401a0c86a2bfa"
+    },
+    {
+      "bytes": 1923594,
+      "path": "wrn-content-directory/snapshots/directory-202609301530-72fea07011df07b18ea274524530a53bc6485b1b17f575c050d8e4857bbf71ff.json",
+      "sha256": "72fea07011df07b18ea274524530a53bc6485b1b17f575c050d8e4857bbf71ff"
+    },
+    {
+      "bytes": 766,
+      "path": "wrn-production-content/.htaccess",
+      "sha256": "79acd0b8e7ca25aec9a1da0852a20affcbd15b2061087726341f26404d97095b"
+    },
+    {
+      "bytes": 276,
+      "path": "wrn-production-content/current.json",
+      "sha256": "16c1644e9f4205e334279f206d1d63202603d22adbd47edeb17175e7a65cf8be"
+    },
+    {
+      "bytes": 16160,
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/admission.json",
+      "sha256": "b726c4bc5d669fca1551e2fd736575050b72413e6f25f724ae4947174aded02e"
+    },
+    {
+      "bytes": 1822,
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/archive-lifecycle.json",
+      "sha256": "327d6a623739815db43479471fab25b95bb4038b13145b8c7944f4df20fe8982"
+    },
+    {
+      "bytes": 18685,
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/articles.json",
+      "sha256": "4edd91969f49ff079e23183dec13eae3633f51157dd87b41c9f895f93c09a584"
+    },
+    {
+      "bytes": 1964,
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/discover-index.json",
+      "sha256": "74a42a185d31c85def388f0a5b767d9249ba857af1ce6249b1cc8cba42135433"
+    },
+    {
+      "bytes": 1445,
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/manifest.json",
+      "sha256": "3a397f3b6b9fc912ca92f40bf4942bd072b662b551ccce45ace28cc9a2e8e32e"
+    },
+    {
+      "bytes": 1243454,
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/reader-details.json",
+      "sha256": "6b841a0971e18667325d110601a4c67eca6cf1ac214f023024d521d3126cb079"
+    },
+    {
+      "bytes": 880,
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/release-descriptor.json",
+      "sha256": "811530a2973bcb4a965b81376f0931d9b3b7ea24a7e32d0f78c481d71e72064f"
+    },
+    {
+      "bytes": 2003,
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/website-publication.json",
+      "sha256": "45c62aeb8a11fa82391e342dd5f660a395cdf0935d47536b2c7c88ee8507ecd2"
+    },
+    {
+      "bytes": 766,
+      "path": "wrn-source-pass-revocations/.htaccess",
+      "sha256": "79acd0b8e7ca25aec9a1da0852a20affcbd15b2061087726341f26404d97095b"
+    },
+    {
+      "bytes": 161,
+      "path": "wrn-source-pass-revocations/current.json",
+      "sha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617"
+    },
+    {
+      "bytes": 83783,
+      "path": "wrn-source-passes/current.json",
+      "sha256": "bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa"
+    }
+  ],
+  "offline": {
+    "href": "/assets/wrn-app-icon-CwyuVArd.png",
+    "width": 72,
+    "height": 72,
+    "controlled": true,
+    "mime": "image/png",
+    "bytes": 8845,
+    "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+  },
+  "rollback": {
+    "archive": "rollback-website-star-f202ec5.zip",
+    "sha256": "a169b8abb51367d7f1df7b63adba26e1a3885a37c65794c978837d94ad20ffea",
+    "freshRevocationRequired": true
+  },
+  "artifacts": [
+    {
+      "path": "REPORT.md",
+      "bytes": 6577,
+      "sha256": "cd158de00b0fef0a5bcd42b8009264bc32afb276e181354bd128584ece7a0b77"
+    },
+    {
+      "path": "LIVE-HTTP.json",
+      "bytes": 137273,
+      "sha256": "32b59169aa6cde6168dbc308afd7f504822f48c84bb6b346dc5e671cd2f96828"
+    },
+    {
+      "path": "LIVE-BROWSER.json",
+      "bytes": 3005,
+      "sha256": "75905beaf42b42d4f550d84d28a4b3196856943fa8f3294533eab5f22b7124c0"
+    },
+    {
+      "path": "LIVE-REVIEW.json",
+      "bytes": 880,
+      "sha256": "6bba3cbf0c8471a37d334ac207055a5d46aed04635e322021d75fb28fa051a95"
+    },
+    {
+      "path": "INDEPENDENT-BROWSER.json",
+      "bytes": 1332,
+      "sha256": "52888093a1dc5c3e167bb0b3bdd9fab0a1085e11e9aa0cfcff1beb2edd94ec54"
+    },
+    {
+      "path": "live-icon-preview.png",
+      "bytes": 1602,
+      "sha256": "8ded56efe9d26ee02273f214e4e89d4ce3e198e67195c6081f611c4d7470acf6"
+    },
+    {
+      "path": "website-1440x900.png",
+      "bytes": 2374447,
+      "sha256": "9f21a894f96ef1a5f57dc4b9d0e96fb924a5a67b2dc109f6855f781b79d8a01f"
+    },
+    {
+      "path": "website-live-mobile.png",
+      "bytes": 83846,
+      "sha256": "22a4e7f19ba1d2319c2429263babfa75340bde8f4db4bb94a9e55e26459a69ee"
+    },
+    {
+      "path": "website-offline-process-restart.png",
+      "bytes": 395588,
+      "sha256": "a8332dfc7c54dc1b902594f05312175b9becd6c2efcd21317a71f9d9f42acb34"
+    }
+  ]
+}

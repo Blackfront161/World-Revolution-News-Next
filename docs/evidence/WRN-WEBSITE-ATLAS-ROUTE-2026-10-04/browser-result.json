@@ -1,0 +1,175 @@
+{
+  "checks": [
+    {
+      "name": "language de, canonical share and denied-clipboard fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "language en, canonical share and denied-clipboard fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "language es, canonical share and denied-clipboard fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "language fr, canonical share and denied-clipboard fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "language it, canonical share and denied-clipboard fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "language pt, canonical share and denied-clipboard fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "language ru, canonical share and denied-clipboard fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "language el, canonical share and denied-clipboard fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "language tr, canonical share and denied-clipboard fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "visible manual copy fallback updates DE → FR → DE URL and localized label",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid parameter fallback, 320px and 390px at 200% text",
+      "status": "PASS"
+    },
+    {
+      "name": "explicit start, r76 ready/mapReady, same-frame language command and public share",
+      "status": "PASS"
+    },
+    {
+      "name": "no Atlas service-worker registration with embedded offline=0",
+      "status": "PASS"
+    },
+    {
+      "name": "unlisted and private hosting paths fail closed",
+      "status": "PASS"
+    }
+  ],
+  "origin": "http://127.0.0.1:43240",
+  "version": "r76-8a0c503f6d00",
+  "publicationPerformed": false,
+  "beforeStartRequests": [
+    "http://127.0.0.1:43240/atlas/?lang=de&progress=private&preview=hidden",
+    "http://127.0.0.1:43240/atlas/atlas-host.css",
+    "http://127.0.0.1:43240/atlas/atlas-host.js",
+    "http://127.0.0.1:43240/atlas/atlas-contract.js",
+    "http://127.0.0.1:43240/atlas/?lang=en&progress=private&preview=hidden",
+    "http://127.0.0.1:43240/atlas/?lang=es&progress=private&preview=hidden",
+    "http://127.0.0.1:43240/atlas/?lang=fr&progress=private&preview=hidden",
+    "http://127.0.0.1:43240/atlas/?lang=it&progress=private&preview=hidden",
+    "http://127.0.0.1:43240/atlas/?lang=pt&progress=private&preview=hidden",
+    "http://127.0.0.1:43240/atlas/?lang=ru&progress=private&preview=hidden",
+    "http://127.0.0.1:43240/atlas/?lang=el&progress=private&preview=hidden",
+    "http://127.0.0.1:43240/atlas/?lang=tr&progress=private&preview=hidden"
+  ],
+  "game": {
+    "ready": true,
+    "mapReady": true,
+    "eventCount": 674,
+    "language": "de",
+    "workerControlled": false
+  },
+  "status": "PASS",
+  "pageErrors": [],
+  "failedRequests": [],
+  "requests": [
+    "http://127.0.0.1:43240/atlas/?lang=de&progress=private&preview=hidden",
+    "http://127.0.0.1:43240/atlas/atlas-host.css",
+    "http://127.0.0.1:43240/atlas/atlas-host.js",
+    "http://127.0.0.1:43240/atlas/atlas-contract.js",
+    "http://127.0.0.1:43240/atlas/?lang=en&progress=private&preview=hidden",
+    "http://127.0.0.1:43240/atlas/?lang=es&progress=private&preview=hidden",
+    "http://127.0.0.1:43240/atlas/?lang=fr&progress=private&preview=hidden",
+    "http://127.0.0.1:43240/atlas/?lang=it&progress=private&preview=hidden",
+    "http://127.0.0.1:43240/atlas/?lang=pt&progress=private&preview=hidden",
+    "http://127.0.0.1:43240/atlas/?lang=ru&progress=private&preview=hidden",
+    "http://127.0.0.1:43240/atlas/?lang=el&progress=private&preview=hidden",
+    "http://127.0.0.1:43240/atlas/?lang=tr&progress=private&preview=hidden",
+    "http://127.0.0.1:43240/atlas/?lang=de%26offline%3D1&parentOrigin=https://evil.invalid",
+    "http://127.0.0.1:43240/atlas/?lang=de",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/index.html?embed=1&offline=0&supabase=0&welcome=0&intro=1&lang=de&parentOrigin=http%3A%2F%2F127.0.0.1%3A43240",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/vendor/maplibre-gl.css",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/styles.css",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/newsroom.css",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/media-pilot.css",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/atlas-audio.css",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/vendor/maplibre-gl.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/vendor/pmtiles-4.5.0.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/script.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/assets/brand/world-revolution-atlas-user-v1.png",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/game-core.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/biography-core.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/local-library.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/atlas-api.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/event-follow-up.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/event-reading.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/atlas-embed.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/newsroom-theme.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/newsroom-map.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/atlas-config.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/progress-store.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/i18n.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/mobile-ui.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/map-focus.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/map-projection.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/timeline-core.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/filter-feedback.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/evidence-model.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/route-story.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/terrain-policy.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/media-pilot.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/event-visuals.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/atlas-audio.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/event-illustration-batch-r75.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/src/event-illustration-batch-r76.js",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/event-catalog.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/event-metadata.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/event-editorial-overrides.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/routes.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/map-taxonomy.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/relations.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/biography-catalog.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/fallback-events.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/movement-events.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/historical-resistance-events.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-africa.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-asia.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-europe.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-latin-america.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-north-america.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-oceania.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-care-abolition.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-queer-feminist-2.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-worker-peasant-2.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-decolonial-2.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-africa-3.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-asia-oceania-3.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-latin-caribbean-3.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-commons-global-3.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-replacements-3.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-final-3.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-600th.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-indigenous-canada-4.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-black-globalization-4.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-social-achievements-4.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/social-achievements-next.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/expansion-maritime.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/biographies-black.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/biographies-indigenous.json",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/biographies-libertarian.json",
+    "blob:http://127.0.0.1:43240/8bc421b0-b4b4-4405-9952-ca0b4be6fab2",
+    "http://127.0.0.1:43240/atlas/versions/r76-8a0c503f6d00/data/cartography/ne_110m_land.geojson"
+  ]
+}

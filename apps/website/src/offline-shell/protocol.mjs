@@ -184,6 +184,18 @@ export function createShellProtocol() {
         'application/json; charset=utf-8',
         4 * 1024 * 1024,
       ],
+      [/^\/assets\/wrn-app-icon-[A-Za-z0-9_-]+\.png$/, 'image/png', 16 * 1024],
+      [
+        /^\/assets\/wrn-(?:land-rights|austerity)-illustration-v1-[A-Za-z0-9_-]+\.webp$/,
+        'image/webp',
+        700 * 1024,
+      ],
+      [/^\/assets\/wrn-teachers-illustration-v1-[A-Za-z0-9_-]+\.webp$/, 'image/webp', 700 * 1024],
+      [
+        /^\/assets\/wrn-agroecology-illustration-v1-[A-Za-z0-9_-]+\.webp$/,
+        'image/webp',
+        700 * 1024,
+      ],
     ];
     const seen = new Set();
     let total = 0;
@@ -203,7 +215,19 @@ export function createShellProtocol() {
       total += entry.bytes;
     }
     return (
-      (seen.size === 9 || (seen.size === 8 && !seen.has(8))) &&
+      (seen.size -
+        Number(seen.has(9)) -
+        Number(seen.has(10)) -
+        Number(seen.has(11)) -
+        Number(seen.has(12)) ===
+        9 ||
+        (seen.size -
+          Number(seen.has(9)) -
+          Number(seen.has(10)) -
+          Number(seen.has(11)) -
+          Number(seen.has(12)) ===
+          8 &&
+          !seen.has(8))) &&
       total <= maxBytes &&
       manifest.totalBytes === total
     );
@@ -232,6 +256,18 @@ export function createShellProtocol() {
         /^\/assets\/production-events-media-v1-[A-Za-z0-9_-]+\.json$/,
         'application/json; charset=utf-8',
         4 * 1024 * 1024,
+      ],
+      [/^\/assets\/wrn-app-icon-[A-Za-z0-9_-]+\.png$/, 'image/png', 16 * 1024],
+      [
+        /^\/assets\/wrn-(?:land-rights|austerity)-illustration-v1-[A-Za-z0-9_-]+\.webp$/,
+        'image/webp',
+        700 * 1024,
+      ],
+      [/^\/assets\/wrn-teachers-illustration-v1-[A-Za-z0-9_-]+\.webp$/, 'image/webp', 700 * 1024],
+      [
+        /^\/assets\/wrn-agroecology-illustration-v1-[A-Za-z0-9_-]+\.webp$/,
+        'image/webp',
+        700 * 1024,
       ],
     ];
     const javascript =
@@ -267,7 +303,19 @@ export function createShellProtocol() {
     }
     return (
       [0, 1, 2, 3, 4, 5].every((family) => fixed.has(family)) &&
-      (fixed.size === 6 || (fixed.size === 7 && fixed.has(6))) &&
+      (fixed.size -
+        Number(fixed.has(7)) -
+        Number(fixed.has(8)) -
+        Number(fixed.has(9)) -
+        Number(fixed.has(10)) ===
+        6 ||
+        (fixed.size -
+          Number(fixed.has(7)) -
+          Number(fixed.has(8)) -
+          Number(fixed.has(9)) -
+          Number(fixed.has(10)) ===
+          7 &&
+          fixed.has(6))) &&
       javascriptCount >= 2 &&
       javascriptCount <= 12 &&
       stylesheetCount >= 1 &&

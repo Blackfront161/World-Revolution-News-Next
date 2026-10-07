@@ -1,0 +1,1326 @@
+{
+  "schema": "wrn.local-browser-test-evidence.v1",
+  "command": "node node_modules/@playwright/test/cli.js test --config tests/e2e/website-content-projection.config.ts",
+  "summary": {
+    "passed": 161,
+    "skipped": 3,
+    "failed": 0,
+    "reportedDuration": "7.3m",
+    "completedAtUTC": "2026-09-30T17:34:17.952Z"
+  },
+  "logSha256": "16b2f69ade40b5991d62631f1f0e36c778ed053c9f20045065ecb050e69661f9",
+  "tests": [
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 19,
+      "column": 1,
+      "title": "saved production Website opens a real article after closing the page while fully offline"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 56,
+      "column": 1,
+      "title": "static admitted landing opens the genuine Website reader without provider requests"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 82,
+      "column": 1,
+      "title": "authored four-block Website main/archive rendering, canonical alias and gone route"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 114,
+      "column": 1,
+      "title": "actual Website update, rollback, failed payload revocation and content clear preserve reading data"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 17,
+      "column": 1,
+      "title": "bound production coverage, original links, all nine languages and accessibility"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration violet article"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 60,
+      "column": 1,
+      "title": "small, landscape and wide website sizes keep coverage and current links reachable"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 82,
+      "column": 1,
+      "title": "news and sources deep links show metadata restrictions and unknown source statuses"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration violet archive"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 94,
+      "column": 1,
+      "title": "explicit shell save restores broad current metadata links after an offline restart"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 132,
+      "column": 1,
+      "title": "later source withdrawal removes both homepage lists and remains removed after reload"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 169,
+      "column": 1,
+      "title": "a new valid live hash cannot admit an unreviewed title; its article withdrawal still applies"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration dark article"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 19,
+      "column": 1,
+      "title": "saved production Website opens a real article after closing the page while fully offline"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration dark archive"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 56,
+      "column": 1,
+      "title": "static admitted landing opens the genuine Website reader without provider requests"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 82,
+      "column": 1,
+      "title": "authored four-block Website main/archive rendering, canonical alias and gone route"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 114,
+      "column": 1,
+      "title": "actual Website update, rollback, failed payload revocation and content clear preserve reading data"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration contrast article"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration violet article"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration contrast archive"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration violet archive"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 320 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 320 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 390 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration dark article"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 390 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 1440 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 1440 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration dark archive"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 320 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 320 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration contrast article"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 390 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 390 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 1440 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration contrast archive"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 320 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 1440 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 320 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 320 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 390 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 320 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 390 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 390 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 1440 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 390 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 1440 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 1440 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 320 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 1440 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 320 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 240,
+      "column": 3,
+      "title": "RU 200 percent reader and confirmation violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 390 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 390 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 240,
+      "column": 3,
+      "title": "RU 200 percent reader and confirmation dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 1440 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 270,
+      "column": 1,
+      "title": "all nine interface languages retain original article language and actual discovery filters"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 1440 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 320 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 286,
+      "column": 1,
+      "title": "default entry reads admitted articles, persists v2 and never touches reading v1"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 320 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 390 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 390 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 1440 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 355,
+      "column": 1,
+      "title": "original and license use modal confirmation and main/archive share one reader"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 1440 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 388,
+      "column": 1,
+      "title": "restart restores stored articles without source fetch; exact bundle expiry hides the body"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 240,
+      "column": 3,
+      "title": "RU 200 percent reader and confirmation violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 240,
+      "column": 3,
+      "title": "RU 200 percent reader and confirmation dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 270,
+      "column": 1,
+      "title": "all nine interface languages retain original article language and actual discovery filters"
+    },
+    {
+      "status": "passed",
+      "project": "website-390x844",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 407,
+      "column": 1,
+      "title": "saving from header retains the last text position and restores it on reload and reopen"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 286,
+      "column": 1,
+      "title": "default entry reads admitted articles, persists v2 and never touches reading v1"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 17,
+      "column": 1,
+      "title": "bound production coverage, original links, all nine languages and accessibility"
+    },
+    {
+      "status": "skipped",
+      "project": "website-800x1280",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 60,
+      "column": 1,
+      "title": "small, landscape and wide website sizes keep coverage and current links reachable"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 82,
+      "column": 1,
+      "title": "news and sources deep links show metadata restrictions and unknown source statuses"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 355,
+      "column": 1,
+      "title": "original and license use modal confirmation and main/archive share one reader"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 94,
+      "column": 1,
+      "title": "explicit shell save restores broad current metadata links after an offline restart"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 132,
+      "column": 1,
+      "title": "later source withdrawal removes both homepage lists and remains removed after reload"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 388,
+      "column": 1,
+      "title": "restart restores stored articles without source fetch; exact bundle expiry hides the body"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 169,
+      "column": 1,
+      "title": "a new valid live hash cannot admit an unreviewed title; its article withdrawal still applies"
+    },
+    {
+      "status": "passed",
+      "project": "website-800x1280",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 407,
+      "column": 1,
+      "title": "saving from header retains the last text position and restores it on reload and reopen"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 19,
+      "column": 1,
+      "title": "saved production Website opens a real article after closing the page while fully offline"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 56,
+      "column": 1,
+      "title": "static admitted landing opens the genuine Website reader without provider requests"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 82,
+      "column": 1,
+      "title": "authored four-block Website main/archive rendering, canonical alias and gone route"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 114,
+      "column": 1,
+      "title": "actual Website update, rollback, failed payload revocation and content clear preserve reading data"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 17,
+      "column": 1,
+      "title": "bound production coverage, original links, all nine languages and accessibility"
+    },
+    {
+      "status": "skipped",
+      "project": "website-1440x900",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 60,
+      "column": 1,
+      "title": "small, landscape and wide website sizes keep coverage and current links reachable"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 82,
+      "column": 1,
+      "title": "news and sources deep links show metadata restrictions and unknown source statuses"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration violet article"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 94,
+      "column": 1,
+      "title": "explicit shell save restores broad current metadata links after an offline restart"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 132,
+      "column": 1,
+      "title": "later source withdrawal removes both homepage lists and remains removed after reload"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 169,
+      "column": 1,
+      "title": "a new valid live hash cannot admit an unreviewed title; its article withdrawal still applies"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration violet archive"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 19,
+      "column": 1,
+      "title": "saved production Website opens a real article after closing the page while fully offline"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration dark article"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 56,
+      "column": 1,
+      "title": "static admitted landing opens the genuine Website reader without provider requests"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 82,
+      "column": 1,
+      "title": "authored four-block Website main/archive rendering, canonical alias and gone route"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 114,
+      "column": 1,
+      "title": "actual Website update, rollback, failed payload revocation and content clear preserve reading data"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration dark archive"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration violet article"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration contrast article"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration violet archive"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration contrast archive"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration dark article"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 320 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 320 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 390 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration dark archive"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 390 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 1440 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration contrast article"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 1440 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 320 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 320 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 185,
+      "column": 5,
+      "title": "exact original and license focus restoration contrast archive"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 390 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 320 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 390 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 320 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 1440 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 390 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 1440 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 390 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 320 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 1440 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 320 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout en 1440 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 390 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 320 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 390 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 320 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 1440 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 390 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 1440 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 390 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 1440 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 240,
+      "column": 3,
+      "title": "RU 200 percent reader and confirmation violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout de 1440 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 240,
+      "column": 3,
+      "title": "RU 200 percent reader and confirmation dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 320 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 270,
+      "column": 1,
+      "title": "all nine interface languages retain original article language and actual discovery filters"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 320 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 390 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 390 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 286,
+      "column": 1,
+      "title": "default entry reads admitted articles, persists v2 and never touches reading v1"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 1440 violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 214,
+      "column": 7,
+      "title": "production reader layout ru 1440 dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 240,
+      "column": 3,
+      "title": "RU 200 percent reader and confirmation violet"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 355,
+      "column": 1,
+      "title": "original and license use modal confirmation and main/archive share one reader"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 240,
+      "column": 3,
+      "title": "RU 200 percent reader and confirmation dark"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 388,
+      "column": 1,
+      "title": "restart restores stored articles without source fetch; exact bundle expiry hides the body"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 270,
+      "column": 1,
+      "title": "all nine interface languages retain original article language and actual discovery filters"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 286,
+      "column": 1,
+      "title": "default entry reads admitted articles, persists v2 and never touches reading v1"
+    },
+    {
+      "status": "passed",
+      "project": "website-1440x900",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 407,
+      "column": 1,
+      "title": "saving from header retains the last text position and restores it on reload and reopen"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 355,
+      "column": 1,
+      "title": "original and license use modal confirmation and main/archive share one reader"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 17,
+      "column": 1,
+      "title": "bound production coverage, original links, all nine languages and accessibility"
+    },
+    {
+      "status": "skipped",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 60,
+      "column": 1,
+      "title": "small, landscape and wide website sizes keep coverage and current links reachable"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 388,
+      "column": 1,
+      "title": "restart restores stored articles without source fetch; exact bundle expiry hides the body"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 82,
+      "column": 1,
+      "title": "news and sources deep links show metadata restrictions and unknown source statuses"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 94,
+      "column": 1,
+      "title": "explicit shell save restores broad current metadata links after an offline restart"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/production-website-content.spec.ts",
+      "line": 407,
+      "column": 1,
+      "title": "saving from header retains the last text position and restores it on reload and reopen"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 132,
+      "column": 1,
+      "title": "later source withdrawal removes both homepage lists and remains removed after reload"
+    },
+    {
+      "status": "passed",
+      "project": "website-reflow-200pct",
+      "file": "tests/e2e/website-content-projection.spec.ts",
+      "line": 169,
+      "column": 1,
+      "title": "a new valid live hash cannot admit an unreviewed title; its article withdrawal still applies"
+    }
+  ]
+}

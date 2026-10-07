@@ -1,0 +1,547 @@
+{
+  "status": "PASS",
+  "sourceCommit": "c5c3000853857e1b050ebe690e6cd2c14d88f7a6",
+  "observedAtUTC": "2026-10-03T20:01:50.372Z",
+  "checks": [
+    {
+      "name": "503 required candidate index bundle rejects update; previous e20 worker and731-book snapshot survive complete Chrome restart with server stopped",
+      "status": "PASS",
+      "requiredMissingPath": "assets/index-DMRbclF4.js",
+      "before": {
+        "control": {
+          "version": 1,
+          "compatibility": "g3-015-v1",
+          "epoch": 1,
+          "enabled": true,
+          "state": "enabled",
+          "active": "19f516a71d5e3af35f12ddfe1ad49b1dd6b965a44530329964ea144f68149a07",
+          "previous": null,
+          "generations": [
+            {
+              "id": "19f516a71d5e3af35f12ddfe1ad49b1dd6b965a44530329964ea144f68149a07",
+              "bytes": 8026585,
+              "ready": true,
+              "epoch": 1
+            }
+          ],
+          "pendingJob": null,
+          "removalJob": null
+        },
+        "caches": [
+          "wrn.website-shell.v1.control",
+          "wrn.website-shell.v1.payload.19f516a71d5e3af35f12ddfe1ad49b1dd6b965a44530329964ea144f68149a07"
+        ],
+        "controlled": true
+      },
+      "after": {
+        "control": {
+          "version": 1,
+          "compatibility": "g3-015-v1",
+          "epoch": 1,
+          "enabled": true,
+          "state": "enabled",
+          "active": "19f516a71d5e3af35f12ddfe1ad49b1dd6b965a44530329964ea144f68149a07",
+          "previous": null,
+          "generations": [
+            {
+              "id": "19f516a71d5e3af35f12ddfe1ad49b1dd6b965a44530329964ea144f68149a07",
+              "bytes": 8026585,
+              "ready": true,
+              "epoch": 1
+            }
+          ],
+          "pendingJob": null,
+          "removalJob": null
+        },
+        "caches": [
+          "wrn.website-shell.v1.control",
+          "wrn.website-shell.v1.payload.19f516a71d5e3af35f12ddfe1ad49b1dd6b965a44530329964ea144f68149a07"
+        ],
+        "controlled": true
+      },
+      "reopened": {
+        "control": {
+          "version": 1,
+          "compatibility": "g3-015-v1",
+          "epoch": 1,
+          "enabled": true,
+          "state": "enabled",
+          "active": "19f516a71d5e3af35f12ddfe1ad49b1dd6b965a44530329964ea144f68149a07",
+          "previous": null,
+          "generations": [
+            {
+              "id": "19f516a71d5e3af35f12ddfe1ad49b1dd6b965a44530329964ea144f68149a07",
+              "bytes": 8026585,
+              "ready": true,
+              "epoch": 1
+            }
+          ],
+          "pendingJob": null,
+          "removalJob": null
+        },
+        "caches": [
+          "wrn.website-shell.v1.control",
+          "wrn.website-shell.v1.payload.19f516a71d5e3af35f12ddfe1ad49b1dd6b965a44530329964ea144f68149a07"
+        ],
+        "controlled": true
+      }
+    },
+    {
+      "name": "candidate help6 tasks,741 books and1777 unique podcast originals survive complete Chrome restart with server stopped",
+      "status": "PASS",
+      "saved": {
+        "control": {
+          "version": 1,
+          "compatibility": "g3-015-v1",
+          "epoch": 1,
+          "enabled": true,
+          "state": "enabled",
+          "active": "d096826b7ecd07a2c52da70aa558d1390bac19e5666078610c86153910fc15e6",
+          "previous": null,
+          "generations": [
+            {
+              "id": "d096826b7ecd07a2c52da70aa558d1390bac19e5666078610c86153910fc15e6",
+              "bytes": 8092523,
+              "ready": true,
+              "epoch": 1
+            }
+          ],
+          "pendingJob": null,
+          "removalJob": null
+        },
+        "caches": [
+          "wrn.website-shell.v1.control",
+          "wrn.website-shell.v1.payload.d096826b7ecd07a2c52da70aa558d1390bac19e5666078610c86153910fc15e6"
+        ],
+        "controlled": true
+      },
+      "restored": {
+        "control": {
+          "version": 1,
+          "compatibility": "g3-015-v1",
+          "epoch": 1,
+          "enabled": true,
+          "state": "enabled",
+          "active": "d096826b7ecd07a2c52da70aa558d1390bac19e5666078610c86153910fc15e6",
+          "previous": null,
+          "generations": [
+            {
+              "id": "d096826b7ecd07a2c52da70aa558d1390bac19e5666078610c86153910fc15e6",
+              "bytes": 8092523,
+              "ready": true,
+              "epoch": 1
+            }
+          ],
+          "pendingJob": null,
+          "removalJob": null
+        },
+        "caches": [
+          "wrn.website-shell.v1.control",
+          "wrn.website-shell.v1.payload.d096826b7ecd07a2c52da70aa558d1390bac19e5666078610c86153910fc15e6"
+        ],
+        "controlled": true
+      }
+    }
+  ],
+  "transfers": [
+    {
+      "phase": "old",
+      "path": "index.html",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/index-CvI-2MRp.js",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/react-vendor-YahHAMAi.js",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/wrn-language-CQw_5_ha.js",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/wrn-content-core-8GxI7iaF.js",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/wrn-browser-runtime-DqdeQ5jm.js",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/wrn-browser-runtime-Bv2391bc.css",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/index-C3wRaphu.css",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/solinaridao-header-mark-filled-D7vg3enZ.png",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/wrn-app-icon-CwyuVArd.png",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "wrn-production-content/current.json",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/release-descriptor.json",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/manifest.json",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/archive-lifecycle.json",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/articles.json",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/admission.json",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/discover-index.json",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/reader-details.json",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "website-shell-sw.js",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/content-directory-v1-BzcKetGs.json",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/index-C3wRaphu.css",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/index-CvI-2MRp.js",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/legacy-knowledge-v1-WkT7yILI.json",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/legacy-support-v1-CKf2hNYO.json",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/production-events-media-v1-oJB41y0C.json",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/react-vendor-YahHAMAi.js",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/solinaridao-header-mark-filled-D7vg3enZ.png",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/wrn-agroecology-illustration-v1-DrDVXIYr.webp",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/wrn-app-icon-CwyuVArd.png",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/wrn-austerity-illustration-v1-ByTb6ajV.webp",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/wrn-browser-runtime-Bv2391bc.css",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/wrn-browser-runtime-DqdeQ5jm.js",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/wrn-content-core-8GxI7iaF.js",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/wrn-future-header-white-D5q8hgPK.png",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/wrn-language-CQw_5_ha.js",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "assets/wrn-teachers-illustration-v1-eboeU-Ap.webp",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "index.html",
+      "status": 200
+    },
+    {
+      "phase": "old",
+      "path": "index.html",
+      "status": 200
+    },
+    {
+      "phase": "failed-update",
+      "path": "website-shell-sw.js",
+      "status": 200
+    },
+    {
+      "phase": "failed-update",
+      "path": "assets/content-directory-v1-BzcKetGs.json",
+      "status": 200
+    },
+    {
+      "phase": "failed-update",
+      "path": "assets/index-CiAuL3_a.css",
+      "status": 200
+    },
+    {
+      "path": "assets/index-DMRbclF4.js",
+      "status": 503
+    },
+    {
+      "phase": "new",
+      "path": "index.html",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/index-DMRbclF4.js",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/react-vendor-YahHAMAi.js",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/wrn-language-CQw_5_ha.js",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/wrn-content-core-8GxI7iaF.js",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/wrn-browser-runtime-DLotas5b.js",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/wrn-browser-runtime-Bv2391bc.css",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/index-CiAuL3_a.css",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/solinaridao-header-mark-filled-D7vg3enZ.png",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/wrn-app-icon-CwyuVArd.png",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "wrn-production-content/current.json",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/release-descriptor.json",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/manifest.json",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/archive-lifecycle.json",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/articles.json",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/admission.json",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/discover-index.json",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/reader-details.json",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "website-shell-sw.js",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/content-directory-v1-BzcKetGs.json",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/index-CiAuL3_a.css",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/index-DMRbclF4.js",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/legacy-knowledge-v1-B0zTJDr6.json",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/legacy-support-v1-CKf2hNYO.json",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/production-events-media-v1-R8HI0ZMv.json",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/react-vendor-YahHAMAi.js",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/solinaridao-header-mark-filled-D7vg3enZ.png",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/wrn-agroecology-illustration-v1-DrDVXIYr.webp",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/wrn-app-icon-CwyuVArd.png",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/wrn-austerity-illustration-v1-ByTb6ajV.webp",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/wrn-browser-runtime-Bv2391bc.css",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/wrn-browser-runtime-DLotas5b.js",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/wrn-content-core-8GxI7iaF.js",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/wrn-future-header-white-D5q8hgPK.png",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/wrn-language-CQw_5_ha.js",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "assets/wrn-teachers-illustration-v1-eboeU-Ap.webp",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "index.html",
+      "status": 200
+    },
+    {
+      "phase": "new",
+      "path": "index.html",
+      "status": 200
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Podcast-Originalabgleich
+
+Status: INDETERMINATE für neue Aufnahme/Migration; Beobachtungen und stabile ID-Bindungen lokal konsistent. Websiteprodukt f6649dc und Veröffentlichungspaket unverändert. Dieser Abgleich verändert weder App-Dateien noch Datenfeeds. Der aktuelle Startauftrag ist docs/tasks/WRN-ROADMAP-CONTENT-2026-10-02.md; AGENTS.md und der WRN-Inhaltsaudit bleiben maßgeblich.
+
+84 neue Seiten sind strikt von 16 Final-Straw-Adresswechseln und zwei LORA-Identitätskonflikten getrennt. Die bisherige 1722er-Auswahl und ihre historischen Bytes bleiben erhalten. Alle 16 alten Website-IDs wurden gegen den vorhandenen Katalog gebunden. Die bereits dokumentierten LORA-Konflikte bleiben separat: Redirect bei Auf Kante genäht mit verändertem Datum; bei Sendling Perspektiven keine belastbare Aliasbindung.
+
+Die 84 neuen Originaladressen wurden nur mit begrenzten credentialless HTTPS-HEAD-Aufrufen geprüft:79 HTTP200, vier301 zu den ausdrücklich gelieferten creators.spotify.com-Zielen, ein404 bei einer Jalsa-Adresse. Ein HTTP200 ist kein Inhalts- oder Rechte-PASS. Der404-Kandidat bleibt needs-review. Fünf Folgen besitzen keine bestätigte Sprache; ihre Kandidatenwerte sind und. Explizite App-Quellenholds bleiben wirksam; keine neue Kandidatenadresse gehört zu den 89 gehaltenen Data-Zeilen.
+
+Bei The Final Straw sind15 neue Episodenadressen direkt HTTP200 und canonical-gebunden; eine neue Adresse liefert301. Sämtliche alten noblogs.org-Adressen konnten im begrenzten Abruf nicht gelesen werden. Die neue Homepage verlinkt den bisher konfigurierten Libsyn-RSS, was die Produzentenidentität teilweise stützt. RSS und direkte alte Seiten konnten nicht vollständig gelesen werden; keine einzelne Alias-/Nachfolgebeziehung wird als bestätigt behauptet. Aus identischem Titel, Datum oder Audiofeld wird kein automatischer ID-Wechsel abgeleitet.
+
+Keine Originalseitenkörper wurden gespeichert; keine Audios, Bilder oder Transkripte wurden geladen. Der nächste Produktentwurf muss additive Metadaten und gemischte Herkunft ausdrücklich modellieren, IDs/Datumswerte erhalten und die fünf bestehenden Katalogsammlungen nicht still durch den neueren generischen Snapshot ersetzen. Vor Integration sind Originalziel-, Quellen-/Itemaufnahme- und fokussierte Vertragsprüfungen erforderlich. Keine vollständige Podcast-/Medien- oder Releasefreigabe.
+
+Werkzeuge: Node24.19.0; work/observe-final-straw-migrations.mjs (16 alte/neue Metadatenseiten), work/observe-final-straw-feed.mjs (konfigurierter RSS und neue Homepage), work/observe-new-podcast-originals.mjs (84 HEAD-Beobachtungen), work/record-podcast-original-audit.mjs (offline ID-/Hold-/Sprachprüfung). Alle Befunde sind datiert, Bodyhashes speichern keine Seitenkörper.

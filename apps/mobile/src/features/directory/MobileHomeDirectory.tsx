@@ -55,6 +55,7 @@ export function MobileHomeDirectory({
         data?.projection.articles ?? [],
         language,
         sourcePreferences.state,
+        data?.projection.sources ?? [],
       ),
     [data, language, sourcePreferences.state],
   );

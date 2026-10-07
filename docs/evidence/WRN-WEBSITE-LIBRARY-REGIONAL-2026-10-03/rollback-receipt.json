@@ -1,0 +1,9 @@
+{
+  "files": 49,
+  "publicationPerformed": false,
+  "publicReadbackReceipt": "live-full-1790992389475/receipt.json",
+  "sha256": "e1229298d0a49316647baa3501b45f164f0d86942b798d38d3c241dc7d48a98d",
+  "archive": "rollback-before-d738a94-5664227.zip",
+  "privatePolicies": "previous approved 5664227 hosting packet",
+  "previousCommit": "566422758241190f432d8c8a09d67a5f589d90ac"
+}

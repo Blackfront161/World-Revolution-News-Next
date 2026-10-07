@@ -1,0 +1,54 @@
+{
+  "schema": "wrn.website-readonly-review-freeze.v1",
+  "baseWebsiteCommit": "d835b603b69db6fd763ab6177303f988baf7d7c2",
+  "productChanged": false,
+  "independentReview": "PENDING",
+  "publication": false,
+  "candidateReviewSha256": "8b1fa963743972f8436cc7e6a32475b71f2c841992dfb8927d10e20294859ab3",
+  "productRefs": [
+    {
+      "purpose": "existing-importer",
+      "path": "tools/directory/prepare-website-app-catalog.mjs",
+      "bytes": 4875,
+      "sha256": "04f15a599c906ec9eae618723334a445c7986d3e15d47d534ae377fbac369034"
+    },
+    {
+      "purpose": "unchanged-website-package",
+      "path": "apps/website/src/features/events-media/packed/production-events-media-v1.json",
+      "bytes": 1701964,
+      "sha256": "ac2c2f944b814be0fce19129791c39d87c0940f8c82caf47bdc868cc5bcb8b15"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "candidate-review.json",
+      "bytes": 201940,
+      "sha256": "8b1fa963743972f8436cc7e6a32475b71f2c841992dfb8927d10e20294859ab3"
+    },
+    {
+      "path": "content-restrictions.json",
+      "bytes": 20988,
+      "sha256": "fc2ba6698bb30bb1ba741f1b8f57801b7b806f5489edadc9fa0c6f0dee81d53d"
+    },
+    {
+      "path": "prepare-review.mjs",
+      "bytes": 12006,
+      "sha256": "bbe577c08c0d04eb8af44fcd2e90de290eecb073dfa24e19487e712c0d89098b"
+    },
+    {
+      "path": "REPORT.md",
+      "bytes": 5665,
+      "sha256": "54f519a8f6b6ef5a080d548c60bcb35968dc8546cc195eeb5863c6478244adf8"
+    },
+    {
+      "path": "source-policy.json",
+      "bytes": 47881,
+      "sha256": "9d092dfcc4b4646dab570a5130ec4a3ec36406b61a5835578275efd644a291aa"
+    },
+    {
+      "path": "validation.json",
+      "bytes": 734,
+      "sha256": "de88754a5b07e9ee2d010fb92a166225a42338cd0c3fdcfb771bec86a8b68fbd"
+    }
+  ]
+}

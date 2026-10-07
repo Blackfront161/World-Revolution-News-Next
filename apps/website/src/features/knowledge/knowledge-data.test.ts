@@ -6,6 +6,7 @@ import {
   projectMobileKnowledge,
   validateMobileKnowledge,
 } from '@wrn/content-contracts/mobile-knowledge-v1';
+import packed from './packed/legacy-knowledge-v1.json';
 describe('website knowledge snapshot', () => {
   it('keeps the approved byte-identical snapshot, contract and visible counts', async () => {
     const bytes = await readFile(
@@ -20,5 +21,65 @@ describe('website knowledge snapshot', () => {
     const projection = projectMobileKnowledge(validation.value!);
     expect(projection.books).toHaveLength(609);
     expect(projection.terms).toHaveLength(22);
+    expect(packed.history).toEqual(JSON.parse(bytes.toString('utf8')));
+    expect(validateMobileKnowledge(packed.currentKnowledge).ok).toBe(true);
+    expect(packed.currentKnowledge.lexicon.terms).toHaveLength(177);
+    expect(packed.currentKnowledge.lexicon.sources).toHaveLength(55);
+    expect(packed.currentKnowledge.input.lexiconSha256).toBe(
+      '737cf5e7264ffcfbbca93245fffe0c8f567b477b6e9107648d0b659536f2a903',
+    );
+    expect(packed.currentKnowledge.sourceCommit).toBe('7dd4e9e428cae4ae5c25caa98402df901f861981');
+    expect(packed.currentKnowledge.library.books).toHaveLength(745);
+    const approved = new Set(
+      [
+        'ba62ecff09594a0105cded9a',
+        '174b8a1c8b31483104c78134',
+        '53f177951cf6dc3525a55ad2',
+        '433b2ba94777b2cbc1a40583',
+        'cdd0f47e1835707d18dfbc69',
+        'a66f144a48eed29e9330ce16',
+        'dbfc419a36310497917860c0',
+        '37f710aeecdeffbe215e526b',
+        '4bf827a262200fb3dc1dcf0b',
+        'b3828bd26e2871d376d62575',
+      ].map((id) => 'anarchist-library-de-' + id),
+    );
+    const metadataOnly = packed.currentKnowledge.library.books.filter((book) =>
+      approved.has(book.id),
+    );
+    expect(metadataOnly).toHaveLength(10);
+    expect(
+      metadataOnly.every(
+        (book) =>
+          Object.keys(book.downloads).length === 0 &&
+          book.readUrl.startsWith('https://de.anarchistlibraries.net/library/'),
+      ),
+    ).toBe(true);
+    const added = packed.currentKnowledge.lexicon.terms.filter((term) =>
+      [
+        'agroecology',
+        'seed-sovereignty',
+        'energy-democracy',
+        'climate-reparations',
+        'environmental-racism',
+        'community-supported-agriculture',
+        'digital-commons',
+        'federated-networks',
+        'interoperability',
+        'open-standards',
+        'free-knowledge',
+        'collective-access',
+      ].includes(term.id),
+    );
+    expect(added).toHaveLength(12);
+    expect(
+      added.every(
+        (term) =>
+          term.rights === 'user-supplied-editorial-text' &&
+          term.sources.every((id) =>
+            packed.currentKnowledge.lexicon.sources.some((source) => source.id === id),
+          ),
+      ),
+    ).toBe(true);
   });
 });

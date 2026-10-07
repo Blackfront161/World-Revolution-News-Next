@@ -155,6 +155,15 @@ export async function mutateWebsiteReadingState(
   storage: WebsiteReadingStorage = window.localStorage,
 ): Promise<LocalReadingStateMutationResult> {
   const operation = () => applyWebsiteReadingStateMutation(mutate, storage);
+  try {
+    return await withWebsiteReadingStateLock(operation);
+  } catch {
+    return failedMutationResult(storage);
+  }
+}
+
+/** Coordinate Website reading stores without changing either versioned payload. */
+export async function withWebsiteReadingStateLock<T>(operation: () => T): Promise<T> {
   if (
     typeof navigator !== 'undefined' &&
     'locks' in navigator &&
@@ -171,12 +180,8 @@ export async function mutateWebsiteReadingState(
         },
       );
     } catch {
-      if (callbackStarted) return failedMutationResult(storage);
+      if (callbackStarted) throw new Error('reading-state-write-failed');
     }
   }
-  try {
-    return await withIndexedDbReadingStateLock(operation);
-  } catch {
-    return failedMutationResult(storage);
-  }
+  return withIndexedDbReadingStateLock(operation);
 }

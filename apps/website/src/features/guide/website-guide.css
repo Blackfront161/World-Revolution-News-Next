@@ -1,0 +1,38 @@
+.website-guide {
+  max-width: min(42rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  box-sizing: border-box;
+  color: var(--wrn-color-text);
+  background: var(--wrn-color-surface);
+  border: 2px solid currentColor;
+  padding: 1.25rem;
+  overflow: auto;
+  overflow-wrap: anywhere;
+}
+.website-guide::backdrop {
+  background: rgb(0 0 0 / 55%);
+}
+.website-guide > button {
+  float: right;
+}
+.website-guide details {
+  border-top: 1px solid currentColor;
+  padding: 0.8rem 0;
+  clear: both;
+}
+.website-guide summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+.website-guide nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+.website-article-translation {
+  border-inline-start: 0.25rem solid currentColor;
+  padding: 0.5rem 1rem;
+  margin-block: 1rem;
+  overflow-wrap: anywhere;
+}

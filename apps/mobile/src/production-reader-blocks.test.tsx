@@ -72,6 +72,7 @@ it('keeps original text and language visible through explicit translation, error
   expect(await screen.findByText('Die Übersetzung ist fehlgeschlagen.')).toBeVisible();
   fireEvent.click(screen.getByRole('button', { name: 'Erneut übersetzen' }));
   expect(await screen.findByText('Eine Übersetzung.')).toHaveAttribute('lang', 'de');
+  expect(screen.getByText(/gemeinsamen Übersetzungscache/)).toBeVisible();
   expect(original).toBeVisible();
   expect(ui.container.querySelector('[data-translation-result]')).toHaveAttribute(
     'data-cache-status',

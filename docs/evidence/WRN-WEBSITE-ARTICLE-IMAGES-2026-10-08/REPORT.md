@@ -1,0 +1,13 @@
+# Published Website article images — 8 October 2026
+
+Product source: 77ec9d431f9001c0b9344c0fc03aa0a16af7da1c. Publication target: https://solinaridao.com/. Evidence commit is separate from the product source.
+
+The App feed has articles without usable pictures, including the current lead. The shared Website article illustration component now renders original WRN SVG topic artwork when neither a correctly bound original image nor existing reviewed artwork is available, and when an original image fails. It preserves original image identity/commit binding, source credit and no-referrer. Nine localized credits and captions clearly identify illustrations as such and not as event photographs. Saved articles use the same component only while the article is still admitted.
+
+Validation: 50 Website test files / 391 tests PASS; TypeScript and ESLint PASS. Focused independent source, risk and complete 51-file Website / 54-file Hosting packet review PASS, no findings. Local real-browser checks PASS. Public real-browser checks independently confirm all 15 unchanged App home roles have visible images: 7 decoded source images and 8 own labelled illustrations in this observation. Nine UI languages, nine themes including Autonom, 320/390 px without overflow, internal reader and saved article pictures PASS; no page errors. Source image availability can vary; unavailable originals receive artwork.
+
+Five public paths changed: root .htaccess (only the new hashed asset names), assets/index-B8ATKFKl.css, assets/index-DzEIgi58.js, website-shell-sw.js and index.html. Resources were read back before shell/policy and index activation. All 52 publicly readable managed Website/unchanged Seed files match SHA-256 and bytes; CSP/CORS/cache headers match the accepted manifest. The .htaccess source is protected; its behavior was checked via headers. The rollback archive of all 54 previously accepted Hosting files remains in the private Hostinger staging folder.
+
+Actual opt-in offline cache inventory: 18 entries, 8343632 bytes, 44976 bytes below unchanged 8 MiB. Every cached file was independently matched against the Website manifest. A full browser-process restart with cleared HTTP cache and no network retains all 15 current home roles and the lead illustration. External source pictures remain outside the offline shell. No new remote image origins, cache family, admission, fulltext, feed tuple, catalog, Atlas, music, Main or workflow change.
+
+Prepared READY.json retains publicationPerformed=false because it records preparation. public-final.json and public-browser.json record the actual subsequent public verification.

@@ -1,0 +1,395 @@
+{
+  "schema": "wrn.website-prisoner-review.v1",
+  "appCommit": "8c0c0d90a119b7a95b5154fa64c49dfb97c8842e",
+  "appEvidenceCommit": "1a87a404e56d884fdc1924557b7a2cf9690bfcb0",
+  "appInputSha256": "a4cde7bbac10cb62826fed1222c8c7d20b787e105ad553d63299b309530a477c",
+  "observedAt": "2026-10-03T00:21:19.722Z",
+  "rights": "public-directory-metadata",
+  "links": [
+    {
+      "id": "nyc-books-through-bars",
+      "name": "NYC Books Through Bars",
+      "url": "https://www.booksthroughbarsnyc.org/",
+      "kind": "book-support",
+      "checkedAt": "2026-10-03"
+    },
+    {
+      "id": "water-protector-legal-collective",
+      "name": "Water Protector Legal Collective",
+      "url": "https://www.waterprotectorlegal.org/",
+      "kind": "indigenous-legal-support",
+      "checkedAt": "2026-10-03"
+    },
+    {
+      "id": "jericho-movement",
+      "name": "Jericho Movement",
+      "url": "https://www.thejerichomovement.com/",
+      "kind": "support-network",
+      "checkedAt": "2026-10-03"
+    },
+    {
+      "id": "prison-radio-support",
+      "name": "Prison Radio",
+      "url": "https://www.prisonradio.org/",
+      "kind": "prisoner-voices",
+      "checkedAt": "2026-10-03"
+    },
+    {
+      "id": "prisoner-solidarity-directory",
+      "name": "Prisoner Solidarity (Philadelphia ABC)",
+      "url": "https://www.prisonersolidarity.com/",
+      "kind": "support-directory",
+      "checkedAt": "2026-10-03"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "hridindu-roychowdhury",
+      "status": "dated-address-match",
+      "verifiedAt": "2026-10-03",
+      "nextReviewAt": "2026-11-08",
+      "profileUrl": "https://nycabc.wordpress.com/2026/09/24/guide_19_8/",
+      "sourceIds": ["nycabc-guide-19-8", "nycabc-write"],
+      "evidence": {
+        "sourcePublishedAt": "2026-09-24",
+        "pdfPage": 8,
+        "contentSha256": "d7b19d149db3c1aa63df4b3a414d89bf313e2f72b443da7dd49ccc3f2745c4ab",
+        "announcementEdition": "19.8",
+        "pdfEdition": "19.9"
+      }
+    },
+    {
+      "id": "malik-muhammed",
+      "status": "dated-address-match",
+      "verifiedAt": "2026-10-03",
+      "nextReviewAt": "2026-11-08",
+      "profileUrl": "https://nycabc.wordpress.com/2026/09/24/guide_19_8/",
+      "sourceIds": ["nycabc-guide-19-8", "nycabc-write"],
+      "evidence": {
+        "sourcePublishedAt": "2026-09-24",
+        "pdfPage": 7,
+        "contentSha256": "d7b19d149db3c1aa63df4b3a414d89bf313e2f72b443da7dd49ccc3f2745c4ab",
+        "announcementEdition": "19.8",
+        "pdfEdition": "19.9"
+      }
+    },
+    {
+      "id": "casey-goonan",
+      "status": "dated-address-match",
+      "verifiedAt": "2026-10-03",
+      "nextReviewAt": "2026-11-08",
+      "profileUrl": "https://nycabc.wordpress.com/2026/09/24/guide_19_8/",
+      "sourceIds": ["nycabc-guide-19-8", "nycabc-write"],
+      "evidence": {
+        "sourcePublishedAt": "2026-09-24",
+        "pdfPage": 6,
+        "contentSha256": "d7b19d149db3c1aa63df4b3a414d89bf313e2f72b443da7dd49ccc3f2745c4ab",
+        "announcementEdition": "19.8",
+        "pdfEdition": "19.9"
+      }
+    },
+    {
+      "id": "bill-dunne",
+      "status": "dated-address-match",
+      "verifiedAt": "2026-10-03",
+      "nextReviewAt": "2026-11-08",
+      "profileUrl": "https://nycabc.wordpress.com/2026/09/24/guide_19_8/",
+      "sourceIds": ["nycabc-guide-19-8", "nycabc-write"],
+      "evidence": {
+        "sourcePublishedAt": "2026-09-24",
+        "pdfPage": 6,
+        "contentSha256": "d7b19d149db3c1aa63df4b3a414d89bf313e2f72b443da7dd49ccc3f2745c4ab",
+        "announcementEdition": "19.8",
+        "pdfEdition": "19.9"
+      }
+    },
+    {
+      "id": "oso-blanco",
+      "status": "dated-address-match",
+      "verifiedAt": "2026-10-03",
+      "nextReviewAt": "2026-11-08",
+      "profileUrl": "https://nycabc.wordpress.com/2026/09/24/guide_19_8/",
+      "sourceIds": ["nycabc-guide-19-8", "nycabc-write"],
+      "evidence": {
+        "sourcePublishedAt": "2026-09-24",
+        "pdfPage": 8,
+        "contentSha256": "d7b19d149db3c1aa63df4b3a414d89bf313e2f72b443da7dd49ccc3f2745c4ab",
+        "announcementEdition": "19.8",
+        "pdfEdition": "19.9"
+      }
+    },
+    {
+      "id": "mohammed-umer-khalid",
+      "status": "needs-review",
+      "verifiedAt": "2026-07-29",
+      "nextReviewAt": "2026-09-12",
+      "profileUrl": "https://prisonersforpalestine.org/writing-to-prisoners/",
+      "sourceIds": ["prisoners-for-palestine-writing", "govuk-prison-letters"],
+      "evidence": null
+    },
+    {
+      "id": "qesser-zuhrah",
+      "status": "needs-review",
+      "verifiedAt": "2026-07-29",
+      "nextReviewAt": "2026-09-12",
+      "profileUrl": "https://prisonersforpalestine.org/prisoner/qesser-zuhrah/",
+      "sourceIds": ["prisoners-for-palestine-writing", "govuk-prison-letters"],
+      "evidence": null
+    },
+    {
+      "id": "amu-gib",
+      "status": "needs-review",
+      "verifiedAt": "2026-07-29",
+      "nextReviewAt": "2026-09-12",
+      "profileUrl": "https://prisonersforpalestine.org/prisoner/amu-gib/",
+      "sourceIds": ["prisoners-for-palestine-writing", "govuk-prison-letters"],
+      "evidence": null
+    },
+    {
+      "id": "heba-muraisi",
+      "status": "needs-review",
+      "verifiedAt": "2026-07-29",
+      "nextReviewAt": "2026-09-12",
+      "profileUrl": "https://prisonersforpalestine.org/prisoner/heba-muraisi/",
+      "sourceIds": ["prisoners-for-palestine-writing", "govuk-prison-letters"],
+      "evidence": null
+    },
+    {
+      "id": "jon-cink",
+      "status": "needs-review",
+      "verifiedAt": "2026-07-29",
+      "nextReviewAt": "2026-09-12",
+      "profileUrl": "https://prisonersforpalestine.org/prisoner/jon-cink/",
+      "sourceIds": ["prisoners-for-palestine-writing", "govuk-prison-letters"],
+      "evidence": null
+    },
+    {
+      "id": "teuta-hoxha",
+      "status": "needs-review",
+      "verifiedAt": "2026-07-29",
+      "nextReviewAt": "2026-09-12",
+      "profileUrl": "https://prisonersforpalestine.org/prisoner/teuta-hoxha/",
+      "sourceIds": ["prisoners-for-palestine-writing", "govuk-prison-letters"],
+      "evidence": null
+    },
+    {
+      "id": "kamran-ahmed",
+      "status": "needs-review",
+      "verifiedAt": "2026-07-29",
+      "nextReviewAt": "2026-09-12",
+      "profileUrl": "https://prisonersforpalestine.org/prisoner/kamran-ahmed/",
+      "sourceIds": ["prisoners-for-palestine-writing", "govuk-prison-letters"],
+      "evidence": null
+    },
+    {
+      "id": "paul-muentnich",
+      "status": "needs-review",
+      "verifiedAt": "2026-08-04",
+      "nextReviewAt": "2026-09-18",
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "sourceIds": ["abc-dresden-prisoners", "abc-dresden-letter-writing"],
+      "evidence": null
+    },
+    {
+      "id": "emilie-dieckmann",
+      "status": "needs-review",
+      "verifiedAt": "2026-08-04",
+      "nextReviewAt": "2026-09-18",
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "sourceIds": ["abc-dresden-prisoners", "abc-dresden-letter-writing"],
+      "evidence": null
+    },
+    {
+      "id": "hanna-nuernberg",
+      "status": "needs-review",
+      "verifiedAt": "2026-08-04",
+      "nextReviewAt": "2026-09-18",
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "sourceIds": ["abc-dresden-prisoners", "abc-dresden-letter-writing"],
+      "evidence": null
+    },
+    {
+      "id": "luca-amelie-schaller",
+      "status": "needs-review",
+      "verifiedAt": "2026-08-04",
+      "nextReviewAt": "2026-09-18",
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "sourceIds": ["abc-dresden-prisoners", "abc-dresden-letter-writing"],
+      "evidence": null
+    },
+    {
+      "id": "mumia-abu-jamal",
+      "status": "dated-address-match",
+      "verifiedAt": "2026-10-03",
+      "nextReviewAt": "2026-11-08",
+      "profileUrl": "https://nycabc.wordpress.com/2026/09/24/guide_19_8/",
+      "sourceIds": ["nycabc-guide-19-8", "nycabc-write"],
+      "evidence": {
+        "sourcePublishedAt": "2026-09-24",
+        "pdfPage": 3,
+        "contentSha256": "d7b19d149db3c1aa63df4b3a414d89bf313e2f72b443da7dd49ccc3f2745c4ab",
+        "announcementEdition": "19.8",
+        "pdfEdition": "19.9"
+      }
+    },
+    {
+      "id": "joe-joe-bowen",
+      "status": "dated-address-match",
+      "verifiedAt": "2026-10-03",
+      "nextReviewAt": "2026-11-08",
+      "profileUrl": "https://nycabc.wordpress.com/2026/09/24/guide_19_8/",
+      "sourceIds": ["nycabc-guide-19-8", "nycabc-write"],
+      "evidence": {
+        "sourcePublishedAt": "2026-09-24",
+        "pdfPage": 3,
+        "contentSha256": "d7b19d149db3c1aa63df4b3a414d89bf313e2f72b443da7dd49ccc3f2745c4ab",
+        "announcementEdition": "19.8",
+        "pdfEdition": "19.9"
+      }
+    },
+    {
+      "id": "ronald-reed",
+      "status": "dated-address-match",
+      "verifiedAt": "2026-10-03",
+      "nextReviewAt": "2026-11-08",
+      "profileUrl": "https://nycabc.wordpress.com/2026/09/24/guide_19_8/",
+      "sourceIds": ["nycabc-guide-19-8", "nycabc-write"],
+      "evidence": {
+        "sourcePublishedAt": "2026-09-24",
+        "pdfPage": 4,
+        "contentSha256": "d7b19d149db3c1aa63df4b3a414d89bf313e2f72b443da7dd49ccc3f2745c4ab",
+        "announcementEdition": "19.8",
+        "pdfEdition": "19.9"
+      }
+    },
+    {
+      "id": "fred-muhammad-burton",
+      "status": "dated-address-match",
+      "verifiedAt": "2026-10-03",
+      "nextReviewAt": "2026-11-08",
+      "profileUrl": "https://nycabc.wordpress.com/2026/09/24/guide_19_8/",
+      "sourceIds": ["nycabc-guide-19-8", "nycabc-write"],
+      "evidence": {
+        "sourcePublishedAt": "2026-09-24",
+        "pdfPage": 4,
+        "contentSha256": "d7b19d149db3c1aa63df4b3a414d89bf313e2f72b443da7dd49ccc3f2745c4ab",
+        "announcementEdition": "19.8",
+        "pdfEdition": "19.9"
+      }
+    },
+    {
+      "id": "kojo-bomani-sababu",
+      "status": "dated-address-match",
+      "verifiedAt": "2026-10-03",
+      "nextReviewAt": "2026-11-08",
+      "profileUrl": "https://nycabc.wordpress.com/2026/09/24/guide_19_8/",
+      "sourceIds": ["nycabc-guide-19-8", "nycabc-write"],
+      "evidence": {
+        "sourcePublishedAt": "2026-09-24",
+        "pdfPage": 5,
+        "contentSha256": "d7b19d149db3c1aa63df4b3a414d89bf313e2f72b443da7dd49ccc3f2745c4ab",
+        "announcementEdition": "19.8",
+        "pdfEdition": "19.9"
+      }
+    },
+    {
+      "id": "kamau-sadiki",
+      "status": "dated-address-match",
+      "verifiedAt": "2026-10-03",
+      "nextReviewAt": "2026-11-08",
+      "profileUrl": "https://nycabc.wordpress.com/2026/09/24/guide_19_8/",
+      "sourceIds": ["nycabc-guide-19-8", "nycabc-write"],
+      "evidence": {
+        "sourcePublishedAt": "2026-09-24",
+        "pdfPage": 5,
+        "contentSha256": "d7b19d149db3c1aa63df4b3a414d89bf313e2f72b443da7dd49ccc3f2745c4ab",
+        "announcementEdition": "19.8",
+        "pdfEdition": "19.9"
+      }
+    },
+    {
+      "id": "xinachtli",
+      "status": "dated-address-match",
+      "verifiedAt": "2026-10-03",
+      "nextReviewAt": "2026-11-08",
+      "profileUrl": "https://nycabc.wordpress.com/2026/09/24/guide_19_8/",
+      "sourceIds": ["nycabc-guide-19-8", "nycabc-write"],
+      "evidence": {
+        "sourcePublishedAt": "2026-09-24",
+        "pdfPage": 9,
+        "contentSha256": "d7b19d149db3c1aa63df4b3a414d89bf313e2f72b443da7dd49ccc3f2745c4ab",
+        "announcementEdition": "19.8",
+        "pdfEdition": "19.9"
+      }
+    },
+    {
+      "id": "joy-powell",
+      "status": "dated-address-match",
+      "verifiedAt": "2026-10-03",
+      "nextReviewAt": "2026-11-08",
+      "profileUrl": "https://nycabc.wordpress.com/2026/09/24/guide_19_8/",
+      "sourceIds": ["nycabc-guide-19-8", "nycabc-write"],
+      "evidence": {
+        "sourcePublishedAt": "2026-09-24",
+        "pdfPage": 10,
+        "contentSha256": "d7b19d149db3c1aa63df4b3a414d89bf313e2f72b443da7dd49ccc3f2745c4ab",
+        "announcementEdition": "19.8",
+        "pdfEdition": "19.9"
+      }
+    },
+    {
+      "id": "nele-aschoff",
+      "status": "needs-review",
+      "verifiedAt": "2026-08-04",
+      "nextReviewAt": "2026-09-18",
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "sourceIds": ["abc-dresden-prisoners", "abc-dresden-letter-writing"],
+      "evidence": null
+    },
+    {
+      "id": "finn-siebers",
+      "status": "needs-review",
+      "verifiedAt": "2026-08-11",
+      "nextReviewAt": "2026-09-25",
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "sourceIds": ["abc-dresden-prisoners", "abc-dresden-letter-writing"],
+      "evidence": null
+    },
+    {
+      "id": "nico-stuttgart",
+      "status": "needs-review",
+      "verifiedAt": "2026-08-11",
+      "nextReviewAt": "2026-09-25",
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "sourceIds": ["abc-dresden-prisoners", "abc-dresden-letter-writing"],
+      "evidence": null
+    },
+    {
+      "id": "andreas-krebs",
+      "status": "needs-review",
+      "verifiedAt": "2026-08-11",
+      "nextReviewAt": "2026-09-25",
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "sourceIds": ["abc-dresden-prisoners", "abc-dresden-letter-writing"],
+      "evidence": null
+    },
+    {
+      "id": "daniela-klette",
+      "status": "needs-review",
+      "verifiedAt": "2026-08-11",
+      "nextReviewAt": "2026-09-25",
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "sourceIds": ["abc-dresden-prisoners", "abc-dresden-letter-writing"],
+      "evidence": null
+    },
+    {
+      "id": "carmen-forderer",
+      "status": "needs-review",
+      "verifiedAt": "2026-08-11",
+      "nextReviewAt": "2026-09-25",
+      "profileUrl": "https://abcdd.org/gefangene/",
+      "sourceIds": ["abc-dresden-prisoners", "abc-dresden-letter-writing"],
+      "evidence": null
+    }
+  ]
+}

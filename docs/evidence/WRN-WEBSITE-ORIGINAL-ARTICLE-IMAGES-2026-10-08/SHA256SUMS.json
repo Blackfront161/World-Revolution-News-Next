@@ -1,0 +1,96 @@
+{
+  "sourceCommit": "be1de3094289c89b5aa3f17633d69d1677da3a79",
+  "observedAt": "2026-10-07T22:11:40.840Z",
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 2887,
+      "sha256": "f9584e7049920ea846cee68f66d168efba83e5a448d39693e8c85abd936b4e82"
+    },
+    {
+      "path": "before-readback.json",
+      "bytes": 244980,
+      "sha256": "0cc97e10e5c3f43491e18b0bf794f56aa45abf117735c929f98be40bd3c86571"
+    },
+    {
+      "path": "browser-check.mjs",
+      "bytes": 7221,
+      "sha256": "c8f6a5860871e9a3b1411530449a482d06a08b41cf8e318d74624a29cfe435ca"
+    },
+    {
+      "path": "browser-proof.json",
+      "bytes": 8315,
+      "sha256": "7147190224a022a632f00e134299588ca673017355d2092ee758e24c9cd001c3"
+    },
+    {
+      "path": "home-desktop.png",
+      "bytes": 337884,
+      "sha256": "87f22375afb0be63c62f5969ceb0343003b421cc87bb1e3caf8430fd0e254347"
+    },
+    {
+      "path": "home-mobile.png",
+      "bytes": 130276,
+      "sha256": "a17142a63501239ace07c62af776ba1ae913196c0cb8cfb98b53af3abcbf9960"
+    },
+    {
+      "path": "hosting.manifest.json",
+      "bytes": 186160,
+      "sha256": "5b6df2adf21d52d00573bec2d6c009db2ceff05c9492609ae58fe6edd87dc0ef"
+    },
+    {
+      "path": "offline-home-desktop.png",
+      "bytes": 189595,
+      "sha256": "a1d7b44e023e8a8a8e6be176a99922c50260003aabfe41e973de8315f45a1349"
+    },
+    {
+      "path": "public-cdn-original.json",
+      "bytes": 244640,
+      "sha256": "2d0df1a9430bfb12e82f8ca114ef382c3ff72f193ad1980debfe0dab065f125d"
+    },
+    {
+      "path": "public-headers.json",
+      "bytes": 3028,
+      "sha256": "da251312a8194450d1bfabd7f079d709f7b3507d0708c5a827dd1e2969ce52f9"
+    },
+    {
+      "path": "public-readback.json",
+      "bytes": 252935,
+      "sha256": "1124f1df90192531c1066a3f3773e764203ae8776110539f169beb02e130d71d"
+    },
+    {
+      "path": "reader-mobile.png",
+      "bytes": 96289,
+      "sha256": "d0c2ed22f0f4db37bd9af8e8ba77130584c4462c3d351e1c2fb7a4c5999bb55b"
+    },
+    {
+      "path": "reviewed-article-images.json",
+      "bytes": 7702,
+      "sha256": "070e21fb5467926ec18546a67d7338f3921e4be1a2ca3c13b80b4206ff2ef70d"
+    },
+    {
+      "path": "saved-mobile.png",
+      "bytes": 172838,
+      "sha256": "37fe0d9b33aaa7429395140f4000014959314291146c462dd665cc9b97e55b9e"
+    },
+    {
+      "path": "source-manifest.json",
+      "bytes": 1711,
+      "sha256": "d5543575b0ce35ebd1580a2630376b943d2c20f7c8f9688c3d645607b5dac9a1"
+    },
+    {
+      "path": "source-verification.json",
+      "bytes": 19654,
+      "sha256": "9c73f3c79f0c67e142a23a4c7fa1f1eb5749251ef5290eeb7ab81a5faa747caf"
+    },
+    {
+      "path": "upload-freeze.json",
+      "bytes": 13433,
+      "sha256": "5ed6a2e131ad7188a2f21446a3e715f6b810f146d603c7fc67e8f8ad14405489"
+    },
+    {
+      "path": "website.manifest.json",
+      "bytes": 183392,
+      "sha256": "13d569a3e07d5a20451425415999105289c6a2ef16f0c16a89593cf6f1e3a22f"
+    }
+  ]
+}

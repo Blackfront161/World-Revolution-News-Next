@@ -366,7 +366,7 @@ export const frenchUiCopy: UiCopy = Object.freeze({
     'La sélection locale n’a pas pu être vérifiée après la modification.',
   personalizationClearFailed: 'La sélection locale n’a pas pu être supprimée.',
   personalizationResults: 'Articles locaux correspondants',
-  personalizationNoMatches: 'Aucun article local validé ne correspond à cette sélection.',
+  personalizationNoMatches: 'Aucun texte intégral vérifié ne correspond à cette sélection.',
   personalizationReloadRequired: 'Rechargez la sélection locale avant une autre modification.',
   personalizationLoading: 'Chargement de la sélection locale sur cet appareil.',
   readerV2Ambiguous: 'Cette structure locale est ambiguë ; le texte original reste inchangé.',

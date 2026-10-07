@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "packageFilesVerified": 206,
+  "packageReproduced": true,
+  "snapshotFiles": 199,
+  "snapshotBytes": 104318011,
+  "shellEntries": 18,
+  "rawViteShellBytes": 8091333,
+  "existingPublishedShellBytes": 8092523,
+  "note": "Raw Vite HTML before production-site CSP/header adaptation; not a replacement live package.",
+  "shellId": "44294c85c47ec2d7a6a60e710e8c23ac7bd8cf851bf405484e7ef786e66beedb",
+  "atlasInShell": false,
+  "wrapperAndRuntimePoliciesSeparate": true,
+  "publicationPerformed": false
+}

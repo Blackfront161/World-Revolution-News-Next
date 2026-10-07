@@ -1,0 +1,132 @@
+{
+  "schema": "wrn.website-next-app-handoff-inspection.v1",
+  "observedAt": "2026-10-02T22:33:32.073Z",
+  "status": "HASH_VERIFIED_NOT_ADMITTED",
+  "handoffCommit": "75016f6b2356918671e28964397d56219d6367de",
+  "appCommit": "74e92546a4133ddc92ce51213f8d3f4a1eff7a68",
+  "publishedDataCommit": "9ce5fa03151e230f26c6b09be77620d2f7398e63",
+  "handoffStatus": "",
+  "manifestSha256": "2b7404b80e62fd55ef1c455c94900ea688b4da0b35da95c3e466bb8f5504236f",
+  "counts": {
+    "rawFeedRows": 500,
+    "offlineAppFeedRows": 500,
+    "appVisibleRows": 426,
+    "libraryItems": 728,
+    "podcastRows": 1778,
+    "lexiconTerms": 167,
+    "radios": 28,
+    "wrnAcceptedNotes": 21
+  },
+  "files": [
+    {
+      "name": "articles-metadata.json",
+      "bytes": 401292,
+      "sha256": "a5ce6d375d58d5de3161b2db8af284507986281fb8da428a7e92de960f2f3a63",
+      "matches": true
+    },
+    {
+      "name": "app-home-selection.json",
+      "bytes": 2303,
+      "sha256": "e8527d95a36950a65f0bb89fdde88d582027073d792c00fe1ccacd5790660763",
+      "matches": true
+    },
+    {
+      "name": "website-accepted-selection.json",
+      "bytes": 2339,
+      "sha256": "ec0a62925b623bffe0377a2df0876bb01ed18661a1b06d0d60d4dfba659b226d",
+      "matches": true
+    },
+    {
+      "name": "wrn-editorial-notes.json",
+      "bytes": 22857,
+      "sha256": "0a793f49a4cd91fec87cda3153e480c3bd7ff80456414f9d9e3a6e4763cae5cb",
+      "matches": true
+    },
+    {
+      "name": "library-metadata.json",
+      "bytes": 301378,
+      "sha256": "ef29b8c9129c05e337807411021814c397cb5a55a61a5af5bd146785ac124679",
+      "matches": true
+    },
+    {
+      "name": "podcast-metadata.json",
+      "bytes": 1083413,
+      "sha256": "2fc8d7bb2a36197348c88d00b2005b9ddb6661ffafb229e828173be7b41309ac",
+      "matches": true
+    },
+    {
+      "name": "radios.json",
+      "bytes": 13644,
+      "sha256": "19546104f211dcd8a16dcdf359f99518e66996eb9ddef9f20e069161d0bf17a9",
+      "matches": true
+    },
+    {
+      "name": "radio-health.json",
+      "bytes": 13733,
+      "sha256": "af389df621b93b28706489063e0dc0348f38e55f369f2c1e248081ba6c93571c",
+      "matches": true
+    },
+    {
+      "name": "lexicon.json",
+      "bytes": 280938,
+      "sha256": "32419d539f47377451b2409f2665b8c13da39becde7fc033ad01d0b7c0a7c8b5",
+      "matches": true
+    },
+    {
+      "name": "lexicon-locales.json",
+      "bytes": 6589,
+      "sha256": "5b59354be8a764fef375e63a3ddae53e21d15c2d63320b224f43ea17067f30b0",
+      "matches": true
+    },
+    {
+      "name": "learning-paths.json",
+      "bytes": 23707,
+      "sha256": "d2255f2a4f82d8c80b138adb3607db6407a64ba813c165fd29666956351868c4",
+      "matches": true
+    },
+    {
+      "name": "source-metadata.json",
+      "bytes": 494863,
+      "sha256": "7362c34cc537529e45c2e7e5e186545a78e6141929f30977e24f0f44eb6091b6",
+      "matches": true
+    },
+    {
+      "name": "podcast-content-policy.json",
+      "bytes": 20988,
+      "sha256": "fc2ba6698bb30bb1ba741f1b8f57801b7b806f5489edadc9fa0c6f0dee81d53d",
+      "matches": true
+    },
+    {
+      "name": "prisoner-review-handoff.json",
+      "bytes": 4003,
+      "sha256": "2e6c2899f6d2b0e5fd18ce30bced5d96866c2b08e66bc00f2bf7f8e61ea1b472",
+      "matches": true
+    },
+    {
+      "name": "README.md",
+      "bytes": 3064,
+      "sha256": "c8256e9215971e93ac8015beeed7f1662b022fa962e7c7ef8cc79456848f0af7",
+      "matches": true
+    }
+  ],
+  "homeSelection": {
+    "mode": "anonymous-published-data-snapshot-DE",
+    "priorFreeze": "ce2b5565e539cbd1373fef5684cf1997fab5b6e2",
+    "priorIds": 21,
+    "currentIds": 20,
+    "sharedIds": [],
+    "roles": {
+      "lead": 1,
+      "top": 5,
+      "sport": 0,
+      "more": 9,
+      "briefing": 5
+    },
+    "leadChanged": true
+  },
+  "limits": [
+    "Read-only inspection of exact committed owner handoff; not a released Website directory or admitted Home selection",
+    "Image is tied to old ANRed lead and must not move to a different headline",
+    "No publisher fulltexts, images, audio or expired prisoner addresses admitted"
+  ]
+}

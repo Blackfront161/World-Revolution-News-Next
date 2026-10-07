@@ -11,10 +11,12 @@ import {
   useRef,
   useState,
   type KeyboardEvent as ReactKeyboardEvent,
+  type TouchEvent as ReactTouchEvent,
   type ReactNode,
   type RefObject,
 } from 'react';
 import {
+  brandAssetUrls,
   isThemePreference,
   normalizeThemePreference,
   resolveEffectiveTheme,
@@ -136,6 +138,11 @@ const MobileHomeDirectory = lazy(() =>
     default: module.MobileHomeDirectory,
   })),
 );
+const MobilePersonalizedDirectory = lazy(() =>
+  import('./features/directory/MobilePersonalizedDirectory').then((module) => ({
+    default: module.MobilePersonalizedDirectory,
+  })),
+);
 const MobileKnowledgeRoute = lazy(() =>
   import('./features/knowledge/MobileKnowledgeRoute').then((module) => ({
     default: module.MobileKnowledgeRoute,
@@ -151,6 +158,18 @@ const MobileDirectoryRoute = lazy(() =>
     default: module.MobileContentDirectoryRoute,
   })),
 );
+
+const personalizedFulltextTitle: Readonly<Record<UiLanguage, string>> = {
+  de: 'Geprüfte Volltexte',
+  en: 'Validated full texts',
+  es: 'Textos completos verificados',
+  fr: 'Textes intégraux vérifiés',
+  it: 'Testi integrali verificati',
+  pt: 'Textos integrais verificados',
+  ru: 'Проверенные полные тексты',
+  el: 'Ελεγμένα πλήρη κείμενα',
+  tr: 'Doğrulanmış tam metinler',
+};
 
 class KnowledgeRouteBoundary extends Component<
   Readonly<{
@@ -449,19 +468,26 @@ function readThemePreference(
     const storedPreference = window.localStorage.getItem(themeStorageKey);
     if (storedPreference !== null && !isThemePreference(storedPreference)) {
       window.localStorage.removeItem(themeStorageKey);
-      return 'violet';
+      return 'dark';
     }
     return storedPreference === null
-      ? (importLegacyTheme(window.localStorage) ?? 'violet')
+      ? (importLegacyTheme(window.localStorage) ?? 'dark')
       : normalizeThemePreference(storedPreference);
   } catch {
-    return 'violet';
+    return 'dark';
   }
 }
 function readNavigationTargetFromLocation(): NavigationTargetId {
   if (parseMobileDirectorySection(window.location.hash) !== null) return 'discover';
   return resolveNavigationTarget(window.location.hash.replace(/^#\/?/, ''));
 }
+const primaryNavigationIcons: Partial<Record<NavigationTargetId, string>> = {
+  home: '⌂',
+  following: '☆',
+  discover: '◎',
+  media: '▷',
+  saved: '▱',
+};
 function readMobileArticleIdFromLocation(): string | null {
   const match = window.location.hash.match(/^#article\/([^/]+)$/u);
   if (match?.[1] === undefined) return null;
@@ -1702,6 +1728,7 @@ export function App({
   const [systemPrefersDark, setSystemPrefersDark] = useState(readSystemPrefersDark);
   const [target, setTarget] = useState<NavigationTargetId>(readNavigationTargetFromLocation);
   const [searchRequested, setSearchRequested] = useState(false);
+  const mainSwipeStartRef = useRef<{ x: number; y: number } | null>(null);
   const supportClock = useCallback(() => new Date(now()), [now]);
   const supportGuardRef = useRef<MobileSupportNavigationGuard | null>(null);
   const registerSupportGuard = useCallback((guard: MobileSupportNavigationGuard | null) => {
@@ -2228,6 +2255,42 @@ export function App({
       setDirectorySection(null);
     });
   };
+  const onMainTouchStart = (event: ReactTouchEvent<HTMLElement>) => {
+    mainSwipeStartRef.current = null;
+    const origin = event.target instanceof Element ? event.target : null;
+    if (
+      event.touches.length !== 1 ||
+      readerArticleId !== null ||
+      archiveRoute !== undefined ||
+      document.querySelector('[role="dialog"]') ||
+      origin?.closest(
+        'a, button, input, select, textarea, label, summary, [contenteditable="true"], [role="button"], [role="tab"], [role="slider"]',
+      )
+    )
+      return;
+    for (let node = origin; node && node !== event.currentTarget; node = node.parentElement) {
+      const overflowX = window.getComputedStyle(node).overflowX;
+      if (
+        (overflowX === 'auto' || overflowX === 'scroll') &&
+        node.scrollWidth > node.clientWidth + 1
+      )
+        return;
+    }
+    const touch = event.touches[0]!;
+    mainSwipeStartRef.current = { x: touch.clientX, y: touch.clientY };
+  };
+  const onMainTouchEnd = (event: ReactTouchEvent<HTMLElement>) => {
+    const start = mainSwipeStartRef.current;
+    mainSwipeStartRef.current = null;
+    if (start === null || event.changedTouches.length !== 1) return;
+    const touch = event.changedTouches[0]!;
+    const dx = touch.clientX - start.x;
+    const dy = touch.clientY - start.y;
+    if (Math.abs(dx) < 72 || Math.abs(dx) <= Math.abs(dy) * 1.5) return;
+    const index = mobilePrimaryNavigationIds.findIndex((id) => id === target);
+    const next = mobilePrimaryNavigationIds[index + (dx < 0 ? 1 : -1)];
+    if (index >= 0 && next) navigate(next);
+  };
   const menuIsOpen = target === 'more' && readerArticleId === null && archiveRoute === undefined;
   const toggleMoreMenu = () => {
     if (!menuIsOpen) {
@@ -2443,7 +2506,7 @@ export function App({
           return resolution.kind === 'redirected' ? resolution.canonicalId : archiveRoute;
         })()
       : archiveRoute;
-  const routeLink = (id: NavigationTargetId, label = navigationLabel(id)) => (
+  const routeLink = (id: NavigationTargetId, label = navigationLabel(id), primary = false) => (
     <a
       href={`#${id}`}
       aria-current={target === id ? 'page' : undefined}
@@ -2452,7 +2515,12 @@ export function App({
         navigate(id);
       }}
     >
-      {label}
+      {primary ? (
+        <span className="primary-nav-icon" aria-hidden="true">
+          {primaryNavigationIcons[id]}
+        </span>
+      ) : null}
+      <span className={primary ? 'primary-nav-label' : undefined}>{label}</span>
     </a>
   );
   const directoryLinks = (
@@ -2650,7 +2718,8 @@ export function App({
                       navigate('home');
                     }}
                   >
-                    World <span>Revolution</span> News
+                    <img className="compact-header-mark" src={brandAssetUrls.solinaridaoMark} alt="" />
+                    <span className="compact-header-product">World Revolution News</span>
                   </a>
                 </h1>
                 <a
@@ -2665,6 +2734,22 @@ export function App({
                 </a>
               </div>
               <div className="compact-header-tools">
+                <button
+                  type="button"
+                  className="compact-header-media"
+                  aria-label={copy.media}
+                  onClick={() => navigate('media')}
+                >
+                  <span aria-hidden="true">▷</span>
+                </button>
+                <button
+                  type="button"
+                  className="compact-header-support"
+                  aria-label={copy.support}
+                  onClick={() => navigate('solidarity')}
+                >
+                  <span aria-hidden="true">♡</span>
+                </button>
                 <button
                   type="button"
                   className="compact-header-search"
@@ -2704,7 +2789,19 @@ export function App({
               </div>
             </div>
           </header>
-          <main id="mobile-main" tabIndex={-1} aria-labelledby="mobile-page-title">
+          <main
+            id="mobile-main"
+            tabIndex={-1}
+            aria-labelledby="mobile-page-title"
+            onTouchStart={onMainTouchStart}
+            onTouchEnd={onMainTouchEnd}
+            onTouchMove={(event) => {
+              if (event.touches.length !== 1) mainSwipeStartRef.current = null;
+            }}
+            onTouchCancel={() => {
+              mainSwipeStartRef.current = null;
+            }}
+          >
             {target === 'more' && archiveRoute === undefined && (
               <section className="more-theme-settings">
                 <label className="theme-selector">
@@ -2758,6 +2855,8 @@ export function App({
                         load: loadProductionHomeDirectory,
                         onBrowse: () => navigateDirectory('news'),
                         onBrowseSport: () => navigateDirectory('sport'),
+                        automaticTranslation: true,
+                        prioritizeCurrentLinks: true,
                       }
                     : undefined
                 }
@@ -3147,25 +3246,38 @@ export function App({
                   loaded={personalizationRuntime.loaded}
                   productionResults={
                     productionMode ? (
-                      <ProductionContentArea
-                        target="following"
-                        articleId={null}
-                        archiveRoute={undefined}
-                        language={uiLanguage}
-                        headingRef={pageHeadingRef}
-                        onRead={openReader}
-                        onArchiveRead={openArchiveReader}
-                        onCloseReader={closeReader}
-                        onCloseArchive={closeArchive}
-                        onOpenArchive={openArchive}
-                        shareAdapter={shareAdapter}
-                        preferences={
-                          personalizationRuntime.loaded.kind === 'ready'
-                            ? personalizationRuntime.loaded.state
-                            : undefined
-                        }
-                        embedded
-                      />
+                      <>
+                        <section className="personalization-fulltext" aria-labelledby="personalized-fulltext-title">
+                          <h3 id="personalized-fulltext-title">{personalizedFulltextTitle[uiLanguage]}</h3>
+                          <ProductionContentArea
+                            target="following"
+                            articleId={null}
+                            archiveRoute={undefined}
+                            language={uiLanguage}
+                            headingRef={pageHeadingRef}
+                            onRead={openReader}
+                            onArchiveRead={openArchiveReader}
+                            onCloseReader={closeReader}
+                            onCloseArchive={closeArchive}
+                            onOpenArchive={openArchive}
+                            shareAdapter={shareAdapter}
+                            preferences={
+                              personalizationRuntime.loaded.kind === 'ready'
+                                ? personalizationRuntime.loaded.state
+                                : undefined
+                            }
+                            embedded
+                          />
+                        </section>
+                        {personalizationRuntime.loaded.kind === 'ready' && (
+                          <Suspense fallback={<p role="status">{directoryCopy.loading}</p>}>
+                            <MobilePersonalizedDirectory
+                              language={uiLanguage}
+                              state={personalizationRuntime.loaded.state}
+                            />
+                          </Suspense>
+                        )}
+                      </>
                     ) : undefined
                   }
                   onLoaded={(loaded) =>
@@ -3263,7 +3375,7 @@ export function App({
           </main>
           <nav aria-label={copy.mobileMainNavigation} className="mobile-primary-nav">
             {mobilePrimaryNavigationIds.map((id) => (
-              <span key={id}>{routeLink(id)}</span>
+              <span key={id}>{routeLink(id, navigationLabel(id), true)}</span>
             ))}
           </nav>
           {sourceConfirmation !== null &&

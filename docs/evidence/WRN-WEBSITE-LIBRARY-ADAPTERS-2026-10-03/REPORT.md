@@ -1,0 +1,9 @@
+# Library metadata candidate adapters
+
+Product a2352e83fff17cf5419a8e369d12691f64c86f2c. Independent review PENDING. Offline extraction only; no runtime integration, source admission or Website publication.
+
+Four bounded adapters for already configured Libcom title index, Kate Sharpley Atom feed, Zabalaza RSS and Anarchist Archive RSS; existing German OPDS metadata is supported for candidate comparison. Maximum3MiB input and200 candidates/rejections/conflicts/tombstones; no executable source, XML entity expansion, credentials or off-host/non-HTTPS original URLs. Per-item declared language and author fields stay distinct from channel language/uploader. Opaque GUIDs do not become original URLs, absence/truncation do not delete old records, explicit tombstones and identity conflicts require review. OPDS EPUB links remain file references; the files were not fetched.
+
+15 unit tests PASS. Final bounded observation 2026-10-03T08:35:58.943Z made14 primary HTTPS requests, all200, storing only extracted metadata and input hashes. Libcom200 entries (truncated), Zabalaza10, Archive50EN/23DE metadata candidates; Kate Sharpley's20 HTTP original addresses are explicitly rejected pending individual HTTPS canonical verification. German OPDS root plus8 publisher-provided pages produced ten new explicitly German candidate records distinct from existing731 book IDs/original URLs. These are metadata candidates, not read or editorially classified books. No foreign book, body, audio or artwork download or redistribution.
+
+The latest observed App library policy is a bounded worktree observation SHA256 5defa43d30ddd6e23d4c1667b6d14e1170ef77862606987fad40e2beb8ce8a54, 5529bytes. Root changed this file during parallel App work; it is not the earlier accepted immutable App policy and conveys no release authority. The runtime731-book catalogue stays on its committed accepted snapshot.

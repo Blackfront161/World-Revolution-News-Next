@@ -1,0 +1,127 @@
+{
+  "schema": "wrn.website-atlas-live-publication.v1",
+  "recordedAtUTC": "2026-10-04T10:55:38.366Z",
+  "origin": "https://solinaridao.com",
+  "url": "https://solinaridao.com/atlas/?lang=de",
+  "websiteProductCommit": "423f1963f60ad2fd4fae2cfab6c5257587f55ea7",
+  "websiteReviewReceiptCommit": "e0fb990cbe6be0f3d32e790705bc937daeee47f8",
+  "finalMimeProductCommit": "6c2af6182f6393857e1308e78efa7c3089fe7f00",
+  "sourceCommit": "6a8edf0b8e2ddd462db2e750f672c3f114801171",
+  "version": "r77-564c7ef0fdc9",
+  "snapshotManifestSha256": "958700b090d3af4ac448117d124ddf5e5d90d4a95277d16bc541247e565fd06b",
+  "packageManifestSha256": "82b71392210f5438f01f307c93b43035b639b00bdcc7e83461184b572118c05e",
+  "independentWebsiteReview": "FINAL PASS",
+  "independentFinalMimeReview": {
+    "status": "PASS",
+    "threadId": "019ff285-63dc-7ed2-88a8-cab5f06ed26e",
+    "scope": "6c2af61 against e0fb990, final two Atlas MIME rules and exact 214-file packet",
+    "openP1P2": 0
+  },
+  "authorization": "Existing direct human requests to publish the Website and explicit Hostinger login reply in this chat; applies to this separate reviewed Atlas deployment.",
+  "destination": "website-specific solinaridao.com/public_html",
+  "privateArchiveDirectory": "wrn-atlas-423f196-private",
+  "uploadOrder": [
+    {
+      "archive": "01-atlas-r77-runtime-423f196.zip",
+      "files": 203,
+      "bytes": 100898291,
+      "sha256": "816845d5f93301dbf69f179e377c5fdc1d67eb495c2befe3cbe30e6e1d948dce"
+    },
+    {
+      "archive": "06-atlas-r77-runtime-mime-423f196.zip",
+      "files": 1,
+      "bytes": 794,
+      "sha256": "9f8229af9d1de604909d45ca7449869ac0a0a0737d63e76dfa4ce8e9fb5eb2c4"
+    },
+    {
+      "archive": "07-atlas-r77-host-mime-423f196.zip",
+      "files": 10,
+      "bytes": 21769,
+      "sha256": "77126932610d6cf10e1c1a314c8bc69f17e1917022e141b8ee65fe695d7515b7"
+    },
+    {
+      "archive": "03-atlas-r77-start-423f196.zip",
+      "files": 1,
+      "bytes": 1557,
+      "sha256": "97704cefebb2b4880f28ab73331d9c1f4c98fdbf0a3ee7695c969f2d0bc62702"
+    }
+  ],
+  "unusedArchives": [
+    "02-atlas-r77-host-policy-423f196.zip",
+    "04-atlas-r77-runtime-mime-423f196.zip",
+    "05-atlas-r77-host-mime-423f196.zip"
+  ],
+  "cdnAction": "Only solinaridao.com main-domain cache cleared; no CDN or security setting changed.",
+  "published": true,
+  "publicFilesVerified": 212,
+  "privatePoliciesVerifiedByEffect": 2,
+  "managedFiles": 214,
+  "stages": [
+    {
+      "stage": "runtime",
+      "checkedAt": "2026-10-04T10:45:09.729Z",
+      "status": "PASS",
+      "publicFilesExpected": 202,
+      "publicFilesPassed": 202,
+      "rootByteAndPolicyUnchanged": true,
+      "workingReceiptSha256": "1a18f601eb9f02001828fb3efe8c5236f5acedd29f2da545c22b5da42c94e646"
+    },
+    {
+      "stage": "preactivate",
+      "checkedAt": "2026-10-04T10:46:39.243Z",
+      "status": "PASS",
+      "publicFilesExpected": 211,
+      "publicFilesPassed": 211,
+      "rootByteAndPolicyUnchanged": true,
+      "workingReceiptSha256": "ab9be2900d3ad843e2d568008829802b728db500089715041e37e53789c71b63"
+    },
+    {
+      "stage": "final",
+      "checkedAt": "2026-10-04T10:48:08.206Z",
+      "status": "PASS",
+      "publicFilesExpected": 212,
+      "publicFilesPassed": 212,
+      "rootByteAndPolicyUnchanged": true,
+      "workingReceiptSha256": "14b08c0ddf7326ca98e70f706a609c56d923eb83cca7b30fa9521b3e4cba213a"
+    }
+  ],
+  "rootByteAndPolicyUnchanged": true,
+  "liveBrowser": {
+    "status": "PASS",
+    "checks": 28,
+    "pageErrors": 0,
+    "failedRequests": 0,
+    "transport": "default"
+  },
+  "offlineSmoke": {
+    "status": "PASS",
+    "checks": [
+      "Existing Website shell stays 18 entries / 8092523 bytes with no Atlas paths",
+      "Atlas runs under offline=0 without its own worker and does not enter the Website cache",
+      "Existing Website opens offline after full browser-process restart",
+      "Atlas requires internet and fails closed on offline reload; no false offline availability"
+    ],
+    "expectedAtlasOfflineFailure": true,
+    "websiteShellEntries": 18,
+    "websiteShellBytes": 8092523
+  },
+  "actualUserChrome": {
+    "url": "https://solinaridao.com/atlas/?lang=de",
+    "started": true,
+    "theme": "existing light preference preserved",
+    "viewport": {
+      "width": 1707,
+      "height": 769
+    },
+    "frame": {
+      "x": 0,
+      "y": 0,
+      "width": 1707.3333740234375,
+      "height": 769.3333740234375
+    },
+    "overflow": false
+  },
+  "newsObservationRefreshed": false,
+  "appOrPlayOperationPerformed": false,
+  "mediaApprovalPromoted": false
+}

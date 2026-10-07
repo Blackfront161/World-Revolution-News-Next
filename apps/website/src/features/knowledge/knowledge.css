@@ -1,7 +1,28 @@
 .website-knowledge-view,
+.website-catalogue-item,
 .website-support-view {
+  min-width: 0;
+  overflow-wrap: anywhere;
   max-width: 76rem;
   margin: 0 auto;
+}
+.website-catalogue-item button,
+.website-catalogue-item a {
+  min-width: 44px;
+  min-height: 44px;
+}
+.website-catalogue-item input {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+.website-catalogue-item .website-safe-links label {
+  min-width: 0;
+  flex: 1 1 16rem;
+}
+.website-lexicon-layout > .website-catalogue-item:only-child {
+  grid-column: 1 / -1;
 }
 .website-knowledge-view > h1 {
   font-size: clamp(1.5rem, 8vw, 2rem);
@@ -92,6 +113,17 @@
   grid-template-columns: minmax(14rem, 1fr) minmax(0, 2fr);
   gap: 1rem;
 }
+.website-lexicon-layout > ul {
+  margin: 0;
+  max-height: min(65vh, 40rem);
+  overflow-y: auto;
+  padding: 0;
+  list-style: none;
+}
+.website-lexicon-layout > ul button {
+  width: 100%;
+  text-align: left;
+}
 .website-lexicon-layout article {
   border: 1px solid var(--line);
   padding: 1rem;
@@ -100,10 +132,37 @@
   .website-lexicon-layout {
     grid-template-columns: 1fr;
   }
+  .website-lexicon-layout > ul {
+    max-height: 35vh;
+  }
   .website-content-filters {
     align-items: stretch;
   }
   .website-content-filters label {
     min-width: 100%;
   }
+}
+.website-learning-paths {
+  margin-block: 1.5rem;
+  overflow-wrap: anywhere;
+}
+.website-learning-paths details {
+  padding: 0.8rem;
+  border: 1px solid var(--border-color, #555);
+  margin-block: 0.7rem;
+}
+.website-learning-paths summary {
+  cursor: pointer;
+}
+.website-learning-paths li {
+  margin-block: 1rem;
+}
+.website-learning-paths button {
+  margin: 0.2rem;
+}
+.website-learning-paths a,
+.website-learning-paths summary {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }

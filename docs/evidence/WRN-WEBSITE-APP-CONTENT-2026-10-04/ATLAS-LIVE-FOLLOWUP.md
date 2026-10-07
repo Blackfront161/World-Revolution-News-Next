@@ -1,0 +1,11 @@
+# Atlas-Einbettung: Nachprüfung am 5. Oktober 2026 (Singapur)
+
+Ein unabhängiger erster deutscher Lauf im Codex-Browser zeigte nach dem Start eine abgelehnte Frameverbindung. Das historische Fehlerbild bleibt im Root-Belegordner erhalten. Die Ursache dieses einzelnen Versuchs wurde nicht nachgewiesen.
+
+Ein vollständig neuer Chrome-Incognito-Kontext mit blockierten Service Workern lädt denselben deutschen Einstieg bis mapReady. CacheStorage und Service-Worker-Registrierungen sind davor und danach leer. Die Browserantworten enthalten je genau eine CSP mit frame-ancestors self und einmal X-Frame-Options SAMEORIGIN. Der stateless rohe Node-HTTPS-Empfang der exakten Embed-URL bestätigt dieselben Header bei hcdn DYNAMIC. Es wurde kein geerbtes DENY oder zusätzlicher normal/always-Header gefunden.
+
+Ein zusätzlicher neuer deutscher Codex-Browser-Tab zeigt die vollständige Karte mit Konturen, Markern und Navigation. Root bestätigt unabhängig die vollständig geladene französische Karte und den anschließenden Sprachwechsel FR→DE. Das initiale iframe-SRC bleibt dabei französisch; die deutsche Oberfläche folgt aus dem vorhandenen Sprachwechsel. Root bestätigt anschließend auch einen neuen vollständigen deutschen Header→Host→Start-Lauf mit exaktem lang=de-iframe-SRC. Der abschließende Screenshot atlas-root-final-de.png zeigt die vollständig geladene Weltkarte mit Markern, deutscher Navigation und Ton aus.
+
+Root hat seine frühere Behauptung einer französischen Verbindungsablehnung nach Kontrolle des tatsächlichen Screenshots korrigiert. Der erste deutsche Fehler ist nicht als dauerhaft blockierter Codex-Atlas reproduziert. Die Ursachenhypothesen CacheStorage, alte HTTPheader oder Proxy bleiben ungeklärt; sie werden nicht als erwiesen dargestellt.
+
+Keine HTTPheader wurden geändert, keine Nutzercaches gelöscht und kein zusätzliches Fallback veröffentlicht. Eine zwischenzeitlich vorbereitete Fallback-Ergänzung wurde wieder aus den Produktpfaden entfernt und verbleibt ausschließlich als ignoriertes Arbeitsartefakt. Das bereits geparkte Atlas-Offline-WIP ist inhaltlich erhalten und weiterhin nicht veröffentlicht. Produktstand der Hauptwebsite bleibt 534f15f3f4bcfc8044f4040038e85632cd8d0b11, veröffentlichter Atlas r77 unverändert.

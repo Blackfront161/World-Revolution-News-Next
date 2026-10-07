@@ -46,6 +46,24 @@ describe('MobileKnowledgeRoute', () => {
     fireEvent.click(screen.getByRole('button', { name: copy.lexicon }));
     expect(await screen.findByText(copy.fallback)).toBeInTheDocument();
   });
+  it('opens curated Black anarchism resources only after an explicit click', async () => {
+    render(<MobileKnowledgeRoute language="de" headingRef={{ current: null }} />);
+    const resources = await screen.findByTestId('black-anarchism-resources');
+    expect(
+      within(resources).getByRole('heading', { name: 'Schwarzer Anarchismus' }),
+    ).toBeInTheDocument();
+    const links = within(resources).getAllByRole('link', { name: 'Original öffnen' });
+    expect(links).toHaveLength(7);
+    expect(links[0]).toHaveAttribute(
+      'href',
+      'https://freedomnews.org.uk/2026/05/04/freedom-summer-2026-black-anarchism/',
+    );
+    for (const link of links) {
+      expect(link).toHaveAttribute('target', '_blank');
+      expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+      expect(link).toHaveAttribute('referrerpolicy', 'no-referrer');
+    }
+  });
   it('combines filters, preserves empty source catalogues, and offers only actual formats', async () => {
     const copy = getMobileKnowledgeCopy('en');
     render(<MobileKnowledgeRoute language="en" headingRef={{ current: null }} />);

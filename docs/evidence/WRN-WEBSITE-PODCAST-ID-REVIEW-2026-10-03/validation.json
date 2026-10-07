@@ -1,0 +1,20 @@
+{
+  "result": "LOCAL-OFFLINE-BINDING-PASS",
+  "dataCommit": "5304fa0032a6761071962e4b74b66cb6f114c49f",
+  "appCommit": "e9c8088806f60ad8b9605705f686cc91f2536f90",
+  "existingImporter": "tools/directory/prepare-website-app-catalog.mjs",
+  "strictFiveInputsVerified": 5,
+  "uniqueCandidates": 102,
+  "migrationsHeld": 18,
+  "existingChangedIdentitiesBound": 24,
+  "addedUpstreamIdsVerified": 87,
+  "existingIdsMissing": 0,
+  "historyCompressedPayloadPreserved": true,
+  "websiteRuntimeBytesUnchanged": true,
+  "newNetworkRequests": 0,
+  "mediaFetched": false,
+  "admission": false,
+  "publication": false,
+  "independentReview": "PENDING",
+  "note": "Evidence-only reconciliation; no runtime changes and no new admission unit tests."
+}

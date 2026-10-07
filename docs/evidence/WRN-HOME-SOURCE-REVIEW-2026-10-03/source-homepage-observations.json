@@ -1,0 +1,363 @@
+{
+  "schema": "wrn.website-source-homepage-observations.v1",
+  "handoffCommit": "75016f6b2356918671e28964397d56219d6367de",
+  "generatedAt": "2026-10-02T23:31:49.339Z",
+  "sourcePassesApproved": 0,
+  "results": [
+    {
+      "name": "Elitsha",
+      "url": "https://elitshanews.org.za/",
+      "existingEndpointIds": [
+        "source-bde2134385a71edcb4f6a8255a8985f57801a7cd23baad7f4c9c8432f877ddfa",
+        "source-f43ce635e5ec01a16a80c39fb3e3ab8fa11e92601095574dbe0e9d783670585a"
+      ],
+      "observedAt": "2026-10-02T23:31:35.460Z",
+      "decision": "pending",
+      "rights": "No source body, logo, image or audio imported",
+      "httpStatus": 200,
+      "resolvedUrl": "https://elitshanews.org.za/home/",
+      "mime": "text/html; charset=UTF-8",
+      "htmlBytes": 149510,
+      "htmlSha256": "5f9747ee71fe32098d0d010ed7db30a776d0e7cfb5203fe9c781877d05a8fd80",
+      "title": "Elitsha &#8211; Ubomi bethu, amabali ethu",
+      "language": "en-ZA",
+      "crossHostRedirect": false,
+      "observedReferenceLinks": [
+        {
+          "label": "Copyright Policy",
+          "url": "https://elitshanews.org.za/copyright-policy/"
+        }
+      ],
+      "limit": "Homepage response and links do not prove article safety or rights"
+    },
+    {
+      "name": "Nunatsiaq News",
+      "url": "https://nunatsiaq.com/",
+      "existingEndpointIds": [
+        "source-2dcf9f737a0d139e115139449152c70027e695b591620d2159dbf05d7af0ee6e",
+        "source-435baeef61bacc40e9e518eb4bbd40620ada5657036dbe321542c2ee3ca389ab"
+      ],
+      "observedAt": "2026-10-02T23:31:35.487Z",
+      "decision": "pending",
+      "rights": "No source body, logo, image or audio imported",
+      "httpStatus": 200,
+      "resolvedUrl": "https://nunatsiaq.com/",
+      "mime": "text/html; charset=UTF-8",
+      "htmlBytes": 163771,
+      "htmlSha256": "b403f2d6d6060931554f55da9ca5249d837770f01fed895903f31ed99a1473af",
+      "title": "Homepage",
+      "language": "en",
+      "crossHostRedirect": false,
+      "observedReferenceLinks": [
+        {
+          "label": "About",
+          "url": "https://nunatsiaq.com/about/"
+        },
+        {
+          "label": "Contact",
+          "url": "https://nunatsiaq.com/contact/"
+        }
+      ],
+      "limit": "Homepage response and links do not prove article safety or rights"
+    },
+    {
+      "name": "Autonomies",
+      "url": "https://autonomies.org/",
+      "existingEndpointIds": [
+        "source-bd0b253a8d892feaae9ce724e44d2577b9d7218294027912a47a08c9b6fbf584",
+        "source-c840b7eeb9c0bc283310cd4c33502b310754a7c5c260aabf76b47ea552cd9348"
+      ],
+      "observedAt": "2026-10-02T23:31:35.488Z",
+      "decision": "pending",
+      "rights": "No source body, logo, image or audio imported",
+      "httpStatus": 200,
+      "resolvedUrl": "https://autonomies.org/",
+      "mime": "text/html; charset=UTF-8",
+      "htmlBytes": 53645,
+      "htmlSha256": "637a526af7c089199509779cfdbadea31b969294645bb29179458fe0423fa331",
+      "title": "Autonomies",
+      "language": "en-US",
+      "crossHostRedirect": false,
+      "observedReferenceLinks": [],
+      "limit": "Homepage response and links do not prove article safety or rights"
+    },
+    {
+      "name": "Waging Nonviolence",
+      "url": "https://wagingnonviolence.org/",
+      "existingEndpointIds": [
+        "source-87aec818e0d702377572c8d60c8be968df0f409350b098743d0f64eada887f26",
+        "source-e11ff9c35957b2a85dea18977795c7e5e562c6ddc917075fb6f86e0324e16ece"
+      ],
+      "observedAt": "2026-10-02T23:31:38.360Z",
+      "decision": "pending",
+      "rights": "No source body, logo, image or audio imported",
+      "httpStatus": 200,
+      "resolvedUrl": "https://wagingnonviolence.org/",
+      "mime": "text/html; charset=UTF-8",
+      "htmlBytes": 83086,
+      "htmlSha256": "aa3cb2d3ddb2252f22280dcde3774a741e594a49deec30528dab73eca63f9f00",
+      "title": "Waging Nonviolence",
+      "language": "en-US",
+      "crossHostRedirect": false,
+      "observedReferenceLinks": [
+        {
+          "label": "About",
+          "url": "https://wagingnonviolence.org/about/"
+        },
+        {
+          "label": "Contact",
+          "url": "https://wagingnonviolence.org/about/contact/"
+        }
+      ],
+      "limit": "Homepage response and links do not prove article safety or rights"
+    },
+    {
+      "name": "Mada Masr (Egypt)",
+      "url": "https://www.madamasr.com/",
+      "existingEndpointIds": [
+        "source-378f62b5934a6410187d78526da5ea25fa410a54c35643b60912a59de325e7c9",
+        "source-e9493f2439fb496a18ebd1700487a41b54a3e6b70f08631f1f17c19db6a21df6"
+      ],
+      "observedAt": "2026-10-02T23:31:38.361Z",
+      "decision": "pending",
+      "rights": "No source body, logo, image or audio imported",
+      "httpStatus": 403,
+      "resolvedUrl": "https://www.madamasr.com/",
+      "mime": "text/html; charset=UTF-8",
+      "htmlBytes": 5449,
+      "htmlSha256": "d6e5caef382d89847319bf811fc19a0286a5a48bd913faf5bcd44300ee6c0c26",
+      "title": "Just a moment...",
+      "language": "en-US",
+      "crossHostRedirect": false,
+      "observedReferenceLinks": [],
+      "limit": "Source homepage access not confirmed"
+    },
+    {
+      "name": "Agencia Tierra Viva",
+      "url": "https://agenciatierraviva.com.ar/",
+      "existingEndpointIds": [
+        "source-85fe6ba944db112372c974914dc2bd1733c70cc060b139f7bb24079652a3776b",
+        "source-b0743fbf7994211a86491f810d58f36f707ae54cba11b3e6819bfaa5d72f9839"
+      ],
+      "observedAt": "2026-10-02T23:31:38.362Z",
+      "decision": "pending",
+      "rights": "No source body, logo, image or audio imported",
+      "httpStatus": 200,
+      "resolvedUrl": "https://agenciatierraviva.com.ar/",
+      "mime": "text/html; charset=UTF-8",
+      "htmlBytes": 543512,
+      "htmlSha256": "4f2b3e00f2a55acf99a4c21658f18a958bfb951eccecba369b4bf424f5f71793",
+      "title": "Agencia de Noticias Tierra Viva",
+      "language": "es",
+      "crossHostRedirect": false,
+      "observedReferenceLinks": [
+        {
+          "label": "Quiénes somos",
+          "url": "https://agenciatierraviva.com.ar/quienes-somos/"
+        },
+        {
+          "label": "Contacto",
+          "url": "https://agenciatierraviva.com.ar/contacto"
+        }
+      ],
+      "limit": "Homepage response and links do not prove article safety or rights"
+    },
+    {
+      "name": "MIA Marseille (FR)",
+      "url": "https://mars-infos.org/",
+      "existingEndpointIds": [
+        "source-13d7619f3b3327b6d74602ced91af07bd6e9a90c852e7d068dbaeb95309bbe70",
+        "source-cf1577885f6c083bea286a469be86134f5b7a79d7c15380cfb43b607427cb1f4"
+      ],
+      "observedAt": "2026-10-02T23:31:41.068Z",
+      "decision": "pending",
+      "rights": "No source body, logo, image or audio imported",
+      "httpStatus": 200,
+      "resolvedUrl": "https://mars-infos.org/",
+      "mime": "text/html; charset=utf-8",
+      "htmlBytes": 104658,
+      "htmlSha256": "cbd7fba8780ef1ea0863cc9fe5e24c0773ba29ede943141d91fef5ebe90f8e2e",
+      "title": "Marseille Infos Autonomes - Site coopératif de luttes à Marseille et alentours",
+      "language": "fr",
+      "crossHostRedirect": false,
+      "observedReferenceLinks": [],
+      "limit": "Homepage response and links do not prove article safety or rights"
+    },
+    {
+      "name": "Anarchist Library (RU)",
+      "url": "https://ru.anarchistlibraries.net/",
+      "existingEndpointIds": [
+        "source-034e4a0d443c14778d8c3e207f3b278ad437719c25e8caace9f4dcdf3958deff",
+        "source-711a13875f0ed6b42acb52274bb657da882673ee1c16d98c2aadb3b0cbed5ce2"
+      ],
+      "observedAt": "2026-10-02T23:31:41.068Z",
+      "decision": "pending",
+      "rights": "No source body, logo, image or audio imported",
+      "httpStatus": 200,
+      "resolvedUrl": "https://ru.anarchistlibraries.net/special/index",
+      "mime": "text/html; charset=utf-8",
+      "htmlBytes": 27455,
+      "htmlSha256": "905b78a20d023293e295d3c00d73fda6cc5872456a1da911f7e6cc8203b0f07d",
+      "title": "Библиотека Анархизма | Библиотека Анархизма",
+      "language": "ru",
+      "crossHostRedirect": false,
+      "observedReferenceLinks": [
+        {
+          "label": "О проекте",
+          "url": "https://ru.anarchistlibraries.net/special/about"
+        }
+      ],
+      "limit": "Homepage response and links do not prove article safety or rights"
+    },
+    {
+      "name": "Queer Anarchism",
+      "url": "https://queeranarchism.tumblr.com/",
+      "existingEndpointIds": [
+        "source-ab716e75c75e02bc578fac331c514ffc9f2817d66d48be2c3901fc425d76c64d",
+        "source-e20190deb90f4f3406ef9c86b1ba434e85376b638b90d8ee9b8a755f595f16ff"
+      ],
+      "observedAt": "2026-10-02T23:31:41.069Z",
+      "decision": "pending",
+      "rights": "No source body, logo, image or audio imported",
+      "httpStatus": 403,
+      "resolvedUrl": "https://queeranarchism.tumblr.com/",
+      "mime": "text/html",
+      "htmlBytes": 6869,
+      "htmlSha256": "cc5ff6e40496f5709a92b2c9cae269288956b06c348f49c1a140023dd04543c0",
+      "title": "Checking your browser...",
+      "language": null,
+      "crossHostRedirect": false,
+      "observedReferenceLinks": [],
+      "limit": "Source homepage access not confirmed"
+    },
+    {
+      "name": "Indymedia Argentina",
+      "url": "https://argentina.indymedia.org/",
+      "existingEndpointIds": [
+        "source-7cb33779fa0e809d5210643abb0cbce8721ccd30534c7c07e26978ea40629640",
+        "source-e27cdc84f2039265558374b5f8176759ffbc1bf6c1ae89512d71c72afada136c"
+      ],
+      "observedAt": "2026-10-02T23:31:44.582Z",
+      "decision": "pending",
+      "rights": "No source body, logo, image or audio imported",
+      "httpStatus": 200,
+      "resolvedUrl": "https://argentina.indymedia.org/",
+      "mime": "text/html; charset=UTF-8",
+      "htmlBytes": 158914,
+      "htmlSha256": "c1b0b1e4647450b08ee352d5e0874ad5d856833fdcf6487ccd32bcccbd8e5a80",
+      "title": "Indymedia Argentina Centro de Medios Independientes (( i ))",
+      "language": "es-AR",
+      "crossHostRedirect": false,
+      "observedReferenceLinks": [
+        {
+          "label": "Quiénes somos",
+          "url": "https://argentina.indymedia.org/quienes-somos/"
+        },
+        {
+          "label": "Contacto",
+          "url": "https://argentina.indymedia.org/contacto/"
+        }
+      ],
+      "limit": "Homepage response and links do not prove article safety or rights"
+    },
+    {
+      "name": "Radio Kurruf Noticias",
+      "url": "https://radiokurruf.org/",
+      "existingEndpointIds": [
+        "source-140c1ff05de20dcc767f5949a8f6fca3c07214302dacb50129db142ca36b76f0",
+        "source-d8d640c2c49985371ce712692037e63b254d06cad2276f2c4bef2bb1751077cc"
+      ],
+      "observedAt": "2026-10-02T23:31:44.583Z",
+      "decision": "pending",
+      "rights": "No source body, logo, image or audio imported",
+      "httpStatus": 200,
+      "resolvedUrl": "https://radiokurruf.org/",
+      "mime": "text/html; charset=UTF-8",
+      "htmlBytes": 429819,
+      "htmlSha256": "4c83aae4603b8405b77de8b7fa8e325ce92a09ec2c569cbc655e0f6bb936d840",
+      "title": "Radio Kurruf &#8212; La señal del viento",
+      "language": "es",
+      "crossHostRedirect": false,
+      "observedReferenceLinks": [
+        {
+          "label": "Contacto",
+          "url": "https://radiokurruf.org/contacto/"
+        },
+        {
+          "label": "Licencia de Producción de Pares",
+          "url": "https://endefensadelsl.org/ppl_deed_es.html"
+        }
+      ],
+      "limit": "Homepage response and links do not prove article safety or rights"
+    },
+    {
+      "name": "Libcom Library",
+      "url": "https://libcom.org/",
+      "existingEndpointIds": [
+        "source-084a7cd043f1b6b43320720a15e56eb15028aba1c567861014226cc13c61da18"
+      ],
+      "observedAt": "2026-10-02T23:31:44.584Z",
+      "decision": "pending",
+      "rights": "No source body, logo, image or audio imported",
+      "httpStatus": 200,
+      "resolvedUrl": "https://libcom.org/",
+      "mime": "text/html; charset=UTF-8",
+      "htmlBytes": 53194,
+      "htmlSha256": "beea864b959ad05e68eea80f811727713ef5ba5eae1f991e9fcd350e8e8b1e87",
+      "title": "Home page | libcom.org",
+      "language": "en",
+      "crossHostRedirect": false,
+      "observedReferenceLinks": [
+        {
+          "label": "About",
+          "url": "https://libcom.org/article/libcomorg-introduction"
+        }
+      ],
+      "limit": "Homepage response and links do not prove article safety or rights"
+    },
+    {
+      "name": "Agência Pública",
+      "url": "https://apublica.org/",
+      "existingEndpointIds": [
+        "source-8346bf16656945bc57e086d95952c1af522789b1a51fbeb5f0743ac6d9873bad",
+        "source-ab0bb244a8cebc126474c6f2e854544230c44a42601fd005705e516b8bd758c2"
+      ],
+      "observedAt": "2026-10-02T23:31:47.168Z",
+      "decision": "pending",
+      "rights": "No source body, logo, image or audio imported",
+      "httpStatus": 200,
+      "resolvedUrl": "https://apublica.org/",
+      "mime": "text/html; charset=UTF-8",
+      "htmlBytes": 184691,
+      "htmlSha256": "79b3c53313e3d5e6a5a0e1b72a50c39f52b5a784bf8799e211afbd0b8c9af109",
+      "title": "Agência Pública: 15 anos de jornalismo investigativo no Brasil",
+      "language": "pt-BR",
+      "crossHostRedirect": false,
+      "observedReferenceLinks": [
+        {
+          "label": "Republique",
+          "url": "https://apublica.org/republique/"
+        },
+        {
+          "label": "Sobre",
+          "url": "https://apublica.org/quem-somos/"
+        },
+        {
+          "label": "Republish our stories",
+          "url": "https://apublica.org/republish-our-stories/"
+        },
+        {
+          "label": "Cómo Republicar",
+          "url": "https://apublica.org/republique-nuestras-historias/"
+        }
+      ],
+      "limit": "Homepage response and links do not prove article safety or rights"
+    }
+  ],
+  "limits": [
+    "Metadata-only diagnostic observations; not a source pass",
+    "No article bodies or media saved",
+    "Source descriptions and rights remain subject to individual review",
+    "Reference discovery keeps only short navigation labels; article teaser anchors excluded"
+  ]
+}

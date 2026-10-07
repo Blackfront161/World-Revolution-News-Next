@@ -1,0 +1,31 @@
+{
+  "commit": "e9c8088806f60ad8b9605705f686cc91f2536f90",
+  "observedAt": "2026-10-03T08:06:26.135Z",
+  "books": 731,
+  "terms": 177,
+  "references": 54,
+  "inputs": {
+    "libraryFeedSha256": "283f3661c2b528e3fe39da753f9ef4b18d5e07109c082705e509f5f4d75e5db8",
+    "libraryFeedBytes": 403986,
+    "librarySourcesSha256": "a498bb6d672d4edb8af99d3b337c34d1292bf4e04924a3bedb3b364c4cd81f66",
+    "librarySourcesBytes": 5324,
+    "lexiconSha256": "7b6fbd2d214fdde5f1df4c88da2771b0026e1083d68942d742b27024e06f40b5",
+    "lexiconBytes": 277309
+  },
+  "handoffManifestSha256": "ba0687a53acb3d4e72ee8bf20439847c2e4ac02c088ac0de6aa43f0c74dc6a12",
+  "handoffOutputsVerified": 14,
+  "draftTerms": [
+    "free-prior-informed-consent",
+    "indigenous-data-sovereignty",
+    "language-revitalisation",
+    "popular-education",
+    "social-insertion",
+    "non-reformist-reforms",
+    "access-intimacy",
+    "participatory-budgeting",
+    "worker-cooperative",
+    "abolitionist-divestment"
+  ],
+  "historyPreserved": true,
+  "booksPreserved": true
+}

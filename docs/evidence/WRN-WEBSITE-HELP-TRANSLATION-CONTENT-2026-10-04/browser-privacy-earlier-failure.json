@@ -1,0 +1,22 @@
+{
+  "sourceCommit": "e4317bb0ef0a811afef98b05739cca400b2abb8a",
+  "status": "FAIL",
+  "checks": [],
+  "pageErrors": [],
+  "outsideRequests": [],
+  "functionalPacketPreservation": {
+    "sourceCommit": "c5c3000853857e1b050ebe690e6cd2c14d88f7a6",
+    "files": 51,
+    "sha256AndBytesAndIndexHeadersIdentical": true,
+    "onlyAddition": [
+      "privacy.html",
+      "privacy.css",
+      "privacy.js"
+    ]
+  },
+  "overflow": {
+    "language": "ru",
+    "elements": []
+  },
+  "error": "Error: Disclosure overflow"
+}

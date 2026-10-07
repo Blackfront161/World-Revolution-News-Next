@@ -1,0 +1,426 @@
+{
+  "status": "PASS",
+  "freshIncognito": true,
+  "serviceWorkers": "block",
+  "headers": [
+    {
+      "url": "https://solinaridao.com/atlas/?lang=de",
+      "status": 200,
+      "headers": [
+        {
+          "name": "alt-svc",
+          "value": "h3=\":443\"; ma=86400"
+        },
+        {
+          "name": "cache-control",
+          "value": "no-cache"
+        },
+        {
+          "name": "content-encoding",
+          "value": "br"
+        },
+        {
+          "name": "content-security-policy",
+          "value": "default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; frame-src 'self'; connect-src 'none'; frame-ancestors 'self'"
+        },
+        {
+          "name": "content-type",
+          "value": "text/html; charset=utf-8"
+        },
+        {
+          "name": "cross-origin-opener-policy",
+          "value": "same-origin"
+        },
+        {
+          "name": "cross-origin-resource-policy",
+          "value": "same-origin"
+        },
+        {
+          "name": "date",
+          "value": "Sun, 04 Oct 2026 16:37:54 GMT"
+        },
+        {
+          "name": "etag",
+          "value": "\"d5c-6ac22ed3-d60c0c8631fdc245;br\""
+        },
+        {
+          "name": "last-modified",
+          "value": "Sun, 04 Oct 2026 10:47:47 GMT"
+        },
+        {
+          "name": "panel",
+          "value": "hpanel"
+        },
+        {
+          "name": "permissions-policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+        },
+        {
+          "name": "platform",
+          "value": "hostinger"
+        },
+        {
+          "name": "referrer-policy",
+          "value": "same-origin"
+        },
+        {
+          "name": "server",
+          "value": "hcdn"
+        },
+        {
+          "name": "ss",
+          "value": "unset content-security-policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset cross-origin-opener-policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset cross-origin-resource-policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset permissions-policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset referrer-policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset strict-transport-security"
+        },
+        {
+          "name": "ss",
+          "value": "unset x-content-type-options"
+        },
+        {
+          "name": "ss",
+          "value": "unset x-frame-options"
+        },
+        {
+          "name": "ss",
+          "value": "unset cache-control"
+        },
+        {
+          "name": "ss",
+          "value": "unset Access-Control-Allow-Origin"
+        },
+        {
+          "name": "ss",
+          "value": "unset Access-Control-Allow-Credentials"
+        },
+        {
+          "name": "ss",
+          "value": "unset X-Powered-By"
+        },
+        {
+          "name": "ss",
+          "value": "unset Content-Security-Policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset X-Frame-Options"
+        },
+        {
+          "name": "ss",
+          "value": "unset X-Content-Type-Options"
+        },
+        {
+          "name": "ss",
+          "value": "unset Referrer-Policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset Permissions-Policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset Cache-Control"
+        },
+        {
+          "name": "ss",
+          "value": "unset Content-Type"
+        },
+        {
+          "name": "strict-transport-security",
+          "value": "max-age=31536000"
+        },
+        {
+          "name": "vary",
+          "value": "Accept-Encoding"
+        },
+        {
+          "name": "x-content-type-options",
+          "value": "nosniff"
+        },
+        {
+          "name": "x-frame-options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "name": "x-hcdn-cache-status",
+          "value": "DYNAMIC"
+        },
+        {
+          "name": "x-hcdn-request-id",
+          "value": "cd9eb93c5ccf96abe9e9f281d172a37b-tok-edge3"
+        },
+        {
+          "name": "x-hcdn-upstream-rt",
+          "value": "0.248"
+        }
+      ]
+    },
+    {
+      "url": "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/index.html?embed=1&offline=0&supabase=0&welcome=0&intro=0&lang=de&parentOrigin=https%3A%2F%2Fsolinaridao.com&theme=violet",
+      "status": 200,
+      "headers": [
+        {
+          "name": "age",
+          "value": "79"
+        },
+        {
+          "name": "alt-svc",
+          "value": "h3=\":443\"; ma=86400"
+        },
+        {
+          "name": "cache-control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "name": "content-encoding",
+          "value": "br"
+        },
+        {
+          "name": "content-security-policy",
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; manifest-src 'self'; script-src 'self' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: blob: https:; media-src 'self' https://upload.wikimedia.org; connect-src 'self' https://*.supabase.co https://*.cartocdn.com; worker-src 'self' blob:; child-src blob:; upgrade-insecure-requests; frame-ancestors 'self'"
+        },
+        {
+          "name": "content-type",
+          "value": "text/html; charset=utf-8"
+        },
+        {
+          "name": "cross-origin-opener-policy",
+          "value": "same-origin"
+        },
+        {
+          "name": "cross-origin-resource-policy",
+          "value": "same-origin"
+        },
+        {
+          "name": "date",
+          "value": "Sun, 04 Oct 2026 16:37:55 GMT"
+        },
+        {
+          "name": "etag",
+          "value": "\"ad94-6ac22b49-6a217ac6f8eebd60;br\""
+        },
+        {
+          "name": "last-modified",
+          "value": "Sun, 04 Oct 2026 10:32:41 GMT"
+        },
+        {
+          "name": "panel",
+          "value": "hpanel"
+        },
+        {
+          "name": "permissions-policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+        },
+        {
+          "name": "platform",
+          "value": "hostinger"
+        },
+        {
+          "name": "referrer-policy",
+          "value": "same-origin"
+        },
+        {
+          "name": "server",
+          "value": "hcdn"
+        },
+        {
+          "name": "ss",
+          "value": "unset content-security-policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset cross-origin-opener-policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset cross-origin-resource-policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset permissions-policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset referrer-policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset strict-transport-security"
+        },
+        {
+          "name": "ss",
+          "value": "unset x-content-type-options"
+        },
+        {
+          "name": "ss",
+          "value": "unset x-frame-options"
+        },
+        {
+          "name": "ss",
+          "value": "unset cache-control"
+        },
+        {
+          "name": "ss",
+          "value": "unset Access-Control-Allow-Origin"
+        },
+        {
+          "name": "ss",
+          "value": "unset Access-Control-Allow-Credentials"
+        },
+        {
+          "name": "ss",
+          "value": "unset X-Powered-By"
+        },
+        {
+          "name": "ss",
+          "value": "unset Content-Security-Policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset X-Frame-Options"
+        },
+        {
+          "name": "ss",
+          "value": "unset X-Content-Type-Options"
+        },
+        {
+          "name": "ss",
+          "value": "unset Referrer-Policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset Permissions-Policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset Cache-Control"
+        },
+        {
+          "name": "ss",
+          "value": "unset Content-Security-Policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset X-Frame-Options"
+        },
+        {
+          "name": "ss",
+          "value": "unset X-Content-Type-Options"
+        },
+        {
+          "name": "ss",
+          "value": "unset Referrer-Policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset Permissions-Policy"
+        },
+        {
+          "name": "ss",
+          "value": "unset Cache-Control"
+        },
+        {
+          "name": "ss",
+          "value": "unset Content-Type"
+        },
+        {
+          "name": "strict-transport-security",
+          "value": "max-age=31536000"
+        },
+        {
+          "name": "vary",
+          "value": "Accept-Encoding"
+        },
+        {
+          "name": "x-content-type-options",
+          "value": "nosniff"
+        },
+        {
+          "name": "x-frame-options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "name": "x-hcdn-cache-status",
+          "value": "HIT"
+        },
+        {
+          "name": "x-hcdn-request-id",
+          "value": "2b06aa4a9dd6495fa3afcbc007492e0b-tok-edge3"
+        }
+      ]
+    }
+  ],
+  "console": [],
+  "before": {
+    "cacheStorage": [],
+    "registrations": []
+  },
+  "state": {
+    "ready": true,
+    "mapReady": true,
+    "eventCount": 674,
+    "filteredEventCount": 674,
+    "filters": {
+      "query": "",
+      "category": "all",
+      "from": -1200,
+      "to": 2030,
+      "includeUndated": true,
+      "layers": [],
+      "undiscoveredOnly": false
+    },
+    "progress": {
+      "xp": 0,
+      "discoveredIds": [],
+      "unlockedAchievements": [],
+      "quizAnswered": 0,
+      "missionsCompleted": 0,
+      "mission": {
+        "id": "mission-1162559463",
+        "title": "Rätebewegung kartieren",
+        "description": "Sichere 3 Spuren aus der Kategorie „Rätebewegung“ für dein Archiv.",
+        "category": "Rätebewegung",
+        "targetIds": [
+          "bremen-soviet-republic",
+          "cordones-industriales",
+          "hungarian-workers-councils"
+        ],
+        "completedIds": [],
+        "goal": 3,
+        "reward": 60,
+        "complete": false
+      },
+      "seenWelcome": false,
+      "lastVisit": "2026-10-04",
+      "visitStreak": 1,
+      "connectionIds": [],
+      "solidarityCombo": 0,
+      "bestSolidarityCombo": 0,
+      "lastDiscoveredId": null
+    },
+    "activeConnectionId": null,
+    "language": "de"
+  },
+  "after": {
+    "cacheStorage": [],
+    "registrations": []
+  }
+}

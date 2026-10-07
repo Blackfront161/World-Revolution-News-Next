@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="same-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; frame-src 'self'; connect-src 'self'; worker-src 'self'">
+  <title>World Revolution Atlas · WRN</title>
+  <link rel="canonical" href="https://solinaridao.com/atlas/">
+  <link rel="icon" type="image/png" href="./wrn-icon.png">
+  <link rel="manifest" href="./atlas.webmanifest">
+  <link rel="stylesheet" href="./atlas-host.css">
+  <link rel="stylesheet" href="./atlas-theme-tokens.css">
+  <link rel="stylesheet" href="./atlas-display.css">
+  <script type="module" src="./atlas-host.js"></script>
+</head>
+<body>
+  <header>
+    <a id="home" href="/?lang=de#home" aria-label="WRN"><span>←</span><span class="home-name"> WRN</span></a>
+    <span class="header-title">Atlas</span>
+    <button id="filters" type="button" aria-label="Suche und Filter" aria-expanded="false" hidden>⌕</button>
+    <label><span id="language-label">Sprache</span>
+      <select id="language" aria-label="Sprache">
+        <option value="de">DE</option><option value="en">EN</option><option value="es">ES</option><option value="fr">FR</option><option value="it">IT</option><option value="pt">PT</option><option value="ru">RU</option><option value="el">EL</option><option value="tr">TR</option>
+      </select>
+    </label>
+    <button id="options" type="button" aria-label="Optionen" hidden>☰</button>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="brand">WORLD REVOLUTION NEWS</p>
+      <h1>World Revolution Atlas</h1>
+      <p id="intro">Entdecke Bewegungen, Menschen und die Geschichte des Widerstands.</p>
+      <p id="availability">Der Atlas lädt erst beim Start. Mit vollständig geprüftem Offline-Download funktioniert er auch ohne Internet.</p>
+      <label class="theme-field"><span id="theme-label">Theme</span><span class="theme-control"><select id="theme" aria-labelledby="theme-label"></select><span id="theme-current" aria-hidden="true"></span></span></label>
+      <nav aria-label="Atlas">
+        <button id="start" type="button">Atlas starten</button>
+        <button id="share" type="button">Teilen</button>
+        <button id="copy" type="button">Link kopieren</button>
+        <button id="fullscreen" type="button" hidden>Bildschirm füllen</button>
+        <a id="android" href="https://play.google.com/store/apps/details?id=com.world.revolution" rel="noopener noreferrer">Android-App bei Google Play</a>
+      </nav>
+      <section aria-labelledby="offline-title" class="offline-section">
+        <h2 id="offline-title">Atlas offline</h2>
+        <p id="offline-description">Vollständiger Atlas: 104 MB plus Bedienoberfläche. Download nur auf Wunsch.</p>
+        <nav><button id="offline-download" type="button">Offline herunterladen</button><button id="offline-cancel" type="button" hidden>Abbrechen</button><button id="offline-remove" type="button" hidden>Atlas-Download löschen</button></nav>
+        <progress id="offline-progress" aria-labelledby="offline-status" hidden></progress>
+        <p id="offline-status" role="status" aria-live="polite">Noch nicht offline gespeichert.</p>
+      </section>
+      <p id="notice">Entwurfs-, Quellen- und Rechtehinweise im Atlas gelten weiterhin. Die Sprache der Oberfläche bedeutet keine geprüfte Übersetzung aller Inhalte.</p>
+      <p id="status" role="status" aria-live="polite"></p>
+      <div id="copy-fallback" hidden><label for="public-link" id="link-label">Öffentlicher Link</label><input id="public-link" type="url" readonly></div>
+      <noscript>Bitte aktiviere JavaScript, um den Atlas zu starten. <a href="/?lang=de#home">Zur WRN-Website</a></noscript>
+    </section>
+    <section id="game" hidden></section>
+    <dialog id="options-dialog" aria-labelledby="options-title"><div class="dialog-heading"><h2 id="options-title">Optionen</h2><button id="close-options" type="button" aria-label="Schließen">×</button></div></dialog>
+  </main>
+</body>
+</html>

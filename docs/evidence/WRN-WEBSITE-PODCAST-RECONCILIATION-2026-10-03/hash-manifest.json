@@ -1,0 +1,29 @@
+{
+  "schema": "wrn.website-podcast-plan-evidence-hashes.v1",
+  "productChanged": false,
+  "publicationPerformed": false,
+  "liveProduct": "d738a9454161f1f6aff624bcb9c2a9f0bc2ccf60",
+  "dataCommit": "5304fa0032a6761071962e4b74b66cb6f114c49f",
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 2987,
+      "sha256": "b01da51086683e46af1493c19fa1e2d67159ad9154b8cbc4e6642d91803127d7"
+    },
+    {
+      "path": "alignment-plan.json",
+      "bytes": 99917,
+      "sha256": "88aae4b01e1b75c5a8ffad16cf5412f5e164c71b2e8fdc5d5563e8c935644a3e"
+    },
+    {
+      "path": "lora-observations.json",
+      "bytes": 4579,
+      "sha256": "9759fd3c7d5986e26557c26e9b48bcdb6611d0f8d39f4af676c6d746f3128915"
+    },
+    {
+      "path": "prepare-plan.mjs",
+      "bytes": 4882,
+      "sha256": "c773fb49d73cd6556c40a85bc37bcfbea5aed2bc0cffe7953b7864773bb6ea22"
+    }
+  ]
+}

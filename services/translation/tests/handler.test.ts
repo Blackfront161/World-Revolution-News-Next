@@ -20,6 +20,7 @@ const request = {
   text: 'Exact public paragraph.',
 } as const;
 const adapter = { id: 'legacy-compat', version: 'v1', provider: 'verified-provider' } as const;
+const cachePolicy = { cacheTtlSeconds: 60 } as const;
 
 function upstreamResult(
   text: string,
@@ -76,6 +77,7 @@ function portsFor(overrides: Partial<TranslationServicePorts> = {}): Translation
     },
     clock: systemTranslationClock,
     cache,
+    contentAdmission: { allows: vi.fn(async () => true) },
     readQuota: quota(calls.read),
     providerQuota: quota(calls.provider),
     writeQuota: quota(calls.write),
@@ -134,6 +136,100 @@ describe('target-owned translation handler', () => {
       { signal: expect.any(AbortSignal) },
     );
     expect(ports.upstream.translate).toHaveBeenCalledTimes(1);
+  });
+
+  it('shares every approved article paragraph across independent clients without a user key', async () => {
+    const first = portsFor();
+    const second = portsFor({ cache: first.cache });
+    const paragraphs = [request, { ...request, text: 'Second exact public paragraph.' }];
+    for (const paragraph of paragraphs) {
+      const result = await handleTranslation(paragraph, first);
+      expect(result.status).toBe(200);
+      if (result.status !== 200 || !('cache' in result.body)) throw new Error('Expected success');
+      expect(result.body.cache.status).toBe('miss');
+    }
+    for (const paragraph of paragraphs) {
+      const result = await handleTranslation(paragraph, second);
+      expect(result.status).toBe(200);
+      if (result.status !== 200 || !('cache' in result.body)) throw new Error('Expected success');
+      expect(result.body.cache.status).toBe('hit');
+    }
+    expect(first.upstream.translate).toHaveBeenCalledTimes(2);
+    expect(second.upstream.translate).not.toHaveBeenCalled();
+    expect(second.calls).toEqual({ read: [0, 0], provider: [], write: [], releases: [] });
+  });
+
+  it('refuses a withdrawn paragraph before shared-cache reads and provider dispatch', async () => {
+    const active = portsFor();
+    expect((await handleTranslation(request, active)).status).toBe(200);
+    expect(active.cache.get).toHaveBeenCalledOnce();
+    const withdrawn = portsFor({
+      cache: active.cache,
+      contentAdmission: { allows: vi.fn(async () => false) },
+    });
+    expect((await handleTranslation(request, withdrawn)).status).toBe(503);
+    expect(withdrawn.cache.get).toHaveBeenCalledOnce();
+    expect(withdrawn.upstream.translate).not.toHaveBeenCalled();
+    expect(withdrawn.calls.provider).toEqual([]);
+  });
+
+  it('rechecks admission after a delayed shared KV hit before returning text', async () => {
+    const active = portsFor();
+    expect((await handleTranslation(request, active)).status).toBe(200);
+    let allowed = true;
+    const lateRevocation = portsFor({
+      cache: {
+        get: vi.fn(async (key, options) => {
+          const value = await active.cache.get(key, options);
+          allowed = false;
+          return value;
+        }),
+        put: active.cache.put,
+      },
+      contentAdmission: { allows: vi.fn(async () => allowed) },
+    });
+    expect((await handleTranslation(request, lateRevocation)).status).toBe(503);
+    expect(lateRevocation.contentAdmission.allows).toHaveBeenCalledTimes(2);
+    expect(lateRevocation.upstream.translate).not.toHaveBeenCalled();
+  });
+
+  it('does not publish a provider result revoked before the shared KV write', async () => {
+    const allows = vi
+      .fn()
+      .mockResolvedValueOnce(true)
+      .mockResolvedValueOnce(true)
+      .mockResolvedValueOnce(false);
+    const ports = portsFor({ contentAdmission: { allows } });
+    expect((await handleTranslation(request, ports)).status).toBe(503);
+    expect(allows).toHaveBeenCalledTimes(3);
+    expect(ports.upstream.translate).toHaveBeenCalledOnce();
+    expect(ports.cache.put).not.toHaveBeenCalled();
+    expect(ports.calls.write).toEqual([]);
+  });
+
+  it('rotates shared cache globally on revision or TTL changes without reading old KV entries', async () => {
+    const first = portsFor();
+    const originalConfiguration = { ...first.configuration, cacheTtlSeconds: 120 };
+    const original = portsFor({ cache: first.cache, configuration: originalConfiguration });
+    expect((await handleTranslation(request, original)).status).toBe(200);
+    const revised = portsFor({
+      cache: first.cache,
+      configuration: { ...originalConfiguration, cacheRevision: 'revoked-content-r2' },
+    });
+    const shorter = portsFor({
+      cache: first.cache,
+      configuration: { ...first.configuration, cacheTtlSeconds: 30 },
+    });
+    expect((await handleTranslation(request, revised)).status).toBe(200);
+    expect((await handleTranslation(request, shorter)).status).toBe(200);
+    expect(revised.upstream.translate).toHaveBeenCalledOnce();
+    expect(shorter.upstream.translate).toHaveBeenCalledOnce();
+    expect(await deriveTranslationCacheKey(request, adapter, originalConfiguration)).not.toBe(
+      await deriveTranslationCacheKey(request, adapter, revised.configuration),
+    );
+    expect(await deriveTranslationCacheKey(request, adapter, originalConfiguration)).not.toBe(
+      await deriveTranslationCacheKey(request, adapter, shorter.configuration),
+    );
   });
 
   it('coalesces identical concurrent misses to one provider reservation and write', async () => {
@@ -354,7 +450,7 @@ describe('target-owned translation handler', () => {
 
   it('fails closed for corrupt or mismatched same-key cache records without repair', async () => {
     const ports = portsFor();
-    const key = await deriveTranslationCacheKey(request, adapter);
+    const key = await deriveTranslationCacheKey(request, adapter, cachePolicy);
     ports.cacheEntries.set(key, { schema: 'wrn.translation-cache-entry.v2' });
     const result = await handleTranslation(request, ports);
     expect(result.status).toBe(503);
@@ -366,12 +462,13 @@ describe('target-owned translation handler', () => {
   it('fails closed for expired, future, and digest-mismatched records under the derived key', async () => {
     const seed = portsFor();
     await handleTranslation(request, seed);
-    const key = await deriveTranslationCacheKey(request, adapter);
+    const key = await deriveTranslationCacheKey(request, adapter, cachePolicy);
     const stored = seed.cacheEntries.get(key) as TranslationCacheEntry;
     const cases: TranslationCacheEntry[] = [
       { ...stored, expiresAt: '1970-01-01T00:00:00.000Z' },
       { ...stored, createdAt: '2999-01-01T00:00:00.000Z' },
       { ...stored, translation: { ...stored.translation, textSha256: '0'.repeat(64) } },
+      { ...stored, expiresAt: new Date(Date.parse(stored.createdAt) + 61_000).toISOString() },
     ];
     for (const entry of cases) {
       const ports = portsFor();

@@ -1,0 +1,93 @@
+{
+  "schema": "wrn.website-podcast-original-audit.v1",
+  "status": "INDETERMINATE-for-admission",
+  "websiteProductUnchanged": true,
+  "publicationPerformed": false,
+  "baseWebsiteRecords": 1722,
+  "newOriginalCandidates": 84,
+  "migrationCandidates": {
+    "finalStraw": 16,
+    "loraIdentityConflicts": 2
+  },
+  "explicitSourceHoldsPreserved": [
+    {
+      "id": "leftover-talk",
+      "name": "Leftover Talk / 边角聊",
+      "enabled": false
+    },
+    {
+      "id": "l-orage",
+      "name": "L'Orage",
+      "enabled": false,
+      "episodeIntake": "hold",
+      "disposition": "metadata-only-last-known-selection",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "contrabanda-specials",
+      "name": "Contrabanda FM – Emissions especials",
+      "enabled": false,
+      "episodeIntake": "hold",
+      "disposition": "needs-episode-language-review",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "infowar-greece",
+      "name": "INFOWAR – Aris Chatzistefanou",
+      "enabled": false,
+      "episodeIntake": "hold",
+      "disposition": "metadata-only-last-known-selection",
+      "rightsStatus": "unverified"
+    }
+  ],
+  "sourceHeldDataRows": 89,
+  "originalObservations": {
+    "records": 84,
+    "http200": 79,
+    "redirects": 4,
+    "otherHttp": 1,
+    "accessErrors": 0,
+    "unknownEpisodeLanguages": 5
+  },
+  "stableWebsiteIdentitiesPreserved": 1722,
+  "individualMigrationConfirmations": 0,
+  "finalStrawProducerIdentity": "new homepage links the previously configured Libsyn RSS; episode aliases not confirmed",
+  "unreachableNewOriginals": [
+    {
+      "id": "app-a7847685035ca207f6e543adc391393cdf4dd738792676255e7c14b5f8e79d7f",
+      "url": "https://feeds.buzzsprout.com/Buzzsprout-19670426",
+      "sourceIds": [
+        "jalsa-arabic"
+      ],
+      "disposition": "needs-review; do not add broken original link"
+    }
+  ],
+  "redirectCandidates": [
+    {
+      "id": "app-857d37cd52183aee8e8547a3b1d3d3e7792f0776f3fc36e788870636c7cae231",
+      "originalUrl": "https://podcasters.spotify.com/pod/show/epanastash/episodes/1973-e3on9qp",
+      "location": "https://creators.spotify.com/pod/show/epanastash/episodes/1973-e3on9qp",
+      "disposition": "retain original ID/URL; verify target separately; no silent canonical replacement"
+    },
+    {
+      "id": "app-9539a1b1181f77efb093fe8b930a5612e9ce203f69a6bf446854b4e260ab08b0",
+      "originalUrl": "https://podcasters.spotify.com/pod/show/epanastash/episodes/1789-1799-33-e3ob1g2",
+      "location": "https://creators.spotify.com/pod/show/epanastash/episodes/1789-1799-33-e3ob1g2",
+      "disposition": "retain original ID/URL; verify target separately; no silent canonical replacement"
+    },
+    {
+      "id": "app-de4af96bf59e98f44c3831bb502fe4ba30884a33abcad4b6d2529cf7c3507771",
+      "originalUrl": "https://podcasters.spotify.com/pod/show/epanastash/episodes/22-e3p1h7c",
+      "location": "https://creators.spotify.com/pod/show/epanastash/episodes/22-e3p1h7c",
+      "disposition": "retain original ID/URL; verify target separately; no silent canonical replacement"
+    },
+    {
+      "id": "app-feb5283deb86d8e56fa87531c849400bffa3043533e3362e9898be8fb9d264d9",
+      "originalUrl": "https://podcasters.spotify.com/pod/show/epanastash/episodes/ep-e3pcbg5",
+      "location": "https://creators.spotify.com/pod/show/epanastash/episodes/ep-e3pcbg5",
+      "disposition": "retain original ID/URL; verify target separately; no silent canonical replacement"
+    }
+  ],
+  "languageHandling": "five unverified per-episode languages remain und",
+  "remaining": "source-/item-bound admission and mixed-provenance additive projection; no full five-collection replacement; no original-body/audio rights"
+}

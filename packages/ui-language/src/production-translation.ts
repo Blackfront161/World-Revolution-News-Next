@@ -18,7 +18,7 @@ const entries: Readonly<Record<UiLanguage, ProductionTranslationCopy>> = {
   de: {
     action: 'Diesen Absatz übersetzen',
     disclosure:
-      'Nur der gewählte öffentliche Absatz und die Ausgangs- und Zielsprache werden an den WRN-Übersetzungsdienst gesendet.',
+      'Nur der gewählte öffentliche Absatz und das Sprachpaar werden an den WRN-Übersetzungsdienst gesendet. Die Übersetzung kann für andere Leser wiederverwendet werden.',
     loading: 'Übersetzung wird geladen.',
     offline: 'Offline: Das Original bleibt lesbar.',
     timeout: 'Die Übersetzung hat zu lange gedauert.',
@@ -33,7 +33,7 @@ const entries: Readonly<Record<UiLanguage, ProductionTranslationCopy>> = {
   en: {
     action: 'Translate this paragraph',
     disclosure:
-      'Only the selected public paragraph and its source and target languages are sent to the WRN translation service.',
+      'Only the selected public paragraph and language pair are sent to the WRN translation service. The translation can be reused for other readers.',
     loading: 'Loading translation.',
     offline: 'Offline: the original remains readable.',
     timeout: 'The translation took too long.',
@@ -48,7 +48,7 @@ const entries: Readonly<Record<UiLanguage, ProductionTranslationCopy>> = {
   es: {
     action: 'Traducir este párrafo',
     disclosure:
-      'Solo se envían al servicio de traducción de WRN el párrafo público seleccionado y los idiomas de origen y destino.',
+      'Solo el párrafo público seleccionado y el par de idiomas se envían al servicio de traducción de WRN. La traducción puede reutilizarse para otros lectores.',
     loading: 'Cargando traducción.',
     offline: 'Sin conexión: el original sigue disponible.',
     timeout: 'La traducción ha tardado demasiado.',
@@ -63,7 +63,7 @@ const entries: Readonly<Record<UiLanguage, ProductionTranslationCopy>> = {
   fr: {
     action: 'Traduire ce paragraphe',
     disclosure:
-      'Seuls le paragraphe public sélectionné et les langues source et cible sont envoyés au service de traduction WRN.',
+      'Seuls le paragraphe public sélectionné et la paire de langues sont envoyés au service de traduction WRN. La traduction peut être réutilisée pour d’autres lecteurs.',
     loading: 'Chargement de la traduction.',
     offline: 'Hors connexion : le texte original reste lisible.',
     timeout: 'La traduction a pris trop de temps.',
@@ -78,7 +78,7 @@ const entries: Readonly<Record<UiLanguage, ProductionTranslationCopy>> = {
   it: {
     action: 'Traduci questo paragrafo',
     disclosure:
-      'Al servizio di traduzione WRN vengono inviati solo il paragrafo pubblico selezionato e le lingue di origine e destinazione.',
+      'Solo il paragrafo pubblico selezionato e la coppia di lingue vengono inviati al servizio di traduzione WRN. La traduzione può essere riutilizzata per altri lettori.',
     loading: 'Caricamento della traduzione.',
     offline: 'Offline: il testo originale resta leggibile.',
     timeout: 'La traduzione ha richiesto troppo tempo.',
@@ -93,7 +93,7 @@ const entries: Readonly<Record<UiLanguage, ProductionTranslationCopy>> = {
   pt: {
     action: 'Traduzir este parágrafo',
     disclosure:
-      'Apenas o parágrafo público selecionado e os idiomas de origem e destino são enviados ao serviço de tradução WRN.',
+      'Apenas o parágrafo público selecionado e o par de idiomas são enviados ao serviço de tradução WRN. A tradução pode ser reutilizada por outros leitores.',
     loading: 'A carregar a tradução.',
     offline: 'Sem ligação: o original continua legível.',
     timeout: 'A tradução demorou demasiado.',
@@ -108,7 +108,7 @@ const entries: Readonly<Record<UiLanguage, ProductionTranslationCopy>> = {
   ru: {
     action: 'Перевести этот абзац',
     disclosure:
-      'В службу перевода WRN отправляются только выбранный общедоступный абзац и языки оригинала и перевода.',
+      'В службу перевода WRN отправляются только выбранный общедоступный абзац и языковая пара. Перевод может повторно использоваться для других читателей.',
     loading: 'Загрузка перевода.',
     offline: 'Нет сети: оригинал остаётся доступным.',
     timeout: 'Время ожидания перевода истекло.',
@@ -123,7 +123,7 @@ const entries: Readonly<Record<UiLanguage, ProductionTranslationCopy>> = {
   el: {
     action: 'Μετάφραση αυτής της παραγράφου',
     disclosure:
-      'Στην υπηρεσία μετάφρασης WRN αποστέλλονται μόνο η επιλεγμένη δημόσια παράγραφος και οι γλώσσες προέλευσης και προορισμού.',
+      'Μόνο η επιλεγμένη δημόσια παράγραφος και το ζεύγος γλωσσών αποστέλλονται στην υπηρεσία μετάφρασης WRN. Η μετάφραση μπορεί να επαναχρησιμοποιηθεί για άλλους αναγνώστες.',
     loading: 'Φόρτωση μετάφρασης.',
     offline: 'Εκτός σύνδεσης: το πρωτότυπο παραμένει διαθέσιμο.',
     timeout: 'Η μετάφραση άργησε πολύ.',
@@ -138,7 +138,7 @@ const entries: Readonly<Record<UiLanguage, ProductionTranslationCopy>> = {
   tr: {
     action: 'Bu paragrafı çevir',
     disclosure:
-      'WRN çeviri hizmetine yalnızca seçilen herkese açık paragraf ile kaynak ve hedef diller gönderilir.',
+      'WRN çeviri hizmetine yalnızca seçilen herkese açık paragraf ve dil çifti gönderilir. Çeviri diğer okurlar için yeniden kullanılabilir.',
     loading: 'Çeviri yükleniyor.',
     offline: 'Çevrimdışı: özgün metin okunabilir durumda.',
     timeout: 'Çeviri çok uzun sürdü.',

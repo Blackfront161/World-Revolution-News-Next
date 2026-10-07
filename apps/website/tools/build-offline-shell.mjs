@@ -17,6 +17,23 @@ import {
 const maxGenerationBytes = 8 * 1024 * 1024;
 const allowedImage =
   /^(solinaridao-header-mark-filled|wrn-future-header-white)-[A-Za-z0-9_-]+\.png$/;
+const allowedAppIcon = /^wrn-app-icon-[A-Za-z0-9_-]+\.png$/;
+const maxAppIconBytes = 16 * 1024;
+const allowedIllustration =
+  /^wrn-(austerity|teachers|agroecology)-illustration-v1-[A-Za-z0-9_-]+\.webp$/;
+const maxIllustrationBytes = 700 * 1024;
+const approvedIllustration = JSON.parse(
+  await readFile(
+    new URL('../src/features/home/home-illustration-v1.json', import.meta.url),
+    'utf8',
+  ),
+);
+const approvedAdditionalIllustrations = JSON.parse(
+  await readFile(
+    new URL('../src/features/home/home-additional-illustrations-v1.json', import.meta.url),
+    'utf8',
+  ),
+).entries;
 const allowedJson =
   /^(legacy-knowledge-v1|legacy-support-v1|content-directory-v1|production-events-media-v1)-[A-Za-z0-9_-]+\.json$/;
 const mimeFor = (file) =>
@@ -28,7 +45,9 @@ const mimeFor = (file) =>
         ? 'text/css; charset=utf-8'
         : file.endsWith('.json')
           ? 'application/json; charset=utf-8'
-          : 'image/png';
+          : file.endsWith('.webp')
+            ? 'image/webp'
+            : 'image/png';
 const digest = (bytes) => createHash('sha256').update(bytes).digest('hex');
 
 const shellAssetPath = /^\/assets\/[A-Za-z0-9._-]+$/;
@@ -182,9 +201,36 @@ export async function collectShellManifest({
     );
   const vite = JSON.parse(await readFile(path.join(dist, '.vite', 'manifest.json'), 'utf8'));
   const graph = collectViteClosure(vite);
-  const expectedReferences = [...graph.javascript, ...graph.css].map((file) => `/${file}`).sort();
+  const appIcons = assets.filter((entry) => allowedAppIcon.test(entry));
+  const illustrations = assets.filter((entry) => allowedIllustration.test(entry));
+  if (
+    illustrations.length > 3 ||
+    new Set(illustrations.map((asset) => allowedIllustration.exec(asset)[1])).size !==
+      illustrations.length
+  )
+    throw new Error('Duplicate WRN illustration family');
+  if (appIcons.length > 1) throw new Error('Duplicate app icon family');
+  // Preserve historical header-favicon graphs for rollback. The dedicated icon
+  // is only admitted when this exact family is referenced by the HTML favicon.
+  const favicon = html
+    .toString('utf8')
+    .match(
+      /<link rel="icon" type="image\/png" href="(\/assets\/(?:solinaridao-header-mark-filled|wrn-app-icon)-[A-Za-z0-9_-]+\.png)"\s*\/?>/,
+    )?.[1];
+  const appIcon = appIcons.length ? `/assets/${appIcons[0]}` : null;
+  if (
+    (appIcon && favicon !== appIcon) ||
+    (favicon && !images.includes(favicon) && favicon !== appIcon)
+  )
+    throw new Error('Favicon is not an approved shell image');
+  const expectedReferences = [
+    ...[...graph.javascript, ...graph.css].map((file) => `/${file}`),
+    ...(favicon ? [favicon] : []),
+  ].sort();
   const approvedAssets = [
     ...images.map((image) => image.slice(1)),
+    ...(appIcon ? [appIcon.slice(1)] : []),
+    ...illustrations.map((asset) => `assets/${asset}`),
     ...jsonAssets.map((asset) => `assets/${asset}`),
   ].sort();
   const permittedViteFiles = new Set([...graph.javascript, ...graph.css, ...approvedAssets]);
@@ -219,6 +265,8 @@ export async function collectShellManifest({
       ...graph.javascript.map((file) => `/${file}`),
       ...graph.css.map((file) => `/${file}`),
       ...images,
+      ...(appIcon ? [appIcon] : []),
+      ...illustrations.map((asset) => `/assets/${asset}`),
       ...jsonAssets.map((asset) => `/assets/${asset}`),
     ]),
   ].sort();
@@ -236,6 +284,27 @@ export async function collectShellManifest({
     const details = await stat(diskPath);
     if (!details.isFile() || details.size > maxGenerationBytes)
       throw new Error(`Invalid shell asset: ${entryPath}`);
+    if (allowedAppIcon.test(path.basename(entryPath)) && details.size > maxAppIconBytes)
+      throw new Error(`App icon exceeds its 16 KiB byte cap: ${entryPath}`);
+    if (allowedIllustration.test(path.basename(entryPath))) {
+      const bytes = await readFile(diskPath);
+      const family = allowedIllustration.exec(path.basename(entryPath))[1];
+      const approved =
+        family === 'austerity'
+          ? approvedIllustration
+          : approvedAdditionalIllustrations.find(
+              (entry) => entry.asset === `wrn-${family}-illustration-v1.webp`,
+            );
+      if (
+        !approved ||
+        details.size > maxIllustrationBytes ||
+        details.size !== approved.bytes ||
+        digest(bytes) !== approved.sha256 ||
+        approved.assetType !== 'wrn-original-generated-illustration' ||
+        approved.noForeignSourceImageCopied !== true
+      )
+        throw new Error('WRN illustration does not match the approved handoff');
+    }
     if (
       entryPath.endsWith('.json') &&
       details.size >

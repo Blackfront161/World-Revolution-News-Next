@@ -1,0 +1,27 @@
+[
+  {
+    "archive": "01-wrn-immutable-5664227.zip",
+    "sha256": "886fdf7b2c0125b4cce98f3f5c554733ca5b1d1619282c8eb13c7a7e41a6e694",
+    "files": 41
+  },
+  {
+    "archive": "02-wrn-policy-sw-5664227.zip",
+    "sha256": "81647035111e3ff913feac8a1b45187611c96b8833d7aff0758927dc57d6d664",
+    "files": 5
+  },
+  {
+    "archive": "03-wrn-index-5664227.zip",
+    "sha256": "6bde546ce40ea8aeedc7756cf22665eea6c052b8cdfee54bba9084d24478ce65",
+    "files": 1
+  },
+  {
+    "archive": "04-wrn-production-pointer-5664227.zip",
+    "sha256": "8d2a8207f325de711d52ca24ecfa665de7b551ea295e1bca461ce27cc1ca274d",
+    "files": 1
+  },
+  {
+    "archive": "05-wrn-directory-pointer-5664227.zip",
+    "sha256": "e18618c7619c6f2e5439bdd4649f7f2a1b51a11548ff52ede81c377bcdc22bc8",
+    "files": 1
+  }
+]

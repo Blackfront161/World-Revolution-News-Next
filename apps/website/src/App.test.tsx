@@ -308,22 +308,21 @@ describe('website local newsfeed', () => {
 
     fireEvent.click(screen.getAllByRole('button', { name: 'More' })[0]!);
     const selector = screen.getByLabelText('Color theme');
-    expect(within(selector).getByRole('option', { name: 'Editorial black/red' })).toHaveValue(
-      'editorial',
-    );
+    expect(within(selector).getByRole('option', { name: 'Autonom' })).toHaveValue('editorial');
     await user.selectOptions(selector, 'editorial');
     expect(document.documentElement.dataset.theme).toBe('editorial');
     expect(document.documentElement.dataset.themePreference).toBe('editorial');
     expect(window.localStorage.getItem('wrn.theme-preference.v1')).toBe('editorial');
   });
 
-  it('keeps an accessible compact text brand name without a large asset masthead', () => {
+  it('keeps the compact Code26 image brand accessible by link name', () => {
     render(<App initialState="loading" />);
 
     const brand = screen.getByRole('link', { name: /Solinaridao.*World Revolution News/i });
     expect(brand).toBeVisible();
-    expect(brand).toHaveTextContent('World Revolution News');
-    expect(brand.querySelector('img')).toBeNull();
+    const mark = within(brand).getByTestId('code26-brand-mark');
+    expect(mark).toHaveAttribute('alt', '');
+    expect(mark.getAttribute('src')).toContain('solinaridao-header-mark-filled');
   });
 
   it('closes the header menu back to the exact previous route', async () => {
@@ -374,33 +373,65 @@ describe('website local newsfeed', () => {
     await waitFor(() => expect(document.activeElement).toBe(searchBox));
   });
 
-  it('uses the compact website groups and exposes the expanded local more menu', async () => {
+  it('keeps the five App destinations and all additional routes in the header More menu', async () => {
     const user = userEvent.setup();
     render(<App initialState="loading" />);
 
-    const compactNavigation = screen.getAllByRole('navigation', {
+    const navigations = screen.getAllByRole('navigation', {
       name: 'Website main navigation',
-    })[0]!;
+    });
+    const compactNavigation = navigations.find((item) =>
+      item.classList.contains('site-nav-compact'),
+    )!;
+    const expandedNavigation = navigations.find((item) =>
+      item.classList.contains('site-nav-expanded'),
+    )!;
+    expect(
+      within(expandedNavigation)
+        .getAllByRole('link')
+        .map((link) => link.textContent),
+    ).toEqual(['Home', 'For me', 'Discover', 'Media', 'Saved']);
     expect(
       within(compactNavigation)
         .getAllByRole('link')
-        .map((link) => link.textContent),
-    ).toEqual(['Home', 'Discover', 'Media', 'Saved']);
-    const moreButton = within(compactNavigation).getByRole('button', { name: 'More' });
+        .map((link) => link.querySelector('.primary-nav-label')?.textContent),
+    ).toEqual(['Home', 'For me', 'Discover', 'Media', 'Saved']);
+    expect(
+      within(compactNavigation)
+        .getAllByRole('link')
+        .map((link) => link.querySelector('.primary-nav-icon')?.getAttribute('aria-hidden')),
+    ).toEqual(['true', 'true', 'true', 'true', 'true']);
+    expect(within(compactNavigation).queryByRole('button')).toBeNull();
+    const moreButton = screen.getByTestId('header-more-trigger');
     await user.click(moreButton);
     expect(moreButton).toHaveAttribute('aria-expanded', 'true');
     expect(screen.getByRole('heading', { name: 'More' })).toHaveFocus();
     expect(screen.getByRole('link', { name: 'Help' })).toBeVisible();
+    expect(
+      within(document.getElementById('website-more-menu')!).getByRole('link', {
+        name: 'Knowledge',
+      }),
+    ).toBeVisible();
+    expect(
+      within(screen.getByRole('navigation', { name: 'More areas' })).getByRole('link', {
+        name: 'Knowledge',
+      }),
+    ).toHaveAttribute('href', '#knowledge');
+    expect(screen.getByRole('link', { name: 'Get the app' })).toHaveAttribute(
+      'href',
+      'https://play.google.com/store/apps/details?id=com.world.revolution',
+    );
+    expect(screen.getByRole('link', { name: 'Donate' })).toHaveAttribute(
+      'href',
+      'https://www.paypal.com/ncp/payment/6FSV9FEN4X7VS',
+    );
   });
 
   it('synchronizes the more menu with browser back and forward navigation', async () => {
     const user = userEvent.setup();
     render(<App initialState="loading" />);
 
-    const compactNavigation = screen.getAllByRole('navigation', {
-      name: 'Website main navigation',
-    })[0]!;
-    const moreButton = within(compactNavigation).getByRole('button', { name: 'More' });
+    const moreButton = screen.getByTestId('header-more-trigger');
     await user.click(moreButton);
     expect(moreButton).toHaveAttribute('aria-expanded', 'true');
     expect(screen.getByText('More areas')).toBeVisible();

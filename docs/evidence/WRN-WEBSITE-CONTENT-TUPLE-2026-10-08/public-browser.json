@@ -1,0 +1,117 @@
+{
+  "status": "PASS",
+  "publicationPerformed": true,
+  "origin": "https://solinaridao.com",
+  "sourceCommit": "4914fb997241b8d45e16e920ed07a221e53d170e",
+  "tupleSha256": "3968005695307dc2751c6b171b59a08ae9571a0d7d7bed7193857997a85db462",
+  "checks": [
+    "Actual public complete tuple stored and exact current App selector role order",
+    "Nine languages, current home roles and Atlas language link without 320px overflow",
+    "Nine Website themes retain current image binding and independent Autonom layout",
+    "Homepage opens internal same-origin reader with translation selector, saved/read/share controls and canonical link",
+    "Radio28/Podcasts1839/Videos22/Library745/Lexicon177 reachable",
+    "Actual18file public root shell hashes independently read back within unchanged8MiB",
+    "Complete public Website process restart with empty HTTPcache and no network retains all current home roles"
+  ],
+  "errors": [],
+  "decodedImage": {
+    "src": "https://novaramedia.com/wp-content/uploads/2026/10/WhatsApp-Image-2026-10-07-at-15.57.37-864x576.jpeg",
+    "naturalWidth": 864,
+    "referrerPolicy": "no-referrer"
+  },
+  "shell": {
+    "shellId": "225de48203a4b02d69e5cbfb25dd6ba086cef4be636d53bdb6272a9eb4a67944",
+    "files": [
+      {
+        "path": "/assets/content-directory-v1-lIgFHzaN.json",
+        "bytes": 1930048,
+        "sha256": "d4431713a1901deee336b27978b75b0a2eeca94b33e3db40c277ba83a0bd9e30"
+      },
+      {
+        "path": "/assets/index-C_MAhk_Y.css",
+        "bytes": 88227,
+        "sha256": "83ec6a816240265b981ee6ef30d225fab5c662f38e8dfef459f05c6f446c3e63"
+      },
+      {
+        "path": "/assets/index-CbjUSAwv.js",
+        "bytes": 419750,
+        "sha256": "baa84e12429157075d1616f184b636fb8ab4a41ec3d891ae5f2b4b4713de7c58"
+      },
+      {
+        "path": "/assets/legacy-knowledge-v1-FerkkA-o.json",
+        "bytes": 901542,
+        "sha256": "e17fac4837dfd86ce937555391e10d9f8ac53cde917c101f5e3d1994269abff0"
+      },
+      {
+        "path": "/assets/legacy-support-v1-CKf2hNYO.json",
+        "bytes": 41012,
+        "sha256": "9bfaced898bcabca449ab7a9e75db1c7bf5caba496eabae01268a58630039525"
+      },
+      {
+        "path": "/assets/production-events-media-v1-CkmYeGdS.json",
+        "bytes": 1749109,
+        "sha256": "cead90ce622e968f8174d86fd2f89754d9761879d60e978df0f9311e33b5c0ed"
+      },
+      {
+        "path": "/assets/react-vendor-YahHAMAi.js",
+        "bytes": 189620,
+        "sha256": "c5f08825cdca736a015fe6303f97a64ec1e4511a38b5f2f6f589ecb35e815c65"
+      },
+      {
+        "path": "/assets/solinaridao-header-mark-filled-D7vg3enZ.png",
+        "bytes": 1123871,
+        "sha256": "9dca207bc008384ef45cf435a134bf170037ae0149d27c43c732b754912b61b9"
+      },
+      {
+        "path": "/assets/wrn-agroecology-illustration-v1-DrDVXIYr.webp",
+        "bytes": 188830,
+        "sha256": "dda6b30e14e95ab6f61c21be8c26885559a3e488cef114963bffc198695a2bc8"
+      },
+      {
+        "path": "/assets/wrn-app-icon-CwyuVArd.png",
+        "bytes": 8845,
+        "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+      },
+      {
+        "path": "/assets/wrn-austerity-illustration-v1-ByTb6ajV.webp",
+        "bytes": 230192,
+        "sha256": "b7d83ace0ea59e05d803f1076c524af4a95e05345d1cb272306a7ce2fbec7eb0"
+      },
+      {
+        "path": "/assets/wrn-browser-runtime-Bv2391bc.css",
+        "bytes": 22062,
+        "sha256": "b95ede8f50486489e639c6b93944dd94709a94b22fb8580d34b1f42be670345c"
+      },
+      {
+        "path": "/assets/wrn-browser-runtime-CKCXOlft.js",
+        "bytes": 274042,
+        "sha256": "581b21844f051fa045e43695a6430181f2008700deb8b0e82b16e6c1d7b0b045"
+      },
+      {
+        "path": "/assets/wrn-content-core-BJSr5FeV.js",
+        "bytes": 364292,
+        "sha256": "119cd51abd8d7e5ed9e011172cd75982f2d40339b7bc53c86ad47a182760c9c2"
+      },
+      {
+        "path": "/assets/wrn-future-header-white-D5q8hgPK.png",
+        "bytes": 212123,
+        "sha256": "9da0e22936304a30a55ba1483c2305c6ad6c3b1a057341af2ab3b16fe98a5e2f"
+      },
+      {
+        "path": "/assets/wrn-language-CQw_5_ha.js",
+        "bytes": 418529,
+        "sha256": "fcf4643feecaf85273618421041f6b6a5726bec9b4547875a4be0c10d6bede80"
+      },
+      {
+        "path": "/assets/wrn-teachers-illustration-v1-eboeU-Ap.webp",
+        "bytes": 172058,
+        "sha256": "2aa705d84cb5ada966e1f0466c4dfdfa36cbb9188c3009ddd4e7941524184922"
+      },
+      {
+        "path": "/index.html",
+        "bytes": 4360,
+        "sha256": "8c7990f03caabfefb23ab90b2b5e3ed609278090a8c95eb306e4f25ea67da0d9"
+      }
+    ]
+  }
+}

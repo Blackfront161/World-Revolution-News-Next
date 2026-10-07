@@ -1,0 +1,79 @@
+{
+  "checkedAt": "2026-10-04T10:25:37.126Z",
+  "results": [
+    {
+      "url": "https://solinaridao.com/atlas/?lang=de",
+      "status": 404,
+      "headers": {
+        "date": "Sun, 04 Oct 2026 10:25:36 GMT",
+        "content-type": "text/html",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "vary": "Accept-Encoding",
+        "last-modified": "Wed, 03 Dec 2025 08:41:28 GMT",
+        "etag": "W/\"119f-692ff7b8-cf84c6c9ec31b981;gz\"",
+        "content-security-policy": "upgrade-insecure-requests",
+        "platform": "hostinger",
+        "panel": "hpanel",
+        "server": "hcdn",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-hcdn-request-id": "1312b91388fb40ca697ac9bb4be1d61f-tok-edge4"
+      },
+      "bytes": 4511,
+      "sha256": "e7db95c97a5d45787cc3e40cbcb93b748fefc65bc14e162c746e37f979861729"
+    },
+    {
+      "url": "https://solinaridao.com/atlas/versions/r77-564c7ef0fdc9/index.html",
+      "status": 404,
+      "headers": {
+        "date": "Sun, 04 Oct 2026 10:25:36 GMT",
+        "content-type": "text/html",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "vary": "Accept-Encoding",
+        "last-modified": "Wed, 03 Dec 2025 08:41:28 GMT",
+        "etag": "W/\"119f-692ff7b8-cf84c6c9ec31b981;gz\"",
+        "content-security-policy": "upgrade-insecure-requests",
+        "platform": "hostinger",
+        "panel": "hpanel",
+        "server": "hcdn",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-hcdn-request-id": "440fb1cc1cd6d968d02843a9bde71fe6-tok-edge4"
+      },
+      "bytes": 4511,
+      "sha256": "e7db95c97a5d45787cc3e40cbcb93b748fefc65bc14e162c746e37f979861729"
+    },
+    {
+      "url": "https://solinaridao.com/",
+      "status": 200,
+      "headers": {
+        "date": "Sun, 04 Oct 2026 10:25:37 GMT",
+        "content-type": "text/html; charset=utf-8",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "vary": "Accept-Encoding",
+        "last-modified": "Sat, 03 Oct 2026 20:31:56 GMT",
+        "etag": "W/\"92f-6ac1663c-e8a6d2b77cf31a9;gz\"",
+        "platform": "hostinger",
+        "panel": "hpanel",
+        "ss": "unset content-security-policy, unset cross-origin-opener-policy, unset cross-origin-resource-policy, unset permissions-policy, unset referrer-policy, unset strict-transport-security, unset x-content-type-options, unset x-frame-options, unset cache-control, unset Access-Control-Allow-Origin, unset Access-Control-Allow-Credentials, unset X-Powered-By, unset Content-Type",
+        "content-security-policy": "default-src 'self'; base-uri 'none'; connect-src 'self' https://wrn-translation-cache.paghklo.workers.dev; font-src 'self'; form-action 'none'; frame-ancestors 'none'; img-src 'self' data: blob:; manifest-src 'self'; media-src https://dn721204.ca.archive.org; object-src 'none'; script-src 'self' 'sha256-3VeQnkimSKLdOsPrVac9yDeXm8QXkaFRcjW11E/lCi8=' 'sha256-4+DUuV1nfDmnCxNkHmLYCj4PcrvXrCtobvqIljG8OFo=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-78NbkatXW+zvVNZ0c6K5E3vAL8qe6EOZyWW0+VVm/aY=' 'sha256-EP/Hxej0o558QBQyv5ocl37J48KFjcI8QYcf+XoVvSQ=' 'sha256-H+KuAxumV8Uq26WybgLtPk2Pg+OxAEZx/4z6nQ6XxqM=' 'sha256-L5isiUL5mVTeU1BvL+97uOKAgWg7ZSGolJ0Wp4z/x5k=' 'sha256-VAoRvH5X5+PGRNlXlTvjVxgpY3uRqcr+SMXiQGiX4us=' 'sha256-VLn05fM4LtqlyRRt/+fPSc9LC4AsLcYaXR+iEHxYO0w=' 'sha256-WuZFxx6L2FBm1VTpWlkclFhrgkmmRUQYqNn0pMaWU7U=' 'sha256-dQyXglDKI9Qh30Zlg77C+d8hXrATMStCYz4A9JAjxLY=' 'sha256-kN/E+P035UBgDfcuX4YkJJUqmi47cnItXoBVd/nJcxA=' 'sha256-u9FBptH4POThmVSDNoFlOmaX4eibLPJTRUfIYECVfp0='; style-src 'self' 'sha256-TqMrWmBIyC9pBldcgLu8TIZVQ3mHkO3q2Dzj0yJaN5U='; worker-src 'self'; upgrade-insecure-requests",
+        "cross-origin-opener-policy": "same-origin",
+        "cross-origin-resource-policy": "same-origin",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+        "referrer-policy": "no-referrer",
+        "strict-transport-security": "max-age=31536000",
+        "x-content-type-options": "nosniff",
+        "x-frame-options": "DENY",
+        "cache-control": "no-store",
+        "server": "hcdn",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-hcdn-request-id": "0c3e31c97fa110ccadf53dc84c6b799b-tok-edge4",
+        "x-hcdn-cache-status": "DYNAMIC",
+        "x-hcdn-upstream-rt": "0.234"
+      },
+      "bytes": 2351,
+      "sha256": "185797bb4b087b31c3736e196acaf9214fabcb0b84cb412cc1cb4cf882a581b9"
+    }
+  ]
+}

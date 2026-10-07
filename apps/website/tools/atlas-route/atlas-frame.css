@@ -1,0 +1,4 @@
+/* The admitted r77 supplies map geometry, language codes, filters, audio and
+ * its native theme palettes. Only the Website's own header replaces its bar. */
+html[data-wrn-website-host] .topbar{display:none!important}
+html[data-wrn-website-host] :is(.maplibregl-ctrl-bottom-right,.maplibregl-ctrl-bottom-left){bottom:80px!important}

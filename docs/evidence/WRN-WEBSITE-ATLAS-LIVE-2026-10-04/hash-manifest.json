@@ -1,0 +1,80 @@
+{
+  "schema": "wrn.evidence-hashes.v1",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "REPORT.md",
+      "bytes": 6210,
+      "sha256": "9cd2d409b814b7c44eff9a2f273a0c65fcb04acbb99d5fe6ce61ab7a9001476f"
+    },
+    {
+      "path": "atlas-live-map-1440.png",
+      "bytes": 191229,
+      "sha256": "ea5b9b53c7fb166973b2b4de5b4e230d420f8776413cccb6df0cc3edc2006b4e"
+    },
+    {
+      "path": "atlas-live-map-390.png",
+      "bytes": 61715,
+      "sha256": "1ebfa944e61e8ec32fc1b6ea3eb3b8c7ee18a2168451fd2c65765643dd337826"
+    },
+    {
+      "path": "atlas-live-new-music.png",
+      "bytes": 143288,
+      "sha256": "9e39f60bb9c64122442304bcb08dff0451c0b6b112eb2fe7bc5d489eafdd836b"
+    },
+    {
+      "path": "atlas-package.manifest.json",
+      "bytes": 45272,
+      "sha256": "82b71392210f5438f01f307c93b43035b639b00bdcc7e83461184b572118c05e"
+    },
+    {
+      "path": "before-public-readback.json",
+      "bytes": 4479,
+      "sha256": "973e9dfb2b210a446de12df0f3b70e40048580f33ac7b57f7b3c35688f49bfdc"
+    },
+    {
+      "path": "browser-live-result.json",
+      "bytes": 11130,
+      "sha256": "5341732eaaf9ae785d08269f47d250610308893b5d57581c0b597438a4be3727"
+    },
+    {
+      "path": "initial-live-attempts.json",
+      "bytes": 1392,
+      "sha256": "f611e4dea0cb24126260054d4a299edb8bfbc8ae57cf707267c339e0c58031c1"
+    },
+    {
+      "path": "initial-runtime-readback.json",
+      "bytes": 1032636,
+      "sha256": "d67a01a88b243589f56257778241ef3c6ad4ce5f337e11f03a51c9afb69d12c0"
+    },
+    {
+      "path": "mime-complete-proof.json",
+      "bytes": 534,
+      "sha256": "d4df5767d0ebcfffaa60a7fe61329912a0f962676b3b785b3ef89b76514d0526"
+    },
+    {
+      "path": "mime-correction-proof.json",
+      "bytes": 534,
+      "sha256": "9d79e589fa697fb1a64831db48b6e4df75aa7d071c8941aa8471758d71f69101"
+    },
+    {
+      "path": "offline-live-result.json",
+      "bytes": 1882,
+      "sha256": "7295ebb10bbac0cc77d6741eade0c12aa097aa836ea1a8111516b796f57b9e82"
+    },
+    {
+      "path": "public-final-readback.json",
+      "bytes": 1080438,
+      "sha256": "14b08c0ddf7326ca98e70f706a609c56d923eb83cca7b30fa9521b3e4cba213a"
+    },
+    {
+      "path": "publication-receipt.json",
+      "bytes": 4573,
+      "sha256": "b1cbbb42f52f60a5632bda5779d68c94198b97b9d525070a7dfae396cb3690b2"
+    }
+  ]
+}

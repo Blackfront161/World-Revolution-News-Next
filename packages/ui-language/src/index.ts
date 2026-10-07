@@ -772,7 +772,7 @@ export const englishUiCopy: UiCopy = Object.freeze({
   personalizationVerificationFailed: 'The local selection could not be verified after the change.',
   personalizationClearFailed: 'The local selection could not be deleted.',
   personalizationResults: 'Matching local articles',
-  personalizationNoMatches: 'No validated local articles match this selection.',
+  personalizationNoMatches: 'No reviewed full texts match this selection.',
   personalizationReloadRequired: 'Reload the local selection before another change.',
   personalizationLoading: 'Loading the local selection on this device.',
 });

@@ -1,0 +1,23 @@
+{
+  "schema": "wrn.website-tuple-host-seed.v1",
+  "sourceCommit": "4914fb997241b8d45e16e920ed07a221e53d170e",
+  "tupleSha256": "3968005695307dc2751c6b171b59a08ae9571a0d7d7bed7193857997a85db462",
+  "files": [
+    {
+      "path": "wrn-website-content/snapshots/website-202610080341-3968005695307dc2751c6b171b59a08ae9571a0d7d7bed7193857997a85db462.json",
+      "bytes": 2852562,
+      "sha256": "3968005695307dc2751c6b171b59a08ae9571a0d7d7bed7193857997a85db462"
+    },
+    {
+      "path": "wrn-website-content/current.json",
+      "bytes": 1048,
+      "sha256": "1a186efe97624c0f48d5a9a4ffae171584ed2198a0e8da61beda3d621a4578b8"
+    },
+    {
+      "path": "wrn-website-content/.htaccess",
+      "bytes": 814,
+      "sha256": "284092d1cafe21961f570e13447780f776f1b0e2b1bc668bfea7a546236971aa"
+    }
+  ],
+  "publicationPerformed": false
+}

@@ -1,0 +1,40 @@
+.website-shell .website-following-directory {
+  min-width: 0;
+  margin-block: 1.25rem 2rem;
+  padding-block-start: 1rem;
+  border-top: 2px solid var(--website-code26-red, #ff334f);
+}
+.website-shell .website-following-directory h2 {
+  margin-block: 0 0.45rem;
+  color: var(--wrn-color-text);
+  font: 800 clamp(1.35rem, 2.4vw, 1.8rem)/1.15 system-ui, sans-serif;
+  text-transform: none;
+}
+.website-shell .website-following-directory__notice,
+.website-shell .website-following-directory__asof {
+  margin-block: 0.35rem;
+  font-size: 0.86rem;
+}
+.website-shell .website-following-directory__list {
+  margin-block: 0.5rem 1rem;
+  padding-inline-start: 1.5rem;
+}
+.website-shell .website-following-directory__list li {
+  padding: 0.55rem 0.25rem 0.65rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--website-code26-cyan, #00f0ff) 28%, transparent);
+  overflow-wrap: anywhere;
+}
+.website-shell .website-following-directory__list a:any-link {
+  color: var(--website-code26-cyan, #00f0ff);
+  font-weight: 700;
+}
+.website-shell .website-following-directory__list a:any-link:hover {
+  color: var(--website-code26-red, #ff334f);
+}
+.website-shell .website-following-directory__list p {
+  margin-block: 0.2rem 0;
+  font-size: 0.78rem;
+}
+.website-shell .website-following-directory button {
+  min-height: 44px;
+}

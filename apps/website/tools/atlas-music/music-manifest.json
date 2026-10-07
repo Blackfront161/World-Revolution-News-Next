@@ -1,0 +1,55 @@
+{
+  "schema": "wrn.atlas-music.v1",
+  "title": "Horizonte",
+  "bpm": 72,
+  "durationSeconds": 106.66665625,
+  "provenance": "Original locally synthesized composition; no third-party samples or recording.",
+  "referenceAtlas": "r77-564c7ef0fdc9",
+  "referenceAppCommit": "6a8edf0b8e2ddd462db2e750f672c3f114801171",
+  "activation": "Prepared integration handoff, not currently published.",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 101,
+      "sha256": "20f9db039962a9bd4991fc89b4fd9ec80138ebec896da1fb4fd7e9673b9dd2d5"
+    },
+    {
+      "path": "atlas-audio.test.mjs",
+      "bytes": 3892,
+      "sha256": "45593caf9e322ed50114c8e6aeb82431a4d249f26a16e68d9773a710c22f0b38"
+    },
+    {
+      "path": "media/horizonte.ogg",
+      "bytes": 728880,
+      "sha256": "e191061280ecfcaa5a4f56b65a7f39c575d35c884462e041158573fdb1632495"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2775,
+      "sha256": "ad79166436030a6ea72b3b0332755950015788d7ce6797a9ceddc3649354a4ef"
+    },
+    {
+      "path": "render-horizonte.py",
+      "bytes": 4374,
+      "sha256": "b09df0aaabade7ab52bf632611acd93fecf24dda9162b80b4797b68a2b3d9576"
+    },
+    {
+      "path": "src/atlas-audio.js",
+      "bytes": 11037,
+      "sha256": "c3ece7bf35dc9264c816a6fc628ae4924401edbea45f2056f99863e938c8d150"
+    },
+    {
+      "path": "src/atlas-score.js",
+      "bytes": 1931,
+      "sha256": "f3840fe91dcdc1e790b693cb4fa997808496aa551c3449481fe00f04f05e2d6d"
+    }
+  ],
+  "validation": {
+    "nodeLifecycle": "5 PASS including real 15-second stalled decode timeout and retry",
+    "browser": "11 PASS, real cold offline process restart with cleared HTTP cache; actual stereo loop BufferSource and zero music gain",
+    "qaOverlayId": "e78461c5d4bab006674c9607548d3ec80edd169f4d9c846547d30afbe64b3481",
+    "canonicalAtlasImported": false,
+    "livePublicationPerformed": false,
+    "qaOverlayBytes": 105190782
+  }
+}

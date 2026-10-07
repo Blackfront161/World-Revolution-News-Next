@@ -1,4 +1,4 @@
-name: WRN current directory publication
+name: WRN complete Website content publication
 
 on:
   schedule:
@@ -36,6 +36,23 @@ jobs:
         with:
           node-version: 24.19.0
           check-latest: false
+      - name: Check delivery configuration without revealing secret values
+        env:
+          WRN_DIRECTORY_PUBLISH_ENABLED: ${{ vars.WRN_DIRECTORY_PUBLISH_ENABLED }}
+          WRN_FTPS_HOST: ${{ secrets.WRN_FTPS_HOST }}
+          WRN_FTPS_IP: ${{ secrets.WRN_FTPS_IP }}
+          WRN_FTPS_USER: ${{ secrets.WRN_FTPS_USER }}
+          WRN_FTPS_PASSWORD: ${{ secrets.WRN_FTPS_PASSWORD }}
+          WRN_FTPS_DIRECTORY: ${{ secrets.WRN_FTPS_DIRECTORY }}
+          EXPLICIT_PUBLISH: ${{ inputs.publish }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$EXPLICIT_PUBLISH" == 'true' ]]; then
+            node tools/directory/check-directory-publication-config.mjs --explicit-publish
+          else
+            node tools/directory/check-directory-publication-config.mjs
+          fi
       - id: upstream
         name: Resolve exact upstream commit
         env:
@@ -50,7 +67,7 @@ jobs:
           [[ "$commit" =~ ^[a-f0-9]{40}$ ]]
           printf 'commit=%s\n' "$commit" >> "$GITHUB_OUTPUT"
       - id: packet
-        name: Prepare and validate metadata-only directory packet
+        name: Prepare and validate complete metadata-only Website content packet
         env:
           UPSTREAM_COMMIT: ${{ steps.upstream.outputs.commit }}
         shell: bash
@@ -59,14 +76,13 @@ jobs:
           mobile='apps/mobile/src/features/directory/data/content-directory-v1.json'
           website='apps/website/src/features/directory/data/content-directory-v1.json'
           cmp --silent "$mobile" "$website"
-          target="$GITHUB_WORKSPACE/.wrn-actions-output/current-directory"
+          target="$GITHUB_WORKSPACE/.wrn-actions-output/website-content-tuple"
           sequence="$(date -u +%Y%m%d%H%M)"
-          node tools/directory/prepare-live-content-directory.mjs \
-            --baseline "$mobile" \
+          node tools/directory/observe-and-prepare-website-tuple.mjs \
             --commit "$UPSTREAM_COMMIT" \
             --output "$target" \
             --sequence "$sequence" >/dev/null
-          node tools/directory/publish-live-content-directory.mjs \
+          node tools/directory/publish-website-content-tuple.mjs \
             --output "$target" \
             --expected-commit "$UPSTREAM_COMMIT"
           printf 'directory=%s\n' "$target" >> "$GITHUB_OUTPUT"
@@ -84,7 +100,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          node tools/directory/publish-live-content-directory.mjs \
+          node tools/directory/publish-website-content-tuple.mjs \
             --output "$PACKET_DIRECTORY" \
             --expected-commit "$UPSTREAM_COMMIT" \
             --publish

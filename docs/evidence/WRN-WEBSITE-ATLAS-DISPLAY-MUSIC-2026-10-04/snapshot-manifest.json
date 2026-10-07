@@ -1,0 +1,2183 @@
+{
+  "schema": "wrn.atlas-runtime-snapshot.v1",
+  "release": "r77",
+  "sourceInventorySha256": "7693290541231e07527ca231708bfe25992b80c7179e4d975dd29e1e6c3b41d8",
+  "capturedAtUTC": "2026-10-04T05:30:50.882513+00:00",
+  "sourceState": "WRN-owned r77 variant derived from frozen r76-8a0c503f6d00; foreign development untouched",
+  "publicationPerformed": false,
+  "apiVersion": "2.3.0",
+  "entry": "index.html",
+  "files": [
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 10489,
+      "sha256": "53297b2e6b10e82d7e52fc1d1e43d5e95e5197c54693669da513da222a6bc496"
+    },
+    {
+      "path": "assets/brand/atlas-neon-v3.svg",
+      "bytes": 580,
+      "sha256": "38ed71328752c82d7f1ec942eaf5b625e3a1b8a9844c743c3aaa454aef8fca62"
+    },
+    {
+      "path": "assets/brand/world-revolution-atlas-logo-horror-v2.png",
+      "bytes": 1079225,
+      "sha256": "150f62104921e5e9dd823c27a0ddfd658a4a29e749151741ef765a08afe6df8d"
+    },
+    {
+      "path": "assets/brand/world-revolution-atlas-logo-v1.png",
+      "bytes": 50238,
+      "sha256": "d729a4cb761dca08fcb795af2d798d36227686e91df4828b0fa369518ff6a1aa"
+    },
+    {
+      "path": "assets/brand/world-revolution-atlas-logo-v1.svg",
+      "bytes": 1961,
+      "sha256": "ca68dad5737ed658ce412ddc7f20693739e9cdc11aa9e614be61e9a4f6c54e37"
+    },
+    {
+      "path": "assets/brand/world-revolution-atlas-mark-v1.png",
+      "bytes": 54710,
+      "sha256": "9e516e857ea31d518eb4b3812342be96f5b7a5314c1bab25fddd6c73c6f745eb"
+    },
+    {
+      "path": "assets/brand/world-revolution-atlas-mark-v1.svg",
+      "bytes": 1562,
+      "sha256": "53add4992671d6e57d9e079c020df4aff691b04a1d316bc40d043d915622319a"
+    },
+    {
+      "path": "assets/brand/world-revolution-atlas-parchment-v2.png",
+      "bytes": 3118745,
+      "sha256": "8ebe0eec9b4faceb7995506714b12eda14c9bdc268d63a3a27635f603b52f1db"
+    },
+    {
+      "path": "assets/brand/world-revolution-atlas-user-v1.png",
+      "bytes": 2372034,
+      "sha256": "0235c9cea2a9e9df1efac281e463000a3649c59f31a4c6865d1d1de92dab138d"
+    },
+    {
+      "path": "assets/generated-map-intros/blank-noise-map-intro-poster.png",
+      "bytes": 266318,
+      "sha256": "f732e58a832543588865bd3a235405eb5c0804035a4894b43eee273ea2e58663"
+    },
+    {
+      "path": "assets/generated-map-intros/blank-noise-map-intro.mp4",
+      "bytes": 246689,
+      "sha256": "8a9841ebbfa84a909b501ec90184428fd36d85d9d9fe4048f6b83c2986afc6b1"
+    },
+    {
+      "path": "assets/generated-map-intros/blank-noise-map-intro.provenance.json",
+      "bytes": 1950,
+      "sha256": "d171c67f19ce35e6e3647d7735a28ae96203764ef36250b2642f20de7bd823bb"
+    },
+    {
+      "path": "assets/generated-map-intros/chipko-map-intro-poster.png",
+      "bytes": 287344,
+      "sha256": "7935bfcc0cf692ec457c798d3e499f3c144e0cf099aefb67cee975d4a732e7ec"
+    },
+    {
+      "path": "assets/generated-map-intros/chipko-map-intro.mp4",
+      "bytes": 284037,
+      "sha256": "35dc0afd6bb1831f6c15bfb96cac5c366379d688b5b6e7de1f5958ce3232880c"
+    },
+    {
+      "path": "assets/generated-map-intros/chipko-map-intro.provenance.json",
+      "bytes": 1954,
+      "sha256": "4d3f8e7c7217f4e164ccbc0e2551f868b3b33a0641c684e925589405e6e528ac"
+    },
+    {
+      "path": "assets/generated-map-intros/ezln-map-intro-poster.png",
+      "bytes": 440265,
+      "sha256": "f7af4ecbb717a6fa948db19abb1e1249e9adb4bf2a2820b72b9bdf58240a4fc3"
+    },
+    {
+      "path": "assets/generated-map-intros/ezln-map-intro.mp4",
+      "bytes": 297756,
+      "sha256": "410d5aeea09b81c2f0fb8b31ce34b9ef8aa1e7a5b05db56fc71d33945614e63f"
+    },
+    {
+      "path": "assets/generated-map-intros/ezln-map-intro.provenance.json",
+      "bytes": 1954,
+      "sha256": "d2ce52276cef33031d5c7eae0abc34b56cc2c6703e149464d993448889ea2537"
+    },
+    {
+      "path": "assets/generated-map-intros/greenham-common-map-intro-poster.png",
+      "bytes": 340632,
+      "sha256": "c247bae134421aec62c91646a34dd3b54ec1513662573dcc2868bd8c3eb5fd73"
+    },
+    {
+      "path": "assets/generated-map-intros/greenham-common-map-intro.mp4",
+      "bytes": 383402,
+      "sha256": "e735d4e1f1806b3018d0a1670061dbaf12138d80b6c6d6b321da2d3ff6ca03e6"
+    },
+    {
+      "path": "assets/generated-map-intros/greenham-common-map-intro.provenance.json",
+      "bytes": 1979,
+      "sha256": "7d64a7312e8adf263e6d6e5125d4121b23cdccbb4dd561ef08b90ba36a73429a"
+    },
+    {
+      "path": "assets/generated-map-intros/greensboro-sit-ins-map-intro-poster.png",
+      "bytes": 458414,
+      "sha256": "a4ea7474c11eb8deeac8bc86ce0866fb9837c417cc9ea0c586918b895d0f6fa6"
+    },
+    {
+      "path": "assets/generated-map-intros/greensboro-sit-ins-map-intro.mp4",
+      "bytes": 353773,
+      "sha256": "63bf156c34efd120ee5dd7da0205859ad39eeb16b405269bb16422959d08b238"
+    },
+    {
+      "path": "assets/generated-map-intros/greensboro-sit-ins-map-intro.provenance.json",
+      "bytes": 1967,
+      "sha256": "e1de585574cc2aa2da8af477d3e40105b9fc17f5358f4d6d064df2410fec0c15"
+    },
+    {
+      "path": "assets/generated-map-intros/iceland-womens-strike-1975-map-intro-poster.png",
+      "bytes": 414175,
+      "sha256": "416bf50bfd115b03bd0e40561eff63709cd885aa3bc9965c09f95dfb3438c1cd"
+    },
+    {
+      "path": "assets/generated-map-intros/iceland-womens-strike-1975-map-intro.mp4",
+      "bytes": 446967,
+      "sha256": "d1b192141d608a466974d3125de3d8bad54e340340e8009f4985cab0870830f9"
+    },
+    {
+      "path": "assets/generated-map-intros/iceland-womens-strike-1975-map-intro.provenance.json",
+      "bytes": 1989,
+      "sha256": "45c7a84075a0c65fed4c6126f0ecbede20e85967f301dd1b814d7120fc0cc339"
+    },
+    {
+      "path": "assets/generated-map-intros/lagos-strike-1897-map-intro-poster.png",
+      "bytes": 255904,
+      "sha256": "015cd88ad0bec73b9ed587e9368d0714ae6618400fed3e5f7d780e603a7d2bc0"
+    },
+    {
+      "path": "assets/generated-map-intros/lagos-strike-1897-map-intro.mp4",
+      "bytes": 239287,
+      "sha256": "aaac8a3d06ad5f881f7b3cad015bdf99f34d707d0ae4306158e9c320eda047ab"
+    },
+    {
+      "path": "assets/generated-map-intros/lagos-strike-1897-map-intro.provenance.json",
+      "bytes": 1960,
+      "sha256": "365cc04ad06f48d96db58d56d4d1a8fa0787158122ee8a580d8aac85bd49067e"
+    },
+    {
+      "path": "assets/generated-map-intros/male-revolt-map-intro-poster.png",
+      "bytes": 288437,
+      "sha256": "c69c9b10fe1008a417281d29732a36c4b1fea07aeaeb4cc198a63930b9972905"
+    },
+    {
+      "path": "assets/generated-map-intros/male-revolt-map-intro.mp4",
+      "bytes": 229899,
+      "sha256": "ffd3177921d35d901a63575b471ca8854afe95e70914f4511394f02850f8fa11"
+    },
+    {
+      "path": "assets/generated-map-intros/male-revolt-map-intro.provenance.json",
+      "bytes": 1954,
+      "sha256": "762e4766711fc42a8ed07b4e8af240ae6a82a522f981aa5abd2ccf7146c3cdad"
+    },
+    {
+      "path": "assets/generated-map-intros/mau-movement-samoa-map-intro-poster.png",
+      "bytes": 353356,
+      "sha256": "b3816a9779f292eff5163ef91148c644989eca5712d56f89f1b6c9d1b1377159"
+    },
+    {
+      "path": "assets/generated-map-intros/mau-movement-samoa-map-intro.mp4",
+      "bytes": 207291,
+      "sha256": "21604322de540c1d10c22614be0666f202ce87b466bcca7a04f65c5cec6b2fe2"
+    },
+    {
+      "path": "assets/generated-map-intros/mau-movement-samoa-map-intro.provenance.json",
+      "bytes": 1970,
+      "sha256": "92f6ee133e17ac8fe19cf477d2fa8f8be8cfa72b51978ee33ede23d8a71b99fb"
+    },
+    {
+      "path": "assets/generated-map-intros/narmada-bachao-andolan-map-intro-poster.png",
+      "bytes": 271540,
+      "sha256": "44a5c678e7db3b0196d01d9156a3843992aac1e0e472d9a70ed8f00b08e51ea2"
+    },
+    {
+      "path": "assets/generated-map-intros/narmada-bachao-andolan-map-intro.mp4",
+      "bytes": 267368,
+      "sha256": "dca7f16382c5f68f9b383a5e166b27e8cb3db33d43b910526d40882984081713"
+    },
+    {
+      "path": "assets/generated-map-intros/narmada-bachao-andolan-map-intro.provenance.json",
+      "bytes": 1971,
+      "sha256": "42ee3e2580e75d0eeb5d03ef1a5d9bdfe02eea6a3f95fd9edf142ac208b1e442"
+    },
+    {
+      "path": "assets/generated-map-intros/parihaka-resistance-map-intro-poster.png",
+      "bytes": 287986,
+      "sha256": "9210512d91e7f7b94f9b9c942d4908559258a79f0f4321993adfc45cb83c3f8e"
+    },
+    {
+      "path": "assets/generated-map-intros/parihaka-resistance-map-intro.mp4",
+      "bytes": 208744,
+      "sha256": "748132b427eefa8c6fd220b7c124b473bc3ca8ca139a1fee4372b0a6911b6878"
+    },
+    {
+      "path": "assets/generated-map-intros/parihaka-resistance-map-intro.provenance.json",
+      "bytes": 1985,
+      "sha256": "6e2b64f4966d5b9b31449f26e01ad7101ed622550d46b10400392db16929e4c5"
+    },
+    {
+      "path": "assets/generated-map-intros/salt-march-map-intro-poster.png",
+      "bytes": 269792,
+      "sha256": "6b9b2f538b4f829269398235c87bf421d4ba127425226d80723f7b76ce6a2e87"
+    },
+    {
+      "path": "assets/generated-map-intros/salt-march-map-intro.mp4",
+      "bytes": 267231,
+      "sha256": "f00d7eb8c2f05cb77e7a0a989a33727db9871f839d67b0b417d577120d397e34"
+    },
+    {
+      "path": "assets/generated-map-intros/salt-march-map-intro.provenance.json",
+      "bytes": 1951,
+      "sha256": "b448d88854c0f7da1f5942433f1684efa087a9133da987c6f5ef6d6ca103d3b4"
+    },
+    {
+      "path": "assets/generated-map-intros/section-504-sit-in-map-intro-poster.png",
+      "bytes": 507350,
+      "sha256": "97e038d04fad2f863f8a4f30d88b8dd34cf6364baef18169d85e8fc19becfc53"
+    },
+    {
+      "path": "assets/generated-map-intros/section-504-sit-in-map-intro.mp4",
+      "bytes": 328342,
+      "sha256": "9f0ad2336a76d7c20b7fb3d9dc3955a95c8e104fdfd9fc8d77ead108e7cd4e02"
+    },
+    {
+      "path": "assets/generated-map-intros/section-504-sit-in-map-intro.provenance.json",
+      "bytes": 1968,
+      "sha256": "bc24e5391ab0a03981938c3c7da54bbd413c8e7984471fba26bc85fe02276dad"
+    },
+    {
+      "path": "assets/generated-map-intros/solidarnosc-gdansk-map-intro-poster.png",
+      "bytes": 332983,
+      "sha256": "e94d5289e566b32ef5092502198ebdd7b560217c7fb7d99c6a72c58945e62cee"
+    },
+    {
+      "path": "assets/generated-map-intros/solidarnosc-gdansk-map-intro.mp4",
+      "bytes": 373660,
+      "sha256": "b53d105b2dfe232db9cfc65679ed79303c75d97fb5d3c4d9f6f6025c275fbb55"
+    },
+    {
+      "path": "assets/generated-map-intros/solidarnosc-gdansk-map-intro.provenance.json",
+      "bytes": 1983,
+      "sha256": "8aae496055a0005416d99624c0c901ba0f0a9eaaba2c353fcef679ea2461374e"
+    },
+    {
+      "path": "assets/generated-map-intros/stonewall-map-intro-poster.png",
+      "bytes": 457452,
+      "sha256": "22a96369d93231128ca4fb786e14f24ffad090864984b11e8a3f6eca3cb0c58a"
+    },
+    {
+      "path": "assets/generated-map-intros/stonewall-map-intro.mp4",
+      "bytes": 365672,
+      "sha256": "a437d23134854e797c36ec0e14131a0f05b4d676968d4af7df0d34cec2a40805"
+    },
+    {
+      "path": "assets/generated-map-intros/stonewall-map-intro.provenance.json",
+      "bytes": 1960,
+      "sha256": "21b320e9548a124d6d60530028261f5b099f685d830d7a17b4383ff1670e263b"
+    },
+    {
+      "path": "assets/media-pilot/adapt-greyhound-protests-illustration-v1.provenance.json",
+      "bytes": 3004,
+      "sha256": "fe60e52069fad07c67c61e425d64e80044290155d81e4d44698323349d55c0c5"
+    },
+    {
+      "path": "assets/media-pilot/adapt-greyhound-protests-illustration-v1.webp",
+      "bytes": 2218238,
+      "sha256": "5c7e51919e0a0d7acba53532a6c34bfac6989747d3f440b053929ad698a1dbfa"
+    },
+    {
+      "path": "assets/media-pilot/alexandra-bus-boycott-illustration-v1.provenance.json",
+      "bytes": 2937,
+      "sha256": "9e98d8523b07d1cb397750052fa4950461881f60c637e060b5fde3dc7e9f9cbd"
+    },
+    {
+      "path": "assets/media-pilot/alexandra-bus-boycott-illustration-v1.webp",
+      "bytes": 2329084,
+      "sha256": "02da33881373bf6035218b9ffc18331e932deefe6903df8b573b0240e41d8dfe"
+    },
+    {
+      "path": "assets/media-pilot/all-malaya-hartal-illustration-v1.provenance.json",
+      "bytes": 3011,
+      "sha256": "25942c25ed189f74ab8fcafe09f75af78d827ab1cadfbaf257cc0cf293aaa055"
+    },
+    {
+      "path": "assets/media-pilot/all-malaya-hartal-illustration-v1.webp",
+      "bytes": 2205510,
+      "sha256": "e591c53bdaeafe2ea1c93c51c8a14abd64ba2af15daafba6af12d6fe04c75b9c"
+    },
+    {
+      "path": "assets/media-pilot/annual-reminder-illustration-v1.provenance.json",
+      "bytes": 3000,
+      "sha256": "79bc40677bfcbda8d93a6c95c0c001c66e83409ffb983aae74fe77e0185b6739"
+    },
+    {
+      "path": "assets/media-pilot/annual-reminder-illustration-v1.webp",
+      "bytes": 2472138,
+      "sha256": "cb012950e441b059c7df0d2819e10ecd405ef726a748f99e61d21dd4966ecdcc"
+    },
+    {
+      "path": "assets/media-pilot/blank-noise-public-space-v2.png",
+      "bytes": 2469774,
+      "sha256": "a4fd982a4bc22f6fc740f81b0eb98b7d49aef3e559f9f8b71371e1f8cca765d0"
+    },
+    {
+      "path": "assets/media-pilot/blank-noise-public-space-v2.provenance.json",
+      "bytes": 2867,
+      "sha256": "0411fd4617c9de2d4151646d583f9a2c7e1c93bc83dcd48bb493744b1264f5de"
+    },
+    {
+      "path": "assets/media-pilot/blank-noise-public-space-v3.png",
+      "bytes": 2408281,
+      "sha256": "f7da3e7ffefabe630f3f38334b9dbea7a704533bdb426719d41240e56a2f7ca8"
+    },
+    {
+      "path": "assets/media-pilot/blank-noise-public-space-v3.provenance.json",
+      "bytes": 2431,
+      "sha256": "30fdf4ae086e1355e9a823d39848998c8c4044c93b02041726daba9d7715ab35"
+    },
+    {
+      "path": "assets/media-pilot/blank-noise-voices-v1.png",
+      "bytes": 2341342,
+      "sha256": "37562022ad15bd332c2a3eb43f207547ec62cfc006e9808f2792abf2cfccd460"
+    },
+    {
+      "path": "assets/media-pilot/blank-noise-voices-v1.provenance.json",
+      "bytes": 1827,
+      "sha256": "03a7b33c9314d44ac4baf5774d30ed9ff6a275e63770002d313b069d5832e66b"
+    },
+    {
+      "path": "assets/media-pilot/chipko-tree-protection-v1.png",
+      "bytes": 3101153,
+      "sha256": "b3e8ccc48a89a373402f975d96443a66aedcf2fa3b1085d3a60573316ce3c79e"
+    },
+    {
+      "path": "assets/media-pilot/chipko-tree-protection-v1.provenance.json",
+      "bytes": 2523,
+      "sha256": "15e620a512ef65b52367278c069d7d197de27bfce8728559ce95570c351e03ab"
+    },
+    {
+      "path": "assets/media-pilot/chipko-tree-protection-v2.png",
+      "bytes": 2968412,
+      "sha256": "4be4be7608ae1e83011fba70cec929ecf5b44d52a8216b1b1b987e3557c38c9b"
+    },
+    {
+      "path": "assets/media-pilot/chipko-tree-protection-v2.provenance.json",
+      "bytes": 2340,
+      "sha256": "4f8a450092a1fbe78e5229d1f64a86191c87872d73b059097535174a93b49009"
+    },
+    {
+      "path": "assets/media-pilot/deir-el-medina-strike-illustration-v1.provenance.json",
+      "bytes": 2321,
+      "sha256": "a88a4d1bbc63f076b6edba76102cc23e2611ff92e9e1b66656997feb90c82884"
+    },
+    {
+      "path": "assets/media-pilot/deir-el-medina-strike-illustration-v1.webp",
+      "bytes": 2394226,
+      "sha256": "01d624a8baa68c3342d1a97926deb34062ffd7002d1b55d87dfeabe3d5c47276"
+    },
+    {
+      "path": "assets/media-pilot/diggers-st-georges-hill-illustration-v1.provenance.json",
+      "bytes": 2293,
+      "sha256": "9a2a3ccdbe736578ff7df3281a14a88cd61599615a9188325a2829b0f6c10658"
+    },
+    {
+      "path": "assets/media-pilot/diggers-st-georges-hill-illustration-v1.webp",
+      "bytes": 2575634,
+      "sha256": "257dedf1c8d3b94fc3454940113a3051f029674ca564a9453e5e6f2545212c14"
+    },
+    {
+      "path": "assets/media-pilot/ezln-assembly-v1.png",
+      "bytes": 3293680,
+      "sha256": "f6f1915af7b86f23f8aeb1fc22a43e7cf3f2e3bf288ee6f787262196a1d3eb51"
+    },
+    {
+      "path": "assets/media-pilot/ezln-assembly-v1.provenance.json",
+      "bytes": 1105,
+      "sha256": "5c50e385bd43ed528b9ec36f6567bec3c548e25b9ab7879a051e41347255ae1b"
+    },
+    {
+      "path": "assets/media-pilot/greenham-common-camp-v1.png",
+      "bytes": 3463420,
+      "sha256": "c00b46dc71bffd6b7078821f40601581dbbbfec1267bf3093f704adc5112f767"
+    },
+    {
+      "path": "assets/media-pilot/greenham-common-camp-v1.provenance.json",
+      "bytes": 1137,
+      "sha256": "52824dfb6e36856d4dabab5e4d12e2e51fed0b5b95243b0dd4df8fec14917562"
+    },
+    {
+      "path": "assets/media-pilot/greensboro-counter-v1.png",
+      "bytes": 2588650,
+      "sha256": "4a41db0e3710eec5d38708060f8bb64da9edfb704b68e5726391150ff9159ba4"
+    },
+    {
+      "path": "assets/media-pilot/greensboro-counter-v1.provenance.json",
+      "bytes": 2369,
+      "sha256": "5b1ea96dd468119c66c3360b3418f3dc19148dccacc05a44cdb392e7de43c28a"
+    },
+    {
+      "path": "assets/media-pilot/iceland-womens-strike-v1.png",
+      "bytes": 2672265,
+      "sha256": "e1b9e1291d3793995ef68fac1549e39ecaa1a32635555a0136abd6e4f86de6a4"
+    },
+    {
+      "path": "assets/media-pilot/iceland-womens-strike-v1.provenance.json",
+      "bytes": 2220,
+      "sha256": "90af1c040e9f154817f017f77088b8748268e16f15b10c7df0ab97c33ccfbf4e"
+    },
+    {
+      "path": "assets/media-pilot/lagos-strike-1897-illustration-v1.provenance.json",
+      "bytes": 2544,
+      "sha256": "0fc7fb7696ac8fcfe80d71fe60febb8cc8dc6185d5c0c1cf24f2a667539e91d1"
+    },
+    {
+      "path": "assets/media-pilot/lagos-strike-1897-illustration-v1.webp",
+      "bytes": 2567008,
+      "sha256": "28390a715ab03bb790a1369d7f2a53f3e28f382cd838590a995929b267cafac5"
+    },
+    {
+      "path": "assets/media-pilot/lagos-strike-1897-illustration-v2.provenance.json",
+      "bytes": 4543,
+      "sha256": "56b96764c4b504d393d3f3a949a8ce25eea0f12a106cbf6a5c14980d8eda60e9"
+    },
+    {
+      "path": "assets/media-pilot/lagos-strike-1897-illustration-v2.webp",
+      "bytes": 2182770,
+      "sha256": "e689e7dd60401140287ba9b199efaf1f57748e478b074efc4321b939015d428d"
+    },
+    {
+      "path": "assets/media-pilot/luddite-uprisings-illustration-v1.provenance.json",
+      "bytes": 2331,
+      "sha256": "5f3e7a89c80e7594494d1937389d5c8f7d7f6278b248425349b6fd877fd84302"
+    },
+    {
+      "path": "assets/media-pilot/luddite-uprisings-illustration-v1.webp",
+      "bytes": 2372880,
+      "sha256": "5baf298c3fd8e6b3466329753f8ed661a8b8b7143f6af96a56c951325e27cc63"
+    },
+    {
+      "path": "assets/media-pilot/male-revolt-illustration-v1.provenance.json",
+      "bytes": 3073,
+      "sha256": "827617b59132bb05b85e86139d84f48f600bf512697903906b739567a7dcebfd"
+    },
+    {
+      "path": "assets/media-pilot/male-revolt-illustration-v1.webp",
+      "bytes": 1725854,
+      "sha256": "76c09718c72586c5deeb9e8ddebbf3389d1cd496fae61ebd11225f2a5e5ecf02"
+    },
+    {
+      "path": "assets/media-pilot/matchgirls-strike-illustration-v1.provenance.json",
+      "bytes": 2983,
+      "sha256": "e72b3ad8ffef061ef7aa579d2327b18e02ced3c8910517c967741e198bdddb60"
+    },
+    {
+      "path": "assets/media-pilot/matchgirls-strike-illustration-v1.webp",
+      "bytes": 2364056,
+      "sha256": "292e29a1e7f62f37cce5eb19fb0c619f48514ca084f277f1c5fd446c0ce82fed"
+    },
+    {
+      "path": "assets/media-pilot/mau-movement-samoa-illustration-v1.provenance.json",
+      "bytes": 2430,
+      "sha256": "23806995da8985492e4e9b051b1e2582d45841508ce32505319786ab79fd4615"
+    },
+    {
+      "path": "assets/media-pilot/mau-movement-samoa-illustration-v1.webp",
+      "bytes": 2126872,
+      "sha256": "948d7f0c5876dd137793cf252447e8ed108572194a877aa188bca83b006b350e"
+    },
+    {
+      "path": "assets/media-pilot/narmada-bachao-andolan-v1.png",
+      "bytes": 2724018,
+      "sha256": "60600e5851d2aa8262c5cfca7fa45a9dee93a33098ce8e1c9d706aa8114cf3e3"
+    },
+    {
+      "path": "assets/media-pilot/narmada-bachao-andolan-v1.provenance.json",
+      "bytes": 1302,
+      "sha256": "4f5f9d87028f8b01ad78952fa673943ac5dfb4bcae27da3447c81159a11a6b03"
+    },
+    {
+      "path": "assets/media-pilot/parihaka-resistance-illustration-v1.provenance.json",
+      "bytes": 3163,
+      "sha256": "97df95d63cdcffe80475a4ea0233f0a8dfe379324b81a77c9f64230c9c18e65e"
+    },
+    {
+      "path": "assets/media-pilot/parihaka-resistance-illustration-v1.webp",
+      "bytes": 2404842,
+      "sha256": "8feee21e45a82cef775d15e71ab5cb035e60795fac8ae6514dcbc253fa19a8c7"
+    },
+    {
+      "path": "assets/media-pilot/r49-prompt-set.md",
+      "bytes": 10395,
+      "sha256": "78ef9a29b8725390b95575e7287c119a264f49a5f75145f9bfdc97554b617dc2"
+    },
+    {
+      "path": "assets/media-pilot/section-504-sit-in-v1.png",
+      "bytes": 2605770,
+      "sha256": "2d3aae6e9a9115c71a3d04bd726dea2c9cbfe99c0d1912726d8f85beb6acb330"
+    },
+    {
+      "path": "assets/media-pilot/section-504-sit-in-v1.provenance.json",
+      "bytes": 1201,
+      "sha256": "95b3e5d3493d6f3af6d2c1b7dba8dbbc86c63c2d4a13ac221f6c32b172a819e6"
+    },
+    {
+      "path": "assets/media-pilot/solidarnosc-shipyard-v1.png",
+      "bytes": 2573118,
+      "sha256": "22a3727404fe9d8d5174543856b4057cda9566204647b1f3ebace2e56b53bc70"
+    },
+    {
+      "path": "assets/media-pilot/solidarnosc-shipyard-v1.provenance.json",
+      "bytes": 2353,
+      "sha256": "61e124b09ce35bcbc2ae3fa2ac4eabfef6ee2619f506c3e6a06bee07828773ad"
+    },
+    {
+      "path": "assets/media-pilot/stonewall-uprising-v1.png",
+      "bytes": 3061347,
+      "sha256": "d1d8e0b296d9b42a5ec94f83b429548506d69a92456f1c7fd8de6edfbddd6cef"
+    },
+    {
+      "path": "assets/media-pilot/stonewall-uprising-v1.provenance.json",
+      "bytes": 1084,
+      "sha256": "a824b0f5cb231e4682e38a4c1bed0b150482e9d8a2a61d8005956244c38b2961"
+    },
+    {
+      "path": "assets/media-pilot/tiny-house-warriors-v1.png",
+      "bytes": 2628935,
+      "sha256": "1af79626b683becc84a2b176d4f184c1664718689d561f4541f70be0c550d134"
+    },
+    {
+      "path": "assets/media-pilot/tiny-house-warriors-v1.provenance.json",
+      "bytes": 1394,
+      "sha256": "af52c14fe8f7db445a6712b0cf70c332d78880f3e5954afead6e2ec4df0b0df5"
+    },
+    {
+      "path": "assets/media-pilot/tolpuddle-martyrs-illustration-v1.provenance.json",
+      "bytes": 2311,
+      "sha256": "38933ff2c9920ccc2bcdc0afa7369f5cdd485028bc0cb13a0049ba3a9df7c43e"
+    },
+    {
+      "path": "assets/media-pilot/tolpuddle-martyrs-illustration-v1.webp",
+      "bytes": 2226024,
+      "sha256": "8647cf04b5e737b5c4230f1687e50ba29c686d9df4ebf652ce55499c70c4d60a"
+    },
+    {
+      "path": "atlas-audio.css",
+      "bytes": 1580,
+      "sha256": "f67a5853f4968a5c43dbf89fc40236181647f1ca1b8cb13af1bcbe761f557eb0"
+    },
+    {
+      "path": "atlas-viewport.css",
+      "bytes": 3207,
+      "sha256": "76a3aa2a6f98c5b98205e336203901d2d508d75c7571997a7d66436cd7bb4eb0"
+    },
+    {
+      "path": "data/archive-contract.json",
+      "bytes": 9405,
+      "sha256": "7e95a18338e234b12ad90cdd9a344a9049644cbd283f6f138dbda25fb07da62d"
+    },
+    {
+      "path": "data/biographies-black.json",
+      "bytes": 59242,
+      "sha256": "69a57a370430fc02cbd3c378b4958f9e0ceec71cc16b42a1031ad3c065310c8d"
+    },
+    {
+      "path": "data/biographies-indigenous.json",
+      "bytes": 60258,
+      "sha256": "8098b6a9278e03b4b6199bad200db5180a43d98aff0126b9d55ba47e1b3a6d24"
+    },
+    {
+      "path": "data/biographies-libertarian.json",
+      "bytes": 73295,
+      "sha256": "bc7cb6a49d6fe6a421c95a868401e53c083c778bffbae3c7c5317d116742f6d2"
+    },
+    {
+      "path": "data/biography-catalog.json",
+      "bytes": 344,
+      "sha256": "0b47cfc9c7be5aa47795dabbf59d96ee3bc04d799732f180d7f81a03f35119ef"
+    },
+    {
+      "path": "data/cartography/natural-earth-land.provenance.json",
+      "bytes": 744,
+      "sha256": "4504bf4eb2e61df9cdf48468627cf24265c9569896a1345ba234896985ca9982"
+    },
+    {
+      "path": "data/cartography/ne_110m_land.geojson",
+      "bytes": 138160,
+      "sha256": "9e0729ee253ca7d7a5c4ae9395fb1902264c5377c52e224d13dd85010e2835d9"
+    },
+    {
+      "path": "data/event-catalog.json",
+      "bytes": 854,
+      "sha256": "9d7be63512fc59f628dcc61a1fc502f8424e199a368d5d542143ee6700d31c19"
+    },
+    {
+      "path": "data/event-editorial-overrides.json",
+      "bytes": 50402,
+      "sha256": "b250584748cae2e8ca4a764532e9b7aa41befe1514e1c4d046da76a7a73d3b0c"
+    },
+    {
+      "path": "data/event-image-production-queue.json",
+      "bytes": 766997,
+      "sha256": "37bffee2d63a8f6bc28a69d94fa0ac1efafe9f565681378937c5b8f42e0f8281"
+    },
+    {
+      "path": "data/event-metadata.json",
+      "bytes": 7391,
+      "sha256": "0c3e7029932a7cde2930b474cbeb946f56679fa95d3c251ecdeea5a6d9583cde"
+    },
+    {
+      "path": "data/expansion-600th.json",
+      "bytes": 769,
+      "sha256": "53a3b5083db28c82eb8543ebdf3468e6cf2a1bdc307795125033a26e498bb379"
+    },
+    {
+      "path": "data/expansion-africa-3.json",
+      "bytes": 26074,
+      "sha256": "e37b6dffb1aa9683b78c15c2376c940f522f05e81fdf48eca697e27029d10ba1"
+    },
+    {
+      "path": "data/expansion-africa.json",
+      "bytes": 28015,
+      "sha256": "8750037dd69aca9dc7b35156a658885d941640cdb1eaf6a847a1a844e02f0c62"
+    },
+    {
+      "path": "data/expansion-asia-oceania-3.json",
+      "bytes": 19402,
+      "sha256": "bd980cc2b4efea4d644a90f0d4e30392188e7a85b58b205e0182f4662f6d8718"
+    },
+    {
+      "path": "data/expansion-asia.json",
+      "bytes": 33300,
+      "sha256": "23db9c9518b31d13d31e3a34d740ebe81bc2a56f8a29b26dacc0ddccb179f4d3"
+    },
+    {
+      "path": "data/expansion-black-globalization-4.json",
+      "bytes": 13058,
+      "sha256": "b2da6d8c2a980fbf5c23a366eb4d5bd3e0878aab4fa20e8c0c8cb8a5faf390fd"
+    },
+    {
+      "path": "data/expansion-care-abolition.json",
+      "bytes": 29093,
+      "sha256": "0991f50553f18d56baa324e2774278e296a52302f68ee1ac942cb41e968603db"
+    },
+    {
+      "path": "data/expansion-commons-global-3.json",
+      "bytes": 18061,
+      "sha256": "f74571475f1834e2526611847febc3ecb6ff06ee1efeee6477ad96fbcb2343bb"
+    },
+    {
+      "path": "data/expansion-decolonial-2.json",
+      "bytes": 34011,
+      "sha256": "77f3d04e59eba1feb80eeee5d7e2aab303b7b864bf2692e03e09692c362b6c35"
+    },
+    {
+      "path": "data/expansion-europe.json",
+      "bytes": 17228,
+      "sha256": "4c92e527885bb76ff81578e746b2b91e0622491186642c64cd0f137a14f2c513"
+    },
+    {
+      "path": "data/expansion-final-3.json",
+      "bytes": 2243,
+      "sha256": "d543d44e32cd781bfbca044120ce478613e04703f94b5dc3b70e0b85ba158cb6"
+    },
+    {
+      "path": "data/expansion-indigenous-canada-4.json",
+      "bytes": 62452,
+      "sha256": "70b8e0b0551d9c37e386ae31566f7e803bc3e44b7b9f3c751e866da64d76a694"
+    },
+    {
+      "path": "data/expansion-latin-america.json",
+      "bytes": 32925,
+      "sha256": "6bc973963767735f8ba3a43067289eafcaa514b1af4116ade4da561f409fc667"
+    },
+    {
+      "path": "data/expansion-latin-caribbean-3.json",
+      "bytes": 27978,
+      "sha256": "eeb61ba9cebed2b4f4c96c162e0697a88d2e730af9ff31c8d7cad32962162939"
+    },
+    {
+      "path": "data/expansion-maritime.json",
+      "bytes": 26130,
+      "sha256": "6b53ae07ca29c134f6a9cdee4bd6a681563194e11dda0b0d1697c0da26915efb"
+    },
+    {
+      "path": "data/expansion-north-america.json",
+      "bytes": 24594,
+      "sha256": "3700763a570e915e14aac8a5fa4e58080980627467674cf2134f60344b4068fd"
+    },
+    {
+      "path": "data/expansion-oceania.json",
+      "bytes": 11690,
+      "sha256": "9f96e7990bc5967eff7968a8fa9937cee58e56965bba61d6a75fee961fb0fd0f"
+    },
+    {
+      "path": "data/expansion-queer-feminist-2.json",
+      "bytes": 29732,
+      "sha256": "3bc893c7303d22c9bbd9c0159aa78fb7c9f37016296d3de53f25238080529298"
+    },
+    {
+      "path": "data/expansion-replacements-3.json",
+      "bytes": 25015,
+      "sha256": "09df85d45281a6299c6381ff139f704438d5753ceed7a7b8ceae6d45c2258d31"
+    },
+    {
+      "path": "data/expansion-social-achievements-4.json",
+      "bytes": 16224,
+      "sha256": "d8c8334d8edfc4c03367612413cce9e76a5a30e2b4e28b201092b7a63f427917"
+    },
+    {
+      "path": "data/expansion-worker-peasant-2.json",
+      "bytes": 30582,
+      "sha256": "aadba27c9e4ba5c67d376f6e77cc57eb7d0677be8573a9461e71f2613106a7ef"
+    },
+    {
+      "path": "data/fallback-events.json",
+      "bytes": 31921,
+      "sha256": "48617f0f7e5aca8eb4910c35dfdfb73b3955e281a0d057d0605869e963baef82"
+    },
+    {
+      "path": "data/historical-resistance-events.json",
+      "bytes": 72662,
+      "sha256": "93285a31750704ea0f043caa15e3df797bb7ad80aa4e97c22f7cf1a69d402584"
+    },
+    {
+      "path": "data/inclusive-language-allowlist.json",
+      "bytes": 9381,
+      "sha256": "525e7bbf3948d604ba7b28a7111ed1131537e826c7995caa89b24e35582c3ddf"
+    },
+    {
+      "path": "data/map-taxonomy.json",
+      "bytes": 3561,
+      "sha256": "740fcd1c66676b97dec45b1c1eba5911b572c815d36d93ff0e6e9c8c50e3ddac"
+    },
+    {
+      "path": "data/media-relevance-inventory.json",
+      "bytes": 250254,
+      "sha256": "a373260f98a03c4e9d2f5d1ac30e269b0317b563dae81188abe825abe7af4c70"
+    },
+    {
+      "path": "data/movement-events.json",
+      "bytes": 84749,
+      "sha256": "a927f34edaaeef5f28344b98bb6bd5f9a1373f507cd60d736afdd291f8f36ecb"
+    },
+    {
+      "path": "data/relations.json",
+      "bytes": 6623,
+      "sha256": "fd07b4ca333d52b72bd01ec0a232f44410be5cd80e88c5850800525bfd620e0e"
+    },
+    {
+      "path": "data/routes.json",
+      "bytes": 3818,
+      "sha256": "4aae11640a587273f70a737275d11fe4dc8a523d38ba82b56888826d247c04e1"
+    },
+    {
+      "path": "data/social-achievements-next.json",
+      "bytes": 60121,
+      "sha256": "a2834e5ce24a9d670c9518786f390e5dbd15ebea5389a74d9f25c7febb9c7789"
+    },
+    {
+      "path": "data/terrain/chipko-uttarakhand-z0-z10.pmtiles",
+      "bytes": 12415658,
+      "sha256": "dded070f7784d9ff0fdeba016ad766d3d25184a238efa4a5ff0d884706a2d9a3"
+    },
+    {
+      "path": "data/terrain/chipko-uttarakhand.manifest.json",
+      "bytes": 2265,
+      "sha256": "cc5d00546f27ac384b0a44269bde7310aa3cf7d907f09dbce019b894b3f16800"
+    },
+    {
+      "path": "data/translation-batches.json",
+      "bytes": 185,
+      "sha256": "0dc8a9083e52c1a47ffd895ca39abe7692240ed8da9f9c625b66e51c9a20047f"
+    },
+    {
+      "path": "data/translation-review-manifest.json",
+      "bytes": 240,
+      "sha256": "127ff145d659d44ecd6184e722f65d41d3b194ec4870e7417f36f0abf125e2a9"
+    },
+    {
+      "path": "docs/current-handoff.md",
+      "bytes": 42669,
+      "sha256": "f88b5a81ecede69660cfa40da714ad56fa3c6179c581a437895a32f5c845ccd0"
+    },
+    {
+      "path": "docs/embedding.md",
+      "bytes": 13228,
+      "sha256": "192a544bc19cf72e7425db2732750e89a61ee87a7a91665c0200305eb5f36eef"
+    },
+    {
+      "path": "docs/event-image-context-review-r76.md",
+      "bytes": 5462,
+      "sha256": "e0e22a64eb1abb8afc0d2d931a5a797970b8b32621eefe408055150e67cc8857"
+    },
+    {
+      "path": "docs/licensing-and-attribution.md",
+      "bytes": 9101,
+      "sha256": "ed79df9e0fc8ad8df01809df430acf06935e58facaf7b6a58c07a285461bf9c5"
+    },
+    {
+      "path": "index.html",
+      "bytes": 44436,
+      "sha256": "d9c11ad344b8b6ba89d2718ce30171b442a9c65a4912c2ebcd0c1d2d89f250e4"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 464,
+      "sha256": "d227e1591d68c27ecfcc6adb3e97f4d4c4630419c85b8dbdad5be18f6324d595"
+    },
+    {
+      "path": "media-pilot.css",
+      "bytes": 7897,
+      "sha256": "ab356dd7202b363cb81e6a62b9951a3e734a1cf018fa43f0d45ec83bf0e7e3f1"
+    },
+    {
+      "path": "newsroom.css",
+      "bytes": 26441,
+      "sha256": "f68d87c2776948f70ed6e206f70cba7df121e0a050546db7b2676123fc0e2f8c"
+    },
+    {
+      "path": "script.js",
+      "bytes": 188207,
+      "sha256": "6f58e2c967aea07329b86e33d45164d6b96dceece6b7cdb332203a8f4da360a2"
+    },
+    {
+      "path": "service-worker.js",
+      "bytes": 9765,
+      "sha256": "a0201f777a80b1e3fe5485d5a87820e82186091058f448f707be3c3a12846db2"
+    },
+    {
+      "path": "src/atlas-api.js",
+      "bytes": 1584,
+      "sha256": "aeaffc112d72daf9d1745224f4fb3a67963f32d985ffff859d08b3491b12d15f"
+    },
+    {
+      "path": "src/atlas-audio.js",
+      "bytes": 10867,
+      "sha256": "0cf4944addd7b3e8eb88590dd6c84170a2e8829a9fdf65571a5e37c1dfd25fc8"
+    },
+    {
+      "path": "src/atlas-config.js",
+      "bytes": 2298,
+      "sha256": "48bb24840b67e58d8d8f6478ec1a7e7f9771cddf2c266ca60b631bfd11025bee"
+    },
+    {
+      "path": "src/atlas-embed.js",
+      "bytes": 1868,
+      "sha256": "c5e953e343184b18c0ff4a82a87209fc200b243f33396989b20b4c001bc6d6a8"
+    },
+    {
+      "path": "src/atlas-score.js",
+      "bytes": 1635,
+      "sha256": "c30a57b3644b313603fb8af6811cc2db7ee4499101419b87e58a95d483dec070"
+    },
+    {
+      "path": "src/biography-core.js",
+      "bytes": 11406,
+      "sha256": "b49a56df86602bae71b1a252412c33411f6e61a51255968498102ed5ac0397bd"
+    },
+    {
+      "path": "src/event-follow-up.js",
+      "bytes": 4401,
+      "sha256": "0867cc22ea1a3d7c36bb45fdb7cbb0ce9541a672c15e6e4be11b98ab2eeb39af"
+    },
+    {
+      "path": "src/event-illustration-batch-r75.js",
+      "bytes": 4294,
+      "sha256": "2a792bc38375b1353bcb0573bef8c0a842e188d9fef457c56de970df8c791510"
+    },
+    {
+      "path": "src/event-illustration-batch-r76.js",
+      "bytes": 3540,
+      "sha256": "96be9d86c8f45b9010e27ca1a53e000d225b524d530c82f20c37fa8815c10fd2"
+    },
+    {
+      "path": "src/event-reading.js",
+      "bytes": 14764,
+      "sha256": "79eb4ed932a464755212298df320343a8be8f6eeb62bbe80e424e64b3c775fbd"
+    },
+    {
+      "path": "src/event-visuals.js",
+      "bytes": 12586,
+      "sha256": "2ce764b0324ca945a7ad913e08f30414eae1466ebd38076e45742778b1be6ee9"
+    },
+    {
+      "path": "src/evidence-model.js",
+      "bytes": 1586,
+      "sha256": "04c33cd2698810d07813c884a09832e631fedac3db17a33b30f281ef3eeb0f9d"
+    },
+    {
+      "path": "src/filter-feedback.js",
+      "bytes": 2961,
+      "sha256": "877cc1f3ded7be4be2fa35f61229cdf3ef082efe44b098ba8095dafafc9dd32a"
+    },
+    {
+      "path": "src/game-core.js",
+      "bytes": 47727,
+      "sha256": "ad8898b34a48d28da628b61796dccbd87c69103bb24298ec566e47a133bcbc5c"
+    },
+    {
+      "path": "src/i18n.js",
+      "bytes": 317031,
+      "sha256": "4666a0706bf542663dcf99616c390ce5816fb823902de1622af8e8a54857b2ed"
+    },
+    {
+      "path": "src/local-library.js",
+      "bytes": 3417,
+      "sha256": "754094915b922a036c9511c3d1f62d685525c17a1039358bb6bf088e6540bdfd"
+    },
+    {
+      "path": "src/map-focus.js",
+      "bytes": 3658,
+      "sha256": "2e89e3079cb4f9dea0317eb2a1c2c1a21a9132946f94d76b25a054e47d43a895"
+    },
+    {
+      "path": "src/map-projection.js",
+      "bytes": 1382,
+      "sha256": "2a79b5a161edf744c1f9c68ddfedbf6ee2ebc771c6d57188b46e5906d00a2e06"
+    },
+    {
+      "path": "src/media-pilot.js",
+      "bytes": 30593,
+      "sha256": "ec9cbf1a2c8e08bf9243b85d21c448016a426da233344fd757412ce8d3f3e53b"
+    },
+    {
+      "path": "src/mobile-simulator.js",
+      "bytes": 1829,
+      "sha256": "889391ba04bd2a79ee1a62c214d30c4c0729cf7faa37c2b3abe515d29eda9890"
+    },
+    {
+      "path": "src/mobile-ui.js",
+      "bytes": 1620,
+      "sha256": "a87dac17c68b10af38363b04245ecdacdb04ee3b7a6379a2d68e2658e9f5b7ac"
+    },
+    {
+      "path": "src/newsroom-map.js",
+      "bytes": 3993,
+      "sha256": "a1b2d5ca3a26fb54a8c05e4fc8b6b26e1792ab9e3d167be948bf7795e0498025"
+    },
+    {
+      "path": "src/newsroom-theme.js",
+      "bytes": 2046,
+      "sha256": "4768c213af1782292f447081ce383e088a0366cd6957dad9626074b0bd815ab5"
+    },
+    {
+      "path": "src/progress-store.js",
+      "bytes": 3103,
+      "sha256": "da9b45df0f41f618e3a4be0359bdfbf9081b8589a0e379a74405c399d5a7dd2b"
+    },
+    {
+      "path": "src/route-story.js",
+      "bytes": 1752,
+      "sha256": "f9323c487e6d1e5a385968871c3832fcca0f0c320bb6121552f9b17579667ebc"
+    },
+    {
+      "path": "src/terrain-policy.js",
+      "bytes": 1438,
+      "sha256": "9e09424ac561e5fc862f41253bd3a4b6cdd2150f934ae820417dde91a25829db"
+    },
+    {
+      "path": "src/timeline-core.js",
+      "bytes": 4411,
+      "sha256": "85d2062253e4f6122b032da106a80123530cd94423db8fb0b6a6dcf0dbcee7ae"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 108544,
+      "sha256": "0f2f3b18f9c1c6ec3c0d368b83583204b22e2749301ae6070f3ad1017842e185"
+    },
+    {
+      "path": "vendor/MAPLIBRE-LICENSE.txt",
+      "bytes": 5984,
+      "sha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2"
+    },
+    {
+      "path": "vendor/PMTILES-LICENSE.txt",
+      "bytes": 1713,
+      "sha256": "0371c38f338835f7fc13ed71176f3d92144e22c8b736a31cced57adbbeb647b3"
+    },
+    {
+      "path": "vendor/maplibre-gl.css",
+      "bytes": 70024,
+      "sha256": "ab1e70d59ec40465bae7e7030da2f3ccf28133fd502e62bd598eefbadfd7a732"
+    },
+    {
+      "path": "vendor/maplibre-gl.js",
+      "bytes": 1056837,
+      "sha256": "45a9b07a9189ce56054c620a947ccf41e291e58c95e9b61533b740aaa65ee5cb"
+    },
+    {
+      "path": "vendor/pmtiles-4.5.0.js",
+      "bytes": 20229,
+      "sha256": "caf981bc46f6327ee7e65d5dc964d89d38a69f60edca2bd4c5c890c21b554c6c"
+    }
+  ],
+  "upstreamFiles": [
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 10266,
+      "sha256": "314dc5dbb4d9bddcd0b6a1386db0ebaa0d7defa37b6a78771bcf96bb3a3e1199"
+    },
+    {
+      "path": "assets/brand/atlas-neon-v3.svg",
+      "bytes": 580,
+      "sha256": "38ed71328752c82d7f1ec942eaf5b625e3a1b8a9844c743c3aaa454aef8fca62"
+    },
+    {
+      "path": "assets/brand/world-revolution-atlas-logo-horror-v2.png",
+      "bytes": 1079225,
+      "sha256": "150f62104921e5e9dd823c27a0ddfd658a4a29e749151741ef765a08afe6df8d"
+    },
+    {
+      "path": "assets/brand/world-revolution-atlas-logo-v1.png",
+      "bytes": 50238,
+      "sha256": "d729a4cb761dca08fcb795af2d798d36227686e91df4828b0fa369518ff6a1aa"
+    },
+    {
+      "path": "assets/brand/world-revolution-atlas-logo-v1.svg",
+      "bytes": 1961,
+      "sha256": "ca68dad5737ed658ce412ddc7f20693739e9cdc11aa9e614be61e9a4f6c54e37"
+    },
+    {
+      "path": "assets/brand/world-revolution-atlas-mark-v1.png",
+      "bytes": 54710,
+      "sha256": "9e516e857ea31d518eb4b3812342be96f5b7a5314c1bab25fddd6c73c6f745eb"
+    },
+    {
+      "path": "assets/brand/world-revolution-atlas-mark-v1.svg",
+      "bytes": 1562,
+      "sha256": "53add4992671d6e57d9e079c020df4aff691b04a1d316bc40d043d915622319a"
+    },
+    {
+      "path": "assets/brand/world-revolution-atlas-parchment-v2.png",
+      "bytes": 3118745,
+      "sha256": "8ebe0eec9b4faceb7995506714b12eda14c9bdc268d63a3a27635f603b52f1db"
+    },
+    {
+      "path": "assets/brand/world-revolution-atlas-user-v1.png",
+      "bytes": 2372034,
+      "sha256": "0235c9cea2a9e9df1efac281e463000a3649c59f31a4c6865d1d1de92dab138d"
+    },
+    {
+      "path": "assets/generated-map-intros/blank-noise-map-intro-poster.png",
+      "bytes": 266318,
+      "sha256": "f732e58a832543588865bd3a235405eb5c0804035a4894b43eee273ea2e58663"
+    },
+    {
+      "path": "assets/generated-map-intros/blank-noise-map-intro.mp4",
+      "bytes": 246689,
+      "sha256": "8a9841ebbfa84a909b501ec90184428fd36d85d9d9fe4048f6b83c2986afc6b1"
+    },
+    {
+      "path": "assets/generated-map-intros/blank-noise-map-intro.provenance.json",
+      "bytes": 1950,
+      "sha256": "d171c67f19ce35e6e3647d7735a28ae96203764ef36250b2642f20de7bd823bb"
+    },
+    {
+      "path": "assets/generated-map-intros/chipko-map-intro-poster.png",
+      "bytes": 287344,
+      "sha256": "7935bfcc0cf692ec457c798d3e499f3c144e0cf099aefb67cee975d4a732e7ec"
+    },
+    {
+      "path": "assets/generated-map-intros/chipko-map-intro.mp4",
+      "bytes": 284037,
+      "sha256": "35dc0afd6bb1831f6c15bfb96cac5c366379d688b5b6e7de1f5958ce3232880c"
+    },
+    {
+      "path": "assets/generated-map-intros/chipko-map-intro.provenance.json",
+      "bytes": 1954,
+      "sha256": "4d3f8e7c7217f4e164ccbc0e2551f868b3b33a0641c684e925589405e6e528ac"
+    },
+    {
+      "path": "assets/generated-map-intros/ezln-map-intro-poster.png",
+      "bytes": 440265,
+      "sha256": "f7af4ecbb717a6fa948db19abb1e1249e9adb4bf2a2820b72b9bdf58240a4fc3"
+    },
+    {
+      "path": "assets/generated-map-intros/ezln-map-intro.mp4",
+      "bytes": 297756,
+      "sha256": "410d5aeea09b81c2f0fb8b31ce34b9ef8aa1e7a5b05db56fc71d33945614e63f"
+    },
+    {
+      "path": "assets/generated-map-intros/ezln-map-intro.provenance.json",
+      "bytes": 1954,
+      "sha256": "d2ce52276cef33031d5c7eae0abc34b56cc2c6703e149464d993448889ea2537"
+    },
+    {
+      "path": "assets/generated-map-intros/greenham-common-map-intro-poster.png",
+      "bytes": 340632,
+      "sha256": "c247bae134421aec62c91646a34dd3b54ec1513662573dcc2868bd8c3eb5fd73"
+    },
+    {
+      "path": "assets/generated-map-intros/greenham-common-map-intro.mp4",
+      "bytes": 383402,
+      "sha256": "e735d4e1f1806b3018d0a1670061dbaf12138d80b6c6d6b321da2d3ff6ca03e6"
+    },
+    {
+      "path": "assets/generated-map-intros/greenham-common-map-intro.provenance.json",
+      "bytes": 1979,
+      "sha256": "7d64a7312e8adf263e6d6e5125d4121b23cdccbb4dd561ef08b90ba36a73429a"
+    },
+    {
+      "path": "assets/generated-map-intros/greensboro-sit-ins-map-intro-poster.png",
+      "bytes": 458414,
+      "sha256": "a4ea7474c11eb8deeac8bc86ce0866fb9837c417cc9ea0c586918b895d0f6fa6"
+    },
+    {
+      "path": "assets/generated-map-intros/greensboro-sit-ins-map-intro.mp4",
+      "bytes": 353773,
+      "sha256": "63bf156c34efd120ee5dd7da0205859ad39eeb16b405269bb16422959d08b238"
+    },
+    {
+      "path": "assets/generated-map-intros/greensboro-sit-ins-map-intro.provenance.json",
+      "bytes": 1967,
+      "sha256": "e1de585574cc2aa2da8af477d3e40105b9fc17f5358f4d6d064df2410fec0c15"
+    },
+    {
+      "path": "assets/generated-map-intros/iceland-womens-strike-1975-map-intro-poster.png",
+      "bytes": 414175,
+      "sha256": "416bf50bfd115b03bd0e40561eff63709cd885aa3bc9965c09f95dfb3438c1cd"
+    },
+    {
+      "path": "assets/generated-map-intros/iceland-womens-strike-1975-map-intro.mp4",
+      "bytes": 446967,
+      "sha256": "d1b192141d608a466974d3125de3d8bad54e340340e8009f4985cab0870830f9"
+    },
+    {
+      "path": "assets/generated-map-intros/iceland-womens-strike-1975-map-intro.provenance.json",
+      "bytes": 1989,
+      "sha256": "45c7a84075a0c65fed4c6126f0ecbede20e85967f301dd1b814d7120fc0cc339"
+    },
+    {
+      "path": "assets/generated-map-intros/lagos-strike-1897-map-intro-poster.png",
+      "bytes": 255904,
+      "sha256": "015cd88ad0bec73b9ed587e9368d0714ae6618400fed3e5f7d780e603a7d2bc0"
+    },
+    {
+      "path": "assets/generated-map-intros/lagos-strike-1897-map-intro.mp4",
+      "bytes": 239287,
+      "sha256": "aaac8a3d06ad5f881f7b3cad015bdf99f34d707d0ae4306158e9c320eda047ab"
+    },
+    {
+      "path": "assets/generated-map-intros/lagos-strike-1897-map-intro.provenance.json",
+      "bytes": 1960,
+      "sha256": "365cc04ad06f48d96db58d56d4d1a8fa0787158122ee8a580d8aac85bd49067e"
+    },
+    {
+      "path": "assets/generated-map-intros/male-revolt-map-intro-poster.png",
+      "bytes": 288437,
+      "sha256": "c69c9b10fe1008a417281d29732a36c4b1fea07aeaeb4cc198a63930b9972905"
+    },
+    {
+      "path": "assets/generated-map-intros/male-revolt-map-intro.mp4",
+      "bytes": 229899,
+      "sha256": "ffd3177921d35d901a63575b471ca8854afe95e70914f4511394f02850f8fa11"
+    },
+    {
+      "path": "assets/generated-map-intros/male-revolt-map-intro.provenance.json",
+      "bytes": 1954,
+      "sha256": "762e4766711fc42a8ed07b4e8af240ae6a82a522f981aa5abd2ccf7146c3cdad"
+    },
+    {
+      "path": "assets/generated-map-intros/mau-movement-samoa-map-intro-poster.png",
+      "bytes": 353356,
+      "sha256": "b3816a9779f292eff5163ef91148c644989eca5712d56f89f1b6c9d1b1377159"
+    },
+    {
+      "path": "assets/generated-map-intros/mau-movement-samoa-map-intro.mp4",
+      "bytes": 207291,
+      "sha256": "21604322de540c1d10c22614be0666f202ce87b466bcca7a04f65c5cec6b2fe2"
+    },
+    {
+      "path": "assets/generated-map-intros/mau-movement-samoa-map-intro.provenance.json",
+      "bytes": 1970,
+      "sha256": "92f6ee133e17ac8fe19cf477d2fa8f8be8cfa72b51978ee33ede23d8a71b99fb"
+    },
+    {
+      "path": "assets/generated-map-intros/narmada-bachao-andolan-map-intro-poster.png",
+      "bytes": 271540,
+      "sha256": "44a5c678e7db3b0196d01d9156a3843992aac1e0e472d9a70ed8f00b08e51ea2"
+    },
+    {
+      "path": "assets/generated-map-intros/narmada-bachao-andolan-map-intro.mp4",
+      "bytes": 267368,
+      "sha256": "dca7f16382c5f68f9b383a5e166b27e8cb3db33d43b910526d40882984081713"
+    },
+    {
+      "path": "assets/generated-map-intros/narmada-bachao-andolan-map-intro.provenance.json",
+      "bytes": 1971,
+      "sha256": "42ee3e2580e75d0eeb5d03ef1a5d9bdfe02eea6a3f95fd9edf142ac208b1e442"
+    },
+    {
+      "path": "assets/generated-map-intros/parihaka-resistance-map-intro-poster.png",
+      "bytes": 287986,
+      "sha256": "9210512d91e7f7b94f9b9c942d4908559258a79f0f4321993adfc45cb83c3f8e"
+    },
+    {
+      "path": "assets/generated-map-intros/parihaka-resistance-map-intro.mp4",
+      "bytes": 208744,
+      "sha256": "748132b427eefa8c6fd220b7c124b473bc3ca8ca139a1fee4372b0a6911b6878"
+    },
+    {
+      "path": "assets/generated-map-intros/parihaka-resistance-map-intro.provenance.json",
+      "bytes": 1985,
+      "sha256": "6e2b64f4966d5b9b31449f26e01ad7101ed622550d46b10400392db16929e4c5"
+    },
+    {
+      "path": "assets/generated-map-intros/salt-march-map-intro-poster.png",
+      "bytes": 269792,
+      "sha256": "6b9b2f538b4f829269398235c87bf421d4ba127425226d80723f7b76ce6a2e87"
+    },
+    {
+      "path": "assets/generated-map-intros/salt-march-map-intro.mp4",
+      "bytes": 267231,
+      "sha256": "f00d7eb8c2f05cb77e7a0a989a33727db9871f839d67b0b417d577120d397e34"
+    },
+    {
+      "path": "assets/generated-map-intros/salt-march-map-intro.provenance.json",
+      "bytes": 1951,
+      "sha256": "b448d88854c0f7da1f5942433f1684efa087a9133da987c6f5ef6d6ca103d3b4"
+    },
+    {
+      "path": "assets/generated-map-intros/section-504-sit-in-map-intro-poster.png",
+      "bytes": 507350,
+      "sha256": "97e038d04fad2f863f8a4f30d88b8dd34cf6364baef18169d85e8fc19becfc53"
+    },
+    {
+      "path": "assets/generated-map-intros/section-504-sit-in-map-intro.mp4",
+      "bytes": 328342,
+      "sha256": "9f0ad2336a76d7c20b7fb3d9dc3955a95c8e104fdfd9fc8d77ead108e7cd4e02"
+    },
+    {
+      "path": "assets/generated-map-intros/section-504-sit-in-map-intro.provenance.json",
+      "bytes": 1968,
+      "sha256": "bc24e5391ab0a03981938c3c7da54bbd413c8e7984471fba26bc85fe02276dad"
+    },
+    {
+      "path": "assets/generated-map-intros/solidarnosc-gdansk-map-intro-poster.png",
+      "bytes": 332983,
+      "sha256": "e94d5289e566b32ef5092502198ebdd7b560217c7fb7d99c6a72c58945e62cee"
+    },
+    {
+      "path": "assets/generated-map-intros/solidarnosc-gdansk-map-intro.mp4",
+      "bytes": 373660,
+      "sha256": "b53d105b2dfe232db9cfc65679ed79303c75d97fb5d3c4d9f6f6025c275fbb55"
+    },
+    {
+      "path": "assets/generated-map-intros/solidarnosc-gdansk-map-intro.provenance.json",
+      "bytes": 1983,
+      "sha256": "8aae496055a0005416d99624c0c901ba0f0a9eaaba2c353fcef679ea2461374e"
+    },
+    {
+      "path": "assets/generated-map-intros/stonewall-map-intro-poster.png",
+      "bytes": 457452,
+      "sha256": "22a96369d93231128ca4fb786e14f24ffad090864984b11e8a3f6eca3cb0c58a"
+    },
+    {
+      "path": "assets/generated-map-intros/stonewall-map-intro.mp4",
+      "bytes": 365672,
+      "sha256": "a437d23134854e797c36ec0e14131a0f05b4d676968d4af7df0d34cec2a40805"
+    },
+    {
+      "path": "assets/generated-map-intros/stonewall-map-intro.provenance.json",
+      "bytes": 1960,
+      "sha256": "21b320e9548a124d6d60530028261f5b099f685d830d7a17b4383ff1670e263b"
+    },
+    {
+      "path": "assets/media-pilot/adapt-greyhound-protests-illustration-v1.png",
+      "bytes": 3010565,
+      "sha256": "68cf249681858b87709119af8c0edaad5b8c5722ec28aea5e04667ac914b6b77"
+    },
+    {
+      "path": "assets/media-pilot/adapt-greyhound-protests-illustration-v1.provenance.json",
+      "bytes": 3004,
+      "sha256": "fe60e52069fad07c67c61e425d64e80044290155d81e4d44698323349d55c0c5"
+    },
+    {
+      "path": "assets/media-pilot/adapt-greyhound-protests-illustration-v1.webp",
+      "bytes": 2218238,
+      "sha256": "5c7e51919e0a0d7acba53532a6c34bfac6989747d3f440b053929ad698a1dbfa"
+    },
+    {
+      "path": "assets/media-pilot/alexandra-bus-boycott-illustration-v1.png",
+      "bytes": 3016500,
+      "sha256": "2f37545ffaaaa412f454fd79a0742fc5616b735e272c8653ca588e6c77345d4c"
+    },
+    {
+      "path": "assets/media-pilot/alexandra-bus-boycott-illustration-v1.provenance.json",
+      "bytes": 2937,
+      "sha256": "9e98d8523b07d1cb397750052fa4950461881f60c637e060b5fde3dc7e9f9cbd"
+    },
+    {
+      "path": "assets/media-pilot/alexandra-bus-boycott-illustration-v1.webp",
+      "bytes": 2329084,
+      "sha256": "02da33881373bf6035218b9ffc18331e932deefe6903df8b573b0240e41d8dfe"
+    },
+    {
+      "path": "assets/media-pilot/all-malaya-hartal-illustration-v1.png",
+      "bytes": 2977212,
+      "sha256": "b2d0c466600a9c8899c7466ed3b68228a1a5bf252fd24d05908ebadb3d09955f"
+    },
+    {
+      "path": "assets/media-pilot/all-malaya-hartal-illustration-v1.provenance.json",
+      "bytes": 3011,
+      "sha256": "25942c25ed189f74ab8fcafe09f75af78d827ab1cadfbaf257cc0cf293aaa055"
+    },
+    {
+      "path": "assets/media-pilot/all-malaya-hartal-illustration-v1.webp",
+      "bytes": 2205510,
+      "sha256": "e591c53bdaeafe2ea1c93c51c8a14abd64ba2af15daafba6af12d6fe04c75b9c"
+    },
+    {
+      "path": "assets/media-pilot/annual-reminder-illustration-v1.png",
+      "bytes": 3174241,
+      "sha256": "55a21f587dd633b2c24cd9e4e52982ff090ba7ee3099c72902d8b256cfaee208"
+    },
+    {
+      "path": "assets/media-pilot/annual-reminder-illustration-v1.provenance.json",
+      "bytes": 3000,
+      "sha256": "79bc40677bfcbda8d93a6c95c0c001c66e83409ffb983aae74fe77e0185b6739"
+    },
+    {
+      "path": "assets/media-pilot/annual-reminder-illustration-v1.webp",
+      "bytes": 2472138,
+      "sha256": "cb012950e441b059c7df0d2819e10ecd405ef726a748f99e61d21dd4966ecdcc"
+    },
+    {
+      "path": "assets/media-pilot/blank-noise-public-space-v2.png",
+      "bytes": 2469774,
+      "sha256": "a4fd982a4bc22f6fc740f81b0eb98b7d49aef3e559f9f8b71371e1f8cca765d0"
+    },
+    {
+      "path": "assets/media-pilot/blank-noise-public-space-v2.provenance.json",
+      "bytes": 2867,
+      "sha256": "0411fd4617c9de2d4151646d583f9a2c7e1c93bc83dcd48bb493744b1264f5de"
+    },
+    {
+      "path": "assets/media-pilot/blank-noise-public-space-v3.png",
+      "bytes": 2408281,
+      "sha256": "f7da3e7ffefabe630f3f38334b9dbea7a704533bdb426719d41240e56a2f7ca8"
+    },
+    {
+      "path": "assets/media-pilot/blank-noise-public-space-v3.provenance.json",
+      "bytes": 2431,
+      "sha256": "30fdf4ae086e1355e9a823d39848998c8c4044c93b02041726daba9d7715ab35"
+    },
+    {
+      "path": "assets/media-pilot/blank-noise-voices-v1.png",
+      "bytes": 2341342,
+      "sha256": "37562022ad15bd332c2a3eb43f207547ec62cfc006e9808f2792abf2cfccd460"
+    },
+    {
+      "path": "assets/media-pilot/blank-noise-voices-v1.provenance.json",
+      "bytes": 1827,
+      "sha256": "03a7b33c9314d44ac4baf5774d30ed9ff6a275e63770002d313b069d5832e66b"
+    },
+    {
+      "path": "assets/media-pilot/chipko-tree-protection-v1.png",
+      "bytes": 3101153,
+      "sha256": "b3e8ccc48a89a373402f975d96443a66aedcf2fa3b1085d3a60573316ce3c79e"
+    },
+    {
+      "path": "assets/media-pilot/chipko-tree-protection-v1.provenance.json",
+      "bytes": 2523,
+      "sha256": "15e620a512ef65b52367278c069d7d197de27bfce8728559ce95570c351e03ab"
+    },
+    {
+      "path": "assets/media-pilot/chipko-tree-protection-v2.png",
+      "bytes": 2968412,
+      "sha256": "4be4be7608ae1e83011fba70cec929ecf5b44d52a8216b1b1b987e3557c38c9b"
+    },
+    {
+      "path": "assets/media-pilot/chipko-tree-protection-v2.provenance.json",
+      "bytes": 2340,
+      "sha256": "4f8a450092a1fbe78e5229d1f64a86191c87872d73b059097535174a93b49009"
+    },
+    {
+      "path": "assets/media-pilot/deir-el-medina-strike-illustration-v1.png",
+      "bytes": 3146797,
+      "sha256": "44b911ced0e40acd439104ac0282ea92bc1774adaee9549b069fc2da76f17e61"
+    },
+    {
+      "path": "assets/media-pilot/deir-el-medina-strike-illustration-v1.provenance.json",
+      "bytes": 2321,
+      "sha256": "a88a4d1bbc63f076b6edba76102cc23e2611ff92e9e1b66656997feb90c82884"
+    },
+    {
+      "path": "assets/media-pilot/deir-el-medina-strike-illustration-v1.webp",
+      "bytes": 2394226,
+      "sha256": "01d624a8baa68c3342d1a97926deb34062ffd7002d1b55d87dfeabe3d5c47276"
+    },
+    {
+      "path": "assets/media-pilot/diggers-st-georges-hill-illustration-v1.png",
+      "bytes": 3417997,
+      "sha256": "3fd0dbcd7112da6ef9b41a2e9cbd01928efd18e4cfce418f48d2360cc913d8f4"
+    },
+    {
+      "path": "assets/media-pilot/diggers-st-georges-hill-illustration-v1.provenance.json",
+      "bytes": 2293,
+      "sha256": "9a2a3ccdbe736578ff7df3281a14a88cd61599615a9188325a2829b0f6c10658"
+    },
+    {
+      "path": "assets/media-pilot/diggers-st-georges-hill-illustration-v1.webp",
+      "bytes": 2575634,
+      "sha256": "257dedf1c8d3b94fc3454940113a3051f029674ca564a9453e5e6f2545212c14"
+    },
+    {
+      "path": "assets/media-pilot/ezln-assembly-v1.png",
+      "bytes": 3293680,
+      "sha256": "f6f1915af7b86f23f8aeb1fc22a43e7cf3f2e3bf288ee6f787262196a1d3eb51"
+    },
+    {
+      "path": "assets/media-pilot/ezln-assembly-v1.provenance.json",
+      "bytes": 1105,
+      "sha256": "5c50e385bd43ed528b9ec36f6567bec3c548e25b9ab7879a051e41347255ae1b"
+    },
+    {
+      "path": "assets/media-pilot/greenham-common-camp-v1.png",
+      "bytes": 3463420,
+      "sha256": "c00b46dc71bffd6b7078821f40601581dbbbfec1267bf3093f704adc5112f767"
+    },
+    {
+      "path": "assets/media-pilot/greenham-common-camp-v1.provenance.json",
+      "bytes": 1137,
+      "sha256": "52824dfb6e36856d4dabab5e4d12e2e51fed0b5b95243b0dd4df8fec14917562"
+    },
+    {
+      "path": "assets/media-pilot/greensboro-counter-v1.png",
+      "bytes": 2588650,
+      "sha256": "4a41db0e3710eec5d38708060f8bb64da9edfb704b68e5726391150ff9159ba4"
+    },
+    {
+      "path": "assets/media-pilot/greensboro-counter-v1.provenance.json",
+      "bytes": 2369,
+      "sha256": "5b1ea96dd468119c66c3360b3418f3dc19148dccacc05a44cdb392e7de43c28a"
+    },
+    {
+      "path": "assets/media-pilot/iceland-womens-strike-v1.png",
+      "bytes": 2672265,
+      "sha256": "e1b9e1291d3793995ef68fac1549e39ecaa1a32635555a0136abd6e4f86de6a4"
+    },
+    {
+      "path": "assets/media-pilot/iceland-womens-strike-v1.provenance.json",
+      "bytes": 2220,
+      "sha256": "90af1c040e9f154817f017f77088b8748268e16f15b10c7df0ab97c33ccfbf4e"
+    },
+    {
+      "path": "assets/media-pilot/lagos-strike-1897-illustration-v1.png",
+      "bytes": 3367244,
+      "sha256": "bc22e596321f05cf5610c25b161406d888c01390e16801d001383857eb5af895"
+    },
+    {
+      "path": "assets/media-pilot/lagos-strike-1897-illustration-v1.provenance.json",
+      "bytes": 2544,
+      "sha256": "0fc7fb7696ac8fcfe80d71fe60febb8cc8dc6185d5c0c1cf24f2a667539e91d1"
+    },
+    {
+      "path": "assets/media-pilot/lagos-strike-1897-illustration-v1.webp",
+      "bytes": 2567008,
+      "sha256": "28390a715ab03bb790a1369d7f2a53f3e28f382cd838590a995929b267cafac5"
+    },
+    {
+      "path": "assets/media-pilot/lagos-strike-1897-illustration-v2.png",
+      "bytes": 2912664,
+      "sha256": "905682258df9e287ff299908f0873e0865c707fccef37f85f8a12c1d96996941"
+    },
+    {
+      "path": "assets/media-pilot/lagos-strike-1897-illustration-v2.provenance.json",
+      "bytes": 4543,
+      "sha256": "56b96764c4b504d393d3f3a949a8ce25eea0f12a106cbf6a5c14980d8eda60e9"
+    },
+    {
+      "path": "assets/media-pilot/lagos-strike-1897-illustration-v2.webp",
+      "bytes": 2182770,
+      "sha256": "e689e7dd60401140287ba9b199efaf1f57748e478b074efc4321b939015d428d"
+    },
+    {
+      "path": "assets/media-pilot/luddite-uprisings-illustration-v1.png",
+      "bytes": 3286162,
+      "sha256": "42a9d306c8fb9b91e595cf297e62938827bf58d5f38c1153e955e77cbcd76c13"
+    },
+    {
+      "path": "assets/media-pilot/luddite-uprisings-illustration-v1.provenance.json",
+      "bytes": 2331,
+      "sha256": "5f3e7a89c80e7594494d1937389d5c8f7d7f6278b248425349b6fd877fd84302"
+    },
+    {
+      "path": "assets/media-pilot/luddite-uprisings-illustration-v1.webp",
+      "bytes": 2372880,
+      "sha256": "5baf298c3fd8e6b3466329753f8ed661a8b8b7143f6af96a56c951325e27cc63"
+    },
+    {
+      "path": "assets/media-pilot/male-revolt-illustration-v1.png",
+      "bytes": 2327666,
+      "sha256": "ebcf11d15e445eac09588019878dddef78d010895940309349cbf15a27287e25"
+    },
+    {
+      "path": "assets/media-pilot/male-revolt-illustration-v1.provenance.json",
+      "bytes": 3073,
+      "sha256": "827617b59132bb05b85e86139d84f48f600bf512697903906b739567a7dcebfd"
+    },
+    {
+      "path": "assets/media-pilot/male-revolt-illustration-v1.webp",
+      "bytes": 1725854,
+      "sha256": "76c09718c72586c5deeb9e8ddebbf3389d1cd496fae61ebd11225f2a5e5ecf02"
+    },
+    {
+      "path": "assets/media-pilot/matchgirls-strike-illustration-v1.png",
+      "bytes": 3102366,
+      "sha256": "fb11b20957a2dcfe3352f463f5779dd40a5723ea24c093df1aca7f4a1a674e97"
+    },
+    {
+      "path": "assets/media-pilot/matchgirls-strike-illustration-v1.provenance.json",
+      "bytes": 2983,
+      "sha256": "e72b3ad8ffef061ef7aa579d2327b18e02ced3c8910517c967741e198bdddb60"
+    },
+    {
+      "path": "assets/media-pilot/matchgirls-strike-illustration-v1.webp",
+      "bytes": 2364056,
+      "sha256": "292e29a1e7f62f37cce5eb19fb0c619f48514ca084f277f1c5fd446c0ce82fed"
+    },
+    {
+      "path": "assets/media-pilot/mau-movement-samoa-illustration-v1.png",
+      "bytes": 2849276,
+      "sha256": "59b1ebaf05eb4b54aa980a0e3a0688279195bea1e2ce17d648ab4391253b6d68"
+    },
+    {
+      "path": "assets/media-pilot/mau-movement-samoa-illustration-v1.provenance.json",
+      "bytes": 2430,
+      "sha256": "23806995da8985492e4e9b051b1e2582d45841508ce32505319786ab79fd4615"
+    },
+    {
+      "path": "assets/media-pilot/mau-movement-samoa-illustration-v1.webp",
+      "bytes": 2126872,
+      "sha256": "948d7f0c5876dd137793cf252447e8ed108572194a877aa188bca83b006b350e"
+    },
+    {
+      "path": "assets/media-pilot/narmada-bachao-andolan-v1.png",
+      "bytes": 2724018,
+      "sha256": "60600e5851d2aa8262c5cfca7fa45a9dee93a33098ce8e1c9d706aa8114cf3e3"
+    },
+    {
+      "path": "assets/media-pilot/narmada-bachao-andolan-v1.provenance.json",
+      "bytes": 1302,
+      "sha256": "4f5f9d87028f8b01ad78952fa673943ac5dfb4bcae27da3447c81159a11a6b03"
+    },
+    {
+      "path": "assets/media-pilot/parihaka-resistance-illustration-v1.png",
+      "bytes": 3155088,
+      "sha256": "ac51bf323b93ac93cc8a3ed470fe7c40c9ed2387dc55e732bd4120c68026e7b0"
+    },
+    {
+      "path": "assets/media-pilot/parihaka-resistance-illustration-v1.provenance.json",
+      "bytes": 3163,
+      "sha256": "97df95d63cdcffe80475a4ea0233f0a8dfe379324b81a77c9f64230c9c18e65e"
+    },
+    {
+      "path": "assets/media-pilot/parihaka-resistance-illustration-v1.webp",
+      "bytes": 2404842,
+      "sha256": "8feee21e45a82cef775d15e71ab5cb035e60795fac8ae6514dcbc253fa19a8c7"
+    },
+    {
+      "path": "assets/media-pilot/r49-prompt-set.md",
+      "bytes": 10395,
+      "sha256": "78ef9a29b8725390b95575e7287c119a264f49a5f75145f9bfdc97554b617dc2"
+    },
+    {
+      "path": "assets/media-pilot/section-504-sit-in-v1.png",
+      "bytes": 2605770,
+      "sha256": "2d3aae6e9a9115c71a3d04bd726dea2c9cbfe99c0d1912726d8f85beb6acb330"
+    },
+    {
+      "path": "assets/media-pilot/section-504-sit-in-v1.provenance.json",
+      "bytes": 1201,
+      "sha256": "95b3e5d3493d6f3af6d2c1b7dba8dbbc86c63c2d4a13ac221f6c32b172a819e6"
+    },
+    {
+      "path": "assets/media-pilot/solidarnosc-shipyard-v1.png",
+      "bytes": 2573118,
+      "sha256": "22a3727404fe9d8d5174543856b4057cda9566204647b1f3ebace2e56b53bc70"
+    },
+    {
+      "path": "assets/media-pilot/solidarnosc-shipyard-v1.provenance.json",
+      "bytes": 2353,
+      "sha256": "61e124b09ce35bcbc2ae3fa2ac4eabfef6ee2619f506c3e6a06bee07828773ad"
+    },
+    {
+      "path": "assets/media-pilot/stonewall-uprising-v1.png",
+      "bytes": 3061347,
+      "sha256": "d1d8e0b296d9b42a5ec94f83b429548506d69a92456f1c7fd8de6edfbddd6cef"
+    },
+    {
+      "path": "assets/media-pilot/stonewall-uprising-v1.provenance.json",
+      "bytes": 1084,
+      "sha256": "a824b0f5cb231e4682e38a4c1bed0b150482e9d8a2a61d8005956244c38b2961"
+    },
+    {
+      "path": "assets/media-pilot/tiny-house-warriors-v1.png",
+      "bytes": 2628935,
+      "sha256": "1af79626b683becc84a2b176d4f184c1664718689d561f4541f70be0c550d134"
+    },
+    {
+      "path": "assets/media-pilot/tiny-house-warriors-v1.provenance.json",
+      "bytes": 1394,
+      "sha256": "af52c14fe8f7db445a6712b0cf70c332d78880f3e5954afead6e2ec4df0b0df5"
+    },
+    {
+      "path": "assets/media-pilot/tolpuddle-martyrs-illustration-v1.png",
+      "bytes": 3083678,
+      "sha256": "ae1d9ce74b06ec6510ecdeb43cedef4fa0f7c01ebabb82a720b401cf5adc373d"
+    },
+    {
+      "path": "assets/media-pilot/tolpuddle-martyrs-illustration-v1.provenance.json",
+      "bytes": 2311,
+      "sha256": "38933ff2c9920ccc2bcdc0afa7369f5cdd485028bc0cb13a0049ba3a9df7c43e"
+    },
+    {
+      "path": "assets/media-pilot/tolpuddle-martyrs-illustration-v1.webp",
+      "bytes": 2226024,
+      "sha256": "8647cf04b5e737b5c4230f1687e50ba29c686d9df4ebf652ce55499c70c4d60a"
+    },
+    {
+      "path": "atlas-audio.css",
+      "bytes": 1580,
+      "sha256": "f67a5853f4968a5c43dbf89fc40236181647f1ca1b8cb13af1bcbe761f557eb0"
+    },
+    {
+      "path": "data/archive-contract.json",
+      "bytes": 9405,
+      "sha256": "7e95a18338e234b12ad90cdd9a344a9049644cbd283f6f138dbda25fb07da62d"
+    },
+    {
+      "path": "data/biographies-black.json",
+      "bytes": 59242,
+      "sha256": "69a57a370430fc02cbd3c378b4958f9e0ceec71cc16b42a1031ad3c065310c8d"
+    },
+    {
+      "path": "data/biographies-indigenous.json",
+      "bytes": 60258,
+      "sha256": "8098b6a9278e03b4b6199bad200db5180a43d98aff0126b9d55ba47e1b3a6d24"
+    },
+    {
+      "path": "data/biographies-libertarian.json",
+      "bytes": 73295,
+      "sha256": "bc7cb6a49d6fe6a421c95a868401e53c083c778bffbae3c7c5317d116742f6d2"
+    },
+    {
+      "path": "data/biography-catalog.json",
+      "bytes": 344,
+      "sha256": "0b47cfc9c7be5aa47795dabbf59d96ee3bc04d799732f180d7f81a03f35119ef"
+    },
+    {
+      "path": "data/cartography/natural-earth-land.provenance.json",
+      "bytes": 744,
+      "sha256": "4504bf4eb2e61df9cdf48468627cf24265c9569896a1345ba234896985ca9982"
+    },
+    {
+      "path": "data/cartography/ne_110m_land.geojson",
+      "bytes": 138160,
+      "sha256": "9e0729ee253ca7d7a5c4ae9395fb1902264c5377c52e224d13dd85010e2835d9"
+    },
+    {
+      "path": "data/event-catalog.json",
+      "bytes": 854,
+      "sha256": "9d7be63512fc59f628dcc61a1fc502f8424e199a368d5d542143ee6700d31c19"
+    },
+    {
+      "path": "data/event-editorial-overrides.json",
+      "bytes": 50402,
+      "sha256": "b250584748cae2e8ca4a764532e9b7aa41befe1514e1c4d046da76a7a73d3b0c"
+    },
+    {
+      "path": "data/event-image-production-queue.json",
+      "bytes": 766997,
+      "sha256": "37bffee2d63a8f6bc28a69d94fa0ac1efafe9f565681378937c5b8f42e0f8281"
+    },
+    {
+      "path": "data/event-metadata.json",
+      "bytes": 7391,
+      "sha256": "0c3e7029932a7cde2930b474cbeb946f56679fa95d3c251ecdeea5a6d9583cde"
+    },
+    {
+      "path": "data/expansion-600th.json",
+      "bytes": 769,
+      "sha256": "53a3b5083db28c82eb8543ebdf3468e6cf2a1bdc307795125033a26e498bb379"
+    },
+    {
+      "path": "data/expansion-africa-3.json",
+      "bytes": 26074,
+      "sha256": "e37b6dffb1aa9683b78c15c2376c940f522f05e81fdf48eca697e27029d10ba1"
+    },
+    {
+      "path": "data/expansion-africa.json",
+      "bytes": 28015,
+      "sha256": "8750037dd69aca9dc7b35156a658885d941640cdb1eaf6a847a1a844e02f0c62"
+    },
+    {
+      "path": "data/expansion-asia-oceania-3.json",
+      "bytes": 19402,
+      "sha256": "bd980cc2b4efea4d644a90f0d4e30392188e7a85b58b205e0182f4662f6d8718"
+    },
+    {
+      "path": "data/expansion-asia.json",
+      "bytes": 33300,
+      "sha256": "23db9c9518b31d13d31e3a34d740ebe81bc2a56f8a29b26dacc0ddccb179f4d3"
+    },
+    {
+      "path": "data/expansion-black-globalization-4.json",
+      "bytes": 13058,
+      "sha256": "b2da6d8c2a980fbf5c23a366eb4d5bd3e0878aab4fa20e8c0c8cb8a5faf390fd"
+    },
+    {
+      "path": "data/expansion-care-abolition.json",
+      "bytes": 29093,
+      "sha256": "0991f50553f18d56baa324e2774278e296a52302f68ee1ac942cb41e968603db"
+    },
+    {
+      "path": "data/expansion-commons-global-3.json",
+      "bytes": 18061,
+      "sha256": "f74571475f1834e2526611847febc3ecb6ff06ee1efeee6477ad96fbcb2343bb"
+    },
+    {
+      "path": "data/expansion-decolonial-2.json",
+      "bytes": 34011,
+      "sha256": "77f3d04e59eba1feb80eeee5d7e2aab303b7b864bf2692e03e09692c362b6c35"
+    },
+    {
+      "path": "data/expansion-europe.json",
+      "bytes": 17228,
+      "sha256": "4c92e527885bb76ff81578e746b2b91e0622491186642c64cd0f137a14f2c513"
+    },
+    {
+      "path": "data/expansion-final-3.json",
+      "bytes": 2243,
+      "sha256": "d543d44e32cd781bfbca044120ce478613e04703f94b5dc3b70e0b85ba158cb6"
+    },
+    {
+      "path": "data/expansion-indigenous-canada-4.json",
+      "bytes": 62452,
+      "sha256": "70b8e0b0551d9c37e386ae31566f7e803bc3e44b7b9f3c751e866da64d76a694"
+    },
+    {
+      "path": "data/expansion-latin-america.json",
+      "bytes": 32925,
+      "sha256": "6bc973963767735f8ba3a43067289eafcaa514b1af4116ade4da561f409fc667"
+    },
+    {
+      "path": "data/expansion-latin-caribbean-3.json",
+      "bytes": 27978,
+      "sha256": "eeb61ba9cebed2b4f4c96c162e0697a88d2e730af9ff31c8d7cad32962162939"
+    },
+    {
+      "path": "data/expansion-maritime.json",
+      "bytes": 26130,
+      "sha256": "6b53ae07ca29c134f6a9cdee4bd6a681563194e11dda0b0d1697c0da26915efb"
+    },
+    {
+      "path": "data/expansion-north-america.json",
+      "bytes": 24594,
+      "sha256": "3700763a570e915e14aac8a5fa4e58080980627467674cf2134f60344b4068fd"
+    },
+    {
+      "path": "data/expansion-oceania.json",
+      "bytes": 11690,
+      "sha256": "9f96e7990bc5967eff7968a8fa9937cee58e56965bba61d6a75fee961fb0fd0f"
+    },
+    {
+      "path": "data/expansion-queer-feminist-2.json",
+      "bytes": 29732,
+      "sha256": "3bc893c7303d22c9bbd9c0159aa78fb7c9f37016296d3de53f25238080529298"
+    },
+    {
+      "path": "data/expansion-replacements-3.json",
+      "bytes": 25015,
+      "sha256": "09df85d45281a6299c6381ff139f704438d5753ceed7a7b8ceae6d45c2258d31"
+    },
+    {
+      "path": "data/expansion-social-achievements-4.json",
+      "bytes": 16224,
+      "sha256": "d8c8334d8edfc4c03367612413cce9e76a5a30e2b4e28b201092b7a63f427917"
+    },
+    {
+      "path": "data/expansion-worker-peasant-2.json",
+      "bytes": 30582,
+      "sha256": "aadba27c9e4ba5c67d376f6e77cc57eb7d0677be8573a9461e71f2613106a7ef"
+    },
+    {
+      "path": "data/fallback-events.json",
+      "bytes": 31921,
+      "sha256": "48617f0f7e5aca8eb4910c35dfdfb73b3955e281a0d057d0605869e963baef82"
+    },
+    {
+      "path": "data/historical-resistance-events.json",
+      "bytes": 72662,
+      "sha256": "93285a31750704ea0f043caa15e3df797bb7ad80aa4e97c22f7cf1a69d402584"
+    },
+    {
+      "path": "data/inclusive-language-allowlist.json",
+      "bytes": 9381,
+      "sha256": "525e7bbf3948d604ba7b28a7111ed1131537e826c7995caa89b24e35582c3ddf"
+    },
+    {
+      "path": "data/map-taxonomy.json",
+      "bytes": 3561,
+      "sha256": "740fcd1c66676b97dec45b1c1eba5911b572c815d36d93ff0e6e9c8c50e3ddac"
+    },
+    {
+      "path": "data/media-relevance-inventory.json",
+      "bytes": 250254,
+      "sha256": "a373260f98a03c4e9d2f5d1ac30e269b0317b563dae81188abe825abe7af4c70"
+    },
+    {
+      "path": "data/movement-events.json",
+      "bytes": 84749,
+      "sha256": "a927f34edaaeef5f28344b98bb6bd5f9a1373f507cd60d736afdd291f8f36ecb"
+    },
+    {
+      "path": "data/relations.json",
+      "bytes": 6623,
+      "sha256": "fd07b4ca333d52b72bd01ec0a232f44410be5cd80e88c5850800525bfd620e0e"
+    },
+    {
+      "path": "data/routes.json",
+      "bytes": 3818,
+      "sha256": "4aae11640a587273f70a737275d11fe4dc8a523d38ba82b56888826d247c04e1"
+    },
+    {
+      "path": "data/social-achievements-next.json",
+      "bytes": 60121,
+      "sha256": "a2834e5ce24a9d670c9518786f390e5dbd15ebea5389a74d9f25c7febb9c7789"
+    },
+    {
+      "path": "data/terrain/chipko-uttarakhand-z0-z10.pmtiles",
+      "bytes": 12415658,
+      "sha256": "dded070f7784d9ff0fdeba016ad766d3d25184a238efa4a5ff0d884706a2d9a3"
+    },
+    {
+      "path": "data/terrain/chipko-uttarakhand.manifest.json",
+      "bytes": 2265,
+      "sha256": "cc5d00546f27ac384b0a44269bde7310aa3cf7d907f09dbce019b894b3f16800"
+    },
+    {
+      "path": "data/translation-batches.json",
+      "bytes": 185,
+      "sha256": "0dc8a9083e52c1a47ffd895ca39abe7692240ed8da9f9c625b66e51c9a20047f"
+    },
+    {
+      "path": "data/translation-review-manifest.json",
+      "bytes": 240,
+      "sha256": "127ff145d659d44ecd6184e722f65d41d3b194ec4870e7417f36f0abf125e2a9"
+    },
+    {
+      "path": "docs/current-handoff.md",
+      "bytes": 42669,
+      "sha256": "f88b5a81ecede69660cfa40da714ad56fa3c6179c581a437895a32f5c845ccd0"
+    },
+    {
+      "path": "docs/embedding.md",
+      "bytes": 13228,
+      "sha256": "192a544bc19cf72e7425db2732750e89a61ee87a7a91665c0200305eb5f36eef"
+    },
+    {
+      "path": "docs/event-image-context-review-r76.md",
+      "bytes": 5462,
+      "sha256": "e0e22a64eb1abb8afc0d2d931a5a797970b8b32621eefe408055150e67cc8857"
+    },
+    {
+      "path": "docs/licensing-and-attribution.md",
+      "bytes": 9101,
+      "sha256": "ed79df9e0fc8ad8df01809df430acf06935e58facaf7b6a58c07a285461bf9c5"
+    },
+    {
+      "path": "index.html",
+      "bytes": 44454,
+      "sha256": "aa436d5cb21ee3c0dde951c5189777a104778f7c238bf4194988d86a1752f639"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 464,
+      "sha256": "d227e1591d68c27ecfcc6adb3e97f4d4c4630419c85b8dbdad5be18f6324d595"
+    },
+    {
+      "path": "media-pilot.css",
+      "bytes": 7897,
+      "sha256": "ab356dd7202b363cb81e6a62b9951a3e734a1cf018fa43f0d45ec83bf0e7e3f1"
+    },
+    {
+      "path": "newsroom.css",
+      "bytes": 26441,
+      "sha256": "f68d87c2776948f70ed6e206f70cba7df121e0a050546db7b2676123fc0e2f8c"
+    },
+    {
+      "path": "script.js",
+      "bytes": 186876,
+      "sha256": "dcd68f59cf745cd485c4af5e21697ac1fc70d5d95963affe664f7204b13f14c7"
+    },
+    {
+      "path": "service-worker.js",
+      "bytes": 9476,
+      "sha256": "49275b725c2e8d9c68261fdd8d5eb6dcc32084452dd76e2662cfd422a1d37a64"
+    },
+    {
+      "path": "src/atlas-api.js",
+      "bytes": 1564,
+      "sha256": "57a5794e9c6d080ac0026ab3d39e08ec06af9cfc5b228488834bdcb208adef57"
+    },
+    {
+      "path": "src/atlas-audio.js",
+      "bytes": 10822,
+      "sha256": "8a6a1d095d9e016453891b64ad4d2fea616359715770c86d71fb450b645eed33"
+    },
+    {
+      "path": "src/atlas-config.js",
+      "bytes": 2060,
+      "sha256": "747ec3d0aba7917312251aecb4ee26cd3f5836c8d5d755794e89c96bbd9dcaec"
+    },
+    {
+      "path": "src/atlas-embed.js",
+      "bytes": 1868,
+      "sha256": "c5e953e343184b18c0ff4a82a87209fc200b243f33396989b20b4c001bc6d6a8"
+    },
+    {
+      "path": "src/biography-core.js",
+      "bytes": 11406,
+      "sha256": "b49a56df86602bae71b1a252412c33411f6e61a51255968498102ed5ac0397bd"
+    },
+    {
+      "path": "src/event-follow-up.js",
+      "bytes": 4401,
+      "sha256": "0867cc22ea1a3d7c36bb45fdb7cbb0ce9541a672c15e6e4be11b98ab2eeb39af"
+    },
+    {
+      "path": "src/event-illustration-batch-r75.js",
+      "bytes": 4294,
+      "sha256": "2a792bc38375b1353bcb0573bef8c0a842e188d9fef457c56de970df8c791510"
+    },
+    {
+      "path": "src/event-illustration-batch-r76.js",
+      "bytes": 3540,
+      "sha256": "96be9d86c8f45b9010e27ca1a53e000d225b524d530c82f20c37fa8815c10fd2"
+    },
+    {
+      "path": "src/event-reading.js",
+      "bytes": 14764,
+      "sha256": "79eb4ed932a464755212298df320343a8be8f6eeb62bbe80e424e64b3c775fbd"
+    },
+    {
+      "path": "src/event-visuals.js",
+      "bytes": 12586,
+      "sha256": "2ce764b0324ca945a7ad913e08f30414eae1466ebd38076e45742778b1be6ee9"
+    },
+    {
+      "path": "src/evidence-model.js",
+      "bytes": 1586,
+      "sha256": "04c33cd2698810d07813c884a09832e631fedac3db17a33b30f281ef3eeb0f9d"
+    },
+    {
+      "path": "src/filter-feedback.js",
+      "bytes": 2961,
+      "sha256": "877cc1f3ded7be4be2fa35f61229cdf3ef082efe44b098ba8095dafafc9dd32a"
+    },
+    {
+      "path": "src/game-core.js",
+      "bytes": 47727,
+      "sha256": "ad8898b34a48d28da628b61796dccbd87c69103bb24298ec566e47a133bcbc5c"
+    },
+    {
+      "path": "src/i18n.js",
+      "bytes": 317031,
+      "sha256": "4666a0706bf542663dcf99616c390ce5816fb823902de1622af8e8a54857b2ed"
+    },
+    {
+      "path": "src/local-library.js",
+      "bytes": 3417,
+      "sha256": "754094915b922a036c9511c3d1f62d685525c17a1039358bb6bf088e6540bdfd"
+    },
+    {
+      "path": "src/map-focus.js",
+      "bytes": 3658,
+      "sha256": "2e89e3079cb4f9dea0317eb2a1c2c1a21a9132946f94d76b25a054e47d43a895"
+    },
+    {
+      "path": "src/map-projection.js",
+      "bytes": 1382,
+      "sha256": "2a79b5a161edf744c1f9c68ddfedbf6ee2ebc771c6d57188b46e5906d00a2e06"
+    },
+    {
+      "path": "src/media-pilot.js",
+      "bytes": 30593,
+      "sha256": "ec9cbf1a2c8e08bf9243b85d21c448016a426da233344fd757412ce8d3f3e53b"
+    },
+    {
+      "path": "src/mobile-simulator.js",
+      "bytes": 1829,
+      "sha256": "889391ba04bd2a79ee1a62c214d30c4c0729cf7faa37c2b3abe515d29eda9890"
+    },
+    {
+      "path": "src/mobile-ui.js",
+      "bytes": 1620,
+      "sha256": "a87dac17c68b10af38363b04245ecdacdb04ee3b7a6379a2d68e2658e9f5b7ac"
+    },
+    {
+      "path": "src/newsroom-map.js",
+      "bytes": 3993,
+      "sha256": "a1b2d5ca3a26fb54a8c05e4fc8b6b26e1792ab9e3d167be948bf7795e0498025"
+    },
+    {
+      "path": "src/newsroom-theme.js",
+      "bytes": 2216,
+      "sha256": "75417dbb9deca22455f50c867482ecb5acb8d115b5e0bbc24ef53dab41ce4f0a"
+    },
+    {
+      "path": "src/progress-store.js",
+      "bytes": 3103,
+      "sha256": "da9b45df0f41f618e3a4be0359bdfbf9081b8589a0e379a74405c399d5a7dd2b"
+    },
+    {
+      "path": "src/route-story.js",
+      "bytes": 1752,
+      "sha256": "f9323c487e6d1e5a385968871c3832fcca0f0c320bb6121552f9b17579667ebc"
+    },
+    {
+      "path": "src/terrain-policy.js",
+      "bytes": 1438,
+      "sha256": "9e09424ac561e5fc862f41253bd3a4b6cdd2150f934ae820417dde91a25829db"
+    },
+    {
+      "path": "src/timeline-core.js",
+      "bytes": 4411,
+      "sha256": "85d2062253e4f6122b032da106a80123530cd94423db8fb0b6a6dcf0dbcee7ae"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 108544,
+      "sha256": "0f2f3b18f9c1c6ec3c0d368b83583204b22e2749301ae6070f3ad1017842e185"
+    },
+    {
+      "path": "vendor/PMTILES-LICENSE.txt",
+      "bytes": 1713,
+      "sha256": "0371c38f338835f7fc13ed71176f3d92144e22c8b736a31cced57adbbeb647b3"
+    },
+    {
+      "path": "vendor/pmtiles-4.5.0.js",
+      "bytes": 20229,
+      "sha256": "caf981bc46f6327ee7e65d5dc964d89d38a69f60edca2bd4c5c890c21b554c6c"
+    }
+  ],
+  "excludedProductionMasters": [
+    {
+      "path": "assets/media-pilot/adapt-greyhound-protests-illustration-v1.png",
+      "sha256": "68cf249681858b87709119af8c0edaad5b8c5722ec28aea5e04667ac914b6b77",
+      "reason": "unreferenced PNG master; runtime WebP retained"
+    },
+    {
+      "path": "assets/media-pilot/alexandra-bus-boycott-illustration-v1.png",
+      "sha256": "2f37545ffaaaa412f454fd79a0742fc5616b735e272c8653ca588e6c77345d4c",
+      "reason": "unreferenced PNG master; runtime WebP retained"
+    },
+    {
+      "path": "assets/media-pilot/all-malaya-hartal-illustration-v1.png",
+      "sha256": "b2d0c466600a9c8899c7466ed3b68228a1a5bf252fd24d05908ebadb3d09955f",
+      "reason": "unreferenced PNG master; runtime WebP retained"
+    },
+    {
+      "path": "assets/media-pilot/annual-reminder-illustration-v1.png",
+      "sha256": "55a21f587dd633b2c24cd9e4e52982ff090ba7ee3099c72902d8b256cfaee208",
+      "reason": "unreferenced PNG master; runtime WebP retained"
+    },
+    {
+      "path": "assets/media-pilot/deir-el-medina-strike-illustration-v1.png",
+      "sha256": "44b911ced0e40acd439104ac0282ea92bc1774adaee9549b069fc2da76f17e61",
+      "reason": "unreferenced PNG master; runtime WebP retained"
+    },
+    {
+      "path": "assets/media-pilot/diggers-st-georges-hill-illustration-v1.png",
+      "sha256": "3fd0dbcd7112da6ef9b41a2e9cbd01928efd18e4cfce418f48d2360cc913d8f4",
+      "reason": "unreferenced PNG master; runtime WebP retained"
+    },
+    {
+      "path": "assets/media-pilot/lagos-strike-1897-illustration-v1.png",
+      "sha256": "bc22e596321f05cf5610c25b161406d888c01390e16801d001383857eb5af895",
+      "reason": "unreferenced PNG master; runtime WebP retained"
+    },
+    {
+      "path": "assets/media-pilot/lagos-strike-1897-illustration-v2.png",
+      "sha256": "905682258df9e287ff299908f0873e0865c707fccef37f85f8a12c1d96996941",
+      "reason": "unreferenced PNG master; runtime WebP retained"
+    },
+    {
+      "path": "assets/media-pilot/luddite-uprisings-illustration-v1.png",
+      "sha256": "42a9d306c8fb9b91e595cf297e62938827bf58d5f38c1153e955e77cbcd76c13",
+      "reason": "unreferenced PNG master; runtime WebP retained"
+    },
+    {
+      "path": "assets/media-pilot/male-revolt-illustration-v1.png",
+      "sha256": "ebcf11d15e445eac09588019878dddef78d010895940309349cbf15a27287e25",
+      "reason": "unreferenced PNG master; runtime WebP retained"
+    },
+    {
+      "path": "assets/media-pilot/matchgirls-strike-illustration-v1.png",
+      "sha256": "fb11b20957a2dcfe3352f463f5779dd40a5723ea24c093df1aca7f4a1a674e97",
+      "reason": "unreferenced PNG master; runtime WebP retained"
+    },
+    {
+      "path": "assets/media-pilot/mau-movement-samoa-illustration-v1.png",
+      "sha256": "59b1ebaf05eb4b54aa980a0e3a0688279195bea1e2ce17d648ab4391253b6d68",
+      "reason": "unreferenced PNG master; runtime WebP retained"
+    },
+    {
+      "path": "assets/media-pilot/parihaka-resistance-illustration-v1.png",
+      "sha256": "ac51bf323b93ac93cc8a3ed470fe7c40c9ed2387dc55e732bd4120c68026e7b0",
+      "reason": "unreferenced PNG master; runtime WebP retained"
+    },
+    {
+      "path": "assets/media-pilot/tolpuddle-martyrs-illustration-v1.png",
+      "sha256": "ae1d9ce74b06ec6510ecdeb43cedef4fa0f7c01ebabb82a720b401cf5adc373d",
+      "reason": "unreferenced PNG master; runtime WebP retained"
+    }
+  ],
+  "adaptations": [
+    "exact capacitor://localhost parent origin support",
+    "SRI-verified local MapLibre 5.24.0",
+    "unreferenced duplicate PNG masters omitted",
+    "only ready metadata crosses parent event boundary; private progress/filters remain inside game",
+    "embedded local Natural Earth overview map without external basemap tiles; historical coordinates unchanged",
+    "Nine native App palettes and editorial alias",
+    "Compact language codes and viewport-filling embedded map",
+    "Original Kollektiv synthesized score replaces Spuren; opt-in/background/sensitive controls retained",
+    "Version-scoped offline generation includes new modules/layout and bundled renderer/local geometry; missing optional simulator document removed"
+  ],
+  "mediaApproval": "All upstream draft/humanReviewed/publicationApproved fields preserved; no promotion",
+  "bytes": 104323582,
+  "developmentCheckoutUntouched": true,
+  "captureTimestampMeaning": "Frozen upstream base capture; variant identity contains no build-clock timestamp",
+  "baseVersion": "r76-8a0c503f6d00",
+  "baseManifestSha256": "b14a48b7682f9a153c4e8e8abaca3ab4ae3a45846b4d5eabf33b6db539b20968",
+  "variantInventorySha256": "7309af384b5a844cda985b94d6e0008c3a785115fcb2ad9780a314396b7c5f92",
+  "supportedThemes": [
+    "violet",
+    "dark",
+    "autonom",
+    "oled",
+    "soft",
+    "pink",
+    "light",
+    "system",
+    "contrast"
+  ],
+  "themeAliases": {
+    "editorial": "autonom"
+  },
+  "musicScore": {
+    "id": "kollektiv-r77",
+    "title": "Kollektiv",
+    "bpm": 96,
+    "style": "instrumental post-punk/dub",
+    "recordingsUsed": false,
+    "externalServiceUsed": false
+  },
+  "version": "r77-564c7ef0fdc9",
+  "identitySha256": "564c7ef0fdc92df9500ee07158ecdbcace65e9a4e9750788b390bb691cdd15bd"
+}

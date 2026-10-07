@@ -1,0 +1,250 @@
+{
+  "appCommit": "6a8edf0b8e2ddd462db2e750f672c3f114801171",
+  "dataCommit": "2225f93cacecebf4ee262a595d0ed4ffec93caf2",
+  "handoffSha256": "1868c6d517f0e6ef133872edcb240209a186780d690d74ffb21390782447ad39",
+  "appVisible": 445,
+  "websiteFeedAdmitted": 475,
+  "appVisibleWebsiteAdmitted": 423,
+  "appVisibleExcluded": [
+    {
+      "id": "news-37f3c401419c0dd2b52298f269d939dc666cfd39e833efe640b6bc16c61c0182",
+      "url": "https://libcom.org/ar/article/altjdyd-altnzymy-llysar-fy-alsr-alrqmy",
+      "reason": "identity-conflict"
+    },
+    {
+      "id": "news-dd8a867553e3926a476f64a94e87e7e27aecbd570030e53440365612e31a368d",
+      "url": "https://libcom.org/article/direct-action-solfed-04-1997",
+      "reason": "identity-conflict"
+    },
+    {
+      "id": "news-f8ff0a7e5943798295e6c059a4fbe69b7c41d517a4b41159c37cc3d20788fb52",
+      "url": "https://libcom.org/article/tensions-anarchism-barry-pateman",
+      "reason": "incomplete-source-provenance"
+    },
+    {
+      "id": "news-39fbb2451031400d92d472a3d646d80ca2b3ea90abb3f7b3421827f8e6de57b0",
+      "url": "https://libcom.org/article/simone-weil-waning-working-class-technique-and-rise-fascism",
+      "reason": "incomplete-source-provenance"
+    },
+    {
+      "id": "news-18819c41d5e1448ddcd93cd96786c015b5ee6afeca445d7095a61f8c47555433",
+      "url": "https://libcom.org/article/revolutionary-legacy-balkans-yavor-tarinskis-balkan-federation-and-communes",
+      "reason": "incomplete-source-provenance"
+    },
+    {
+      "id": "news-3f7cfc8d2cee5c664f503924b10a0768a61ca4d9e23194165e6240d1aae80743",
+      "url": "https://www.mapuexpress.org/2026/10/02/en-liucura-convocan-a-trawun-el-agua-y-nuestros-rios-constituyen-parte-fundamental-de-nuestro-territorio-y-son-un-recurso-vital-para-la-vida/",
+      "reason": "identity-conflict"
+    },
+    {
+      "id": "news-afc1e1cab6c021a0ceefbb0299d8f4a8fd4fb78e7c62a1ec6a6bbaebe086a97c",
+      "url": "http://www.democracynow.org/2026/10/2/massacre_at_minab",
+      "reason": "insecure-url"
+    },
+    {
+      "id": "news-d73b215cae02d8947fbf79c617908d15422a92863e0df07aad87995d5a0b7190",
+      "url": "http://www.democracynow.org/2026/10/2/christa_pike",
+      "reason": "insecure-url"
+    },
+    {
+      "id": "news-ffe8ab81073d7bea46faeec66549b70e837b331b695cc2c50899f5a4aa8f059b",
+      "url": "http://www.democracynow.org/2026/10/2/headlines",
+      "reason": "insecure-url"
+    },
+    {
+      "id": "news-d9b66cfa88963e95858aabacc448c9ac883bf74f716f6e316200c48a487202d1",
+      "url": "https://libcom.org/article/ukraines-genuine-anti-authoritarian-resistance-concentrating-certain-areas-and-revealing",
+      "reason": "incomplete-source-provenance"
+    },
+    {
+      "id": "news-deb45c237de666a040fda66e0aadcc6a0f73c5babbc6042cf177f58879a696d7",
+      "url": "https://queeranarchism.tumblr.com/post/829350665774071808",
+      "reason": "invalid-schema"
+    },
+    {
+      "id": "news-52efa3900e81ed137778ac0e8ac1f9826730cd0dbaa04c9dbe38b4c361dfb8e1",
+      "url": "https://www.xn--untergrund-blttle-2qb.ch/kultur/film/der-terminator-009930.html",
+      "reason": "identity-conflict"
+    },
+    {
+      "id": "news-bfc066b518b0cbd87d3d513471422a0508dfbe2bb236e7f0bb43f37d26e8c142",
+      "url": "https://www.xn--untergrund-blttle-2qb.ch/politik/nordamerika/elektroschock-handschuhe-fuer-abschiebebeamte-in-den-usa-010182.html",
+      "reason": "identity-conflict"
+    },
+    {
+      "id": "news-424539af0d943ec8e2a0d45e35f8107ec01bb7ee4995d2d42d085512a746c147",
+      "url": "https://www.xn--untergrund-blttle-2qb.ch/buchrezensionen/sachliteratur/frederik-fuss-hg-anarchistische-scheidewege-zum-verhaeltnis-von-anarchismus-und-antisemitismus-009774.html",
+      "reason": "identity-conflict"
+    },
+    {
+      "id": "news-b124971eb14709f1ca7f1addc2fd13d3dbb02106ec8040ab10e9ba3bd1a5f0e9",
+      "url": "https://libcom.org/article/blast-6-august-1995",
+      "reason": "incomplete-source-provenance"
+    },
+    {
+      "id": "news-88d7ed43532a8aeefb99ba7b15a3eb0276b148815de21bfd0660ee1c191dffad",
+      "url": "http://www.democracynow.org/2026/10/1/germany_europe_asylum_seekers",
+      "reason": "insecure-url"
+    },
+    {
+      "id": "news-0359ca01f0ae175f5b0ed1a0e5a39dbc884d85ddcb7906a949049cfc1033d23a",
+      "url": "https://debatesindigenas.org/2026/10/01/la-autonomia-indigena-en-el-sistema-interamericano-a-cinco-anos-del-informe-de-la-cidh-sobre-libre-determinacion/",
+      "reason": "identity-conflict"
+    },
+    {
+      "id": "news-ed64054a5c0139a1d1958b677834822ae2936839661ba1ec697e7ab992e215c2",
+      "url": "http://www.democracynow.org/2026/9/30/mahmoud_khalil_no_land_to_stand",
+      "reason": "insecure-url"
+    },
+    {
+      "id": "news-33763b53b9ca9353422e87b0edf73e2ba70e7a14183323065147d510d2165b2c",
+      "url": "http://www.democracynow.org/2026/9/30/headlines",
+      "reason": "insecure-url"
+    },
+    {
+      "id": "news-5d97585ee344c6e8648071af23670eedb589bc336e96d25edd69b2477d813427",
+      "url": "http://www.democracynow.org/2026/9/24/africa_ai",
+      "reason": "insecure-url"
+    },
+    {
+      "id": "news-451fef083a64dc7b532f7ac2239a8158895873bf4301c474f838a4af13dc2dcd",
+      "url": "https://tejidocomunicacion.nasaacin.org/munchique-culmino-el-diplomado-sobre-el-derecho-humano-a-la-alimentacion-adecuada-realizado-junto-al-icbf-y-la-universidad-tecnologica-de-pereira/",
+      "reason": "identity-conflict"
+    },
+    {
+      "id": "news-383af20743fcd23c826f31c51c6200bef213b02e46afa249c80ff4abc7deb0b8",
+      "url": "https://www.karapatan.org/5561/",
+      "reason": "identity-conflict"
+    }
+  ],
+  "websiteOnlyAccepted": 52,
+  "homeRoles": {
+    "lead": [
+      "news-1275b2a383697835d98166d826a33ccf93080f39aec56e8548d9dfb3e6edf344"
+    ],
+    "top": [
+      "news-57eddee5a5d291ebca3d2cdf49c091948016039e803ce1677f17adb4b8420f8b",
+      "news-acf78b95491b065332d6b6944c7b88a0e87dcd9910ffe04855e4e506c0742570",
+      "news-cdcdfe3f011c244e0bf0e0f68bae7de4777783482f38dd01d1ce18e84ba64f27",
+      "news-2dc8a0b0c899d3391702a59848f7b57f4686525b03769a5a48c1c154b9bcfefc",
+      "news-a6e8bb2e7f4d7f650c719afbf0114ae7d0f718d9f11978e481d150d1d1d7c640"
+    ],
+    "sport": [],
+    "more": [
+      "news-f6e54f5c20b8346b580f16e5ddaf5de5a5a674b5857936222483479d762295bd",
+      "news-c7a882056ccb9be6c442b5f84aadb64aee2ac09aa19ecbf5dd3d5c4280174525",
+      "news-361288805be413137f7fc68152b8d8be0bd6dea45e7bc3f8b19a42ff73c46126",
+      "news-c2df2f88a3635d8c48d7f4d9c811954c366007562a0139bd537f0b73b5f3ab82",
+      "news-5e0a0507421aa0a921026a31b0f3044860f889502797c06a0490b251140d3880",
+      "news-0bdbee32be4040c736585e37950753615377a6e85927dc114486cd25378a5f90",
+      "news-e57e7aa1e4154b8689c9deef9583c07c708dbca5d0ccaad556b1a270fd486d19",
+      "news-af0795a02d8abddb6004e6f757b1853c093387ef378376b0314cb4bbb30a94eb",
+      "news-06bbdb671cb0064d3c21901e1225fed0ccd8504482907716e4efa5aad6868908"
+    ],
+    "briefing": [
+      "news-f9e2a189f4d38f2bcbab3e828bf3ac7925357d67f12718ae549000d83c58b44a",
+      "news-fc3cc8a10629b23d5a445116f95f90a54e68c0391397971b9c4e561a18a35e28",
+      "news-75919277e34844be87755c018f537f65685344d8867d629b2b2986d413810cf8",
+      "news-07fde1d4db5b2fc7ca4a2e495e9ea7a5e2535fd49cfd679b5b57ced22e1efddb",
+      "news-48c5b09efbbf07fa995a2399d380a9bf50869013201dddcf38f3e21d732a7518"
+    ]
+  },
+  "images": 327,
+  "imageExcluded": [
+    {
+      "row": 9,
+      "reason": "unsafe-image-url"
+    },
+    {
+      "row": 314,
+      "reason": "unsafe-image-url"
+    },
+    {
+      "row": 315,
+      "reason": "unsafe-image-url"
+    },
+    {
+      "row": 428,
+      "reason": "unsafe-image-url"
+    }
+  ],
+  "origins": [
+    "https://64.media.tumblr.com",
+    "https://africanarguments.org",
+    "https://africanfeminism.com",
+    "https://agenciatierraviva.com.ar",
+    "https://animalequality.de",
+    "https://animalliberationpressoffice.org",
+    "https://apublica.org",
+    "https://argentina.indymedia.org",
+    "https://autonomies.org",
+    "https://avtonom.org",
+    "https://cdn.nunatsiaq.com",
+    "https://dhjhkxawhe8q4.cloudfront.net",
+    "https://edri.org",
+    "https://english.anf-news.com",
+    "https://equalitynow.org",
+    "https://es.anarchistlibraries.net",
+    "https://feminist.org",
+    "https://files.libcom.org",
+    "https://grist.org",
+    "https://i0.wp.com",
+    "https://infoaut.org",
+    "https://infolibre.gr",
+    "https://laborforpalestine.net",
+    "https://manilatoday.net",
+    "https://mars-infos.org",
+    "https://media.indiginews.com",
+    "https://migrant-solidarity-network.ch",
+    "https://minorityafrica.org",
+    "https://newbloommag.net",
+    "https://novaramedia.com",
+    "https://paris-luttes.info",
+    "https://public.flourish.studio",
+    "https://publish.barrikade.info",
+    "https://radiokurruf.org",
+    "https://rebellyon.info",
+    "https://roape.net",
+    "https://rojavainformationcenter.org",
+    "https://ru.anarchistlibraries.net",
+    "https://slackbastard.anarchobase.com",
+    "https://static.bianet.org",
+    "https://static.wixstatic.com",
+    "https://storage.ghost.io",
+    "https://theanarchistlibrary.org",
+    "https://theappeal.org",
+    "https://tierbefreier.org",
+    "https://truthout.org",
+    "https://unoffensiveanimal.ch",
+    "https://unoffensiveanimal.is",
+    "https://ur-web1.unicornriot.ninja",
+    "https://wagingnonviolence.org",
+    "https://winteroak.org.uk",
+    "https://womin.africa",
+    "https://worldbeyondwar.org",
+    "https://www.accessnow.org",
+    "https://www.alerta.gr",
+    "https://www.anred.org",
+    "https://www.aptnnews.ca",
+    "https://www.blackrosefed.org",
+    "https://www.bulatlat.com",
+    "https://www.eff.org",
+    "https://www.evrensel.net",
+    "https://www.facebook.com",
+    "https://www.greenleft.org.au",
+    "https://www.groundxero.in",
+    "https://www.huntsabs.org.uk",
+    "https://www.ienearth.org",
+    "https://www.kinimatorama.net",
+    "https://www.l214.com",
+    "https://www.labournet.de",
+    "https://www.madamasr.com",
+    "https://www.madinamerica.com",
+    "https://www.peta.de",
+    "https://www.presos.org.es",
+    "https://www.roundtableindia.co.in",
+    "https://www.theelephant.info",
+    "https://znetwork.org"
+  ],
+  "exactHandoffFilesVerified": 14
+}

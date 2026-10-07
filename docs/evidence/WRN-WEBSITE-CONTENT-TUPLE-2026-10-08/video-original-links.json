@@ -1,0 +1,142 @@
+{
+  "appCommit": "7dd4e9e428cae4ae5c25caa98402df901f861981",
+  "checks": [
+    {
+      "id": "peertube:https://kolektiva.media:tDVHuFhrhB5wedNZhrn62B",
+      "url": "https://kolektiva.media/w/tDVHuFhrhB5wedNZhrn62B",
+      "metadataOnly": true,
+      "status": 200,
+      "finalUrl": "https://kolektiva.media/w/tDVHuFhrhB5wedNZhrn62B",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "id": "youtube:36uxUq0adRU",
+      "url": "https://www.youtube.com/watch?v=36uxUq0adRU",
+      "metadataOnly": true,
+      "status": 200,
+      "finalUrl": "https://www.youtube.com/watch?v=36uxUq0adRU",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "id": "youtube:AHGl9a8BcqI",
+      "url": "https://www.youtube.com/watch?v=AHGl9a8BcqI",
+      "metadataOnly": true,
+      "status": 200,
+      "finalUrl": "https://www.youtube.com/watch?v=AHGl9a8BcqI",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "id": "youtube:mOlpZzlh09s",
+      "url": "https://www.youtube.com/watch?v=mOlpZzlh09s",
+      "metadataOnly": true,
+      "status": 200,
+      "finalUrl": "https://www.youtube.com/watch?v=mOlpZzlh09s",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "id": "youtube:nrm4gj_eDGA",
+      "url": "https://www.youtube.com/watch?v=nrm4gj_eDGA",
+      "metadataOnly": true,
+      "status": 200,
+      "finalUrl": "https://www.youtube.com/watch?v=nrm4gj_eDGA",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "id": "youtube:0uNSjlCkxwA",
+      "url": "https://www.youtube.com/watch?v=0uNSjlCkxwA",
+      "metadataOnly": true,
+      "status": 200,
+      "finalUrl": "https://www.youtube.com/watch?v=0uNSjlCkxwA",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "id": "youtube:tDDLFpz7pjE",
+      "url": "https://www.youtube.com/watch?v=tDDLFpz7pjE",
+      "metadataOnly": true,
+      "status": 200,
+      "finalUrl": "https://www.youtube.com/watch?v=tDDLFpz7pjE",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "id": "youtube:lrTzjaXskUU",
+      "url": "https://www.youtube.com/watch?v=lrTzjaXskUU",
+      "metadataOnly": true,
+      "status": 200,
+      "finalUrl": "https://www.youtube.com/watch?v=lrTzjaXskUU",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "id": "youtube:bgmClo2LPls",
+      "url": "https://www.youtube.com/watch?v=bgmClo2LPls",
+      "metadataOnly": true,
+      "status": 200,
+      "finalUrl": "https://www.youtube.com/watch?v=bgmClo2LPls",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "id": "peertube:https://kolektiva.media:dimfxZY4xF4dQNhCMaQEGT",
+      "url": "https://kolektiva.media/w/dimfxZY4xF4dQNhCMaQEGT",
+      "metadataOnly": true,
+      "status": 200,
+      "finalUrl": "https://kolektiva.media/w/dimfxZY4xF4dQNhCMaQEGT",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "id": "youtube:mfEYye6TNlk",
+      "url": "https://www.youtube.com/watch?v=mfEYye6TNlk",
+      "metadataOnly": true,
+      "status": 200,
+      "finalUrl": "https://www.youtube.com/watch?v=mfEYye6TNlk",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "id": "youtube:I0UGM8zeNLw",
+      "url": "https://www.youtube.com/watch?v=I0UGM8zeNLw&t=921s",
+      "metadataOnly": true,
+      "status": 200,
+      "finalUrl": "https://www.youtube.com/watch?v=I0UGM8zeNLw&t=921s",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "id": "youtube:o8Btb1sGRK0",
+      "url": "https://www.youtube.com/watch?v=o8Btb1sGRK0",
+      "metadataOnly": true,
+      "status": 200,
+      "finalUrl": "https://www.youtube.com/watch?v=o8Btb1sGRK0",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "id": "peertube:https://kolektiva.media:dqLhnQgwtbWTs4v29nNGJN",
+      "url": "https://kolektiva.media/videos/watch/64a2cdeb-1f49-4f95-9f53-3e3fc9da4392",
+      "metadataOnly": true,
+      "status": 200,
+      "finalUrl": "https://kolektiva.media/videos/watch/64a2cdeb-1f49-4f95-9f53-3e3fc9da4392",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "id": "peertube:https://kolektiva.media:8b5GBxiSxGFQ2BAP31Hsom",
+      "url": "https://kolektiva.media/videos/watch/3a184e10-1cea-46fa-b082-0ca6d014b620",
+      "metadataOnly": true,
+      "status": 200,
+      "finalUrl": "https://kolektiva.media/videos/watch/3a184e10-1cea-46fa-b082-0ca6d014b620",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "id": "peertube:https://kolektiva.media:37GMGtKn1LLCqjvajkkn23",
+      "url": "https://kolektiva.media/videos/watch/1121e05a-006f-4229-a630-6da2e8941d58",
+      "metadataOnly": true,
+      "status": 200,
+      "finalUrl": "https://kolektiva.media/videos/watch/1121e05a-006f-4229-a630-6da2e8941d58",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "id": "peertube:https://kolektiva.media:1LeGSSkewmfvgPQjqRC7E4",
+      "url": "https://kolektiva.media/videos/watch/062d2bf7-b635-4e32-9e06-85b8e0dd8da7",
+      "metadataOnly": true,
+      "status": 200,
+      "finalUrl": "https://kolektiva.media/videos/watch/062d2bf7-b635-4e32-9e06-85b8e0dd8da7",
+      "contentType": "text/html; charset=utf-8"
+    }
+  ],
+  "mediaFetched": false
+}

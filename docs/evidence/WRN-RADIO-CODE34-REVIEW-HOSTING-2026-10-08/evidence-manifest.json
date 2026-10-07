@@ -1,0 +1,64 @@
+{
+  "schema": "wrn.radio-code34-review-hosting-evidence.v1",
+  "publicationPerformed": true,
+  "appSourceCommit": "ec5c332f49dcb6059c38cae601eabd7c65ca66bf",
+  "websiteBaseCommit": "60296ee8f640eb08a871eb1d3edf37cc6de4b306",
+  "publicPrefix": "https://solinaridao.com/app-review/radio-code34/",
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 2591,
+      "sha256": "530ce54d1c1a92447f9eeb13f1b73114244c1650de74884fedacdc15b34f1d71"
+    },
+    {
+      "path": "archive.json",
+      "bytes": 1066,
+      "sha256": "e956a7fd43bb714a3859d7eff42776379e2efcb9563014117359486cd234b8d2"
+    },
+    {
+      "path": "before-target.json",
+      "bytes": 112,
+      "sha256": "f942bb1ac85009c2f91faa6073bad62db0fd0625385da161767f555a7c2f5bd1"
+    },
+    {
+      "path": "browser-public-check.mjs",
+      "bytes": 5448,
+      "sha256": "03b8ce7b4367ebb218c0e6df498303b9ebee1e56f29dcdc64d2e3914030357e1"
+    },
+    {
+      "path": "prepared-manifest.json",
+      "bytes": 1183,
+      "sha256": "d08b75037db1d75ca2c4690cfc23ee446298f5c162824d6fb652f0388e9af307"
+    },
+    {
+      "path": "public-receipt.json",
+      "bytes": 15218,
+      "sha256": "41058db224411541e07d084a6cc9623490737b6269c7f68e71683472b929c77d"
+    },
+    {
+      "path": "published/.htaccess",
+      "bytes": 914,
+      "sha256": "2ebb4a56382b721ca18b33221610f94d7df1d20a0da83f5922bd7d31281793a6"
+    },
+    {
+      "path": "published/index.html",
+      "bytes": 2034,
+      "sha256": "eb618e34b427621b4cfa346e975b34b66f187966f0541efbbbd9f45eab78d0ce"
+    },
+    {
+      "path": "published/wrn-code34-media-playback-demo.mp4",
+      "bytes": 476688,
+      "sha256": "b22242b79558eedfd2d4de52a6064d47c7cb53293183a3a93d41474c2fef3b7e"
+    },
+    {
+      "path": "review-page-desktop.png",
+      "bytes": 151200,
+      "sha256": "b122ddf40fa8c929c61253ed9e628b0b43ca30ee219c9121d0e98b810a988b5d"
+    },
+    {
+      "path": "review-page-mobile.png",
+      "bytes": 100875,
+      "sha256": "4b5834c1ce2eae6e116612774ce08fe8b202be6405270f77da2e35f39d7cb7cc"
+    }
+  ]
+}

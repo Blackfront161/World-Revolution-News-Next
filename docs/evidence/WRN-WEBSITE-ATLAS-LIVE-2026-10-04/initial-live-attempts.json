@@ -1,0 +1,26 @@
+{
+  "firstRuntimeFailure": "Preserved in initial-runtime-readback.json: PMTiles text/plain; indexless 403 was misclassified by a 404-only preactivation check.",
+  "afterPolicyBeforeCdnPurge": {
+    "status": "FAIL",
+    "errors": [
+      {
+        "path": "atlas/versions/r77-564c7ef0fdc9/manifest.webmanifest",
+        "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'text/plain'\n- 'application/manifest+json'\n"
+      }
+    ],
+    "reason": "Canonical webmanifest retained old text/plain in Hostinger hcdn HIT; fresh query at origin had correct application/manifest+json. Domain-only CDN purge resolved canonical header."
+  },
+  "firstBrowser": {
+    "status": "FAIL",
+    "error": "Error: Frame missing",
+    "checksPassed": 10,
+    "pageErrors": [],
+    "failedRequests": [],
+    "correction": "Wait for exact admitted frame URL before reading map readiness; initial synchronous frame enumeration ran before navigation completed. The ERR_ABORTED was recorded as context closed after this early failure. No product change or weakened readiness assertion."
+  },
+  "firstOffline": {
+    "status": "FAIL",
+    "error": "Welcome/support dialog intercepted Save website shell click.",
+    "correction": "Dismiss the actual welcome dialog with its Continue button; fresh-profile rerun keeps all shell/restart/offline assertions."
+  }
+}

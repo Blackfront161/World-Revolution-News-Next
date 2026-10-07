@@ -1,0 +1,34 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { chromium, expect } from '@playwright/test';
+const [origin,out,commit='working-tree']=process.argv.slice(2);
+await fs.mkdir(out);
+const p=JSON.parse(await fs.readFile('work/website-tuple-20261008-fresh/current.json'));
+const t=JSON.parse(await fs.readFile('work/website-tuple-20261008-fresh/'+p.artifactPath));
+const expected=[t.home.lead,...t.home.top,...t.home.sport,...t.home.more];
+const proof={status:'FAIL',origin,sourceCommit:commit,tupleSha256:p.artifactSha256,checks:[],errors:[]};
+const launch=()=>chromium.launchPersistentContext(path.resolve(out,'profile'),{channel:'chrome',headless:true,args:['--disable-http2'],viewport:{width:1440,height:1000},reducedMotion:'reduce'});
+let ctx=await launch(),page=await ctx.newPage();page.on('pageerror',e=>proof.errors.push(String(e)));
+async function open(url){await page.goto(origin+url,{waitUntil:'domcontentloaded'});const w=page.locator('.website-support-welcome button');if(await w.isVisible())await w.click();}
+async function roles(){await expect(page.locator('[data-app-home-article]')).toHaveCount(15,{timeout:30000});expect(await page.locator('[data-app-home-article]').evaluateAll(es=>es.map(e=>e.dataset.appHomeArticle))).toEqual(expected);}
+try{
+await open('/?lang=de&theme=light#home');await roles();
+for(const id of expected){const card=page.locator(`[data-app-home-article="${id}"]`);await card.scrollIntoViewIfNeeded();await expect.poll(()=>card.evaluate(e=>{const s=e.querySelector('figure svg'),i=e.querySelector('figure img');return !!s||!!(i?.complete&&i.naturalWidth>0);}),{timeout:30000}).toBe(true);}
+proof.images=await page.locator('[data-app-home-article]').evaluateAll(es=>es.map(e=>{const s=e.querySelector('figure svg'),i=e.querySelector('figure img'),f=e.querySelector('figure');return{id:e.dataset.appHomeArticle,kind:s?'WRN-topic-illustration':'source-image',src:i?.src??null,naturalWidth:i?.naturalWidth??null,caption:f?.querySelector('figcaption')?.textContent,renderedWidth:(s??i)?.getBoundingClientRect().width};}));
+expect(proof.images.every(i=>i.renderedWidth>0)).toBe(true);expect(proof.images.some(i=>i.kind==='source-image')).toBe(true);expect(proof.images[0].kind).toBe('WRN-topic-illustration');
+proof.checks.push('All 15 unchanged App home roles have visible decoded source images or labelled own artwork, including the lead');
+await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:out+'/home-desktop.png'});
+for(const lang of ['de','en','es','fr','it','pt','ru','el','tr']){await page.getByTestId('ui-language-selector').selectOption(lang);await roles();await expect(page.locator('.app-start-lead svg')).toHaveAttribute('lang',lang);await expect(page.locator('.app-start-lead figcaption')).toBeVisible();await page.setViewportSize({width:320,height:800});expect(await page.evaluate(()=>document.body.scrollWidth<=innerWidth+1)).toBe(true);await page.setViewportSize({width:1440,height:1000});}proof.checks.push('Nine UI languages retain all roles and localized lead artwork credits/caption without overflow at 320px');
+for(const theme of ['violet','dark','editorial','oled','soft','pink','light','system','contrast']){await open('/?lang=de&theme='+theme+'#home');await roles();await expect(page.locator('.app-start-lead svg')).toBeVisible();await page.setViewportSize({width:390,height:844});expect(await page.evaluate(()=>document.body.scrollWidth<=innerWidth+1)).toBe(true);await page.setViewportSize({width:1440,height:1000});}proof.checks.push('Nine themes including independent Autonom layout retain lead artwork without mobile overflow');
+await open('/?lang=de&theme=light#home');await roles();await page.setViewportSize({width:390,height:844});await page.screenshot({path:out+'/home-mobile.png'});await page.locator('.app-start-lead h2 a').click();await expect(page.locator('.website-news-reader')).toBeVisible({timeout:30000});await expect(page.locator('.website-news-reader svg')).toBeVisible();await expect(page.locator('.news-reader-toolbar button')).toHaveCount(3);proof.toolbar=await page.locator('.news-reader-toolbar button').allTextContents();await page.locator('.news-reader-toolbar button').first().click();await page.screenshot({path:out+'/reader-mobile.png'});
+await open('/?lang=de#saved');await expect(page.locator('.website-news-saved svg')).toBeVisible({timeout:30000});await page.screenshot({path:out+'/saved-mobile.png'});proof.checks.push('Same lead artwork in internal reader with existing translate/save/read/share controls and saved articles');
+if(origin==='https://solinaridao.com'){
+const manifest=JSON.parse(await fs.readFile('work/article-images-release-77ec9d4/website.manifest.json'));
+await open('/?lang=en#more');await page.getByRole('button',{name:'Save website shell',exact:true}).click();
+await expect.poll(()=>page.evaluate(async()=>{const r=await caches.match('/__wrn_website_shell_control_v1__',{cacheName:'wrn.website-shell.v1.control'});return r?(await r.json()).active:null;}),{timeout:60000}).toBe(manifest.shellId);
+proof.shell=await page.evaluate(async()=>{const c=await(await caches.match('/__wrn_website_shell_control_v1__',{cacheName:'wrn.website-shell.v1.control'})).json(),cache=await caches.open('wrn.website-shell.v1.payload.'+c.active),rows=[];for(const q of await cache.keys()){const b=await(await cache.match(q)).arrayBuffer();rows.push({path:new URL(q.url).pathname.slice(1),bytes:b.byteLength,sha256:[...new Uint8Array(await crypto.subtle.digest('SHA-256',b))].map(n=>n.toString(16).padStart(2,'0')).join('')});}return{shellId:c.active,files:rows};});
+expect(proof.shell.files.length).toBe(18);const bytes=proof.shell.files.reduce((n,e)=>n+e.bytes,0);expect(bytes).toBeLessThanOrEqual(8388608);for(const e of proof.shell.files){const f=manifest.files.find(f=>f.path===e.path);expect(e.bytes).toBe(f.bytes);expect(e.sha256).toBe(f.sha256);}proof.shell.bytes=bytes;
+const cdp=await ctx.newCDPSession(page);await cdp.send('Network.clearBrowserCache');await ctx.close();ctx=await launch();await ctx.setOffline(true);page=await ctx.newPage();page.on('pageerror',e=>proof.errors.push(String(e)));await open('/?lang=de#home');await roles();await expect(page.locator('.app-start-lead svg')).toBeVisible();await page.screenshot({path:out+'/offline-home-desktop.png'});proof.checks.push('Actual 18-file public shell SHA/bytes within 8MiB; browser process restart with cleared HTTP cache and no network retains labelled lead artwork');
+}
+if(proof.errors.length)throw Error('Browser errors');proof.status='PASS';
+}catch(e){proof.error=String(e);process.exitCode=1;await page.screenshot({path:out+'/failure.png'}).catch(()=>{});await fs.writeFile(out+'/failure.txt',await page.locator('body').innerText()).catch(()=>{});}finally{await ctx.close();await fs.writeFile(out+'/result.json',JSON.stringify(proof,null,2)+'\n');console.log(JSON.stringify(proof));}

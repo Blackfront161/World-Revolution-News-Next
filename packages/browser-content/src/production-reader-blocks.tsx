@@ -23,6 +23,18 @@ export type ProductionReaderTranslation = Readonly<{
   adapter: ProductionTranslationAdapter | null;
 }>;
 
+const sharedCacheCopy: Readonly<Record<UiLanguage, string>> = {
+  de: 'Aus dem gemeinsamen Übersetzungscache',
+  en: 'Reused from the shared translation cache',
+  es: 'Reutilizada de la caché de traducción compartida',
+  fr: 'Réutilisée depuis le cache de traduction partagé',
+  it: 'Riutilizzata dalla cache di traduzione condivisa',
+  pt: 'Reutilizada da cache de tradução partilhada',
+  ru: 'Повторно получено из общего кеша переводов',
+  el: 'Ανακτήθηκε από την κοινόχρηστη προσωρινή μνήμη μεταφράσεων',
+  tr: 'Paylaşılan çeviri önbelleğinden yeniden kullanıldı',
+};
+
 function TranslatableParagraph({
   text,
   index,
@@ -139,6 +151,8 @@ function TranslatableParagraph({
                 <p lang={context.language}>{outcome.response.translation.text}</p>
                 <p className="production-translation-provenance">
                   {formatUiCopy(copy.provenance, { provider: outcome.response.adapter.provider })}
+                  {outcome.response.cache.status === 'hit' &&
+                    ` · ${sharedCacheCopy[context.language]}`}
                 </p>
               </div>
             )}

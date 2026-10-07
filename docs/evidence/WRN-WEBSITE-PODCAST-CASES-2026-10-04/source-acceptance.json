@@ -1,0 +1,27 @@
+{
+  "schema": "wrn.website-podcast-case-preparation-acceptance.v1",
+  "status": "LOCAL-PREPARATION-PASS",
+  "observedAtUTC": "2026-10-04T06:00:09.379Z",
+  "sourceCommit": "9029461a94f23042b9ff8ad7ba46594c557c7dbc",
+  "reviewCommit": "3b233c58c08c5140c45971403500d810f4b9130b",
+  "sourceReview": {
+    "status": "SCOPED PASS",
+    "threadId": "019ff285-63dc-7ed2-88a8-cab5f06ed26e",
+    "turnId": "01a1056c-a8c5-7963-9988-8bec10ccfbb3",
+    "sha256": "5e6b7710a5ca151d3734aed2c9b06a1308eb520292e634b7bc5b65114a322f97"
+  },
+  "previousPreparationCommit": "c43be4f47faa7d2bf4d7bbe9ce3af21771002f29",
+  "sourceInputHashesReverified": 4,
+  "candidateReproduced": true,
+  "candidateSha256": "7262c034afa2e30cc37310c623730ad7734496ae846992b7a028c737b1c51f69",
+  "candidateRecords": 1808,
+  "reviewedCases": 47,
+  "newOriginalLinks": 31,
+  "canonicalCorrections": 16,
+  "earlierNegativePolicyChecks": 8,
+  "producerUnchanged": true,
+  "websiteRuntimeUnchanged": true,
+  "runtimeImported": false,
+  "publicationPerformed": false,
+  "scope": "Local mapping and restricted metadata projection only. Source SCOPED PASS does not claim independent acceptance or publication of a new Website runtime."
+}

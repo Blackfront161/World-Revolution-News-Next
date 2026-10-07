@@ -1,0 +1,8 @@
+fc2125a7643fb4ce346789653b7b288ea104d6db3f1be61c26cec1dad03e0b73  apps/website/src/App.test.tsx
+bf6a585114a4f8f8ed49ea1deb7b5a601639dc1e1396d3e922ec8a15c081cbf7  apps/website/src/App.tsx
+137a6fba4f1314fca4a548f38e4c65c563f848b73fc393da57fcc64326c9a909  apps/website/src/production-content-ui.css
+d45485a012d77c3ae13f9a2c1c7f3e4509e3455be5766ecd8d50dd5e95561142  apps/website/src/styles.css
+205a0a88e585969b400dd6989687c458a3dcb953dd0fb4174b97b5e2e396678b  docs/evidence/WRN-WEBSITE-CODE26-PARITY-2026-09-30/app-390.png
+1f2afabb62c53a4042c1c88d1d7597a25f64557ff4dbf61052793049c52adf75  docs/evidence/WRN-WEBSITE-CODE26-PARITY-2026-09-30/REPORT.md
+0703915fad34b4049829c7bee7be00968a5864916236e4d381c9fff8ba8c4353  docs/evidence/WRN-WEBSITE-CODE26-PARITY-2026-09-30/website-1440.png
+191a45f3875b2e56b11ccbeccb6b620ac19d7b307d554cdef1d06e44bf843ffb  docs/evidence/WRN-WEBSITE-CODE26-PARITY-2026-09-30/website-390.png

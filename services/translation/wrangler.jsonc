@@ -10,6 +10,7 @@
     "TRANSLATION_V2_ENABLED": "false",
     "TRANSLATION_MODEL": "gemini-3.1-flash-lite",
     "TRANSLATION_CACHE_TTL_SECONDS": "604800",
+    "TRANSLATION_CACHE_REVISION": "v1",
     "TRANSLATION_SUPPORTED_SOURCE_LANGUAGES": "[\"en\",\"de\",\"es\",\"fr\",\"it\",\"pt\",\"ru\",\"el\",\"tr\"]",
     "TRANSLATION_QUOTA_POLICY": "{\"read\":{\"requestsPerMinute\":60,\"requestsPerDay\":20000,\"utf16PerMinute\":1,\"utf16PerDay\":1},\"provider\":{\"requestsPerMinute\":10,\"requestsPerDay\":450,\"utf16PerMinute\":60000,\"utf16PerDay\":2700000},\"write\":{\"requestsPerMinute\":10,\"requestsPerDay\":900,\"utf16PerMinute\":1,\"utf16PerDay\":1}}",
   },

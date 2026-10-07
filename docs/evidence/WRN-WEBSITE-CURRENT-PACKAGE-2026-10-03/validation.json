@@ -1,0 +1,119 @@
+{
+  "sourceCommit": "e20c8002f32103a7f888e907e6603fed792c8b52",
+  "priorProductReviews": "PASS-reader-navigation-knowledge",
+  "newPackageIndependentReview": "PENDING",
+  "publicationPerformed": false,
+  "websiteValidator": "PASS",
+  "hostingValidator": "PASS",
+  "websiteFiles": 48,
+  "hostingFiles": 51,
+  "preparedUploadEntries": 51,
+  "rollbackFiles": 49,
+  "priorPublicReadback": 45,
+  "closedShellId": "19f516a71d5e3af35f12ddfe1ad49b1dd6b965a44530329964ea144f68149a07",
+  "websiteManifestSha256": "d9c3ed702a852dc51819607d409fd6b4de6a9e2cb672800d96e34f8348474b6f",
+  "hostingManifestSha256": "08dff43472813e9b644315806b998c11f35a9ad412a5e4aca2a776fccdfc751f",
+  "actualChromeChecks": 16,
+  "actualBrowserResult": "PASS",
+  "fullChromeProcessOfflineRestart": true,
+  "pictureDecodeCases": 6,
+  "pageErrors": 0,
+  "networkFailures": 0,
+  "unsolicitedStreams": 0,
+  "appGlossary": {
+    "commit": "e9c8088806f60ad8b9605705f686cc91f2536f90",
+    "observedAt": "2026-10-03T08:06:26.135Z",
+    "books": 731,
+    "terms": 177,
+    "references": 54,
+    "rights": "existing-WRN-editorial-text",
+    "inputSha256": "7b6fbd2d214fdde5f1df4c88da2771b0026e1083d68942d742b27024e06f40b5",
+    "inputBytes": 277309,
+    "packedSha256": "e3479e68fd7525bda9c685bb2b2718ff0ded82fc525eeab8205bfeb0e4dbfece"
+  },
+  "appCatalog": {
+    "commit": "2342289bb126c6356f20088d5a97fe20a08980e1",
+    "observedAt": "2026-10-02T06:06:35.901Z",
+    "rights": "metadata-original-link-only",
+    "counts": {
+      "radio": 27,
+      "podcasts": 1722,
+      "videos": 16,
+      "library": 728,
+      "events": 6
+    },
+    "inputs": [
+      {
+        "path": "radio-stations.json",
+        "sha256": "caa83a5678613766765fe1bab2806648461b1f0811388c59bebe7888692b9d85",
+        "bytes": 12787
+      },
+      {
+        "path": "podcasts.json",
+        "sha256": "0961c293c8c847f45eaf71a88aba4a51fc4ef07c7d8e6651d314842763846221",
+        "bytes": 3162161
+      },
+      {
+        "path": "video-feed.json",
+        "sha256": "b1e01de630d117ee3d21ab576a3ac9a463a20d309e8d579639a429ee5a7d7b65",
+        "bytes": 25803
+      },
+      {
+        "path": "library-feed.json",
+        "sha256": "3be196134dba9c994a27999398d71c5311764e093a14fcf20cf2db74ce829449",
+        "bytes": 402330
+      },
+      {
+        "path": "events-feed.json",
+        "sha256": "7d5fd1dac441183452b7979df2b15aeb741e3f6b871f3106218996d82425d4b6",
+        "bytes": 11997
+      }
+    ],
+    "historySha256": "003c32358ebe0d5ad22fb9c0b059bf82c242aa0b99a4d869fb67960c86acdc07",
+    "packedSha256": "ac2c2f944b814be0fce19129791c39d87c0940f8c82caf47bdc868cc5bcb8b15"
+  },
+  "admissionClasses": {
+    "individuallyAdmittedFulltext": {
+      "articles": 12,
+      "sourceProfiles": 3,
+      "revision": "wrn-production-news-2026-09-26-v8",
+      "corpus": "existing-separate-production-admission"
+    },
+    "newFulltextOrMedia": {
+      "articles": 0,
+      "sourceEndpoints": 0
+    },
+    "metadataLinkOnly": {
+      "articles": 465,
+      "sourceEndpoints": 427,
+      "withoutConfirmedSourcePass": 463,
+      "editorialVerification": false,
+      "reuseRightsGranted": false
+    },
+    "directoryOnly": {
+      "articles": 0,
+      "sourceEndpoints": 2
+    },
+    "excluded": {
+      "articles": 35,
+      "sourceEndpoints": 9,
+      "reasons": {
+        "incomplete-source-provenance": 4,
+        "identity-conflict": 20,
+        "insecure-url": 10,
+        "invalid-schema": 1
+      }
+    },
+    "upstream": {
+      "articles": 500,
+      "sourceEndpoints": 438,
+      "recordedFeedSourceNames": 102
+    }
+  },
+  "projectionObservedAt": "2026-10-03T05:58:12.439Z",
+  "projectionFreshnessBound": "existing24-hour contract; original observation time preserved, no re-dating",
+  "offlineShellBytes": 8026585,
+  "offlineShellByteCap": 8388608,
+  "offlineShellRemainingBytes": 362023,
+  "errorInstrumentationScope": "Online pageerror/requestfailed listeners; full offline functional assertions passed, no claim of separately instrumented offline network failures."
+}

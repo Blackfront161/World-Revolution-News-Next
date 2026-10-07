@@ -1,0 +1,28 @@
+{
+  "schema": "wrn.website-atlas-local-acceptance.v1",
+  "sourceCommit": "9029461a94f23042b9ff8ad7ba46594c557c7dbc",
+  "sourceReviewResultCommit": "3b233c58c08c5140c45971403500d810f4b9130b",
+  "sourceReviewVerdict": "SCOPED PASS",
+  "snapshotVersion": "r76-8a0c503f6d00",
+  "snapshotManifestSha256": "b14a48b7682f9a153c4e8e8abaca3ab4ae3a45846b4d5eabf33b6db539b20968",
+  "snapshotBytes": 104318011,
+  "snapshotFiles": 199,
+  "sourceWorkingBytesComparedWithFrozenGitFiles": 200,
+  "uiLanguages": [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt",
+    "ru",
+    "el",
+    "tr"
+  ],
+  "unitTests": 41,
+  "typecheck": "PASS",
+  "localBrowserChecks": 14,
+  "independentWebsiteHostReview": "pending",
+  "publicationPerformed": false,
+  "productionPublicationAuthorizedByThisEvidence": false
+}

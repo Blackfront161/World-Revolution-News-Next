@@ -1,0 +1,3 @@
+.theme-control{display:grid;min-width:0;max-width:100%}.theme-control select{grid-area:1/1;text-indent:-9999px}.theme-control select option{text-indent:0}#theme-current{grid-area:1/1;align-self:center;min-width:0;padding:.75rem 2.5rem .75rem .75rem;color:var(--wrn-color-text);white-space:normal;overflow-wrap:anywhere;pointer-events:none}
+header #language{width:clamp(64px,4.4rem,100px);min-width:64px;max-width:100px}
+@media(max-width:500px){.atlas-running header .home-name{display:none}.atlas-running header{gap:.4rem}.atlas-running header #home{font-size:1rem;min-width:44px;justify-content:center}}

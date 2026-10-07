@@ -1,0 +1,75 @@
+{
+  "productCommit": "abd0209dc45a41dbc4e4c41225ed9d7ad5371003",
+  "files": [
+    {
+      "path": "ANRED-REQUEST.md",
+      "bytes": 1696,
+      "sha256": "1fe8003603cc819498dd8f6a963199ab27347a3421dedbc1c5dacdfe37c393c5"
+    },
+    {
+      "path": "live-390.png",
+      "bytes": 482081,
+      "sha256": "fd580f1c6ebd7c5a96864e1b2f27f47cf507c01f92a981ae1dabceb85b5bce38"
+    },
+    {
+      "path": "live-home.json",
+      "bytes": 548,
+      "sha256": "257eb49f5a942af8fa810fa46c039db8792d8383b674ee35bb777e416e36deb6"
+    },
+    {
+      "path": "live-offline.json",
+      "bytes": 2873,
+      "sha256": "469267d99f45ff0f66c69ded17510ba6fadfe68249c7d434b95a8fcd5791b4b3"
+    },
+    {
+      "path": "live-offline.png",
+      "bytes": 152865,
+      "sha256": "a309dc5c3a19ed78468902a65f87d7d7345a9a321ef1e23b6c7ffbcae75b78b6"
+    },
+    {
+      "path": "live-readback.json",
+      "bytes": 133716,
+      "sha256": "a65dff57b790bafaaafd19554daf48791179c1e584246b83eedece5b6d046a2a"
+    },
+    {
+      "path": "live-top-1440.png",
+      "bytes": 141466,
+      "sha256": "2dfdd5b9c098eb27be4a93fbf7bcf482ff49bd3e56f1af7fb7a6d7d9c1a12dd4"
+    },
+    {
+      "path": "package-browser.json",
+      "bytes": 2872,
+      "sha256": "675053248bd816eb88effff0480879060a49c20a516b9fc05946b4cf253c976d"
+    },
+    {
+      "path": "pre-upload-revocations.json",
+      "bytes": 2932,
+      "sha256": "056870962823555368280804a82d6393ef9016168cb065658b99d4e362f2180c"
+    },
+    {
+      "path": "preview.json",
+      "bytes": 548,
+      "sha256": "ef3b331ab08c0d578b14b29240abe76e28b8c15af4de0870e4ce1464bce7d086"
+    },
+    {
+      "path": "REPORT.md",
+      "bytes": 5404,
+      "sha256": "ada7d7e65e5c4a7bf0bf9fa48894bbc29a9f0df4a1ac672cb94158b251df576f"
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 2204,
+      "sha256": "35a9bdf9d4574a22586976476029865e392c44a3a3c8e184bf01857ad6fb0c6f"
+    },
+    {
+      "path": "website-1440.png",
+      "bytes": 552303,
+      "sha256": "ef0b90d4b67280afe763aa129c88dfb9913caf0286cc733c629aac3a5fca02cb"
+    },
+    {
+      "path": "website-390.png",
+      "bytes": 483587,
+      "sha256": "3c8ae59b01082e13f3896c04b58f0b83594420dd21fe4c72ad1bd57051769ab1"
+    }
+  ]
+}

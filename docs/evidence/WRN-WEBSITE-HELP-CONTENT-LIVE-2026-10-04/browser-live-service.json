@@ -1,0 +1,46 @@
+{
+  "origin": "https://solinaridao.com",
+  "sourceCommit": "448c82fdf31f4ce10ea17d60d35ad937faf76b10",
+  "transport": "HTTPS over HTTP/1.1",
+  "observedAtUTC": "2026-10-03T20:34:55.152Z",
+  "providerRequests": [
+    {
+      "method": "POST",
+      "url": "https://wrn-translation-cache.paghklo.workers.dev/",
+      "body": {
+        "action": "translate",
+        "targetLanguage": "de",
+        "mode": "continuation",
+        "title": "",
+        "text": "Barricades, Internet Shutdown, Mass Detentions: Delhi Police Violent Crack Down on Protest against CEC Gyanesh Kumar and SIR",
+        "cacheVersion": 1
+      }
+    }
+  ],
+  "pageErrors": [],
+  "networkFailures": [],
+  "checks": [
+    {
+      "name": "actual public privacy, all nine languages, 390px and200%, exact production CSP",
+      "status": "PASS"
+    },
+    {
+      "name": "actual public HTTPS Reader and WRN shared translation, exact CSP, translated title/attribution/internal share",
+      "status": "PASS"
+    }
+  ],
+  "indexCSP": "default-src 'self'; base-uri 'none'; connect-src 'self' https://wrn-translation-cache.paghklo.workers.dev; font-src 'self'; form-action 'none'; frame-ancestors 'none'; img-src 'self' data: blob:; manifest-src 'self'; media-src https://dn721204.ca.archive.org; object-src 'none'; script-src 'self' 'sha256-3VeQnkimSKLdOsPrVac9yDeXm8QXkaFRcjW11E/lCi8=' 'sha256-4+DUuV1nfDmnCxNkHmLYCj4PcrvXrCtobvqIljG8OFo=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-78NbkatXW+zvVNZ0c6K5E3vAL8qe6EOZyWW0+VVm/aY=' 'sha256-EP/Hxej0o558QBQyv5ocl37J48KFjcI8QYcf+XoVvSQ=' 'sha256-H+KuAxumV8Uq26WybgLtPk2Pg+OxAEZx/4z6nQ6XxqM=' 'sha256-L5isiUL5mVTeU1BvL+97uOKAgWg7ZSGolJ0Wp4z/x5k=' 'sha256-VAoRvH5X5+PGRNlXlTvjVxgpY3uRqcr+SMXiQGiX4us=' 'sha256-VLn05fM4LtqlyRRt/+fPSc9LC4AsLcYaXR+iEHxYO0w=' 'sha256-WuZFxx6L2FBm1VTpWlkclFhrgkmmRUQYqNn0pMaWU7U=' 'sha256-dQyXglDKI9Qh30Zlg77C+d8hXrATMStCYz4A9JAjxLY=' 'sha256-kN/E+P035UBgDfcuX4YkJJUqmi47cnItXoBVd/nJcxA=' 'sha256-u9FBptH4POThmVSDNoFlOmaX4eibLPJTRUfIYECVfp0='; style-src 'self' 'sha256-TqMrWmBIyC9pBldcgLu8TIZVQ3mHkO3q2Dzj0yJaN5U='; worker-src 'self'; upgrade-insecure-requests",
+  "translation": {
+    "articleId": "news-040c458f1466a9e9437a7988d5d6bf4ba5b2255933080876c4a4b3e2fb4e920f",
+    "originalTitle": "Barricades, Internet Shutdown, Mass Detentions: Delhi Police Violent Crack Down on Protest against CEC Gyanesh Kumar and SIR",
+    "translatedTitle": "Barrikaden, Internetsperre, Masseninhaftierungen: Gewaltsames Vorgehen der Polizei in Delhi gegen Proteste gegen den Wahlkommissar Gyanesh Kumar und SIR",
+    "shares": [
+      {
+        "title": "Barrikaden, Internetsperre, Masseninhaftierungen: Gewaltsames Vorgehen der Polizei in Delhi gegen Proteste gegen den Wahlkommissar Gyanesh Kumar und SIR",
+        "text": "Barrikaden, Internetsperre, Masseninhaftierungen: Gewaltsames Vorgehen der Polizei in Delhi gegen Proteste gegen den Wahlkommissar Gyanesh Kumar und SIR · Groundxero · Übersetzt mit World Revolution News",
+        "url": "https://solinaridao.com/?article=news-040c458f1466a9e9437a7988d5d6bf4ba5b2255933080876c4a4b3e2fb4e920f&lang=de#home"
+      }
+    ]
+  },
+  "status": "PASS"
+}

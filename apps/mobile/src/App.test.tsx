@@ -325,13 +325,11 @@ describe('mobile local newsfeed', () => {
     await user.click(screen.getByRole('link', { name: 'For me' }));
     expect(await screen.findByRole('heading', { name: 'For me' })).toBeVisible();
     await waitFor(() => {
-      const message = screen.queryByText('No validated local articles match this selection.');
+      const message = screen.queryByText('No reviewed full texts match this selection.');
       expect(message).not.toBeNull();
       expect(message).toBeVisible();
     });
-    expect(
-      await screen.findByText('No validated local articles match this selection.'),
-    ).toBeVisible();
+    expect(await screen.findByText('No reviewed full texts match this selection.')).toBeVisible();
   });
 
   it('keeps one personalization store across route changes and restores the current selection', async () => {
@@ -892,7 +890,7 @@ describe('mobile local newsfeed', () => {
       within(screen.getByRole('region', { name: 'Sport reading notes' }))
         .getAllByRole('link')
         .filter((link) => link.getAttribute('target') === '_blank'),
-    ).toHaveLength(45);
+    ).toHaveLength(52);
     expect(screen.getByRole('link', { name: 'RSS' })).toHaveAttribute(
       'href',
       'https://www.fsgt.org/feed/',
@@ -1015,11 +1013,11 @@ describe('mobile local newsfeed', () => {
     expect(window.localStorage.getItem('wrn.theme-preference.v1')).toBeNull();
   });
 
-  it('removes an invalid stored theme before falling back to violet', async () => {
+  it('removes an invalid stored theme before falling back to the Code26 dark shell', async () => {
     window.localStorage.setItem('wrn.theme-preference.v1', 'unknown-theme');
     render(<App initialState="loading" />);
 
-    await waitFor(() => expect(document.documentElement.dataset.theme).toBe('violet'));
+    await waitFor(() => expect(document.documentElement.dataset.theme).toBe('dark'));
     expect(window.localStorage.getItem('wrn.theme-preference.v1')).toBeNull();
   });
 
@@ -1051,12 +1049,12 @@ describe('mobile local newsfeed', () => {
     expect(mediaQuery.removeEventListener).toHaveBeenCalledWith('change', expect.any(Function));
   });
 
-  it('keeps a compact accessible text brand name without a large asset masthead', () => {
+  it('keeps the compact Code26 mark with an accessible text brand name', () => {
     render(<App initialState="loading" />);
 
     const brand = screen.getByRole('link', { name: /Solinaridao.*World Revolution News/i });
     expect(brand).toHaveTextContent('World Revolution News');
-    expect(brand.querySelector('img')).toBeNull();
+    expect(brand.querySelector('img')).toHaveAttribute('alt', '');
   });
 
   it('offers the approved project and voluntary donation links with privacy-preserving attributes', () => {
@@ -1113,12 +1111,59 @@ describe('mobile local newsfeed', () => {
     expect(
       within(navigation)
         .getAllByRole('link')
-        .map((link) => link.textContent),
+        .map((link) => link.querySelector('.primary-nav-label')?.textContent),
     ).toEqual(['Home', 'For me', 'Discover', 'Media', 'Saved']);
     expect(within(navigation).getByRole('link', { name: 'Home' })).toHaveAttribute(
       'aria-current',
       'page',
     );
+  });
+
+  it('moves between adjacent main tabs on a horizontal swipe but ignores vertical gestures', () => {
+    render(<App initialState="loading" />);
+    const main = screen.getByRole('main');
+    const home = screen.getByRole('link', { name: 'Home' });
+    const following = screen.getByRole('link', { name: 'For me' });
+    const articleText = document.createElement('p');
+    articleText.textContent = 'Article excerpt';
+    main.append(articleText);
+    const swipe = (endX: number, endY: number) => {
+      fireEvent.touchStart(articleText, { touches: [{ clientX: 320, clientY: 350 }] });
+      fireEvent.touchEnd(articleText, { changedTouches: [{ clientX: endX, clientY: endY }] });
+    };
+
+    swipe(290, 550);
+    expect(home).toHaveAttribute('aria-current', 'page');
+    fireEvent.touchStart(main, { touches: [{ clientX: 320, clientY: 350 }] });
+    fireEvent.touchMove(main, {
+      touches: [
+        { clientX: 240, clientY: 350 },
+        { clientX: 250, clientY: 360 },
+      ],
+    });
+    fireEvent.touchEnd(main, { changedTouches: [{ clientX: 120, clientY: 360 }] });
+    expect(home).toHaveAttribute('aria-current', 'page');
+    const horizontalList = document.createElement('div');
+    horizontalList.style.overflowX = 'auto';
+    Object.defineProperties(horizontalList, {
+      scrollWidth: { value: 500 },
+      clientWidth: { value: 250 },
+    });
+    main.append(horizontalList);
+    fireEvent.touchStart(horizontalList, { touches: [{ clientX: 320, clientY: 350 }] });
+    fireEvent.touchEnd(horizontalList, { changedTouches: [{ clientX: 120, clientY: 360 }] });
+    expect(home).toHaveAttribute('aria-current', 'page');
+    const preferenceLabel = document.createElement('label');
+    preferenceLabel.textContent = 'For me preference';
+    main.append(preferenceLabel);
+    fireEvent.touchStart(preferenceLabel, { touches: [{ clientX: 320, clientY: 350 }] });
+    fireEvent.touchEnd(preferenceLabel, { changedTouches: [{ clientX: 120, clientY: 360 }] });
+    expect(home).toHaveAttribute('aria-current', 'page');
+    swipe(120, 360);
+    expect(following).toHaveAttribute('aria-current', 'page');
+    fireEvent.touchStart(main, { touches: [{ clientX: 100, clientY: 350 }] });
+    fireEvent.touchEnd(main, { changedTouches: [{ clientX: 310, clientY: 360 }] });
+    expect(home).toHaveAttribute('aria-current', 'page');
   });
 
   it('shows a named Discover loading state instead of the old migration placeholder', async () => {

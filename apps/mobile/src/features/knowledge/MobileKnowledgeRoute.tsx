@@ -8,6 +8,7 @@ import {
 } from 'react';
 import { getMobileKnowledgeCopy, type UiLanguage } from '@wrn/ui-language';
 import { loadMobileKnowledge, type LoadedMobileKnowledge } from './knowledge-loader';
+import { BlackAnarchismResources } from '../../../../../packages/browser-content/src/black-anarchism-resources';
 import './knowledge.css';
 
 type Tab = 'library' | 'lexicon';
@@ -160,6 +161,11 @@ function Library({ data, language }: { data: LoadedMobileKnowledge; language: Ui
           </li>
         ))}
       </ul>
+      <BlackAnarchismResources
+        language={language}
+        headingLevel={3}
+        listClassName="knowledge-sources"
+      />
     </section>
   );
 }

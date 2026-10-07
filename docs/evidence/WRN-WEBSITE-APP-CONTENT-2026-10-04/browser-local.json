@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "origin": "http://127.0.0.1:56105",
+  "sourceCommit": "534f15f3f4bcfc8044f4040038e85632cd8d0b11",
+  "publicationPerformed": false,
+  "checks": [
+    "Actual App home role order, loaded original lead image and original credit",
+    "Nine language codes, current roles and accessible 44px Atlas entry at 320px",
+    "All nine themes retain pictures and separate Autonom presentation without overflow",
+    "Homepage opens internal reader with original picture, translation selector and canonical share link",
+    "Current Radio28, Podcast1839, Video15, Library741 and Lexicon177 catalogues reachable",
+    "Keyboard Atlas icon opens frozen r77 in active language and real map reaches ready",
+    "Actual 18-file shell saved within unchanged 8MiB; root home returns after full browser restart offline, no Atlas or foreign image bytes cached"
+  ],
+  "pageErrors": [],
+  "requestFailures": [
+    {
+      "url": "http://127.0.0.1:56105/wrn-source-passes/current.json",
+      "resource": "fetch",
+      "failure": "net::ERR_INTERNET_DISCONNECTED"
+    },
+    {
+      "url": "https://www.kinimatorama.net/files/import-images/44028cd5a52ad2e6ee3df7a83c2d2225.jpg",
+      "resource": "image",
+      "failure": "net::ERR_INTERNET_DISCONNECTED"
+    },
+    {
+      "url": "https://i0.wp.com/elitshanews.org.za/wp-content/uploads/2026/10/IMG_8969-scaled.jpg?fit=678%2C452&ssl=1",
+      "resource": "image",
+      "failure": "net::ERR_INTERNET_DISCONNECTED"
+    }
+  ],
+  "leadImage": {
+    "src": "https://www.groundxero.in/wp-content/uploads/2026/10/Bero-granite-mine.jpg",
+    "width": 647,
+    "height": 640,
+    "referrerPolicy": "no-referrer"
+  },
+  "shell": {
+    "id": "cd4d4e7e80b0dff639e1d3ae13f1674e4d8430560650f25244c56391b016de5e",
+    "bytes": 8358866,
+    "paths": [
+      "/assets/content-directory-v1-Dn3f2ctI.json",
+      "/assets/index-BQh0fadn.js",
+      "/assets/index-C_MAhk_Y.css",
+      "/assets/legacy-knowledge-v1-B9NE5SXh.json",
+      "/assets/legacy-support-v1-CKf2hNYO.json",
+      "/assets/production-events-media-v1-DsH9Ygky.json",
+      "/assets/react-vendor-YahHAMAi.js",
+      "/assets/solinaridao-header-mark-filled-D7vg3enZ.png",
+      "/assets/wrn-agroecology-illustration-v1-DrDVXIYr.webp",
+      "/assets/wrn-app-icon-CwyuVArd.png",
+      "/assets/wrn-austerity-illustration-v1-ByTb6ajV.webp",
+      "/assets/wrn-browser-runtime-BWU2eN7_.js",
+      "/assets/wrn-browser-runtime-Bv2391bc.css",
+      "/assets/wrn-content-core-BZy7ZwA8.js",
+      "/assets/wrn-future-header-white-D5q8hgPK.png",
+      "/assets/wrn-language-CQw_5_ha.js",
+      "/assets/wrn-teachers-illustration-v1-eboeU-Ap.webp",
+      "/index.html"
+    ]
+  }
+}

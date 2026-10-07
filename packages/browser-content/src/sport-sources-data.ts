@@ -25,7 +25,7 @@ export type SportSource = Readonly<{
   originalLanguage: 'de' | 'en' | 'es' | 'fr' | 'it' | 'ja' | 'pt';
   originalUrl: string;
   sourceEvidenceUrl: string;
-  observedDate: '2026-09-20';
+  observedDate: '2026-09-20' | '2026-09-29';
   directoryOnly: true;
   rights: 'unknown';
   feed: 'unchecked' | 'observed';
@@ -158,6 +158,99 @@ export const sportSources: readonly SportSource[] = [
     rights: 'unknown',
     feed: 'unchecked',
     linkedSportNotePublisher: true,
+  },
+  {
+    id: 'sport-and-rights-alliance',
+    name: 'Sport & Rights Alliance',
+    category: 'sport-politics',
+    originalLanguage: 'en',
+    originalUrl: 'https://sportandrightsalliance.org/',
+    sourceEvidenceUrl: 'https://sportandrightsalliance.org/news/',
+    observedDate: '2026-09-29',
+    directoryOnly: true,
+    rights: 'unknown',
+    feed: 'unchecked',
+    continent: 'international',
+  },
+  {
+    id: 'futbol-mas',
+    name: 'Fútbol Más',
+    category: 'community-sport-right-to-sport',
+    originalLanguage: 'es',
+    originalUrl: 'https://futbolmas.org/',
+    sourceEvidenceUrl: 'https://futbolmas.org/noticias/',
+    observedDate: '2026-09-29',
+    directoryOnly: true,
+    rights: 'unknown',
+    feed: 'unchecked',
+    continent: 'south-america',
+  },
+  {
+    id: 'women-in-sport',
+    name: 'Women in Sport',
+    category: 'antidiscrimination',
+    originalLanguage: 'en',
+    originalUrl: 'https://womeninsport.org/',
+    sourceEvidenceUrl: 'https://womeninsport.org/explore-the-issues/news-and-opinion/',
+    observedDate: '2026-09-29',
+    directoryOnly: true,
+    rights: 'unknown',
+    feed: 'unchecked',
+    continent: 'europe',
+  },
+  {
+    id: 'common-goal',
+    name: 'Common Goal',
+    category: 'sport-for-all',
+    originalLanguage: 'en',
+    originalUrl: 'https://www.common-goal.org/',
+    sourceEvidenceUrl: 'https://www.common-goal.org/get-inspired',
+    observedDate: '2026-09-29',
+    directoryOnly: true,
+    rights: 'unknown',
+    feed: 'unchecked',
+    continent: 'international',
+  },
+  {
+    id: 'moving-the-goalposts-kenya',
+    name: 'Moving the Goalposts Kenya',
+    category: 'community-sport-right-to-sport',
+    originalLanguage: 'en',
+    originalUrl: 'https://mtgk.org/',
+    sourceEvidenceUrl:
+      'https://mtgk.org/2026/09/08/from-the-coast-to-the-world-mtg-wins-the-2026-wfs-award-for-football-for-good/',
+    observedDate: '2026-09-29',
+    directoryOnly: true,
+    rights: 'unknown',
+    feed: 'unchecked',
+    continent: 'africa',
+  },
+  {
+    id: 'magic-bus-india',
+    name: 'Magic Bus India Foundation',
+    category: 'sport-for-all',
+    originalLanguage: 'en',
+    originalUrl: 'https://www.magicbus.org/',
+    sourceEvidenceUrl:
+      'https://www.magicbus.org/blogread.php?id=217&title=leadhership-empowering-young-women-to-lead-indias-future',
+    observedDate: '2026-09-29',
+    directoryOnly: true,
+    rights: 'unknown',
+    feed: 'unchecked',
+    continent: 'asia',
+  },
+  {
+    id: 'discover-football',
+    name: 'DISCOVER FOOTBALL',
+    category: 'antidiscrimination',
+    originalLanguage: 'de',
+    originalUrl: 'https://www.discoverfootball.de/',
+    sourceEvidenceUrl: 'https://www.discoverfootball.de/schiedsrichterinnen/',
+    observedDate: '2026-09-29',
+    directoryOnly: true,
+    rights: 'unknown',
+    feed: 'unchecked',
+    continent: 'europe',
   },
 ];
 

@@ -1,0 +1,128 @@
+{
+  "schema": "wrn.website-reviewed-article-image-references.v1",
+  "dataCommit": "a8c172a801c2d817a52cc3607ea3423bc9aeeab2",
+  "feedSha256": "3b5503e2c2734d3df8ba72fe5e8a74699f11e2fddd0f561918f5c1b962c6257f",
+  "rights": "publisher-original-image-reference-only; no reuse licence asserted",
+  "imageBytesHosted": false,
+  "imageBytesOffline": false,
+  "origins": [
+    "https://b1867527.assetcdn.net",
+    "https://i0.wp.com",
+    "https://infolibre.gr",
+    "https://kolektiva.media",
+    "https://labornotes.org",
+    "https://omniatv.com",
+    "https://rote-hilfe.de",
+    "https://umanitanova.org"
+  ],
+  "entries": [
+    {
+      "articleId": "news-af1556a29e670df58a5b85322782fab9101f423308699c6732b81b986209d814",
+      "originalUrl": "https://www.aptnnews.ca/national-news/health-minister-calls-alcohol-one-of-the-major-concerns-for-indigenous-communities/",
+      "originalTitle": "Health minister calls alcohol ‘one of the major concerns’ for Indigenous communities",
+      "sourceName": "APTN News",
+      "imageUrl": "https://b1867527.assetcdn.net/1867527/wp-content/uploads/2026/10/Health-Minister-Marjorie-Michel-1024x576.jpg?lossy=1&strip=1&webp=1",
+      "imageCredit": "Adrian Wyld / The Canadian Press",
+      "verification": "browser-dom",
+      "note": "article image and publisher og:image; h1 exact",
+      "observedAt": "2026-10-07T21:54:39.333Z",
+      "sourcePageSha256": null
+    },
+    {
+      "articleId": "news-0070b1acd647a7404b01de8ce4734652fc9769cd26fa1b15f36a476d924277b2",
+      "originalUrl": "https://rote-hilfe.de/meldungen/bring-maja-back-antifaschistin-muss-sofort-aus-ungarn-hierher-ueberstellt-werden",
+      "originalTitle": "Bring Maja back: Antifaschist*in muss sofort aus Ungarn hierher überstellt werden!",
+      "sourceName": "Rote Hilfe",
+      "imageUrl": "https://rote-hilfe.de/sites/default/files/styles/responsive_10_4_1000w/public/2026-09/freemaja.jpeg?h=2e917df8&itok=7RnGQR9D",
+      "imageCredit": "",
+      "verification": "http-html",
+      "note": "article responsive-image; same freemaja image in og:image:url",
+      "observedAt": "2026-10-07T21:54:39.334Z",
+      "sourcePageSha256": "cc41d32432564f93578c031e285c651e73f7fc44982507043d8e93b9e1cf1bb9"
+    },
+    {
+      "articleId": "news-4300ec2e59ab345fb88de936120127159c87ffcb14d70ee906fe391d9c035943",
+      "originalUrl": "https://omniatv.com/853523050/premiera-toy-ntokimanter-11-chronia-diki-tis-chrysis-aygis-oi-anthropoi-tis/",
+      "originalTitle": "Πρεμιέρα του ντοκιμαντέρ «11 χρόνια δίκη της Χρυσής Αυγής: Οι άνθρωποί της»",
+      "sourceName": "OmniaTV (GR)",
+      "imageUrl": "https://omniatv.com/wp-content/uploads/2026/10/uHEP29s2pzw24k0ayzdOzlvqQMr.jpg",
+      "imageCredit": "",
+      "verification": "browser-dom",
+      "note": "publisher og:image and article img; h1 exact",
+      "observedAt": "2026-10-07T21:54:39.334Z",
+      "sourcePageSha256": null
+    },
+    {
+      "articleId": "news-b70ee56241807ced5c1f5a420355b07ee77b1300d588b7173f755029b40fc694",
+      "originalUrl": "https://kolektiva.media/w/gLFFxHqttAUHDz3Bok189G",
+      "originalTitle": "DI.FM's Top 10 Progressive House Tracks September 2026",
+      "sourceName": "Kolektiva Media (Video)",
+      "imageUrl": "https://kolektiva.media/lazy-static/thumbnails/ed76736f-4fa6-4200-b138-c4b63dd5ccb5.png",
+      "imageCredit": "",
+      "verification": "http-html",
+      "note": "publisher og:image and exact og:title/og:url",
+      "observedAt": "2026-10-07T21:54:39.334Z",
+      "sourcePageSha256": "d8d5a36c2f7e0588170b23357b4fca083d6f15b2d030d0a69501468dc334d9a3"
+    },
+    {
+      "articleId": "news-9141adf553293ec2bd6639ef70885dd632a20460f4604b98cc20271741843c7c",
+      "originalUrl": "https://labornotes.org/2026/10/amazon-package-drivers-rev-organizing-become-direct-employees",
+      "originalTitle": "Amazon Package Drivers Rev Up Organizing to Become Direct Employees",
+      "sourceName": "Labor Notes",
+      "imageUrl": "https://labornotes.org/sites/default/files/styles/full_width/public/main/articles/Delivery%20Protection%20Act.jpg?itok=v5gpqCmx",
+      "imageCredit": "Teamsters",
+      "verification": "http-html",
+      "note": "article image + photo credit; same Delivery Protection Act photo in og:image",
+      "observedAt": "2026-10-07T21:54:39.334Z",
+      "sourcePageSha256": "44cf010915628a97d697874b46e7a8c27ac5e9e7ed6646241dac3781ce6a8b47"
+    },
+    {
+      "articleId": "news-bca10aef827c6956c5ff33e4d6e0f4befd53a3d3a8fce0296ee42c6c41f0b47d",
+      "originalUrl": "https://infolibre.gr/2026/10/07/quot-gia-tin-akyrosi-tis-provolis-toy-ntokimanter-naza-sto-plaiso-toy-festival-kinimatografoy-thessalonikis-quot-kataggelia-toy-syntonismoy-allileggyis-stin-palaistini/",
+      "originalTitle": "“Για την ακύρωση της προβολής του ντοκιμαντέρ NAZA στο πλαίσο του Φεστιβάλ Κινηματογράφου Θεσσαλονίκης” – Καταγγελία του Συντονισμού Αλληλεγγύης στην Παλαιστίνη",
+      "sourceName": "Infolibre (GR)",
+      "imageUrl": "https://infolibre.gr/wp-content/uploads/2026/10/Naza-Banner-735x400.webp",
+      "imageCredit": "",
+      "verification": "http-html",
+      "note": "article wp-post-image; same Naza Banner in og:image",
+      "observedAt": "2026-10-07T21:54:39.334Z",
+      "sourcePageSha256": "323d4e81f145e7e18187f3e6537c8606268885216292abcd1575884672bf927e"
+    },
+    {
+      "articleId": "news-a62a4aee2a1d906c18b6fa8e95ae5bef2892863ee83fb1259de7bf5661982f69",
+      "originalUrl": "https://umanitanova.org/a-volte-ritornano-opporsi-alla-ripresa-del-nucleare/",
+      "originalTitle": "A volte ritornano. Opporsi alla ripresa del nucleare",
+      "sourceName": "Umanita Nova (IT)",
+      "imageUrl": "https://umanitanova.org/wp-content/uploads/2026/10/Afshin-65-840x480.png",
+      "imageCredit": "",
+      "verification": "http-html",
+      "note": "first article wp-post-image; same Afshin65 in og:image",
+      "observedAt": "2026-10-07T21:54:39.334Z",
+      "sourcePageSha256": "fee2e7c4a8ac7ac37ff8c6b6fdfc06a483cf678e06774d3c2a689396a45779b3"
+    },
+    {
+      "articleId": "news-d828c8ffcb0ec0dc10ed6568f6a4e3ca8f7d7cfc31bed8a7c3038f294790bb83",
+      "originalUrl": "https://apublica.org/2026/10/ha-tres-anos-os-palestinos-pagam-pelo-7-de-outubro/",
+      "originalTitle": "Há três anos os palestinos pagam pelo 7 de outubro",
+      "sourceName": "Agência Pública",
+      "imageUrl": "https://i0.wp.com/apublica.org/wp-content/uploads/2026/10/1-Ha-tres-anos-os-palestinos-pagam-pelo-7-de-outubro.jpg?resize=640%2C535&ssl=1",
+      "imageCredit": "",
+      "verification": "http-html",
+      "note": "article wp-image-267338 and Article JSON-LD primary ImageObject; old Qalandia feed image belongs to another article",
+      "observedAt": "2026-10-07T21:54:39.334Z",
+      "sourcePageSha256": "9da75714e863b6a15f5bbf858c65e90daf0529668af7c65cc3be90aed18ee166"
+    },
+    {
+      "articleId": "news-80726740758f9aa7865484775877ee55f0923e2fbd8fa9ec71117df1b03976fe",
+      "originalUrl": "https://es.anarchistlibraries.net/library/camillo-berneri-la-palestina-ensangrentada?v=1791378720",
+      "originalTitle": "Camillo Berneri - La Palestina ensangrentada",
+      "sourceName": "Biblioteca Anarquista (ES)",
+      "imageUrl": null,
+      "imageCredit": "",
+      "verification": "http-html",
+      "note": "source has no article image; generic sitefiles/es/opengraph.png is not an article image",
+      "observedAt": "2026-10-07T21:54:39.334Z",
+      "sourcePageSha256": "6e505cbfc16cdeef9247845ce282d7832b03fc4b98a03223253f462978412176"
+    }
+  ]
+}

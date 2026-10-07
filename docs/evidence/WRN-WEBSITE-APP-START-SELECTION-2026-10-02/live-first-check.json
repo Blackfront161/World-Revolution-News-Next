@@ -1,0 +1,56 @@
+{
+  "origin": "https://solinaridao.com",
+  "sourceCommit": "734425ecd635478608b2b32b37c05baa8dc40860",
+  "observedAtUTC": "2026-10-02T10:58:16.035Z",
+  "status": "FAIL",
+  "checks": [
+    {
+      "name": "live homepage, coverage and original links",
+      "status": "PASS",
+      "ids": [
+        "news-7956e3311e1bcb7df04798b6a2986cb5054cfd96dcc8d5a3397abcd519159959",
+        "news-09a14b63febedd7dcb177d736523f28b5242a09708b803fd819a4282996f2628",
+        "news-2b5f3c7700ce5f662358d8869d9c6dedfe9459fe28fcf0359943d98d2f16549e",
+        "news-ca355f155367fe855e230b1e6adfb68b1c7c7ede062061fb7ac07bc252892f79",
+        "news-da3cf8526e8ca0f62d63e0408e4cc6f1504c19e7ae53bc5ab6b0ba8825e57841"
+      ],
+      "links": [
+        {
+          "href": "https://english.anf-news.com/news/police-detain-mersin-metropolitan-municipality-mayor-and-58-others-87480",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        },
+        {
+          "href": "https://english.anf-news.com/kurdistan/iran-bombs-kdp-i-camp-87481",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        },
+        {
+          "href": "https://english.anf-news.com/kurdistan/soldiers-attack-martyr-binevs-cemetery-on-mount-gabar-87486",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        },
+        {
+          "href": "https://www.anarchistfederation.net/healing-the-borders-scar-updates-on-khalif-miller/",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        },
+        {
+          "href": "https://www.anarchistfederation.net/the-projet-evasions-needs-a-little-cash/",
+          "rel": "noopener noreferrer",
+          "referrerpolicy": "no-referrer"
+        }
+      ]
+    }
+  ],
+  "icon": {
+    "href": "/assets/wrn-app-icon-CwyuVArd.png",
+    "bytes": 8845,
+    "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+  },
+  "error": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  locator('[data-home-directory-article]')\nExpected: 5\nReceived: 0\nTimeout:  5000ms\n\nCall log:\n  - Expect \"to.have.count\" with timeout 5000ms\n  - waiting for locator('[data-home-directory-article]')\n    10 × locator resolved to 0 elements\n       - unexpected value \"0\"\n",
+  "failureUI": "Zum Hauptinhalt springen\nWORLD REVOLUTION NEWS\nsolinaridao.com ↗\n▷\n♡\nOberflächensprache\nEN\nDE\nES\nFR\nIT\nPT\nRU\nEL\nTR\nStart\nFür mich\nEntdecken\nMedien\nGespeichert\nNachrichten\nQuellen\nSport-Lesehinweise\nEvents\nWissen\nSolidarität\nWORLD REVOLUTION NEWS\nAktuell\nAlle\nArbeitskämpfe\nBesetzungen & Wohnen\nAntifaschismus\nQueer-Feminismus\nKeine Grenzen\n\nWird geladen\n\nArtikel sind zum Offline-Lesen gespeichert.\n\nAuf neuere Revision prüfen\nNachrichten\nQuellen\nSport-Lesehinweise\nWorld Revolution News",
+  "worker": {
+    "caches": []
+  }
+}

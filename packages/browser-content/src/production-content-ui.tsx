@@ -31,6 +31,7 @@ import {
   type createProductionContentOfflineHook,
   type ProductionOfflineUiCall,
 } from './content-offline-ui';
+import type { ProductionContentOfflineControllerResult } from './production-content-offline-controller';
 import {
   type createProductionReadingStateStore,
   type ProductionReadingStateChange,
@@ -42,10 +43,12 @@ import {
   type ProductionArticleView,
 } from './production-content-view';
 import { ProductionReaderBlocks } from './production-reader-blocks';
+import { canonicalShareText, type ShareAdapter } from './browser-share';
 import type { ProductionTranslationAdapter } from './production-translation';
 import { ProductionPodcastPanel, type ProductionDeviceSpeechAdapter } from './production-podcast';
 import type { ProductionOnlinePodcastAdapter } from './production-podcast-online';
 import { ProductionHome, type ProductionHomeDirectory } from './production-home';
+import { AutomaticHomeCardText, getHomeTranslationCopy } from './production-home-translation';
 import { ProductionSelectionExplanation } from './production-selection-explanation';
 import { useProductionUserActivity } from './production-user-activity/use-activity';
 import { ProductionActivityNotice, ProductionActivityPanel } from './production-user-activity/ui';
@@ -158,8 +161,14 @@ type ProductionContentAreaDependencies = Readonly<{
   productionReadingStateStorageKey: string;
   headingId: string;
   archiveTriggerId: string;
+  shouldAutoCheck?: (control: ProductionContentOfflineControllerResult['control']) => boolean;
   embeddedCardHeadingLevel?: 3 | 4;
   translationAdapter?: ProductionTranslationAdapter | null;
+  ArticleTranslation?: ComponentType<{
+    view: Extract<ProductionArticleView, { kind: 'ready' }>;
+    language: UiLanguage;
+    route: string;
+  }>;
   deviceSpeechAdapter?: ProductionDeviceSpeechAdapter | null;
   onlinePodcastAdapter?: ProductionOnlinePodcastAdapter | null;
   activityClient?: ActivityClient | null;
@@ -173,8 +182,10 @@ export function createProductionContentArea({
   productionReadingStateStorageKey,
   headingId,
   archiveTriggerId,
+  shouldAutoCheck = (control) => control?.generation === 0 && control.activeKey === null,
   embeddedCardHeadingLevel = 4,
   translationAdapter = null,
+  ArticleTranslation,
   deviceSpeechAdapter = null,
   onlinePodcastAdapter = null,
   activityClient = null,
@@ -199,6 +210,7 @@ export function createProductionContentArea({
     embedded = false,
     onCanonical,
     homeDirectory,
+    homeContent,
     regionalEvents,
   }: {
     target: string;
@@ -211,9 +223,10 @@ export function createProductionContentArea({
     onCloseReader(): void;
     onCloseArchive(): void;
     onOpenArchive(trigger: HTMLButtonElement): void;
-    shareAdapter: { share(url: string): Promise<void> };
+    shareAdapter: ShareAdapter;
     children?: ReactNode;
     regionalEvents?: ReactNode;
+    homeContent?: ReactNode;
     preferences?: LocalPersonalizationStateV1 | undefined;
     embedded?: boolean;
     onCanonical?(id: string, archive: boolean): void;
@@ -223,6 +236,9 @@ export function createProductionContentArea({
           onBrowse(): void;
           onBrowseSport?(): void;
           prioritizeCurrentLinks?: boolean;
+          leadWithCurrentSidebar?: boolean;
+          prioritizeReviewedImages?: boolean;
+          automaticTranslation?: boolean;
           brandMarkUrl?: string;
         }>
       | undefined;
@@ -261,6 +277,8 @@ export function createProductionContentArea({
     );
     const routeRef = useRef(routeKey);
     routeRef.current = routeKey;
+    const languageRef = useRef(language);
+    languageRef.current = language;
     const blocksRef = useRef<HTMLDivElement>(null);
     const readerHeading = useRef<HTMLHeadingElement>(null);
     const routeArticle = typeof archiveRoute === 'string' ? archiveRoute : articleId;
@@ -284,11 +302,7 @@ export function createProductionContentArea({
       void (async () => {
         let checked = await invoke('guard');
         if (!active || routeRef.current !== routeKey) return;
-        if (
-          !bootstrapped.current &&
-          checked?.control?.generation === 0 &&
-          checked.control.activeKey === null
-        ) {
+        if (!bootstrapped.current && shouldAutoCheck(checked?.control ?? null)) {
           bootstrapped.current = true;
           checked = await invoke('check');
         }
@@ -297,7 +311,7 @@ export function createProductionContentArea({
       return () => {
         active = false;
       };
-    }, [routeKey, invoke]);
+    }, [routeKey, invoke, shouldAutoCheck]);
 
     useEffect(() => {
       let active = true;
@@ -638,6 +652,18 @@ export function createProductionContentArea({
     const share = async () => {
       const attempt = ++shareAttempt.current;
       const route = routeRef.current;
+      // Guarding temporarily unmounts the reader, so capture only a result that
+      // is actually rendered at the instant the user presses Share.
+      const renderedTranslation = blocksRef.current?.querySelector('[data-translation-result]');
+      const sharedTranslation = blocksRef.current?.querySelector<HTMLElement>(
+        '[data-wrn-translated-title]',
+      );
+      const sharedTitle = sharedTranslation?.dataset.wrnTranslatedTitle;
+      const sharedLanguage = sharedTranslation?.dataset.wrnTranslationLanguage;
+      const sharedAuthority = sharedTranslation?.dataset.wrnTranslationAuthority;
+      const visibleTranslationLanguage = renderedTranslation?.isConnected
+        ? renderedTranslation.closest<HTMLElement>('.production-translation')?.lang
+        : null;
       const checked = await run('guard');
       const refreshed =
         routeArticle === null ? null : resolveProductionArticleView(checked, routeArticle);
@@ -649,6 +675,42 @@ export function createProductionContentArea({
       )
         return;
       const authority = `${checked.activeKey}:${checked.safety?.revision}:${checked.expiresAt}`;
+      if (identityRef.current !== authority) return;
+      const renderedAuthority = view?.kind === 'ready' ? view.translationAuthority : null;
+      const refreshedAuthority = refreshed.translationAuthority;
+      const sameTranslationAuthority =
+        renderedAuthority != null &&
+        refreshedAuthority != null &&
+        renderedAuthority.releaseRevision === refreshedAuthority.releaseRevision &&
+        renderedAuthority.manifestSha256 === refreshedAuthority.manifestSha256 &&
+        renderedAuthority.articleId === refreshedAuthority.articleId &&
+        renderedAuthority.articleRevision === refreshedAuthority.articleRevision &&
+        renderedAuthority.activeKey === refreshedAuthority.activeKey &&
+        renderedAuthority.safetyRevision === refreshedAuthority.safetyRevision &&
+        renderedAuthority.expiresAt === refreshedAuthority.expiresAt;
+      const translatedLanguage =
+        sameTranslationAuthority &&
+        translationAdapter &&
+        languageRef.current === language &&
+        visibleTranslationLanguage === language
+          ? language
+          : null;
+      const sharedResult =
+        sameTranslationAuthority &&
+        ArticleTranslation &&
+        sharedTitle &&
+        sharedLanguage &&
+        isUiLanguage(sharedLanguage) &&
+        sharedAuthority === JSON.stringify(refreshedAuthority);
+      const shareOptions = sharedResult
+        ? {
+            translationLanguage: sharedLanguage,
+            title: sharedTitle,
+            sourceName: refreshed.article.source.name,
+          }
+        : translatedLanguage
+          ? { translationLanguage: translatedLanguage }
+          : undefined;
       const publish = (value: string, url?: string) => {
         if (
           shareAttempt.current === attempt &&
@@ -664,10 +726,11 @@ export function createProductionContentArea({
           });
       };
       try {
-        await shareAdapter.share(refreshed.shareUrl);
+        if (shareOptions) await shareAdapter.share(refreshed.shareUrl, shareOptions);
+        else await shareAdapter.share(refreshed.shareUrl);
         publish(copy.canonicalShareReady);
       } catch {
-        publish(copy.canonicalShareError, refreshed.shareUrl);
+        publish(copy.canonicalShareError, canonicalShareText(refreshed.shareUrl, shareOptions));
       }
     };
     const restoredPosition = useRef<string | null>(null);
@@ -734,13 +797,14 @@ export function createProductionContentArea({
         (shareMessage?.identity === identity && shareMessage.route === routeKey
           ? shareMessage.text
           : null));
-    const shareFallbackUrl =
+    const shareFallbackText =
       shareMessage?.identity === identity && shareMessage.route === routeKey
         ? (shareMessage.url ?? null)
         : null;
     const renderArticleCard = (
       article: ProductionArticleV1,
       role?: 'lead' | 'main' | 'further',
+      translateHomeText = false,
     ) => {
       const readingEntry = reading.state.entries.find((entry) => entry.articleId === article.id);
       const saved = readingEntry?.savedAt !== undefined;
@@ -760,9 +824,27 @@ export function createProductionContentArea({
           key={article.id}
           className={`production-card${role === 'main' || role === 'further' ? ' production-card--compact' : ''}`}
           data-home-role={role}
+          data-home-image={homeImages.length > 0 ? 'available' : 'unavailable'}
         >
-          <Title lang={article.originalLanguage}>{article.title}</Title>
-          {role !== 'main' && <p lang={article.originalLanguage}>{article.teaser}</p>}
+          {homeDirectory?.automaticTranslation &&
+          translateHomeText &&
+          (role === 'lead' || role === 'main') ? (
+            <AutomaticHomeCardText
+              article={article}
+              role={role}
+              headingLevel={embedded && embeddedCardHeadingLevel === 4 ? 4 : 3}
+              authority={
+                homeView?.kind === 'ready' ? (homeView.translationAuthority ?? null) : null
+              }
+              language={language}
+              adapter={translationAdapter}
+            />
+          ) : (
+            <>
+              <Title lang={article.originalLanguage}>{article.title}</Title>
+              {role !== 'main' && <p lang={article.originalLanguage}>{article.teaser}</p>}
+            </>
+          )}
           {homeImages.length > 0 && (
             <div
               className={`production-home-image${role === 'main' ? ' production-home-image--compact' : ''}`}
@@ -1004,6 +1086,9 @@ export function createProductionContentArea({
                   }
                 />
                 <div className="production-reader-blocks" ref={blocksRef}>
+                  {ArticleTranslation && (
+                    <ArticleTranslation view={view} language={language} route={routeKey} />
+                  )}
                   <ProductionReaderBlocks
                     blocks={view.blocks}
                     translation={
@@ -1165,24 +1250,42 @@ export function createProductionContentArea({
                   />
                 )}
                 {target === 'home' ? (
-                  <ProductionHome
-                    articles={articles}
-                    language={language}
-                    sourcePreferences={sourcePreferences.state}
-                    renderCard={renderArticleCard}
-                    hasOriginalImage={(article) => {
-                      const view = resolveProductionArticleView(visible, article.id);
-                      return (
-                        view.kind === 'ready' && view.blocks.some((block) => block.kind === 'image')
-                      );
-                    }}
-                    loadDirectory={homeDirectory?.load}
-                    onBrowseDirectory={homeDirectory?.onBrowse}
-                    onBrowseSport={homeDirectory?.onBrowseSport}
-                    prioritizeCurrentLinks={homeDirectory?.prioritizeCurrentLinks}
-                    brandMarkUrl={homeDirectory?.brandMarkUrl}
-                    regionalEvents={regionalEvents}
-                  />
+                  (homeContent ?? (
+                    <>
+                      {homeDirectory?.automaticTranslation && (
+                        <p className="production-home-translation-notice" lang={language}>
+                          {translationAdapter
+                            ? getHomeTranslationCopy(language).notice
+                            : getHomeTranslationCopy(language).unavailable}
+                        </p>
+                      )}
+                      <ProductionHome
+                        articles={articles}
+                        contentReady={allowed}
+                        language={language}
+                        sourcePreferences={sourcePreferences.state}
+                        renderCard={renderArticleCard}
+                        hasOriginalImage={(article) => {
+                          const view = resolveProductionArticleView(visible, article.id);
+                          return (
+                            view.kind === 'ready' &&
+                            view.blocks.some((block) => block.kind === 'image')
+                          );
+                        }}
+                        loadDirectory={homeDirectory?.load}
+                        onBrowseDirectory={homeDirectory?.onBrowse}
+                        onBrowseSport={homeDirectory?.onBrowseSport}
+                        prioritizeCurrentLinks={homeDirectory?.prioritizeCurrentLinks}
+                        leadWithCurrentSidebar={homeDirectory?.leadWithCurrentSidebar}
+                        prioritizeReviewedImages={homeDirectory?.prioritizeReviewedImages}
+                        brandMarkUrl={homeDirectory?.brandMarkUrl}
+                        regionalEvents={regionalEvents}
+                        translationAdapter={
+                          homeDirectory?.automaticTranslation ? translationAdapter : null
+                        }
+                      />
+                    </>
+                  ))
                 ) : (
                   <div className="feed-list">
                     {articles.map((article) => renderArticleCard(article))}
@@ -1226,15 +1329,25 @@ export function createProductionContentArea({
             {readingNotice}
           </p>
         )}
-        {shareFallbackUrl !== null ? (
-          <input
-            type="url"
-            readOnly
-            value={shareFallbackUrl}
-            aria-label={copy.share}
-            data-testid="canonical-share-fallback"
-            onFocus={(event) => event.currentTarget.select()}
-          />
+        {shareFallbackText !== null ? (
+          shareFallbackText.includes('\n') ? (
+            <textarea
+              readOnly
+              value={shareFallbackText}
+              aria-label={copy.share}
+              data-testid="canonical-share-fallback"
+              onFocus={(event) => event.currentTarget.select()}
+            />
+          ) : (
+            <input
+              type="url"
+              readOnly
+              value={shareFallbackText}
+              aria-label={copy.share}
+              data-testid="canonical-share-fallback"
+              onFocus={(event) => event.currentTarget.select()}
+            />
+          )
         ) : null}
         <p role="status" className="production-notice">
           {status}

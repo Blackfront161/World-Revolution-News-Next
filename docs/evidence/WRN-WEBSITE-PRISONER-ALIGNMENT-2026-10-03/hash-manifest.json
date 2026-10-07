@@ -1,0 +1,120 @@
+{
+  "schema": "wrn.website-prisoner-alignment-evidence.v1",
+  "productCommit": "fe94660d0c830bfab4ca97ea82b9e0b44bacc360",
+  "createdAt": "2026-10-03T00:42:07.861Z",
+  "liveWebsiteUnchanged": "566422758241190f432d8c8a09d67a5f589d90ac",
+  "independentWebsiteReview": "pending",
+  "websiteManifestSha256": "4661edbf211021f2b0eb6465977e1d8c782549ad132c03e53df59774753d38f4",
+  "hostingManifestSha256": "75ad898561cbd0b5405ebd9970f7e0762c85de1cf8ed2e57659f33f8e41b2522",
+  "hostingShellId": "c2a1adf1395f8e23a34250539c32ae0cd775db2939cd5209047c08666b6d0bcc",
+  "hostingShellBytes": 7829867,
+  "productPaths": [
+    {
+      "path": "apps/website/src/features/support/WebsitePrisonerReview.test.tsx",
+      "bytes": 2413,
+      "sha256": "7e222d176cc6d9720f15585071f19307b16702609c9efff89426e8cfbb48bbdd"
+    },
+    {
+      "path": "apps/website/src/features/support/WebsitePrisonerReview.tsx",
+      "bytes": 9699,
+      "sha256": "c5e853882eb643da5eed4a7ab3e0141c4bbb4e05e31fbd47bb6f28e04869549d"
+    },
+    {
+      "path": "apps/website/src/features/support/WebsiteSupportRoutes.tsx",
+      "bytes": 17830,
+      "sha256": "259d01d4af6aa614f495db91724f0d25ac349390cf068bbf8e054c69f9bb6489"
+    },
+    {
+      "path": "apps/website/src/features/support/data/prisoner-review-v1.json",
+      "bytes": 13684,
+      "sha256": "08d7eb7e3a9cac4ef9af446f1bc0eea8ef073cd6ab987439c01218819f6bae0e"
+    },
+    {
+      "path": "apps/website/src/features/support/prisoner-review.test.ts",
+      "bytes": 3258,
+      "sha256": "10d22b117001ace1105bb19ea2d53bce49474ab8c654685f63ffa95d61e63a57"
+    },
+    {
+      "path": "apps/website/src/features/support/prisoner-review.ts",
+      "bytes": 6593,
+      "sha256": "53861cb071c51e9a5ac835794e4ce6e5fa2ea5cd6dade8a8123e089691e3237f"
+    },
+    {
+      "path": "apps/website/src/features/support/support.css",
+      "bytes": 1278,
+      "sha256": "9e50dad45e7dfe1275b9e0e0b90660a02cce3b727cf54474fb183fee87da5e57"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-PRISONER-ALIGNMENT-2026-10-03/input-bindings.json",
+      "bytes": 886,
+      "sha256": "f0b869e2260d5184a2e2c06b6ab5c9addd19cebe8d75a31967c7279f7449bb23"
+    },
+    {
+      "path": "docs/evidence/WRN-WEBSITE-PRISONER-ALIGNMENT-2026-10-03/projection-input-bindings.json",
+      "bytes": 4577,
+      "sha256": "d4eea748503f26d5b7e0bb8d92096bb055c54a6587074b5f7e7a15a9e71a34e8"
+    }
+  ],
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 6555,
+      "sha256": "5f9960aed020e06e9f14177f3b4ba9ce7dfa5a536c1e0e1771dfdf153698aea4"
+    },
+    {
+      "path": "address-review-1440.png",
+      "bytes": 41215,
+      "sha256": "c5621ac44f787b8ac7f6aecadbe91fb4a4fb7b14f2adbdd901d3c8ba6e156b81"
+    },
+    {
+      "path": "address-review-390.png",
+      "bytes": 30438,
+      "sha256": "ca7bae84778a985c379ef44f7aa2d47c1ed6929c47eebecd81c0e7c7f2537fe1"
+    },
+    {
+      "path": "candidate-receipt.json",
+      "bytes": 3689,
+      "sha256": "3a2783dd9aa69a260eab05a1bd7ca749eb1e435abb849df0a1242e2163d20233"
+    },
+    {
+      "path": "input-bindings.json",
+      "bytes": 886,
+      "sha256": "f0b869e2260d5184a2e2c06b6ab5c9addd19cebe8d75a31967c7279f7449bb23"
+    },
+    {
+      "path": "package-browser-result.json",
+      "bytes": 3667,
+      "sha256": "705d96ab11df4968f27987765bf06daad8d814609120d91f8a94d30490f04781"
+    },
+    {
+      "path": "preview-browser-result.json",
+      "bytes": 874,
+      "sha256": "198c63f6f4f20c0e75f9d3b2283ebc04f3a3c81e10b7150a8374f9934c6927cf"
+    },
+    {
+      "path": "projection-input-bindings.json",
+      "bytes": 4577,
+      "sha256": "d4eea748503f26d5b7e0bb8d92096bb055c54a6587074b5f7e7a15a9e71a34e8"
+    },
+    {
+      "path": "solidarity-1440.png",
+      "bytes": 55894,
+      "sha256": "f3c8ecd6d38a5cd6b7a998310aaf2561e5a928ee513e82e93dbb1aabd0018afc"
+    },
+    {
+      "path": "solidarity-390.png",
+      "bytes": 45301,
+      "sha256": "beba81df042a6c794713447e172eb2eab2fcf061668f4973f3505ddb889f868e"
+    },
+    {
+      "path": "solidarity-offline-1440.png",
+      "bytes": 56744,
+      "sha256": "85e1c60b53b3920153bc3a522d5e49280fede55e823d132567a84fea1647708a"
+    },
+    {
+      "path": "test-result.json",
+      "bytes": 1147,
+      "sha256": "d809faafabb27a7278f366c514fa8a8787d73fcc9f055f87671ab4c9b90fec0c"
+    }
+  ]
+}

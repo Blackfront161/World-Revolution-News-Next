@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
+import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
@@ -86,6 +89,60 @@ test('the default resolves main then produces awaiting-admission without a revie
   );
   assert.match(workflow, /\[\[ "\$REQUESTED_COMMIT" =~ \^\[a-f0-9\]\{40\}\$ \]\]/u);
   assert.doesNotMatch(workflow, /\$\{\{ inputs\.upstream_commit \}\}" =~/u);
+});
+
+test('regional supply status matches reviewed bytes and counts rather than a fixed event quota', async () => {
+  const bytes = await readFile(
+    path.join(workspace, 'packages/browser-content/src/regional-events/events.json'),
+  );
+  const reviewed = JSON.parse(bytes.toString('utf8'));
+  const match = workflow.match(
+    /node --input-type=module - "\$status" <<'NODE'\r?\n([\s\S]*?)\r?\n {10}NODE/u,
+  );
+  assert.ok(match, 'actual workflow regional status validator must be exercised');
+  const script = match[1]
+    .split(/\r?\n/u)
+    .map((line) => (line.startsWith('          ') ? line.slice(10) : line))
+    .join('\n');
+  const directory = await mkdtemp(path.join(tmpdir(), 'wrn-regional-status-'));
+  try {
+    const statusPath = path.join(directory, 'status.json');
+    const summaryPath = path.join(directory, 'summary.md');
+    const status = {
+      schema: 'wrn.regional-events-freshness-check.v1',
+      publicationPerformed: false,
+      minimumHours: 48,
+      revision: reviewed.revision,
+      generatedAt: reviewed.generatedAt,
+      validUntil: reviewed.validUntil,
+      sha256: createHash('sha256').update(bytes).digest('hex'),
+      events: reviewed.events.length,
+      sources: reviewed.sources.length,
+      remainingHours: 100,
+    };
+    for (const change of [
+      null,
+      { events: status.events + 1 },
+      { sources: status.sources + 1 },
+      { revision: status.revision - 1 },
+      { sha256: '0'.repeat(64) },
+      { validUntil: '2099-01-01T00:00:00.000Z' },
+      { publicationPerformed: true },
+      { minimumHours: 0 },
+    ]) {
+      await writeFile(statusPath, JSON.stringify({ ...status, ...change }));
+      const result = spawnSync(process.execPath, ['--input-type=module', '-', statusPath], {
+        input: script,
+        cwd: workspace,
+        encoding: 'utf8',
+        env: { ...process.env, GITHUB_STEP_SUMMARY: summaryPath },
+      });
+      if (change === null) assert.equal(result.status, 0, result.stderr);
+      else assert.notEqual(result.status, 0, `mismatch accepted: ${JSON.stringify(change)}`);
+    }
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
 });
 
 test('the versioned operations manifest describes the same local-only dry-run contract', () => {

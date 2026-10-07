@@ -1,0 +1,509 @@
+{
+  "schema": "wrn.website-current-package-freeze.v1",
+  "sourceCommit": "e20c8002f32103a7f888e907e6603fed792c8b52",
+  "publication": false,
+  "independentPackageReview": "PENDING",
+  "productPaths": [
+    {
+      "path": "apps/website/public/wrn-content-directory/current.json",
+      "bytes": 512,
+      "sha256": "ba2eb8d69566c271d949dc59c9b41e5794ef615b5dd560d3f5135badcd1c7dd0"
+    },
+    {
+      "path": "apps/website/public/wrn-content-directory/snapshots/directory-202610030004-f09accb635582fa41764a38cbf987d9085502a3c9694cb72d8dc630a03deadb2.json",
+      "bytes": 1937848,
+      "sha256": "f09accb635582fa41764a38cbf987d9085502a3c9694cb72d8dc630a03deadb2"
+    },
+    {
+      "path": "apps/website/src/App.test.tsx",
+      "bytes": 27568,
+      "sha256": "be5b3728404c8743dcaba2d84bc5d66bf5a607bd75cdbf454625c89368fa51b5"
+    },
+    {
+      "path": "apps/website/src/App.tsx",
+      "bytes": 112000,
+      "sha256": "1328a024f0795b485bef895743793a32e2cc1bf4b21dbf9f9f5109a5172d740f"
+    },
+    {
+      "path": "apps/website/src/assets/wrn-agroecology-illustration-v1.webp",
+      "bytes": 188830,
+      "sha256": "dda6b30e14e95ab6f61c21be8c26885559a3e488cef114963bffc198695a2bc8"
+    },
+    {
+      "path": "apps/website/src/assets/wrn-austerity-illustration-v1.webp",
+      "bytes": 230192,
+      "sha256": "b7d83ace0ea59e05d803f1076c524af4a95e05345d1cb272306a7ce2fbec7eb0"
+    },
+    {
+      "path": "apps/website/src/assets/wrn-teachers-illustration-v1.webp",
+      "bytes": 172058,
+      "sha256": "2aa705d84cb5ada966e1f0466c4dfdfa36cbb9188c3009ddd4e7941524184922"
+    },
+    {
+      "path": "apps/website/src/features/catalogue-navigation/catalogue-location.test.ts",
+      "bytes": 3435,
+      "sha256": "212bdbf42d5274c2959db88a1ea7922b0929144632acab7d3d9908b18be328f3"
+    },
+    {
+      "path": "apps/website/src/features/catalogue-navigation/catalogue-location.ts",
+      "bytes": 4483,
+      "sha256": "27f8e5544d34dee652aba8968e8745456cea78569bd73137d32c0955149b1e6f"
+    },
+    {
+      "path": "apps/website/src/features/catalogue-navigation/catalogue-navigation-state.ts",
+      "bytes": 6250,
+      "sha256": "dec2e0be09bd90e41af1570ee5ef70cb89f11e4470547edc3daca508725a41c0"
+    },
+    {
+      "path": "apps/website/src/features/catalogue-navigation/catalogue-navigation.test.tsx",
+      "bytes": 7413,
+      "sha256": "c0973ab20f2f417d724e9220ddc1ee3a26457d06886374bf5f673ba9e8b47337"
+    },
+    {
+      "path": "apps/website/src/features/catalogue-navigation/catalogue-navigation.tsx",
+      "bytes": 4109,
+      "sha256": "3548dec0378e064d18a5ca27c3e5b27377d87005e12b5d634b0ee4255341397a"
+    },
+    {
+      "path": "apps/website/src/features/directory/WebsiteContentDirectoryRoute.tsx",
+      "bytes": 22313,
+      "sha256": "b4d629173e2f145f92e50824cea0c50528a8fc69037f23414d8dbf8f4287eab4"
+    },
+    {
+      "path": "apps/website/src/features/events-media/WebsiteAppCatalog.tsx",
+      "bytes": 13628,
+      "sha256": "aaeeeaa556eba746e84a776d576970827cc63d510d528db892f613edf988372f"
+    },
+    {
+      "path": "apps/website/src/features/events-media/events-media-loader.test.ts",
+      "bytes": 4401,
+      "sha256": "659326e5817fcc81957747a260a8c58f0cac30b925904c22d734b302ee8cf03a"
+    },
+    {
+      "path": "apps/website/src/features/events-media/events-media-loader.ts",
+      "bytes": 1341,
+      "sha256": "79598ca3037fab18bac293d821631553e2ba4d1e018db4d621e26f70fbec027f"
+    },
+    {
+      "path": "apps/website/src/features/following/WebsiteFollowingDirectory.test.tsx",
+      "bytes": 5056,
+      "sha256": "def70abc69ba9425a228c82313492db9718daaad470c4ac3c3829a33d1154ae2"
+    },
+    {
+      "path": "apps/website/src/features/following/WebsiteFollowingDirectory.tsx",
+      "bytes": 7511,
+      "sha256": "30079c336bb345fa14cf8d43d9dc5430892e1e56b2fac89f41a6d835380ffaee"
+    },
+    {
+      "path": "apps/website/src/features/home/WebsiteAppHome.test.tsx",
+      "bytes": 2280,
+      "sha256": "a132aa88f3130643441d213e1307a3413682f5bb3c7018d9340bb1bce5bd9f8a"
+    },
+    {
+      "path": "apps/website/src/features/home/WebsiteAppHome.tsx",
+      "bytes": 15572,
+      "sha256": "dc4109fa2c778d749c543aac6fd2025a98ec28213df00f584e9d3e746aba87f4"
+    },
+    {
+      "path": "apps/website/src/features/home/WebsiteArticleIllustration.tsx",
+      "bytes": 1223,
+      "sha256": "07b4da9fd953d08f45400d476e4d9711fba54513a7391e1da302e4b8873b7d7c"
+    },
+    {
+      "path": "apps/website/src/features/home/app-home-editorial-v1.json",
+      "bytes": 17920,
+      "sha256": "2e527ac9436cb6773119bc488d94f8a58d0931aea88efe8f19d00a1d70cde062"
+    },
+    {
+      "path": "apps/website/src/features/home/app-home-layout-v1.json",
+      "bytes": 3278,
+      "sha256": "e5bf9a7cb85055d50e3b89ba9b9e9611bbf2982ece054502bc829c3f8652de7a"
+    },
+    {
+      "path": "apps/website/src/features/home/app-home-selection.ts",
+      "bytes": 1016,
+      "sha256": "5a5519bf24fbb5899aba0d1b4bce4e26e41f378d20c08eb6cf3e4110eff69a9e"
+    },
+    {
+      "path": "apps/website/src/features/home/app-home-source-review-v1.json",
+      "bytes": 55659,
+      "sha256": "307c3856d814892c7d3f80df41fd48bb5ac5173e915d81c5270dc1d3b39aa085"
+    },
+    {
+      "path": "apps/website/src/features/home/app-home.css",
+      "bytes": 9154,
+      "sha256": "4ac657ede7a852614de0457197795411a37b51d7c04f4d9919acbe52735df374"
+    },
+    {
+      "path": "apps/website/src/features/home/article-illustration.ts",
+      "bytes": 1218,
+      "sha256": "c8e4c7f924e85fd656441c39b7ee7049b4a60e892652867f819701d5d67d335f"
+    },
+    {
+      "path": "apps/website/src/features/home/home-additional-illustrations-v1.json",
+      "bytes": 1674,
+      "sha256": "1984eb23b87f075cdd3c019d47e8a21122ce7aa6a9d74aa30e571ceb6957a976"
+    },
+    {
+      "path": "apps/website/src/features/home/home-editorial.test.ts",
+      "bytes": 5648,
+      "sha256": "de581905bd99c0ac1f1b074998a18717f8ebba752f2840c94d9a648e0688bcf2"
+    },
+    {
+      "path": "apps/website/src/features/home/home-editorial.ts",
+      "bytes": 4273,
+      "sha256": "58b1995d05f98d41d8a4250de49414cdba80a0142bf20f6f2f93026ca00d2a7a"
+    },
+    {
+      "path": "apps/website/src/features/home/home-illustration-v1.json",
+      "bytes": 1460,
+      "sha256": "e49600a9f50a4a71bd8f29b0daf0e1bd455093c8c05ededcb0ac474a3906edb8"
+    },
+    {
+      "path": "apps/website/src/features/home/home-note-languages-v1.json",
+      "bytes": 38984,
+      "sha256": "bff29a52beea5a46fe2790ac3093e5d9ac1a7418231031e50f50aececf6e2287"
+    },
+    {
+      "path": "apps/website/src/features/home/website-home-copy.test.ts",
+      "bytes": 1599,
+      "sha256": "4e1ebd47826f97b4602c4963b10780f919065ffaa28e0833ba4a94adf853e905"
+    },
+    {
+      "path": "apps/website/src/features/home/website-home-copy.ts",
+      "bytes": 12313,
+      "sha256": "3d02334725726bd1511b917e5ae3a2872f0617c5b3167c1a518c7b6d8d1c0c5c"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/LearningPaths.tsx",
+      "bytes": 3889,
+      "sha256": "09ca29572b0c8c33aba6c5131297e8a5f7165daeb39b2f27eda9dc1cdc58540b"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/WebsiteKnowledgeRoute.tsx",
+      "bytes": 18858,
+      "sha256": "413624020bcf2e53cd8bab218ebb7f68a131ab0a8839cf63a2700f65528898c5"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/data/learning-paths.json",
+      "bytes": 23741,
+      "sha256": "169185cbf4c8be46dce9ccfb26593857de9ece5dcb630518e6e61f02de82a2ee"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/data/lexicon-editorial-status.json",
+      "bytes": 3499,
+      "sha256": "84c7be193c86d66c792a4b148b4cc9c0af1abada41a837033cf36b74e2031a90"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/knowledge-data.test.ts",
+      "bytes": 2401,
+      "sha256": "a5d46386f4ee2c4c7e50154086af5b711ca8b3633d7e75be576d3c8dce9e4c19"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/knowledge-loader.test.ts",
+      "bytes": 2198,
+      "sha256": "7a4e8efff2c15350afc9fda0a1b8e5477fbbb370791654f4b94889f99ae25f61"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/knowledge-loader.ts",
+      "bytes": 2050,
+      "sha256": "5d741d1cf1929d03c81bb5fdf752c87311c1aea268e49e2b7c46d9f52c311aaf"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/knowledge.css",
+      "bytes": 3483,
+      "sha256": "3373c901d69d09154085f2d96c4d2036b8c0021a252228d1d1a5dbf2b3ec2bec"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/learning-paths.test.ts",
+      "bytes": 2645,
+      "sha256": "bf4ebc7e4b41fab65cade33a39c5c420dc3a83701033a3a1765b7d0992249d02"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/lexicon-editorial-status.test.ts",
+      "bytes": 1525,
+      "sha256": "141173e2cca8ab2d9734fe9e815fc253287a9b109a9283cc8d7e9a6ea26a205e"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/lexicon-editorial-status.ts",
+      "bytes": 1878,
+      "sha256": "5aec349ee046f824b93fc3703567eaa781b0febf7e623628ad6b889bed668cbe"
+    },
+    {
+      "path": "apps/website/src/features/knowledge/packed/legacy-knowledge-v1.json",
+      "bytes": 893344,
+      "sha256": "e3479e68fd7525bda9c685bb2b2718ff0ded82fc525eeab8205bfeb0e4dbfece"
+    },
+    {
+      "path": "apps/website/src/features/projection/data/admission-classes.json",
+      "bytes": 1382,
+      "sha256": "51f12ee9c50fdbb4db6cbfd4cb568253041c03cb4589639283e636dec180cc03"
+    },
+    {
+      "path": "apps/website/src/features/projection/data/content-directory-v1.json",
+      "bytes": 1937848,
+      "sha256": "f09accb635582fa41764a38cbf987d9085502a3c9694cb72d8dc630a03deadb2"
+    },
+    {
+      "path": "apps/website/src/features/projection/data/lock.json",
+      "bytes": 1018,
+      "sha256": "27f1321c0d5b19d08a75a70c3fc189088bc171924093665a43e01e847932200b"
+    },
+    {
+      "path": "apps/website/src/features/projection/data/pointer.json",
+      "bytes": 512,
+      "sha256": "ba2eb8d69566c271d949dc59c9b41e5794ef615b5dd560d3f5135badcd1c7dd0"
+    },
+    {
+      "path": "apps/website/src/features/projection/data/report.json",
+      "bytes": 711022,
+      "sha256": "ca9f665eed166ef551823cd5c8517bdbdba782c8503a29060752163db1e4b67d"
+    },
+    {
+      "path": "apps/website/src/features/projection/data/summary.json",
+      "bytes": 979,
+      "sha256": "f6dfdb574fd0d92cf0e44465691e3076e5e495ff52ad10768daf169f4c9cfde5"
+    },
+    {
+      "path": "apps/website/src/features/projection/projection-policy.test.tsx",
+      "bytes": 7047,
+      "sha256": "a3e7cf3a1226144ef361b7662161706e7eb55c56d5e96ca30e780e3df82698b7"
+    },
+    {
+      "path": "apps/website/src/features/projection/website-projection.test.tsx",
+      "bytes": 4878,
+      "sha256": "e34ecaa8e0b843fe9c304556657653dc28fcbe5f7acff3d2cb87a6b1593824b8"
+    },
+    {
+      "path": "apps/website/src/features/reader/WebsiteDirectoryReader.test.tsx",
+      "bytes": 8976,
+      "sha256": "93e2ab59cce7166fcce4a549e4db571f4ac7f3d2b8de09d2d3e80a6082add7e1"
+    },
+    {
+      "path": "apps/website/src/features/reader/WebsiteDirectoryReader.tsx",
+      "bytes": 9998,
+      "sha256": "e7314ca91a98480a1a725cf7cc1fb94119e29ddc3dc31e107cc197f060bd257a"
+    },
+    {
+      "path": "apps/website/src/features/reader/WebsiteNewsSaved.tsx",
+      "bytes": 4091,
+      "sha256": "5346d0fec394fea6403a6c379f95ff84023b9045bb9837b64a8b1ae3fbd03990"
+    },
+    {
+      "path": "apps/website/src/features/reader/directory-article-link.tsx",
+      "bytes": 966,
+      "sha256": "bde06b530acf294074fc81f62421d7c89d47cc7ba023fca8a913334a58332648"
+    },
+    {
+      "path": "apps/website/src/features/reader/directory-article-url.ts",
+      "bytes": 486,
+      "sha256": "d628bc6cc4bc73ff3ec85d625a5d146f963a18f1101a01ff05ddcc2877706c2c"
+    },
+    {
+      "path": "apps/website/src/features/reader/directory-reader-navigation.ts",
+      "bytes": 158,
+      "sha256": "9f8eb4f666c4c6828d0d4c5efb91eae78a2d2f5c9054f82dce2ac42f6bf40f4e"
+    },
+    {
+      "path": "apps/website/src/features/reader/news-reader.css",
+      "bytes": 2388,
+      "sha256": "2ef8d9dcb2bb73ea781e648d77ae0995d8fd8be32d4010fc971ea2b0cbdef821"
+    },
+    {
+      "path": "apps/website/src/features/reader/news-reading-state.test.ts",
+      "bytes": 5102,
+      "sha256": "983ccf1ecba2c15aa01ec43ff625ebdf49d195a6318ec5be1bb7d32b20dd00aa"
+    },
+    {
+      "path": "apps/website/src/features/reader/news-reading-state.ts",
+      "bytes": 4788,
+      "sha256": "699607342b04a3f7b4788b46de7f2ddb124fc3848e5cfe1351d41bbae289f873"
+    },
+    {
+      "path": "apps/website/src/features/reader/use-website-news.ts",
+      "bytes": 2447,
+      "sha256": "02fb2a25f47c1b99c3115d9c80412afe75ae6954e203b1c5d0e36b87c6587f04"
+    },
+    {
+      "path": "apps/website/src/local-reading-state.ts",
+      "bytes": 6873,
+      "sha256": "169c48a1a91c1eb6d914e6f00b919bd4a3d0f2e5f8f7cbf101120a43a4ab44d9"
+    },
+    {
+      "path": "apps/website/src/offline-shell/protocol-contract.test.mjs",
+      "bytes": 15385,
+      "sha256": "8eab8f8c30ea583ad56f8b7be8f329c8612ba91fe6f787e5792583f8a8ea2ddb"
+    },
+    {
+      "path": "apps/website/src/offline-shell/protocol.mjs",
+      "bytes": 13078,
+      "sha256": "38340acd9ade201b7ed37849bcd16966f70d4481a3358984cc51b2ec74852538"
+    },
+    {
+      "path": "apps/website/src/styles.css",
+      "bytes": 60210,
+      "sha256": "f71e9c809d1823c09a3bf00b1f9e12786be7f8cf0d01a8f70feb66de383ca1d6"
+    },
+    {
+      "path": "apps/website/tools/build-offline-shell.mjs",
+      "bytes": 15673,
+      "sha256": "b81e111c9a5472971060bbe256c1e9af9b3ad4b70807f2d2ad19220d69da63d8"
+    },
+    {
+      "path": "apps/website/tools/build-offline-shell.test.mjs",
+      "bytes": 30542,
+      "sha256": "4144c00d3a2571205b88d590ccbae8a0ecfe5e59e02741b9935addd6c34efedf"
+    },
+    {
+      "path": "apps/website/tools/production-site-package.test.mjs",
+      "bytes": 23704,
+      "sha256": "5e9e92e86a6803a7e46255d2a47a8954ee83f4ed04441bde52613b6527a16d38"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "archive-hashes.json",
+      "bytes": 782,
+      "sha256": "c7232974b31d5db93e0c6f956a52f9e6e70b69ce4e69418a234d28de0b879950"
+    },
+    {
+      "path": "candidate-receipt.json",
+      "bytes": 3710,
+      "sha256": "a3347975abc96b711e69125acc97df6c349c4cfa5aa7a6a457d8404b0c0a0d95"
+    },
+    {
+      "path": "hosting.manifest.json",
+      "bytes": 83132,
+      "sha256": "08dff43472813e9b644315806b998c11f35a9ad412a5e4aca2a776fccdfc751f"
+    },
+    {
+      "path": "input-bindings.json",
+      "bytes": 5788,
+      "sha256": "8f169cd57ce7fded58a4455ed20cfef5674bc169979fb137984ef72a97ba4e38"
+    },
+    {
+      "path": "package-autonom-390.png",
+      "bytes": 66083,
+      "sha256": "49e9426ffdfb61e84ca4f46217459a2edb8d0749b2d6473ac94878a4e3704660"
+    },
+    {
+      "path": "package-browser-result.json",
+      "bytes": 6810,
+      "sha256": "488080776947f1c645558d5ceefdb5e7b0fdc09b654c43ca72a2c9ad78355e69"
+    },
+    {
+      "path": "package-home-1440.png",
+      "bytes": 546569,
+      "sha256": "0001668aeafec1b8305cbaf1d4f1c8ea56d8ada6b80fd8d0199f26fb56960d83"
+    },
+    {
+      "path": "package-home-390.png",
+      "bytes": 174014,
+      "sha256": "6eb108a733278fd54c1151d79e077bb96b1bf86c05c11844e48013d53cbc1b5a"
+    },
+    {
+      "path": "package-knowledge-390.png",
+      "bytes": 179947,
+      "sha256": "c3831d7f0dafcb1b6ef57fa36552fd8ae20fb3811a5a257c2d43d73dbba34265"
+    },
+    {
+      "path": "package-reader-390.png",
+      "bytes": 177005,
+      "sha256": "b442270d67e5933cd90d40883333e8cba09dfbea758a4785faf9f590e4f11a77"
+    },
+    {
+      "path": "picture-proof.json",
+      "bytes": 1090,
+      "sha256": "975357ed9a178e992ed0cfe84c72ce95d0bf651ed41c608e9cb7298f1ba47191"
+    },
+    {
+      "path": "policy-readback.json",
+      "bytes": 5885,
+      "sha256": "a455f91a96efcf047c5ebfe68ac2460be12e61a66263dcd4f37e274feed444cd"
+    },
+    {
+      "path": "reader-offline-390.png",
+      "bytes": 267514,
+      "sha256": "0bc2dc6576a2e7c96e5766c11eebfabb1d69f1894ebcfe43d5f8adf93df07cd3"
+    },
+    {
+      "path": "release-paths.json",
+      "bytes": 3749,
+      "sha256": "4f986275af9a3608515aa161ddbd896e3df1df384d22ae08b8d7df6d418a5e71"
+    },
+    {
+      "path": "REPORT.md",
+      "bytes": 5069,
+      "sha256": "1d478fc99e9762f1978b106a58fb6cbae58764e5ae9e3321052e559c471e9368"
+    },
+    {
+      "path": "rollback-public-readback.json",
+      "bytes": 11907,
+      "sha256": "af2df265b1efbaea66b6f9df77521adaf86a6b1e4366e68fdf8d6de75db39250"
+    },
+    {
+      "path": "rollback-receipt.json",
+      "bytes": 415,
+      "sha256": "8256082f18921642ac44115233c6c67c9d77fd9fbcf67201b3c6045d9318c80e"
+    },
+    {
+      "path": "shell-manifest.json",
+      "bytes": 4182,
+      "sha256": "60023c241c72779c0e929f001f2c09d36f6c73cf334c99f4b2e03a1c87f3f540"
+    },
+    {
+      "path": "upload-receipt.json",
+      "bytes": 11282,
+      "sha256": "28d06af01ee811252a00b223e7089539fcf3d5190a22421ee1b596769dc84c87"
+    },
+    {
+      "path": "validation.json",
+      "bytes": 4001,
+      "sha256": "00287c6d9e952d3286e409e8656c5b4731c33b9d5241183b018e52b1ae8188a2"
+    },
+    {
+      "path": "verify-current-package.mjs",
+      "bytes": 26660,
+      "sha256": "3ecc7088b6bd6a79d2fb1ecdf39c99a63458d0e6976f6620b51af6a6bb80c574"
+    },
+    {
+      "path": "website.manifest.json",
+      "bytes": 84879,
+      "sha256": "d9c3ed702a852dc51819607d409fd6b4de6a9e2cb672800d96e34f8348474b6f"
+    }
+  ],
+  "websiteManifestSha256": "d9c3ed702a852dc51819607d409fd6b4de6a9e2cb672800d96e34f8348474b6f",
+  "hostingManifestSha256": "08dff43472813e9b644315806b998c11f35a9ad412a5e4aca2a776fccdfc751f",
+  "archiveHashes": [
+    {
+      "archive": "01-wrn-immutable-e20c800.zip",
+      "bytes": 5799890,
+      "sha256": "d2d1d892225cff622898eb1c9e6e74fddeb5f37b29e74304d59d3f941f9c30b6"
+    },
+    {
+      "archive": "02-wrn-policy-sw-e20c800.zip",
+      "bytes": 11008,
+      "sha256": "a3b2118b6f2e7c0510b768fe2ae900ac298e5e2528e4120eaeb956883944a0db"
+    },
+    {
+      "archive": "03-wrn-index-e20c800.zip",
+      "bytes": 1352,
+      "sha256": "ac4d037ff308b4cc3bf446ce9281a4d2e3cc144104a256e3d6c5b8cf222e7c68"
+    },
+    {
+      "archive": "04-wrn-production-pointer-e20c800.zip",
+      "bytes": 345,
+      "sha256": "28c0ab2f96124f94777038b3e58bcf0448971a8a2b6129b40a9e62057ad1385d"
+    },
+    {
+      "archive": "05-wrn-directory-pointer-e20c800.zip",
+      "bytes": 480,
+      "sha256": "25e296117163529d03eb4486624761fe9a9e019fffc81c3969946e2232a8c0cc"
+    }
+  ],
+  "rollback": {
+    "archive": "rollback-before-e20c800-d738a94.zip",
+    "bytes": 5668589,
+    "sha256": "12361e95d64e17a897e668a112ec36aeb87596f11be31442b67e940a0e9d0749"
+  }
+}

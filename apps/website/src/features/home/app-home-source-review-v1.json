@@ -1,0 +1,1550 @@
+{
+  "schema": "wrn.source-pass-overlay.v1",
+  "contractVersion": "1.1.0",
+  "revision": "wrn-home-metadata-source-review-2026-10-03-v1",
+  "sequence": 3,
+  "reviewedAt": "2026-10-03T04:49:14.345Z",
+  "records": [
+    {
+      "id": "wrn-source-pass-4f938bf89f0b4fa3a7472161d8b92dc4",
+      "canonicalName": "Electronic Frontier Foundation",
+      "aliasNames": [
+        "EFF"
+      ],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "EFF describes itself as a nonprofit defending civil liberties in the digital world through litigation, policy analysis, activism and technology development.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-eff-about"
+        ]
+      },
+      "editorialDescription": {
+        "text": "WRN curates EFF for reporting and analysis on digital rights, privacy, surveillance and freedom of expression.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-eff-editorial"
+        ]
+      },
+      "endpoints": [
+        {
+          "endpointId": "source-ef5503bcda4b70d449148e570edb94205d52574c97eeafe8d5caeedd3654ea15",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": [
+            "evidence-eff-about"
+          ],
+          "kind": "directory",
+          "url": null
+        },
+        {
+          "endpointId": "source-f0824f315038ca0e6f5b916b0a17d1b842f33f85bdf818b346b39cbc37f5df7d",
+          "role": "feed",
+          "health": "unchecked",
+          "checkedAt": "2026-09-09T04:37:14.725Z",
+          "lastSuccessfulAt": null,
+          "evidenceIds": [
+            "evidence-eff-feed-snapshot"
+          ],
+          "kind": "directory",
+          "url": null
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-ef5503bcda4b70d449148e570edb94205d52574c97eeafe8d5caeedd3654ea15",
+      "originalEndpointId": "source-ef5503bcda4b70d449148e570edb94205d52574c97eeafe8d5caeedd3654ea15",
+      "regions": [
+        "Global",
+        "North America"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "languages": [
+        "en"
+      ],
+      "topics": [
+        "digital rights",
+        "free expression",
+        "privacy",
+        "surveillance"
+      ],
+      "tendencies": [
+        "civil liberties"
+      ],
+      "mediaTypes": [
+        "news",
+        "analysis"
+      ],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "allowed",
+          "evidenceIds": [
+            "evidence-eff-rights"
+          ]
+        },
+        {
+          "medium": "text",
+          "status": "allowed",
+          "evidenceIds": [
+            "evidence-eff-rights"
+          ]
+        },
+        {
+          "medium": "image",
+          "status": "link-only",
+          "evidenceIds": [
+            "evidence-eff-rights"
+          ]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-eff-rights"
+          ]
+        },
+        {
+          "medium": "logo",
+          "status": "link-only",
+          "evidenceIds": [
+            "evidence-eff-rights"
+          ]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://www.eff.org/about/contact",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": [
+          "evidence-eff-contact"
+        ]
+      },
+      "evidenceIds": [
+        "evidence-eff-about",
+        "evidence-eff-rights",
+        "evidence-eff-contact",
+        "evidence-eff-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-9175a51652444964a513864dd68f3db2",
+      "canonicalName": "Africa Is a Country",
+      "aliasNames": [
+        "AIAC"
+      ],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "Africa Is a Country describes its work as an African left perspective on social, political and cultural issues, including sport.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-aiac-about"
+        ]
+      },
+      "editorialDescription": {
+        "text": "WRN curates Africa Is a Country for African left analysis, anticolonial perspectives and its sport and society coverage.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-aiac-editorial"
+        ]
+      },
+      "endpoints": [
+        {
+          "endpointId": "source-d73aa8575b7a52df882b1ad832271f0cca8c779caab576cab9eb32678b6c929d",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": [
+            "evidence-aiac-about"
+          ],
+          "kind": "directory",
+          "url": null
+        },
+        {
+          "endpointId": "source-8d47c381dfd8abf4946a0d82c708500a28366051b40ce57b026f3f0440f164fd",
+          "role": "feed",
+          "health": "unchecked",
+          "checkedAt": "2026-09-09T04:37:14.725Z",
+          "lastSuccessfulAt": null,
+          "evidenceIds": [
+            "evidence-aiac-feed-snapshot"
+          ],
+          "kind": "directory",
+          "url": null
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-d73aa8575b7a52df882b1ad832271f0cca8c779caab576cab9eb32678b6c929d",
+      "originalEndpointId": "source-d73aa8575b7a52df882b1ad832271f0cca8c779caab576cab9eb32678b6c929d",
+      "regions": [
+        "Africa",
+        "Global"
+      ],
+      "countries": [],
+      "languages": [
+        "en"
+      ],
+      "topics": [
+        "anticolonialism",
+        "culture",
+        "politics",
+        "sport"
+      ],
+      "tendencies": [
+        "African left"
+      ],
+      "mediaTypes": [
+        "analysis",
+        "news",
+        "podcast"
+      ],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "allowed",
+          "evidenceIds": [
+            "evidence-aiac-rights"
+          ]
+        },
+        {
+          "medium": "text",
+          "status": "allowed",
+          "evidenceIds": [
+            "evidence-aiac-rights"
+          ]
+        },
+        {
+          "medium": "image",
+          "status": "link-only",
+          "evidenceIds": [
+            "evidence-aiac-rights"
+          ]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-aiac-rights"
+          ]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-aiac-rights"
+          ]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://africasacountry.com/contact",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": [
+          "evidence-aiac-contact"
+        ]
+      },
+      "evidenceIds": [
+        "evidence-aiac-about",
+        "evidence-aiac-rights",
+        "evidence-aiac-contact",
+        "evidence-aiac-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-bde2134385a71edcb4f6a8255a8985f5",
+      "canonicalName": "Elitsha",
+      "aliasNames": [],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "The recorded homepage publishes under the name Elitsha. This profile makes no unverified claim about ownership, independence or political affiliation.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-elitsha-identity"
+        ]
+      },
+      "editorialDescription": {
+        "text": "WRN provides metadata and original links for Elitsha. No source full texts or media are imported.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-elitsha-editorial",
+          "evidence-elitsha-link-only"
+        ]
+      },
+      "endpoints": [
+        {
+          "kind": "directory",
+          "endpointId": "source-bde2134385a71edcb4f6a8255a8985f57801a7cd23baad7f4c9c8432f877ddfa",
+          "url": null,
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-10-02T23:31:35.460Z",
+          "lastSuccessfulAt": "2026-10-02T23:31:35.460Z",
+          "evidenceIds": [
+            "evidence-elitsha-identity"
+          ]
+        },
+        {
+          "kind": "directory",
+          "endpointId": "source-f43ce635e5ec01a16a80c39fb3e3ab8fa11e92601095574dbe0e9d783670585a",
+          "url": null,
+          "role": "feed",
+          "health": "unchecked",
+          "checkedAt": "2026-10-02T23:31:35.460Z",
+          "lastSuccessfulAt": null,
+          "evidenceIds": [
+            "evidence-elitsha-identity"
+          ]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-bde2134385a71edcb4f6a8255a8985f57801a7cd23baad7f4c9c8432f877ddfa",
+      "originalEndpointId": "source-bde2134385a71edcb4f6a8255a8985f57801a7cd23baad7f4c9c8432f877ddfa",
+      "regions": [],
+      "countries": [],
+      "languages": [
+        "en"
+      ],
+      "topics": [],
+      "tendencies": [],
+      "mediaTypes": [
+        "news"
+      ],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": [
+            "evidence-elitsha-link-only"
+          ]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-elitsha-link-only"
+          ]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-elitsha-link-only"
+          ]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-elitsha-link-only"
+          ]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-elitsha-link-only"
+          ]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "checked-not-found",
+        "url": null,
+        "checkedAt": "2026-10-02T23:31:35.460Z",
+        "evidenceIds": [
+          "evidence-elitsha-identity"
+        ]
+      },
+      "evidenceIds": [
+        "evidence-elitsha-identity",
+        "evidence-elitsha-link-only",
+        "evidence-elitsha-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-435baeef61bacc40e9e518eb4bbd4062",
+      "canonicalName": "Nunatsiaq News",
+      "aliasNames": [],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "The recorded homepage publishes under the name Nunatsiaq News. This profile makes no unverified claim about ownership, independence or political affiliation.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-nunatsiaq-news-identity"
+        ]
+      },
+      "editorialDescription": {
+        "text": "WRN provides metadata and original links for Nunatsiaq News. No source full texts or media are imported.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-nunatsiaq-news-editorial",
+          "evidence-nunatsiaq-news-link-only"
+        ]
+      },
+      "endpoints": [
+        {
+          "kind": "directory",
+          "endpointId": "source-2dcf9f737a0d139e115139449152c70027e695b591620d2159dbf05d7af0ee6e",
+          "url": null,
+          "role": "feed",
+          "health": "unchecked",
+          "checkedAt": "2026-10-02T23:31:35.487Z",
+          "lastSuccessfulAt": null,
+          "evidenceIds": [
+            "evidence-nunatsiaq-news-identity"
+          ]
+        },
+        {
+          "kind": "directory",
+          "endpointId": "source-435baeef61bacc40e9e518eb4bbd40620ada5657036dbe321542c2ee3ca389ab",
+          "url": null,
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-10-02T23:31:35.487Z",
+          "lastSuccessfulAt": "2026-10-02T23:31:35.487Z",
+          "evidenceIds": [
+            "evidence-nunatsiaq-news-identity"
+          ]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-435baeef61bacc40e9e518eb4bbd40620ada5657036dbe321542c2ee3ca389ab",
+      "originalEndpointId": "source-435baeef61bacc40e9e518eb4bbd40620ada5657036dbe321542c2ee3ca389ab",
+      "regions": [],
+      "countries": [],
+      "languages": [
+        "en"
+      ],
+      "topics": [],
+      "tendencies": [],
+      "mediaTypes": [
+        "news"
+      ],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": [
+            "evidence-nunatsiaq-news-link-only"
+          ]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-nunatsiaq-news-link-only"
+          ]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-nunatsiaq-news-link-only"
+          ]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-nunatsiaq-news-link-only"
+          ]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-nunatsiaq-news-link-only"
+          ]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://nunatsiaq.com/contact/",
+        "checkedAt": "2026-10-03T04:49:14.347Z",
+        "evidenceIds": [
+          "evidence-nunatsiaq-news-contact"
+        ]
+      },
+      "evidenceIds": [
+        "evidence-nunatsiaq-news-identity",
+        "evidence-nunatsiaq-news-link-only",
+        "evidence-nunatsiaq-news-editorial",
+        "evidence-nunatsiaq-news-contact"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-c840b7eeb9c0bc283310cd4c33502b31",
+      "canonicalName": "Autonomies",
+      "aliasNames": [],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "The recorded homepage publishes under the name Autonomies. This profile makes no unverified claim about ownership, independence or political affiliation.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-autonomies-identity"
+        ]
+      },
+      "editorialDescription": {
+        "text": "WRN provides metadata and original links for Autonomies. Republished political commentary is distinguished from reported fact. No source full texts or media are imported.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-autonomies-editorial",
+          "evidence-autonomies-link-only"
+        ]
+      },
+      "endpoints": [
+        {
+          "kind": "directory",
+          "endpointId": "source-bd0b253a8d892feaae9ce724e44d2577b9d7218294027912a47a08c9b6fbf584",
+          "url": null,
+          "role": "feed",
+          "health": "unchecked",
+          "checkedAt": "2026-10-02T23:31:35.488Z",
+          "lastSuccessfulAt": null,
+          "evidenceIds": [
+            "evidence-autonomies-identity"
+          ]
+        },
+        {
+          "kind": "directory",
+          "endpointId": "source-c840b7eeb9c0bc283310cd4c33502b310754a7c5c260aabf76b47ea552cd9348",
+          "url": null,
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-10-02T23:31:35.488Z",
+          "lastSuccessfulAt": "2026-10-02T23:31:35.488Z",
+          "evidenceIds": [
+            "evidence-autonomies-identity"
+          ]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-c840b7eeb9c0bc283310cd4c33502b310754a7c5c260aabf76b47ea552cd9348",
+      "originalEndpointId": "source-c840b7eeb9c0bc283310cd4c33502b310754a7c5c260aabf76b47ea552cd9348",
+      "regions": [],
+      "countries": [],
+      "languages": [
+        "en"
+      ],
+      "topics": [],
+      "tendencies": [],
+      "mediaTypes": [
+        "commentary"
+      ],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": [
+            "evidence-autonomies-link-only"
+          ]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-autonomies-link-only"
+          ]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-autonomies-link-only"
+          ]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-autonomies-link-only"
+          ]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-autonomies-link-only"
+          ]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "checked-not-found",
+        "url": null,
+        "checkedAt": "2026-10-02T23:31:35.488Z",
+        "evidenceIds": [
+          "evidence-autonomies-identity"
+        ]
+      },
+      "evidenceIds": [
+        "evidence-autonomies-identity",
+        "evidence-autonomies-link-only",
+        "evidence-autonomies-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-e11ff9c35957b2a85dea18977795c7e5",
+      "canonicalName": "Waging Nonviolence",
+      "aliasNames": [],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "The recorded homepage publishes under the name Waging Nonviolence. This profile makes no unverified claim about ownership, independence or political affiliation.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-waging-nonviolence-identity"
+        ]
+      },
+      "editorialDescription": {
+        "text": "WRN provides metadata and original links for Waging Nonviolence. No source full texts or media are imported.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-waging-nonviolence-editorial",
+          "evidence-waging-nonviolence-link-only"
+        ]
+      },
+      "endpoints": [
+        {
+          "kind": "directory",
+          "endpointId": "source-87aec818e0d702377572c8d60c8be968df0f409350b098743d0f64eada887f26",
+          "url": null,
+          "role": "feed",
+          "health": "unchecked",
+          "checkedAt": "2026-10-02T23:31:38.360Z",
+          "lastSuccessfulAt": null,
+          "evidenceIds": [
+            "evidence-waging-nonviolence-identity"
+          ]
+        },
+        {
+          "kind": "directory",
+          "endpointId": "source-e11ff9c35957b2a85dea18977795c7e5e562c6ddc917075fb6f86e0324e16ece",
+          "url": null,
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-10-02T23:31:38.360Z",
+          "lastSuccessfulAt": "2026-10-02T23:31:38.360Z",
+          "evidenceIds": [
+            "evidence-waging-nonviolence-identity"
+          ]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-e11ff9c35957b2a85dea18977795c7e5e562c6ddc917075fb6f86e0324e16ece",
+      "originalEndpointId": "source-e11ff9c35957b2a85dea18977795c7e5e562c6ddc917075fb6f86e0324e16ece",
+      "regions": [],
+      "countries": [],
+      "languages": [
+        "en"
+      ],
+      "topics": [],
+      "tendencies": [],
+      "mediaTypes": [
+        "news"
+      ],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": [
+            "evidence-waging-nonviolence-link-only"
+          ]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-waging-nonviolence-link-only"
+          ]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-waging-nonviolence-link-only"
+          ]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-waging-nonviolence-link-only"
+          ]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-waging-nonviolence-link-only"
+          ]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://wagingnonviolence.org/about/contact/",
+        "checkedAt": "2026-10-03T04:49:16.391Z",
+        "evidenceIds": [
+          "evidence-waging-nonviolence-contact"
+        ]
+      },
+      "evidenceIds": [
+        "evidence-waging-nonviolence-identity",
+        "evidence-waging-nonviolence-link-only",
+        "evidence-waging-nonviolence-editorial",
+        "evidence-waging-nonviolence-contact"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-85fe6ba944db112372c974914dc2bd17",
+      "canonicalName": "Agencia Tierra Viva",
+      "aliasNames": [],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "The recorded homepage publishes under the name Agencia Tierra Viva. This profile makes no unverified claim about ownership, independence or political affiliation.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-agencia-tierra-viva-identity"
+        ]
+      },
+      "editorialDescription": {
+        "text": "WRN provides metadata and original links for Agencia Tierra Viva. No source full texts or media are imported.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-agencia-tierra-viva-editorial",
+          "evidence-agencia-tierra-viva-link-only"
+        ]
+      },
+      "endpoints": [
+        {
+          "kind": "directory",
+          "endpointId": "source-85fe6ba944db112372c974914dc2bd1733c70cc060b139f7bb24079652a3776b",
+          "url": null,
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-10-02T23:31:38.362Z",
+          "lastSuccessfulAt": "2026-10-02T23:31:38.362Z",
+          "evidenceIds": [
+            "evidence-agencia-tierra-viva-identity"
+          ]
+        },
+        {
+          "kind": "directory",
+          "endpointId": "source-b0743fbf7994211a86491f810d58f36f707ae54cba11b3e6819bfaa5d72f9839",
+          "url": null,
+          "role": "feed",
+          "health": "unchecked",
+          "checkedAt": "2026-10-02T23:31:38.362Z",
+          "lastSuccessfulAt": null,
+          "evidenceIds": [
+            "evidence-agencia-tierra-viva-identity"
+          ]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-85fe6ba944db112372c974914dc2bd1733c70cc060b139f7bb24079652a3776b",
+      "originalEndpointId": "source-85fe6ba944db112372c974914dc2bd1733c70cc060b139f7bb24079652a3776b",
+      "regions": [],
+      "countries": [],
+      "languages": [
+        "es"
+      ],
+      "topics": [],
+      "tendencies": [],
+      "mediaTypes": [
+        "news"
+      ],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": [
+            "evidence-agencia-tierra-viva-link-only"
+          ]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-agencia-tierra-viva-link-only"
+          ]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-agencia-tierra-viva-link-only"
+          ]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-agencia-tierra-viva-link-only"
+          ]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-agencia-tierra-viva-link-only"
+          ]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://agenciatierraviva.com.ar/contacto",
+        "checkedAt": "2026-10-03T04:49:25.152Z",
+        "evidenceIds": [
+          "evidence-agencia-tierra-viva-contact"
+        ]
+      },
+      "evidenceIds": [
+        "evidence-agencia-tierra-viva-identity",
+        "evidence-agencia-tierra-viva-link-only",
+        "evidence-agencia-tierra-viva-editorial",
+        "evidence-agencia-tierra-viva-contact"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-cf1577885f6c083bea286a469be86134",
+      "canonicalName": "MIA Marseille (FR)",
+      "aliasNames": [],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "The recorded homepage publishes under the name MIA Marseille (FR). This profile makes no unverified claim about ownership, independence or political affiliation.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-mia-marseille-fr-identity"
+        ]
+      },
+      "editorialDescription": {
+        "text": "WRN provides metadata and original links for MIA Marseille (FR). Community and event posts require individual context checks. No source full texts or media are imported.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-mia-marseille-fr-editorial",
+          "evidence-mia-marseille-fr-link-only"
+        ]
+      },
+      "endpoints": [
+        {
+          "kind": "directory",
+          "endpointId": "source-13d7619f3b3327b6d74602ced91af07bd6e9a90c852e7d068dbaeb95309bbe70",
+          "url": null,
+          "role": "feed",
+          "health": "unchecked",
+          "checkedAt": "2026-10-02T23:31:41.068Z",
+          "lastSuccessfulAt": null,
+          "evidenceIds": [
+            "evidence-mia-marseille-fr-identity"
+          ]
+        },
+        {
+          "kind": "directory",
+          "endpointId": "source-cf1577885f6c083bea286a469be86134f5b7a79d7c15380cfb43b607427cb1f4",
+          "url": null,
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-10-02T23:31:41.068Z",
+          "lastSuccessfulAt": "2026-10-02T23:31:41.068Z",
+          "evidenceIds": [
+            "evidence-mia-marseille-fr-identity"
+          ]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-cf1577885f6c083bea286a469be86134f5b7a79d7c15380cfb43b607427cb1f4",
+      "originalEndpointId": "source-cf1577885f6c083bea286a469be86134f5b7a79d7c15380cfb43b607427cb1f4",
+      "regions": [],
+      "countries": [],
+      "languages": [
+        "fr"
+      ],
+      "topics": [],
+      "tendencies": [],
+      "mediaTypes": [
+        "self-publication"
+      ],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": [
+            "evidence-mia-marseille-fr-link-only"
+          ]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-mia-marseille-fr-link-only"
+          ]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-mia-marseille-fr-link-only"
+          ]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-mia-marseille-fr-link-only"
+          ]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-mia-marseille-fr-link-only"
+          ]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "checked-not-found",
+        "url": null,
+        "checkedAt": "2026-10-02T23:31:41.068Z",
+        "evidenceIds": [
+          "evidence-mia-marseille-fr-identity"
+        ]
+      },
+      "evidenceIds": [
+        "evidence-mia-marseille-fr-identity",
+        "evidence-mia-marseille-fr-link-only",
+        "evidence-mia-marseille-fr-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-7cb33779fa0e809d5210643abb0cbce8",
+      "canonicalName": "Indymedia Argentina",
+      "aliasNames": [],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "The recorded homepage publishes under the name Indymedia Argentina. This profile makes no unverified claim about ownership, independence or political affiliation.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-indymedia-argentina-identity"
+        ]
+      },
+      "editorialDescription": {
+        "text": "WRN provides metadata and original links for Indymedia Argentina. No source full texts or media are imported.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-indymedia-argentina-editorial",
+          "evidence-indymedia-argentina-link-only"
+        ]
+      },
+      "endpoints": [
+        {
+          "kind": "directory",
+          "endpointId": "source-7cb33779fa0e809d5210643abb0cbce8721ccd30534c7c07e26978ea40629640",
+          "url": null,
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-10-02T23:31:44.582Z",
+          "lastSuccessfulAt": "2026-10-02T23:31:44.582Z",
+          "evidenceIds": [
+            "evidence-indymedia-argentina-identity"
+          ]
+        },
+        {
+          "kind": "directory",
+          "endpointId": "source-e27cdc84f2039265558374b5f8176759ffbc1bf6c1ae89512d71c72afada136c",
+          "url": null,
+          "role": "feed",
+          "health": "unchecked",
+          "checkedAt": "2026-10-02T23:31:44.582Z",
+          "lastSuccessfulAt": null,
+          "evidenceIds": [
+            "evidence-indymedia-argentina-identity"
+          ]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-7cb33779fa0e809d5210643abb0cbce8721ccd30534c7c07e26978ea40629640",
+      "originalEndpointId": "source-7cb33779fa0e809d5210643abb0cbce8721ccd30534c7c07e26978ea40629640",
+      "regions": [],
+      "countries": [],
+      "languages": [
+        "es"
+      ],
+      "topics": [],
+      "tendencies": [],
+      "mediaTypes": [
+        "news"
+      ],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": [
+            "evidence-indymedia-argentina-link-only"
+          ]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-indymedia-argentina-link-only"
+          ]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-indymedia-argentina-link-only"
+          ]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-indymedia-argentina-link-only"
+          ]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-indymedia-argentina-link-only"
+          ]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://argentina.indymedia.org/contacto/",
+        "checkedAt": "2026-10-03T04:49:28.620Z",
+        "evidenceIds": [
+          "evidence-indymedia-argentina-contact"
+        ]
+      },
+      "evidenceIds": [
+        "evidence-indymedia-argentina-identity",
+        "evidence-indymedia-argentina-link-only",
+        "evidence-indymedia-argentina-editorial",
+        "evidence-indymedia-argentina-contact"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-d8d640c2c49985371ce712692037e63b",
+      "canonicalName": "Radio Kurruf Noticias",
+      "aliasNames": [],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "The recorded homepage publishes under the name Radio Kurruf Noticias. This profile makes no unverified claim about ownership, independence or political affiliation.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-radio-kurruf-noticias-identity"
+        ]
+      },
+      "editorialDescription": {
+        "text": "WRN provides metadata and original links for Radio Kurruf Noticias. Submitted declarations must be attributed to their authors. No source full texts or media are imported.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-radio-kurruf-noticias-editorial",
+          "evidence-radio-kurruf-noticias-link-only"
+        ]
+      },
+      "endpoints": [
+        {
+          "kind": "directory",
+          "endpointId": "source-140c1ff05de20dcc767f5949a8f6fca3c07214302dacb50129db142ca36b76f0",
+          "url": null,
+          "role": "feed",
+          "health": "unchecked",
+          "checkedAt": "2026-10-02T23:31:44.583Z",
+          "lastSuccessfulAt": null,
+          "evidenceIds": [
+            "evidence-radio-kurruf-noticias-identity"
+          ]
+        },
+        {
+          "kind": "directory",
+          "endpointId": "source-d8d640c2c49985371ce712692037e63b254d06cad2276f2c4bef2bb1751077cc",
+          "url": null,
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-10-02T23:31:44.583Z",
+          "lastSuccessfulAt": "2026-10-02T23:31:44.583Z",
+          "evidenceIds": [
+            "evidence-radio-kurruf-noticias-identity"
+          ]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-d8d640c2c49985371ce712692037e63b254d06cad2276f2c4bef2bb1751077cc",
+      "originalEndpointId": "source-d8d640c2c49985371ce712692037e63b254d06cad2276f2c4bef2bb1751077cc",
+      "regions": [],
+      "countries": [],
+      "languages": [
+        "es"
+      ],
+      "topics": [],
+      "tendencies": [],
+      "mediaTypes": [
+        "press-release"
+      ],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": [
+            "evidence-radio-kurruf-noticias-link-only"
+          ]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-radio-kurruf-noticias-link-only"
+          ]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-radio-kurruf-noticias-link-only"
+          ]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-radio-kurruf-noticias-link-only"
+          ]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-radio-kurruf-noticias-link-only"
+          ]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://radiokurruf.org/contacto/",
+        "checkedAt": "2026-10-03T04:49:29.957Z",
+        "evidenceIds": [
+          "evidence-radio-kurruf-noticias-contact"
+        ]
+      },
+      "evidenceIds": [
+        "evidence-radio-kurruf-noticias-identity",
+        "evidence-radio-kurruf-noticias-link-only",
+        "evidence-radio-kurruf-noticias-editorial",
+        "evidence-radio-kurruf-noticias-contact"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-8346bf16656945bc57e086d95952c1af",
+      "canonicalName": "Agência Pública",
+      "aliasNames": [],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "The recorded homepage publishes under the name Agência Pública. This profile makes no unverified claim about ownership, independence or political affiliation.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-agencia-publica-identity"
+        ]
+      },
+      "editorialDescription": {
+        "text": "WRN provides metadata and original links for Agência Pública. No source full texts or media are imported.",
+        "language": "en",
+        "evidenceIds": [
+          "evidence-agencia-publica-editorial",
+          "evidence-agencia-publica-link-only"
+        ]
+      },
+      "endpoints": [
+        {
+          "kind": "directory",
+          "endpointId": "source-8346bf16656945bc57e086d95952c1af522789b1a51fbeb5f0743ac6d9873bad",
+          "url": null,
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-10-02T23:31:47.168Z",
+          "lastSuccessfulAt": "2026-10-02T23:31:47.168Z",
+          "evidenceIds": [
+            "evidence-agencia-publica-identity"
+          ]
+        },
+        {
+          "kind": "directory",
+          "endpointId": "source-ab0bb244a8cebc126474c6f2e854544230c44a42601fd005705e516b8bd758c2",
+          "url": null,
+          "role": "feed",
+          "health": "unchecked",
+          "checkedAt": "2026-10-02T23:31:47.168Z",
+          "lastSuccessfulAt": null,
+          "evidenceIds": [
+            "evidence-agencia-publica-identity"
+          ]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-8346bf16656945bc57e086d95952c1af522789b1a51fbeb5f0743ac6d9873bad",
+      "originalEndpointId": "source-8346bf16656945bc57e086d95952c1af522789b1a51fbeb5f0743ac6d9873bad",
+      "regions": [],
+      "countries": [],
+      "languages": [
+        "pt"
+      ],
+      "topics": [],
+      "tendencies": [],
+      "mediaTypes": [
+        "news"
+      ],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": [
+            "evidence-agencia-publica-link-only"
+          ]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-agencia-publica-link-only"
+          ]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-agencia-publica-link-only"
+          ]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-agencia-publica-link-only"
+          ]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": [
+            "evidence-agencia-publica-link-only"
+          ]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "checked-not-found",
+        "url": null,
+        "checkedAt": "2026-10-02T23:31:47.168Z",
+        "evidenceIds": [
+          "evidence-agencia-publica-identity"
+        ]
+      },
+      "evidenceIds": [
+        "evidence-agencia-publica-identity",
+        "evidence-agencia-publica-link-only",
+        "evidence-agencia-publica-editorial"
+      ]
+    }
+  ],
+  "relations": [],
+  "evidence": [
+    {
+      "id": "evidence-eff-about",
+      "kind": "source-self-description",
+      "url": "https://www.eff.org/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official About page was reachable and supplies the source self-description and homepage observation."
+    },
+    {
+      "id": "evidence-eff-rights",
+      "kind": "rights",
+      "url": "https://www.eff.org/copyright",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official policy permits redistribution of original EFF material under CC BY 4.0 unless otherwise noted; per-item media review remains required."
+    },
+    {
+      "id": "evidence-eff-contact",
+      "kind": "direct-observation",
+      "url": "https://www.eff.org/about/contact",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact page verified; no private contact data copied."
+    },
+    {
+      "id": "evidence-eff-feed-snapshot",
+      "kind": "direct-observation",
+      "url": "https://www.eff.org/rss/updates.xml",
+      "observedAt": "2026-09-09T04:37:14.725Z",
+      "note": "Feed endpoint is retained from the recorded directory snapshot and was not rechecked in this source pass."
+    },
+    {
+      "id": "evidence-eff-editorial",
+      "kind": "editorial-inference",
+      "url": "https://www.eff.org/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN editorial scope based on the official self-description and the admitted local article set."
+    },
+    {
+      "id": "evidence-aiac-about",
+      "kind": "source-self-description",
+      "url": "https://africasacountry.com/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official About page was reachable and supplies the source self-description, scope and homepage observation."
+    },
+    {
+      "id": "evidence-aiac-rights",
+      "kind": "rights",
+      "url": "https://africasacountry.com/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official About page states site content is CC BY 4.0 unless otherwise noted; the admitted sport article excludes media without image-specific evidence."
+    },
+    {
+      "id": "evidence-aiac-contact",
+      "kind": "direct-observation",
+      "url": "https://africasacountry.com/contact",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact page verified; no obfuscated email address copied into the app."
+    },
+    {
+      "id": "evidence-aiac-feed-snapshot",
+      "kind": "direct-observation",
+      "url": "https://africasacountry.com/feed",
+      "observedAt": "2026-09-09T04:37:14.725Z",
+      "note": "Feed endpoint is retained from the recorded directory snapshot and was not rechecked in this source pass."
+    },
+    {
+      "id": "evidence-aiac-editorial",
+      "kind": "editorial-inference",
+      "url": "https://africasacountry.com/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN editorial scope based on the official self-description and the admitted local sport article."
+    },
+    {
+      "id": "evidence-elitsha-identity",
+      "kind": "direct-observation",
+      "url": "https://elitshanews.org.za/",
+      "observedAt": "2026-10-02T23:31:35.460Z",
+      "note": "Homepage HTTP200 on the recorded date, same-host final URL, title and SHA bound in the source-homepage observation. Existing homepage/feed endpoint identities retained. This observation does not establish owner identity or current feed health. No correction/contact URL was found in the bounded homepage navigation inspection; this is not a claim that none exists elsewhere."
+    },
+    {
+      "id": "evidence-elitsha-link-only",
+      "kind": "rights",
+      "url": "https://elitshanews.org.za/",
+      "observedAt": "2026-10-02T23:31:35.460Z",
+      "note": "WRN limits this profile to metadata and original links. No licence for copied text, source images, logos or audio is asserted. Individual source CC or republication policies do not authorize an unreviewed media import."
+    },
+    {
+      "id": "evidence-elitsha-editorial",
+      "kind": "editorial-inference",
+      "url": "https://elitshanews.org.za/",
+      "observedAt": "2026-10-03T04:49:14.345Z",
+      "note": "Metadata-only curation recommendation following the individually documented current Home review. Commentary, community posts and submitted declarations remain source statements; every new Home item requires a separate exact-identity review. No political tendency or ownership inferred."
+    },
+    {
+      "id": "evidence-nunatsiaq-news-identity",
+      "kind": "direct-observation",
+      "url": "https://nunatsiaq.com/",
+      "observedAt": "2026-10-02T23:31:35.487Z",
+      "note": "Homepage HTTP200 on the recorded date, same-host final URL, title and SHA bound in the source-homepage observation. Existing homepage/feed endpoint identities retained. This observation does not establish owner identity or current feed health."
+    },
+    {
+      "id": "evidence-nunatsiaq-news-link-only",
+      "kind": "rights",
+      "url": "https://nunatsiaq.com/",
+      "observedAt": "2026-10-02T23:31:35.487Z",
+      "note": "WRN limits this profile to metadata and original links. No licence for copied text, source images, logos or audio is asserted. Individual source CC or republication policies do not authorize an unreviewed media import."
+    },
+    {
+      "id": "evidence-nunatsiaq-news-editorial",
+      "kind": "editorial-inference",
+      "url": "https://nunatsiaq.com/",
+      "observedAt": "2026-10-03T04:49:14.345Z",
+      "note": "Metadata-only curation recommendation following the individually documented current Home review. Commentary, community posts and submitted declarations remain source statements; every new Home item requires a separate exact-identity review. No political tendency or ownership inferred."
+    },
+    {
+      "id": "evidence-nunatsiaq-news-contact",
+      "kind": "direct-observation",
+      "url": "https://nunatsiaq.com/contact/",
+      "observedAt": "2026-10-03T04:49:14.347Z",
+      "note": "Public contact URL linked by the recorded homepage answered HTTP200 on the same host. No message sent and no private contact data imported."
+    },
+    {
+      "id": "evidence-autonomies-identity",
+      "kind": "direct-observation",
+      "url": "https://autonomies.org/",
+      "observedAt": "2026-10-02T23:31:35.488Z",
+      "note": "Homepage HTTP200 on the recorded date, same-host final URL, title and SHA bound in the source-homepage observation. Existing homepage/feed endpoint identities retained. This observation does not establish owner identity or current feed health. No correction/contact URL was found in the bounded homepage navigation inspection; this is not a claim that none exists elsewhere."
+    },
+    {
+      "id": "evidence-autonomies-link-only",
+      "kind": "rights",
+      "url": "https://autonomies.org/",
+      "observedAt": "2026-10-02T23:31:35.488Z",
+      "note": "WRN limits this profile to metadata and original links. No licence for copied text, source images, logos or audio is asserted. Individual source CC or republication policies do not authorize an unreviewed media import."
+    },
+    {
+      "id": "evidence-autonomies-editorial",
+      "kind": "editorial-inference",
+      "url": "https://autonomies.org/",
+      "observedAt": "2026-10-03T04:49:14.345Z",
+      "note": "Metadata-only curation recommendation following the individually documented current Home review. Commentary, community posts and submitted declarations remain source statements; every new Home item requires a separate exact-identity review. No political tendency or ownership inferred."
+    },
+    {
+      "id": "evidence-waging-nonviolence-identity",
+      "kind": "direct-observation",
+      "url": "https://wagingnonviolence.org/",
+      "observedAt": "2026-10-02T23:31:38.360Z",
+      "note": "Homepage HTTP200 on the recorded date, same-host final URL, title and SHA bound in the source-homepage observation. Existing homepage/feed endpoint identities retained. This observation does not establish owner identity or current feed health."
+    },
+    {
+      "id": "evidence-waging-nonviolence-link-only",
+      "kind": "rights",
+      "url": "https://wagingnonviolence.org/",
+      "observedAt": "2026-10-02T23:31:38.360Z",
+      "note": "WRN limits this profile to metadata and original links. No licence for copied text, source images, logos or audio is asserted. Individual source CC or republication policies do not authorize an unreviewed media import."
+    },
+    {
+      "id": "evidence-waging-nonviolence-editorial",
+      "kind": "editorial-inference",
+      "url": "https://wagingnonviolence.org/",
+      "observedAt": "2026-10-03T04:49:14.345Z",
+      "note": "Metadata-only curation recommendation following the individually documented current Home review. Commentary, community posts and submitted declarations remain source statements; every new Home item requires a separate exact-identity review. No political tendency or ownership inferred."
+    },
+    {
+      "id": "evidence-waging-nonviolence-contact",
+      "kind": "direct-observation",
+      "url": "https://wagingnonviolence.org/about/contact/",
+      "observedAt": "2026-10-03T04:49:16.391Z",
+      "note": "Public contact URL linked by the recorded homepage answered HTTP200 on the same host. No message sent and no private contact data imported."
+    },
+    {
+      "id": "evidence-agencia-tierra-viva-identity",
+      "kind": "direct-observation",
+      "url": "https://agenciatierraviva.com.ar/",
+      "observedAt": "2026-10-02T23:31:38.362Z",
+      "note": "Homepage HTTP200 on the recorded date, same-host final URL, title and SHA bound in the source-homepage observation. Existing homepage/feed endpoint identities retained. This observation does not establish owner identity or current feed health."
+    },
+    {
+      "id": "evidence-agencia-tierra-viva-link-only",
+      "kind": "rights",
+      "url": "https://agenciatierraviva.com.ar/",
+      "observedAt": "2026-10-02T23:31:38.362Z",
+      "note": "WRN limits this profile to metadata and original links. No licence for copied text, source images, logos or audio is asserted. Individual source CC or republication policies do not authorize an unreviewed media import."
+    },
+    {
+      "id": "evidence-agencia-tierra-viva-editorial",
+      "kind": "editorial-inference",
+      "url": "https://agenciatierraviva.com.ar/",
+      "observedAt": "2026-10-03T04:49:14.345Z",
+      "note": "Metadata-only curation recommendation following the individually documented current Home review. Commentary, community posts and submitted declarations remain source statements; every new Home item requires a separate exact-identity review. No political tendency or ownership inferred."
+    },
+    {
+      "id": "evidence-agencia-tierra-viva-contact",
+      "kind": "direct-observation",
+      "url": "https://agenciatierraviva.com.ar/contacto",
+      "observedAt": "2026-10-03T04:49:25.152Z",
+      "note": "Public contact URL linked by the recorded homepage answered HTTP200 on the same host. No message sent and no private contact data imported."
+    },
+    {
+      "id": "evidence-mia-marseille-fr-identity",
+      "kind": "direct-observation",
+      "url": "https://mars-infos.org/",
+      "observedAt": "2026-10-02T23:31:41.068Z",
+      "note": "Homepage HTTP200 on the recorded date, same-host final URL, title and SHA bound in the source-homepage observation. Existing homepage/feed endpoint identities retained. This observation does not establish owner identity or current feed health. No correction/contact URL was found in the bounded homepage navigation inspection; this is not a claim that none exists elsewhere."
+    },
+    {
+      "id": "evidence-mia-marseille-fr-link-only",
+      "kind": "rights",
+      "url": "https://mars-infos.org/",
+      "observedAt": "2026-10-02T23:31:41.068Z",
+      "note": "WRN limits this profile to metadata and original links. No licence for copied text, source images, logos or audio is asserted. Individual source CC or republication policies do not authorize an unreviewed media import."
+    },
+    {
+      "id": "evidence-mia-marseille-fr-editorial",
+      "kind": "editorial-inference",
+      "url": "https://mars-infos.org/",
+      "observedAt": "2026-10-03T04:49:14.345Z",
+      "note": "Metadata-only curation recommendation following the individually documented current Home review. Commentary, community posts and submitted declarations remain source statements; every new Home item requires a separate exact-identity review. No political tendency or ownership inferred."
+    },
+    {
+      "id": "evidence-indymedia-argentina-identity",
+      "kind": "direct-observation",
+      "url": "https://argentina.indymedia.org/",
+      "observedAt": "2026-10-02T23:31:44.582Z",
+      "note": "Homepage HTTP200 on the recorded date, same-host final URL, title and SHA bound in the source-homepage observation. Existing homepage/feed endpoint identities retained. This observation does not establish owner identity or current feed health."
+    },
+    {
+      "id": "evidence-indymedia-argentina-link-only",
+      "kind": "rights",
+      "url": "https://argentina.indymedia.org/",
+      "observedAt": "2026-10-02T23:31:44.582Z",
+      "note": "WRN limits this profile to metadata and original links. No licence for copied text, source images, logos or audio is asserted. Individual source CC or republication policies do not authorize an unreviewed media import."
+    },
+    {
+      "id": "evidence-indymedia-argentina-editorial",
+      "kind": "editorial-inference",
+      "url": "https://argentina.indymedia.org/",
+      "observedAt": "2026-10-03T04:49:14.345Z",
+      "note": "Metadata-only curation recommendation following the individually documented current Home review. Commentary, community posts and submitted declarations remain source statements; every new Home item requires a separate exact-identity review. No political tendency or ownership inferred."
+    },
+    {
+      "id": "evidence-indymedia-argentina-contact",
+      "kind": "direct-observation",
+      "url": "https://argentina.indymedia.org/contacto/",
+      "observedAt": "2026-10-03T04:49:28.620Z",
+      "note": "Public contact URL linked by the recorded homepage answered HTTP200 on the same host. No message sent and no private contact data imported."
+    },
+    {
+      "id": "evidence-radio-kurruf-noticias-identity",
+      "kind": "direct-observation",
+      "url": "https://radiokurruf.org/",
+      "observedAt": "2026-10-02T23:31:44.583Z",
+      "note": "Homepage HTTP200 on the recorded date, same-host final URL, title and SHA bound in the source-homepage observation. Existing homepage/feed endpoint identities retained. This observation does not establish owner identity or current feed health."
+    },
+    {
+      "id": "evidence-radio-kurruf-noticias-link-only",
+      "kind": "rights",
+      "url": "https://radiokurruf.org/",
+      "observedAt": "2026-10-02T23:31:44.583Z",
+      "note": "WRN limits this profile to metadata and original links. No licence for copied text, source images, logos or audio is asserted. Individual source CC or republication policies do not authorize an unreviewed media import."
+    },
+    {
+      "id": "evidence-radio-kurruf-noticias-editorial",
+      "kind": "editorial-inference",
+      "url": "https://radiokurruf.org/",
+      "observedAt": "2026-10-03T04:49:14.345Z",
+      "note": "Metadata-only curation recommendation following the individually documented current Home review. Commentary, community posts and submitted declarations remain source statements; every new Home item requires a separate exact-identity review. No political tendency or ownership inferred."
+    },
+    {
+      "id": "evidence-radio-kurruf-noticias-contact",
+      "kind": "direct-observation",
+      "url": "https://radiokurruf.org/contacto/",
+      "observedAt": "2026-10-03T04:49:29.957Z",
+      "note": "Public contact URL linked by the recorded homepage answered HTTP200 on the same host. No message sent and no private contact data imported."
+    },
+    {
+      "id": "evidence-agencia-publica-identity",
+      "kind": "direct-observation",
+      "url": "https://apublica.org/",
+      "observedAt": "2026-10-02T23:31:47.168Z",
+      "note": "Homepage HTTP200 on the recorded date, same-host final URL, title and SHA bound in the source-homepage observation. Existing homepage/feed endpoint identities retained. This observation does not establish owner identity or current feed health. No correction/contact URL was found in the bounded homepage navigation inspection; this is not a claim that none exists elsewhere."
+    },
+    {
+      "id": "evidence-agencia-publica-link-only",
+      "kind": "rights",
+      "url": "https://apublica.org/",
+      "observedAt": "2026-10-02T23:31:47.168Z",
+      "note": "WRN limits this profile to metadata and original links. No licence for copied text, source images, logos or audio is asserted. Individual source CC or republication policies do not authorize an unreviewed media import."
+    },
+    {
+      "id": "evidence-agencia-publica-editorial",
+      "kind": "editorial-inference",
+      "url": "https://apublica.org/",
+      "observedAt": "2026-10-03T04:49:14.345Z",
+      "note": "Metadata-only curation recommendation following the individually documented current Home review. Commentary, community posts and submitted declarations remain source statements; every new Home item requires a separate exact-identity review. No political tendency or ownership inferred."
+    }
+  ]
+}

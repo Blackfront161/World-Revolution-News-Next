@@ -1,0 +1,308 @@
+[
+  {
+    "sha256": "dfd8a56c07709cefe82aa957fa020384f914ad27a8697aa272151a967ae03a30",
+    "bytes": 5946,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "article-publication-manifest.json"
+  },
+  {
+    "sha256": "6e6fb4338b9808a7d2d13ce5736dff640a45d3346c92678ed76cf80eb0c637bc",
+    "bytes": 13852,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "articles/wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c/index.html"
+  },
+  {
+    "sha256": "57c42e8e095b40ceee9ef9b9388186277269e46b8bf4f7891202612b420081f4",
+    "bytes": 170365,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "articles/wrn-art-612a467e3e256a336d6bb635ba3516d0/index.html"
+  },
+  {
+    "sha256": "2be9b1f542bc80676aa4502d8828b05bc04c525292320437ab4863fdec58b6d5",
+    "bytes": 25237,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "articles/wrn-art-67bca5d4b29dab78f8ae26ccd996a9d8/index.html"
+  },
+  {
+    "sha256": "bec2c15e7eb86f262013336cdc3067ffe08e3a520bb71d6c9ff5e1a991c3ab74",
+    "bytes": 18777,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "articles/wrn-art-8a5c375e96abe85721e4ba918c3f73e2/index.html"
+  },
+  {
+    "sha256": "53a2940101579c19e1a3139e8fde7f7effef079d357b2c659f92c330a020d897",
+    "bytes": 218496,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "articles/wrn-art-a772ab86c915a036c6177f1bfe958d4d/index.html"
+  },
+  {
+    "sha256": "f91341a9ea8c91a7556eb8ca9a222951d1b788ef7047a426688dfcf01b4f2ccd",
+    "bytes": 20784,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "articles/wrn-art-ba76ef8b7afb34885bd5f64bc7135f6c/index.html"
+  },
+  {
+    "sha256": "85070b91f9b11e3e6a9954c42291ee1cad8062c7fa7759475446ae414a06f798",
+    "bytes": 267350,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "articles/wrn-art-bdb90712e1c72ee72293c70904b50889/index.html"
+  },
+  {
+    "sha256": "208577a9815439fa08ba9a6a32c6b789e509a8f4a514a7ca7b1c4cdf4ba4f261",
+    "bytes": 261922,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "articles/wrn-art-c273494fad3a4c822cb7655ec5e157ef/index.html"
+  },
+  {
+    "sha256": "48e851cf5a6f29a75e81117e4137413b56a7b3769cc2f448557b1af33d09b305",
+    "bytes": 14317,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "articles/wrn-art-c6c6c2fd56d7a3965b4da062d0f73981/index.html"
+  },
+  {
+    "sha256": "c5ae06dedd9ae4d6a21930cca4e5c751328151a759d2849e025d78b033b63b9e",
+    "bytes": 10468,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "articles/wrn-art-d96004b71171145d4aab1c6e37eb28ca/index.html"
+  },
+  {
+    "sha256": "3c00081c81696c1ca03e107795674b4654104b5e5cf511894fcadd6b49d201c4",
+    "bytes": 110077,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "articles/wrn-art-e9c523735fe8b7a61922b09d2bcc84fb/index.html"
+  },
+  {
+    "sha256": "9b3d3dfd4b03dc4a045b6cae5e5776966f2f9b2e21490c61b9188731d4191ceb",
+    "bytes": 199637,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "articles/wrn-art-f2ad391804423c87773b3351eb79c802/index.html"
+  },
+  {
+    "sha256": "f09accb635582fa41764a38cbf987d9085502a3c9694cb72d8dc630a03deadb2",
+    "bytes": 1937848,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "assets/content-directory-v1-BzcKetGs.json"
+  },
+  {
+    "sha256": "9960702c3a69b5833d46662e71715dc93f8e008ea0dea9b348638dd899665979",
+    "bytes": 85753,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "assets/index-BV0_p3g0.css"
+  },
+  {
+    "sha256": "e570b9770c504dc8baa91c4358c019ece2191b2aeb4e91fb1f5763985192c231",
+    "bytes": 365504,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "assets/index-DBfP_sJm.js"
+  },
+  {
+    "sha256": "8b750ca32f13de7ab7ecf3bc0185971243d080ea6166fe756626584114074ee6",
+    "bytes": 873132,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "assets/legacy-knowledge-v1-LYaStUaU.json"
+  },
+  {
+    "sha256": "9bfaced898bcabca449ab7a9e75db1c7bf5caba496eabae01268a58630039525",
+    "bytes": 41012,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "assets/legacy-support-v1-CKf2hNYO.json"
+  },
+  {
+    "sha256": "ac2c2f944b814be0fce19129791c39d87c0940f8c82caf47bdc868cc5bcb8b15",
+    "bytes": 1701964,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "assets/production-events-media-v1-oJB41y0C.json"
+  },
+  {
+    "sha256": "c5f08825cdca736a015fe6303f97a64ec1e4511a38b5f2f6f589ecb35e815c65",
+    "bytes": 189620,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "assets/react-vendor-YahHAMAi.js"
+  },
+  {
+    "sha256": "9dca207bc008384ef45cf435a134bf170037ae0149d27c43c732b754912b61b9",
+    "bytes": 1123871,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "assets/solinaridao-header-mark-filled-D7vg3enZ.png"
+  },
+  {
+    "sha256": "dda6b30e14e95ab6f61c21be8c26885559a3e488cef114963bffc198695a2bc8",
+    "bytes": 188830,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "assets/wrn-agroecology-illustration-v1-DrDVXIYr.webp"
+  },
+  {
+    "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f",
+    "bytes": 8845,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "assets/wrn-app-icon-CwyuVArd.png"
+  },
+  {
+    "sha256": "b7d83ace0ea59e05d803f1076c524af4a95e05345d1cb272306a7ce2fbec7eb0",
+    "bytes": 230192,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "assets/wrn-austerity-illustration-v1-ByTb6ajV.webp"
+  },
+  {
+    "sha256": "b95ede8f50486489e639c6b93944dd94709a94b22fb8580d34b1f42be670345c",
+    "bytes": 22062,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "assets/wrn-browser-runtime-Bv2391bc.css"
+  },
+  {
+    "sha256": "840459468211dc6ee149e2552263800039fde2de64aba45cd0f7a5839582088f",
+    "bytes": 266324,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "assets/wrn-browser-runtime-DqdeQ5jm.js"
+  },
+  {
+    "sha256": "51af0071bb562932e7faa892f4b35a4e8ff79f38ac183df346b6d8e7b236d9d0",
+    "bytes": 152878,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "assets/wrn-content-core-8GxI7iaF.js"
+  },
+  {
+    "sha256": "9da0e22936304a30a55ba1483c2305c6ad6c3b1a057341af2ab3b16fe98a5e2f",
+    "bytes": 212123,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "assets/wrn-future-header-white-D5q8hgPK.png"
+  },
+  {
+    "sha256": "fcf4643feecaf85273618421041f6b6a5726bec9b4547875a4be0c10d6bede80",
+    "bytes": 418529,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "assets/wrn-language-CQw_5_ha.js"
+  },
+  {
+    "sha256": "2aa705d84cb5ada966e1f0466c4dfdfa36cbb9188c3009ddd4e7941524184922",
+    "bytes": 172058,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "assets/wrn-teachers-illustration-v1-eboeU-Ap.webp"
+  },
+  {
+    "sha256": "44614f978d8565d1fec4e418bd48a8e2d990c326c6c82aac4ced480d94558e17",
+    "bytes": 68,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "robots.txt"
+  },
+  {
+    "sha256": "14dff9adf32197a7cab90a62df217c111356c406e820aba72345ca18af378a20",
+    "bytes": 1646,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "sitemap.xml"
+  },
+  {
+    "sha256": "f09accb635582fa41764a38cbf987d9085502a3c9694cb72d8dc630a03deadb2",
+    "bytes": 1937848,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "wrn-content-directory/snapshots/directory-202610030004-f09accb635582fa41764a38cbf987d9085502a3c9694cb72d8dc630a03deadb2.json"
+  },
+  {
+    "sha256": "b726c4bc5d669fca1551e2fd736575050b72413e6f25f724ae4947174aded02e",
+    "bytes": 16160,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/admission.json"
+  },
+  {
+    "sha256": "327d6a623739815db43479471fab25b95bb4038b13145b8c7944f4df20fe8982",
+    "bytes": 1822,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/archive-lifecycle.json"
+  },
+  {
+    "sha256": "4edd91969f49ff079e23183dec13eae3633f51157dd87b41c9f895f93c09a584",
+    "bytes": 18685,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/articles.json"
+  },
+  {
+    "sha256": "74a42a185d31c85def388f0a5b767d9249ba857af1ce6249b1cc8cba42135433",
+    "bytes": 1964,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/discover-index.json"
+  },
+  {
+    "sha256": "3a397f3b6b9fc912ca92f40bf4942bd072b662b551ccce45ace28cc9a2e8e32e",
+    "bytes": 1445,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/manifest.json"
+  },
+  {
+    "sha256": "6b841a0971e18667325d110601a4c67eca6cf1ac214f023024d521d3126cb079",
+    "bytes": 1243454,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/reader-details.json"
+  },
+  {
+    "sha256": "811530a2973bcb4a965b81376f0931d9b3b7ea24a7e32d0f78c481d71e72064f",
+    "bytes": 880,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/release-descriptor.json"
+  },
+  {
+    "sha256": "45c62aeb8a11fa82391e342dd5f660a395cdf0935d47536b2c7c88ee8507ecd2",
+    "bytes": 2003,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "wrn-production-content/wrn-production-news-2026-09-26-v8/website-publication.json"
+  },
+  {
+    "sha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617",
+    "bytes": 161,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "wrn-source-pass-revocations/current.json"
+  },
+  {
+    "sha256": "bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa",
+    "bytes": 83783,
+    "archive": "01-wrn-immutable-f6649dc.zip",
+    "path": "wrn-source-passes/current.json"
+  },
+  {
+    "sha256": "02d4a6f09ad4eeef36750e9d589d5a32836d9b1fab56ced642d4d1ce1e85469d",
+    "bytes": 4893,
+    "archive": "02-wrn-policy-sw-f6649dc.zip",
+    "path": ".htaccess"
+  },
+  {
+    "sha256": "5b9875dbb74dc95a873beb3c1d4380bf24d471df24546b0980409205f445d0ac",
+    "bytes": 29325,
+    "archive": "02-wrn-policy-sw-f6649dc.zip",
+    "path": "website-shell-sw.js"
+  },
+  {
+    "sha256": "284092d1cafe21961f570e13447780f776f1b0e2b1bc668bfea7a546236971aa",
+    "bytes": 814,
+    "archive": "02-wrn-policy-sw-f6649dc.zip",
+    "path": "wrn-content-directory/.htaccess"
+  },
+  {
+    "sha256": "79acd0b8e7ca25aec9a1da0852a20affcbd15b2061087726341f26404d97095b",
+    "bytes": 766,
+    "archive": "02-wrn-policy-sw-f6649dc.zip",
+    "path": "wrn-production-content/.htaccess"
+  },
+  {
+    "sha256": "79acd0b8e7ca25aec9a1da0852a20affcbd15b2061087726341f26404d97095b",
+    "bytes": 766,
+    "archive": "02-wrn-policy-sw-f6649dc.zip",
+    "path": "wrn-source-pass-revocations/.htaccess"
+  },
+  {
+    "sha256": "061618a7d0b9494fa181600385a5753925e2fb508356ac5847ff934dc491b5c2",
+    "bytes": 2301,
+    "archive": "03-wrn-index-f6649dc.zip",
+    "path": "index.html"
+  },
+  {
+    "sha256": "16c1644e9f4205e334279f206d1d63202603d22adbd47edeb17175e7a65cf8be",
+    "bytes": 276,
+    "archive": "04-wrn-production-pointer-f6649dc.zip",
+    "path": "wrn-production-content/current.json"
+  },
+  {
+    "sha256": "ba2eb8d69566c271d949dc59c9b41e5794ef615b5dd560d3f5135badcd1c7dd0",
+    "bytes": 512,
+    "archive": "05-wrn-directory-pointer-f6649dc.zip",
+    "path": "wrn-content-directory/current.json"
+  }
+]

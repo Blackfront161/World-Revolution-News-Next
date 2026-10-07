@@ -1,0 +1,23 @@
+{
+  "schema": "wrn.independent-live-review.v1",
+  "controllerThread": "019ff285-63dc-7ed2-88a8-cab5f06ed26e",
+  "commandId": "exec-eeee92ff-5393-4099-aa8d-f9c4910b8d72",
+  "exitCode": 0,
+  "scope": "44 public HTTP byte counts, SHA256 and all bound manifest headers; fresh query-nonce reads",
+  "result": {
+    "sourceCommit": "f202ec5d702e875127c01292b26b6e0b9edfe38e",
+    "checked": 44,
+    "status": "PASS",
+    "icon": {
+      "path": "assets/wrn-app-icon-CwyuVArd.png",
+      "errors": [],
+      "bytes": 8845,
+      "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f",
+      "mime": "image/png"
+    },
+    "failures": []
+  },
+  "fullPerFileReceiptSaved": false,
+  "chiefBrowserThread": "01a0f1cf-c71d-70d3-b3db-6342752e52b2",
+  "chiefBrowserRawSource": "C:/Users/patri/Documents/World Rev Ne/wrn-github-app-current/.tmp/wrn-star-live/result.json"
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "sha256": "d2d1d892225cff622898eb1c9e6e74fddeb5f37b29e74304d59d3f941f9c30b6",
+    "files": 43,
+    "archive": "01-wrn-immutable-e20c800.zip"
+  },
+  {
+    "sha256": "a3b2118b6f2e7c0510b768fe2ae900ac298e5e2528e4120eaeb956883944a0db",
+    "files": 5,
+    "archive": "02-wrn-policy-sw-e20c800.zip"
+  },
+  {
+    "sha256": "ac4d037ff308b4cc3bf446ce9281a4d2e3cc144104a256e3d6c5b8cf222e7c68",
+    "files": 1,
+    "archive": "03-wrn-index-e20c800.zip"
+  },
+  {
+    "sha256": "28c0ab2f96124f94777038b3e58bcf0448971a8a2b6129b40a9e62057ad1385d",
+    "files": 1,
+    "archive": "04-wrn-production-pointer-e20c800.zip"
+  },
+  {
+    "sha256": "25e296117163529d03eb4486624761fe9a9e019fffc81c3969946e2232a8c0cc",
+    "files": 1,
+    "archive": "05-wrn-directory-pointer-e20c800.zip"
+  }
+]

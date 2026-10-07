@@ -1,0 +1,216 @@
+{
+  "origin": "http://127.0.0.1:56512",
+  "transport": "browser default",
+  "sourceCommit": "f6649dc804a6029bdcceb4eafe47041aace9587b",
+  "observedAtUTC": "2026-10-03T06:18:55.505Z",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "live homepage, coverage and original links",
+      "status": "PASS",
+      "ids": [
+        "news-29cfbf72545cd085160cb6f1e8949519846cf1b67331f0897071d39422a58516",
+        "news-78b675f8cb8fec8cf39a99d50da19464b9d573d62009f979d6900bba318cccc4",
+        "news-bb61edb42473b5e9581305cf23e590e3767f11e4355aea511613755a3c50338e",
+        "news-040c458f1466a9e9437a7988d5d6bf4ba5b2255933080876c4a4b3e2fb4e920f",
+        "news-0598a2f87234f27b3185b52459d5b89fe267568b18bb46876056c930e34ee4db"
+      ],
+      "links": [
+        {
+          "href": "http://127.0.0.1:56512/?article=news-29cfbf72545cd085160cb6f1e8949519846cf1b67331f0897071d39422a58516&lang=de#home",
+          "rel": "",
+          "referrerpolicy": null
+        },
+        {
+          "href": "http://127.0.0.1:56512/?article=news-78b675f8cb8fec8cf39a99d50da19464b9d573d62009f979d6900bba318cccc4&lang=de#home",
+          "rel": "",
+          "referrerpolicy": null
+        },
+        {
+          "href": "http://127.0.0.1:56512/?article=news-bb61edb42473b5e9581305cf23e590e3767f11e4355aea511613755a3c50338e&lang=de#home",
+          "rel": "",
+          "referrerpolicy": null
+        },
+        {
+          "href": "http://127.0.0.1:56512/?article=news-040c458f1466a9e9437a7988d5d6bf4ba5b2255933080876c4a4b3e2fb4e920f&lang=de#home",
+          "rel": "",
+          "referrerpolicy": null
+        },
+        {
+          "href": "http://127.0.0.1:56512/?article=news-0598a2f87234f27b3185b52459d5b89fe267568b18bb46876056c930e34ee4db&lang=de#home",
+          "rel": "",
+          "referrerpolicy": null
+        }
+      ]
+    },
+    {
+      "name": "responsive 1440x900",
+      "status": "PASS"
+    },
+    {
+      "name": "responsive 390x844",
+      "status": "PASS"
+    },
+    {
+      "name": "news and sources deep links with unverified labels",
+      "status": "PASS"
+    },
+    {
+      "name": "internal reader, nine own language versions, canonical URLs, 200% text, saved/read state online",
+      "status": "PASS"
+    },
+    {
+      "name": "all nine themes with three WRN illustrations and own Autonom grid, both viewport widths",
+      "status": "PASS"
+    },
+    {
+      "name": "five public support originals and source-bound 13/17 review states online",
+      "status": "PASS"
+    },
+    {
+      "name": "731 books with all three added original links; four regional events and Brazil empty online",
+      "status": "PASS"
+    },
+    {
+      "name": "all current app catalogues and 167 glossary terms and source-bound 3CR original link online",
+      "status": "PASS"
+    },
+    {
+      "name": "internal reader, nine own language versions, canonical URLs, 200% text, saved/read state after full offline restart",
+      "status": "PASS"
+    },
+    {
+      "name": "five public support originals and source-bound 13/17 review states after complete offline restart",
+      "status": "PASS"
+    },
+    {
+      "name": "731 books with all three added original links; four regional events and Brazil empty after full offline restart",
+      "status": "PASS"
+    },
+    {
+      "name": "all current catalogues and glossary after complete offline Chrome restart",
+      "status": "PASS"
+    },
+    {
+      "name": "Chrome process closed and restarted offline with persistent test profile, metadata and exact favicon",
+      "status": "PASS"
+    }
+  ],
+  "networkFailures": [],
+  "illustration": {
+    "mime": "image/webp",
+    "bytes": 230192,
+    "sha256": "b7d83ace0ea59e05d803f1076c524af4a95e05345d1cb272306a7ce2fbec7eb0",
+    "width": 1672,
+    "additionalImages": [
+      {
+        "bytes": 172058,
+        "sha256": "2aa705d84cb5ada966e1f0466c4dfdfa36cbb9188c3009ddd4e7941524184922"
+      },
+      {
+        "bytes": 188830,
+        "sha256": "dda6b30e14e95ab6f61c21be8c26885559a3e488cef114963bffc198695a2bc8"
+      }
+    ]
+  },
+  "currentHome": {
+    "reviewedItems": 15,
+    "mainCards": 11,
+    "briefing": 4,
+    "heldItems": 5,
+    "noteLanguages": 9,
+    "directoryCoverage": "465/500",
+    "originalBodiesImported": 0
+  },
+  "icon": {
+    "href": "/assets/wrn-app-icon-CwyuVArd.png",
+    "bytes": 8845,
+    "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+  },
+  "themePalettes": {
+    "violet": {
+      "theme": "violet",
+      "canvas": "#000",
+      "action": "#ff5266"
+    },
+    "dark": {
+      "theme": "dark",
+      "canvas": "#0b1017",
+      "action": "#ff5266"
+    },
+    "editorial": {
+      "theme": "editorial",
+      "canvas": "#000",
+      "action": "#f04a56"
+    },
+    "oled": {
+      "theme": "oled",
+      "canvas": "#000",
+      "action": "#ff5266"
+    },
+    "soft": {
+      "theme": "soft",
+      "canvas": "#202029",
+      "action": "#ff5266"
+    },
+    "pink": {
+      "theme": "pink",
+      "canvas": "#180a18",
+      "action": "#ff5266"
+    },
+    "light": {
+      "theme": "light",
+      "canvas": "#f5f4f8",
+      "action": "#b51238"
+    },
+    "system": {
+      "theme": "light",
+      "canvas": "#f5f4f8",
+      "action": "#b51238"
+    },
+    "contrast": {
+      "theme": "contrast",
+      "canvas": "#000",
+      "action": "#ff7183"
+    }
+  },
+  "prisonerAlignment": {
+    "profiles": 30,
+    "datedAddressMatches": 13,
+    "needsReview": 17,
+    "publicSupportLinks": 5,
+    "addressesImported": 0,
+    "appProduct": "8c0c0d90a119b7a95b5154fa64c49dfb97c8842e"
+  },
+  "libraryRegional": {
+    "books": 731,
+    "addedBookIds": [
+      "anarchist-library-es-ef9b13d1c8cc429a6d3cd9c0",
+      "anarchist-library-en-49398dbbcd44de50d9e268e6",
+      "anarchist-library-en-2d5b6e24f14f5d4522fd6da6"
+    ],
+    "regionalRevision": 4,
+    "regionalEventIds": [
+      "event-ewoc-workers-circle-2026-10-06",
+      "event-london-constitutionalising-anarchy-launch-2026",
+      "event-manchester-salford-anarchist-bookfair-2026",
+      "event-santiago-encuentro-libro-anarquista-2026"
+    ],
+    "validUntil": "2026-10-10T01:10:45.000Z",
+    "selectionSaved": false
+  },
+  "offline": {
+    "href": "/assets/wrn-app-icon-CwyuVArd.png",
+    "width": 72,
+    "height": 72,
+    "controlled": true,
+    "mime": "image/png",
+    "bytes": 8845,
+    "sha256": "78b3dbd6c6de3876c6a15012dd0ea683136ace682382f50036d68d2250d2314f"
+  },
+  "pageErrors": [],
+  "radioSupplement": {
+    "visibleCount": 28,
+    "unsolicitedStreamRequests": []
+  }
+}

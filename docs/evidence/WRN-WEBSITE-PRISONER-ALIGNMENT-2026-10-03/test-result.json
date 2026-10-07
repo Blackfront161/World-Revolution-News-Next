@@ -1,0 +1,13 @@
+{
+  "schema": "wrn.website-prisoner-local-validation.v1",
+  "productCommit": "fe94660d0c830bfab4ca97ea82b9e0b44bacc360",
+  "supportFocused": {"files": 4, "tests": 9, "status": "PASS"},
+  "websiteVitest": {"files": 38, "tests": 255, "status": "PASS", "command": "vitest run src --exclude src/offline-shell/protocol-contract.test.mjs"},
+  "websiteNodeContracts": {"tests": 86, "status": "PASS", "command": "node --test with the twelve existing module files from package.json test:unit"},
+  "finalNavigationAndSupport": {"files": 5, "tests": 48, "status": "PASS", "command": "vitest run src/App.test.tsx src/features/support"},
+  "finalTypecheck": {"status": "PASS", "command": "tsc --noEmit -p apps/website/tsconfig.json"},
+  "productionBuild": {"status": "PASS", "steps": ["vite build --manifest", "integrate-production-article-landings.mjs dist", "build-offline-shell.mjs dist", "prepare-website-projection-candidate.mjs with pinned config"]},
+  "privacyScope": {"addressesImported": 0, "biographiesImported": 0, "mediaImported": 0, "directRecipientActionsIntroduced": 0},
+  "independentWebsiteReview": "pending",
+  "deploymentPerformed": false
+}

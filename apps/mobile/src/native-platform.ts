@@ -1,5 +1,10 @@
 import { Capacitor, registerPlugin, type PluginListenerHandle } from '@capacitor/core';
-import { createBrowserShareAdapter } from '../../../packages/browser-content/src/browser-share';
+import {
+  canonicalShareText,
+  createBrowserShareAdapter,
+  type ShareAdapter,
+  type ShareOptions,
+} from '../../../packages/browser-content/src/browser-share';
 
 const nativePluginName = 'WRNPlatform';
 const canonicalArticleOrigin = 'https://solinaridao.com';
@@ -17,13 +22,11 @@ const supportedTargets = new Set([
   'help',
 ]);
 
-type ShareAdapter = { readonly share: (url: string) => Promise<void> };
-
 type RouteEvent = { readonly deliveryId?: unknown; readonly route?: unknown };
 type BackEvent = { readonly requestId?: unknown };
 
 export interface WRNPlatformPlugin {
-  share(options: { readonly url: string }): Promise<void>;
+  share(options: { readonly url: string; readonly translatedLanguage?: string }): Promise<void>;
   setWebReady(options: { readonly ready: boolean }): Promise<void>;
   acknowledgeBack(options: { readonly requestId: string }): Promise<void>;
   addListener(
@@ -146,15 +149,21 @@ export function createNativePlatformSession(
   const browserShareAdapter = createBrowserShareAdapter();
 
   const shareAdapter: ShareAdapter = Object.freeze({
-    async share(url: string): Promise<void> {
+    async share(url: string, options?: ShareOptions): Promise<void> {
       const canonical = canonicalShareUrl(url);
       if (!active) throw new Error('Native platform session is disposed');
       if (canonical === null) throw new Error('Invalid canonical share URL');
+      const isTranslated = canonicalShareText(canonical, options) !== canonical;
       if (!runtime.isAvailable()) {
-        await browserShareAdapter.share(canonical);
+        await browserShareAdapter.share(canonical, options);
         return;
       }
-      await runtime.plugin.share({ url: canonical });
+      const translatedLanguage = options?.translationLanguage;
+      await runtime.plugin.share(
+        isTranslated && translatedLanguage
+          ? { url: canonical, translatedLanguage }
+          : { url: canonical },
+      );
     },
   });
 

@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "checks": [
+    "Existing Website shell stays 18 entries / 8092523 bytes with no Atlas paths",
+    "Atlas runs under offline=0 without its own worker and does not enter the Website cache",
+    "Existing Website opens offline after full browser-process restart",
+    "Atlas requires internet and fails closed on offline reload; no false offline availability"
+  ],
+  "origin": "https://solinaridao.com",
+  "publicationPerformed": true,
+  "expectedOfflineAtlasFailures": [
+    "Error: page.goto: net::ERR_INTERNET_DISCONNECTED at https://solinaridao.com/atlas/?lang=de\nCall log:\n\u001b[2m  - navigating to \"https://solinaridao.com/atlas/?lang=de\", waiting until \"load\"\u001b[22m\n"
+  ],
+  "shell": {
+    "id": "d096826b7ecd07a2c52da70aa558d1390bac19e5666078610c86153910fc15e6",
+    "entries": 18,
+    "bytes": 8092523,
+    "paths": [
+      "/assets/content-directory-v1-BzcKetGs.json",
+      "/assets/index-CiAuL3_a.css",
+      "/assets/index-DMRbclF4.js",
+      "/assets/legacy-knowledge-v1-B0zTJDr6.json",
+      "/assets/legacy-support-v1-CKf2hNYO.json",
+      "/assets/production-events-media-v1-R8HI0ZMv.json",
+      "/assets/react-vendor-YahHAMAi.js",
+      "/assets/solinaridao-header-mark-filled-D7vg3enZ.png",
+      "/assets/wrn-agroecology-illustration-v1-DrDVXIYr.webp",
+      "/assets/wrn-app-icon-CwyuVArd.png",
+      "/assets/wrn-austerity-illustration-v1-ByTb6ajV.webp",
+      "/assets/wrn-browser-runtime-Bv2391bc.css",
+      "/assets/wrn-browser-runtime-DLotas5b.js",
+      "/assets/wrn-content-core-8GxI7iaF.js",
+      "/assets/wrn-future-header-white-D5q8hgPK.png",
+      "/assets/wrn-language-CQw_5_ha.js",
+      "/assets/wrn-teachers-illustration-v1-eboeU-Ap.webp",
+      "/index.html"
+    ]
+  },
+  "workers": [
+    {
+      "scope": "https://solinaridao.com/",
+      "script": "https://solinaridao.com/website-shell-sw.js"
+    }
+  ]
+}

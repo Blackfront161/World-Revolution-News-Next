@@ -1,0 +1,92 @@
+{
+  "schema": "wrn.catalog-knowledge-website-parity.v1",
+  "publicationPerformed": false,
+  "appCommit": "c5181b500bccba682f61644a6f77672bb810dcc8",
+  "dataCommit": "2342289bb126c6356f20088d5a97fe20a08980e1",
+  "appCatalog": {
+    "commit": "2342289bb126c6356f20088d5a97fe20a08980e1",
+    "observedAt": "2026-10-02T06:06:35.901Z",
+    "inputs": [
+      {
+        "path": "radio-stations.json",
+        "sha256": "caa83a5678613766765fe1bab2806648461b1f0811388c59bebe7888692b9d85",
+        "bytes": 12787
+      },
+      {
+        "path": "podcasts.json",
+        "sha256": "0961c293c8c847f45eaf71a88aba4a51fc4ef07c7d8e6651d314842763846221",
+        "bytes": 3162161
+      },
+      {
+        "path": "video-feed.json",
+        "sha256": "b1e01de630d117ee3d21ab576a3ac9a463a20d309e8d579639a429ee5a7d7b65",
+        "bytes": 25803
+      },
+      {
+        "path": "library-feed.json",
+        "sha256": "3be196134dba9c994a27999398d71c5311764e093a14fcf20cf2db74ce829449",
+        "bytes": 402330
+      },
+      {
+        "path": "events-feed.json",
+        "sha256": "7d5fd1dac441183452b7979df2b15aeb741e3f6b871f3106218996d82425d4b6",
+        "bytes": 11997
+      }
+    ],
+    "reconciliation": {
+      "radio": {
+        "input": 27,
+        "unique": 27,
+        "duplicateOriginalLinks": 0
+      },
+      "podcasts": {
+        "input": 1778,
+        "unique": 1722,
+        "duplicateOriginalLinks": 56
+      },
+      "videos": {
+        "input": 16,
+        "unique": 16,
+        "duplicateOriginalLinks": 0
+      },
+      "library": {
+        "input": 728,
+        "unique": 728,
+        "duplicateOriginalLinks": 0
+      },
+      "events": {
+        "input": 6,
+        "unique": 6,
+        "duplicateOriginalLinks": 0
+      }
+    },
+    "history": {
+      "bytes": 3317607,
+      "sha256": "003c32358ebe0d5ad22fb9c0b059bf82c242aa0b99a4d869fb67960c86acdc07"
+    },
+    "packed": {
+      "bytes": 1701964,
+      "sha256": "ac2c2f944b814be0fce19129791c39d87c0940f8c82caf47bdc868cc5bcb8b15"
+    }
+  },
+  "knowledge": {
+    "commit": "c5181b500bccba682f61644a6f77672bb810dcc8",
+    "observedAt": "2026-10-02T06:06:35.901Z",
+    "books": 728,
+    "terms": 155,
+    "references": 32,
+    "historySha256": "26eb4c118d0483788f07ef0b103c97e1cf53fbf75d36a61ae47456146240726b",
+    "packedSha256": "630d2ea55cb297f1aa97ec3c047b7b82ed1309c48ab1ec549dc0782c4ef235d6",
+    "learningPathsSha256": "a4a02597e67298d883b50bc2559bfd1100e6f16b619598c0ee3b529c2d28f1f3",
+    "lexiconLocalesSha256": "5b59354be8a764fef375e63a3ddae53e21d15c2d63320b224f43ea17067f30b0",
+    "inputs": {
+      "libraryFeedSha256": "3be196134dba9c994a27999398d71c5311764e093a14fcf20cf2db74ce829449",
+      "libraryFeedBytes": 402330,
+      "librarySourcesSha256": "a498bb6d672d4edb8af99d3b337c34d1292bf4e04924a3bedb3b364c4cd81f66",
+      "librarySourcesBytes": 5324,
+      "lexiconSha256": "5064537d43a666a41e5eb3b0186a22b86b523d4f12eec3eeae5df0ff97a60c74",
+      "lexiconBytes": 244579
+    }
+  },
+  "mediaDirectoriesSha256": "e42fc2fd29ba7860b4d74ebbbd954d9014d3018081810dc7e8b11a9ea9038c2a"
+}

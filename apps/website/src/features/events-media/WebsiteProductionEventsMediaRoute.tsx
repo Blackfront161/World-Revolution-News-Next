@@ -6,6 +6,7 @@ import { VideoSources } from '../../video-sources-ui';
 import { CurrentRegionalEvents } from '../../../../../packages/browser-content/src/regional-events/regional-events';
 import { ManagedProductionMediaExperience } from '../../../../../packages/browser-content/src/production-media-ui';
 import { createWebsiteProductionMediaExperienceController } from '../../production-media-profile';
+import { WebsiteAppCatalog } from './WebsiteAppCatalog';
 
 export function WebsiteProductionEventsMediaRoute({
   mode,
@@ -27,14 +28,22 @@ export function WebsiteProductionEventsMediaRoute({
       videoChannels={<VideoSources language={language} headingLevel={2} />}
       productionMedia={
         mode === 'media' ? (
-          <ManagedProductionMediaExperience
-            createController={createWebsiteProductionMediaExperienceController}
-            language={language}
-            headingLevel={2}
-          />
+          <>
+            <WebsiteAppCatalog mode="media" language={language} />
+            <ManagedProductionMediaExperience
+              createController={createWebsiteProductionMediaExperienceController}
+              language={language}
+              headingLevel={2}
+            />
+          </>
         ) : null
       }
-      currentEvents={<CurrentRegionalEvents client="website" language={language} />}
+      currentEvents={
+        <>
+          <WebsiteAppCatalog mode="events" language={language} />
+          <CurrentRegionalEvents client="website" language={language} />
+        </>
+      }
     />
   );
 }

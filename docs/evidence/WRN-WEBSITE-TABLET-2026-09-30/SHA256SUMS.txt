@@ -1,0 +1,3 @@
+0fb70750fa1fde50ef10fc5c7b6cfdd90defae28ce9eb4cc3143a7814e206686  docs/evidence/WRN-WEBSITE-TABLET-2026-09-30/REPORT.md
+78f1fdadf3642f9ad3d16cff6ec651f95fc9a290e85576743151068f1b1d5258  docs/evidence/WRN-WEBSITE-TABLET-2026-09-30/tablet-landscape.png
+b59ada9123564b0c86867c88fe626f4f4537652f5b7ef875c7fcfc2cbe5ab4f6  docs/evidence/WRN-WEBSITE-TABLET-2026-09-30/tablet-portrait.png

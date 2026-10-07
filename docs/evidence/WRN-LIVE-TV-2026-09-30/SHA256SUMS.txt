@@ -1,0 +1,7 @@
+d523e0084295f22414d42facb3f70b90588dd8825da7cea507e41a98904d5ddf  packages/browser-content/src/live-tv-source-links.ts
+88b13eed2b3e3807ec62ec909d22b4d63138679a03c8dda5a1b15427fa8c6745  packages/browser-content/src/live-tv-sources.tsx
+80fbd8c41084bb460bee12e9e77fcce47ff38c7a9fc29831d2f36e8e2e195cb9  packages/browser-content/src/events-media-directory.tsx
+c5a9bb58c8589005b86d8b109cd5b4d1bd81053ce1639371935329e1645c6920  apps/website/src/live-tv-source-links.test.tsx
+c95025d2219b674002d3de83cb41e38613c0c94b88d1790fa9ed01735e55b56a  docs/evidence/WRN-LIVE-TV-2026-09-30/REPORT.md
+4d0ad3b7ea8dc43c886a1cc160efdfc945478a26ba46fe4d92edae4dcedcf115  docs/evidence/WRN-LIVE-TV-2026-09-30/app-390.png
+161ba8247cf346112baeea9780f1b191aac4ec94796ed8900cb87b6611ac8d85  docs/evidence/WRN-LIVE-TV-2026-09-30/website-1440.png

@@ -1,0 +1,45 @@
+{
+  "origin": "http://127.0.0.1:43240",
+  "startedAtUTC": "2026-10-03T07:56:04.368Z",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "native Back preserves actual filter, 60-row pagination, scroll and trigger focus",
+      "status": "PASS"
+    },
+    {
+      "name": "cross-area navigation returns to the catalogue query and original focus",
+      "status": "PASS"
+    },
+    {
+      "name": "direct book, podcast and lexicon IDs work in all nine UI languages",
+      "status": "PASS"
+    },
+    {
+      "name": "two different filter states of the same catalogue remain independent across native Back",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid and unknown items expose no replacement record or original/share action",
+      "status": "PASS"
+    },
+    {
+      "name": "390px Russian 200% item views and filters reflow without horizontal overflow",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "unsolicitedStreams": [],
+  "returnContext": {
+    "id": "anarchist-library-en-43f4bf614f8b00ecc06ffb30",
+    "shown": 60,
+    "source": "anarchist-library-en",
+    "scrollBefore": 11139,
+    "scrollAfter": 11139
+  },
+  "completedAtUTC": "2026-10-03T07:56:16.282Z",
+  "inputs": {
+    "knowledgeSha256": "8b750ca32f13de7ab7ecf3bc0185971243d080ea6166fe756626584114074ee6",
+    "mediaSha256": "ac2c2f944b814be0fce19129791c39d87c0940f8c82caf47bdc868cc5bcb8b15"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "wrn.evidence-file-hashes.v1",
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 1149,
+      "sha256": "2a0fed23c519a136ab8d80fa8c7b686c8909593eba43279dbc91dc8da4f86118"
+    },
+    {
+      "path": "atlas-desktop.png",
+      "bytes": 191229,
+      "sha256": "ea5b9b53c7fb166973b2b4de5b4e230d420f8776413cccb6df0cc3edc2006b4e"
+    },
+    {
+      "path": "atlas-mobile.png",
+      "bytes": 61715,
+      "sha256": "1ebfa944e61e8ec32fc1b6ea3eb3b8c7ee18a2168451fd2c65765643dd337826"
+    },
+    {
+      "path": "display-browser.json",
+      "bytes": 11185,
+      "sha256": "c668a5093042a3be98bff3208ce3adee69c09cdacaec003ae34b6bd5d814b060"
+    },
+    {
+      "path": "offline-browser.json",
+      "bytes": 47367,
+      "sha256": "914273db7b11c873c899d1f0729709cc48bdf98e14c08465219919ed858ec066"
+    },
+    {
+      "path": "public-readback.json",
+      "bytes": 3255,
+      "sha256": "8c74ce34f376b23a206cf10e3966cf1c18540b18714591f29235f0a388924128"
+    }
+  ]
+}

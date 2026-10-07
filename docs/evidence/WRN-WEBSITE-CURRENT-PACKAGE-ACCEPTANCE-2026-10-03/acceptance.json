@@ -1,0 +1,44 @@
+{
+  "schema": "wrn.website-package-acceptance-receipt.v1",
+  "recordedAt": "2026-10-03T09:36:09Z",
+  "sourceCommit": "e20c8002f32103a7f888e907e6603fed792c8b52",
+  "frozenEvidenceCommit": "95a775e479ec7cdfc5641c8a36e93e20edfb35ef",
+  "independentReview": {
+    "status": "SCOPED-PASS",
+    "threadId": "019ff285-63dc-7ed2-88a8-cab5f06ed26e",
+    "turnId": "01a10111-b7b3-7a62-a78d-1f453124eee2",
+    "scope": "local frozen package, hash bindings, rights/admission, offline graph, upload archives and rollback"
+  },
+  "package": {
+    "websiteFiles": 48,
+    "hostingFiles": 51,
+    "websiteManifestSha256": "d9c3ed702a852dc51819607d409fd6b4de6a9e2cb672800d96e34f8348474b6f",
+    "hostingManifestSha256": "08dff43472813e9b644315806b998c11f35a9ad412a5e4aca2a776fccdfc751f",
+    "offlineFiles": 18,
+    "offlineBytes": 8026585,
+    "shellId": "19f516a71d5e3af35f12ddfe1ad49b1dd6b965a44530329964ea144f68149a07",
+    "uploadArchives": 5,
+    "rollbackFiles": 49,
+    "rollbackSourceCommit": "d738a9454161f1f6aff624bcb9c2a9f0bc2ccf60"
+  },
+  "operatorBoundary": {
+    "verifyCurrentPackageMjs": "writing Playwright browser harness; not a read-only hash verifier",
+    "defaultOrigin": "https://solinaridao.com",
+    "defaultSourceCommit": "old default; explicit source binding required",
+    "executedForReceipt": false,
+    "frozenArtifactsModified": false
+  },
+  "publication": {
+    "generalHumanAuthorization": "already present in conversation",
+    "newHostingerSessionApproval": "pending human answer",
+    "newSessionDomAccess": "rejected by automatic approval review",
+    "reason": "website-specific session path could not be safely attributed",
+    "uploaded": false,
+    "published": false,
+    "dataObservedAt": "2026-10-03T05:58:12.439Z",
+    "freshnessWindowHours": 24,
+    "preActivationReadbackRequired": true,
+    "destinationVerificationRequired": true,
+    "postPublicationLiveVerificationRequired": true
+  }
+}

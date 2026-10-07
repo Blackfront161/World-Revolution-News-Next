@@ -360,7 +360,7 @@ export const italianUiCopy: UiCopy = Object.freeze({
     'La selezione locale non può essere verificata dopo la modifica.',
   personalizationClearFailed: 'La selezione locale non può essere eliminata.',
   personalizationResults: 'Articoli locali corrispondenti',
-  personalizationNoMatches: 'Nessun articolo locale validato corrisponde a questa selezione.',
+  personalizationNoMatches: 'Nessun testo integrale verificato corrisponde a questa selezione.',
   personalizationReloadRequired: 'Ricarica la selezione locale prima di un’altra modifica.',
   personalizationLoading: 'Caricamento della selezione locale su questo dispositivo.',
   readerV2Ambiguous: 'Questa struttura locale è ambigua; il testo originale rimane invariato.',
