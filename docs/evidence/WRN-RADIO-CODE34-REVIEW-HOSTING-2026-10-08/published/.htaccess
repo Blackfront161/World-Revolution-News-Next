@@ -1,0 +1,20 @@
+Options -Indexes
+DirectoryIndex index.html
+AddType video/mp4 .mp4
+Header onsuccess unset content-security-policy
+Header always unset content-security-policy
+Header always set content-security-policy "default-src 'none'; base-uri 'none'; connect-src 'none'; form-action 'none'; frame-ancestors 'none'; img-src 'none'; media-src 'self'; object-src 'none'; script-src 'none'; style-src 'none'; worker-src 'none'; upgrade-insecure-requests"
+Header onsuccess unset cache-control
+Header always unset cache-control
+Header always set cache-control "no-store"
+Header always set X-Robots-Tag "noindex, nofollow"
+<FilesMatch "\.mp4$">
+Header onsuccess unset Content-Type
+Header always unset Content-Type
+Header always set Content-Type "video/mp4"
+</FilesMatch>
+<FilesMatch "\.html$">
+Header onsuccess unset Content-Type
+Header always unset Content-Type
+Header always set Content-Type "text/html; charset=utf-8"
+</FilesMatch>

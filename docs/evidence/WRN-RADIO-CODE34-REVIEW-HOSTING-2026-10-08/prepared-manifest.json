@@ -1,0 +1,27 @@
+{
+  "schema": "wrn.radio-code34-review-publication.v1",
+  "status": "PREPARED",
+  "publicationPerformed": false,
+  "appSourceCommit": "ec5c332f49dcb6059c38cae601eabd7c65ca66bf",
+  "websiteBaseCommit": "60296ee8f640eb08a871eb1d3edf37cc6de4b306",
+  "publicPrefix": "https://solinaridao.com/app-review/radio-code34/",
+  "files": [
+    {
+      "path": "app-review/radio-code34/wrn-code34-media-playback-demo.mp4",
+      "bytes": 476688,
+      "sha256": "b22242b79558eedfd2d4de52a6064d47c7cb53293183a3a93d41474c2fef3b7e",
+      "inputPath": "C:/Users/patri/Documents/World Rev Ne/wrn-podcast-atlas-20261004/outputs/radio-visible-ec5c332-20261008/wrn-code34-media-playback-demo.mp4"
+    },
+    {
+      "path": "app-review/radio-code34/index.html",
+      "bytes": 2034,
+      "sha256": "eb618e34b427621b4cfa346e975b34b66f187966f0541efbbbd9f45eab78d0ce",
+      "inputPath": "C:/Users/patri/Documents/World Rev Ne/wrn-podcast-atlas-20261004/docs/evidence/WRN-ROADMAP-2026-10-08/code34-media-playback-review.html"
+    },
+    {
+      "path": "app-review/radio-code34/.htaccess",
+      "bytes": 914,
+      "sha256": "2ebb4a56382b721ca18b33221610f94d7df1d20a0da83f5922bd7d31281793a6"
+    }
+  ]
+}
