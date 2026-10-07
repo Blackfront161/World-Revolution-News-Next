@@ -144,6 +144,7 @@ export function WebsiteFollowingDirectory({
                 <WebsiteArticleIllustration
                   article={article}
                   commit={directory.document.sourceCommit}
+                  imageRegister={directory.images}
                   language={language}
                 />
                 <p>

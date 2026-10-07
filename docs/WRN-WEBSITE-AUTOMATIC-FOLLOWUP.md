@@ -1,30 +1,21 @@
-# Automatische Inhaltsnachführung: konkreter Stand
+# Automatische Inhaltsnachführung
 
-Stand 5. Oktober 2026. Eine vollständige automatische App/Data→Website-Nachführung ist noch nicht aktiviert oder fertig implementiert. Der aktuelle Website-Stand ist weiterhin an die geprüfte App-/Data-Übergabe gebunden.
+Stand 8. Oktober 2026. Die gemeinsame Nachrichtenübergabe ist implementiert und unabhängig geprüft. Directory, Admissionreport, Coverage, App-Startauswahl, Themen und Originalbildreferenzen bilden ein einziges hashgebundenes Release. Der Browser aktiviert nur eine vollständig validierte Übergabe und bewahrt bei Fehlern den vorherigen Stand. Neue Rücknahmen werden vor der Aktivierung gespeichert und bleiben auch bei Quota-Fehlern und Browser-Neustart wirksam.
 
-Der vorhandene GitHub-Workflow `.github/workflows/wrn-directory-publication.yml` bereitet alle sechs Stunden ein Metadata-only-Verzeichnis aus einem exakten Commit von `Blackfront161/Revolution-News-Data` vor. Sein bestehender FTPS-Transport lädt den geprüften Snapshot vor dem Pointer hoch, prüft die öffentlichen Bytes und aktiviert atomar; bei fehlender Bestätigung stellt er die vorherigen Pointerbytes wieder her. Scheduler, Uploadziele, Transport und Rückrollvertrag wurden nicht erweitert.
+Der bestehende Workflow `.github/workflows/wrn-directory-publication.yml` nutzt unverändert einen einzelnen Publisher und den Sechs-Stunden-Takt. Er beobachtet einen exakten Data-Commit, prüft dessen öffentliche Bytes und erzeugt die Startauswahl mit dem eingefrorenen App-Selector. FTPS lädt zuerst den Snapshot hoch, prüft die öffentlichen Bytes und aktiviert danach den Pointer. Eine fehlgeschlagene Aktivierung stellt die vorherigen Pointerbytes wieder her. Ohne bestehende Konfiguration ist Veröffentlichung ausdrücklich deaktiviert. Die tatsächliche GitHub-Aktivierung ist weiterhin **nicht nachgewiesen**; lokale Tests oder eine manuelle Hostinger-Veröffentlichung ersetzen keinen erfolgreichen Scheduler-Lauf.
 
-Die neue kleine Diagnosekorrektur prüft die bestehende Konfiguration vor der Datenvorbereitung. Ein deaktivierter Lauf meldet ausdrücklich `publication-disabled`; ein ausdrücklich angeforderter Upload ohne Schalter sowie ein aktivierter Lauf mit fehlenden Secrets scheitern früh mit ausschließlich Konfigurationsnamen. Kein Secretwert wird ausgegeben. Zwei neue Tests und acht bestehende Veröffentlichungs-/Rollbacktests PASS. Unabhängiger Review PASS, einschließlich acht echten CLI-Konfigurationsfällen. Diese Änderung ist lokal geprüft; kein Push oder Aktivierungsnachweis.
+| Konfiguration | Zweck |
+| --- | --- |
+| Variable `WRN_DIRECTORY_PUBLISH_ENABLED=1` | Bestehender Veröffentlichungsschalter |
+| Secrets `WRN_FTPS_HOST`, `WRN_FTPS_IP`, `WRN_FTPS_USER`, `WRN_FTPS_PASSWORD` | Bestehender begrenzter FTPS-Zugang |
+| Secret `WRN_FTPS_DIRECTORY` | Bereits autorisiertes Website-Verzeichnis `/wrn-website-content/`; keine Zugriffsweiterung |
 
-Erforderliche GitHub-Konfigurationsnamen:
+Der neue Endpunkt benötigt vor dem ersten Publisher-Lauf einen geprüften initialen Snapshot und Pointer aus der normalen Website-Veröffentlichung. Der Publisher verweigert eine Aktivierung ohne gültigen Vorgänger. Ein FTPS-Rename ist kein serverseitiges Compare-and-Swap; der bestehende einzelne CI-Writer bleibt Voraussetzung.
 
-| Typ | Name | Zweck |
-| --- | --- | --- |
-| Repository-Variable | `WRN_DIRECTORY_PUBLISH_ENABLED` | Bestehender Schalter, Wert `1` für Veröffentlichung |
-| Secret | `WRN_FTPS_HOST` | Bestehender zugelassener FTPS-Host |
-| Secret | `WRN_FTPS_IP` | Bestehende gebundene Host-IP |
-| Secret | `WRN_FTPS_USER` | Bestehender Benutzer |
-| Secret | `WRN_FTPS_PASSWORD` | Bestehendes Passwort |
-| Secret | `WRN_FTPS_DIRECTORY` | Bestehender begrenzter Verzeichnispfad |
+Der aktuelle App-Selector ist an Commit `7dd4e9e428cae4ae5c25caa98402df901f861981`, die Übergabe `59bbc8f5d4a0d1962297239df514e59beea0976c` und deren überprüfte Bytes gebunden. Neue App-Releases benötigen eine neue geprüfte Übergabe. App-WIP-HEAD wird nicht automatisch importiert.
 
-Die tatsächliche Existenz/Werte dieser Repository-Einstellungen sind hier unbekannt: die lokale GitHub-CLI liefert401. Es wäre falsch, daraus das Fehlen einzelner Secrets abzuleiten. Es wurden keine Credentialwerte gelesen, erzeugt oder an einen anderen Empfänger übertragen. Root prüft den vorhandenen GitHub-Zugang. Neue Credentials oder eine Zugriffsweiterung sind kein Bestandteil dieser Änderung.
+Die Bibliothek mit 745 Büchern, fünf Lernpfaden und 177 Lexikonbegriffen sowie alle 17 App-Videooriginale sind aus dieser Übergabe ergänzt. Der Website-Katalog enthält insgesamt 22 Videos, 28 Radiosender und 1839 Podcasts einschließlich zuvor vorhandener Data-Inhalte. Diese übrigen Inhaltsbereiche bleiben eingefrorene, reproduzierbare Übergaben; sie sind nicht Bestandteil der automatischen Nachrichtenversorgung. Historische Daten bleiben erhalten. Unbekannte Rechte und Sprachen bleiben unbekannt; externe Bilder werden weder gehostet noch in die Offline-Shell aufgenommen.
 
-Noch erforderliche Produktarbeit für vollständige Inhaltsparität:
+Der separate Atlas-Offlinestand unter Commit 33c36d2 ist jetzt veröffentlicht. Ein echter öffentlicher Download mit 215 Ressourcen und 104.461.436 Bytes wurde nach Browser-Neustart ohne Netzwerk geprüft. Neue Musik Horizonte bleibt separat vorbereitet und wird erst mit einer freigegebenen App-Übergabe übernommen.
 
-1. Die Home-Auswahl aus dem ausdrücklich gebundenen App-Release und dem exakt selben neuen Data-Commit erzeugen. Der ältere CLI-Helper `prepare-app-home-layout.mjs` ist an einen alten App-Stand gebunden und darf nicht unverändert als aktueller kanonischer Generator verwendet werden. Neue App-Releases benötigen eine neue nachvollziehbare Übergabe; beliebiger App-WIP-HEAD ist keine Freigabequelle.
-2. Directory, Website-Admissionreport, Home-Rollen/Topics und Originalbildregister als ein gemeinsames geprüftes Tuple binden. Der vorhandene Bildgenerator überprüft bereits Titel, Quelle, ID und Original-URL; diese Bindung weiterverwenden. SourceAdmission, Quellenaliase, Podcast-Overrides, Withdrawals und alle bisherigen Rechtebeschränkungen erhalten. Unbekannte Rechte bleiben unbekannt; keine Bildbytes hosten/offline aufnehmen.
-3. Den Browserloader auf die vollständig validierte gemeinsame Übergabe erweitern. Er verwirft aktuell zu Recht ein neues Remote-Verzeichnis, dessen Hash nicht zum eingefrorenen Website-Report passt. Diese Prüfung nicht einfach löschen. Home und Bildregister sind derzeit statisch importiert; ein neuer Directory-Pointer allein aktualisiert sie nicht.
-4. Erst nach Integritäts-, Schema-, Commit-, Aktualitäts- und Admissionprüfung alle Teile gemeinsam aktivieren. Fehler, Abbruch, unvollständige Dateien, veraltete Sequenz oder Policyausfall erhalten die letzte geprüfte zulässige Darstellung; aktuelle Rücknahmen müssen weiter greifen. Sichtbare Frische muss an diese tatsächlich bestätigte Übergabe gebunden sein.
-5. Die vollständige Browser-/CI-Übergabe unabhängig prüfen und im bestehenden Shellbudget unter8.388.608Bytes halten. Der aktuelle Root-Shellstand hat nur ungefähr29KiB Spielraum. Keine Aufnahme von Atlas- oder fremden Bildbytes in das Root-Shellpaket. Erst nach tatsächlicher Konfiguration, Upload und öffentlicher Abnahme als laufend melden.
-
-Das vollständige Atlas-Offlinepaket ist separat geprüft und unter Commit33c36d2 erhalten. Drei kleine Upload-ZIPs samt Rückrollpaket sind konkret vorbereitet; die derzeit erreichbare Hostinger-Seite verlangt erneut die Anmeldung. Neue Musik Horizonte ist ebenfalls separat geprüft, aber noch kein kanonischer Atlas-Snapshot und keine Liveänderung.
+Aktuelle Belege: `docs/evidence/WRN-WEBSITE-CONTENT-TUPLE-2026-10-08/` und `docs/evidence/WRN-ATLAS-HOST-OFFLINE-LIVE-2026-10-08/`.

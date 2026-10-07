@@ -13,12 +13,24 @@ import {
 } from '../../../../../packages/browser-content/src/source-pass-overlay';
 import { applyWebsiteLinkPolicy } from '../projection/projection-policy';
 import summary from '../projection/data/summary.json';
+import imageRegister from '../home/app-article-images-v1.json';
+import {
+  loadWebsiteContentTuple,
+  observedWebsiteTupleWithdrawals,
+} from '../../../../../packages/browser-content/src/website-content-tuple-refresh';
+import type {
+  WebsiteHomeLayout,
+  WebsiteImageRegister,
+  WebsiteTupleSummary,
+} from '../../../../../packages/content-contracts/src/directory/website-content-tuple-v1';
 
 export type WebsiteContentDirectory = Readonly<{
   document: MobileContentDirectory;
   projection: MobileContentDirectory;
-  coverage?: typeof summary | null;
-  source?: 'remote' | 'bundled';
+  coverage?: WebsiteTupleSummary | null;
+  home?: WebsiteHomeLayout;
+  images?: WebsiteImageRegister;
+  source?: 'remote' | 'bundled' | 'saved';
   transferState?: 'offline' | 'saved' | 'refresh-unconfirmed' | 'bound-live' | 'safety-unavailable';
   checkedAt?: string;
   reviewedEndpointIds?: readonly string[];
@@ -93,14 +105,20 @@ async function loadNow(): Promise<WebsiteContentDirectory> {
       storage?.setItem(key, value);
     },
   };
-  const loaded = await loadContentDirectoryWithRefresh({
-    bundled: candidate,
-    endpoint: import.meta.env.PROD
-      ? contentDirectoryManifestUrl
-      : import.meta.env.VITE_WRN_DIRECTORY_MANIFEST_ENDPOINT,
-    signal,
-    storage: guardedStorage,
-  });
+  const [loaded, release] = await Promise.all([
+    loadContentDirectoryWithRefresh({
+      bundled: candidate,
+      endpoint: import.meta.env.PROD
+        ? contentDirectoryManifestUrl
+        : import.meta.env.VITE_WRN_DIRECTORY_MANIFEST_ENDPOINT,
+      signal,
+      storage: guardedStorage,
+    }),
+    loadWebsiteContentTuple({
+      minimumSequence: summary.sequence,
+      allowedImageOrigins: imageRegister.origins,
+    }),
+  ]);
   const bytes = new TextEncoder().encode(JSON.stringify(loaded.document) + '\n');
   const hash = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))]
     .map((n) => n.toString(16).padStart(2, '0'))
@@ -108,7 +126,13 @@ async function loadNow(): Promise<WebsiteContentDirectory> {
   const bound = hash === summary.directorySha256;
   // A new directory hash cannot admit content without the matching reviewed shell/report.
   // Validated withdrawals from that revision are still restrictive safety evidence.
-  const document = bound ? loaded.document : (candidate as MobileContentDirectory);
+  const document =
+    release?.tuple.directory ??
+    verified?.document ??
+    (bound ? loaded.document : (candidate as MobileContentDirectory));
+  const coverage = release?.tuple.summary ?? verified?.coverage ?? summary;
+  const home = release?.tuple.home ?? verified?.home;
+  const images = release?.tuple.images ?? verified?.images;
   let pass: Awaited<ReturnType<typeof loadBundledSourcePassOverlay>> = null;
   try {
     pass = await loadBundledSourcePassOverlay(document, {
@@ -130,6 +154,7 @@ async function loadNow(): Promise<WebsiteContentDirectory> {
           ...saved.articleIds,
           ...document.withdrawals.articleIds,
           ...loaded.document.withdrawals.articleIds,
+          ...observedWebsiteTupleWithdrawals().articleIds,
         ]),
       ].sort(),
       endpointIds: [
@@ -137,6 +162,7 @@ async function loadNow(): Promise<WebsiteContentDirectory> {
           ...saved.endpointIds,
           ...document.withdrawals.endpointIds,
           ...loaded.document.withdrawals.endpointIds,
+          ...observedWebsiteTupleWithdrawals().endpointIds,
           ...sourceSafety.endpointIds,
           ...(pass?.revocations.endpointIds ?? []),
         ]),
@@ -168,7 +194,7 @@ async function loadNow(): Promise<WebsiteContentDirectory> {
     ? applyWebsiteLinkPolicy(document, {
         revokedEndpointIds: safety.endpointIds,
         revokedArticleIds: safety.articleIds,
-        directoryOnlyEndpointIds: summary.directoryOnlyEndpointIds,
+        directoryOnlyEndpointIds: coverage.directoryOnlyEndpointIds,
         prohibitedMetadataEndpointIds,
       })
     : { ...document, articles: [], sources: [], sports: [] };
@@ -176,17 +202,18 @@ async function loadNow(): Promise<WebsiteContentDirectory> {
     ? 'safety-unavailable'
     : !navigator.onLine
       ? 'offline'
-      : loaded.source === 'remote' &&
+      : (release?.source === 'remote' || (loaded.source === 'remote' && bound)) &&
           pass?.source === 'remote' &&
-          bound &&
           Date.now() - Date.parse(document.observedAt) <= 86400000
         ? 'bound-live'
         : 'refresh-unconfirmed';
   verified = {
     document,
     projection,
-    coverage: bound || document.sourceCommit === summary.commit ? summary : null,
-    source: bound ? loaded.source : 'bundled',
+    coverage: coverage.commit === document.sourceCommit ? coverage : null,
+    ...(home?.directoryCommit === document.sourceCommit ? { home } : {}),
+    ...(images?.dataCommit === document.sourceCommit ? { images } : {}),
+    source: release?.source ?? (bound ? loaded.source : 'bundled'),
     transferState,
     checkedAt: new Date().toISOString(),
     reviewedEndpointIds:

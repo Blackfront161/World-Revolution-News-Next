@@ -1,6 +1,6 @@
 {
   "schema": "wrn.learning-paths.v1",
-  "revision": "2026-10-03",
+  "revision": "2026-10-05",
   "editorialStatus": "draft",
   "availableLanguages": [
     "de",
@@ -562,6 +562,72 @@
           "note": {
             "de": "Wards historischen Organisationsentwurf in spanischer Übersetzung lesen und mit der Leitung heutiger Netzwerke vergleichen. Der Text erklärt keine Internetprotokolle.",
             "en": "Read Ward’s historical organisational proposal in Spanish translation and compare it with governance of present networks. The text does not explain internet protocols."
+          },
+          "relationType": "editorial-reading-context"
+        }
+      ],
+      "podcastEntries": []
+    },
+    {
+      "id": "indigenous-autonomy-and-decolonisation",
+      "title": {
+        "de": "Indigene Autonomie und Dekolonisierung",
+        "en": "Indigenous autonomy and decolonisation"
+      },
+      "entries": [
+        {
+          "bookId": "anarchist-library-en-9aca58b6479d6c78d176e55c",
+          "termIds": [
+            "anti-colonialism",
+            "decolonisation",
+            "settler-colonialism"
+          ],
+          "originalUrl": "https://theanarchistlibrary.org/library/aragorn-a-non-european-anarchism",
+          "note": {
+            "de": "Eurozentrische anarchistische Traditionen kritisch vergleichen; Perspektive von Aragorn!.",
+            "en": "Critically compare Eurocentric anarchist traditions; Aragorn!’s perspective."
+          },
+          "relationType": "editorial-reading-context"
+        },
+        {
+          "bookId": "anarchist-library-en-454ad0de8f82b38b12e4df63",
+          "termIds": [
+            "anti-colonialism",
+            "decolonisation",
+            "settler-colonialism"
+          ],
+          "originalUrl": "https://theanarchistlibrary.org/library/aragorn-locating-an-indigenous-anarchism",
+          "note": {
+            "de": "Beziehungen zu Land und Ort diskutieren; kein allgemeines Modell indigener Gesellschaften.",
+            "en": "Discuss relationships to land and place; not a general model of Indigenous societies."
+          },
+          "relationType": "editorial-reading-context"
+        },
+        {
+          "bookId": "anarchist-library-en-353ebe098ccc3c86fcd46dd1",
+          "termIds": [
+            "anti-colonialism",
+            "decolonisation",
+            "settler-colonialism"
+          ],
+          "originalUrl": "https://theanarchistlibrary.org/library/klee-benally-no-spiritual-surrender",
+          "note": {
+            "de": "Klee Benallys Perspektive auf indigene Selbstbestimmung und Kolonialismus.",
+            "en": "Klee Benally’s perspective on Indigenous self-determination and colonialism."
+          },
+          "relationType": "editorial-reading-context"
+        },
+        {
+          "bookId": "anarchist-library-en-aabf1440ee236037bdd72496",
+          "termIds": [
+            "anti-colonialism",
+            "decolonisation",
+            "settler-colonialism"
+          ],
+          "originalUrl": "https://theanarchistlibrary.org/library/silvia-rivera-cusicanqui-andalusia-knoll-indigenous-anarchism-in-bolivia",
+          "note": {
+            "de": "Interview mit Silvia Rivera Cusicanqui; eine Perspektive aus Bolivien, keine einheitliche indigene Position.",
+            "en": "Interview with Silvia Rivera Cusicanqui; one perspective from Bolivia, not a uniform Indigenous position."
           },
           "relationType": "editorial-reading-context"
         }

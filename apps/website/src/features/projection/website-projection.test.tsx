@@ -34,7 +34,7 @@ it('shows bound counts, exclusions, actual dates and stale saved state in all ni
     expect(
       screen.getByRole('heading', { name: getProjectionCopy(language).title }),
     ).toBeInTheDocument();
-    expect(screen.getByText(/475\/500/)).toHaveTextContent('25');
+    expect(screen.getByText(/461\/500/)).toHaveTextContent('39');
     expect(screen.getByText(getProjectionCopy(language).stale)).toBeInTheDocument();
     expect(screen.getByText('identity-conflict')).toBeInTheDocument();
     cleanup();
@@ -44,7 +44,7 @@ it('shows bound counts, exclusions, actual dates and stale saved state in all ni
 it('never claims bound parity counts for a different accepted directory revision', () => {
   render(<CoverageDetails data={{ ...data, coverage: null }} language="de" />);
   expect(screen.getByText(getProjectionCopy('de').unknown)).toBeInTheDocument();
-  expect(screen.queryByText(/475\/500/)).not.toBeInTheDocument();
+  expect(screen.queryByText(/461\/500/)).not.toBeInTheDocument();
 });
 it('uses the verified bundled projection after a network failure', async () => {
   vi.stubEnv(
@@ -57,8 +57,8 @@ it('uses the verified bundled projection after a network failure', async () => {
   });
   const result = await loadWebsiteContentDirectory(new AbortController().signal);
   expect(result.source).toBe('bundled');
-  expect(result.coverage?.counts.included).toBe(475);
-  expect(result.projection.articles.filter((a) => !a.historical)).toHaveLength(475);
+  expect(result.coverage?.counts.included).toBe(461);
+  expect(result.projection.articles.filter((a) => !a.historical)).toHaveLength(461);
   vi.unstubAllEnvs();
 });
 it.each(['blocked', 'malformed'])(

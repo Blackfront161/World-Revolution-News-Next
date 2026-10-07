@@ -4,8 +4,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { emptySourcePreferences, setSourcePreference } from '@wrn/domain';
 import { getUiCopy, uiLanguageIds, type UiLanguage } from '@wrn/ui-language';
 import type { MobileContentDirectory } from '@wrn/content-contracts/mobile-content-directory-v1';
-import directory from '../projection/data/content-directory-v1.json';
+import directory from '../home/__fixtures__/reviewed-editorial-directory-20261004.json';
 import editorial from '../home/app-home-editorial-v1.json';
+import reviewedImages from '../home/__fixtures__/reviewed-editorial-images-20261004.json';
 import { homeReadingSummary } from '../home/home-editorial';
 import { getWebsiteHomeCopy } from '../home/website-home-copy';
 import { WebsiteDirectoryReader } from './WebsiteDirectoryReader';
@@ -45,7 +46,7 @@ const props = (language: UiLanguage = 'de') => ({
 beforeEach(() => {
   localStorage.clear();
   shared.preferences = emptySourcePreferences();
-  shared.data = { document, projection: document };
+  shared.data = { document, projection: document, images: reviewedImages };
   shared.translate.mockReset().mockResolvedValue({ kind: 'unavailable' });
   Object.defineProperty(navigator, 'locks', {
     configurable: true,
@@ -133,7 +134,10 @@ describe('Website internal news reader', () => {
       (item) => item.language === 'en' && !homeReadingSummary(item, document.sourceCommit, 'de'),
     )!;
     render(<WebsiteDirectoryReader {...props()} articleId={foreign.id} />);
-    expect(await screen.findByRole('heading', { level: 1, name: foreign.title })).toHaveAttribute('lang', 'en');
+    expect(await screen.findByRole('heading', { level: 1, name: foreign.title })).toHaveAttribute(
+      'lang',
+      'en',
+    );
     expect(shared.translate).not.toHaveBeenCalled();
   });
   it.each(uiLanguageIds)(
@@ -154,10 +158,7 @@ describe('Website internal news reader', () => {
         'href',
         article.url,
       );
-      expect(screen.getByAltText(article.title)).toHaveAttribute(
-        'lang',
-        article.language,
-      );
+      expect(screen.getByAltText(article.title)).toHaveAttribute('lang', article.language);
       expect(screen.getByAltText(article.title)).toHaveAttribute('referrerpolicy', 'no-referrer');
     },
   );

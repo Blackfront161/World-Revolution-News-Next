@@ -45,3 +45,10 @@ docs/evidence/WRN-ARADIO-PUBLISHER-EVIDENCE-2026-09-11/observation-1789078121658
 /docs/history/WRN-PROJECT-STATE-BEFORE-RC-WORKFLOW-2026-09-12.md -text
 /docs/history/WRN-DELEGATION-BEFORE-RC-WORKFLOW-2026-09-12.md -text
 /docs/history/WRN-PO-SCOPE-BEFORE-RC-WORKFLOW-2026-09-12.md -text
+
+# Frozen App selector and handoff inputs retain their exact approved bytes.
+/tools/directory/app-home-semantic/** -text
+
+/docs/evidence/WRN-WEBSITE-CONTENT-TUPLE-2026-10-08/** -text
+/docs/evidence/WRN-ATLAS-HOST-OFFLINE-LIVE-2026-10-08/** -text
+/apps/website/src/features/home/__fixtures__/** -text

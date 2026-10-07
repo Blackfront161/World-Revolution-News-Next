@@ -126,10 +126,15 @@ it('hides a legacy article without endpoint IDs but reveals it for an explicit s
     setItem: () => {},
     removeItem: () => {},
   };
-  const createStore = (key: string) => createSourcePreferencesStore(key, storage, new EventTarget());
+  const createStore = (key: string) =>
+    createSourcePreferencesStore(key, storage, new EventTarget());
   mockContentFetch();
   render(
-    <SourcePreferencesProvider storageKey="website-directory-test" language="en" createStore={createStore}>
+    <SourcePreferencesProvider
+      storageKey="website-directory-test"
+      language="en"
+      createStore={createStore}
+    >
       <WebsiteContentDirectoryRoute
         language="en"
         section="news"
@@ -138,7 +143,7 @@ it('hides a legacy article without endpoint IDs but reveals it for an explicit s
       />
     </SourcePreferencesProvider>,
   );
-  await screen.findByText('Snapshot: 2026-10-04');
+  await screen.findByText('Snapshot: 2026-10-07');
   fireEvent.change(screen.getByLabelText('Search'), { target: { value: article.title } });
   await waitFor(() => expect(screen.getByText('Showing 0 of 0')).toBeVisible());
   expect(screen.queryByRole('link', { name: article.title })).not.toBeInTheDocument();
@@ -154,15 +159,17 @@ it('opens articles from a curated source pass with different pass and endpoint I
   const view = render(<WebsiteContentDirectoryRoute {...props} section="sources" />);
   const button = await screen.findByRole(
     'button',
-    { name: 'All news from this source: Electronic Frontier Foundation (17)' },
+    { name: 'All news from this source: Electronic Frontier Foundation (10)' },
     { timeout: 5000 },
   );
   fireEvent.click(button);
   expect(onSectionChange).toHaveBeenCalledWith('news');
   view.rerender(<WebsiteContentDirectoryRoute {...props} section="news" />);
-  expect(screen.getByText('Showing 17 of 17')).toBeInTheDocument();
+  expect(screen.getByText('Showing 10 of 10')).toBeInTheDocument();
   expect(screen.getByText('Source:')).toBeInTheDocument();
-  expect(screen.getByText('Electronic Frontier Foundation', { selector: 'strong' })).toBeInTheDocument();
+  expect(
+    screen.getByText('Electronic Frontier Foundation', { selector: 'strong' }),
+  ).toBeInTheDocument();
 });
 
 it('renders canonical source passes before the complete endpoint list with combined facets', async () => {

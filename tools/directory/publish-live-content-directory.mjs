@@ -187,7 +187,15 @@ function curlOption(value) {
   return `"${value.replaceAll('\\', '\\\\').replaceAll('"', '\\"')}"`;
 }
 
-export function createFtpsTransport({ host, ip, user, password, remoteRoot }) {
+export function createFtpsTransport({
+  host,
+  ip,
+  user,
+  password,
+  remoteRoot,
+  profile = 'directory',
+}) {
+  requireValue(['directory', 'website-tuple'].includes(profile), 'directory-ftps-profile');
   requireValue(/^[a-z0-9-]+\.hstgr\.io$/u.test(host), 'directory-ftps-host');
   requireValue(isIP(ip) === 4, 'directory-ftps-ip');
   requireValue(/^[a-zA-Z0-9_.-]+$/u.test(user), 'directory-ftps-user');
@@ -239,9 +247,10 @@ export function createFtpsTransport({ host, ip, user, password, remoteRoot }) {
     });
   const url = (path) => {
     requireValue(
-      /^(?:snapshots\/directory-\d+-[a-f0-9]{64}\.json|current\.\d+-[a-f0-9]{64}\.(?:rollback\.)?tmp)$/u.test(
-        path,
-      ),
+      new RegExp(
+        `^(?:snapshots/${profile === 'website-tuple' ? 'website' : 'directory'}-\\d+-[a-f0-9]{64}\\.json|current\\.\\d+-[a-f0-9]{64}\\.(?:rollback\\.)?tmp)$`,
+        'u',
+      ).test(path),
       'directory-ftps-path',
     );
     return new URL(path, base).href;
@@ -262,8 +271,10 @@ export function createFtpsTransport({ host, ip, user, password, remoteRoot }) {
         await rm(temp, { recursive: true, force: true });
       }
     },
-    activatePointer: async (path) =>
-      run(['--quote', `RNFR ${path}`, '--quote', 'RNTO current.json', '--url', base]),
+    activatePointer: async (path) => {
+      url(path); // Validate rename commands too, not only upload paths.
+      return run(['--quote', `RNFR ${path}`, '--quote', 'RNTO current.json', '--url', base]);
+    },
   });
 }
 

@@ -1,0 +1,28 @@
+{
+  "schema": "wrn.website-approved-app-home-semantics.v1",
+  "appCommit": "7dd4e9e428cae4ae5c25caa98402df901f861981",
+  "handoffSha256": "653a31df7b0e10351b422fb1b41b03070b69afa0fc0ade7a34563d768bb375ce",
+  "selectionSourceSha256": "6ce0aa567f764d32081825ecfa7c1589d312c3627cc8e216e340c48ba2ed7de2",
+  "files": {
+    "news-app-2-core.js": {
+      "bytes": 35914,
+      "sha256": "b25bfe2fd5fcfcb33356f6c5561d6d40e50a78fc0fe0a7ed3ec8b718bf6d97ca"
+    },
+    "news-card-copy.js": {
+      "bytes": 6739,
+      "sha256": "71eac30f18bd5f2c8e0b9f94239635e2fef27a2b2166ac9b4d5cb420437aea67"
+    },
+    "editorial-decisions.json": {
+      "bytes": 83,
+      "sha256": "8a87971fd06c66d5544d6a25ff3d24eabbdcdef965e4b60bf679922b1eade146"
+    },
+    "home-selection.js": {
+      "bytes": 3423,
+      "sha256": "6ce0aa567f764d32081825ecfa7c1589d312c3627cc8e216e340c48ba2ed7de2"
+    }
+  },
+  "mode": "anonymous-public-feed-DE-not-personalized",
+  "homeCount": 10,
+  "selectorModule": true,
+  "handoffCommit": "59bbc8f"
+}

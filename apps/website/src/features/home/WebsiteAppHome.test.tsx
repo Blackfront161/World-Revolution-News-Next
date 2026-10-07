@@ -8,22 +8,28 @@ const data = { document, projection: document };
 describe('actual App Home selection on the Website', () => {
   it('uses the current App lead and reviewed stories in their exact App role order', () => {
     const home = selectAppHomeArticles(data, document.articles);
-    expect(home.lead?.id).toBe('news-1275b2a383697835d98166d826a33ccf93080f39aec56e8548d9dfb3e6edf344');
-    expect(home.lead?.title).toBe('Purulia’s Bero-Chandi Pahar Faces Renewed Threat from Granite Mining');
+    expect(home.lead?.id).toBe(
+      'news-af1556a29e670df58a5b85322782fab9101f423308699c6732b81b986209d814',
+    );
+    expect(home.lead?.title).toBe(
+      'Health minister calls alcohol ‘one of the major concerns’ for Indigenous communities',
+    );
     expect(home.top.map((a) => a.title)).toEqual([
-      'Direct Action (SolFed) #05 1998',
-      'The Algorithm of the Ballot: How Data Decides Democracy Before We Vote',
-      'Lightweight',
-      'Every year, alongside many others, we observe April 15 as Steal Something from Work Day&mdash;an&hellip;',
-      'Redes, moral, identificação e mais: o que as eleições revelam, mas não aparece nas urnas',
+      'Bring Maja back: Antifaschist*in muss sofort aus Ungarn hierher überstellt werden!',
+      '«Construir colectivamente donde dicen que no se puede»: presentan experiencia de los barrios comunitarios Crisol Popular y Norita Cortiñas',
+      'How the Dagalos’ ever tightening hold on power destabilized the RSF project',
+      'Labour Council’s Palantir Investments Increased 1,200% During Gaza Genocide',
+      'Ottawa gives $77M to Arctic Bay for small craft harbour',
     ]);
-    expect(home.more).toHaveLength(9);
+    expect(home.more).toHaveLength(8);
     expect(home.briefing).toHaveLength(5);
-    expect(home.current).toHaveLength(423);
-    expect(home.sport).toHaveLength(0);
-    expect(layout.excludedSelection).toHaveLength(22);
-    const selected = [home.lead, ...home.top, ...home.more, ...home.briefing].map((a) => a?.id);
-    for (const held of layout.excludedSelection) expect(selected).not.toContain(held.id);
+    expect(home.current).toHaveLength(399);
+    expect(home.sport).toHaveLength(1);
+    expect(layout.excludedSelection).toHaveLength(1);
+    const selected = [home.lead, ...home.top, ...home.more, ...home.briefing, ...home.sport].map(
+      (a) => a?.url,
+    );
+    for (const held of layout.excludedSelection) expect(selected).not.toContain(held.url);
   });
   it('cannot restore a withdrawn or source-hidden App article from the layout map', () => {
     const admitted = document.articles.filter(

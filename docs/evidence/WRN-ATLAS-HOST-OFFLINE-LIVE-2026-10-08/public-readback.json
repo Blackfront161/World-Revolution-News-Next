@@ -1,0 +1,68 @@
+{
+  "status": "PUBLIC-HASH-PASS",
+  "checks": [
+    {
+      "path": "atlas/atlas-host.css",
+      "status": 200,
+      "sha256": "d478fc7595d7e8717e085cb6f87fbe67e02bcc9b6223a5ba21b16b748db6fa0b",
+      "csp": "default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; frame-src 'self'; connect-src 'self'; worker-src 'self'; frame-ancestors 'self'",
+      "cacheControl": "no-cache",
+      "workerScope": null,
+      "match": true
+    },
+    {
+      "path": "atlas/atlas-host.js",
+      "status": 200,
+      "sha256": "8d5e8735802a55bd9c00af97c501e28a566012f29fd172200f6309f3aa08d9f4",
+      "csp": "default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; frame-src 'self'; connect-src 'self'; worker-src 'self'; frame-ancestors 'self'",
+      "cacheControl": "no-cache",
+      "workerScope": null,
+      "match": true
+    },
+    {
+      "path": "atlas/atlas-offline-core.js",
+      "status": 200,
+      "sha256": "2931e573dad277b920902c75918bea6401897c8e4ddf864d7d1ef8f76a5909c7",
+      "csp": "default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; frame-src 'self'; connect-src 'self'; worker-src 'self'; frame-ancestors 'self'",
+      "cacheControl": "no-cache",
+      "workerScope": null,
+      "match": true
+    },
+    {
+      "path": "atlas/atlas-offline.js",
+      "status": 200,
+      "sha256": "b4c4ec1ab1ca9cc9229425a00a7f4ff59e54e72674b1cae670cc7a4c7b3eb229",
+      "csp": "default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; frame-src 'self'; connect-src 'self'; worker-src 'self'; frame-ancestors 'self'",
+      "cacheControl": "no-cache",
+      "workerScope": null,
+      "match": true
+    },
+    {
+      "path": "atlas/atlas.webmanifest",
+      "status": 200,
+      "sha256": "fcb7f8147083f94d01b724e2ba94b72b7d25ed7ba643053540ab1d58743404a9",
+      "csp": "default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; frame-src 'self'; connect-src 'self'; worker-src 'self'; frame-ancestors 'self'",
+      "cacheControl": "no-cache",
+      "workerScope": null,
+      "match": true
+    },
+    {
+      "path": "atlas/website-atlas-sw.js",
+      "status": 200,
+      "sha256": "8457787ea03a9fe7733461f3057a538413177f2f49c96fce535fe69f8eaa49ff",
+      "csp": "default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; frame-src 'self'; connect-src 'self'; worker-src 'self'; frame-ancestors 'self'",
+      "cacheControl": "no-cache",
+      "workerScope": null,
+      "match": true
+    },
+    {
+      "path": "atlas/index.html",
+      "status": 200,
+      "sha256": "39f3c3a1b2001414dfc6128b7840705ac1f1e3f7f185a9f565f7910488912854",
+      "csp": "default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; frame-src 'self'; connect-src 'self'; worker-src 'self'; frame-ancestors 'self'",
+      "cacheControl": "no-cache",
+      "workerScope": null,
+      "match": true
+    }
+  ]
+}

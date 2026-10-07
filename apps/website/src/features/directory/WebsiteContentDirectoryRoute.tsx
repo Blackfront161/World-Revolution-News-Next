@@ -506,6 +506,7 @@ export function WebsiteContentDirectoryRoute({
                     <WebsiteArticleIllustration
                       article={data.projection.articles.find((article) => article.id === entry.id)!}
                       commit={data.document.sourceCommit}
+                      imageRegister={data.images}
                       language={language}
                     />
                   )}

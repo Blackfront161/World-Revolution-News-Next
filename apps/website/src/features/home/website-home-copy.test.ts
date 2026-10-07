@@ -4,7 +4,7 @@ import type { DirectoryArticle } from '@wrn/content-contracts/mobile-content-dir
 import { getWebsiteHomeCopy } from './website-home-copy';
 import { websiteArticleIllustration } from './article-illustration';
 import images from './home-additional-illustrations-v1.json';
-import directory from '../projection/data/content-directory-v1.json';
+import directory from './__fixtures__/reviewed-editorial-directory-20261004.json';
 
 it('has complete Home, reader and illustration labels for every supported language', () => {
   const keys = Object.keys(getWebsiteHomeCopy('en'));

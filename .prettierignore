@@ -29,3 +29,8 @@ apps/website/src/features/events-media/data/production-events-media-v1.json
 apps/website/src/features/events-media/packed/production-events-media-v1.json
 apps/website/src/features/knowledge/packed/legacy-knowledge-v1.json
 apps/website/src/features/knowledge/data/learning-paths.json
+# Hash-pinned inputs and generator output must retain exact bytes.
+tools/directory/app-home-semantic/
+apps/website/src/features/home/app-home-layout-v1.json
+apps/website/src/features/home/app-article-images-v1.json
+apps/website/src/features/home/__fixtures__/

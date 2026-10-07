@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import type { DirectoryArticle } from '@wrn/content-contracts/mobile-content-directory-v1';
-import directory from '../projection/data/content-directory-v1.json';
+import directory from './__fixtures__/reviewed-editorial-directory-20261004.json';
 import layout from './app-home-layout-v1.json';
+import currentDirectory from '../projection/data/content-directory-v1.json';
 import editorial from './app-home-editorial-v1.json';
 import illustration from './home-illustration-v1.json';
 import {
@@ -15,7 +16,9 @@ import {
 import noteLanguages from './home-note-languages-v1.json';
 import sourceReview from './app-home-source-review-v1.json';
 import { validateSourcePassOverlayV1 } from '@wrn/content-contracts/source-pass-overlay-v1';
-const article = directory.articles.find((a) => a.id === illustration.articleId)! as DirectoryArticle;
+const article = directory.articles.find(
+  (a) => a.id === illustration.articleId,
+)! as DirectoryArticle;
 describe('App Home editorial reading notes', () => {
   it('binds notes to the exact article, original title, URL and reviewed revision', () => {
     expect(homeReadingNote(article, directory.sourceCommit)?.summaryDe).toContain(
@@ -34,8 +37,13 @@ describe('App Home editorial reading notes', () => {
   it('retains previously reviewed WRN notes separately from the current App selection', () => {
     expect(validateSourcePassOverlayV1(sourceReview)).toBe(true);
     expect(editorial.entries).toHaveLength(15);
-    expect(homeReadingNote(directory.articles.find(a => a.id === layout.lead)! as DirectoryArticle, directory.sourceCommit)).toBeNull();
-    const ids = editorial.entries.map(entry => entry.articleId);
+    expect(
+      homeReadingNote(
+        currentDirectory.articles.find((a) => a.id === layout.lead)! as DirectoryArticle,
+        currentDirectory.sourceCommit,
+      ),
+    ).toBeNull();
+    const ids = editorial.entries.map((entry) => entry.articleId);
     for (const id of ids) {
       const note = homeReadingNote(
         directory.articles.find((a) => a.id === id)! as DirectoryArticle,
@@ -53,8 +61,9 @@ describe('App Home editorial reading notes', () => {
   });
   it('does not produce reading notes for held App items even when raw metadata remains visible', () => {
     for (const held of layout.excludedSelection) {
-      const candidate = directory.articles.find((a) => a.id === held.id);
-      if (candidate) expect(homeReadingNote(candidate as DirectoryArticle, directory.sourceCommit)).toBeNull();
+      const candidate = directory.articles.find((a) => a.url === held.url);
+      if (candidate)
+        expect(homeReadingNote(candidate as DirectoryArticle, directory.sourceCommit)).toBeNull();
     }
   });
   it('uses all 21 canonical App topics with all nine language catalogues', () => {
@@ -64,7 +73,7 @@ describe('App Home editorial reading notes', () => {
     expect(appTopicLabel('Unclassified', 'de')).toBe('Unclassified');
   });
   it('provides local reading notes in all nine languages, bound to unchanged source notes', () => {
-    const ids = editorial.entries.map(entry => entry.articleId);
+    const ids = editorial.entries.map((entry) => entry.articleId);
     for (const id of ids) {
       const selected = directory.articles.find((a) => a.id === id)! as DirectoryArticle;
       const note = homeReadingNote(selected, directory.sourceCommit)!;

@@ -243,7 +243,13 @@ export function WebsiteDirectoryReader({
           <p role="status" aria-live="polite">
             {reading.kind === 'read-only' ? ui.localStateProtected : status}
           </p>
-          <WebsiteArticleIllustration article={article} commit={commit} language={language} eager />
+          <WebsiteArticleIllustration
+            article={article}
+            commit={commit}
+            language={language}
+            imageRegister={data?.images}
+            eager
+          />
           <div className="news-reader-body" style={{ fontSize: `${size}%` }}>
             {!note && (
               <ArticleTranslationStatus translation={translation} language={readingLanguage} />

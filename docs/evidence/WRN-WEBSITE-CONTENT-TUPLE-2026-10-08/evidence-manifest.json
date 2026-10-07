@@ -1,0 +1,55 @@
+{
+  "schema": "wrn.evidence-file-hashes.v1",
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 2867,
+      "sha256": "04e9e7c33a1abba93a1f95e98a8e8eee7e698e0e0d5b5cd2d3aae0c1dbfa2745"
+    },
+    {
+      "path": "app-content-extension.json",
+      "bytes": 3302,
+      "sha256": "c395a7fff2b397cf1b3bc51c36ea980e1e1b6483532f230d4b15a089bc80ccd7"
+    },
+    {
+      "path": "browser.json",
+      "bytes": 2006,
+      "sha256": "de4b048c0a5d9335bd498e62d5243ec08b8e96386b53d3ff3c21fdaddaa141be"
+    },
+    {
+      "path": "home-desktop.png",
+      "bytes": 200436,
+      "sha256": "2f30d9b5f848732edaefd7093b257b6d65aed8854954bda71f15d85ef63950ef"
+    },
+    {
+      "path": "home-mobile.png",
+      "bytes": 56523,
+      "sha256": "c4513b7e4d06e0f4aea806a972b25004deaa360921b62d93460ea51909b46000"
+    },
+    {
+      "path": "input-bindings.json",
+      "bytes": 8116,
+      "sha256": "e107f39fcc08b7399b9b3fb711dab0fd00c1b45e9c41cdf9f2b9d3af46243058"
+    },
+    {
+      "path": "knowledge-mobile.png",
+      "bytes": 42937,
+      "sha256": "2d890e2a821fde7de8380a609110149a8f5f3902f37e577a64982c7b0c748d6e"
+    },
+    {
+      "path": "prepared-tuple-pointer.json",
+      "bytes": 1048,
+      "sha256": "1a186efe97624c0f48d5a9a4ffae171584ed2198a0e8da61beda3d621a4578b8"
+    },
+    {
+      "path": "source-manifest.json",
+      "bytes": 19155,
+      "sha256": "c7bd51a10c9ee7525684b93a42351387888261357fa79675f99cef3af32b508f"
+    },
+    {
+      "path": "video-original-links.json",
+      "bytes": 5327,
+      "sha256": "71b03312117679a21ba2310e5d07ca9064254826edc0ccfa6d5afbdbcf97c9b6"
+    }
+  ]
+}

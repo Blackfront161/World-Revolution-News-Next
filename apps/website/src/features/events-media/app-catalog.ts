@@ -160,7 +160,10 @@ export async function unpackWebsiteCatalog(
         'inputs',
         'collections',
       ]) ||
-      delta.schema !== 'wrn.website-reviewed-app-catalog-delta.v1' ||
+      ![
+        'wrn.website-reviewed-app-catalog-delta.v1',
+        'wrn.website-reviewed-app-catalog-delta.v2',
+      ].includes(String(delta.schema)) ||
       delta.rights !== 'metadata-original-link-only' ||
       delta.repository !== 'https://github.com/Blackfront161/World-Revolution-News-App.git' ||
       typeof delta.commit !== 'string' ||
@@ -169,24 +172,37 @@ export async function unpackWebsiteCatalog(
       !/^[a-f0-9]{40}$/.test(delta.baselineCommit) ||
       !iso(delta.observedAt) ||
       !Array.isArray(delta.inputs) ||
-      delta.inputs.length !== 3 ||
+      delta.inputs.length !==
+        (delta.schema === 'wrn.website-reviewed-app-catalog-delta.v2' ? 4 : 3) ||
       !delta.inputs.every(
         (input, index) =>
           object(input) &&
           exact(input, ['path', 'sha256', 'bytes']) &&
           input.path ===
-            ['podcasts.json', 'library-feed.json', 'podcast-content-policy.json'][index] &&
+            [
+              'podcasts.json',
+              'library-feed.json',
+              'podcast-content-policy.json',
+              'video-feed.json',
+            ][index] &&
           hash(input.sha256) &&
           Number.isSafeInteger(input.bytes) &&
           Number(input.bytes) > 0 &&
           Number(input.bytes) <= 4194304,
       ) ||
       !object(delta.collections) ||
-      !exact(delta.collections, ['podcasts', 'library']) ||
+      !exact(
+        delta.collections,
+        delta.schema === 'wrn.website-reviewed-app-catalog-delta.v2'
+          ? ['podcasts', 'library', 'videos']
+          : ['podcasts', 'library'],
+      ) ||
       !Array.isArray(delta.collections.podcasts) ||
       delta.collections.podcasts.length > 55 ||
       !Array.isArray(delta.collections.library) ||
-      delta.collections.library.length > 10
+      delta.collections.library.length > 10 ||
+      (delta.schema === 'wrn.website-reviewed-app-catalog-delta.v2' &&
+        (!Array.isArray(delta.collections.videos) || delta.collections.videos.length > 20))
     )
       throw new TypeError('website-catalog-supplement-invalid');
     // Closed metadata fields, HTTPS, unique IDs and bounds use the existing validator.
@@ -196,6 +212,14 @@ export async function unpackWebsiteCatalog(
         ...base.collections,
         podcasts: [...base.collections.podcasts, ...delta.collections.podcasts],
         library: [...base.collections.library, ...delta.collections.library],
+        ...(delta.schema === 'wrn.website-reviewed-app-catalog-delta.v2'
+          ? {
+              videos: [
+                ...base.collections.videos,
+                ...(delta.collections.videos as AppCatalogRecord[]),
+              ],
+            }
+          : {}),
       },
     };
     if (!validateAppCatalog(current)) throw new TypeError('website-catalog-supplement-invalid');

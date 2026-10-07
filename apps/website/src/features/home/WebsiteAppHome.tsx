@@ -210,6 +210,7 @@ export function WebsiteAppHome({
         <WebsiteArticleIllustration
           article={article}
           commit={data.document.sourceCommit}
+          imageRegister={data.images}
           language={language}
           eager={role === 'lead'}
         />
