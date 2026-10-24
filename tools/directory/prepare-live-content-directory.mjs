@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
   directoryEndpointIds,
+  directorySourceIdentity,
   directoryPlainText,
   mobileContentDirectoryMaxBytes,
   normaliseDirectoryUrl,
@@ -139,9 +140,11 @@ function currentArticleRecord(row, candidate, commit, observedAt, feedSha256, co
 }
 
 function currentSourceRecord(row, index, commit, observedAt, sourceSha256, sourceDate, counter) {
-  const rawUrl = row?.canonicalUrl ?? row?.url ?? row?.homepage;
-  const url = normaliseDirectoryUrl(rawUrl, { allowHttp: true });
+  const rawUrl = row?.url || row?.canonicalUrl || row?.homepage;
+  const url = normaliseDirectoryUrl(row?.canonicalUrl ?? rawUrl, { allowHttp: true });
   if (!url) return reject(counter, 'url');
+  if (directorySourceIdentity(rawUrl) !== directorySourceIdentity(url))
+    return reject(counter, 'url');
   if (url.startsWith('http:')) return reject(counter, 'http');
   const languages = row.languages === undefined ? [] : row.languages;
   const topics = row.categories === undefined ? [] : row.categories;

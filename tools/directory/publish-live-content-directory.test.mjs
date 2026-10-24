@@ -341,9 +341,23 @@ test('remote manifest reader and FTPS setup reject untrusted deployment inputs',
   );
 });
 
-test('the scheduled publisher is off by default, read-only at GitHub and requires scoped secrets', async () => {
+test('legacy preparation has no schedule or delivery authority', async () => {
   const workflow = await readFile('.github/workflows/wrn-directory-publication.yml', 'utf8');
-  assert.match(workflow, /schedule:\s*\n\s*- cron: '47 \*\/6 \* \* \*'/u);
+  assert.match(workflow, /workflow_dispatch:/u);
+  assert.match(workflow, /permissions:\s*\n\s*contents: read/u);
+  assert.doesNotMatch(
+    workflow,
+    /schedule:|secrets\.|--publish|WRN_FTPS_|WRN_DIRECTORY_PUBLISH_ENABLED/u,
+  );
+});
+
+test('the single hourly publisher requires reviewed code and scoped secrets', async () => {
+  const workflow = await readFile(
+    process.env.WRN_NEWS_WORKFLOW_CANDIDATE ?? '.github/workflows/wrn-website-news-update.yml',
+    'utf8',
+  );
+  assert.match(workflow, /schedule:\s*\n\s*- cron: '47 \* \* \* \*'/u);
+  assert.match(workflow, /ref: [a-f0-9]{40}\s/u);
   assert.match(workflow, /permissions:\s*\n\s*contents: read/u);
   assert.match(workflow, /github\.event\.repository\.private == false/u);
   assert.match(workflow, /persist-credentials: false/u);
@@ -352,5 +366,9 @@ test('the scheduled publisher is off by default, read-only at GitHub and require
   assert.match(workflow, /default: false/u);
   assert.match(workflow, /secrets\.WRN_FTPS_PASSWORD/u);
   assert.match(workflow, /--expected-commit "\$UPSTREAM_COMMIT"/u);
+  assert.match(workflow, /group: wrn-current-directory-publication/u);
+  assert.match(workflow, /cancel-in-progress: false/u);
+  assert.match(workflow, /createWebsiteTupleHttpGuard/u);
+  assert.match(workflow, /publishManagedWebsiteTuple/u);
   assert.doesNotMatch(workflow, /--insecure|--ftp-ssl-control|--ssl-allow-beast/u);
 });

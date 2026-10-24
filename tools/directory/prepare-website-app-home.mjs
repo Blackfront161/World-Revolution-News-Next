@@ -8,10 +8,21 @@ const semanticRoot = new URL('./app-home-semantic/', import.meta.url);
 export async function prepareWebsiteAppHome({ feedBytes, directory }) {
   const approved = JSON.parse(await fs.readFile(new URL('approved.json', semanticRoot)));
   if (!/^[a-f0-9]{40}$/.test(approved.appCommit)) throw Error('Unapproved App semantic identity');
-  const root = new URL(approved.appCommit + '/', semanticRoot),
+  const revision = approved.semanticRevision ?? approved.appCommit;
+  if (!/^[a-z0-9-]{1,96}$/.test(revision)) throw Error('Unapproved App semantic revision');
+  const root = new URL(revision + '/', semanticRoot),
     bindingBytes = await fs.readFile(new URL('binding.json', root));
   if (hash(bindingBytes) !== approved.bindingSha256) throw Error('App semantic binding drift');
   const binding = JSON.parse(bindingBytes);
+  if (
+    approved.semanticRevision &&
+    (binding.semanticRevision !== revision ||
+      binding.sourceCommitClaim !== null ||
+      binding.historicalAppCommit !== approved.appCommit ||
+      !/^[a-f0-9]{64}$/.test(binding.sourceManifestSha256) ||
+      hash(await fs.readFile(new URL('HANDOFF.json', root))) !== binding.sourceManifestSha256)
+  )
+    throw Error('App semantic source-freeze drift');
   if (
     binding.appCommit !== approved.appCommit ||
     binding.homeCount !== 10 ||
@@ -24,6 +35,7 @@ export async function prepareWebsiteAppHome({ feedBytes, directory }) {
     'news-card-copy.js',
     'editorial-decisions.json',
     'home-selection.js',
+    ...(binding.sportModule ? ['news-app-2-sport.js'] : []),
   ]) {
     const url = new URL(name, root);
     if ((await fs.lstat(url)).isSymbolicLink()) throw Error('Linked App semantic input');
@@ -40,6 +52,9 @@ export async function prepareWebsiteAppHome({ feedBytes, directory }) {
   };
   const core = api('news-app-2-core.js'),
     cardCopy = api('news-card-copy.js');
+  if (binding.sportModule && binding.sportModule !== 'news-app-2-sport.js')
+    throw Error('Unbound App sport module');
+  const sport = binding.sportModule ? api(binding.sportModule) : null;
   const articles = core.applyEditorialDecisions(
     core.normalizeArticles(JSON.parse(feedBytes)).filter(core.hasVisibleArticle),
     JSON.parse(files['editorial-decisions.json']),
@@ -66,6 +81,7 @@ export async function prepareWebsiteAppHome({ feedBytes, directory }) {
     context.require = (name) => {
       if (name === './app-home-core.cjs') return core;
       if (name === './app-home-card-copy.cjs') return cardCopy;
+      if (sport && name === './news-app-2-sport.js') return sport;
       throw Error('Unbound App selector import');
     };
     vm.runInNewContext(
@@ -99,7 +115,7 @@ export async function prepareWebsiteAppHome({ feedBytes, directory }) {
     feedSha256: hash(feedBytes),
     handoffSha256: binding.handoffSha256,
     selectorSha256: binding.selectionSourceSha256,
-    sourceFiles: binding.files,
+    sourceFiles: Object.fromEntries(Object.keys(files).map((name) => [name, binding.files[name]])),
     lead: pick(selected.lead)[0] ?? null,
     top: pick(selected.top),
     sport: pick(selected.sport),

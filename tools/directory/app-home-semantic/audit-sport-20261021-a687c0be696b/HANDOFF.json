@@ -1,0 +1,72 @@
+{
+  "schema": "wrn.narrow-home-sport-handoff.v1",
+  "status": "CANDIDATE_PENDING_INDEPENDENT_APP_REVIEW",
+  "historicalApprovedGeneration": "7dd4e9e428cae4ae5c25caa98402df901f861981",
+  "newSourceCommit": null,
+  "sourceBinding": "App is manifest-bound working source; no new clean commit is claimed.",
+  "baseInputs": {
+    "home-selection.js": {
+      "bytes": 3423,
+      "sha256": "6ce0aa567f764d32081825ecfa7c1589d312c3627cc8e216e340c48ba2ed7de2"
+    },
+    "news-app-2-core.js": {
+      "bytes": 35914,
+      "sha256": "b25bfe2fd5fcfcb33356f6c5561d6d40e50a78fc0fe0a7ed3ec8b718bf6d97ca"
+    },
+    "news-card-copy.js": {
+      "bytes": 6739,
+      "sha256": "71eac30f18bd5f2c8e0b9f94239635e2fef27a2b2166ac9b4d5cb420437aea67"
+    }
+  },
+  "actualAppInputs": {
+    "news-app-2.js": {
+      "bytes": 891451,
+      "sha256": "c61dc0064c9931d1d18585beaa61f242d740fe4b9e9c17cb055bb7afaf71fa65"
+    },
+    "news-app-2-core.js": {
+      "bytes": 44274,
+      "sha256": "25f7e048decbb8b7acfa02dabdc19e758c6f39630ffb4d56648a97c33e245eb1"
+    }
+  },
+  "candidateSportInput": {
+    "bytes": 4518,
+    "sha256": "e6fd4990495907349a1a274d39e572908d6c0d377bdf079c43b73b1e112b29a2"
+  },
+  "delta": [
+    "Only Home isSportArticle delegates to the exact App sport module.",
+    "Only the old normalized source field allowlist gains sportSection, retaining explicit editorial override.",
+    "All other old Home ordering/source balancing functions remain unchanged.",
+    "Card-copy byte-identical; no other Core logic changes."
+  ],
+  "scope": "No feed/directory/rights/source admission, content, image, design or ranking migration. Website must bind this approved successor as a new generation, never overwrite the old frozen one.",
+  "files": {
+    "app-home-card-copy.cjs": {
+      "bytes": 48,
+      "sha256": "f94e0bffa5aa28800cdcbfdd5e05dd31905cbe268732373d8cd5a51c5ecc4c56"
+    },
+    "app-home-core.cjs": {
+      "bytes": 49,
+      "sha256": "74c3af51795dfb150f5f41d0af4a0cf8b9958a9792dcac8066a9d0a8de51d368"
+    },
+    "fixtures.json": {
+      "bytes": 654,
+      "sha256": "52a816ebd3e8528a55d1b4c071124917a6ed90d10283c30f4e86c88df57e10de"
+    },
+    "home-selection.js": {
+      "bytes": 3283,
+      "sha256": "a687c0be696bf3bbe602464b572be56da2f933b475a8811f6f007345b37a909b"
+    },
+    "news-app-2-core.js": {
+      "bytes": 35930,
+      "sha256": "52d87e712206da546c52a9c0f7655908feb02bb36bfb15c59fcf7c135dfdd1d4"
+    },
+    "news-app-2-sport.js": {
+      "bytes": 4518,
+      "sha256": "e6fd4990495907349a1a274d39e572908d6c0d377bdf079c43b73b1e112b29a2"
+    },
+    "news-card-copy.js": {
+      "bytes": 6739,
+      "sha256": "71eac30f18bd5f2c8e0b9f94239635e2fef27a2b2166ac9b4d5cb420437aea67"
+    }
+  }
+}

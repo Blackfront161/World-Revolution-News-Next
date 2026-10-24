@@ -176,6 +176,32 @@ export function normaliseDirectoryUrl(
 }
 const safeUrl = (v: unknown, allowHttp = false, news = false) =>
   typeof v === 'string' && normaliseDirectoryUrl(v, { allowHttp, news }) === v;
+
+// Source IDs retain their published comparison URL; navigation uses the original
+// transport URL. Only the historical www/slash aliases are equivalent. Ports,
+// schemes, queries, credentials and unrelated domains are never discarded.
+export function directorySourceIdentity(value: unknown): string | null {
+  const normalised = normaliseDirectoryUrl(value, { allowHttp: true });
+  if (!normalised) return null;
+  const url = new URL(normalised);
+  if (url.hostname.startsWith('www.')) url.hostname = url.hostname.slice(4);
+  url.pathname = url.pathname.replace(/\/+$/u, '') || '/';
+  return url.href;
+}
+
+export function directorySourceTransportUrl(source: DirectorySource): string {
+  const observations = [...source.observations].sort(
+    (a, b) =>
+      Number(b.provenance.dataset === 'github') - Number(a.provenance.dataset === 'github') ||
+      b.provenance.observedAt.localeCompare(a.provenance.observedAt),
+  );
+  for (const observation of observations) {
+    const candidate = normaliseDirectoryUrl(observation.rawUrl, { allowHttp: true });
+    if (candidate && directorySourceIdentity(candidate) === directorySourceIdentity(source.url))
+      return candidate;
+  }
+  return source.url;
+}
 function provenance(v: unknown, path: string): v is DirectoryProvenance {
   return (
     exact(v, 'dataset repo commit path inputSHA256 observedAt sourceDate row') &&
@@ -220,7 +246,7 @@ function sourceObservation(v: unknown, url: string): v is DirectorySourceObserva
       'provenance rawUrl name languages mediaType status active homepage topics originRegion originCountry',
     ) &&
     provenance(v.provenance, 'sources-registry.json') &&
-    normaliseDirectoryUrl(v.rawUrl, { allowHttp: true }) === url &&
+    directorySourceIdentity(v.rawUrl) === directorySourceIdentity(url) &&
     directoryPlainText(v.name) &&
     array(v.languages, language) &&
     unique(v.languages) &&

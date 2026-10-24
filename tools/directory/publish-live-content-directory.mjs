@@ -194,6 +194,7 @@ export function createFtpsTransport({
   password,
   remoteRoot,
   profile = 'directory',
+  spawnProcess = spawn,
 }) {
   requireValue(['directory', 'website-tuple'].includes(profile), 'directory-ftps-profile');
   requireValue(/^[a-z0-9-]+\.hstgr\.io$/u.test(host), 'directory-ftps-host');
@@ -205,9 +206,9 @@ export function createFtpsTransport({
     'directory-ftps-root',
   );
   const base = `ftp://${host}:21${remoteRoot.endsWith('/') ? remoteRoot : `${remoteRoot}/`}`;
-  const run = (args) =>
+  const run = (args, captureMax = 0) =>
     new Promise((resolveRun, rejectRun) => {
-      const child = spawn(
+      const child = spawnProcess(
         'curl',
         [
           '--config',
@@ -226,17 +227,24 @@ export function createFtpsTransport({
           `${host}:21:${ip}`,
           ...args,
         ],
-        { stdio: ['pipe', 'ignore', 'pipe'] },
+        { stdio: ['pipe', captureMax ? 'pipe' : 'ignore', 'pipe'] },
       );
       let stderr = '';
+      let outputLength = 0;
+      const output = [];
+      child.stdout?.on('data', (chunk) => {
+        outputLength += chunk.length;
+        if (outputLength <= captureMax) output.push(chunk);
+        else child.kill();
+      });
       child.stderr.setEncoding('utf8');
       child.stderr.on('data', (part) => {
         stderr = (stderr + part).slice(-2_000);
       });
       child.on('error', () => rejectRun(new Error('directory-ftps-launch')));
       child.on('close', (code) =>
-        code === 0
-          ? resolveRun()
+        code === 0 && outputLength <= captureMax
+          ? resolveRun(captureMax ? Buffer.concat(output) : undefined)
           : rejectRun(
               new Error(
                 `directory-ftps-exit-${code}: ${stderr.replaceAll(password, '[redacted]')}`,
@@ -255,26 +263,71 @@ export function createFtpsTransport({
     );
     return new URL(path, base).href;
   };
+  const statePath = '.wrn-news-auto-state-v1.json';
+  const stateTemp = '.wrn-news-auto-state-v1.tmp';
+  const managedPath = (path) => {
+    requireValue(profile === 'website-tuple', 'tuple-managed-profile');
+    if (path === statePath || path === stateTemp) return new URL(path, base).href;
+    return url(path);
+  };
+  const uploadBytes = async (target, bytes) => {
+    const { mkdtemp, writeFile, rm } = await import('node:fs/promises');
+    const { tmpdir } = await import('node:os');
+    const { join } = await import('node:path');
+    const temp = await mkdtemp(join(tmpdir(), 'wrn-pointer-'));
+    try {
+      const file = join(temp, 'current.json');
+      await writeFile(file, bytes, { mode: 0o600 });
+      await run(['--upload-file', file, '--url', target]);
+    } finally {
+      await rm(temp, { recursive: true, force: true });
+    }
+  };
   return Object.freeze({
     uploadSnapshot: async (path, file) =>
       run(['--ftp-create-dirs', '--upload-file', file, '--url', url(path)]),
-    uploadPointer: async (path, bytes) => {
-      const { mkdtemp, writeFile, rm } = await import('node:fs/promises');
-      const { tmpdir } = await import('node:os');
-      const { join } = await import('node:path');
-      const temp = await mkdtemp(join(tmpdir(), 'wrn-pointer-'));
-      try {
-        const file = join(temp, 'current.json');
-        await writeFile(file, bytes, { mode: 0o600 });
-        await run(['--upload-file', file, '--url', url(path)]);
-      } finally {
-        await rm(temp, { recursive: true, force: true });
-      }
-    },
+    uploadPointer: async (path, bytes) => uploadBytes(url(path), bytes),
     activatePointer: async (path) => {
       url(path); // Validate rename commands too, not only upload paths.
       return run(['--quote', `RNFR ${path}`, '--quote', 'RNTO current.json', '--url', base]);
     },
+    ...(profile === 'website-tuple'
+      ? {
+          listManaged: async (directory) => {
+            requireValue(directory === '' || directory === 'snapshots/', 'tuple-list-path');
+            return run(['--request', 'MLSD', '--url', new URL(directory, base).href], 1_048_576);
+          },
+          removeManaged: async (path) => {
+            managedPath(path);
+            requireValue(path !== statePath, 'tuple-state-delete-denied');
+            return run(['--quote', `DELE ${path}`, '--url', base]);
+          },
+          readAutomationState: async () => {
+            try {
+              return await run(['--url', managedPath(statePath)], 32768);
+            } catch (error) {
+              if (error.message.startsWith('directory-ftps-exit-78:')) return null;
+              throw error;
+            }
+          },
+          writeAutomationState: async (bytes) => {
+            requireValue(bytes.length <= 32768, 'tuple-state-size');
+            await uploadBytes(managedPath(stateTemp), bytes);
+            await run([
+              '--quote',
+              `RNFR ${stateTemp}`,
+              '--quote',
+              `RNTO ${statePath}`,
+              '--url',
+              base,
+            ]);
+            requireValue(
+              (await run(['--url', managedPath(statePath)], 32768)).equals(bytes),
+              'tuple-state-readback',
+            );
+          },
+        }
+      : {}),
   });
 }
 

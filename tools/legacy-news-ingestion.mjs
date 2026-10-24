@@ -117,7 +117,7 @@ function upstreamWarnings({ status, observedAt, publishedAt }) {
   if (aggregation?.stoppedForBudget === true)
     warnings.push({
       code: 'aggregation-budget-exhausted',
-      source: legacyNewsRepository,
+      source: `https://github.com/${legacyNewsRepository}`,
       stage: mode,
       observedAt: observedIso,
       publicationAgeMs,
@@ -131,7 +131,7 @@ function upstreamWarnings({ status, observedAt, publishedAt }) {
   if (newest !== null && newest > observedAt)
     warnings.push({
       code: 'news-newest-article-at-future',
-      source: legacyNewsRepository,
+      source: `https://github.com/${legacyNewsRepository}`,
       stage: 'news-feed',
       observedAt: observedIso,
       publicationAgeMs,

@@ -340,7 +340,7 @@ test('exposes an upstream budget stop without claiming that the complete publica
   assert.deepEqual(intake.upstreamWarnings, [
     {
       code: 'aggregation-budget-exhausted',
-      source: legacyNewsRepository,
+      source: `https://github.com/${legacyNewsRepository}`,
       stage: 'enrich',
       observedAt: '2026-09-13T14:00:00.000Z',
       publicationAgeMs: 6540000,
@@ -363,7 +363,7 @@ test('reports a future newest-feed timestamp without blocking independently date
   assert.deepEqual(intake.upstreamWarnings, [
     {
       code: 'news-newest-article-at-future',
-      source: legacyNewsRepository,
+      source: `https://github.com/${legacyNewsRepository}`,
       stage: 'news-feed',
       observedAt: '2026-09-13T14:00:00.000Z',
       publicationAgeMs: 6540000,

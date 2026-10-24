@@ -3,8 +3,43 @@ import assert from 'node:assert/strict';
 import { prepareWebsiteContentTuple } from './prepare-website-content-tuple.mjs';
 import { websiteTupleFixture } from './website-tuple-test-fixture.mjs';
 import { validateWebsiteContentTuple } from '../../packages/content-contracts/src/directory/website-content-tuple-v1.ts';
+import { projectionBytes, projectionHash } from './website-content-projection.mjs';
 const validate = (tuple) =>
   validateWebsiteContentTuple(tuple, { allowedImageOrigins: ['https://images.example'] });
+
+test('the exact bound App sport module is supported while unknown source inputs stay rejected', async () => {
+  const { tuple } = await prepareWebsiteContentTuple(websiteTupleFixture());
+  assert.ok(tuple.home.sourceFiles['news-app-2-sport.js']);
+  assert.equal(await validate(tuple), true);
+  const changed = structuredClone(tuple);
+  changed.home.sourceFiles['unknown-module.js'] = changed.home.sourceFiles['news-app-2-sport.js'];
+  assert.equal(await validate(changed), false);
+});
+
+test('a real upstream budget stop remains visible and satisfies the strict tuple warning contract', async () => {
+  const input = websiteTupleFixture();
+  const status = JSON.parse(input.statusBytes);
+  status.aggregation = {
+    mode: 'enrich',
+    stoppedForBudget: true,
+    sourcesConfigured: 6,
+    sourcesEligible: 6,
+    sourcesAttempted: 5,
+    sourcesWithEntries: 5,
+  };
+  input.statusBytes = projectionBytes(status);
+  input.binding.hashes.status = projectionHash(input.statusBytes);
+  const { tuple } = await prepareWebsiteContentTuple(input);
+  assert.equal(await validate(tuple), true);
+  assert.equal(
+    tuple.report.freshness.upstreamWarnings[0].source,
+    'https://github.com/Blackfront161/Revolution-News-Data',
+  );
+  assert.equal(tuple.report.freshness.upstreamWarnings[0].stoppedForBudget, true);
+  const altered = structuredClone(tuple);
+  altered.report.freshness.upstreamWarnings[0].source = 'https://unbound.example';
+  assert.equal(await validate(altered), false);
+});
 test('new Data identities update Home, topics, sources and images together, without publisher bodies', async () => {
   const a = await prepareWebsiteContentTuple(websiteTupleFixture()),
     b = await prepareWebsiteContentTuple(websiteTupleFixture({ revision: 2 }));

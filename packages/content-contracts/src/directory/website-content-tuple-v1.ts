@@ -439,6 +439,7 @@ export async function validateWebsiteContentTuple(
           'editorial-decisions.json',
           'news-app-2.js',
           'home-selection.js',
+          'news-app-2-sport.js',
         ].includes(name) &&
         exact(input, ['bytes', 'sha256']) &&
         record(input) &&

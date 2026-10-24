@@ -1,5 +1,6 @@
 {
   "schema": "wrn.website-approved-app-home-pointer.v1",
   "appCommit": "7dd4e9e428cae4ae5c25caa98402df901f861981",
-  "bindingSha256": "46981f4b15b4e55f4ee395987703fc2c5bfbd1866dde5f90766c90758a5b8b3d"
+  "semanticRevision": "audit-sport-20261021-a687c0be696b",
+  "bindingSha256": "8839cec2a3a4103b68b187154b73a3466cb2411481b0882ece58ce788b0fe0fb"
 }
