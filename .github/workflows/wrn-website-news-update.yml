@@ -14,6 +14,11 @@ on:
         required: false
         default: false
         type: boolean
+      scope_probe:
+        description: Read-only TLS and restricted account-root verification; never publishes.
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -30,7 +35,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: b817ca8f7668cedfc7d20f81b8c732c11d859032
+          ref: 37cafdf052972dadb3c6f41b878f4e387b0826d1
           fetch-depth: 1
           persist-credentials: false
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -67,6 +72,34 @@ jobs:
           fi
           [[ "$commit" =~ ^[a-f0-9]{40}$ ]]
           printf 'commit=%s\n' "$commit" >> "$GITHUB_OUTPUT"
+      - name: Read-only restricted FTP account verification
+        if: inputs.scope_probe == true && inputs.publish != true
+        env:
+          WRN_FTPS_HOST: ${{ secrets.WRN_FTPS_HOST }}
+          WRN_FTPS_IP: ${{ secrets.WRN_FTPS_IP }}
+          WRN_FTPS_USER: ${{ secrets.WRN_FTPS_USER }}
+          WRN_FTPS_PASSWORD: ${{ secrets.WRN_FTPS_PASSWORD }}
+        run: |
+          set -euo pipefail
+          python3 tools/directory/probe-website-news-scope.py
+          node --input-type=module <<'NODE'
+          import {createFtpsTransport} from './tools/directory/publish-live-content-directory.mjs';
+          import {createWebsiteTupleHttpGuard} from './tools/directory/website-tuple-http-guard.mjs';
+          import {readPublicWebsiteTuplePointerBytes,websiteTuplePublicBase} from './tools/directory/publish-website-content-tuple.mjs';
+          import {parseManagedListing,readAutomationState} from './tools/directory/website-tuple-retention.mjs';
+          import {projectionHash} from './tools/directory/website-content-projection.mjs';
+          const transport=createFtpsTransport({host:process.env.WRN_FTPS_HOST,ip:process.env.WRN_FTPS_IP,user:process.env.WRN_FTPS_USER,password:process.env.WRN_FTPS_PASSWORD,remoteRoot:'/',profile:'website-tuple'});
+          const http=createWebsiteTupleHttpGuard();
+          const current=JSON.parse(await readPublicWebsiteTuplePointerBytes(http.fetch));
+          const body=await http.fetch(new URL(current.artifactPath,websiteTuplePublicBase));
+          const bytes=Buffer.from(await body.arrayBuffer());
+          if(bytes.length!==current.artifactBytes||projectionHash(bytes)!==current.artifactSha256)throw Error('scope-public-snapshot-binding');
+          const root=parseManagedListing(await transport.listManaged(''));
+          const snapshots=parseManagedListing(await transport.listManaged('snapshots/'),'snapshots/');
+          const state=await transport.readAutomationState();
+          readAutomationState(state,current);
+          console.log(JSON.stringify({state:'curl-tls-mlsd-state-read-pass',readOnly:true,rootEntries:root.length,snapshotEntries:snapshots.length,stateExists:state!==null,http:http.receipt(),publicationPerformed:false}));
+          NODE
       - id: packet
         name: Prepare and validate complete metadata-only Website content packet
         env:
@@ -80,7 +113,6 @@ jobs:
           target="$GITHUB_WORKSPACE/.wrn-actions-output/website-content-tuple"
           mkdir -p "$GITHUB_WORKSPACE/.wrn-actions-output"
           sequence="$(date -u +%Y%m%d%H%M)"
-          node --input-type=module -e 'import fs from "node:fs/promises";const p="apps/website/src/features/home/app-article-images-v1.json";const v=JSON.parse(await fs.readFile(p));v.origins=["https://64.media.tumblr.com","https://africanarguments.org","https://agenciatierraviva.com.ar","https://animalequality.de","https://animalliberationpressoffice.org","https://apublica.org","https://argentina.indymedia.org","https://avtonom.org","https://cdn.nunatsiaq.com","https://edri.org","https://english.anf-news.com","https://es.anarchistlibraries.net","https://feminist.org","https://i0.wp.com","https://infoaut.org","https://infolibre.gr","https://manilatoday.net","https://mars-infos.org","https://media.indiginews.com","https://minorityafrica.org","https://newbloommag.net","https://novaramedia.com","https://paris-luttes.info","https://publish.barrikade.info","https://rebellyon.info","https://roape.net","https://ru.anarchistlibraries.net","https://slackbastard.anarchobase.com","https://static.bianet.org","https://static.wixstatic.com","https://storage.ghost.io","https://theanarchistlibrary.org","https://theappeal.org","https://truthout.org","https://unoffensiveanimal.is","https://ur-web1.unicornriot.ninja","https://wagingnonviolence.org","https://winteroak.org.uk","https://womin.africa","https://worldbeyondwar.org","https://www.alerta.gr","https://www.anred.org","https://www.aptnnews.ca","https://www.blackrosefed.org","https://www.bulatlat.com","https://www.eff.org","https://www.evrensel.net","https://www.greenleft.org.au","https://www.groundxero.in","https://www.huntsabs.org.uk","https://www.kinimatorama.net","https://www.l214.com","https://www.labournet.de","https://www.madamasr.com","https://www.madinamerica.com","https://www.peta.de","https://www.roundtableindia.co.in","https://www.theelephant.info","https://znetwork.org"];await fs.writeFile(p,JSON.stringify(v));'
           node tools/directory/observe-and-prepare-website-tuple.mjs \
             --commit "$UPSTREAM_COMMIT" \
             --output "$target" \
@@ -90,7 +122,7 @@ jobs:
             --expected-commit "$UPSTREAM_COMMIT"
           printf 'directory=%s\n' "$target" >> "$GITHUB_OUTPUT"
       - name: Publish snapshot, verify, then activate pointer
-        if: vars.WRN_DIRECTORY_PUBLISH_ENABLED == '1' && (github.event_name == 'schedule' || inputs.publish == true)
+        if: vars.WRN_DIRECTORY_PUBLISH_ENABLED == '1' && inputs.scope_probe != true && (github.event_name == 'schedule' || inputs.publish == true)
         env:
           WRN_DIRECTORY_PUBLISH_ENABLED: '1'
           WRN_FTPS_HOST: ${{ secrets.WRN_FTPS_HOST }}
@@ -105,11 +137,15 @@ jobs:
           set -euo pipefail
           node --input-type=module <<'NODE'
           import fs from 'node:fs/promises';
-          import {loadPreparedWebsiteTuple,publishPreparedWebsiteTuple} from './tools/directory/publish-website-content-tuple.mjs';
+          import {loadPreparedWebsiteTuple,publishPreparedWebsiteTuple,readPublicWebsiteTuplePointerBytes} from './tools/directory/publish-website-content-tuple.mjs';
           import {createFtpsTransport} from './tools/directory/publish-live-content-directory.mjs';
+          import {createWebsiteTupleHttpGuard} from './tools/directory/website-tuple-http-guard.mjs';
+          import {publishManagedWebsiteTuple} from './tools/directory/publish-managed-website-tuple.mjs';
           if(process.env.WRN_DIRECTORY_PUBLISH_ENABLED!=='1'||process.env.WRN_FTPS_DIRECTORY!=='/')throw Error('scoped-tuple-publisher-disabled');
           const images=JSON.parse(await fs.readFile('apps/website/src/features/home/app-article-images-v1.json'));
           const prepared=await loadPreparedWebsiteTuple({output:process.env.PACKET_DIRECTORY,expectedCommit:process.env.UPSTREAM_COMMIT,allowedImageOrigins:images.origins});
           const transport=createFtpsTransport({host:process.env.WRN_FTPS_HOST,ip:process.env.WRN_FTPS_IP,user:process.env.WRN_FTPS_USER,password:process.env.WRN_FTPS_PASSWORD,remoteRoot:'/',profile:'website-tuple'});
-          console.log(JSON.stringify(await publishPreparedWebsiteTuple({prepared,transport})));
+          const http=createWebsiteTupleHttpGuard();
+          const outcome=await publishManagedWebsiteTuple({prepared,transport,fetchPublic:http.fetch,fetchCurrentBytes:()=>readPublicWebsiteTuplePointerBytes(http.fetch)});
+          console.log(JSON.stringify({...outcome,http:http.receipt()}));
           NODE
