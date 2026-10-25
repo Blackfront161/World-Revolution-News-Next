@@ -1,0 +1,22 @@
+{
+  "schema": "wrn.publisher-minimal-hashmanifest.v1",
+  "baseCommit": "8be0fae28b555ff9080efc6af7dbc59f68dcd53b",
+  "files": [
+    {
+      "path": ".github/workflows/wrn-directory-publication.yml",
+      "sha256": "7a07ddda97a6f94e5b9320d4f927726be7091f3b189cb1dad36e9582e74c77f7"
+    },
+    {
+      "path": "tools/directory/publish-live-content-directory.mjs",
+      "sha256": "4b87823dfa94f9449c5765c74920f173595a85295a2d60df7536f9d328bc2edb"
+    },
+    {
+      "path": "tools/directory/publish-live-content-directory.test.mjs",
+      "sha256": "b27e0624cee1a93f17b0d33766e2ae4b0a819f92a8510699d02ab34cb05968b8"
+    },
+    {
+      "path": "docs/evidence/WRN-PUBLISHER-MINIMAL-2026-09-27/REPORT.md",
+      "sha256": "0138c3b9465f43e91bcff029cb2109cdcdc050bf628e1be299477e70c43b626c"
+    }
+  ]
+}
