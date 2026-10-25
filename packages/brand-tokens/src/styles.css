@@ -349,7 +349,8 @@ button {
   background: var(--wrn-color-surface-raised);
 }
 .video-sources-card h2,
-.video-sources-card h3 {
+.video-sources-card h3,
+.video-sources-card h4 {
   margin-block: 0.5rem;
   font-size: 1.17em;
 }

@@ -2,6 +2,7 @@ import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import path from 'node:path';
 import { createBrowserContentAliases } from '../../tools/browser-content-aliases.mjs';
+import { createProductionCodeSplitting } from '../../tools/vite-production-chunks.mjs';
 import { productionMediaInitialCsp } from '../../packages/browser-content/src/production-media-profile';
 
 export default defineConfig({
@@ -25,6 +26,9 @@ export default defineConfig({
     },
   ],
   resolve: { alias: createBrowserContentAliases(import.meta.dirname) },
+  build: {
+    rolldownOptions: { output: { codeSplitting: createProductionCodeSplitting() } },
+  },
   test: {
     environment: 'jsdom',
     setupFiles: path.resolve(import.meta.dirname, 'src/test/setup.ts'),

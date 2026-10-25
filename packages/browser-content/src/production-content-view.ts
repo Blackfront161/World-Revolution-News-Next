@@ -118,7 +118,10 @@ export function getProductionPreferenceMatches(
   if (!entry) return null;
   const matches = {
     interestIds: preferences.interestIds.filter(
-      (id) => entry.topics.includes(id) || article.tags.includes(id),
+      (id) =>
+        entry.topics.includes(id) ||
+        article.tags.includes(id) ||
+        (id === 'sport' && (entry.topics.includes('sports') || article.tags.includes('sports'))),
     ),
     regionIds: preferences.regionIds.filter((id) => id === entry.region),
     contentLanguageIds: preferences.contentLanguageIds.filter(

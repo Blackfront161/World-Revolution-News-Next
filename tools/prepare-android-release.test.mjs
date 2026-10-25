@@ -21,6 +21,7 @@ async function file(root, relative, body = '') {
 async function fixture() {
   const root = await mkdtemp(path.join(os.tmpdir(), 'wrn-android-release-test-'));
   await Promise.all([
+    file(root, '.gitignore', '.env\n.env.*\nnode_modules/\nwork/\n'),
     file(root, 'apps/mobile/dist/index.html', '<main>bound current dist</main>'),
     file(root, 'apps/mobile/dist/assets/app.js', 'console.log("bound");'),
     file(root, 'apps/mobile/public/static.txt', 'public source'),
@@ -35,7 +36,9 @@ async function fixture() {
     file(root, 'apps/mobile/android/app/src/main/assets/public/cordova_plugins.js', 'plugins\n'),
     file(root, 'package.json', '{"private":true}\n'),
     file(root, 'tools/browser-content-aliases.mjs', 'export {};\n'),
+    file(root, 'tools/check-production-js-chunks.mjs', 'export {};\n'),
     file(root, 'tools/prepare-android-release.mjs', 'export {};\n'),
+    file(root, 'tools/vite-production-chunks.mjs', 'export {};\n'),
   ]);
   git(root, ['init', '-q']);
   git(root, ['add', '.']);
@@ -49,6 +52,27 @@ async function fixture() {
     'fixture',
   ]);
   return root;
+}
+
+async function fakeVite(root) {
+  await file(root, 'node_modules/vite/package.json', '{"type":"module"}\n');
+  await file(
+    root,
+    'node_modules/vite/bin/vite.js',
+    `import { mkdir, writeFile } from 'node:fs/promises';
+import path from 'node:path';
+const output = process.argv[process.argv.indexOf('--outDir') + 1];
+await mkdir(path.join(output, 'assets'), { recursive: true });
+await writeFile(path.join(output, 'index.html'), '<main>fresh</main>');
+await writeFile(path.join(output, 'assets/app.js'), JSON.stringify({
+  NODE_ENV: process.env.NODE_ENV,
+  VITE_WRN_PODCAST_ENDPOINT: process.env.VITE_WRN_PODCAST_ENDPOINT,
+  VITE_WRN_TRANSLATION_ENDPOINT: process.env.VITE_WRN_TRANSLATION_ENDPOINT,
+  VITE_WRN_TEST_SENTINEL: process.env.VITE_WRN_TEST_SENTINEL,
+  WRN_RELEASE_PARENT_SENTINEL: process.env.WRN_RELEASE_PARENT_SENTINEL,
+}));
+`,
+  );
 }
 
 async function prepare(root, options = {}) {
@@ -70,6 +94,8 @@ test('prepares a fresh hash-bound unsigned bundle stage without invoking Gradle'
   assert.ok(prepared.receipt.sourcePaths.includes('apps/mobile/android'));
   assert.ok(prepared.receipt.sourcePaths.includes('apps/mobile/public'));
   assert.ok(prepared.receipt.sourcePaths.includes('tools/prepare-android-release.mjs'));
+  assert.ok(prepared.receipt.sourcePaths.includes('tools/vite-production-chunks.mjs'));
+  assert.ok(prepared.receipt.sourcePaths.includes('tools/check-production-js-chunks.mjs'));
   assert.match(prepared.receipt.sourceCommit, /^[a-f0-9]{40}$/);
   assert.equal(
     await readFile(path.join(prepared.output, 'native-assets/public/index.html'), 'utf8'),
@@ -111,6 +137,69 @@ test('prepares a fresh hash-bound unsigned bundle stage without invoking Gradle'
   ]);
 });
 
+test('fresh build clears provider variables and records the bounded public environment', async () => {
+  const root = await fixture();
+  await fakeVite(root);
+  const previous = {
+    podcast: process.env.VITE_WRN_PODCAST_ENDPOINT,
+    translation: process.env.VITE_WRN_TRANSLATION_ENDPOINT,
+    viteSentinel: process.env.VITE_WRN_TEST_SENTINEL,
+    parentSentinel: process.env.WRN_RELEASE_PARENT_SENTINEL,
+  };
+  process.env.VITE_WRN_PODCAST_ENDPOINT = 'https://paid.example.invalid/podcast';
+  process.env.VITE_WRN_TRANSLATION_ENDPOINT = 'https://paid.example.invalid/translate';
+  process.env.VITE_WRN_TEST_SENTINEL = 'must-not-pass';
+  process.env.WRN_RELEASE_PARENT_SENTINEL = 'must-not-pass';
+  try {
+    const prepared = await prepare(root, { freshBuild: true });
+    assert.equal(prepared.receipt.distProvenance.status, 'verified-fresh-local-build');
+    assert.equal(prepared.receipt.distProvenance.inheritedEnvironment, false);
+    assert.deepEqual(prepared.receipt.distProvenance.buildEnvironment, {
+      NODE_ENV: 'production',
+      VITE_WRN_DIRECTORY_MANIFEST_ENDPOINT: '',
+      VITE_WRN_PODCAST_ENDPOINT: '',
+      VITE_WRN_TRANSLATION_ADAPTER_ID: '',
+      VITE_WRN_TRANSLATION_ADAPTER_VERSION: '',
+      VITE_WRN_TRANSLATION_ENDPOINT: '',
+      VITE_WRN_TRANSLATION_PROVIDER: '',
+    });
+    assert.deepEqual(
+      JSON.parse(
+        await readFile(path.join(prepared.output, 'native-assets/public/assets/app.js'), 'utf8'),
+      ),
+      {
+        NODE_ENV: 'production',
+        VITE_WRN_PODCAST_ENDPOINT: '',
+        VITE_WRN_TRANSLATION_ENDPOINT: '',
+      },
+    );
+  } finally {
+    for (const [key, value] of [
+      ['VITE_WRN_PODCAST_ENDPOINT', previous.podcast],
+      ['VITE_WRN_TRANSLATION_ENDPOINT', previous.translation],
+      ['VITE_WRN_TEST_SENTINEL', previous.viteSentinel],
+      ['WRN_RELEASE_PARENT_SENTINEL', previous.parentSentinel],
+    ]) {
+      if (value === undefined) delete process.env[key];
+      else process.env[key] = value;
+    }
+  }
+});
+
+test('fresh build rejects ignored Vite environment files before execution', async () => {
+  const root = await fixture();
+  await fakeVite(root);
+  await file(
+    root,
+    'apps/mobile/.env.production',
+    'VITE_WRN_PODCAST_ENDPOINT=https://paid.example\n',
+  );
+  await assert.rejects(
+    () => prepare(root, { freshBuild: true }),
+    /release build environment file is forbidden: apps\/mobile\/\.env\.production/,
+  );
+});
+
 test('records and rejects dirty tracked Android inputs before staging assets', async () => {
   const root = await fixture();
   await file(root, 'apps/mobile/android/app/build.gradle', 'android { dirty true }\n');
@@ -137,7 +226,7 @@ test('rejects a symlink in the current dist before copying it into the stage', a
     t.skip(`symlink creation unavailable: ${error instanceof Error ? error.code : 'unknown'}`);
     return;
   }
-  await assert.rejects(() => prepare(root), /link or junction|non-regular file/);
+  await assert.rejects(() => prepare(root), /link or junction|non-regular file|symbolic link/);
 });
 
 test('rejects public and tool mutations that would make the staged dist stale', async () => {

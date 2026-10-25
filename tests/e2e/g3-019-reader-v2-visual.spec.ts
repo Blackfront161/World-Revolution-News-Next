@@ -3,6 +3,7 @@ import { join, resolve } from 'node:path';
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page, type TestInfo } from '@playwright/test';
 import { getUiCopy, uiLanguageIds } from '../../packages/ui-language/src';
+import { selectMobileThemeFromMore } from './mobile-theme-helper';
 
 const themes = ['dark', 'light', 'pink', 'contrast'] as const;
 async function capture(page: Page, info: TestInfo, name: string) {
@@ -98,7 +99,7 @@ test('G3-019 captures the nine-language four-theme Reader-v2 reflow matrix', asy
     await page.getByTestId('ui-language-selector').selectOption(language);
     await expect(page.getByRole('button', { name: copy.readerV2TranslateBlock })).toBeVisible();
     for (const theme of themes) {
-      await page.getByTestId('theme-selector').selectOption(theme);
+      await selectMobileThemeFromMore(page, theme);
       await expectReaderGeometry(page);
       if (language === 'en')
         expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
@@ -124,18 +125,18 @@ test('G3-019 keeps v1 text and Reader-v2 states accessible across required viewp
     ] as const) {
       await page.setViewportSize({ width, height });
       await page.getByTestId('ui-language-selector').selectOption(language);
-      await page.getByTestId('theme-selector').selectOption(theme);
+      await selectMobileThemeFromMore(page, theme);
       await expectReaderGeometry(page);
       await capture(page, info, `g3-019-reader-${language}-${theme}-${width}x${height}`);
     }
   }
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.getByTestId('theme-selector').selectOption('pink');
+  await selectMobileThemeFromMore(page, 'pink');
   await page.getByTestId('ui-language-selector').selectOption('de');
   await expect(page.getByText(getUiCopy('de').readerV2TranslationDisabled)).toBeVisible();
   await capture(page, info, 'g3-019-reader-translation-disabled-de-pink');
   await page.getByTestId('ui-language-selector').selectOption('en');
-  await page.getByTestId('theme-selector').selectOption('contrast');
+  await selectMobileThemeFromMore(page, 'contrast');
   const profile = page.locator('.reader-v2-source-profile');
   await capture(page, info, 'g3-019-reader-source-profile-closed-en-contrast');
   await profile.locator('summary').click();

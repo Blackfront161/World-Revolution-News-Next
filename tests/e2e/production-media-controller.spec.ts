@@ -1,5 +1,15 @@
+import { resolve } from 'node:path';
 import { expect, test } from '@playwright/test';
 import { productionMediaControllerHarness } from './production-media-controller-harness';
+
+const browserContentUrl = (file: string) =>
+  `/@fs/${encodeURI(resolve('packages/browser-content/src', file).replaceAll('\\', '/'))}`;
+const mediaModuleUrls = {
+  release: browserContentUrl('production-media-release.ts'),
+  controller: browserContentUrl('production-media-controller.ts'),
+  resume: browserContentUrl('production-media-resume-store.ts'),
+};
+const mediaHarness = { names: productionMediaControllerHarness, urls: mediaModuleUrls };
 
 test('A7 controller defaults preserve a blank browser profile', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'mobile-390x844', 'one isolated browser proof');
@@ -38,7 +48,7 @@ test('A7 activates only a fresh A4 release read back through real A6 IndexedDB',
 }, testInfo) => {
   test.skip(testInfo.project.name !== 'mobile-390x844', 'one isolated browser proof');
   await page.goto('http://127.0.0.1:43173');
-  const result = await page.evaluate(async (names) => {
+  const result = await page.evaluate(async ({ names, urls }) => {
     const erase = (name: string) =>
       new Promise<void>((resolve, reject) => {
         const request = indexedDB.deleteDatabase(name);
@@ -48,8 +58,7 @@ test('A7 activates only a fresh A4 release read back through real A6 IndexedDB',
     await Promise.all(Object.values(names).map(erase));
     const mobile = await import('/src/production-media-controller.ts');
     const fixture = await import('/src/production-media-test-fixture.ts');
-    const release =
-      await import('/@fs/C:/Users/patri/Documents/ChatGPT/Sauberes%20Wo%20Rev%20Ne/packages/browser-content/src/production-media-release.ts');
+    const release = await import(/* @vite-ignore */ urls.release);
     const input = await fixture.makeProductionMediaTestInput();
     const origins = new Set(['https://publisher.invalid']);
     const source = release.createProductionMediaSource({
@@ -98,7 +107,7 @@ test('A7 activates only a fresh A4 release read back through real A6 IndexedDB',
       activeKey: snapshot.control.activeKey,
       pending: snapshot.control.pendingRecheck,
     };
-  }, productionMediaControllerHarness);
+  }, mediaHarness);
   expect(result).toMatchObject({
     phase: 'local',
     reason: 'ready',
@@ -113,7 +122,7 @@ test('A7 real A6 to A2 and A5 keeps exact completed and pending resume ownership
 }, testInfo) => {
   test.skip(testInfo.project.name !== 'mobile-390x844', 'one isolated browser proof');
   await page.goto('http://127.0.0.1:43173');
-  const result = await page.evaluate(async (names) => {
+  const result = await page.evaluate(async ({ names, urls }) => {
     const erase = (name: string) =>
       new Promise<void>((resolve, reject) => {
         const request = indexedDB.deleteDatabase(name);
@@ -123,10 +132,8 @@ test('A7 real A6 to A2 and A5 keeps exact completed and pending resume ownership
     await Promise.all(Object.values(names).map(erase));
     const mobile = await import('/src/production-media-controller.ts');
     const fixture = await import('/src/production-media-test-fixture.ts');
-    const release =
-      await import('/@fs/C:/Users/patri/Documents/ChatGPT/Sauberes%20Wo%20Rev%20Ne/packages/browser-content/src/production-media-release.ts');
-    const resumeModule =
-      await import('/@fs/C:/Users/patri/Documents/ChatGPT/Sauberes%20Wo%20Rev%20Ne/packages/browser-content/src/production-media-resume-store.ts');
+    const release = await import(/* @vite-ignore */ urls.release);
+    const resumeModule = await import(/* @vite-ignore */ urls.resume);
     const input = await fixture.makeProductionMediaTestInput();
     const origins = new Set(['https://publisher.invalid']);
     const source = release.createProductionMediaSource({
@@ -279,7 +286,7 @@ test('A7 real A6 to A2 and A5 keeps exact completed and pending resume ownership
       clearedRecords: cleared.records.length,
       clearReason: secondState.reason,
     };
-  }, productionMediaControllerHarness);
+  }, mediaHarness);
   expect(result).toEqual({
     completedPosition: 12_345,
     completedCleanup: 0,
@@ -300,7 +307,7 @@ test('A7 real A5 pending Continue preserves concurrent rows and reports partial 
 }, testInfo) => {
   test.skip(testInfo.project.name !== 'mobile-390x844', 'one isolated browser proof');
   await page.goto('http://127.0.0.1:43173');
-  const result = await page.evaluate(async (names) => {
+  const result = await page.evaluate(async ({ names, urls }) => {
     const erase = (name: string) =>
       new Promise<void>((resolve, reject) => {
         const request = indexedDB.deleteDatabase(name);
@@ -311,12 +318,9 @@ test('A7 real A5 pending Continue preserves concurrent rows and reports partial 
     const mobile = await import('/src/production-media-controller.ts');
     const fixture = await import('/src/production-media-test-fixture.ts');
     const offlineModule = await import('/src/production-media-offline-store.ts');
-    const release =
-      await import('/@fs/C:/Users/patri/Documents/ChatGPT/Sauberes%20Wo%20Rev%20Ne/packages/browser-content/src/production-media-release.ts');
-    const controllerModule =
-      await import('/@fs/C:/Users/patri/Documents/ChatGPT/Sauberes%20Wo%20Rev%20Ne/packages/browser-content/src/production-media-controller.ts');
-    const resumeModule =
-      await import('/@fs/C:/Users/patri/Documents/ChatGPT/Sauberes%20Wo%20Rev%20Ne/packages/browser-content/src/production-media-resume-store.ts');
+    const release = await import(/* @vite-ignore */ urls.release);
+    const controllerModule = await import(/* @vite-ignore */ urls.controller);
+    const resumeModule = await import(/* @vite-ignore */ urls.resume);
     const input = await fixture.makeProductionMediaTestInput();
     const origins = new Set(['https://publisher.invalid']);
     const source = release.createProductionMediaSource({
@@ -518,7 +522,7 @@ test('A7 real A5 pending Continue preserves concurrent rows and reports partial 
       },
       offlineActiveKey: clearedOffline.control.activeKey,
     };
-  }, productionMediaControllerHarness);
+  }, mediaHarness);
   expect(result).toEqual({
     pendingAtContinue: true,
     continuedPending: true,
@@ -545,7 +549,7 @@ test('A7 real A4 and A6 failed safety readback drops authority before ordinary p
 }, testInfo) => {
   test.skip(testInfo.project.name !== 'mobile-390x844', 'one isolated browser proof');
   await page.goto('http://127.0.0.1:43173');
-  const result = await page.evaluate(async (names) => {
+  const result = await page.evaluate(async ({ names, urls }) => {
     const erase = (name: string) =>
       new Promise<void>((resolve, reject) => {
         const request = indexedDB.deleteDatabase(name);
@@ -555,12 +559,9 @@ test('A7 real A4 and A6 failed safety readback drops authority before ordinary p
     await Promise.all(Object.values(names).map(erase));
     const fixture = await import('/src/production-media-test-fixture.ts');
     const offlineModule = await import('/src/production-media-offline-store.ts');
-    const release =
-      await import('/@fs/C:/Users/patri/Documents/ChatGPT/Sauberes%20Wo%20Rev%20Ne/packages/browser-content/src/production-media-release.ts');
-    const controllerModule =
-      await import('/@fs/C:/Users/patri/Documents/ChatGPT/Sauberes%20Wo%20Rev%20Ne/packages/browser-content/src/production-media-controller.ts');
-    const resumeModule =
-      await import('/@fs/C:/Users/patri/Documents/ChatGPT/Sauberes%20Wo%20Rev%20Ne/packages/browser-content/src/production-media-resume-store.ts');
+    const release = await import(/* @vite-ignore */ urls.release);
+    const controllerModule = await import(/* @vite-ignore */ urls.controller);
+    const resumeModule = await import(/* @vite-ignore */ urls.resume);
     const input = await fixture.makeProductionMediaTestInput();
     const origins = new Set(['https://publisher.invalid']);
     const paths: string[] = [];
@@ -620,7 +621,7 @@ test('A7 real A4 and A6 failed safety readback drops authority before ordinary p
       safetyRevision: durable.control.safety.revision,
       pendingOperation: durable.control.pendingRecheck?.operationId ?? null,
     };
-  }, productionMediaControllerHarness);
+  }, mediaHarness);
   expect(result).toEqual({
     phase: 'unavailable',
     reason: 'conflict',

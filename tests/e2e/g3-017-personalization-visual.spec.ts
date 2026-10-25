@@ -3,9 +3,15 @@ import { join, resolve } from 'node:path';
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page, type TestInfo } from '@playwright/test';
 import { getUiCopy, uiLanguageIds } from '../../packages/ui-language/src';
+import { selectMobileThemeFromMore } from './mobile-theme-helper';
 
 const themes = ['dark', 'light', 'pink', 'contrast'] as const;
 const personalizationKey = 'wrn.mobile-local-personalization.v1';
+const revocationUrl = 'https://solinaridao.com/wrn-source-pass-revocations/current.json';
+
+function expectOnlyRevocationRequests(external: string[]) {
+  expect(external.filter((url) => url !== revocationUrl)).toEqual([]);
+}
 
 const readyState = JSON.stringify({
   contractVersion: 1,
@@ -83,7 +89,7 @@ test('G3-017 captures inactive, dialogs, protected and unavailable local-only st
   await page.getByRole('button', { name: 'Save selection' }).click();
   await page.getByRole('dialog').getByRole('button', { name: 'Save selection' }).click();
   await expect(page.getByText('Your local selection was saved.')).toBeVisible();
-  await page.getByTestId('theme-selector').selectOption('pink');
+  await selectMobileThemeFromMore(page, 'pink');
   await assertGeometry(page);
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   await capture(page, info, 'g3-017-ready-pink');
@@ -119,7 +125,7 @@ test('G3-017 captures inactive, dialogs, protected and unavailable local-only st
   await unavailablePage.close();
 
   expect(errors).toEqual([]);
-  expect(external).toEqual([]);
+  expectOnlyRevocationRequests(external);
   expect(await context.cookies()).toEqual([]);
 });
 
@@ -134,13 +140,13 @@ test('G3-017 binds nine UI languages, four ready themes and 200 percent reflow',
   });
   await page.goto('/?state=ready#following');
   for (const theme of themes) {
-    await page.getByTestId('theme-selector').selectOption(theme);
+    await selectMobileThemeFromMore(page, theme);
     await assertGeometry(page);
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
     await capture(page, info, `g3-017-ready-${theme}`);
   }
   await page.setViewportSize({ width: 600, height: 960 });
-  await page.getByTestId('theme-selector').selectOption('dark');
+  await selectMobileThemeFromMore(page, 'dark');
   await assertGeometry(page);
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   await capture(page, info, 'g3-017-ready-tablet-dark');
@@ -155,7 +161,7 @@ test('G3-017 binds nine UI languages, four ready themes and 200 percent reflow',
     document.documentElement.style.fontSize = '32px';
   });
   for (const theme of themes) {
-    await page.getByTestId('theme-selector').selectOption(theme);
+    await selectMobileThemeFromMore(page, theme);
     await assertGeometry(page);
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
     await capture(page, info, `g3-017-ready-200pct-${theme}`);
@@ -192,7 +198,7 @@ test('G3-017 binds nine UI languages, four ready themes and 200 percent reflow',
   await assertGeometry(noMatch);
   expect((await new AxeBuilder({ page: noMatch }).analyze()).violations).toEqual([]);
   await capture(noMatch, info, 'g3-017-ready-no-match-tablet-light');
-  expect(noMatchExternal).toEqual([]);
+  expectOnlyRevocationRequests(noMatchExternal);
   await noMatch.close();
   const offlineMatching = await context.newPage({ viewport: { width: 390, height: 844 } });
   const offlineMatchingExternal: string[] = [];
@@ -224,7 +230,7 @@ test('G3-017 binds nine UI languages, four ready themes and 200 percent reflow',
   await assertGeometry(offlineMatching);
   expect((await new AxeBuilder({ page: offlineMatching }).analyze()).violations).toEqual([]);
   await capture(offlineMatching, info, 'g3-017-offline-dark');
-  expect(offlineMatchingExternal).toEqual([]);
+  expectOnlyRevocationRequests(offlineMatchingExternal);
   await offlineMatching.close();
   expect(await context.cookies()).toEqual([]);
 });

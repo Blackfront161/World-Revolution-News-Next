@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "typecheck": "tsc --noEmit -p tsconfig.json",
-    "test:unit": "vitest run"
+    "test:unit": "vitest run --maxWorkers=2"
   },
   "dependencies": {
     "@wrn/api-contracts": "workspace:*",

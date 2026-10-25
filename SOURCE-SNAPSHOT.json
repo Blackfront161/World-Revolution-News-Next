@@ -1,7 +1,7 @@
 {
   "schema": "wrn.clean-platform-snapshot.v1",
-  "sourceCommit": "6999affbbc7134375dbd67295ef4548d17734576",
-  "generatedAt": "2026-09-25T04:35:49.361Z",
+  "sourceCommit": "5789b37959403fe7bfd50817521dc33fd2fa5526",
+  "generatedAt": "2026-09-25T13:37:16.382Z",
   "excluded": [
     "Local agent settings",
     "Historical build/QA archive (preserved locally)",
@@ -60,8 +60,8 @@
     },
     {
       "path": "apps/mobile/android/README.md",
-      "bytes": 4740,
-      "sha256": "ad9936b406535a4b2925926e317bdeca4d4e580c7ee29b8810a82397eaae23b5"
+      "bytes": 5287,
+      "sha256": "d887268711e8120cba497d048bd27be1e7f3ad77c165f56ce766f503d59010e2"
     },
     {
       "path": "apps/mobile/android/app/.gitignore",
@@ -814,6 +814,16 @@
       "sha256": "1f3c00561478d1a0924179444d2e49a19010c528d58fc83a63b7be14f0d0173b"
     },
     {
+      "path": "apps/mobile/public/wrn-source-pass-revocations/current.json",
+      "bytes": 161,
+      "sha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617"
+    },
+    {
+      "path": "apps/mobile/public/wrn-source-passes/current.json",
+      "bytes": 83783,
+      "sha256": "bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa"
+    },
+    {
       "path": "apps/mobile/src/App.test.tsx",
       "bytes": 59973,
       "sha256": "e67626e95bfdbb9af614c0a4b05ce42559269dcf36a8d9e9c700dfdd06be427b"
@@ -880,13 +890,13 @@
     },
     {
       "path": "apps/mobile/src/features/directory/MobileContentDirectoryRoute.test.tsx",
-      "bytes": 4499,
-      "sha256": "60213d12427e83bc48935aa46875b925d59260f857637623b47798a6c0381e1f"
+      "bytes": 7949,
+      "sha256": "3540ec044f55af58ae6d3bde63eb4c48a56bb604702a3921f925301237331183"
     },
     {
       "path": "apps/mobile/src/features/directory/MobileContentDirectoryRoute.tsx",
-      "bytes": 16845,
-      "sha256": "b8c49a8778474848c181373f9bc6db917e7955b07ca4aa49c45778ccc94967c9"
+      "bytes": 20715,
+      "sha256": "046c24a5a8dd9092ccceb0d4d9774084784ec9545b70cf9af11695382debabbe"
     },
     {
       "path": "apps/mobile/src/features/directory/MobileHomeDirectory.test.tsx",
@@ -935,8 +945,8 @@
     },
     {
       "path": "apps/mobile/src/features/directory/directory.css",
-      "bytes": 2616,
-      "sha256": "31a29f54bac1816a3b889a4e03b9cb1a0af6d1b93fe91f65276a4f160836a686"
+      "bytes": 3238,
+      "sha256": "1905080a61cbae87a0dee8bdfb115bf8133532f844ecaabc60ac7005cef93607"
     },
     {
       "path": "apps/mobile/src/features/directory/home-directory-selection.ts",
@@ -1429,6 +1439,11 @@
       "sha256": "dea7f89e583121237beb1ce0df0afca927ffcdad6def7d6939592ee05b863c55"
     },
     {
+      "path": "apps/mobile/src/source-pass-overlay.test.ts",
+      "bytes": 8842,
+      "sha256": "47e59cb413df9d5b198ad6f890e52804f46560e926e314dc67df33ef6df2bdfd"
+    },
+    {
       "path": "apps/mobile/src/source-preferences-state.test.ts",
       "bytes": 4587,
       "sha256": "72c7b36330d3d079fbc99d9436bc573307802b97669018918f41ce8c12feeef7"
@@ -1465,8 +1480,8 @@
     },
     {
       "path": "apps/mobile/src/video-sources-ui.tsx",
-      "bytes": 2377,
-      "sha256": "21cbd670c63730bd48ac351d9a6e2189344a49e2a3f773ca3cf317af5562436b"
+      "bytes": 3624,
+      "sha256": "b422a9fc2e9b18416fa0e897e8bba4cf1335cdddf9080c9495d13caa28abc3d1"
     },
     {
       "path": "apps/mobile/src/vite-env.d.ts",
@@ -1480,8 +1495,8 @@
     },
     {
       "path": "apps/mobile/vite.config.ts",
-      "bytes": 1003,
-      "sha256": "9fba05d43a8a9647f699b643ea7660aeff4d3c01a84d8f0d5673cf2178ec7019"
+      "bytes": 1192,
+      "sha256": "7866c0620b8f168971b1f03c717f5b2c94afc77d41d48a812383d831b5276412"
     },
     {
       "path": "apps/website/index.html",
@@ -1794,6 +1809,16 @@
       "sha256": "1f3c00561478d1a0924179444d2e49a19010c528d58fc83a63b7be14f0d0173b"
     },
     {
+      "path": "apps/website/public/wrn-source-pass-revocations/current.json",
+      "bytes": 161,
+      "sha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617"
+    },
+    {
+      "path": "apps/website/public/wrn-source-passes/current.json",
+      "bytes": 83783,
+      "sha256": "bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa"
+    },
+    {
       "path": "apps/website/src/App.test.tsx",
       "bytes": 26268,
       "sha256": "fb0ac37f751b568d563d0e3c5dedd7f8719dc6e3dd944bea7b49b8485723bc79"
@@ -1830,13 +1855,13 @@
     },
     {
       "path": "apps/website/src/features/directory/WebsiteContentDirectoryRoute.test.tsx",
-      "bytes": 3158,
-      "sha256": "40677e0c97e8d2166ee806977f191b84c4b902c45dcd5fb871405624b17e06dc"
+      "bytes": 4479,
+      "sha256": "bea017502f48c9d2397c50c56b776503632700c6a365deb9ffb0360e99ed0809"
     },
     {
       "path": "apps/website/src/features/directory/WebsiteContentDirectoryRoute.tsx",
-      "bytes": 11320,
-      "sha256": "a690ba39ae27da6453f90587f419411787b683154f1141b0c3022352b756bb0a"
+      "bytes": 15765,
+      "sha256": "2a6470702c1a95b724a2977d27a502ebbdf751746017cd64450b797217abbe5a"
     },
     {
       "path": "apps/website/src/features/directory/data/content-directory-v1.json",
@@ -1855,8 +1880,8 @@
     },
     {
       "path": "apps/website/src/features/directory/directory.css",
-      "bytes": 502,
-      "sha256": "e0882f7fa3d7ca628d040b513ba4e659b4954bcffa2ba6f0d7b556978ca05623"
+      "bytes": 1116,
+      "sha256": "e5f78c4b174512a708bec192a00834e93ea1e2155318d8dc1593146fa39026a8"
     },
     {
       "path": "apps/website/src/features/events-media/WebsiteProductionEventsMediaRoute.tsx",
@@ -2015,8 +2040,8 @@
     },
     {
       "path": "apps/website/src/offline-shell/protocol-contract.test.mjs",
-      "bytes": 8645,
-      "sha256": "2d46ac027c22b81cf1e675cc7b429ecf65d20ffcfa1cd93b37160a6e129d3371"
+      "bytes": 9482,
+      "sha256": "ceb0459968700e76fcf5d7ba96c460a7f178436c56945593f5edd56d5a965d74"
     },
     {
       "path": "apps/website/src/offline-shell/protocol.d.mts",
@@ -2025,8 +2050,8 @@
     },
     {
       "path": "apps/website/src/offline-shell/protocol.mjs",
-      "bytes": 8541,
-      "sha256": "4d0985c64f39395a4cd76e061defe90b72ac165178ed58cbab89379be70f5485"
+      "bytes": 11568,
+      "sha256": "d9254e5cf15351c1172b36aeef95f185d1acfa9869aec76160fa22f5894aa48f"
     },
     {
       "path": "apps/website/src/offline-shell/staging-worker-template.mjs",
@@ -2041,7 +2066,7 @@
     {
       "path": "apps/website/src/offline-shell/worker-template.mjs",
       "bytes": 781,
-      "sha256": "7511cb90dbad559879c5b06eecf10a598f6c5e8beebeacd0b11639f218cc8b09"
+      "sha256": "5f0477a6e116e1f60f86f647b8e146c64aa3aa71336dff88de018148adba9611"
     },
     {
       "path": "apps/website/src/production-content-adapters.test.tsx",
@@ -2145,8 +2170,8 @@
     },
     {
       "path": "apps/website/src/video-sources-ui.tsx",
-      "bytes": 2564,
-      "sha256": "5d45719556d0ee12b032c76e3fe6c6585ea225b45071bdaa221019c074ae2c44"
+      "bytes": 3974,
+      "sha256": "519ae9638e5cd2dbd09fbe54ce5b14023442ca506daed99c63a165c10908021f"
     },
     {
       "path": "apps/website/src/vite-env.d.ts",
@@ -2170,13 +2195,13 @@
     },
     {
       "path": "apps/website/tools/build-offline-shell.mjs",
-      "bytes": 9290,
-      "sha256": "594cd98ae36fe9b348922f257285c4b934006aa356f2bc51f946c360189a4e01"
+      "bytes": 12741,
+      "sha256": "1ad0a515417a677197658d041f0cd661d94d955dce8011e5535f6768c7bc840f"
     },
     {
       "path": "apps/website/tools/build-offline-shell.test.mjs",
-      "bytes": 17227,
-      "sha256": "9c7d3e7c10db9fa9d073f1e3f8347b9f31b29196b008fdbd0eb72d7141737103"
+      "bytes": 18694,
+      "sha256": "55bbf254a65c3f0c81a05795d4c741bb4c59f3294d03b7da38d32195a18dbd5c"
     },
     {
       "path": "apps/website/tools/build-production-website-publication.mjs",
@@ -2255,23 +2280,23 @@
     },
     {
       "path": "apps/website/tools/production-site-package.mjs",
-      "bytes": 17140,
-      "sha256": "505cf6226029aabcf920a1a22bb31aaf6a036a0331345cd24d485beba4ce9ccb"
+      "bytes": 19480,
+      "sha256": "f6cfc5e8c7c3617a5a62ed638a19723682c9944f777057d2c7e96e456d35d544"
     },
     {
       "path": "apps/website/tools/production-site-package.test.mjs",
-      "bytes": 18623,
-      "sha256": "fb29cfec09d1a46ba47432a7896b90f9ecd883daafe3be0a4e81eb711fd8f77f"
+      "bytes": 21569,
+      "sha256": "06a799285ef58378637acc85bd1b7990b5e0e5f49421337603fd0c78cb5aa36f"
     },
     {
       "path": "apps/website/tools/staging-package.mjs",
-      "bytes": 15545,
-      "sha256": "f85501b578aea8bd6c9e8d8f0fac235075ebc520da47b95245f0e184a11edfbe"
+      "bytes": 15635,
+      "sha256": "53bc6a6dbe0e94f5e788f391b22e72e94c66a9169170a463a552ef26d6c27258"
     },
     {
       "path": "apps/website/tools/staging-package.test.mjs",
-      "bytes": 12942,
-      "sha256": "9aca58b8c0c2cf867166efb1de3ba5583a485f9e12fffe30b1181930f08a87e7"
+      "bytes": 13088,
+      "sha256": "0b8f1af31ae7adb7aeeb984cdd127dc032e4cd1d38e8942a59127808c2116a14"
     },
     {
       "path": "apps/website/tools/staging-vite-plugin.d.mts",
@@ -2305,8 +2330,8 @@
     },
     {
       "path": "apps/website/vite.config.ts",
-      "bytes": 852,
-      "sha256": "cc16d85aa857b35b44423f6ae0edadc80336d10dd63f637c367c861a5a7be7aa"
+      "bytes": 1047,
+      "sha256": "8718763e17c3e5e49a8a03cf2746b4989e57a06ee37777e0a8e4a080b78b33e4"
     },
     {
       "path": "docs/00-PRODUCT-CHARTER.md",
@@ -2365,8 +2390,8 @@
     },
     {
       "path": "docs/PROJECT-STATE.md",
-      "bytes": 26976,
-      "sha256": "7efba572215f6f96f41bf39e63faed7094f706463e5cc88f3a518e34bf828822"
+      "bytes": 34611,
+      "sha256": "a5bae01788f6d0ed73769289c0dc3601367e277cebe9f3f2c7c0288293c0b737"
     },
     {
       "path": "docs/WRN-G3-014-DELEGATION-REGISTER.md",
@@ -2660,8 +2685,8 @@
     },
     {
       "path": "docs/evidence/WRN-PO-SCOPE-STATUS-2026-09-10.md",
-      "bytes": 17637,
-      "sha256": "5ba35a5e72517829c499cdb7f33d02b5b6f43dddd4b5703496cc9253ecf296a0"
+      "bytes": 21321,
+      "sha256": "d5d5bdc072e619b89136f70ad817729d9eaaa07232364e90faec93e869d4d531"
     },
     {
       "path": "docs/evidence/WRN-PRE-PLAY-HOSTING-PACKET-2026-09-25/REPORT.md",
@@ -2887,6 +2912,81 @@
       "path": "docs/evidence/WRN-SPORT-FULLTEXT-2026-09-20/candidate/source-snapshot.html",
       "bytes": 46306,
       "sha256": "1da7a3474f542acf6ed5bffaa38962abdc30d0cdea44dae2e90c6fb29f6a4175"
+    },
+    {
+      "path": "docs/evidence/WRN-SRC04-ANDROID-BUNDLE-2026-09-25/REPORT.md",
+      "bytes": 1621,
+      "sha256": "9371fc4c9f8ea18c6cf9b72fa1f1e6a33dab69ab9060d735f218dc183c4f9bb4"
+    },
+    {
+      "path": "docs/evidence/WRN-SRC04-ANDROID-BUNDLE-2026-09-25/native-assets.json",
+      "bytes": 17535,
+      "sha256": "aabd69d4972147c3a050310e986b3f6188acc23583bf7ee0416ff1c4e7629241"
+    },
+    {
+      "path": "docs/evidence/WRN-SRC04-ANDROID-BUNDLE-2026-09-25/receipt.json",
+      "bytes": 20320,
+      "sha256": "a09d94da1dad4b934321a76f9065deeef28f10ebb19fbca3f65d788bbfa9a6ef"
+    },
+    {
+      "path": "docs/evidence/WRN-SRC04-GLOBAL-SOURCES-2026-09-25/REPORT.md",
+      "bytes": 4265,
+      "sha256": "f36411bf199061e3ac988b73eb52f869cb3e36558693a941bb07a79b15127992"
+    },
+    {
+      "path": "docs/evidence/WRN-SRC04-GLOBAL-SOURCES-2026-09-25/android-offline-source-cards.png",
+      "bytes": 415456,
+      "sha256": "965593df3a577d0802ce19fba22543e7ab8b0ac882aef991f45908bad1ec5801"
+    },
+    {
+      "path": "docs/evidence/WRN-SRC04-GLOBAL-SOURCES-2026-09-25/android-source-cards.png",
+      "bytes": 434403,
+      "sha256": "0a03f8da566dfb17ad19bc159a811d03f6ec6bc9d3063e11da708bd5f53b98dd"
+    },
+    {
+      "path": "docs/evidence/WRN-SRC04-GLOBAL-SOURCES-2026-09-25/android-sources.png",
+      "bytes": 202792,
+      "sha256": "5c2cd38be37381d3d554ff825842c6644aeb57590f7453d19d4d42b3b2902886"
+    },
+    {
+      "path": "docs/evidence/WRN-SRC04-GLOBAL-SOURCES-2026-09-25/manifest.json",
+      "bytes": 6904,
+      "sha256": "56a6c19a5573436b09fb25bac7a11ce0b7aa93696fa51eb92c2301ce3c94bd5c"
+    },
+    {
+      "path": "docs/evidence/WRN-SRC04-HOSTING-CANDIDATE-2026-09-25/REPORT.md",
+      "bytes": 2887,
+      "sha256": "f6e9786d92a32472f7d5a65ab95593c5d5c494c4613355d9fa93ac429ca4b5e4"
+    },
+    {
+      "path": "docs/evidence/WRN-SRC04-HOSTING-CANDIDATE-2026-09-25/hosting-packet.manifest.json",
+      "bytes": 64628,
+      "sha256": "f137b1c470a4505ceb7892974f878640e31e1deab756925660fcd0cb1cb75788"
+    },
+    {
+      "path": "docs/evidence/WRN-SRC04-HOSTING-CANDIDATE-2026-09-25/website-package.manifest.json",
+      "bytes": 65641,
+      "sha256": "03eacdfd34849f7146d98d41d0cba542afd1e9427a691cc2a0e1166da15eb0c2"
+    },
+    {
+      "path": "docs/evidence/WRN-VIDEO-02-LINK-PILOT-2026-09-25/MANIFEST.json",
+      "bytes": 1956,
+      "sha256": "e4e04ad905fdfc1c1f2ce3cfb502c5bbd6b76342471ad1107dc2cde56e7b9cda"
+    },
+    {
+      "path": "docs/evidence/WRN-VIDEO-02-LINK-PILOT-2026-09-25/REPORT.md",
+      "bytes": 3637,
+      "sha256": "d2117d91a9ae40d6cb22adc692238eaf3537ac485bb02211de27769848168347"
+    },
+    {
+      "path": "docs/evidence/WRN-VIDEO-02-LINK-PILOT-2026-09-25/mobile-de-violet.png",
+      "bytes": 45285,
+      "sha256": "c25e4077a1fa1e99f3442ae14ab477a52d59a48552c7839f033189c9b27fe69c"
+    },
+    {
+      "path": "docs/evidence/WRN-VIDEO-02-LINK-PILOT-2026-09-25/website-de-violet.png",
+      "bytes": 93844,
+      "sha256": "ffda4f917b52cd791a96e4bc716cef07126c81b851c10774a5518d1ca5a32c64"
     },
     {
       "path": "docs/handoffs/README.md",
@@ -5915,8 +6015,8 @@
     },
     {
       "path": "docs/tasks/WRN-CONTENT-SOURCES-001-BLACK-LIBERATION-AND-WEST-ASIA.md",
-      "bytes": 7419,
-      "sha256": "36db3b68c205125c96da430c0f0e80e2f435c0ce639a3d8bd596b667fa0268dc"
+      "bytes": 8208,
+      "sha256": "67e87a920eb8be0e4d3cc9ee1cbf2ec58931d49e319403cbaf66a916b685e28f"
     },
     {
       "path": "docs/tasks/WRN-CONTENT-SPORT-001-DEFERRED-SCOPE.md",
@@ -7665,8 +7765,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 3410,
-      "sha256": "43cf9f356f3bcd2365d21cb7c90165a4db05cd1efb9c070ba06804e5cb60a6c5"
+      "bytes": 3690,
+      "sha256": "149578070a5b51f79d651f6b4681589d7fb84a0a53ab745aa1f844a4b5172ef0"
     },
     {
       "path": "packages/api-contracts/package.json",
@@ -7730,8 +7830,8 @@
     },
     {
       "path": "packages/brand-tokens/src/styles.css",
-      "bytes": 10502,
-      "sha256": "495d162f591c15113f811fb5e115128f26fc2ef5eb14a47ae42ac9fa3cbf5316"
+      "bytes": 10526,
+      "sha256": "b7f18b49089d14a0d0f64384d89e1df64b23256b228f35866dda56688a6e07a3"
     },
     {
       "path": "packages/browser-content/README.md",
@@ -7782,6 +7882,21 @@
       "path": "packages/browser-content/src/data/production-media-initial-release-v1.ts",
       "bytes": 6651,
       "sha256": "984d660f2990f8d4576f4f74c8b59278fee00eee77f5b1f473e7a4624a85dc77"
+    },
+    {
+      "path": "packages/browser-content/src/data/source-pass-overlay-fallback-v1.json",
+      "bytes": 13967,
+      "sha256": "0fc6783c02e5d4cc40f6229ad5eff782683cb6ad58ac2dee5d65ccc4c9161732"
+    },
+    {
+      "path": "packages/browser-content/src/data/source-pass-overlay-v1.json",
+      "bytes": 83783,
+      "sha256": "bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa"
+    },
+    {
+      "path": "packages/browser-content/src/data/source-pass-revocations-v1.json",
+      "bytes": 161,
+      "sha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617"
     },
     {
       "path": "packages/browser-content/src/events-media-directory.css",
@@ -8019,6 +8134,21 @@
       "sha256": "8290e3ddc32da74149db41bf9a46c8966b0052bf6fc1320efc99a5981373646f"
     },
     {
+      "path": "packages/browser-content/src/source-pass-hook.ts",
+      "bytes": 1695,
+      "sha256": "152c9115c8a0d03ff68cea5c754a52b91857e2482d789d396bebfc2b7c88c104"
+    },
+    {
+      "path": "packages/browser-content/src/source-pass-overlay.ts",
+      "bytes": 14787,
+      "sha256": "094379630633933f2294c143bbb5aa4a010f531dfd3ec77d095365d20440e4f6"
+    },
+    {
+      "path": "packages/browser-content/src/source-pass-ui.tsx",
+      "bytes": 4282,
+      "sha256": "84378dbc5cec6d514f369f9a0f168ff04ae919efe168048f3732e552c2e2d0db"
+    },
+    {
       "path": "packages/browser-content/src/source-preferences-state.ts",
       "bytes": 6728,
       "sha256": "00b09652906da6cdde48c7e528ec1bfcf835b8c8acf66fa96ebf8f523e2dc7e8"
@@ -8035,8 +8165,8 @@
     },
     {
       "path": "packages/browser-content/src/source-search.ts",
-      "bytes": 594,
-      "sha256": "ecd2f8f8c94d5cac1b53d8c67074130bb2d89270960f9906801195b84c976c04"
+      "bytes": 2782,
+      "sha256": "4a0401b4041c174962724af8adb73606a96f845b42a3c21c22d1b3821bcfdf40"
     },
     {
       "path": "packages/browser-content/src/sport-sources-data.ts",
@@ -8055,8 +8185,8 @@
     },
     {
       "path": "packages/content-contracts/package.json",
-      "bytes": 2593,
-      "sha256": "e082082b2c40dd4e45682257377d08536a7e83da0378ebf5f4d3e1bf5911e074"
+      "bytes": 2929,
+      "sha256": "e098d519499a4546251bc2547a5f080a578bc17944d05c6a45dd817687b2ee5b"
     },
     {
       "path": "packages/content-contracts/src/content-release-core-v1.ts",
@@ -8089,9 +8219,29 @@
       "sha256": "def0de01df207a5c3ad39839d68dbb1fd0b98a100dbc81990c5726b99457c6c1"
     },
     {
+      "path": "packages/content-contracts/src/directory/source-pass-overlay-v1.test.ts",
+      "bytes": 8698,
+      "sha256": "734bb6015a7872669bdb7e08e1305294f9c3438e0b9adbc10b6039881ea58e63"
+    },
+    {
+      "path": "packages/content-contracts/src/directory/source-pass-overlay-v1.ts",
+      "bytes": 15661,
+      "sha256": "7801d88702b5896b2317d15641cbbe9c54d958cad0a7201a673a5a00bb78b6bd"
+    },
+    {
+      "path": "packages/content-contracts/src/directory/source-pass-revocations-v1.test.ts",
+      "bytes": 1368,
+      "sha256": "505778b1a5392d0734ef8d256893c95b5c0dac684d92c9343fd6957ebd071bf5"
+    },
+    {
+      "path": "packages/content-contracts/src/directory/source-pass-revocations-v1.ts",
+      "bytes": 2446,
+      "sha256": "198eb35b66d5541fd82a0ed2463fa4be1c292fbac1de2360e6a06b997c752d8d"
+    },
+    {
       "path": "packages/content-contracts/src/index.ts",
-      "bytes": 94238,
-      "sha256": "f9d542b19b04262dff92fc7380cc5b33b0fc0ceafae507e0aeabe52ff2adb3a5"
+      "bytes": 94508,
+      "sha256": "c58c5fb1966ff0a696dad8e50a4b3a10d2e048efa16020d32391aafb07b30e04"
     },
     {
       "path": "packages/content-contracts/src/mobile-knowledge-v1.test.ts",
@@ -8195,8 +8345,8 @@
     },
     {
       "path": "packages/content-contracts/src/video-sources-v1.ts",
-      "bytes": 3280,
-      "sha256": "0cc63fd23967cadc059ef98d6e4710509d63b02cc4500c5efeabc21632aa5c7c"
+      "bytes": 4545,
+      "sha256": "5f208b9935371caf9e39d5daa22ae4e02d3a858526e74b5ab1ae407814a0b048"
     },
     {
       "path": "packages/content-contracts/tests/archive-lifecycle-v1.test.ts",
@@ -8350,8 +8500,8 @@
     },
     {
       "path": "packages/content-contracts/tests/video-sources-v1.test.ts",
-      "bytes": 2050,
-      "sha256": "fa4aa99aca95769d104dd2d01007cb9b44047c7af0baa9aceac003fadc51820b"
+      "bytes": 3089,
+      "sha256": "876cdc26883b386c6aee4954ea796f27abd14ca4cf87e1553e9b5fbb2d739f2a"
     },
     {
       "path": "packages/content-contracts/tsconfig.json",
@@ -8575,8 +8725,8 @@
     },
     {
       "path": "packages/ui-language/package.json",
-      "bytes": 1531,
-      "sha256": "9046ae891c790966c131480f9f6f6ba1d68f22a7f1b45b1195964b55774b954c"
+      "bytes": 1640,
+      "sha256": "14825e34de77b123692baf7d71de31047079fe2b95c73dd907908e9788f376e7"
     },
     {
       "path": "packages/ui-language/src/catalogs/de.ts",
@@ -8699,6 +8849,11 @@
       "sha256": "47b7b2a1fa00a73908407a8b5d4cfa1b14eb4d35618c2483fdcb80c14181d217"
     },
     {
+      "path": "packages/ui-language/src/source-pass.ts",
+      "bytes": 18493,
+      "sha256": "e27affd91e168146c7aac6a391f25377903e02fc683fdee870c945fff38b377d"
+    },
+    {
       "path": "packages/ui-language/src/source-preferences.test.ts",
       "bytes": 879,
       "sha256": "9fbc9a7396163fbf7b61d9813b7d00876928d05c04a8b132752e9e0de5625175"
@@ -8720,8 +8875,8 @@
     },
     {
       "path": "packages/ui-language/src/video-sources.ts",
-      "bytes": 6996,
-      "sha256": "a93cf0094f72b6689a7fad81c17773dd244fe810a849cadf4061f8733badc5c9"
+      "bytes": 10284,
+      "sha256": "64410fe316acf16b0689d1ad7f26c67c5573cc4ad63ad11dd638b7e3a62f90f6"
     },
     {
       "path": "packages/ui-language/src/website-support.ts",
@@ -9215,8 +9370,8 @@
     },
     {
       "path": "tests/e2e/video-sources.spec.ts",
-      "bytes": 5104,
-      "sha256": "af34eed0f039a4336203f8674618b17a812fe7dd69e0738335cfc517c4afce45"
+      "bytes": 6012,
+      "sha256": "7a4b2f9cec100e039469dbe5ce80eb6bacd76eaf0064e2212d9df52cce9f6d29"
     },
     {
       "path": "tests/e2e/violet-red-theme.spec.ts",
@@ -9240,8 +9395,8 @@
     },
     {
       "path": "tests/e2e/website-shell-built.spec.ts",
-      "bytes": 6472,
-      "sha256": "ea724b0323905ee6778d0c7745d643a708a051a38e4889187d47dbc94c33adcf"
+      "bytes": 6662,
+      "sha256": "1a9f93f2dff15196dc0c7f96aa3d6a598f7f824c1269ca2c2cc1d7ed7d64eaa7"
     },
     {
       "path": "tests/e2e/website-shell-core-coldstart.mjs",
@@ -9330,13 +9485,13 @@
     },
     {
       "path": "tools/browser-content-aliases.mjs",
-      "bytes": 3196,
-      "sha256": "a64e00d63916da3a9ec0965bf0b9fb922125b0b27fa9c00ab8da6123a50171e9"
+      "bytes": 3531,
+      "sha256": "ee6bfb31954ee6fb3d62d978d7f1b99cce929bf0fd75ca8af654b8cca77adfb2"
     },
     {
       "path": "tools/browser-content-aliases.test.mjs",
-      "bytes": 2127,
-      "sha256": "7f704c5da67b7c3b2614c2afa8b14d3afeb762ed070025ed07ae132c9fd9f8fc"
+      "bytes": 2216,
+      "sha256": "efa70da21abdeebdeda053a4dadef2ed6d3f80ab319879ea3dfd6865f32409ef"
     },
     {
       "path": "tools/build-production-content-release-v2.test.mjs",
@@ -9432,6 +9587,16 @@
       "path": "tools/check-local-preview-boundary.test.mjs",
       "bytes": 7519,
       "sha256": "ac1c4ca28a1cd975325e0dbcf629cb9351b18744ddd55937a00581675fb26933"
+    },
+    {
+      "path": "tools/check-production-js-chunks.mjs",
+      "bytes": 1816,
+      "sha256": "e720124f80b47601ad16f0518ade3290106a73d08294a75ada52b7a129723ae9"
+    },
+    {
+      "path": "tools/check-production-js-chunks.test.mjs",
+      "bytes": 1984,
+      "sha256": "c7f30cce326d986db47f1f44f7993b503b73caa5e591a04a8526fae05f5a8659"
     },
     {
       "path": "tools/check-public-fixture-parity.mjs",
@@ -9560,8 +9725,8 @@
     },
     {
       "path": "tools/export-platform-repository.mjs",
-      "bytes": 6114,
-      "sha256": "e2693c08f3c3963933895064439d20bbd0561b58615c0af0da022e1986f0c1c9"
+      "bytes": 6284,
+      "sha256": "98314f5684e2fd7566a87845e0a4939cac9fb5fa43d5eb2885543587ec96b0f1"
     },
     {
       "path": "tools/import-legacy-knowledge.mjs",
@@ -9590,13 +9755,13 @@
     },
     {
       "path": "tools/prepare-android-release.mjs",
-      "bytes": 15665,
-      "sha256": "1430698a23b8c60e1d93edd07674f83db42b5cc7970b9cd2dac3397379170ba4"
+      "bytes": 18437,
+      "sha256": "522a2947f2a3b00a0c2b5f9ee0e09638e6f4ea5a1e3cbaaa046b8cd991902a42"
     },
     {
       "path": "tools/prepare-android-release.test.mjs",
-      "bytes": 7524,
-      "sha256": "60dbbacc5ca90bc2da244e911f7ca5a6442b72278596b6ff532dc789316de16c"
+      "bytes": 11211,
+      "sha256": "9b22555f2e1fbe957e3f8f4d55b66ffcafcb0ead4b96d4456ec3ac5ecbe2db14"
     },
     {
       "path": "tools/prepare-legacy-news-supply.mjs",
@@ -9632,6 +9797,11 @@
       "path": "tools/run-legacy-news-supply.test.mjs",
       "bytes": 12360,
       "sha256": "129f90da991eb03879873e286f4ba03659d48b65dadd50ed932567aa0fbaa26d"
+    },
+    {
+      "path": "tools/source-pass-release-assets.test.mjs",
+      "bytes": 2861,
+      "sha256": "6a45828fc17393fff2f6dc01940469a18ebe5a2055c0f6ed45c0d82f625b2490"
     },
     {
       "path": "tools/support/import-legacy-support.mjs",
@@ -9674,9 +9844,19 @@
       "sha256": "ba89adc49f83f6695feaaf6b5fcd41957788f81c09f6c45475efba8875815a08"
     },
     {
+      "path": "tools/vite-production-chunks.d.mts",
+      "bytes": 273,
+      "sha256": "7bfc51ee9bc1837fb559ead4f48ba215c1d740f25aa45a35dd40b63860e1d576"
+    },
+    {
+      "path": "tools/vite-production-chunks.mjs",
+      "bytes": 607,
+      "sha256": "6dc1ccb700bd6bc011a33b59382448bf1665e6d3b9d595fd4934d772cbb5696f"
+    },
+    {
       "path": "tsconfig.base.json",
-      "bytes": 3140,
-      "sha256": "9729220d155c4e8940ca7e52403236657085cfd9451de92fe04fd3a014fa436d"
+      "bytes": 3523,
+      "sha256": "dd69ba6e3089da981cf9498b6ec1e2f70cee2ba09a18db316ded5116835a6f34"
     }
   ]
 }

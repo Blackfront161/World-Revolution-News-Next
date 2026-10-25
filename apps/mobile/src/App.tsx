@@ -98,11 +98,13 @@ import {
   SourceOnlyResults,
 } from '../../../packages/browser-content/src/source-preferences-ui';
 import { loadMobileUiLanguage, persistMobileUiLanguage } from './ui-language-preference';
+import { importLegacyTheme } from './legacy-upgrade-theme';
 import { loadLocalContentRelease, type LocalContentReleaseRuntime } from './local-content-release';
 import type { ContentOfflineControllerResult } from './content-offline-controller';
 import { useContentOfflineController } from './content-offline-ui';
 import { ProductionContentArea } from './production-content-ui';
 import { CurrentRegionalEvents } from '../../../packages/browser-content/src/regional-events/regional-events';
+import { AtlasBeta } from '../../../packages/browser-content/src/atlas/AtlasBeta';
 import {
   disabledMobileReaderV2TranslationAdapter,
   loadMobileReaderV2,
@@ -449,7 +451,9 @@ function readThemePreference(
       window.localStorage.removeItem(themeStorageKey);
       return 'violet';
     }
-    return normalizeThemePreference(storedPreference);
+    return storedPreference === null
+      ? (importLegacyTheme(window.localStorage) ?? 'violet')
+      : normalizeThemePreference(storedPreference);
   } catch {
     return 'violet';
   }
@@ -2633,20 +2637,22 @@ export function App({
                 </svg>
               </a>
               <div className="compact-header-brand">
-                <a
-                  className="compact-header-title"
-                  href="#home"
-                  aria-label={formatUiCopy(copy.brandHomeName, {
-                    brand: shellCopy.brandName,
-                    product: shellCopy.productName,
-                  })}
-                  onClick={(event) => {
-                    event.preventDefault();
-                    navigate('home');
-                  }}
-                >
-                  World <span>Revolution</span> News
-                </a>
+                <h1 className="compact-header-brand-heading">
+                  <a
+                    className="compact-header-title"
+                    href="#home"
+                    aria-label={formatUiCopy(copy.brandHomeName, {
+                      brand: shellCopy.brandName,
+                      product: shellCopy.productName,
+                    })}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      navigate('home');
+                    }}
+                  >
+                    World <span>Revolution</span> News
+                  </a>
+                </h1>
                 <a
                   className="header-website-link"
                   href={`https://solinaridao.com/?lang=${encodeURIComponent(uiLanguage)}`}
@@ -2770,14 +2776,17 @@ export function App({
                   (target === 'home' || target === 'discover' || target === 'more') &&
                   directoryLinks}
                 {target === 'more' && archiveRoute === undefined && (
-                  <nav aria-label={copy.moreAreas} className="secondary-navigation">
-                    {routeLink('help')}
-                    {routeLink('solidarity')}
-                    {routeLink('knowledge')}
-                    {routeLink('events')}
-                    {privacyPolicyLink}
-                    {routeLink('home', copy.returnHome)}
-                  </nav>
+                  <>
+                    <nav aria-label={copy.moreAreas} className="secondary-navigation">
+                      {routeLink('help')}
+                      {routeLink('solidarity')}
+                      {routeLink('knowledge')}
+                      {routeLink('events')}
+                      {privacyPolicyLink}
+                      {routeLink('home', copy.returnHome)}
+                    </nav>
+                    <AtlasBeta language={uiLanguage} load={loadMobileContentDirectory} />
+                  </>
                 )}
               </ProductionContentArea>
             ) : archiveRoute !== undefined ? (

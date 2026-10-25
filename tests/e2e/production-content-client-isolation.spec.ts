@@ -4,11 +4,15 @@ import path from 'node:path';
 const shared = `/@fs/${path.resolve('packages/browser-content/src').replaceAll('\\', '/')}`;
 const harness = `/@fs/${path.resolve('tests/e2e/production-content-offline-harness.ts').replaceAll('\\', '/')}`;
 
+test.beforeEach(async ({ page }, testInfo) => {
+  const port = testInfo.project.name.startsWith('website-') ? 43175 : 43177;
+  await page.goto(`http://127.0.0.1:${port}/__content-idb`);
+});
+
 for (const cleared of ['mobile', 'website'] as const) {
   test(`production content and reading clear remain isolated when ${cleared} clears`, async ({
     page,
   }) => {
-    await page.goto('/');
     const result = await page.evaluate(
       async ({ shared, harness, cleared }) => {
         const { createProductionContentOfflineStoreFactory } = await import(

@@ -12,6 +12,8 @@ const viewports = [
   [844, 390],
 ] as const;
 const themes = ['dark', 'light', 'pink', 'contrast'] as const;
+const fixtureNow = Date.parse('2026-09-01T12:00:00.000Z');
+const revocationUrl = 'https://solinaridao.com/wrn-source-pass-revocations/current.json';
 const expectedIds = [
   'wrn-test-art-cedar',
   'wrn-test-art-ember',
@@ -33,11 +35,6 @@ const expectedRoles = [
   'sport-feature',
   'sport-secondary',
   'sport-secondary',
-] as const;
-const sportIds = [
-  'wrn-test-art-g3-016-d',
-  'wrn-test-art-g3-016-e',
-  'wrn-test-art-g3-016-f',
 ] as const;
 const forbiddenRawCopyKeys = [
   'homeCurrent',
@@ -81,7 +78,7 @@ async function expectRoles(page: Page) {
   await expect(page.getByTestId('manifest-revision')).toContainText(
     'wrn-g3-016-mobile-home-manifest-v1',
   );
-  const articles = page.locator('article[data-home-role]');
+  const articles = page.locator('.home-feed article[data-home-role]');
   await expect(articles).toHaveCount(9);
   expect(
     await articles.evaluateAll((nodes) =>
@@ -179,8 +176,22 @@ function collectRuntimeSignals(page: Page) {
   return { external, errors };
 }
 
-test.beforeEach(async ({ browserName }, info) => {
+function expectOnlyRevocationRequests(external: string[]) {
+  expect(external.filter((url) => url !== revocationUrl)).toEqual([]);
+}
+
+async function selectHomeTheme(page: Page, theme: (typeof themes)[number]) {
+  await page.getByTestId('header-more-trigger').click();
+  await page.getByTestId('theme-selector').selectOption(theme);
+  await page.getByTestId('header-more-trigger').click();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
+}
+
+test.beforeEach(async ({ browserName, context }, info) => {
   test.skip(browserName !== 'chromium' || info.project.name !== 'mobile-390x844');
+  await context.addInitScript((now) => {
+    Date.now = () => now;
+  }, fixtureNow);
 });
 
 test('P4 independently verifies the 9-language, 4-theme, 4-viewport home matrix', async ({
@@ -192,16 +203,15 @@ test('P4 independently verifies the 9-language, 4-theme, 4-viewport home matrix'
   await page.goto('/?state=ready');
   await expectRoles(page);
 
-  for (const language of uiLanguageIds) {
-    const copy = getUiCopy(language);
-    await page.getByTestId('ui-language-selector').selectOption(language);
-    await expect(page.locator('html')).toHaveAttribute('lang', language);
-    await expect(page.getByRole('heading', { name: copy.sportAndFanculture })).toBeVisible();
-    for (const [width, height] of viewports) {
-      await page.setViewportSize({ width, height });
-      for (const theme of themes) {
-        await page.getByTestId('theme-selector').selectOption(theme);
-        await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
+  for (const theme of themes) {
+    await selectHomeTheme(page, theme);
+    for (const language of uiLanguageIds) {
+      const copy = getUiCopy(language);
+      await page.getByTestId('ui-language-selector').selectOption(language);
+      await expect(page.locator('html')).toHaveAttribute('lang', language);
+      await expect(page.getByRole('heading', { name: copy.sportAndFanculture })).toBeVisible();
+      for (const [width, height] of viewports) {
+        await page.setViewportSize({ width, height });
         await expectRoles(page);
         await expectGeometry(page);
         expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
@@ -214,7 +224,7 @@ test('P4 independently verifies the 9-language, 4-theme, 4-viewport home matrix'
     }
   }
 
-  expect(signals.external).toEqual([]);
+  expectOnlyRevocationRequests(signals.external);
   expect(signals.errors).toEqual([]);
   expect(await context.cookies()).toEqual([]);
 });
@@ -228,6 +238,9 @@ test('P4 independently verifies all languages and themes at initial and post-mou
     for (const theme of themes) {
       for (const phase of ['initial', 'after-mount'] as const) {
         const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
+        await context.addInitScript((now) => {
+          Date.now = () => now;
+        }, fixtureNow);
         const page = await context.newPage();
         const signals = collectRuntimeSignals(page);
         await page.addInitScript(
@@ -258,7 +271,7 @@ test('P4 independently verifies all languages and themes at initial and post-mou
         await expectReflowFlow(page);
         expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
         await capturePage(page, info, `home-reflow-${language}-${theme}-${phase}`);
-        expect(signals.external).toEqual([]);
+        expectOnlyRevocationRequests(signals.external);
         expect(signals.errors).toEqual([]);
         expect(await context.cookies()).toEqual([]);
         await context.close();
@@ -296,16 +309,11 @@ test('P4 independently verifies reader return focus, saving, Sport Discover, lan
 
   const sportLink = page.getByRole('link', { name: 'All sport news' });
   await sportLink.click();
-  await expect(page).toHaveURL(/#discover$/u);
-  await expect(page.locator('.discover-facets select').nth(1)).toHaveValue('Sport');
-  await expect(page.locator('article[data-article-id]')).toHaveCount(3);
-  expect(
-    await page
-      .locator('article[data-article-id]')
-      .evaluateAll((nodes) => nodes.map((node) => node.dataset.articleId)),
-  ).toEqual(sportIds);
+  await expect(page).toHaveURL(/#discover\/sport$/u);
+  await expect(page.getByRole('heading', { name: 'Sport reading notes' })).toBeVisible();
+  await expect(page.locator('.content-directory__list > li')).toHaveCount(3);
   await page.goBack();
-  await expect(page).not.toHaveURL(/#discover$/u);
+  await expect(page).not.toHaveURL(/#discover\/sport$/u);
   await expect(page.locator('#mobile-page-title')).toBeFocused();
 
   await page.getByTestId('ui-language-selector').selectOption('de');
@@ -329,7 +337,7 @@ test('P4 independently verifies reader return focus, saving, Sport Discover, lan
   await expectGeometry(stalePage);
   await staleContext.close();
 
-  expect(signals.external).toEqual([]);
+  expectOnlyRevocationRequests(signals.external);
   expect(signals.errors).toEqual([]);
   expect(await context.cookies()).toEqual([]);
 });

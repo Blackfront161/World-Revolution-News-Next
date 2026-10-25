@@ -117,3 +117,45 @@ export function filterVideoSourcesV1(language: string): readonly VideoSourceV1[]
     ? videoSourceCatalogV1.sources
     : videoSourceCatalogV1.sources.filter((source) => source.language === language);
 }
+
+/** Metadata-checked original links; individual content admission is still pending. */
+export type SelectedVideoV1 = Readonly<{
+  id: string;
+  sourceId: VideoSourceV1['id'];
+  title: string;
+  language: VideoSourceLanguageV1;
+  originalUrl: string;
+  format: 'short' | 'video';
+  metadataCheckedOn: string;
+}>;
+
+const selectedVideos: readonly SelectedVideoV1[] = [
+  {
+    id: 'selected-video:derdara-klopp-afd',
+    sourceId: 'video-source:derdarauncut',
+    title: 'Klopp ANSAGE An AfD!',
+    language: 'de',
+    originalUrl: 'https://www.youtube.com/shorts/3SUzjmdDORU',
+    format: 'short',
+    metadataCheckedOn: '2026-09-25',
+  },
+  {
+    id: 'selected-video:andrewism-how-anarchy-works',
+    sourceId: 'video-source:andrewism',
+    title: 'How Anarchy Works',
+    language: 'en',
+    originalUrl: 'https://www.youtube.com/watch?v=lrTzjaXskUU',
+    format: 'video',
+    metadataCheckedOn: '2026-09-25',
+  },
+];
+
+export const selectedVideosV1: readonly SelectedVideoV1[] = Object.freeze(
+  selectedVideos.map((video) => Object.freeze(video)),
+);
+
+export function filterSelectedVideosV1(language: string): readonly SelectedVideoV1[] {
+  return language === 'all'
+    ? selectedVideosV1
+    : selectedVideosV1.filter((video) => video.language === language);
+}

@@ -1,0 +1,63 @@
+{
+  "schema": "wrn.current-rc-emulator-evidence.v1",
+  "observedDate": "2026-09-25",
+  "sourceCommit": "4dc1ad8e0ee6757fa4903365d5d59d2d7466e1e4",
+  "sourceAabSha256": "30560592ce6e6fee4aca1f02b9eccfac1cc027a9e6ba66eeefa9d5d193a7c77e",
+  "productionKeyUsed": false,
+  "independentReview": "pass-no-findings",
+  "device": {
+    "avd": "WRN_API36_Play",
+    "android": "16",
+    "api": 36,
+    "model": "sdk_gphone64_x86_64",
+    "abi": "x86_64"
+  },
+  "artifacts": {
+    "baseline": {
+      "versionName": "2.1.1",
+      "versionCode": 26,
+      "sha256": "0ebb8b56d7de30592fd17fe71232ca099c789ec72d3c285283b0379dc0383f6c"
+    },
+    "target": {
+      "versionName": "2.2.0",
+      "versionCode": 27,
+      "sha256": "ab82ba9b2297ee8d06f34005b37f902a02420bf662cda84836ae1bdc58a6203d"
+    }
+  },
+  "checks": {
+    "upgrade": "pass",
+    "savedState": "pass",
+    "languageAndTheme": "pass",
+    "sourceRoute": "pass",
+    "canonicalSourcePass": "pass",
+    "fatalOrAnrMatches": 0
+  },
+  "releaseDisposition": "blocked-by-external-hosting-signing-and-play-operations",
+  "files": [
+    {
+      "path": "01-baseline-de-saved.png",
+      "bytes": 403233,
+      "sha256": "52358783a3035525b45d17478e4924dff9329bfd5714a0aacd41aaa6af5e5249"
+    },
+    {
+      "path": "02-upgraded-de-saved.png",
+      "bytes": 260531,
+      "sha256": "72b7cc04d988565cea033cf0faefe62730658d14acb67889c1a540366bd9b82a"
+    },
+    {
+      "path": "03-upgraded-sources-top.png",
+      "bytes": 207054,
+      "sha256": "f970d479b42cf1f5e89b11a70805a8a6bc7b24856810e0b7b1debfbaf6656d83"
+    },
+    {
+      "path": "04-upgraded-source-pass-eff.png",
+      "bytes": 414582,
+      "sha256": "c617400a3c71796e7e23c5df08bfa4fdc3d42f098896aca82c64bfbd2746c188"
+    },
+    {
+      "path": "REPORT.md",
+      "bytes": 4610,
+      "sha256": "ff3fb82e6f77627dd13d777ee787972fe3158e1fad9352ace8c90fca50695f5f"
+    }
+  ]
+}

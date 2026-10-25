@@ -1,7 +1,8 @@
 import { expect, test, type Page, type TestInfo } from '@playwright/test';
+import { workspaceFsUrl } from './workspace-fs-url';
 
-const fixtureModule =
-  '/@fs/C:/Users/patri/Documents/ChatGPT/Sauberes Wo Rev Ne/packages/test-support/src/g3-014-offline-fixtures.ts';
+const fixtureModule = workspaceFsUrl('packages/test-support/src/g3-014-offline-fixtures.ts');
+const contractsModule = workspaceFsUrl('packages/content-contracts/src/index.ts');
 
 async function routeReleaseDocuments(page: Page, testInfo: TestInfo) {
   const mobile = testInfo.project.name === 'mobile-390x844';
@@ -54,22 +55,24 @@ test.describe('WRN-G3-014 semantic offline safety equality', () => {
     page,
   }, testInfo) => {
     const harness = await routeReleaseDocuments(page, testInfo);
-    const result = await page.evaluate(async (modulePath) => {
-      const fixtures = await (await import(modulePath)).createG3014OfflineFixtures();
-      const contracts =
-        await import('/@fs/C:/Users/patri/Documents/ChatGPT/Sauberes Wo Rev Ne/packages/content-contracts/src/index.ts');
-      const loader = await import('/src/local-content-release.ts');
-      const knownA = JSON.parse(
-        contracts.canonicalJson(
-          contracts.createContentOfflineSafetyLedger(fixtures.a.documents.archiveLifecycle),
-        ),
-      );
-      const first = await loader.checkLocalContentReleaseForOffline(
-        new AbortController().signal,
-        knownA,
-      );
-      return { first, knownA };
-    }, fixtureModule);
+    const result = await page.evaluate(
+      async ({ fixtureModule, contractsModule }) => {
+        const fixtures = await (await import(fixtureModule)).createG3014OfflineFixtures();
+        const contracts = await import(contractsModule);
+        const loader = await import('/src/local-content-release.ts');
+        const knownA = JSON.parse(
+          contracts.canonicalJson(
+            contracts.createContentOfflineSafetyLedger(fixtures.a.documents.archiveLifecycle),
+          ),
+        );
+        const first = await loader.checkLocalContentReleaseForOffline(
+          new AbortController().signal,
+          knownA,
+        );
+        return { first, knownA };
+      },
+      { fixtureModule, contractsModule },
+    );
     harness.setRelease('b');
     const second = await page.evaluate(async (knownA) => {
       const loader = await import('/src/local-content-release.ts');

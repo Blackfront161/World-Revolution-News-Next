@@ -3,6 +3,10 @@
   max-width: 76rem;
   margin: 0 auto;
 }
+.website-knowledge-view > h1 {
+  font-size: clamp(1.5rem, 8vw, 2rem);
+  overflow-wrap: anywhere;
+}
 .website-content-tabs,
 .website-content-filters,
 .website-safe-links {
@@ -72,8 +76,10 @@
 }
 .website-content-list li,
 .website-source-list li {
+  min-width: 0;
   border-bottom: 1px solid var(--line);
   padding-bottom: 1rem;
+  overflow-wrap: anywhere;
 }
 .website-safe-links a,
 .website-safe-links button {

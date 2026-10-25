@@ -2,8 +2,8 @@ import path from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
 import { getProductionMediaCopy } from '../../packages/ui-language/src/events-media';
 
-const harness = `/@fs/${path.resolve('tests/e2e/production-media-first-boot-harness.tsx').replaceAll('\\', '/')}`;
-const runner = `/docs/evidence/WRN-RC-MEDIA-2026-09-12/work/first-boot/index.html`;
+const harness = `/@fs/${encodeURI(path.resolve('tests/e2e/production-media-first-boot-harness.tsx').replaceAll('\\', '/'))}`;
+const runner = '/__media-first-boot';
 const expectedEmptyControl = {
   format: 'wrn.production-media-offline.v1',
   generation: 0,
@@ -48,8 +48,8 @@ const api = (page: Page) =>
   );
 
 for (const [client, port] of [
-  ['mobile', 43201],
-  ['website', 43202],
+  ['mobile', 43177],
+  ['website', 43175],
 ] as const) {
   test(`${client} blank first boot, explicit fake playback, resume and durable clear`, async ({
     page,

@@ -6,8 +6,9 @@ import type { RegionalEventBundleV1 } from '../../packages/content-contracts/src
 import { getUiCopy, uiLanguageIds, type UiLanguage } from '../../packages/ui-language/src';
 
 const themes = ['dark', 'light', 'pink', 'contrast'] as const;
-const harnessUrl =
-  '/@fs/C:/Users/patri/Documents/ChatGPT/Sauberes%20Wo%20Rev%20Ne/tests/e2e/g3-020-regional-events-visual-harness.tsx';
+const harnessUrl = `/@fs/${encodeURI(
+  resolve('tests/e2e/g3-020-regional-events-visual-harness.tsx').replaceAll('\\', '/'),
+)}`;
 const hash = 'a'.repeat(64);
 const names = (prefix: string) =>
   Object.freeze({

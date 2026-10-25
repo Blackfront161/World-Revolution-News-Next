@@ -1,0 +1,186 @@
+{
+  "schema": "wrn.src04-evidence-manifest.v1",
+  "generatedAt": "2026-09-25T12:36:32.499Z",
+  "files": [
+    {
+      "path": "apps/mobile/public/wrn-source-pass-revocations/current.json",
+      "bytes": 161,
+      "sha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617"
+    },
+    {
+      "path": "apps/mobile/public/wrn-source-passes/current.json",
+      "bytes": 83783,
+      "sha256": "bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa"
+    },
+    {
+      "path": "apps/mobile/src/features/directory/MobileContentDirectoryRoute.test.tsx",
+      "bytes": 7949,
+      "sha256": "3540ec044f55af58ae6d3bde63eb4c48a56bb604702a3921f925301237331183"
+    },
+    {
+      "path": "apps/mobile/src/features/directory/MobileContentDirectoryRoute.tsx",
+      "bytes": 20715,
+      "sha256": "046c24a5a8dd9092ccceb0d4d9774084784ec9545b70cf9af11695382debabbe"
+    },
+    {
+      "path": "apps/mobile/src/source-pass-overlay.test.ts",
+      "bytes": 8842,
+      "sha256": "47e59cb413df9d5b198ad6f890e52804f46560e926e314dc67df33ef6df2bdfd"
+    },
+    {
+      "path": "apps/website/public/wrn-source-pass-revocations/current.json",
+      "bytes": 161,
+      "sha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617"
+    },
+    {
+      "path": "apps/website/public/wrn-source-passes/current.json",
+      "bytes": 83783,
+      "sha256": "bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa"
+    },
+    {
+      "path": "apps/website/src/features/directory/WebsiteContentDirectoryRoute.test.tsx",
+      "bytes": 4479,
+      "sha256": "bea017502f48c9d2397c50c56b776503632700c6a365deb9ffb0360e99ed0809"
+    },
+    {
+      "path": "apps/website/src/features/directory/WebsiteContentDirectoryRoute.tsx",
+      "bytes": 15765,
+      "sha256": "2a6470702c1a95b724a2977d27a502ebbdf751746017cd64450b797217abbe5a"
+    },
+    {
+      "path": "apps/website/tools/production-site-package.mjs",
+      "bytes": 19480,
+      "sha256": "f6cfc5e8c7c3617a5a62ed638a19723682c9944f777057d2c7e96e456d35d544"
+    },
+    {
+      "path": "apps/website/tools/production-site-package.test.mjs",
+      "bytes": 21569,
+      "sha256": "06a799285ef58378637acc85bd1b7990b5e0e5f49421337603fd0c78cb5aa36f"
+    },
+    {
+      "path": "apps/website/tools/staging-package.mjs",
+      "bytes": 15635,
+      "sha256": "53bc6a6dbe0e94f5e788f391b22e72e94c66a9169170a463a552ef26d6c27258"
+    },
+    {
+      "path": "apps/website/tools/staging-package.test.mjs",
+      "bytes": 13088,
+      "sha256": "0b8f1af31ae7adb7aeeb984cdd127dc032e4cd1d38e8942a59127808c2116a14"
+    },
+    {
+      "path": "docs/PROJECT-STATE.md",
+      "bytes": 33173,
+      "sha256": "11a749921c25da72d9743f2d1405acc5dec057d96d26a66ff223c6ff331ffc9a"
+    },
+    {
+      "path": "docs/evidence/WRN-PO-SCOPE-STATUS-2026-09-10.md",
+      "bytes": 20863,
+      "sha256": "9d4a20683942d5d5f816496137254c7d43a88d6dec86aa177dd52353d40cc426"
+    },
+    {
+      "path": "docs/evidence/WRN-SRC04-GLOBAL-SOURCES-2026-09-25/REPORT.md",
+      "bytes": 4265,
+      "sha256": "f36411bf199061e3ac988b73eb52f869cb3e36558693a941bb07a79b15127992"
+    },
+    {
+      "path": "docs/evidence/WRN-SRC04-GLOBAL-SOURCES-2026-09-25/android-offline-source-cards.png",
+      "bytes": 415456,
+      "sha256": "965593df3a577d0802ce19fba22543e7ab8b0ac882aef991f45908bad1ec5801"
+    },
+    {
+      "path": "docs/evidence/WRN-SRC04-GLOBAL-SOURCES-2026-09-25/android-source-cards.png",
+      "bytes": 434403,
+      "sha256": "0a03f8da566dfb17ad19bc159a811d03f6ec6bc9d3063e11da708bd5f53b98dd"
+    },
+    {
+      "path": "docs/evidence/WRN-SRC04-GLOBAL-SOURCES-2026-09-25/android-sources.png",
+      "bytes": 202792,
+      "sha256": "5c2cd38be37381d3d554ff825842c6644aeb57590f7453d19d4d42b3b2902886"
+    },
+    {
+      "path": "package.json",
+      "bytes": 3690,
+      "sha256": "149578070a5b51f79d651f6b4681589d7fb84a0a53ab745aa1f844a4b5172ef0"
+    },
+    {
+      "path": "packages/browser-content/src/data/source-pass-overlay-fallback-v1.json",
+      "bytes": 13967,
+      "sha256": "0fc6783c02e5d4cc40f6229ad5eff782683cb6ad58ac2dee5d65ccc4c9161732"
+    },
+    {
+      "path": "packages/browser-content/src/data/source-pass-overlay-v1.json",
+      "bytes": 83783,
+      "sha256": "bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa"
+    },
+    {
+      "path": "packages/browser-content/src/data/source-pass-revocations-v1.json",
+      "bytes": 161,
+      "sha256": "030aa883148b5378ac0821a7ddc0f48935178fe13058508439155423f83bb617"
+    },
+    {
+      "path": "packages/browser-content/src/source-pass-hook.ts",
+      "bytes": 1695,
+      "sha256": "152c9115c8a0d03ff68cea5c754a52b91857e2482d789d396bebfc2b7c88c104"
+    },
+    {
+      "path": "packages/browser-content/src/source-pass-overlay.ts",
+      "bytes": 14787,
+      "sha256": "094379630633933f2294c143bbb5aa4a010f531dfd3ec77d095365d20440e4f6"
+    },
+    {
+      "path": "packages/browser-content/src/source-pass-ui.tsx",
+      "bytes": 4282,
+      "sha256": "84378dbc5cec6d514f369f9a0f168ff04ae919efe168048f3732e552c2e2d0db"
+    },
+    {
+      "path": "packages/content-contracts/package.json",
+      "bytes": 2929,
+      "sha256": "e098d519499a4546251bc2547a5f080a578bc17944d05c6a45dd817687b2ee5b"
+    },
+    {
+      "path": "packages/content-contracts/src/directory/source-pass-overlay-v1.test.ts",
+      "bytes": 8698,
+      "sha256": "734bb6015a7872669bdb7e08e1305294f9c3438e0b9adbc10b6039881ea58e63"
+    },
+    {
+      "path": "packages/content-contracts/src/directory/source-pass-overlay-v1.ts",
+      "bytes": 15661,
+      "sha256": "7801d88702b5896b2317d15641cbbe9c54d958cad0a7201a673a5a00bb78b6bd"
+    },
+    {
+      "path": "packages/content-contracts/src/directory/source-pass-revocations-v1.test.ts",
+      "bytes": 1368,
+      "sha256": "505778b1a5392d0734ef8d256893c95b5c0dac684d92c9343fd6957ebd071bf5"
+    },
+    {
+      "path": "packages/content-contracts/src/directory/source-pass-revocations-v1.ts",
+      "bytes": 2446,
+      "sha256": "198eb35b66d5541fd82a0ed2463fa4be1c292fbac1de2360e6a06b997c752d8d"
+    },
+    {
+      "path": "packages/content-contracts/src/index.ts",
+      "bytes": 94508,
+      "sha256": "c58c5fb1966ff0a696dad8e50a4b3a10d2e048efa16020d32391aafb07b30e04"
+    },
+    {
+      "path": "packages/ui-language/src/source-pass.ts",
+      "bytes": 18493,
+      "sha256": "e27affd91e168146c7aac6a391f25377903e02fc683fdee870c945fff38b377d"
+    },
+    {
+      "path": "tools/browser-content-aliases.mjs",
+      "bytes": 3531,
+      "sha256": "ee6bfb31954ee6fb3d62d978d7f1b99cce929bf0fd75ca8af654b8cca77adfb2"
+    },
+    {
+      "path": "tools/source-pass-release-assets.test.mjs",
+      "bytes": 2861,
+      "sha256": "6a45828fc17393fff2f6dc01940469a18ebe5a2055c0f6ed45c0d82f625b2490"
+    },
+    {
+      "path": "tsconfig.base.json",
+      "bytes": 3523,
+      "sha256": "dd69ba6e3089da981cf9498b6ec1e2f70cee2ba09a18db316ded5116835a6f34"
+    }
+  ]
+}

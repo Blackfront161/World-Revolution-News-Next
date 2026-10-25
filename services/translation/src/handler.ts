@@ -687,7 +687,10 @@ async function joinOrCreateMiss(
     return await callerRun.wait(() => miss!.promise);
   } finally {
     miss.waiters -= 1;
-    if (miss.waiters === 0 && misses.get(missKey) === miss) miss.stop();
+    if (miss.waiters === 0 && misses.get(missKey) === miss) {
+      misses.delete(missKey);
+      miss.stop();
+    }
   }
 }
 

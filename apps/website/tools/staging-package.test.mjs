@@ -287,7 +287,7 @@ test('creates an exact deterministic public file manifest and excludes Vite evid
   assert.equal((await readdir(root)).includes('.vite'), true);
 });
 
-test('copies exactly 21 active files and rejects every extra HTML/article before hashing', async (t) => {
+test('copies exactly 23 active files and rejects every extra HTML/article before hashing', async (t) => {
   const root = await mkdtemp(path.join(os.tmpdir(), 'wrn-staging-copy-'));
   t.after(() => rm(root, { recursive: true, force: true }));
   const build = path.join(root, 'build');
@@ -301,6 +301,8 @@ test('copies exactly 21 active files and rejects every extra HTML/article before
     'robots.txt',
     'sitemap.xml',
     'website-staging-shell-sw.js',
+    'wrn-source-passes/current.json',
+    'wrn-source-pass-revocations/current.json',
     'articles/wrn-test-art-cedar/index.html',
     'articles/wrn-test-art-ember/index.html',
     'articles/wrn-test-art-fern/index.html',
@@ -329,7 +331,7 @@ test('copies exactly 21 active files and rejects every extra HTML/article before
     'articles/wrn-test-art-fern/index.html',
     'index.html',
   ]);
-  assert.equal((await copyClosedPublicPackage(build, output)).length, 21);
+  assert.equal((await copyClosedPublicPackage(build, output)).length, 23);
   const probeManifest = await createPackageManifest({
     directory: output,
     sourceCommit: 'a'.repeat(40),
@@ -380,6 +382,8 @@ test('copies exactly 21 active files and rejects every extra HTML/article before
     'sitemap.xml',
     'website-staging-shell-sw.js',
     'wrn-local-release',
+    'wrn-source-pass-revocations',
+    'wrn-source-passes',
   ]);
   await writeFile(path.join(build, 'leak.txt'), 'not public');
   await assert.rejects(

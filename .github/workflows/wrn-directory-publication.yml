@@ -1,0 +1,90 @@
+name: WRN current directory publication
+
+on:
+  schedule:
+    - cron: '47 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      upstream_commit:
+        description: Optional exact 40-character commit from the legacy data repository.
+        required: false
+        type: string
+      publish:
+        description: Publish only when the repository switch and scoped Hostinger secrets are configured.
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wrn-current-directory-publication
+  cancel-in-progress: false
+
+jobs:
+  prepare-and-publish:
+    if: github.repository == 'Blackfront161/World-Revolution-News-Next' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24.19.0
+          check-latest: false
+      - id: upstream
+        name: Resolve exact upstream commit
+        env:
+          REQUESTED_COMMIT: ${{ inputs.upstream_commit }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          commit="${REQUESTED_COMMIT:-}"
+          if [[ -z "$commit" ]]; then
+            commit="$(timeout 20s git ls-remote https://github.com/Blackfront161/Revolution-News-Data.git refs/heads/main | awk 'NF == 2 { print $1; exit }')"
+          fi
+          [[ "$commit" =~ ^[a-f0-9]{40}$ ]]
+          printf 'commit=%s\n' "$commit" >> "$GITHUB_OUTPUT"
+      - id: packet
+        name: Prepare and validate metadata-only directory packet
+        env:
+          UPSTREAM_COMMIT: ${{ steps.upstream.outputs.commit }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mobile='apps/mobile/src/features/directory/data/content-directory-v1.json'
+          website='apps/website/src/features/directory/data/content-directory-v1.json'
+          cmp --silent "$mobile" "$website"
+          target="$GITHUB_WORKSPACE/.wrn-actions-output/current-directory"
+          sequence="$(date -u +%Y%m%d%H%M)"
+          node tools/directory/prepare-live-content-directory.mjs \
+            --baseline "$mobile" \
+            --commit "$UPSTREAM_COMMIT" \
+            --output "$target" \
+            --sequence "$sequence" >/dev/null
+          node tools/directory/publish-live-content-directory.mjs \
+            --output "$target" \
+            --expected-commit "$UPSTREAM_COMMIT"
+          printf 'directory=%s\n' "$target" >> "$GITHUB_OUTPUT"
+      - name: Publish snapshot, verify, then activate pointer
+        if: vars.WRN_DIRECTORY_PUBLISH_ENABLED == '1' && (github.event_name == 'schedule' || inputs.publish == true)
+        env:
+          WRN_DIRECTORY_PUBLISH_ENABLED: '1'
+          WRN_FTPS_HOST: ${{ secrets.WRN_FTPS_HOST }}
+          WRN_FTPS_IP: ${{ secrets.WRN_FTPS_IP }}
+          WRN_FTPS_USER: ${{ secrets.WRN_FTPS_USER }}
+          WRN_FTPS_PASSWORD: ${{ secrets.WRN_FTPS_PASSWORD }}
+          WRN_FTPS_DIRECTORY: ${{ secrets.WRN_FTPS_DIRECTORY }}
+          UPSTREAM_COMMIT: ${{ steps.upstream.outputs.commit }}
+          PACKET_DIRECTORY: ${{ steps.packet.outputs.directory }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/directory/publish-live-content-directory.mjs \
+            --output "$PACKET_DIRECTORY" \
+            --expected-commit "$UPSTREAM_COMMIT" \
+            --publish

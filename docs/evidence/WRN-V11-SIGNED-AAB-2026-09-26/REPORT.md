@@ -1,0 +1,9 @@
+# Lokal signiertes aktuelles Android-AAB · 26.09.2026
+
+Der aktuelle Produktstand `a4cbbff92b08219e28f4f84894fea3bcb1fa91b6` einschließlich des Sport-Personalisierungsfixes wurde bereits zu einem getrennten AAB mit der vom PO bereitgestellten lokalen JKS signiert. Diese Prüfung war ausschließlich lesend; sie hat weder neu signiert noch hochgeladen oder die Live-App ersetzt.
+
+Geprüfte Datei im ignorierten Arbeitsordner: `work/wrn-android-release-jIHM2Q/WorldRevolutionNews-2.2.0-code27-upload-signed-20260926-171848.aab`, 9.731.873 Byte, SHA-256 `d0fdbf0e8fcd0cdcd7f2b29035a4c278da17e26f286c1a1e980454106e2dfaa2`. Bundletool las aus dem signierten Manifest `com.world.revolution`, `versionCode=27`, `versionName=2.2.0`. Der [erneut ausgeführte Asset-Verifier](asset-verification.json) verglich exakt 108/108 `base/assets`-Dateien byteweise mit dem receiptgebundenen nativen Manifest: PASS, 0 fehlende oder abweichende Einträge.
+
+`jarsigner -verify` meldete **„JAR-Datei verifiziert“** mit Exit 0. `keytool -printcert -jarfile` ergab den Zertifikatsfingerabdruck SHA-256 `7E4E000A93698A50DBF331A8C6931A0A276830BF34D24E3B50F9734DF82D79A8`. Derselbe Fingerabdruck wurde unabhängig in den vorhandenen alten AABs `WorldRevolutionNews_v1.3.aab` (Code 3) und `app-release.aab` (Version 1.6.0/Code 6) gelesen. `jarsigner -verify -strict` meldet bei diesem selbstsignierten Android-Upload-Zertifikat erwartungsgemäß eine PKIX-Vertrauenskette-/Zeitstempelwarnung; die kryptografische Dateisignaturprüfung ohne `-strict` war erfolgreich.
+
+**Grenze:** Ein auf dem Rechner übereinstimmendes historisches Zertifikat beweist nicht, dass die Play Console es noch als registrierten Upload-Schlüssel akzeptiert. Der Play-signierte Upgradepfad, Pre-Launch, vollständige finale Matrix und PO-Sichttest bleiben offen. Die getrennte **WRN Test** mit `com.world.revolution.rc` bleibt für die erste Nutzerprüfung vorgesehen; dieses Bundle mit `com.world.revolution` wurde nicht verteilt.

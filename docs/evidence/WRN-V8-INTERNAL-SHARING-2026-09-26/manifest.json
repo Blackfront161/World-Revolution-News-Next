@@ -1,0 +1,18 @@
+{
+  "schema": "wrn.local-artifact-hash-manifest.v1",
+  "productCommit": "d03f966874cf08fc38be9dba43ed5ce9efd13e9a",
+  "purpose": "google-play-internal-app-sharing-only",
+  "files": [
+    {
+      "path": "work/wrn-android-release-mN283W/WorldRevolutionNews-2.2.0-code27-internal-sharing.aab",
+      "sha256": "5b72585e54e7d70a5356a4c06d2d676c2c175aff0a791268925c11fc457978ea",
+      "bytes": 9707867,
+      "tracked": false
+    },
+    {
+      "path": "docs/evidence/WRN-V8-INTERNAL-SHARING-2026-09-26/REPORT.md",
+      "sha256": "0f481f4a7f6f046f98d3b0ffbb081fa3fd29f3f32263ae063dec44d96dc700e3",
+      "tracked": true
+    }
+  ]
+}

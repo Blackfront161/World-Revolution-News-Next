@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "d03f966874cf08fc38be9dba43ed5ce9efd13e9a",
+  "aabBytes": 9655258,
+  "aabSha256": "30088120b24a1053cf1a68ba5300b0d4105147622a8272890b23e981573032cd",
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 1980,
+      "sha256": "4a1351cff7680d8f78ecb167bd5163941d6d0d08b788b30032dbe535e1b580d0"
+    },
+    {
+      "path": "receipt.json",
+      "bytes": 23360,
+      "sha256": "a0f768990a212e02ec8a91ad0ef586d96f89a92f021b4ce65caf1a4a307f1b9a"
+    },
+    {
+      "path": "aab-verification.json",
+      "bytes": 350,
+      "sha256": "9c6d45a72844535779a57d9540e69324324775b96830b712cac1232149137a2a"
+    }
+  ]
+}

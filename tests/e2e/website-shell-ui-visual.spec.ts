@@ -103,10 +103,11 @@ async function assertV3HeaderAndNormalActionRoles(page: Page, theme: (typeof the
       };
     };
     return {
-      magenta: resolveColor('--wrn-color-accent-magenta'),
+      action: resolveColor('--wrn-color-action'),
+      actionContrast: resolveColor('--wrn-color-action-contrast'),
       cyan: resolveColor('--wrn-color-accent-cyan'),
       surface: resolveColor('--wrn-color-surface-raised'),
-      controlSurface: resolveColor('--wrn-website-control-surface'),
+      text: resolveColor('--wrn-color-text'),
       normalAction: read('.website-shell-actions button'),
       activeNavigation: read('.site-nav [aria-current="page"]'),
       language: read('.language-selector select'),
@@ -115,30 +116,27 @@ async function assertV3HeaderAndNormalActionRoles(page: Page, theme: (typeof the
     };
   });
 
-  const expectedPinkRoles = {
-    buttonText: 'rgb(155, 130, 255)',
-    cyan: 'rgb(84, 229, 242)',
-    controlSurface: 'rgb(36, 11, 25)',
-    magenta: 'rgb(255, 90, 120)',
-  };
-  const expectedCyan = theme === 'pink' ? expectedPinkRoles.cyan : roles.cyan;
-  const expectedMagenta = theme === 'pink' ? expectedPinkRoles.magenta : roles.magenta;
-  const expectedButtonText = theme === 'pink' ? expectedPinkRoles.buttonText : expectedMagenta;
-  const expectedControlSurface =
-    theme === 'pink' ? expectedPinkRoles.controlSurface : roles.surface;
+  if (theme === 'pink') {
+    expect(roles.action).toBe('rgb(255, 82, 102)');
+    expect(roles.actionContrast).toBe('rgb(33, 4, 10)');
+    expect(roles.cyan).toBe('rgb(255, 79, 163)');
+    expect(roles.surface).toBe('rgb(58, 23, 57)');
+    expect(roles.text).toBe('rgb(255, 245, 252)');
+  }
 
-  expect(roles.normalAction.borderBottomColor).toBe(expectedMagenta);
-  expect(roles.normalAction.backgroundColor).toBe(expectedControlSurface);
-  expect(roles.normalAction.color).toBe(expectedButtonText);
-  expect(roles.activeNavigation.backgroundColor).toBe('rgba(0, 0, 0, 0)');
+  expect(roles.normalAction.borderBottomColor).toBe(roles.action);
+  expect(roles.normalAction.backgroundColor).toBe(roles.surface);
+  expect(roles.normalAction.color).toBe(roles.text);
+  expect(roles.activeNavigation.backgroundColor).toBe(roles.action);
   expect(roles.activeNavigation.borderRadius).not.toBe('999px');
-  expect(roles.activeNavigation.borderBottomColor).toBe(expectedMagenta);
+  expect(roles.activeNavigation.borderBottomColor).toBe(roles.action);
+  expect(roles.activeNavigation.color).toBe(roles.actionContrast);
   expect(Number(roles.activeNavigation.fontWeight)).toBeGreaterThanOrEqual(800);
-  expect(roles.language.borderBottomColor).toBe(expectedCyan);
-  expect(roles.language.backgroundColor).toBe(expectedControlSurface);
-  expect(roles.theme.borderBottomColor).toBe(expectedCyan);
-  expect(roles.theme.backgroundColor).toBe(expectedControlSurface);
-  expect(roles.systemPanel.borderInlineStartColor).toBe(expectedCyan);
+  expect(roles.language.borderBottomColor).toBe(roles.action);
+  expect(roles.language.backgroundColor).toBe(roles.surface);
+  expect(roles.theme.borderBottomColor).toBe(roles.action);
+  expect(roles.theme.backgroundColor).toBe(roles.surface);
+  expect(roles.systemPanel.borderInlineStartColor).toBe(roles.cyan);
   for (const control of [roles.normalAction, roles.activeNavigation, roles.language, roles.theme]) {
     expect(control.height).toBeGreaterThanOrEqual(44);
     expect(control.width).toBeGreaterThanOrEqual(44);
@@ -162,9 +160,9 @@ async function assertPinkInactiveButtonText(page: Page) {
     );
   expect(controls.length).toBeGreaterThanOrEqual(3);
   for (const control of controls) {
-    expect(control.backgroundColor).toBe('rgb(36, 11, 25)');
-    expect(control.borderColor).toBe('rgb(255, 90, 120)');
-    expect(control.color).toBe('rgb(155, 130, 255)');
+    expect(control.backgroundColor).toBe('rgb(58, 23, 57)');
+    expect(control.borderColor).toBe('rgb(255, 82, 102)');
+    expect(control.color).toBe('rgb(255, 245, 252)');
   }
 }
 
@@ -179,8 +177,8 @@ async function capturePinkPointerActiveButton(page: Page, stem: string) {
       const style = getComputedStyle(element);
       return { backgroundColor: style.backgroundColor, color: style.color };
     });
-    expect(pressed.backgroundColor).toBe('rgb(155, 130, 255)');
-    expect(pressed.color).toBe('rgb(36, 0, 18)');
+    expect(pressed.backgroundColor).toBe('rgb(255, 82, 102)');
+    expect(pressed.color).toBe('rgb(33, 4, 10)');
     await page.screenshot({
       path: path.join(evidenceDirectory, `${stem}-pressed.png`),
       fullPage: true,
@@ -190,7 +188,7 @@ async function capturePinkPointerActiveButton(page: Page, stem: string) {
   }
   await expect
     .poll(() => button.evaluate((element) => getComputedStyle(element).backgroundColor))
-    .toBe('rgb(36, 11, 25)');
+    .toBe('rgb(58, 23, 57)');
 }
 
 async function assertV3ActiveActionRole(page: Page, theme: (typeof themes)[number]) {
@@ -198,21 +196,28 @@ async function assertV3ActiveActionRole(page: Page, theme: (typeof themes)[numbe
     .locator('.state-controls button[aria-pressed="true"]')
     .evaluate((button) => {
       const probe = document.createElement('span');
-      probe.style.color = 'var(--wrn-color-accent-magenta)';
+      probe.style.color = 'var(--wrn-color-action)';
       document.body.append(probe);
-      const magenta = getComputedStyle(probe).color;
+      const actionColor = getComputedStyle(probe).color;
+      probe.style.color = 'var(--wrn-color-action-contrast)';
+      const actionContrast = getComputedStyle(probe).color;
       probe.remove();
       const bounds = button.getBoundingClientRect();
       return {
         backgroundColor: getComputedStyle(button).backgroundColor,
         color: getComputedStyle(button).color,
         height: bounds.height,
-        magenta,
+        actionColor,
+        actionContrast,
         width: bounds.width,
       };
     });
-  expect(action.backgroundColor).toBe(theme === 'pink' ? 'rgb(155, 130, 255)' : action.magenta);
-  if (theme === 'pink') expect(action.color).toBe('rgb(36, 0, 18)');
+  expect(action.backgroundColor).toBe(action.actionColor);
+  expect(action.color).toBe(action.actionContrast);
+  if (theme === 'pink') {
+    expect(action.actionColor).toBe('rgb(255, 82, 102)');
+    expect(action.actionContrast).toBe('rgb(33, 4, 10)');
+  }
   expect(action.height).toBeGreaterThanOrEqual(44);
   expect(action.width).toBeGreaterThanOrEqual(44);
 }
@@ -234,26 +239,18 @@ async function assertV3ReaderStripe(page: Page, theme: (typeof themes)[number]) 
     expect(readerStripe.markerContent).not.toBe('none');
     expect(readerStripe.markerBackgroundImage).toContain('linear-gradient');
     if (theme === 'pink') {
-      expect(readerStripe.markerBackgroundImage).toContain('rgb(84, 229, 242)');
-      expect(readerStripe.markerBackgroundImage).toContain('rgb(255, 90, 120)');
+      expect(readerStripe.markerBackgroundImage).toContain('rgb(255, 79, 163)');
+      expect(readerStripe.markerBackgroundImage).toContain('rgb(255, 82, 102)');
     }
   }
 }
 
 async function assertBrandPresentation(page: Page, width: number, theme: (typeof themes)[number]) {
-  const markWidth = await page
-    .locator('.site-brand-mark')
-    .evaluate((mark) => Math.round(mark.getBoundingClientRect().width));
-  if (width < 768) {
-    expect(markWidth).toBeGreaterThanOrEqual(72);
-    expect(markWidth).toBeLessThanOrEqual(94);
-  } else if (width < 1024) {
-    expect(markWidth).toBeGreaterThanOrEqual(80);
-    expect(markWidth).toBeLessThanOrEqual(94);
-  } else {
-    expect(markWidth).toBeGreaterThanOrEqual(56);
-    expect(markWidth).toBeLessThanOrEqual(64);
-  }
+  const brand = page.locator('.site-brand-name');
+  await expect(brand).toContainText('World Revolution News');
+  const brandWidth = await brand.evaluate((element) => element.getBoundingClientRect().width);
+  expect(brandWidth).toBeGreaterThan(0);
+  expect(brandWidth).toBeLessThanOrEqual(width);
 
   const shellBackground = await page
     .locator('.website-shell')
@@ -378,7 +375,11 @@ async function setPreMountState(page: Page, language: string, initialReflow: boo
 }
 
 async function openIsolatedContext(browser: Browser) {
-  return browser.newContext({ viewport: { width: 390, height: 844 } });
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  await context.addInitScript(() =>
+    sessionStorage.setItem('wrn.website.support-welcome.v1', 'dismissed'),
+  );
+  return context;
 }
 
 test('P3 captures 48 normal and 72 real reflow website-shell panel and dialog cases', async ({
@@ -524,7 +525,7 @@ test('V3-R2 keeps Pink controls on the dark signed-app surface', async ({
   }
 });
 
-test('V3-R4 fills Pink action buttons violet only while pressed', async ({
+test('V3-R4 fills Pink action buttons red only while pressed', async ({
   browser,
   browserName,
 }, info) => {

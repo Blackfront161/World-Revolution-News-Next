@@ -5,6 +5,7 @@ const chromeChannel = 'chrome' as const;
 
 export default defineConfig({
   testDir: './tests/e2e',
+  testMatch: '**/*.spec.ts',
   globalSetup: './tests/e2e/global-setup.ts',
   fullyParallel: true,
   forbidOnly: true,

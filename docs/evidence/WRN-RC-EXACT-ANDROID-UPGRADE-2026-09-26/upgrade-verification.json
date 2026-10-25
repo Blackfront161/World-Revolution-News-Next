@@ -1,0 +1,23 @@
+{
+  "schema": "wrn.rc-exact-android-upgrade.v1",
+  "status": "PASS",
+  "device": "WRN_RC_C8C0450/emulator-5560/API36",
+  "isolatedAvd": true,
+  "baselineVersion": "2.1.1/26",
+  "candidateVersion": "2.2.0/27",
+  "sourceCommit": "c8c045074a3effe2f7e3eeba4bbf07f409a59c35",
+  "sourceAabSha256": "ad7cafa2f7f55d7c5993bcad563edaf0186a6cf8487f3ddb63b359745541f49a",
+  "testApkSha256": "86b34fa9422b91a72b943e6f622e4bf23787cdd0a7c9cb3ea3a720303565609a",
+  "testCertificateSha256": "56f2aa525f82ac84dba2d67034405f35294d7816f677a7e88a0fe4b4491a4afc",
+  "testApkAssets": 94,
+  "firstInstallTime": "2026-09-25 15:58:59",
+  "lastUpdateTime": "2026-09-25 16:02:26",
+  "savedArticleTitle": "Cops Play Hide and Seek About Using Spy Tech to Avoid Scrutiny and Bad PR",
+  "localePersisted": "DE",
+  "themePersisted": "Violett/Rot",
+  "offlineReaderOpened": true,
+  "wifiOn": "0",
+  "mobileData": "0",
+  "fatalOrAnrLast5000": 0,
+  "productionKeyUsed": false
+}

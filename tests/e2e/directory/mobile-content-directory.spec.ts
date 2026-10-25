@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
-import { expect, test } from '@playwright/test';
-import { mkdir } from 'node:fs/promises';
+import { expect, test, type Page, type Request } from '@playwright/test';
+import { mkdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import {
   getDirectoryCopy,
@@ -8,16 +8,38 @@ import {
 } from '../../../apps/mobile/src/features/directory/directory-copy';
 const languages = ['en', 'de', 'es', 'fr', 'it', 'pt', 'ru', 'el', 'tr'] as const;
 const themes = ['dark', 'oled', 'soft', 'pink', 'light', 'system', 'contrast'] as const;
+const revocationsUrl = 'https://solinaridao.com/wrn-source-pass-revocations/current.json';
+const revocationFulfillments = new WeakMap<Page, number>();
+const revocations = readFile(
+  new URL(
+    '../../../packages/browser-content/src/data/source-pass-revocations-v1.json',
+    import.meta.url,
+  ),
+  'utf8',
+).then((raw) => JSON.stringify({ ...JSON.parse(raw), revision: 2 }));
 
-test('real news filters paginate, retain both snapshots and make no external request or content write', async ({
+test.beforeEach(async ({ page }) => {
+  revocationFulfillments.set(page, 0);
+  await page.route(revocationsUrl, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      headers: { 'access-control-allow-origin': '*' },
+      body: await revocations,
+    });
+    revocationFulfillments.set(page, revocationFulfillments.get(page)! + 1);
+  });
+});
+
+test('real news filters paginate, retain both snapshots and only check revocation safety externally', async ({
   page,
 }, testInfo) => {
   test.skip(testInfo.project.name !== 'mobile-390x844');
-  const external: string[] = [],
+  const external: Request[] = [],
     errors: string[] = [];
   const origin = new URL(testInfo.project.use.baseURL as string).origin;
   page.on('request', (r) => {
-    if (new URL(r.url()).origin !== origin) external.push(r.url());
+    if (new URL(r.url()).origin !== origin) external.push(r);
   });
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto('/?state=ready#discover/news');
@@ -63,7 +85,21 @@ test('real news filters paginate, retain both snapshots and make no external req
   await expect(page.getByText('No matching entries', { exact: true })).toBeVisible();
   await page.context().setOffline(false);
   expect(await page.evaluate(() => JSON.stringify({ ...localStorage }))).toBe(storage);
-  expect(external).toEqual([]);
+  expect(external).toHaveLength(1);
+  const request = external[0]!;
+  const headers = await request.allHeaders();
+  expect(request.url()).toBe(revocationsUrl);
+  expect(request.method()).toBe('GET');
+  expect(request.postData()).toBeNull();
+  expect(headers.accept).toBe('application/json');
+  expect(headers.cookie).toBeUndefined();
+  expect(headers.authorization).toBeUndefined();
+  expect(headers.referer).toBeUndefined();
+  expect(revocationFulfillments.get(page)).toBe(1);
+  const durableRevocations = await page.evaluate(() =>
+    localStorage.getItem('wrn.source-pass-revocations.v1'),
+  );
+  expect(JSON.parse(durableRevocations ?? 'null')).toMatchObject({ revision: 2, endpointIds: [] });
   expect(errors).toEqual([]);
 });
 
@@ -83,10 +119,12 @@ test('sources retain historical observations and HTTP addresses; sport is attrib
   );
   await page.getByRole('combobox', { name: 'Language', exact: true }).selectOption('el');
   await page.getByRole('textbox', { name: 'Search', exact: true }).fill('zzzz-no-match');
-  await expect(page.getByText('No matching entries', { exact: true })).toBeVisible();
+  await expect(page.getByText('No matching entries', { exact: true })).toHaveCount(2);
   await page.getByRole('button', { name: 'Reset filters', exact: true }).click();
   await page.getByRole('button', { name: 'Load 30 more', exact: true }).click();
-  await expect(page.locator('.content-directory__list > li')).toHaveCount(60);
+  await expect(page.locator('.content-directory__list:not(.source-pass-list) > li')).toHaveCount(
+    60,
+  );
   await page.getByRole('button', { name: 'Sport reading notes', exact: true }).click();
   await expect(page).toHaveURL(/#discover\/sport$/);
   await expect(
