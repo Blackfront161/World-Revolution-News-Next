@@ -1,0 +1,71 @@
+name: WRN read-only FTP diagnostic
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: wrn-current-directory-publication
+  cancel-in-progress: false
+jobs:
+  diagnose:
+    if: github.repository == 'Blackfront161/World-Revolution-News-Next'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    env:
+      WRN_FTPS_HOST: ${{ secrets.WRN_FTPS_HOST }}
+      WRN_FTPS_IP: ${{ secrets.WRN_FTPS_IP }}
+      WRN_FTPS_USER: ${{ secrets.WRN_FTPS_USER }}
+      WRN_FTPS_PASSWORD: ${{ secrets.WRN_FTPS_PASSWORD }}
+    steps:
+      - name: Read-only connection phase diagnostics
+        shell: python
+        run: |
+          import ftplib, ssl, os, json, re, sys
+          phase = 'configuration'
+          ftp = None
+          try:
+              host = os.environ['WRN_FTPS_HOST']
+              address = os.environ['WRN_FTPS_IP']
+              user = os.environ['WRN_FTPS_USER']
+              assert host == 'srv2083.hstgr.io' and address == '82.198.229.55'
+              assert user == 'u353704738.wrnnewsauto'
+              ftp = ftplib.FTP_TLS(context=ssl.create_default_context(), timeout=15)
+              phase = 'connect'
+              ftp.connect(address, 21)
+              ftp.host = host
+              phase = 'login'
+              ftp.login(user, os.environ['WRN_FTPS_PASSWORD'])
+              phase = 'private-data-channel'
+              ftp.prot_p()
+              phase = 'root'
+              assert ftp.pwd() == '/'
+              phase = 'list-root'
+              names = {name for name, facts in ftp.mlsd() if facts.get('type') not in ('cdir', 'pdir')}
+              phase = 'read-pointer'
+              size = [0]
+              def bounded(chunk):
+                  size[0] += len(chunk)
+                  assert size[0] <= 16384
+              ftp.retrbinary('RETR current.json', bounded)
+              phase = 'parent-traversal'
+              parent_denied = False
+              try:
+                  ftp.cwd('..')
+              except ftplib.error_perm:
+                  parent_denied = True
+              assert ftp.pwd() == '/'
+              phase = 'body-child-visibility'
+              body_child_readable = False
+              try:
+                  next(iter(ftp.mlsd('article-texts')), None)
+                  body_child_readable = True
+              except ftplib.error_perm:
+                  pass
+              print(json.dumps({'state':'read-only-diagnostic-complete','publicationPerformed':False,'parentDenied':parent_denied,'bodyChildReadable':body_child_readable,'metadataEntriesPresent':{'current.json','snapshots'} <= names}))
+          except Exception as error:
+              reply = str(error)[:3] if isinstance(error, ftplib.error_perm) and re.match(r'^[45][0-9]{2}', str(error)) else None
+              print(json.dumps({'state':'read-only-diagnostic-failed','phase':phase,'errorType':type(error).__name__,'replyCode':reply,'publicationPerformed':False}))
+              sys.exit(1)
+          finally:
+              if ftp is not None:
+                  ftp.close()
