@@ -1,8 +1,11 @@
 import { expect, test } from '@playwright/test';
 
+const mobileMediaHarness = 'http://127.0.0.1:43177/__media-idb';
+const mobileMediaRoute = 'http://127.0.0.1:43177/__r11-player-test';
+
 test.describe('G3-021 P3-A media hub lifecycle', () => {
   test('keeps the headless hub inert until a user action', async ({ page }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const result = await page.evaluate(async () => {
       const mod = await import('/src/mobile-media-hub.ts');
       const hub = mod.createMobileMediaHub({
@@ -21,7 +24,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
   });
 
   test('creates the exact isolated resume schema and makes one CAS winner', async ({ page }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const result = await page.evaluate(async () => {
       const mod = await import('/src/mobile-media-resume-store.ts');
       await new Promise<void>((resolve, reject) => {
@@ -91,7 +94,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
   });
 
   test('fails closed on an unknown resume field without a repair write', async ({ page }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const result = await page.evaluate(async () => {
       const mod = await import('/src/mobile-media-resume-store.ts');
       await new Promise<void>((resolve, reject) => {
@@ -155,7 +158,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
   test('enforces bytes before decoder and revokes one URL on a late ended event', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const result = await page.evaluate(async () => {
       const mod = await import('/src/mobile-media-player.ts');
       const bytes = new Uint8Array([1, 2, 3, 4]);
@@ -209,7 +212,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
   test('enforces exact IDB record and aggregate caps without touching foreign records', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const result = await page.evaluate(async () => {
       const mod = await import('/src/mobile-media-resume-store.ts');
       await new Promise<void>((resolve, reject) => {
@@ -276,7 +279,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
   test('keeps a late run, expiry and mismatched resume from mutating a current player', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const result = await page.evaluate(async () => {
       const mod = await import('/src/mobile-media-player.ts');
       const bytes = new Uint8Array([1, 2, 3, 4]);
@@ -326,7 +329,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
   test('enforces the real IndexedDB 63/64/65 count edge and exact generation no-ops', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const result = await page.evaluate(async () => {
       const mod = await import('/src/mobile-media-resume-store.ts');
       await new Promise<void>((resolve, reject) => {
@@ -385,7 +388,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
   test('performs exact selective/global clears without touching localStorage sentinels', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const result = await page.evaluate(async () => {
       const mod = await import('/src/mobile-media-resume-store.ts');
       await new Promise<void>((resolve, reject) => {
@@ -436,7 +439,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
   test('treats a future IndexedDB version and corrupt raw record as protected without repair', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const result = await page.evaluate(async () => {
       const mod = await import('/src/mobile-media-resume-store.ts');
       await new Promise<void>((resolve, reject) => {
@@ -486,7 +489,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
   });
 
   test('keeps future databases and every forbidden physical schema read-only', async ({ page }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const result = await page.evaluate(async () => {
       const mod = await import('/src/mobile-media-resume-store.ts');
       const remove = () =>
@@ -546,7 +549,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
   test('preserves future and over-cap raw records byte-for-byte without repair', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const result = await page.evaluate(async () => {
       const mod = await import('/src/mobile-media-resume-store.ts');
       await new Promise<void>((resolve, reject) => {
@@ -611,7 +614,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
   test('does not claim save, delete or clear success after an actual IDB transaction fault', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const result = await page.evaluate(async () => {
       const mod = await import('/src/mobile-media-resume-store.ts');
       await new Promise<void>((resolve, reject) => {
@@ -667,7 +670,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
     const requests: string[] = [];
     page.on('console', (message) => consoleLines.push(message.text()));
     page.on('request', (request) => requests.push(request.url()));
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const result = await page.evaluate(async () => {
       const mod = await import('/src/mobile-media-resume-store.ts');
       await new Promise<void>((resolve, reject) => {
@@ -702,7 +705,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
   test('rolls back quota and mid-clear abort faults without touching sentinels', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const result = await page.evaluate(async () => {
       const mod = await import('/src/mobile-media-resume-store.ts');
       await new Promise<void>((resolve, reject) => {
@@ -763,7 +766,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
   test('holds at 4999ms, fails at 5000ms, and keeps reader, digest, play and DOM faults terminal', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const result = await page.evaluate(async () => {
       const mod = await import('/src/mobile-media-player.ts');
       const bytes = new Uint8Array([1, 2, 3, 4]);
@@ -961,7 +964,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
   test('enforces the literal seven-row player fault table with a live DOM error', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const rows = await page.evaluate(async () => {
       const mod = await import('/src/mobile-media-player.ts');
       const bytes = new Uint8Array([1, 2, 3, 4]);
@@ -1105,7 +1108,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
   test('executes the six-cause by seven-sink lifecycle matrix with real IndexedDB', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const rows = await page.evaluate(async () => {
       const hubMod = await import('/src/mobile-media-hub.ts');
       const storeMod = await import('/src/mobile-media-resume-store.ts');
@@ -1748,7 +1751,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
   test('proves all seven late-save provenance regressions with real IndexedDB', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const rows = await page.evaluate(async () => {
       const hubMod = await import('/src/mobile-media-hub.ts');
       const storeMod = await import('/src/mobile-media-resume-store.ts');
@@ -2021,7 +2024,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
   test('continues a paused public hub player without a second request and fences pending IDB saves', async ({
     page,
   }) => {
-    await page.goto('/');
+    await page.goto(mobileMediaHarness);
     const {
       provenance: rows,
       invalidations,
@@ -2502,7 +2505,7 @@ test.describe('G3-021 P3-A media hub lifecycle', () => {
         body: '<!doctype html><title>Controlled player lifecycle test</title>',
       }),
     );
-    await page.goto('/__r11-player-test');
+    await page.goto(mobileMediaRoute);
     const rows = await page.evaluate(async () => {
       const mod = await import('/src/mobile-media-player.ts');
       const bytes = new Uint8Array([1, 2, 3, 4]);

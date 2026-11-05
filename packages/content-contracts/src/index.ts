@@ -2667,3 +2667,7 @@ export * from './production-content-offline-compatible.ts';
 export * from './production-content-release-v2.ts';
 // @ts-expect-error Node 24 executes the versioned production builder directly.
 export * from './production-reader-media-v2.ts';
+// @ts-expect-error Node 24 executes the TypeScript source contract directly.
+export * from './directory/source-pass-overlay-v1.ts';
+// @ts-expect-error Node 24 executes the TypeScript source contract directly.
+export * from './directory/source-pass-revocations-v1.ts';

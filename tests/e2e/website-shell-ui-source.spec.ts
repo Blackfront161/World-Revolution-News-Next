@@ -1,4 +1,9 @@
 import { expect, test } from '@playwright/test';
+test.beforeEach(async ({ context }) => {
+  await context.addInitScript(() =>
+    sessionStorage.setItem('wrn.website.support-welcome.v1', 'dismissed'),
+  );
+});
 
 declare global {
   interface Window {

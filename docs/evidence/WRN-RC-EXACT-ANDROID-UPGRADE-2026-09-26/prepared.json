@@ -1,0 +1,13 @@
+{
+  "schema": "wrn.preplay-emulator-apks.v1",
+  "purpose": "PO-authorized local emulator upgrade test only",
+  "productionKeyUsed": false,
+  "sourceAabSha256": "ad7cafa2f7f55d7c5993bcad563edaf0186a6cf8487f3ddb63b359745541f49a",
+  "baselineUnsignedSha256": "83943c42bc26d5540f436eb95df4947ad567ce657c0a28f542e360c6f41ea05b",
+  "baselineSignedSha256": "22ad69042ea53eecf21ad3abe8a4f64a216ef7199ed2d22d02d2657ca1f9fb9e",
+  "finalSignedSha256": "86b34fa9422b91a72b943e6f622e4bf23787cdd0a7c9cb3ea3a720303565609a",
+  "baselineBadging": "package: name='com.world.revolution' versionCode='26' versionName='2.1.1' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'",
+  "finalBadging": "package: name='com.world.revolution' versionCode='27' versionName='2.2.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'",
+  "bundletoolVersion": "1.18.1",
+  "signatureVerified": true
+}

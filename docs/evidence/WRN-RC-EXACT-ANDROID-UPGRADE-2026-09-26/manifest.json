@@ -1,0 +1,67 @@
+{
+  "schema": "wrn.evidence-hash-manifest.v1",
+  "generatedAtUTC": "2026-09-25T16:07:59.566Z",
+  "sourceCommit": "c8c045074a3effe2f7e3eeba4bbf07f409a59c35",
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 3916,
+      "sha256": "acd4fba48712da5620c0ef03873559102a04c28fee2efd73242245ee48dee789"
+    },
+    {
+      "path": "apk-asset-verification.json",
+      "bytes": 437,
+      "sha256": "ae7b566dedbfd54039f00f675ab1a5d04803f169803cfb96320e398482e7a72a"
+    },
+    {
+      "path": "baseline-saved-route.png",
+      "bytes": 402516,
+      "sha256": "d6a9b4d0add3bde016b3ee1f3aa5ea4cfa45549bb8412a852423ac43fb3ee7b3"
+    },
+    {
+      "path": "baseline-saved-route.xml",
+      "bytes": 24854,
+      "sha256": "6a26bf8bfae6e771b0c49b373ca548c51fba3d8229230651a4161b2c2ac491f3"
+    },
+    {
+      "path": "prepared.json",
+      "bytes": 993,
+      "sha256": "ed402e1311e54fe39f7b3509f25f6965730ada9fd23217c48ab103340e9e3831"
+    },
+    {
+      "path": "upgrade-verification.json",
+      "bytes": 942,
+      "sha256": "e814855123ed1b3422ab1dc7cec203df47ff86dda41da079b39ee4f2bcff0deb"
+    },
+    {
+      "path": "upgraded-menu.png",
+      "bytes": 191041,
+      "sha256": "d64ff19645d107c48d4d2295c0ec69e362594c72ea3e992151c47225ba9b2109"
+    },
+    {
+      "path": "upgraded-menu.xml",
+      "bytes": 29291,
+      "sha256": "d62bf13a4dc8f5360a0c26c3549d96a44e3b306bb55fbd81c13238f74f1be030"
+    },
+    {
+      "path": "upgraded-offline-reader.png",
+      "bytes": 273784,
+      "sha256": "f4c1162a75db02f62011bc122e7733c917a030766e7222cdf959e607d3869827"
+    },
+    {
+      "path": "upgraded-offline-reader.xml",
+      "bytes": 40368,
+      "sha256": "3b3ecd3f6dbc359fe9da18e6bc246c19c8d0e8bd96722f25718a2a8076539824"
+    },
+    {
+      "path": "upgraded-saved.png",
+      "bytes": 265681,
+      "sha256": "8dee3b3950343067129f6fef034881825f0f7263b9c6179b8ab0b1804488793c"
+    },
+    {
+      "path": "upgraded-saved.xml",
+      "bytes": 25597,
+      "sha256": "5b504b798c2e3e17d374260d0438ea2313b598035228b86e5736c803e35911dc"
+    }
+  ]
+}

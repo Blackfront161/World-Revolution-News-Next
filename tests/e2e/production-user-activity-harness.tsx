@@ -30,6 +30,17 @@ const transact = (database: IDBDatabase, action: (store: IDBObjectStore) => void
     transaction.onabort = () => reject(transaction.error);
     action(transaction.objectStore('activity'));
   });
+const read = <T,>(database: IDBDatabase, query: (store: IDBObjectStore) => IDBRequest<T>) =>
+  new Promise<T>((resolve, reject) => {
+    const transaction = database.transaction('activity');
+    const request = query(transaction.objectStore('activity'));
+    let result: T;
+    request.onsuccess = () => {
+      result = request.result;
+    };
+    transaction.oncomplete = () => resolve(result);
+    transaction.onabort = () => reject(transaction.error);
+  });
 const code = (error: unknown) => (error instanceof Error ? error.message : String(error));
 export async function exerciseActivityStorage() {
   const a = await openProductionUserActivityStore('mobile');
@@ -80,11 +91,7 @@ export async function exerciseProtectedActivityStorage() {
   const extraFailure = await extra.clear(0).then(() => 'incorrect write', code);
   extra.close();
   database = await raw();
-  const keys = await new Promise<IDBValidKey[]>((resolve, reject) => {
-    const request = database.transaction('activity').objectStore('activity').getAllKeys();
-    request.onsuccess = () => resolve(request.result);
-    request.onerror = () => reject(request.error);
-  });
+  const keys = await read(database, (store) => store.getAllKeys());
   database.close();
   await erase();
   database = await raw(2, (db) => db.createObjectStore('activity'));
@@ -96,11 +103,7 @@ export async function exerciseProtectedActivityStorage() {
     return 'incorrect open';
   }, code);
   database = await raw(2);
-  const futurePreserved = await new Promise<unknown>((resolve, reject) => {
-    const request = database.transaction('activity').objectStore('activity').get('state');
-    request.onsuccess = () => resolve(request.result);
-    request.onerror = () => reject(request.error);
-  });
+  const futurePreserved = await read(database, (store) => store.get('state'));
   database.close();
   await erase();
   database = await raw(1, (db) => db.createObjectStore('activity', { keyPath: 'id' }));

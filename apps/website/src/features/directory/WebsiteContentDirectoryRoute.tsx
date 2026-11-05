@@ -16,7 +16,19 @@ import {
   SourcePreferencesNotice,
 } from '../../../../../packages/browser-content/src/source-preferences-ui';
 import { SportSources } from '../../../../../packages/browser-content/src/sport-sources';
-import { matchesDirectorySource } from '../../../../../packages/browser-content/src/source-search';
+import { SourcePassCards } from '../../../../../packages/browser-content/src/source-pass-ui';
+import {
+  matchesSourcePass,
+  sourcePassEndpointUrl,
+  sourcePassFacets,
+  sourcePassKnownSources,
+} from '../../../../../packages/browser-content/src/source-pass-overlay';
+import { useSourcePassOverlay } from '../../../../../packages/browser-content/src/source-pass-hook';
+import {
+  directorySourceFacets,
+  matchesDirectorySourceFilters,
+} from '../../../../../packages/browser-content/src/source-search';
+import { getSourcePassCopy } from '@wrn/ui-language/source-pass';
 const external = {
   target: '_blank',
   rel: 'noopener noreferrer',
@@ -41,6 +53,10 @@ export function WebsiteContentDirectoryRoute({
   const [query, setQuery] = useState('');
   const [contentLanguage, setContentLanguage] = useState('');
   const [source, setSource] = useState('');
+  const [sourceRegion, setSourceRegion] = useState('');
+  const [sourceCountry, setSourceCountry] = useState('');
+  const [sourceTopic, setSourceTopic] = useState('');
+  const [sourceMedium, setSourceMedium] = useState('');
   const [shown, setShown] = useState(30);
   useEffect(() => {
     const c = new AbortController();
@@ -69,10 +85,15 @@ export function WebsiteContentDirectoryRoute({
             )
           : section === 'sources'
             ? projectSourcePreferences(
-                data.projection.sources.filter(
-                  (x) =>
-                    matchesDirectorySource(x, query) &&
-                    (!contentLanguage || x.languages.includes(contentLanguage)),
+                data.projection.sources.filter((x) =>
+                  matchesDirectorySourceFilters(x, {
+                    query,
+                    language: contentLanguage,
+                    region: sourceRegion,
+                    country: sourceCountry,
+                    topic: sourceTopic,
+                    medium: sourceMedium,
+                  }),
                 ),
                 sourcePreferences.state,
                 'directory',
@@ -85,7 +106,34 @@ export function WebsiteContentDirectoryRoute({
                 'directory',
                 (entry) => entry.endpointIds,
               ),
-    [data, query, contentLanguage, source, section, sourcePreferences.state],
+    [
+      data,
+      query,
+      contentLanguage,
+      source,
+      sourceRegion,
+      sourceCountry,
+      sourceTopic,
+      sourceMedium,
+      section,
+      sourcePreferences.state,
+    ],
+  );
+  const sourcePassState = useSourcePassOverlay(data?.projection ?? null);
+  const sourcePass = sourcePassState.kind === 'ready' ? sourcePassState.value.overlay : null;
+  const curatedSources = useMemo(
+    () =>
+      sourcePass?.records.filter((entry) =>
+        matchesSourcePass(entry, {
+          query,
+          language: contentLanguage,
+          region: sourceRegion,
+          country: sourceCountry,
+          topic: sourceTopic,
+          medium: sourceMedium,
+        }),
+      ) ?? [],
+    [sourcePass, query, contentLanguage, sourceRegion, sourceCountry, sourceTopic, sourceMedium],
   );
   const languages = useMemo(
     () =>
@@ -118,6 +166,11 @@ export function WebsiteContentDirectoryRoute({
       </section>
     );
   const title = section === 'news' ? copy.title : section === 'sources' ? copy.sources : copy.sport;
+  const rawSourceFacets = directorySourceFacets(data.projection.sources);
+  const curatedFacets = sourcePassFacets(sourcePass?.records ?? []);
+  const mergeFacet = (left: readonly string[], right: readonly string[]) =>
+    [...new Set([...left, ...right])].sort((a, b) => a.localeCompare(b));
+  const sourcePassCopy = getSourcePassCopy(language);
   return (
     <section className="website-directory" aria-labelledby="website-page-title">
       <SourcePreferencesNotice />
@@ -129,11 +182,7 @@ export function WebsiteContentDirectoryRoute({
       {section === 'sport' && <p>{copy.sportNote}</p>}
       {section === 'sources' && (
         <SourcePreferencesPanel
-          knownSources={data.projection.sources.map((entry) => ({
-            catalog: 'directory',
-            sourceId: entry.id,
-            name: entry.name,
-          }))}
+          knownSources={sourcePassKnownSources(data.projection, sourcePass)}
         />
       )}
       <nav aria-label={copy.title}>
@@ -146,6 +195,10 @@ export function WebsiteContentDirectoryRoute({
               setQuery('');
               setContentLanguage('');
               setSource('');
+              setSourceRegion('');
+              setSourceCountry('');
+              setSourceTopic('');
+              setSourceMedium('');
               setShown(30);
               onSectionChange(x);
             }}
@@ -202,17 +255,85 @@ export function WebsiteContentDirectoryRoute({
               </select>
             </label>
           )}
+          {section === 'sources' &&
+            [
+              [
+                sourcePassCopy.region,
+                sourceRegion,
+                setSourceRegion,
+                mergeFacet(rawSourceFacets.regions, curatedFacets.regions),
+              ],
+              [
+                sourcePassCopy.country,
+                sourceCountry,
+                setSourceCountry,
+                mergeFacet(rawSourceFacets.countries, curatedFacets.countries),
+              ],
+              [
+                sourcePassCopy.topic,
+                sourceTopic,
+                setSourceTopic,
+                mergeFacet(rawSourceFacets.topics, curatedFacets.topics),
+              ],
+              [
+                sourcePassCopy.medium,
+                sourceMedium,
+                setSourceMedium,
+                mergeFacet(rawSourceFacets.media, curatedFacets.media),
+              ],
+            ].map(([label, value, setter, options]) => (
+              <label key={label as string}>
+                {label as string}
+                <select
+                  value={value as string}
+                  onChange={(event) => {
+                    (setter as (value: string) => void)(event.target.value);
+                    setShown(30);
+                  }}
+                >
+                  <option value="">{copy.all}</option>
+                  {(options as string[]).map((entry) => (
+                    <option key={entry}>{entry}</option>
+                  ))}
+                </select>
+              </label>
+            ))}
           <button
             onClick={() => {
               setQuery('');
               setContentLanguage('');
               setSource('');
+              setSourceRegion('');
+              setSourceCountry('');
+              setSourceTopic('');
+              setSourceMedium('');
               setShown(30);
             }}
           >
             {copy.reset}
           </button>
         </div>
+      )}
+      {section === 'sources' && (
+        <>
+          <h2>{sourcePassCopy.curatedTitle}</h2>
+          <p>{sourcePassCopy.curatedIntro}</p>
+          {sourcePassState.kind === 'loading' ? (
+            <p role="status">{copy.loading}</p>
+          ) : sourcePassState.kind === 'invalid' ? (
+            <p role="alert">{sourcePassCopy.unavailable}</p>
+          ) : curatedSources.length === 0 ? (
+            <p>{copy.noResults}</p>
+          ) : (
+            <SourcePassCards
+              records={curatedSources}
+              language={language}
+              endpointUrl={(record, id) => sourcePassEndpointUrl(record, id, data.projection)}
+            />
+          )}
+          <h2>{sourcePassCopy.completeTitle}</h2>
+          <p>{sourcePassCopy.completeIntro}</p>
+        </>
       )}
       <p role="status">
         {formatDirectoryCopy(copy.showing, {

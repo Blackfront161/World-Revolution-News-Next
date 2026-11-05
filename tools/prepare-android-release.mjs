@@ -3,11 +3,39 @@ import { execFileSync } from 'node:child_process';
 import { lstat, mkdir, mkdtemp, readFile, readdir, realpath, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  inspectProductionChunkDirectory,
+  maximumProductionChunkBytes,
+} from './check-production-js-chunks.mjs';
 
 const toolName = 'WRN Android release preparation';
 const maximumFiles = 5_000;
 const maximumFileBytes = 64 * 1024 * 1024;
 const maximumTotalBytes = 256 * 1024 * 1024;
+const viteEnvironmentFiles = ['.env', '.env.local', '.env.production', '.env.production.local'];
+const publicBuildEnvironment = Object.freeze({
+  NODE_ENV: 'production',
+  VITE_WRN_DIRECTORY_MANIFEST_ENDPOINT: '',
+  VITE_WRN_PODCAST_ENDPOINT: '',
+  VITE_WRN_TRANSLATION_ADAPTER_ID: '',
+  VITE_WRN_TRANSLATION_ADAPTER_VERSION: '',
+  VITE_WRN_TRANSLATION_ENDPOINT: '',
+  VITE_WRN_TRANSLATION_PROVIDER: '',
+});
+const requiredHostEnvironmentKeys = [
+  'APPDATA',
+  'ComSpec',
+  'HOMEDRIVE',
+  'HOMEPATH',
+  'LOCALAPPDATA',
+  'PATH',
+  'PATHEXT',
+  'SystemRoot',
+  'TEMP',
+  'TMP',
+  'USERPROFILE',
+  'WINDIR',
+];
 const sourcePaths = [
   'apps/mobile/src',
   'apps/mobile/public',
@@ -20,7 +48,9 @@ const sourcePaths = [
   'packages',
   'pnpm-lock.yaml',
   'tools/browser-content-aliases.mjs',
+  'tools/check-production-js-chunks.mjs',
   'tools/prepare-android-release.mjs',
+  'tools/vite-production-chunks.mjs',
 ];
 const bridgePaths = [
   'apps/mobile/android/app/src/main/assets/capacitor.config.json',
@@ -194,6 +224,30 @@ function scopedDirty(root) {
     .filter(Boolean);
 }
 
+async function rejectViteEnvironmentFiles(root) {
+  for (const directory of [root, path.join(root, 'apps/mobile')]) {
+    for (const name of viteEnvironmentFiles) {
+      const candidate = path.join(directory, name);
+      try {
+        await lstat(candidate);
+        fail(
+          `release build environment file is forbidden: ${path.relative(root, candidate).split(path.sep).join('/')}`,
+        );
+      } catch (error) {
+        if (error?.code !== 'ENOENT') throw error;
+      }
+    }
+  }
+}
+
+function sanitizedBuildEnvironment() {
+  const environment = {};
+  for (const key of requiredHostEnvironmentKeys) {
+    if (typeof process.env[key] === 'string') environment[key] = process.env[key];
+  }
+  return { ...environment, ...publicBuildEnvironment };
+}
+
 /**
  * Creates a local staging snapshot only. The generated init script verifies its
  * receipt before a separately controlled Gradle invocation; this function never
@@ -203,6 +257,7 @@ export async function prepareAndroidRelease({
   workspaceRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'),
   now = () => new Date(),
   capacitorBridgePath,
+  freshBuild = false,
 } = {}) {
   const requestedRoot = path.resolve(workspaceRoot);
   if ((await lstat(requestedRoot)).isSymbolicLink()) fail('workspace root is a link or junction');
@@ -230,10 +285,29 @@ export async function prepareAndroidRelease({
     });
     fail(`tracked Android source is dirty; rejected receipt: ${path.join(output, 'receipt.json')}`);
   }
+  const dist = freshBuild
+    ? path.join(output, 'fresh-mobile-dist')
+    : path.join(root, 'apps/mobile/dist');
+  if (freshBuild) {
+    await rejectViteEnvironmentFiles(root);
+    const viteCli = path.join(root, 'node_modules/vite/bin/vite.js');
+    await regularDependencyFile(root, viteCli, 'Vite CLI');
+    try {
+      execFileSync(process.execPath, [viteCli, 'build', '--outDir', dist, '--emptyOutDir'], {
+        cwd: path.join(root, 'apps/mobile'),
+        encoding: 'utf8',
+        env: sanitizedBuildEnvironment(),
+        stdio: ['ignore', 'pipe', 'pipe'],
+      });
+    } catch (error) {
+      const detail = error?.stderr?.toString().trim();
+      fail(`fresh Vite build failed${detail ? `: ${detail}` : ''}`);
+    }
+  }
+  const chunkReport = await inspectProductionChunkDirectory(path.join(dist, 'assets'), 'mobile');
   await mkdir(stage);
   const records = [];
   let total = 0;
-  const dist = path.join(root, 'apps/mobile/dist');
   for (const file of await listFiles(root, dist, 'apps/mobile/dist')) {
     const bytes = (await regularFile(root, file.absolute, `apps/mobile/dist/${file.relative}`))
       .bytes;
@@ -278,9 +352,20 @@ export async function prepareAndroidRelease({
     dirty: { rejected: false, entries: [] },
     distFiles: distRecords,
     distProvenance: {
-      status: 'unverified',
-      reason:
-        'The staged dist hash list binds bytes but does not prove which source build produced them.',
+      status: freshBuild ? 'verified-fresh-local-build' : 'unverified',
+      ...(freshBuild
+        ? {
+            sourceCommit: head,
+            builder: 'vite',
+            inheritedEnvironment: false,
+            buildEnvironment: publicBuildEnvironment,
+            maximumProductionChunkBytes,
+            largestJavaScriptChunk: chunkReport.largest,
+          }
+        : {
+            reason:
+              'The staged dist hash list binds bytes but does not prove which source build produced them.',
+          }),
     },
     assets: ordered,
     stagedBytes: total,
@@ -304,7 +389,7 @@ export async function prepareAndroidRelease({
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   try {
-    const result = await prepareAndroidRelease();
+    const result = await prepareAndroidRelease({ freshBuild: true });
     console.log(
       JSON.stringify({
         output: result.output,

@@ -1,7 +1,8 @@
-import { access, mkdir, rename } from 'node:fs/promises';
+import { access, mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
+import { atomicRename } from '../../../tools/atomic-rename.mjs';
 import { publishProductionArticleLandings } from './generate-production-article-landings.mjs';
 
 const artifacts = Object.freeze([
@@ -29,7 +30,7 @@ async function exists(candidate) {
 export async function integrateProductionArticleLandings({
   outputDirectory,
   releaseRoot,
-  move = rename,
+  move = atomicRename,
 } = {}) {
   if (typeof outputDirectory !== 'string' || outputDirectory.trim().length === 0)
     fail('outputDirectory fehlt');

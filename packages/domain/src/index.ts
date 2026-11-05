@@ -582,6 +582,21 @@ const personalizationRegionIds: Readonly<Record<string, LocalPersonalizationRegi
     Nordamerika: 'north-america',
   });
 
+function personalizationInterestId(topic: string): LocalPersonalizationInterestId | undefined {
+  if (topic === 'sports') return 'sport';
+  return (
+    personalizationTopicIds[topic] ??
+    localPersonalizationInterestIds.find((interestId) => interestId === topic)
+  );
+}
+
+function personalizationRegionId(region: string): LocalPersonalizationRegionId | undefined {
+  return (
+    personalizationRegionIds[region] ??
+    localPersonalizationRegionIds.find((regionId) => regionId === region)
+  );
+}
+
 /**
  * Projects only a currently validated local article array and its equally
  * complete discover index. OR applies within each chosen dimension, AND
@@ -618,11 +633,15 @@ export function projectLocalPersonalizedArticles(input: {
   return Object.freeze(
     input.articles.filter((article) => {
       const entry = indexByArticleId.get(article.id)!;
+      const regionId = personalizationRegionId(entry.region);
       const matchesInterest =
         interestIds.size === 0 ||
-        entry.topics.some((topic) => interestIds.has(personalizationTopicIds[topic]!));
+        entry.topics.some((topic) => {
+          const interestId = personalizationInterestId(topic);
+          return interestId !== undefined && interestIds.has(interestId);
+        });
       const matchesRegion =
-        regionIds.size === 0 || regionIds.has(personalizationRegionIds[entry.region]!);
+        regionIds.size === 0 || (regionId !== undefined && regionIds.has(regionId));
       const matchesLanguage =
         contentLanguageIds.size === 0 ||
         (contentLanguageIds.size > 0 &&

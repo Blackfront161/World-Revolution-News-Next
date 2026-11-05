@@ -6,6 +6,8 @@ import {
   productionOnlinePodcastAdapter,
 } from './production-podcast-adapter';
 import { useProductionContentOfflineController } from './content-offline-ui';
+import { LegacyUpgradeSaved } from './legacy-upgrade-saved';
+import { hasLegacySavedArticles } from './legacy-upgrade-data';
 import {
   createProductionReadingStateStore,
   productionReadingStateStorageKey,
@@ -21,4 +23,6 @@ export const ProductionContentArea = createProductionContentArea({
   archiveTriggerId: 'mobile-more-archive',
   activityClient: 'mobile',
   activityNotificationsEnabled: () => !Capacitor.isNativePlatform(),
+  LegacySavedContent: LegacyUpgradeSaved,
+  hasLegacySavedArticles,
 });

@@ -1,5 +1,6 @@
-import { access, mkdir, rename, writeFile } from 'node:fs/promises';
+import { access, mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { atomicRename } from '../../../tools/atomic-rename.mjs';
 
 import {
   canonicalJson,
@@ -221,6 +222,7 @@ export async function publishProductionArticleLandings({
     }),
   });
   await writeText(staging, 'article-publication-manifest.json', `${canonicalJson(manifest)}\n`);
-  for (const name of artifactNames) await rename(path.join(staging, name), path.join(output, name));
+  for (const name of artifactNames)
+    await atomicRename(path.join(staging, name), path.join(output, name));
   return manifest;
 }

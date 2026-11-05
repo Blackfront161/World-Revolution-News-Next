@@ -4,10 +4,13 @@ import path from 'node:path';
 const harnessUrl = `/@fs/${path.resolve('tests/e2e/production-content-offline-harness.ts').replaceAll('\\', '/')}`;
 
 test.describe('production content offline IDB boundary', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('http://127.0.0.1:43177/__content-idb');
+  });
+
   test('a full durable identity ledger refuses a new release without eviction or writes', async ({
     page,
   }) => {
-    await page.goto('/');
     const result = await page.evaluate(async (harnessUrl) => {
       const { makeProductionOfflineFixture } = await import(harnessUrl);
       const { openProductionContentOfflineStore } =
@@ -84,7 +87,6 @@ test.describe('production content offline IDB boundary', () => {
     test(`verified safety preserves only safe old content at its original TTL after ${failedResource} failure`, async ({
       page,
     }) => {
-      await page.goto('/');
       const result = await page.evaluate(
         async ({ harnessUrl, failedResource }) => {
           const { makeProductionOfflinePacket } = await import(harnessUrl);
@@ -173,7 +175,6 @@ test.describe('production content offline IDB boundary', () => {
   test('phase-two failure cancels all three pending sibling streams before returning', async ({
     page,
   }) => {
-    await page.goto('/');
     const result = await page.evaluate(async (harnessUrl) => {
       const { makeProductionOfflinePacket } = await import(harnessUrl);
       const { verifyProductionContentSafety, completeProductionContentRelease } =
@@ -245,7 +246,6 @@ test.describe('production content offline IDB boundary', () => {
   test('clear retains immutable revision receipts and permits only the exact highest identity to be restored', async ({
     page,
   }) => {
-    await page.goto('/');
     const result = await page.evaluate(async (harnessUrl) => {
       const { makeProductionOfflinePacket, makeProductionOfflineFixture } = await import(
         harnessUrl
@@ -328,7 +328,6 @@ test.describe('production content offline IDB boundary', () => {
   test('a fresh check finishes the exact candidate left by an interrupted activation', async ({
     page,
   }) => {
-    await page.goto('/');
     const result = await page.evaluate(async (harnessUrl) => {
       const { makeProductionOfflineFixture, makeProductionOfflinePacket } = await import(
         harnessUrl
@@ -391,7 +390,6 @@ test.describe('production content offline IDB boundary', () => {
   test('rejects individually rehashed invalid safety receipts before any payload request', async ({
     page,
   }) => {
-    await page.goto('/');
     const result = await page.evaluate(async (harnessUrl) => {
       const { makeProductionOfflinePacket } = await import(harnessUrl);
       const core = await import(
@@ -534,7 +532,6 @@ test.describe('production content offline IDB boundary', () => {
   test('a real safety transaction quota failure requests no payload and a fresh check recovers', async ({
     page,
   }) => {
-    await page.goto('/');
     const result = await page.evaluate(async (harnessUrl) => {
       const { makeProductionOfflinePacket } = await import(harnessUrl);
       const packet = await makeProductionOfflinePacket();
@@ -613,7 +610,6 @@ test.describe('production content offline IDB boundary', () => {
   test('preserves exact active and candidate slots, rejects both identity conflicts and retains safe older bundles', async ({
     page,
   }) => {
-    await page.goto('/');
     const result = await page.evaluate(async (harnessUrl) => {
       const { makeProductionOfflineFixture } = await import(harnessUrl);
       const { openProductionContentOfflineStore } =
@@ -693,7 +689,6 @@ test.describe('production content offline IDB boundary', () => {
   test('an incompatible existing object-store schema stays intact and blocks opening', async ({
     page,
   }) => {
-    await page.goto('/');
     const result = await page.evaluate(async () => {
       const { mobileProductionContentOfflineDatabaseName: name } =
         await import('/src/production-content-offline-profile.ts');
@@ -743,7 +738,6 @@ test.describe('production content offline IDB boundary', () => {
   test('runs all eight transport requests through durable safety, then applies restart, TTL and clock guards', async ({
     page,
   }) => {
-    await page.goto('/');
     const result = await page.evaluate(async (harnessUrl) => {
       const { makeProductionOfflineFixture } = await import(harnessUrl);
       const contracts = await import(
@@ -855,7 +849,6 @@ test.describe('production content offline IDB boundary', () => {
   test('fences concurrent writes and reclaims a crashed pending check without accepting its late write', async ({
     page,
   }) => {
-    await page.goto('/');
     const result = await page.evaluate(async () => {
       const { openProductionContentOfflineStore } =
         await import('/src/production-content-offline-store.ts');
@@ -907,7 +900,6 @@ test.describe('production content offline IDB boundary', () => {
   test('unknown control format remains byte-for-byte unchanged after a failed read', async ({
     page,
   }) => {
-    await page.goto('/');
     const result = await page.evaluate(async () => {
       const { openProductionContentOfflineStore } =
         await import('/src/production-content-offline-store.ts');
@@ -951,7 +943,6 @@ test.describe('production content offline IDB boundary', () => {
   test('commits real validated articles and preserves exact refresh slots and sequence floor through rollback and clear', async ({
     page,
   }) => {
-    await page.goto('/');
     const result = await page.evaluate(async (harnessUrl) => {
       const { makeProductionOfflineFixture } = await import(harnessUrl);
       const { openProductionContentOfflineStore } =
@@ -1045,7 +1036,6 @@ test.describe('production content offline IDB boundary', () => {
   test('commits cumulative revocation across all three slots before any replacement articles are saved', async ({
     page,
   }) => {
-    await page.goto('/');
     const result = await page.evaluate(async (harnessUrl) => {
       const { makeProductionOfflineFixture, firstProductionTestId } = await import(harnessUrl);
       const { openProductionContentOfflineStore } =
@@ -1109,7 +1099,6 @@ test.describe('production content offline IDB boundary', () => {
   test('uses a distinct real IndexedDB database and clear retains the monotone control fields', async ({
     page,
   }) => {
-    await page.goto('/');
     const state = await page.evaluate(async () => {
       const mod = await import('/src/production-content-offline-store.ts');
       const profile = await import('/src/production-content-offline-profile.ts');

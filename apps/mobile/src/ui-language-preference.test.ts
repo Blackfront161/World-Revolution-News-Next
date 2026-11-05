@@ -8,6 +8,7 @@ import {
 
 afterEach(() => {
   window.localStorage.removeItem(mobileUiLanguageStorageKey);
+  window.localStorage.removeItem('wrn_system_lang');
   vi.restoreAllMocks();
 });
 
@@ -15,6 +16,18 @@ describe('mobile UI-language preference', () => {
   it('uses English without creating a first-start storage value', () => {
     expect(loadMobileUiLanguage()).toBe('en');
     expect(window.localStorage.getItem(mobileUiLanguageStorageKey)).toBeNull();
+  });
+
+  it('imports a valid 2.1.1 language once and respects a newer explicit preference', () => {
+    window.localStorage.setItem('wrn_system_lang', 'de');
+    expect(loadMobileUiLanguage()).toBe('de');
+    expect(window.localStorage.getItem(mobileUiLanguageStorageKey)).toBe('de');
+    expect(window.localStorage.getItem('wrn_system_lang')).toBe('de');
+    window.localStorage.setItem(mobileUiLanguageStorageKey, 'tr');
+    expect(loadMobileUiLanguage()).toBe('tr');
+    window.localStorage.setItem(mobileUiLanguageStorageKey, 'future-v2');
+    expect(loadMobileUiLanguage()).toBe('en');
+    expect(window.localStorage.getItem(mobileUiLanguageStorageKey)).toBe('future-v2');
   });
 
   it('does not repair an invalid raw value and persists an explicit valid choice', () => {

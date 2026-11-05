@@ -8,6 +8,7 @@ import type {
   ContentOfflineStoreError,
 } from '../../apps/mobile/src/content-offline-store';
 import type { createG3014OfflineFixtures } from '../../packages/test-support/src/g3-014-offline-fixtures';
+import { workspaceFsUrl } from './workspace-fs-url';
 
 export const initialTime = 1_788_000_000_000;
 type Fixtures = Awaited<ReturnType<typeof createG3014OfflineFixtures>>;
@@ -30,6 +31,7 @@ declare global {
 }
 
 export async function controllerHarness(page: Page, info: TestInfo) {
+  const fixtureModule = workspaceFsUrl('packages/test-support/src/g3-014-offline-fixtures.ts');
   const mobile = info.project.name.startsWith('mobile');
   const origin = `http://127.0.0.1:${mobile ? 43173 : 43175}`;
   const requests: { source: string; file: string }[] = [];
@@ -51,11 +53,10 @@ export async function controllerHarness(page: Page, info: TestInfo) {
   );
   await page.goto(`${origin}/__controller_recovery__`);
   const fixtures = await page.evaluate(
-    async ({ mobile, initialTime }) => {
+    async ({ mobile, initialTime, fixtureModule }) => {
       const controller = await import('/src/content-offline-controller.ts');
       const stores = await import('/src/content-offline-store.ts');
-      const fixture =
-        await import('/@fs/C:/Users/patri/Documents/ChatGPT/Sauberes Wo Rev Ne/packages/test-support/src/g3-014-offline-fixtures.ts');
+      const fixture = await import(fixtureModule);
       const create = mobile
         ? controller.createMobileContentOfflineController
         : controller.createWebsiteContentOfflineController;
@@ -77,7 +78,7 @@ export async function controllerHarness(page: Page, info: TestInfo) {
       );
       return fixtures as Fixtures;
     },
-    { mobile, initialTime },
+    { mobile, initialTime, fixtureModule },
   );
   let source: 'a' | 'b' | 'c' = 'a';
   let broken = false;

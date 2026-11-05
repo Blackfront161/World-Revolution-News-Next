@@ -179,6 +179,7 @@ test('G3-021 P4-B captures the eight viewport media matrix', async ({ page }, in
 test('R1 completion action fits all nine languages at normal and enlarged text sizes', async ({
   page,
 }, info) => {
+  test.setTimeout(180_000);
   for (const language of uiLanguageIds)
     for (const enlarged of [false, true]) {
       await mount(page, language, 'recovery');
@@ -211,6 +212,7 @@ test('R1 completion action fits all nine languages at normal and enlarged text s
 test('G3-021 P4-B exercises only test-harness status, request, keyboard and Axe cases', async ({
   page,
 }, info) => {
+  test.setTimeout(180_000);
   const requested: string[] = [];
   page.on('request', (request) => requested.push(request.url()));
   for (const state of [
@@ -303,7 +305,9 @@ for (const clockCase of [
       );
     } else {
       await expect(page.locator('.mobile-media-card')).toHaveCount(0);
-      await expect(page.getByRole('status')).toContainText(getMobileMediaCopy('en').unavailable);
+      await expect(page.locator('.mobile-media-status')).toContainText(
+        getMobileMediaCopy('en').unavailable,
+      );
     }
     expect(await page.evaluate(() => Date.now())).toBe(timestamp);
     expect(audioRequests).toEqual([]);

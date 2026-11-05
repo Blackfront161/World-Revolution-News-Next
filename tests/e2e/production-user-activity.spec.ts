@@ -1,12 +1,13 @@
 import path from 'node:path';
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Page, type Request } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { getUiCopy, uiLanguageIds } from '../../packages/ui-language/src';
 import { getProductionActivityCopy } from '../../packages/ui-language/src/production-content';
 import type { ActivityState } from '../../packages/browser-content/src/production-user-activity/state';
+import { auditRemotePointers, directoryPointer, recordRemotePointer } from './remote-pointer-audit';
 
 const harness = `/@fs/${path.resolve('tests/e2e/production-user-activity-harness.tsx').replaceAll('\\', '/')}`;
-const time = new Date('2026-09-13T12:00:00Z');
+const time = new Date('2026-09-26T12:00:00Z');
 async function state(page: Page, client: string, earlier = false) {
   return page.evaluate(
     async ({ client, earlier }) => {
@@ -69,6 +70,11 @@ async function prepare(page: Page) {
     Object.assign(window, { wrnActivityTestNotifications: { requests, shown } });
   });
 }
+async function dismissWebsiteWelcome(page: Page, client: string) {
+  if (client !== 'website') return;
+  await expect(page.locator('#website-main')).toBeVisible();
+  if (await page.getByRole('dialog').isVisible()) await page.keyboard.press('Escape');
+}
 const notifications = (page: Page) =>
   page.evaluate(
     () =>
@@ -85,7 +91,7 @@ const notifications = (page: Page) =>
 test('real activity IDB isolates clients, serializes CAS and preserves clear across reopen', async ({
   page,
 }) => {
-  await page.goto('http://127.0.0.1:43174/');
+  await page.goto('http://127.0.0.1:43177/__content-idb');
   const result = await page.evaluate(
     async (url) => (await import(url)).exerciseActivityStorage(),
     harness,
@@ -109,7 +115,7 @@ test('real activity IDB refuses future, malformed and extra data without overwri
   page,
 }) => {
   // An empty test document avoids an application handle during deliberate incompatible schemas.
-  await page.goto('http://127.0.0.1:43174/tests-empty-activity.html');
+  await page.goto('http://127.0.0.1:43177/__content-idb');
   const result = await page.evaluate(
     async (url) => (await import(url)).exerciseProtectedActivityStorage(),
     harness,
@@ -123,41 +129,49 @@ test('real activity IDB refuses future, malformed and extra data without overwri
 });
 
 for (const [client, port] of [
-  ['mobile', 43174],
-  ['website', 43175],
+  ['mobile', 43177],
+  ['website', 43178],
 ] as const) {
   const origin = `http://127.0.0.1:${port}`;
   test(`${client} actual opt-in, last visit, changed saved version, notifications and exact clear`, async ({
     page,
   }, info) => {
+    test.setTimeout(90_000);
     await prepare(page);
     const copy = getProductionActivityCopy('en'),
       common = getUiCopy('en');
     const errors: string[] = [],
-      foreign: string[] = [];
+      foreign: string[] = [],
+      approved: Request[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     page.on('request', (request) => {
-      if (new URL(request.url()).origin !== origin) foreign.push(request.url());
+      recordRemotePointer(request, origin, foreign, approved, [directoryPointer]);
     });
-    await page.goto(`${origin}/#home`);
+    await page.goto(`${origin}/#discover`);
+    await dismissWebsiteWelcome(page, client);
     await page.getByTestId('ui-language-selector').selectOption('en');
     const cards = page.locator('.production-card');
-    await expect(cards).toHaveCount(6);
+    await expect(cards).toHaveCount(12, { timeout: 15_000 });
     await expect(page.locator('.production-activity')).toHaveCount(0);
-    await cards.first().getByRole('button', { name: common.saveForLater, exact: true }).click();
-    await cards.first().locator('.source-profile summary').click();
-    await cards
-      .first()
+    const effCard = cards.filter({
+      has: page.locator('[data-reader-trigger="wrn-art-a772ab86c915a036c6177f1bfe958d4d"]'),
+    });
+    await effCard.getByRole('button', { name: common.saveForLater, exact: true }).click();
+    await effCard.locator('.source-profile summary').click();
+    await effCard
       .getByRole('button', { name: 'Follow: Electronic Frontier Foundation', exact: true })
       .click();
     await page.goto(`${origin}/#following`);
+    await expect(page.locator('.personalization-results .production-card')).toHaveCount(12, {
+      timeout: 15_000,
+    });
     const panel = page.locator('.production-activity');
     await expect(panel.getByRole('button', { name: copy.enable, exact: true })).toBeEnabled();
     expect((await state(page, client)).enabled).toBe(false);
     expect(await notifications(page)).toEqual({ requests: [], shown: [] });
     await panel.getByRole('button', { name: copy.enable, exact: true }).click();
     await expect(panel).toContainText(copy.firstVisit);
-    await expect.poll(async () => (await state(page, client)).availableIds.length).toBe(6);
+    await expect.poll(async () => (await state(page, client)).availableIds.length).toBe(12);
     await panel.locator('summary').click();
     await panel.getByRole('button', { name: copy.enableNotifications, exact: true }).click();
     await expect(
@@ -167,15 +181,16 @@ for (const [client, port] of [
     expect((await notifications(page)).shown).toEqual([]);
     // Preserve an actual saved row; inject only an earlier local overview state.
     await page.goto(`${origin}/#home`);
-    await expect(cards).toHaveCount(6);
+    const homeCards = page.locator('.production-home article[data-home-role]');
+    await expect(homeCards).toHaveCount(11, { timeout: 15_000 });
     const readingKey = `wrn.${client}-production-reading-state.v2`;
     const readingBefore = await page.evaluate((key) => localStorage.getItem(key), readingKey);
     expect(Object.keys((await state(page, client)).fingerprints)).toHaveLength(1);
     await state(page, client, true);
     await page.reload();
-    await expect(cards).toHaveCount(6);
+    await expect(homeCards).toHaveCount(11, { timeout: 15_000 });
     await page.goto(`${origin}/#following`);
-    await expect(page.locator('.production-activity-badge')).toHaveCount(5);
+    await expect(page.locator('.production-activity-badge')).toHaveCount(6);
     await expect(page.locator('.production-activity-change')).toHaveCount(1);
     await expect.poll(async () => (await notifications(page)).shown.length).toBe(1);
     expect((await notifications(page)).shown[0]).toEqual({
@@ -184,7 +199,7 @@ for (const [client, port] of [
     });
     const previousFingerprints = (await state(page, client)).fingerprints;
     await page.getByTestId('ui-language-selector').selectOption('de');
-    await expect(page.locator('.production-activity-badge')).toHaveCount(5);
+    await expect(page.locator('.production-activity-badge')).toHaveCount(6);
     expect((await state(page, client)).fingerprints).toEqual(previousFingerprints);
     await page.getByTestId('ui-language-selector').selectOption('en');
     await panel.scrollIntoViewIfNeeded();
@@ -218,6 +233,9 @@ for (const [client, port] of [
     expect(await page.evaluate((key) => localStorage.getItem(key), readingKey)).toBe(readingBefore);
     expect(errors).toEqual([]);
     expect(foreign).toEqual([]);
+    await auditRemotePointers(approved, [directoryPointer], 6);
+    if (client === 'website') expect(approved.length).toBeGreaterThan(0);
+    else expect(approved).toHaveLength(0);
   });
 
   test(`${client} nine languages, 320px, RU200, themes, forced colors and keyboard`, async ({
@@ -239,6 +257,7 @@ for (const [client, port] of [
       );
     }, client);
     await page.goto(`${origin}/?theme=violet#following`);
+    await dismissWebsiteWelcome(page, client);
     await page.getByTestId('ui-language-selector').selectOption('en');
     const panel = page.locator('.production-activity');
     await panel.getByRole('button', { name: getProductionActivityCopy('en').enable }).click();

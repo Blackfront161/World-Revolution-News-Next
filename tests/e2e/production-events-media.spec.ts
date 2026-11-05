@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { readFile } from 'node:fs/promises';
 import type { ProductionEventsMediaDocumentV1 } from '../../packages/content-contracts/src/directory/production-events-media-v1';
@@ -18,9 +18,17 @@ const clients = [
   { name: 'website', origin: 'http://127.0.0.1:43178', heading: 2 },
 ];
 
+async function dismissWebsiteWelcome(page: Page, name: string): Promise<void> {
+  if (name !== 'website') return;
+  await expect(page.locator('#website-main')).toBeVisible();
+  if (await page.locator('.website-support-welcome[open]').isVisible())
+    await page.keyboard.press('Escape');
+}
+
 for (const client of clients) {
   test(`${client.name} first available pagination click is retained`, async ({ page }) => {
     await page.goto(`${client.origin}/#events`);
+    await dismissWebsiteWelcome(page, client.name);
     // No count assertion or settling delay before the first available button.
     await page.getByRole('button', { name: 'Show 30 more', exact: true }).click();
     await expect(page.locator('[data-events-media-id]')).toHaveCount(60);
@@ -30,7 +38,9 @@ for (const client of clients) {
     page,
   }, info) => {
     await page.goto(`${client.origin}/#events`);
+    await dismissWebsiteWelcome(page, client.name);
     const directory = page.getByTestId('production-events-media');
+    const filters = directory.locator('.events-media-filters');
     await expect(directory.getByTestId('events-media-count')).toHaveText('Showing 30 of 5610');
     await directory.getByRole('button', { name: 'Show 30 more', exact: true }).click();
     await expect(directory.locator('[data-events-media-id]')).toHaveCount(60);
@@ -45,10 +55,10 @@ for (const client of clients) {
     ).toHaveJSProperty('tagName', `H${client.heading}`);
     await directory.getByRole('button', { name: 'Reset filters', exact: true }).click();
     await expect(directory.locator('[data-events-media-id]')).toHaveCount(30);
-    await directory
+    await filters
       .getByRole('combobox', { name: 'Country', exact: true })
       .selectOption(sample.country!);
-    await directory.getByRole('combobox', { name: 'City', exact: true }).selectOption(sample.city!);
+    await filters.getByRole('combobox', { name: 'City', exact: true }).selectOption(sample.city!);
     const date = sample.startAt.slice(0, 10);
     await directory.locator('input[type=date]').nth(0).fill(date);
     await directory.locator('input[type=date]').nth(1).fill(date);
@@ -69,10 +79,10 @@ for (const client of clients) {
     const another = metadata.events.find(
       (item) => item.country && item.country !== sample.country,
     )!;
-    await directory
+    await filters
       .getByRole('combobox', { name: 'Country', exact: true })
       .selectOption(another.country!);
-    await expect(directory.getByRole('combobox', { name: 'City', exact: true })).toHaveValue('');
+    await expect(filters.getByRole('combobox', { name: 'City', exact: true })).toHaveValue('');
     await directory.getByRole('button', { name: 'Reset filters', exact: true }).click();
     await directory
       .getByRole('combobox', { name: 'Content language', exact: true })
@@ -94,6 +104,7 @@ for (const client of clients) {
       if (!request.url().startsWith(client.origin)) external.push(request.url());
     });
     await page.goto(`${client.origin}/#media`);
+    await dismissWebsiteWelcome(page, client.name);
     const directory = page.getByTestId('production-events-media');
     const cards = directory.locator('[data-events-media-id]');
     await expect(cards).toHaveCount(13);
@@ -165,6 +176,7 @@ for (const client of clients) {
     page,
   }) => {
     await page.goto(`${client.origin}/#media`);
+    await dismissWebsiteWelcome(page, client.name);
     const directory = page.getByTestId('production-events-media');
     await expect(directory.locator('[data-events-media-id]')).toHaveCount(13);
     for (const language of ['en', 'de', 'es', 'fr', 'it', 'pt', 'ru', 'el', 'tr'] as const) {
@@ -195,6 +207,7 @@ for (const client of clients) {
       await page.setViewportSize({ width: scenario.width, height: 900 });
       for (const mode of ['events', 'media'] as const) {
         await page.goto(`${client.origin}/?theme=${scenario.theme}#${mode}`);
+        await dismissWebsiteWelcome(page, client.name);
         const directory = page.getByTestId('production-events-media');
         await expect(directory.getByTestId('events-media-count')).toBeVisible();
         await page.getByTestId('ui-language-selector').selectOption(scenario.language);
@@ -250,6 +263,7 @@ for (const client of clients) {
   }, info) => {
     await page.emulateMedia({ forcedColors: 'active' });
     await page.goto(`${client.origin}/#media`);
+    await dismissWebsiteWelcome(page, client.name);
     const directory = page.getByTestId('production-events-media');
     await expect(directory.locator('[data-events-media-id]')).toHaveCount(13);
     const episodes = directory.getByRole('button', { name: 'Podcast episodes', exact: true });
@@ -277,6 +291,7 @@ test('Website cold offline shell contains all four real metadata families withou
 }) => {
   const origin = 'http://127.0.0.1:43178';
   await page.goto(`${origin}/#more`);
+  await dismissWebsiteWelcome(page, 'website');
   await page.getByRole('button', { name: 'Save website shell', exact: true }).click();
   await expect(page.locator('.website-shell-panel')).toHaveAttribute(
     'data-shell-status',

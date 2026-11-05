@@ -1,0 +1,3 @@
+1be47b6547edc0559f8c455ff2fe20ea39ed08c996084b4154889a64f4bed135  REPORT.md
+127c9d5b45177d896c142747d4656ad17750838c4d085a9903c92df4a86f868e  asset-verification.json
+d0fdbf0e8fcd0cdcd7f2b29035a4c278da17e26f286c1a1e980454106e2dfaa2  ../../../work/wrn-android-release-jIHM2Q/WorldRevolutionNews-2.2.0-code27-upload-signed-20260926-171848.aab

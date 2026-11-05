@@ -6,6 +6,10 @@ import { collectShellManifest, buildOfflineShell } from './build-offline-shell.m
 import { loadWebsiteProductionContentReleaseFromDisk } from './production-content-release.mjs';
 import { publishProductionArticleLandings } from './generate-production-article-landings.mjs';
 import { buildStagingSecurityHeaders } from './staging-package.mjs';
+import {
+  isSourcePassRevocationsV1,
+  mergeSourcePassRevocationsV1,
+} from '../../../packages/content-contracts/src/directory/source-pass-revocations-v1.ts';
 
 const origin = 'https://solinaridao.com/';
 const schema = 'wrn.production-website-package.v1';
@@ -20,6 +24,7 @@ const revisionNames = [
   'archive-lifecycle.json',
   'website-publication.json',
 ];
+const sourcePassSha256 = 'bcef5d2fa88ae4acfb0dce294d3d8245598308c99e992de735babcc8717556aa';
 const sha = (value) => createHash('sha256').update(value).digest('hex');
 const canonical = (value) =>
   JSON.stringify(value, function (_key, item) {
@@ -184,6 +189,7 @@ async function plan({
   trustedWorkspaceRoot,
   sourceCommit,
   generatedAtUTC,
+  previousRevocationsFile,
   canonicalOrigin = origin,
 }) {
   const root = await trustedRoot(trustedWorkspaceRoot);
@@ -210,6 +216,38 @@ async function plan({
     throw Error('Invalid revision path');
   for (const name of revisionNames)
     await take('wrn-production-content/' + current.releaseRevision + '/' + name);
+  const sourcePassBytes = await take('wrn-source-passes/current.json');
+  if (sha(sourcePassBytes) !== sourcePassSha256)
+    throw Error('Supplemental current file mismatch: wrn-source-passes/current.json');
+  const revocationBytes = await take('wrn-source-pass-revocations/current.json');
+  if (typeof previousRevocationsFile !== 'string' || !path.isAbsolute(previousRevocationsFile))
+    throw Error('Absolute previously delivered revocation snapshot required');
+  const previousPath = await inspect(root, previousRevocationsFile);
+  const previousRelative = path.relative(root, previousPath).replaceAll(path.sep, '/');
+  const previousBytes = await readBound(root, root, previousRelative);
+  const bundledBytes = await readBound(
+    root,
+    root,
+    'packages/browser-content/src/data/source-pass-revocations-v1.json',
+  );
+  let revocations;
+  let bundled;
+  let previous;
+  try {
+    revocations = JSON.parse(revocationBytes.toString('utf8'));
+    bundled = JSON.parse(bundledBytes.toString('utf8'));
+    previous = JSON.parse(previousBytes.toString('utf8'));
+  } catch {
+    throw Error('Invalid source pass revocation JSON');
+  }
+  if (
+    !isSourcePassRevocationsV1(bundled) ||
+    !isSourcePassRevocationsV1(revocations) ||
+    !isSourcePassRevocationsV1(previous) ||
+    mergeSourcePassRevocationsV1(bundled, revocations) === null ||
+    mergeSourcePassRevocationsV1(previous, revocations) === null
+  )
+    throw Error('Source pass revocation snapshot is not cumulative');
   for (const [rel, data] of captured) await writeBound(root, scratch, rel, data);
   const content = await loadWebsiteProductionContentReleaseFromDisk({
     root: path.join(scratch, 'wrn-production-content'),
@@ -232,24 +270,16 @@ async function plan({
       throw Error('Static publication bytes/identity mismatch: ' + rel);
   }
   const index = await take('index.html');
-  const viteBytes = await take('.vite/manifest.json');
-  const vite = JSON.parse(viteBytes.toString('utf8'));
-  const viteEntry = vite['index.html'];
-  if (!viteEntry || !Array.isArray(viteEntry.assets) || !Array.isArray(viteEntry.css))
-    throw Error('Invalid Vite entry');
-  const shellPaths = [
-    ...new Set([viteEntry.file, ...viteEntry.css, ...viteEntry.assets].map(relative)),
-  ];
-  if (shellPaths.length !== 8 || shellPaths.some((p) => !/^assets\/[a-zA-Z0-9._-]+$/.test(p)))
-    throw Error('Expected closed nine-asset graph');
-  await inspect(root, path.join(build, 'assets'), true);
+  await take('.vite/manifest.json');
+  const assetDirectory = await inspect(root, path.join(build, 'assets'), true);
+  const sourceAssets = await readdir(assetDirectory, { withFileTypes: true });
   if (
-    !equal(
-      (await readdir(path.join(build, 'assets'))).sort(),
-      shellPaths.map((p) => p.slice(7)).sort(),
-    )
+    sourceAssets.length < 2 ||
+    sourceAssets.length > 31 ||
+    sourceAssets.some((item) => !item.isFile() || !/^[a-zA-Z0-9._-]+$/.test(item.name))
   )
     throw Error('Source has extra or missing assets');
+  const shellPaths = sourceAssets.map((item) => `assets/${item.name}`).sort();
   for (const rel of shellPaths) await take(rel);
   for (const rel of ['index.html', '.vite/manifest.json', ...shellPaths])
     await writeBound(root, scratch, rel, captured.get(rel));
@@ -257,7 +287,8 @@ async function plan({
     outputDirectory: scratch,
     compatibility: 'g3-015-v1',
   });
-  if (sourceShell.entries.length !== 9) throw Error('Incomplete production shell');
+  if (sourceShell.entries.length !== shellPaths.length + 1)
+    throw Error('Incomplete production shell');
   const allHtml = [index, ...publication.landingPages.map((e) => captured.get(e.path))];
   const security = Object.fromEntries(
     Object.entries(buildStagingSecurityHeaders(allHtml.map((b) => b.toString('utf8')))).filter(
@@ -280,6 +311,7 @@ async function plan({
   const policy = policies(security, shell);
   publicFiles.set('.htaccess', Buffer.from(policy.apache));
   publicFiles.set('wrn-production-content/.htaccess', Buffer.from(policy.contentApache));
+  publicFiles.set('wrn-source-pass-revocations/.htaccess', Buffer.from(policy.contentApache));
   const publicPaths = [...publicFiles.keys()].sort();
   const headers = Object.fromEntries(
     publicPaths
@@ -295,6 +327,10 @@ async function plan({
           if (p !== 'wrn-production-content/current.json')
             values['cache-control'] = 'public, max-age=31536000, immutable';
         }
+        if (p === 'wrn-source-pass-revocations/current.json') {
+          values['access-control-allow-origin'] = '*';
+          values['cross-origin-resource-policy'] = 'cross-origin';
+        }
         return [p, values];
       }),
   );
@@ -308,6 +344,7 @@ async function plan({
     shellId: shell.shellId,
     sourceInput: {
       buildDirectory: path.relative(root, build).replaceAll(path.sep, '/'),
+      previousRevocations: entry(previousRelative, previousBytes),
       files: [...captured.keys()].sort().map((p) => entry(p, captured.get(p))),
     },
     files: publicPaths.map((p) => entry(p, publicFiles.get(p))),
@@ -340,7 +377,7 @@ export async function prepareProductionWebsitePackage(options) {
   await writeFile(out + '.manifest.json', canonical(prepared.manifest) + '\n', { flag: 'wx' });
   await writeFile(
     out + '.README.txt',
-    'Local production candidate. Verify with the bound source input and trusted workspace before authorized rollout. Deploy immutable revision files first and current.json last; retain old server assets for rollback. Actual Apache headers require a separate server check.\n',
+    'Local production candidate. The previousRevocationsFile input must be the last delivered host snapshot; verify its receipt before rollout. Deploy immutable revision files first and current.json last; retain old server assets for rollback. Actual Apache headers require a separate server check.\n',
     { flag: 'wx' },
   );
   await inspect(root, out, true);
@@ -370,11 +407,20 @@ export async function verifyProductionWebsitePackage({
     );
   if (!supplied || !supplied.sourceInput || typeof supplied.sourceInput.buildDirectory !== 'string')
     throw Error('Invalid manifest');
+  if (
+    !supplied.sourceInput.previousRevocations ||
+    typeof supplied.sourceInput.previousRevocations.path !== 'string'
+  )
+    throw Error('Missing bound previous revocation snapshot');
   const expected = await plan({
     buildDirectory: path.join(root, relative(supplied.sourceInput.buildDirectory)),
     trustedWorkspaceRoot: root,
     sourceCommit: supplied.sourceCommit,
     generatedAtUTC: supplied.generatedAtUTC,
+    previousRevocationsFile: path.join(
+      root,
+      relative(supplied.sourceInput.previousRevocations.path),
+    ),
     canonicalOrigin: supplied.canonicalOrigin,
   });
   if (!equal(supplied, expected.manifest))
@@ -392,7 +438,14 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   try {
     const args = process.argv.slice(2),
       values = new Map();
-    const allowed = ['--build', '--output', '--workspace', '--commit', '--generated'];
+    const allowed = [
+      '--build',
+      '--output',
+      '--workspace',
+      '--commit',
+      '--generated',
+      '--previous-revocations',
+    ];
     for (let i = 0; i < args.length; i += 2) {
       if (
         !allowed.includes(args[i]) ||
@@ -412,6 +465,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
           trustedWorkspaceRoot: values.get('--workspace'),
           sourceCommit: values.get('--commit'),
           generatedAtUTC: values.get('--generated'),
+          previousRevocationsFile: values.get('--previous-revocations'),
         }),
       ),
     );

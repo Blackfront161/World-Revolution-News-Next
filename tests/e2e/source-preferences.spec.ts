@@ -1,7 +1,13 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Page, type Request } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { getSourcePreferencesCopy } from '../../packages/ui-language/src/source-preferences';
 import { getUiCopy } from '../../packages/ui-language/src';
+import {
+  auditRemotePointers,
+  directoryPointer,
+  recordRemotePointer,
+  revocationPointer,
+} from './remote-pointer-audit';
 
 const firstId = 'wrn-art-a772ab86c915a036c6177f1bfe958d4d';
 const eff = 'Electronic Frontier Foundation';
@@ -10,6 +16,11 @@ const endpointUrl = 'https://evrensel.net/rss?do=rss';
 const newsUrl =
   'https://www.evrensel.net/haber/5999747/yunanistan-italyadan-500-milyon-avroya-savas-gemisi-aliyor';
 const copy = getSourcePreferencesCopy('en');
+test.beforeEach(async ({ context }) => {
+  await context.addInitScript(() =>
+    sessionStorage.setItem('wrn.website.support-welcome.v1', 'dismissed'),
+  );
+});
 const profiles = [
   {
     name: 'mobile',
@@ -41,17 +52,21 @@ for (const profile of profiles) {
     page,
   }, info) => {
     const foreign: string[] = [],
-      errors: string[] = [];
+      errors: string[] = [],
+      approved: Request[] = [];
     page.on('request', (request) => {
-      const url = new URL(request.url());
-      if (['http:', 'https:'].includes(url.protocol) && url.origin !== profile.origin)
-        foreign.push(url.href);
+      recordRemotePointer(request, profile.origin, foreign, approved, [
+        directoryPointer,
+        revocationPointer,
+      ]);
     });
     page.on('pageerror', (error) => errors.push(error.message));
-    await page.clock.setFixedTime(new Date('2026-09-11T12:00:00Z'));
-    await page.goto(`${profile.origin}/`);
+    await page.clock.setFixedTime(new Date('2026-09-26T12:00:00Z'));
+    if (profile.name === 'website')
+      await page.route(directoryPointer, (route) => route.abort('internetdisconnected'));
+    await page.goto(`${profile.origin}/#discover`);
     const cards = page.locator('.production-card');
-    await expect(cards).toHaveCount(6);
+    await expect(cards).toHaveCount(12);
     const savedArticle = cards.filter({
       has: page.locator(`[data-reader-trigger="${firstId}"]`),
     });
@@ -59,23 +74,21 @@ for (const profile of profiles) {
     const readingKey = `wrn.${profile.name}-production-reading-state.v2`;
     const reading = await page.evaluate((key) => localStorage.getItem(key), readingKey);
     expect(reading).toContain(firstId);
-    await cards.first().locator('.source-profile summary').click();
-    await cards
-      .first()
-      .getByRole('button', { name: `Follow: ${eff}`, exact: true })
-      .click();
+    await savedArticle.locator('.source-profile summary').click();
+    await savedArticle.getByRole('button', { name: `Follow: ${eff}`, exact: true }).click();
     await expect(
-      cards.first().getByRole('button', { name: `Unfollow: ${eff}`, exact: true }),
+      savedArticle.getByRole('button', { name: `Unfollow: ${eff}`, exact: true }),
     ).toHaveAttribute('aria-pressed', 'true');
     await page.goto(`${profile.origin}/#following`);
     const followingCards = page.locator('.personalization-results .production-card');
-    await expect(followingCards).toHaveCount(6);
+    await expect(followingCards).toHaveCount(12);
     // The agreed projection prioritizes followed sources without an exclusive filter.
     // C4SS remains visible but moves behind all five EFF articles.
-    await expect(followingCards.last().locator('[data-reader-trigger]')).toHaveAttribute(
-      'data-reader-trigger',
-      'wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c',
-    );
+    await expect(
+      followingCards.filter({
+        has: page.locator('[data-reader-trigger="wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c"]'),
+      }),
+    ).toHaveCount(1);
     for (let index = 0; index < 5; index++)
       await expect(followingCards.nth(index).locator('.source-profile summary')).toContainText(eff);
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
@@ -83,17 +96,13 @@ for (const profile of profiles) {
       path: info.outputPath(`${profile.name}-source-only-for-me.png`),
       fullPage: true,
     });
-    await page.goto(`${profile.origin}/`);
-    await cards.first().locator('.source-profile summary').click();
-    await cards
-      .first()
-      .getByRole('button', { name: `Hide: ${eff}`, exact: true })
-      .click();
-    await expect(cards).toHaveCount(1);
-    await expect(cards.locator('[data-reader-trigger]')).toHaveAttribute(
-      'data-reader-trigger',
-      'wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c',
-    );
+    await page.goto(`${profile.origin}/#discover`);
+    await savedArticle.locator('.source-profile summary').click();
+    await savedArticle.getByRole('button', { name: `Hide: ${eff}`, exact: true }).click();
+    await expect(cards).toHaveCount(6);
+    await expect(
+      cards.locator('[data-reader-trigger="wrn-art-1530b6ef5a7ab519b7bb4d15cf4af45c"]'),
+    ).toHaveCount(1);
     await expect
       .poll(() =>
         page.evaluate(
@@ -132,10 +141,22 @@ for (const profile of profiles) {
     expect(
       JSON.parse((await page.evaluate((key) => localStorage.getItem(key), key))!).choices,
     ).toEqual([]);
-    await page.goto(`${profile.origin}/`);
-    await expect(cards).toHaveCount(6);
+    await page.goto(`${profile.origin}/#discover`);
+    await expect(cards).toHaveCount(12);
     expect(await page.evaluate((key) => localStorage.getItem(key), readingKey)).toBe(reading);
+    if (profile.name === 'website') {
+      // The remote directory pointer is requested by the directory route,
+      // not by the saved/following article flows above.
+      await page.goto(`${profile.origin}/#discover/news`);
+      await expect(page.getByRole('heading', { name: 'News directory' })).toBeVisible({
+        timeout: 15_000,
+      });
+    }
     expect(foreign).toEqual([]);
+    await auditRemotePointers(approved, [directoryPointer, revocationPointer], 8);
+    if (profile.name === 'website')
+      expect(approved.some((request) => request.url() === directoryPointer)).toBe(true);
+    else expect(approved).toHaveLength(0);
     expect(errors).toEqual([]);
   });
 
@@ -143,8 +164,8 @@ for (const profile of profiles) {
     page,
   }, info) => {
     const raw = '{"contractVersion":"9.0.0","secretNote":"untrusted hidden raw"}';
-    await page.goto(`${profile.origin}/`);
-    await expect(page.locator('.production-card')).toHaveCount(6);
+    await page.goto(`${profile.origin}/#discover`);
+    await expect(page.locator('.production-card')).toHaveCount(12);
     await page
       .locator('.production-card')
       .first()
@@ -192,6 +213,8 @@ for (const profile of profiles) {
   test(`${profile.name}: real endpoint follow comes first; exact matched news hides and returns without organization guessing`, async ({
     page,
   }, info) => {
+    if (profile.name === 'website')
+      await page.route(directoryPointer, (route) => route.abort('internetdisconnected'));
     await page.goto(`${profile.origin}/#discover/news`);
     await page.getByRole('combobox', { name: 'Source', exact: true }).selectOption('Evrensel');
     await expect(page.locator(`a[href="${newsUrl}"]`)).toBeVisible();
@@ -204,8 +227,11 @@ for (const profile of profiles) {
     await source.locator('.source-profile summary').click();
     await source.getByRole('button', { name: 'Follow: Evrensel', exact: true }).click();
     await page.getByRole('textbox', { name: 'Search', exact: true }).fill('');
+    const sourceList = page
+      .locator(profile.directory)
+      .filter({ has: page.locator(`a[href="${endpointUrl}"]`) });
     await expect(
-      page.locator(`${profile.directory} > li`).first().locator(`a[href="${endpointUrl}"]`),
+      sourceList.locator(':scope > li').first().locator(`a[href="${endpointUrl}"]`),
     ).toBeVisible();
     expect(
       JSON.parse((await page.evaluate((key) => localStorage.getItem(key), key))!).choices,
@@ -226,24 +252,30 @@ for (const profile of profiles) {
     await page.goto(`${profile.origin}/#discover/news`);
     await page.getByRole('combobox', { name: 'Source', exact: true }).selectOption('Evrensel');
     await expect(page.locator(`a[href="${newsUrl}"]`)).toBeVisible();
-    await page.goto(`${profile.origin}/`);
-    await expect(page.locator('.production-card')).toHaveCount(6);
+    await page.goto(`${profile.origin}/#home`);
+    await expect(page.locator('.production-home article[data-home-role]')).toHaveCount(11, {
+      timeout: 15_000,
+    });
   });
 
   test(`${profile.name}: actual second-tab changes invalidate an open clear confirmation`, async ({
     page,
     context,
   }) => {
-    await page.goto(`${profile.origin}/`);
-    const card = page.locator('.production-card').first();
+    await page.goto(`${profile.origin}/#discover`);
+    const card = page.locator('.production-card').filter({
+      has: page.locator(`[data-reader-trigger="${firstId}"]`),
+    });
     await card.locator('.source-profile summary').click();
     await card.getByRole('button', { name: `Follow: ${eff}`, exact: true }).click();
     await page.goto(`${profile.origin}/#more`);
     const choices = await panel(page);
     await choices.getByRole('button', { name: copy.clear, exact: true }).click();
     const second = await context.newPage();
-    await second.goto(`${profile.origin}/`);
-    const secondCard = second.locator('.production-card').first();
+    await second.goto(`${profile.origin}/#discover`);
+    const secondCard = second.locator('.production-card').filter({
+      has: second.locator(`[data-reader-trigger="${firstId}"]`),
+    });
     await secondCard.locator('.source-profile summary').click();
     await secondCard.getByRole('button', { name: `Hide: ${eff}`, exact: true }).click();
     await expect(
@@ -264,8 +296,10 @@ for (const profile of profiles) {
       page,
     }, info) => {
       await page.setViewportSize({ width: 320, height: 900 });
-      await page.goto(`${profile.origin}/?theme=${theme}`);
-      const card = page.locator('.production-card').first();
+      await page.goto(`${profile.origin}/?theme=${theme}#discover`);
+      const card = page.locator('.production-card').filter({
+        has: page.locator(`[data-reader-trigger="${firstId}"]`),
+      });
       await card.locator('.source-profile summary').click();
       const follow = card.getByRole('button', { name: `Follow: ${eff}`, exact: true });
       const unselected = await follow.evaluate((el) => ({
@@ -364,7 +398,9 @@ test('website: saved shell and source selection survive a new page with the enti
   const choices = await panel(offline);
   await choices.getByRole('button', { name: `Show again: ${eff}`, exact: true }).click();
   await offline.goto(`${origin}/`);
-  await expect(offline.locator('.production-card')).toHaveCount(6);
+  await expect(offline.locator('.production-home article[data-home-role]')).toHaveCount(11, {
+    timeout: 15_000,
+  });
 });
 
 test('mobile: Home archive respects endpoint follow and hide before filling its five slots', async ({

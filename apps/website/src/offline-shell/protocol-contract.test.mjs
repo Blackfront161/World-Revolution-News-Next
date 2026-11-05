@@ -154,7 +154,7 @@ test('one shared protocol strictly rejects untrusted control and bounds three im
   );
 });
 
-test('protocol admits only the historical five or current eight bounded shell entries', async () => {
+test('protocol admits historical and bounded static split shell generations', async () => {
   const { createShellProtocol } = await import('./protocol.mjs');
   const p = createShellProtocol();
   const entry = (path) => ({
@@ -183,6 +183,23 @@ test('protocol admits only the historical five or current eight bounded shell en
     ],
   };
   assert.equal(p.metadata(current), true);
+  const split = structuredClone(current);
+  split.entries.splice(2, 0, {
+    ...entry('/assets/react-vendor-a.js'),
+    mime: 'text/javascript; charset=utf-8',
+  });
+  split.totalBytes = split.entries.reduce((sum, item) => sum + item.bytes, 0);
+  assert.equal(p.metadata(split), true);
+  const oversizedChunk = structuredClone(split);
+  oversizedChunk.entries[2].bytes = 500_001;
+  oversizedChunk.totalBytes = oversizedChunk.entries.reduce((sum, item) => sum + item.bytes, 0);
+  assert.equal(p.metadata(oversizedChunk), false);
+  const unknownChunk = structuredClone(split);
+  unknownChunk.entries[2].path = '/assets/vendor-a.js';
+  assert.equal(p.metadata(unknownChunk), false);
+  const duplicateChunk = structuredClone(split);
+  duplicateChunk.entries[2].path = duplicateChunk.entries[1].path;
+  assert.equal(p.metadata(duplicateChunk), false);
   for (const patch of [
     { path: '/assets/unknown-a.json' },
     { path: '/assets/legacy-knowledge-v1-b.json' },

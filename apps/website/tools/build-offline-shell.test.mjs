@@ -161,6 +161,34 @@ test('builds a canonical closed shell manifest and byte-identical worker twice',
   assert.ok(first.totalBytes > 0 && first.totalBytes < 8 * 1024 * 1024);
 });
 
+test('binds a bounded static multi-chunk graph and rejects manifest/source disagreement', async (t) => {
+  const { root, dist } = await fixture();
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const manifestPath = path.join(dist, '.vite/manifest.json');
+  const vite = JSON.parse(await readFile(manifestPath, 'utf8'));
+  vite['index.html'].imports = ['_wrn-content-core-a.js'];
+  vite['_wrn-content-core-a.js'] = { file: 'assets/wrn-content-core-a.js', imports: [] };
+  await writeFile(manifestPath, JSON.stringify(vite));
+  await writeFile(
+    path.join(dist, 'index.html'),
+    '<!doctype html><link rel="modulepreload" href="/assets/wrn-content-core-a.js"><link rel="stylesheet" href="/assets/index-a.css"><script type="module" src="/assets/index-a.js"></script>',
+  );
+  await writeFile(
+    path.join(dist, 'assets/index-a.js'),
+    'import { value } from "./wrn-content-core-a.js"; console.log(value);',
+  );
+  await writeFile(path.join(dist, 'assets/wrn-content-core-a.js'), 'export const value = "shell";');
+
+  const built = await collectShellManifest({ outputDirectory: dist });
+  assert.ok(built.entries.some((entry) => entry.path === '/assets/wrn-content-core-a.js'));
+  assert.equal(built.entries.length, 9);
+
+  await writeFile(path.join(dist, 'assets/index-a.js'), 'console.log("missing import");');
+  await assert.rejects(
+    () => collectShellManifest({ outputDirectory: dist }),
+    /imports disagree with Vite manifest/u,
+  );
+});
 test('rejects three JSON files from duplicate families, even with matching Vite references', async (t) => {
   const { root, dist } = await fixture([
     'legacy-knowledge-v1-a.json',
@@ -384,7 +412,7 @@ test('worker identity binds actual canonical protocol/runtime source bytes', () 
   const source = createShellProtocol.toString() + '\n' + installWebsiteShellRuntime.toString();
   assert.equal(
     workerProtocolRevision,
-    'wrn.website-shell.worker.v1.2.' + createHash('sha256').update(source).digest('hex'),
+    'wrn.website-shell.worker.v1.3.' + createHash('sha256').update(source).digest('hex'),
   );
 });
 

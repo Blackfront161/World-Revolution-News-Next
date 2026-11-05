@@ -1,0 +1,12 @@
+{
+  "schema": "wrn.android-test-apk-asset-verification.v1",
+  "status": "PASS",
+  "sourceCommit": "c8c045074a3effe2f7e3eeba4bbf07f409a59c35",
+  "sourceAabSha256": "ad7cafa2f7f55d7c5993bcad563edaf0186a6cf8487f3ddb63b359745541f49a",
+  "apkSha256": "86b34fa9422b91a72b943e6f622e4bf23787cdd0a7c9cb3ea3a720303565609a",
+  "assets": 94,
+  "allowedBaselineProfiles": [
+    "assets/dexopt/baseline.prof",
+    "assets/dexopt/baseline.profm"
+  ]
+}

@@ -29,9 +29,11 @@ test('resolves only explicit public workspace exports and consuming-app React', 
     '@wrn/content-contracts/production-media-offline-v1',
     '@wrn/content-contracts/production-regional-events-v1',
     '@wrn/content-contracts/mobile-content-directory-v1',
+    '@wrn/content-contracts/source-pass-overlay-v1',
     '@wrn/ui-language/production-content',
     '@wrn/ui-language/production-regional',
     '@wrn/ui-language/directory',
+    '@wrn/ui-language/source-pass',
   ]) {
     const [, packageName, ...subpath] = name.split('/');
     const packageRoot = path.resolve('packages', packageName);

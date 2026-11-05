@@ -1,0 +1,101 @@
+.wrn-atlas {
+  margin: 1.5rem 0;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid var(--color-accent, #d92736);
+  border-radius: 1rem;
+  background: var(--color-surface, #111);
+  color: var(--color-text, #fff);
+}
+.wrn-atlas__heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+.wrn-atlas__heading h2 {
+  margin: 0;
+}
+.wrn-atlas__eyebrow {
+  color: var(--color-accent, #d92736);
+  font-weight: 700;
+  margin: 0;
+}
+.wrn-atlas button,
+.wrn-atlas a {
+  min-height: 44px;
+}
+.wrn-atlas button {
+  border: 1px solid var(--color-accent, #d92736);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+}
+.wrn-atlas button[aria-pressed='true'] {
+  background: var(--color-accent, #d92736);
+  color: #fff;
+}
+.wrn-atlas button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.wrn-atlas :focus-visible {
+  outline: 3px solid var(--color-accent, #d92736);
+  outline-offset: 3px;
+}
+.wrn-atlas__filter {
+  display: grid;
+  gap: 0.35rem;
+  max-width: 22rem;
+  font-weight: 700;
+}
+.wrn-atlas__filter select {
+  min-height: 44px;
+  padding: 0.5rem;
+}
+.wrn-atlas__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.wrn-atlas__sources {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 0.6rem;
+}
+.wrn-atlas__sources li {
+  padding: 0.8rem;
+  border: 1px solid currentColor;
+  border-radius: 0.6rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.wrn-atlas__sources span {
+  display: block;
+  opacity: 0.8;
+  margin-top: 0.25rem;
+}
+.wrn-atlas a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-accent, #e13b49);
+}
+.wrn-atlas__quiz {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid currentColor;
+}
+.wrn-atlas__question {
+  font-size: 1.2rem;
+}
+.wrn-atlas__feedback {
+  font-weight: 700;
+}
+.wrn-atlas__note {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}

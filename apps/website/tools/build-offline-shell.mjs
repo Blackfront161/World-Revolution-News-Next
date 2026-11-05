@@ -31,36 +31,102 @@ const mimeFor = (file) =>
           : 'image/png';
 const digest = (bytes) => createHash('sha256').update(bytes).digest('hex');
 
-function required(value, message) {
-  if (!value) throw new Error(message);
-  return value;
-}
+const shellAssetPath = /^\/assets\/[A-Za-z0-9._-]+$/;
+const viteAssetFile = /^assets\/[A-Za-z0-9._-]+$/;
 
 function htmlAssetPaths(html) {
   const values = [...html.matchAll(/(?:src|href)=["'](\/assets\/[A-Za-z0-9._-]+)["']/g)].map(
     (match) => match[1],
   );
-  if (values.length !== 2)
-    throw new Error('Shell HTML must reference exactly one JS and one CSS asset');
-  return values;
+  if (
+    values.length < 2 ||
+    values.length > 32 ||
+    new Set(values).size !== values.length ||
+    values.some((value) => !shellAssetPath.test(value))
+  )
+    throw new Error('Shell HTML asset references are invalid or unbounded');
+  return values.sort();
 }
 
-function assertClosedJavaScriptGraph(source, filename) {
+function manifestFiles(value, pattern, label, maximum = 32) {
+  if (value === undefined) return [];
+  if (
+    !Array.isArray(value) ||
+    value.length > maximum ||
+    new Set(value).size !== value.length ||
+    value.some((entry) => typeof entry !== 'string' || !pattern.test(entry))
+  )
+    throw new Error(`Vite manifest has invalid ${label}`);
+  return [...value];
+}
+
+function collectViteClosure(vite) {
+  if (!vite || typeof vite !== 'object' || Array.isArray(vite) || Object.keys(vite).length > 128)
+    throw new Error('Invalid Vite manifest');
+  const entry = vite['index.html'];
+  if (!entry || entry.isEntry !== true || entry.src !== 'index.html')
+    throw new Error('Invalid Vite entry');
+  const visited = new Set();
+  const javascript = new Set();
+  const css = new Set();
+  const assets = new Set();
+  const chunks = new Map();
+  const visit = (key) => {
+    if (visited.has(key)) return;
+    if (visited.size >= 24) throw new Error('Vite shell graph has too many chunks');
+    const chunk = vite[key];
+    if (!chunk || typeof chunk !== 'object' || Array.isArray(chunk))
+      throw new Error('Vite shell import is missing');
+    if (key !== 'index.html' && chunk.isEntry === true)
+      throw new Error('Vite shell graph contains a second entry');
+    if (typeof chunk.file !== 'string' || !/^assets\/[A-Za-z0-9._-]+\.js$/.test(chunk.file))
+      throw new Error('Vite shell chunk path is invalid');
+    const imports = manifestFiles(chunk.imports, /^[A-Za-z0-9._-]+$/, 'static imports');
+    if (manifestFiles(chunk.dynamicImports, /^[A-Za-z0-9._-]+$/, 'dynamic imports').length)
+      throw new Error('Dynamic JavaScript is not a closed shell');
+    visited.add(key);
+    javascript.add(chunk.file);
+    chunks.set(chunk.file, Object.freeze({ key, chunk, imports }));
+    for (const file of manifestFiles(chunk.css, /^assets\/[A-Za-z0-9._-]+\.css$/, 'CSS'))
+      css.add(file);
+    for (const file of manifestFiles(chunk.assets, viteAssetFile, 'assets')) assets.add(file);
+    for (const imported of imports) visit(imported);
+  };
+  visit('index.html');
+  return Object.freeze({
+    entry,
+    javascript: [...javascript].sort(),
+    css: [...css].sort(),
+    assets: [...assets].sort(),
+    chunks,
+  });
+}
+
+function javascriptDependencies(source, filename) {
   const tree = ts.createSourceFile(filename, source, ts.ScriptTarget.ESNext, true);
-  let violation = false;
+  const dependencies = new Set();
+  const add = (specifier) => {
+    if (!specifier || !ts.isStringLiteralLike(specifier))
+      throw new Error('JavaScript shell import must use a literal path');
+    if (!/^\.\/[A-Za-z0-9._-]+\.js$/.test(specifier.text))
+      throw new Error('JavaScript shell import must remain inside the asset graph');
+    const resolved = path.posix.normalize(
+      path.posix.join(path.posix.dirname(`/${filename}`), specifier.text),
+    );
+    if (!/^\/assets\/[A-Za-z0-9._-]+\.js$/.test(resolved))
+      throw new Error('JavaScript shell import resolved outside the asset graph');
+    dependencies.add(resolved);
+  };
   const visit = (node) => {
-    if (
-      ts.isImportDeclaration(node) ||
-      (ts.isCallExpression(node) && node.expression.kind === ts.SyntaxKind.ImportKeyword)
-    ) {
-      violation = true;
-    }
+    if (ts.isImportDeclaration(node)) add(node.moduleSpecifier);
+    else if (ts.isExportDeclaration(node) && node.moduleSpecifier) add(node.moduleSpecifier);
+    else if (ts.isCallExpression(node) && node.expression.kind === ts.SyntaxKind.ImportKeyword)
+      throw new Error('Dynamic JavaScript is not a closed shell');
     ts.forEachChild(node, visit);
   };
   visit(tree);
-  if (violation) throw new Error('Dynamic or transitively split JavaScript is not a closed shell');
+  return [...dependencies].sort();
 }
-
 function normalizeHtmlResponseHeaders(value) {
   if (value === undefined) return undefined;
   if (!value || typeof value !== 'object' || Array.isArray(value))
@@ -92,18 +158,6 @@ export async function collectShellManifest({
   const dist = path.resolve(outputDirectory);
   const html = await readFile(path.join(dist, 'index.html'));
   const referenced = htmlAssetPaths(html.toString('utf8'));
-  const js = required(
-    referenced.find((entry) => entry.endsWith('.js')),
-    'Missing module script',
-  );
-  const css = required(
-    referenced.find((entry) => entry.endsWith('.css')),
-    'Missing stylesheet',
-  );
-  assertClosedJavaScriptGraph(await readFile(path.join(dist, js.slice(1)), 'utf8'), js);
-  const cssSource = await readFile(path.join(dist, css.slice(1)), 'utf8');
-  if (/url\(/iu.test(cssSource))
-    throw new Error('CSS URL dependencies require an explicit closed-graph parser');
   const assets = await readdir(path.join(dist, 'assets'));
   const images = assets
     .filter((entry) => allowedImage.test(entry))
@@ -127,31 +181,43 @@ export async function collectShellManifest({
       'Exactly the original three or complete four approved local JSON asset families are required',
     );
   const vite = JSON.parse(await readFile(path.join(dist, '.vite', 'manifest.json'), 'utf8'));
-  const entry = vite?.['index.html'];
+  const graph = collectViteClosure(vite);
+  const expectedReferences = [...graph.javascript, ...graph.css].map((file) => `/${file}`).sort();
+  const approvedAssets = [
+    ...images.map((image) => image.slice(1)),
+    ...jsonAssets.map((asset) => `assets/${asset}`),
+  ].sort();
+  const permittedViteFiles = new Set([...graph.javascript, ...graph.css, ...approvedAssets]);
   if (
-    !entry ||
-    entry.isEntry !== true ||
-    entry.file !== js.slice(1) ||
-    JSON.stringify(entry.css) !== JSON.stringify([css.slice(1)]) ||
-    !Array.isArray(entry.assets) ||
-    JSON.stringify([...entry.assets].sort()) !==
-      JSON.stringify(
-        [
-          ...images.map((image) => image.slice(1)),
-          ...jsonAssets.map((asset) => `assets/${asset}`),
-        ].sort(),
-      ) ||
+    JSON.stringify(referenced) !== JSON.stringify(expectedReferences) ||
+    JSON.stringify(graph.assets) !== JSON.stringify(approvedAssets) ||
     Object.values(vite).some(
-      (chunk) => (chunk.imports?.length ?? 0) !== 0 || (chunk.dynamicImports?.length ?? 0) !== 0,
+      (record) =>
+        !record ||
+        typeof record !== 'object' ||
+        Array.isArray(record) ||
+        typeof record.file !== 'string' ||
+        !permittedViteFiles.has(record.file),
     )
-  ) {
+  )
     throw new Error('Vite manifest is not the closed HTML/CSS/brand shell graph');
+  for (const file of graph.javascript) {
+    const metadata = graph.chunks.get(file);
+    const declared = metadata.imports.map((key) => `/${vite[key].file}`).sort();
+    const actual = javascriptDependencies(await readFile(path.join(dist, file), 'utf8'), file);
+    if (JSON.stringify(actual) !== JSON.stringify(declared))
+      throw new Error(`JavaScript imports disagree with Vite manifest: ${file}`);
+  }
+  for (const file of graph.css) {
+    const source = await readFile(path.join(dist, file), 'utf8');
+    if (/url\(/iu.test(source))
+      throw new Error('CSS URL dependencies require an explicit closed-graph parser');
   }
   const paths = [
     ...new Set([
       '/index.html',
-      js,
-      css,
+      ...graph.javascript.map((file) => `/${file}`),
+      ...graph.css.map((file) => `/${file}`),
       ...images,
       ...jsonAssets.map((asset) => `/assets/${asset}`),
     ]),

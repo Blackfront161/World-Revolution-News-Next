@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "wrn-evidence-manifest-v1",
+  "packet": "WRN-WEBSITE-RC-2026-09-26",
+  "sourceCommit": "4ba9561ebecbbfbed6c8dcbdba8315cbbd1cec98",
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 3303,
+      "sha256": "6da90e0e6255c7afd3aacd31610dbe2f247824a60f1e6bae3fcceaf1af84785a"
+    },
+    {
+      "path": "website-home-390-de-violet.png",
+      "bytes": 62135,
+      "sha256": "b6a7634b508b6c002a7f098c85b1502694cd7c916f6b59e5b2838c0d3c7eb321"
+    },
+    {
+      "path": "website-package.manifest.json",
+      "bytes": 65641,
+      "sha256": "881518e1f6be3ac9a8fe1bea11b0ae098ecec8158033f8897fefc7d82b982d99"
+    },
+    {
+      "path": "hosting-packet.manifest.json",
+      "bytes": 64591,
+      "sha256": "ef37231181e10cab5da6af99650f9a9dd4f54a691f2340abdc39b572420bbc45"
+    }
+  ]
+}

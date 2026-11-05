@@ -92,6 +92,36 @@ describe('reasons from explicit production choices', () => {
     ).toEqual({ interestIds: ['sport'], regionIds: [], contentLanguageIds: [] });
   });
 
+  it('recognizes the admitted sports topic for the local Sport choice', async () => {
+    const result = await productionTestResult();
+    const ready = result.runtime as ProductionContentReadyV1;
+    const article = ready.documents.articles.articles[0]!;
+    const entry = ready.documents.discoverIndex.entries.find(
+      (value) => value.articleId === article.id,
+    )!;
+    const current = {
+      ...result,
+      runtime: {
+        ...ready,
+        documents: {
+          ...ready.documents,
+          discoverIndex: {
+            ...ready.documents.discoverIndex,
+            entries: [{ ...entry, topics: ['sports'] }],
+          },
+        },
+      },
+    };
+    expect(
+      getProductionPreferenceMatches(article, current, {
+        ...preferences,
+        interestIds: ['sport'],
+        regionIds: [],
+        contentLanguageIds: [],
+      }),
+    ).toEqual({ interestIds: ['sport'], regionIds: [], contentLanguageIds: [] });
+  });
+
   it('shows only matching labels and opens without writes or requests', async () => {
     const result = await productionTestResult();
     const article = result.runtime!.documents.articles.articles[0]!;

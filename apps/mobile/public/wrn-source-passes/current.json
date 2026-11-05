@@ -1,0 +1,2170 @@
+{
+  "schema": "wrn.source-pass-overlay.v1",
+  "contractVersion": "1.1.0",
+  "revision": "wrn-source-pass-2026-09-25-v2",
+  "sequence": 2,
+  "reviewedAt": "2026-09-25T00:00:00Z",
+  "records": [
+    {
+      "id": "wrn-source-pass-4f938bf89f0b4fa3a7472161d8b92dc4",
+      "canonicalName": "Electronic Frontier Foundation",
+      "aliasNames": ["EFF"],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "EFF describes itself as a nonprofit defending civil liberties in the digital world through litigation, policy analysis, activism and technology development.",
+        "language": "en",
+        "evidenceIds": ["evidence-eff-about"]
+      },
+      "editorialDescription": {
+        "text": "WRN curates EFF for reporting and analysis on digital rights, privacy, surveillance and freedom of expression.",
+        "language": "en",
+        "evidenceIds": ["evidence-eff-editorial"]
+      },
+      "endpoints": [
+        {
+          "endpointId": "source-ef5503bcda4b70d449148e570edb94205d52574c97eeafe8d5caeedd3654ea15",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-eff-about"],
+          "kind": "directory",
+          "url": null
+        },
+        {
+          "endpointId": "source-f0824f315038ca0e6f5b916b0a17d1b842f33f85bdf818b346b39cbc37f5df7d",
+          "role": "feed",
+          "health": "unchecked",
+          "checkedAt": "2026-09-09T04:37:14.725Z",
+          "lastSuccessfulAt": null,
+          "evidenceIds": ["evidence-eff-feed-snapshot"],
+          "kind": "directory",
+          "url": null
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-ef5503bcda4b70d449148e570edb94205d52574c97eeafe8d5caeedd3654ea15",
+      "originalEndpointId": "source-ef5503bcda4b70d449148e570edb94205d52574c97eeafe8d5caeedd3654ea15",
+      "regions": ["Global", "North America"],
+      "countries": ["United States"],
+      "languages": ["en"],
+      "topics": ["digital rights", "free expression", "privacy", "surveillance"],
+      "tendencies": ["civil liberties"],
+      "mediaTypes": ["news", "analysis"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "allowed",
+          "evidenceIds": ["evidence-eff-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "allowed",
+          "evidenceIds": ["evidence-eff-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "link-only",
+          "evidenceIds": ["evidence-eff-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-eff-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "link-only",
+          "evidenceIds": ["evidence-eff-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://www.eff.org/about/contact",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-eff-contact"]
+      },
+      "evidenceIds": [
+        "evidence-eff-about",
+        "evidence-eff-rights",
+        "evidence-eff-contact",
+        "evidence-eff-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-570fbd67125f4f77b1b584cf98035440",
+      "canonicalName": "Center for a Stateless Society",
+      "aliasNames": ["C4SS"],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "C4SS describes itself as an anarchist think tank and media center producing and distributing left market anarchist media.",
+        "language": "en",
+        "evidenceIds": ["evidence-c4ss-about"]
+      },
+      "editorialDescription": {
+        "text": "WRN curates C4SS as an organization-published source for anarchist commentary and multilingual translations.",
+        "language": "en",
+        "evidenceIds": ["evidence-c4ss-editorial"]
+      },
+      "endpoints": [
+        {
+          "endpointId": "source-ca93c44fa85ee2bf2742023def03e6fc1e54c2536440bba2f55bbcb5a82abfb9",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-c4ss-about"],
+          "kind": "directory",
+          "url": null
+        },
+        {
+          "endpointId": "source-4f41640569ed675e571aa7979edf4ffe84cfdf79d133a0200c59db555a34766b",
+          "role": "feed",
+          "health": "unchecked",
+          "checkedAt": "2026-09-09T04:37:14.725Z",
+          "lastSuccessfulAt": null,
+          "evidenceIds": ["evidence-c4ss-feed-snapshot"],
+          "kind": "directory",
+          "url": null
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-ca93c44fa85ee2bf2742023def03e6fc1e54c2536440bba2f55bbcb5a82abfb9",
+      "originalEndpointId": "source-ca93c44fa85ee2bf2742023def03e6fc1e54c2536440bba2f55bbcb5a82abfb9",
+      "regions": ["Global", "North America"],
+      "countries": ["United States"],
+      "languages": ["ar", "el", "en", "es", "it", "nl", "pt", "ru", "sv", "zh"],
+      "topics": ["anarchism", "free expression", "surveillance"],
+      "tendencies": ["left market anarchism"],
+      "mediaTypes": ["analysis", "news", "translation"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "allowed",
+          "evidenceIds": ["evidence-c4ss-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "allowed",
+          "evidenceIds": ["evidence-c4ss-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "link-only",
+          "evidenceIds": ["evidence-c4ss-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-c4ss-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-c4ss-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://c4ss.org/contact",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-c4ss-contact"]
+      },
+      "evidenceIds": [
+        "evidence-c4ss-about",
+        "evidence-c4ss-rights",
+        "evidence-c4ss-contact",
+        "evidence-c4ss-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-9175a51652444964a513864dd68f3db2",
+      "canonicalName": "Africa Is a Country",
+      "aliasNames": ["AIAC"],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "Africa Is a Country describes its work as an African left perspective on social, political and cultural issues, including sport.",
+        "language": "en",
+        "evidenceIds": ["evidence-aiac-about"]
+      },
+      "editorialDescription": {
+        "text": "WRN curates Africa Is a Country for African left analysis, anticolonial perspectives and its sport and society coverage.",
+        "language": "en",
+        "evidenceIds": ["evidence-aiac-editorial"]
+      },
+      "endpoints": [
+        {
+          "endpointId": "source-d73aa8575b7a52df882b1ad832271f0cca8c779caab576cab9eb32678b6c929d",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-aiac-about"],
+          "kind": "directory",
+          "url": null
+        },
+        {
+          "endpointId": "source-8d47c381dfd8abf4946a0d82c708500a28366051b40ce57b026f3f0440f164fd",
+          "role": "feed",
+          "health": "unchecked",
+          "checkedAt": "2026-09-09T04:37:14.725Z",
+          "lastSuccessfulAt": null,
+          "evidenceIds": ["evidence-aiac-feed-snapshot"],
+          "kind": "directory",
+          "url": null
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-d73aa8575b7a52df882b1ad832271f0cca8c779caab576cab9eb32678b6c929d",
+      "originalEndpointId": "source-d73aa8575b7a52df882b1ad832271f0cca8c779caab576cab9eb32678b6c929d",
+      "regions": ["Africa", "Global"],
+      "countries": [],
+      "languages": ["en"],
+      "topics": ["anticolonialism", "culture", "politics", "sport"],
+      "tendencies": ["African left"],
+      "mediaTypes": ["analysis", "news", "podcast"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "allowed",
+          "evidenceIds": ["evidence-aiac-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "allowed",
+          "evidenceIds": ["evidence-aiac-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "link-only",
+          "evidenceIds": ["evidence-aiac-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-aiac-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-aiac-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://africasacountry.com/contact",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-aiac-contact"]
+      },
+      "evidenceIds": [
+        "evidence-aiac-about",
+        "evidence-aiac-rights",
+        "evidence-aiac-contact",
+        "evidence-aiac-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-d79a4f3d241b2c8b2090c3241b2734fd",
+      "canonicalName": "Black Liberation Media",
+      "aliasNames": ["BLMedia"],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "A collective of Black and Afrikan organizers, journalists, academics and media personalities producing news and programmes for Black and Afrikan audiences.",
+        "language": "en",
+        "evidenceIds": ["evidence-blm-identity"]
+      },
+      "editorialDescription": {
+        "text": "WRN lists this active media collective for Black liberation reporting and commentary; only organization-level metadata and original links are stored.",
+        "language": "en",
+        "evidenceIds": ["evidence-blm-editorial"]
+      },
+      "endpoints": [
+        {
+          "kind": "direct",
+          "endpointId": "source-7b24159afa500d3959422f58dc784d9e83cdf798b433a62d8893f42f56f119f3",
+          "url": "https://blkliberationmedia.org/",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-blm-identity", "evidence-blm-activity"]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-7b24159afa500d3959422f58dc784d9e83cdf798b433a62d8893f42f56f119f3",
+      "originalEndpointId": "source-7b24159afa500d3959422f58dc784d9e83cdf798b433a62d8893f42f56f119f3",
+      "regions": ["North America"],
+      "countries": ["United States"],
+      "languages": ["en"],
+      "topics": ["Black liberation", "community media", "social movements"],
+      "tendencies": ["Black radical"],
+      "mediaTypes": ["news", "analysis", "video", "audio"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": ["evidence-blm-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": ["evidence-blm-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": ["evidence-blm-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-blm-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-blm-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://blkliberationmedia.org/contact/",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-blm-contact"]
+      },
+      "evidenceIds": [
+        "evidence-blm-identity",
+        "evidence-blm-activity",
+        "evidence-blm-contact",
+        "evidence-blm-rights",
+        "evidence-blm-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-a911adcddc746e80e1dab42d2ed27018",
+      "canonicalName": "Cooperation Jackson",
+      "aliasNames": [],
+      "curationStatus": "organization",
+      "selfDescription": {
+        "text": "An organization building a solidarity economy in Jackson through cooperatives and worker-owned, democratically self-managed enterprises.",
+        "language": "en",
+        "evidenceIds": ["evidence-coopjackson-identity"]
+      },
+      "editorialDescription": {
+        "text": "WRN lists this as an organization profile about cooperation, mutual aid and solidarity economy; it is not treated as an independent news outlet.",
+        "language": "en",
+        "evidenceIds": ["evidence-coopjackson-editorial"]
+      },
+      "endpoints": [
+        {
+          "kind": "direct",
+          "endpointId": "source-aa31a557f9c6218f0099f5d28dd517cbc40e9ed9ffe37838982102c666cc050a",
+          "url": "https://cooperationjackson.org/",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-coopjackson-identity", "evidence-coopjackson-activity"]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-aa31a557f9c6218f0099f5d28dd517cbc40e9ed9ffe37838982102c666cc050a",
+      "originalEndpointId": "source-aa31a557f9c6218f0099f5d28dd517cbc40e9ed9ffe37838982102c666cc050a",
+      "regions": ["North America"],
+      "countries": ["United States"],
+      "languages": ["en"],
+      "topics": ["cooperatives", "mutual aid", "solidarity economy"],
+      "tendencies": ["community self-management"],
+      "mediaTypes": ["organization", "articles"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": ["evidence-coopjackson-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": ["evidence-coopjackson-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": ["evidence-coopjackson-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-coopjackson-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-coopjackson-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://cooperationjackson.org/contact-us",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-coopjackson-contact"]
+      },
+      "evidenceIds": [
+        "evidence-coopjackson-identity",
+        "evidence-coopjackson-activity",
+        "evidence-coopjackson-contact",
+        "evidence-coopjackson-rights",
+        "evidence-coopjackson-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-71fca1f3eecfa62a81c9761fec53027b",
+      "canonicalName": "Montréal Counter-information",
+      "aliasNames": ["Montreal Counter-info"],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "A space for Montréal anarchists to circulate ideas and actions through news, reports, communiqués, writing and counter-information archives.",
+        "language": "en",
+        "evidenceIds": ["evidence-mtlci-identity"]
+      },
+      "editorialDescription": {
+        "text": "WRN lists this active counter-information publication while preserving anonymous attribution and avoiding any assumption of reuse rights.",
+        "language": "en",
+        "evidenceIds": ["evidence-mtlci-editorial"]
+      },
+      "endpoints": [
+        {
+          "kind": "direct",
+          "endpointId": "source-44e2ba3e195bd9b1dacc22ecb6e105ec6fe8ab9d04950715d3fd535c5dac44bc",
+          "url": "https://mtlcounterinfo.org/",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-mtlci-identity", "evidence-mtlci-activity"]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-44e2ba3e195bd9b1dacc22ecb6e105ec6fe8ab9d04950715d3fd535c5dac44bc",
+      "originalEndpointId": "source-44e2ba3e195bd9b1dacc22ecb6e105ec6fe8ab9d04950715d3fd535c5dac44bc",
+      "regions": ["North America"],
+      "countries": ["Canada"],
+      "languages": ["en", "fr"],
+      "topics": ["anarchism", "direct action", "counter-information"],
+      "tendencies": ["anarchist"],
+      "mediaTypes": ["news", "archive", "posters"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": ["evidence-mtlci-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": ["evidence-mtlci-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": ["evidence-mtlci-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-mtlci-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-mtlci-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://mtlcounterinfo.org/about-2/",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-mtlci-contact"]
+      },
+      "evidenceIds": [
+        "evidence-mtlci-identity",
+        "evidence-mtlci-activity",
+        "evidence-mtlci-contact",
+        "evidence-mtlci-rights",
+        "evidence-mtlci-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-3130b0baf6a52cf18f2ebc8908f0953e",
+      "canonicalName": "Federación Anarquista Uruguaya",
+      "aliasNames": ["FAU", "fAu"],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "An Uruguayan anarchist federation describing its struggle for social revolution and a libertarian socialist society.",
+        "language": "en",
+        "evidenceIds": ["evidence-fau-identity"]
+      },
+      "editorialDescription": {
+        "text": "WRN lists the federation as an organization-published source for anarchist statements, analysis and activity notices.",
+        "language": "en",
+        "evidenceIds": ["evidence-fau-editorial"]
+      },
+      "endpoints": [
+        {
+          "kind": "direct",
+          "endpointId": "source-3279698b8658304f562fd7aeb941406c5778b00a10a05d189319f7f3e4e16d40",
+          "url": "https://federacionanarquistauruguaya.uy/",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-fau-identity", "evidence-fau-activity"]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-3279698b8658304f562fd7aeb941406c5778b00a10a05d189319f7f3e4e16d40",
+      "originalEndpointId": "source-3279698b8658304f562fd7aeb941406c5778b00a10a05d189319f7f3e4e16d40",
+      "regions": ["South America"],
+      "countries": ["Uruguay"],
+      "languages": ["es"],
+      "topics": ["anarchism", "social movements", "labor"],
+      "tendencies": ["libertarian socialist", "especifista"],
+      "mediaTypes": ["organization", "articles"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": ["evidence-fau-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": ["evidence-fau-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": ["evidence-fau-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-fau-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-fau-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://federacionanarquistauruguaya.uy/contacto/",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-fau-contact"]
+      },
+      "evidenceIds": [
+        "evidence-fau-identity",
+        "evidence-fau-activity",
+        "evidence-fau-contact",
+        "evidence-fau-rights",
+        "evidence-fau-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-7766b2b718918adb11f6e242ad8539b0",
+      "canonicalName": "Grupo Libertario Vía Libre",
+      "aliasNames": ["Vía Libre"],
+      "curationStatus": "organization",
+      "selfDescription": {
+        "text": "A Bogotá political organization founded in 2010 that identifies with social and organized anarchism and Colombian popular struggles.",
+        "language": "en",
+        "evidenceIds": ["evidence-vialibre-identity"]
+      },
+      "editorialDescription": {
+        "text": "WRN lists Vía Libre as an organization profile for anarchist education, statements and movement analysis.",
+        "language": "en",
+        "evidenceIds": ["evidence-vialibre-editorial"]
+      },
+      "endpoints": [
+        {
+          "kind": "direct",
+          "endpointId": "source-8f7de315f8a1226dda23a20195aa68dadc7b28b2ba867d9e6dd95ff2152cc1fd",
+          "url": "https://grupovialibre.org/",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-vialibre-identity", "evidence-vialibre-activity"]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-8f7de315f8a1226dda23a20195aa68dadc7b28b2ba867d9e6dd95ff2152cc1fd",
+      "originalEndpointId": "source-8f7de315f8a1226dda23a20195aa68dadc7b28b2ba867d9e6dd95ff2152cc1fd",
+      "regions": ["South America"],
+      "countries": ["Colombia"],
+      "languages": ["es", "en"],
+      "topics": ["anarchism", "education", "social movements"],
+      "tendencies": ["social anarchism", "organized anarchism"],
+      "mediaTypes": ["organization", "articles", "video"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": ["evidence-vialibre-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": ["evidence-vialibre-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": ["evidence-vialibre-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-vialibre-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-vialibre-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://grupovialibre.org/about/contacto/",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-vialibre-contact"]
+      },
+      "evidenceIds": [
+        "evidence-vialibre-identity",
+        "evidence-vialibre-activity",
+        "evidence-vialibre-contact",
+        "evidence-vialibre-rights",
+        "evidence-vialibre-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-dc2f7b699ca614970d4309aa9651338e",
+      "canonicalName": "Solidarity Collectives",
+      "aliasNames": ["Operation Solidarity"],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "A Ukrainian anarchist and anti-authoritarian volunteer network doing humanitarian, media and material-support work during Russia’s invasion.",
+        "language": "en",
+        "evidenceIds": ["evidence-solidaritycollectives-identity"]
+      },
+      "editorialDescription": {
+        "text": "WRN lists public organization-level metadata only and excludes tactical locations, non-public identities and operational details.",
+        "language": "en",
+        "evidenceIds": ["evidence-solidaritycollectives-editorial"]
+      },
+      "endpoints": [
+        {
+          "kind": "direct",
+          "endpointId": "source-118d3d7ca24af6fd10ac68d51c379ce674c7aacb64edbb8363dcbdaf50b500e5",
+          "url": "https://www.solidaritycollectives.org/en/",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": [
+            "evidence-solidaritycollectives-identity",
+            "evidence-solidaritycollectives-activity"
+          ]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-118d3d7ca24af6fd10ac68d51c379ce674c7aacb64edbb8363dcbdaf50b500e5",
+      "originalEndpointId": "source-118d3d7ca24af6fd10ac68d51c379ce674c7aacb64edbb8363dcbdaf50b500e5",
+      "regions": ["Europe", "Eastern Europe"],
+      "countries": ["Ukraine"],
+      "languages": ["en", "uk"],
+      "topics": ["mutual aid", "anti-authoritarian resistance", "humanitarian support"],
+      "tendencies": ["anarchist", "anti-authoritarian"],
+      "mediaTypes": ["organization", "news", "campaigns"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": ["evidence-solidaritycollectives-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": ["evidence-solidaritycollectives-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": ["evidence-solidaritycollectives-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-solidaritycollectives-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-solidaritycollectives-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://www.solidaritycollectives.org/en/about-us/",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-solidaritycollectives-contact"]
+      },
+      "evidenceIds": [
+        "evidence-solidaritycollectives-identity",
+        "evidence-solidaritycollectives-activity",
+        "evidence-solidaritycollectives-contact",
+        "evidence-solidaritycollectives-rights",
+        "evidence-solidaritycollectives-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-64573620145613f34958a8e785e6e543",
+      "canonicalName": "anarhistka / Anti-authoritarian Platform",
+      "aliasNames": ["anarhistka", "Antiavtoritarna Platforma"],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "An autonomous counter-media project of Anti-authoritarian Platform amplifying social movements and marginalized or repressed communities.",
+        "language": "en",
+        "evidenceIds": ["evidence-anarhistka-identity"]
+      },
+      "editorialDescription": {
+        "text": "WRN lists this active counter-media platform using public organization-level metadata and original links.",
+        "language": "en",
+        "evidenceIds": ["evidence-anarhistka-editorial"]
+      },
+      "endpoints": [
+        {
+          "kind": "direct",
+          "endpointId": "source-520dfc71172c8f3727bbf12ab1a894488d2f28d92694347097784cf162be89c2",
+          "url": "https://anarhistka.org/",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-anarhistka-identity", "evidence-anarhistka-activity"]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-520dfc71172c8f3727bbf12ab1a894488d2f28d92694347097784cf162be89c2",
+      "originalEndpointId": "source-520dfc71172c8f3727bbf12ab1a894488d2f28d92694347097784cf162be89c2",
+      "regions": ["Europe", "Balkans"],
+      "countries": ["Slovenia"],
+      "languages": ["sl", "en"],
+      "topics": ["anti-authoritarianism", "social movements", "counter-information"],
+      "tendencies": ["anarchist", "anti-authoritarian"],
+      "mediaTypes": ["news", "analysis", "video", "events"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": ["evidence-anarhistka-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": ["evidence-anarhistka-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": ["evidence-anarhistka-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-anarhistka-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-anarhistka-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://anarhistka.org/about/",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-anarhistka-contact"]
+      },
+      "evidenceIds": [
+        "evidence-anarhistka-identity",
+        "evidence-anarhistka-activity",
+        "evidence-anarhistka-contact",
+        "evidence-anarhistka-rights",
+        "evidence-anarhistka-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-1a804b15b2b50811810e9f6ca9e7bf5a",
+      "canonicalName": "Anarchist Front of Iran and Afghanistan",
+      "aliasNames": ["جبههٔ آنارشیستی"],
+      "curationStatus": "active",
+      "selfDescription": {
+        "text": "A first-party publication of the Anarchist Front of Iran and Afghanistan with statements and political analysis.",
+        "language": "en",
+        "evidenceIds": ["evidence-anarchistfront-identity"]
+      },
+      "editorialDescription": {
+        "text": "WRN keeps this source distinct from the Federation of Anarchism Era and stores no personal identities or fine-grained location data.",
+        "language": "en",
+        "evidenceIds": ["evidence-anarchistfront-editorial"]
+      },
+      "endpoints": [
+        {
+          "kind": "direct",
+          "endpointId": "source-c88f4e3e9b2075197cb1589871511cb14a34cfd32ed74980f6aab9c60ffa650c",
+          "url": "https://anarchistfront.noblogs.org/",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-anarchistfront-identity", "evidence-anarchistfront-activity"]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-c88f4e3e9b2075197cb1589871511cb14a34cfd32ed74980f6aab9c60ffa650c",
+      "originalEndpointId": "source-c88f4e3e9b2075197cb1589871511cb14a34cfd32ed74980f6aab9c60ffa650c",
+      "regions": ["West Asia"],
+      "countries": ["Iran", "Afghanistan"],
+      "languages": ["fa", "en"],
+      "topics": ["anarchism", "political repression", "social movements"],
+      "tendencies": ["anarchist"],
+      "mediaTypes": ["statements", "analysis"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": ["evidence-anarchistfront-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": ["evidence-anarchistfront-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": ["evidence-anarchistfront-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-anarchistfront-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-anarchistfront-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://anarchistfront.noblogs.org/%D8%AF%D8%B1%D8%A8%D8%A7%D8%B1%D9%87-%D9%85%D8%A7/",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-anarchistfront-contact"]
+      },
+      "evidenceIds": [
+        "evidence-anarchistfront-identity",
+        "evidence-anarchistfront-activity",
+        "evidence-anarchistfront-contact",
+        "evidence-anarchistfront-rights",
+        "evidence-anarchistfront-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-b1d433d6da6be52d69bef9e39cd50cd3",
+      "canonicalName": "Kurdish-Speaking Anarchist Forum",
+      "aliasNames": ["KAF", "Anarkistan", "ئەنارشیستان"],
+      "curationStatus": "rare",
+      "selfDescription": {
+        "text": "A forum for discussion, debate and analysis among Kurdish-speaking libertarians and anarchists across several states.",
+        "language": "en",
+        "evidenceIds": ["evidence-anarkistan-identity"]
+      },
+      "editorialDescription": {
+        "text": "WRN marks this source rare because the latest publication was not established; no relation to the Federation of Anarchism Era is inferred.",
+        "language": "en",
+        "evidenceIds": ["evidence-anarkistan-editorial"]
+      },
+      "endpoints": [
+        {
+          "kind": "direct",
+          "endpointId": "source-33f6afc5027ea8e4ab5844413ddcefc0039ac396656199bd846b48756ca931c0",
+          "url": "https://anarkistan.net/",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-anarkistan-identity", "evidence-anarkistan-activity"]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-33f6afc5027ea8e4ab5844413ddcefc0039ac396656199bd846b48756ca931c0",
+      "originalEndpointId": "source-33f6afc5027ea8e4ab5844413ddcefc0039ac396656199bd846b48756ca931c0",
+      "regions": ["West Asia", "Kurdish regions"],
+      "countries": ["Iraq", "Iran", "Turkey", "Syria"],
+      "languages": ["ku", "en"],
+      "topics": ["anarchism", "Kurdish movements", "political analysis"],
+      "tendencies": ["anarchist", "libertarian"],
+      "mediaTypes": ["forum", "articles", "translations"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": ["evidence-anarkistan-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": ["evidence-anarkistan-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": ["evidence-anarkistan-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-anarkistan-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-anarkistan-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://anarkistan.net/about/",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-anarkistan-contact"]
+      },
+      "evidenceIds": [
+        "evidence-anarkistan-identity",
+        "evidence-anarkistan-activity",
+        "evidence-anarkistan-contact",
+        "evidence-anarkistan-rights",
+        "evidence-anarkistan-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-b2f3a18c8a3b4018a6fae9d6282e8f6b",
+      "canonicalName": "Têkoşîna Anarşîst",
+      "aliasNames": ["Anarchist Struggle"],
+      "curationStatus": "organization",
+      "selfDescription": {
+        "text": "A revolutionary anarchist organization working in north-east Syria whose site archives statements, articles, interviews and video.",
+        "language": "en",
+        "evidenceIds": ["evidence-tekosina-identity"]
+      },
+      "editorialDescription": {
+        "text": "WRN lists public organization metadata only and excludes operational details, geotags, identities and live frontline information.",
+        "language": "en",
+        "evidenceIds": ["evidence-tekosina-editorial"]
+      },
+      "endpoints": [
+        {
+          "kind": "direct",
+          "endpointId": "source-fd3bbf3728581f8b40c0ce694b152a7136dc7bd22cc2fc3405bbb902dd526001",
+          "url": "https://tekosinaanarsist.noblogs.org/",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-tekosina-identity", "evidence-tekosina-activity"]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-fd3bbf3728581f8b40c0ce694b152a7136dc7bd22cc2fc3405bbb902dd526001",
+      "originalEndpointId": "source-fd3bbf3728581f8b40c0ce694b152a7136dc7bd22cc2fc3405bbb902dd526001",
+      "regions": ["West Asia"],
+      "countries": ["Syria"],
+      "languages": ["en"],
+      "topics": ["anarchism", "Rojava", "social movements"],
+      "tendencies": ["revolutionary anarchist"],
+      "mediaTypes": ["organization", "archive", "articles", "video"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": ["evidence-tekosina-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": ["evidence-tekosina-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": ["evidence-tekosina-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-tekosina-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-tekosina-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://tekosinaanarsist.noblogs.org/contact/",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-tekosina-contact"]
+      },
+      "evidenceIds": [
+        "evidence-tekosina-identity",
+        "evidence-tekosina-activity",
+        "evidence-tekosina-contact",
+        "evidence-tekosina-rights",
+        "evidence-tekosina-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-1c6c34fd018b0f6b952471c166fea982",
+      "canonicalName": "International of Anarchist Federations",
+      "aliasNames": ["IFA", "IAF-IFA"],
+      "curationStatus": "organization",
+      "selfDescription": {
+        "text": "An international coordination of social anarchist organizations and federations with member and associated-project directories.",
+        "language": "en",
+        "evidenceIds": ["evidence-ifa-identity"]
+      },
+      "editorialDescription": {
+        "text": "WRN lists IFA as an organization and directory profile, not as an independent single-member news feed.",
+        "language": "en",
+        "evidenceIds": ["evidence-ifa-editorial"]
+      },
+      "endpoints": [
+        {
+          "kind": "direct",
+          "endpointId": "source-86623c93384baf68e484943f8e2ce58bdde98a3ee0237627d0054ea36a06d12f",
+          "url": "https://i-f-a.org/",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-ifa-identity", "evidence-ifa-activity"]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-86623c93384baf68e484943f8e2ce58bdde98a3ee0237627d0054ea36a06d12f",
+      "originalEndpointId": "source-86623c93384baf68e484943f8e2ce58bdde98a3ee0237627d0054ea36a06d12f",
+      "regions": ["Global"],
+      "countries": [],
+      "languages": ["en", "fr", "es"],
+      "topics": ["anarchism", "internationalism", "federations"],
+      "tendencies": ["social anarchism"],
+      "mediaTypes": ["organization", "directory", "news"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": ["evidence-ifa-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": ["evidence-ifa-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": ["evidence-ifa-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-ifa-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-ifa-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "checked-not-found",
+        "url": null,
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-ifa-contact"]
+      },
+      "evidenceIds": [
+        "evidence-ifa-identity",
+        "evidence-ifa-activity",
+        "evidence-ifa-contact",
+        "evidence-ifa-rights",
+        "evidence-ifa-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-9cbf9baee5a74f51c9afe7babaa0d3d9",
+      "canonicalName": "South Asian Anarchist Library",
+      "aliasNames": [],
+      "curationStatus": "archive",
+      "selfDescription": {
+        "text": "A library supporting anarchist thought, organizers and learners across South Asia.",
+        "language": "en",
+        "evidenceIds": ["evidence-saal-identity"]
+      },
+      "editorialDescription": {
+        "text": "WRN lists this as a library and archive. Item-level rights remain unknown and no works are copied into WRN from this profile.",
+        "language": "en",
+        "evidenceIds": ["evidence-saal-editorial"]
+      },
+      "endpoints": [
+        {
+          "kind": "direct",
+          "endpointId": "source-51a1a01f6aa1fbc97e470eb1088fea81dfcdb7485ed362b4fa03a10db8abb884",
+          "url": "https://sa.theanarchistlibrary.org/",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-saal-identity", "evidence-saal-activity"]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-51a1a01f6aa1fbc97e470eb1088fea81dfcdb7485ed362b4fa03a10db8abb884",
+      "originalEndpointId": "source-51a1a01f6aa1fbc97e470eb1088fea81dfcdb7485ed362b4fa03a10db8abb884",
+      "regions": ["South Asia"],
+      "countries": ["India", "Pakistan", "Bangladesh", "Nepal", "Sri Lanka", "Bhutan", "Maldives"],
+      "languages": ["en"],
+      "topics": ["anarchism", "library", "education"],
+      "tendencies": ["anarchist"],
+      "mediaTypes": ["library", "archive", "zines"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": ["evidence-saal-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": ["evidence-saal-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": ["evidence-saal-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-saal-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-saal-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://sa.theanarchistlibrary.org/special/about",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-saal-contact"]
+      },
+      "evidenceIds": [
+        "evidence-saal-identity",
+        "evidence-saal-activity",
+        "evidence-saal-contact",
+        "evidence-saal-rights",
+        "evidence-saal-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-93628376d96155499fd7394c72e27161",
+      "canonicalName": "Southeast Asian Anarchist Library",
+      "aliasNames": [],
+      "curationStatus": "archive",
+      "selfDescription": {
+        "text": "A regional library of anarchist literature from and about Southeast Asia and in regional languages.",
+        "language": "en",
+        "evidenceIds": ["evidence-seaal-identity"]
+      },
+      "editorialDescription": {
+        "text": "WRN lists this as a multilingual archive and stores only source metadata and the original link.",
+        "language": "en",
+        "evidenceIds": ["evidence-seaal-editorial"]
+      },
+      "endpoints": [
+        {
+          "kind": "direct",
+          "endpointId": "source-88bf682d1fd1a93d33a6345a5010d941bb800a94ed0704570e742941c39478e3",
+          "url": "https://sea.theanarchistlibrary.org/",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-seaal-identity", "evidence-seaal-activity"]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-88bf682d1fd1a93d33a6345a5010d941bb800a94ed0704570e742941c39478e3",
+      "originalEndpointId": "source-88bf682d1fd1a93d33a6345a5010d941bb800a94ed0704570e742941c39478e3",
+      "regions": ["Southeast Asia"],
+      "countries": [],
+      "languages": ["en", "id", "ms", "tl", "ceb", "th", "vi", "zh", "my", "lo", "km"],
+      "topics": ["anarchism", "library", "translations"],
+      "tendencies": ["anarchist"],
+      "mediaTypes": ["library", "archive", "zines"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": ["evidence-seaal-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": ["evidence-seaal-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": ["evidence-seaal-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-seaal-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-seaal-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://sea.theanarchistlibrary.org/",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-seaal-contact"]
+      },
+      "evidenceIds": [
+        "evidence-seaal-identity",
+        "evidence-seaal-activity",
+        "evidence-seaal-contact",
+        "evidence-seaal-rights",
+        "evidence-seaal-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-3529baed9b9ed6c807cdf58e0585f002",
+      "canonicalName": "Korean Anarchist Library",
+      "aliasNames": ["아나키스트 도서관"],
+      "curationStatus": "archive",
+      "selfDescription": {
+        "text": "A Korean-language library collecting texts by Korean and international anarchist organizations and individuals.",
+        "language": "en",
+        "evidenceIds": ["evidence-kal-identity"]
+      },
+      "editorialDescription": {
+        "text": "WRN lists this as a library and archive; it does not imply representation by a political organization.",
+        "language": "en",
+        "evidenceIds": ["evidence-kal-editorial"]
+      },
+      "endpoints": [
+        {
+          "kind": "direct",
+          "endpointId": "source-5c49a6953d305ccd2f448e1ede042621c8ae1f65ec8be7dbc9fc2bcb4d151de1",
+          "url": "https://kr.theanarchistlibrary.org/",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-kal-identity", "evidence-kal-activity"]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-5c49a6953d305ccd2f448e1ede042621c8ae1f65ec8be7dbc9fc2bcb4d151de1",
+      "originalEndpointId": "source-5c49a6953d305ccd2f448e1ede042621c8ae1f65ec8be7dbc9fc2bcb4d151de1",
+      "regions": ["East Asia"],
+      "countries": [],
+      "languages": ["ko", "en"],
+      "topics": ["anarchism", "library", "translations"],
+      "tendencies": ["anarchist"],
+      "mediaTypes": ["library", "archive", "OPDS"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": ["evidence-kal-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": ["evidence-kal-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": ["evidence-kal-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-kal-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-kal-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://kr.theanarchistlibrary.org/",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-kal-contact"]
+      },
+      "evidenceIds": [
+        "evidence-kal-identity",
+        "evidence-kal-activity",
+        "evidence-kal-contact",
+        "evidence-kal-rights",
+        "evidence-kal-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-d030d69d3b94ed7eb5028f30e0e57862",
+      "canonicalName": "Anarchist Communist Federation (Australia)",
+      "aliasNames": ["ACF"],
+      "curationStatus": "organization",
+      "selfDescription": {
+        "text": "An Australian anarchist communist membership organization with branches in Brisbane, Melbourne, Geelong and Sydney.",
+        "language": "en",
+        "evidenceIds": ["evidence-acfau-identity"]
+      },
+      "editorialDescription": {
+        "text": "WRN clearly labels this as organization-published material and links to its original publication and contact route.",
+        "language": "en",
+        "evidenceIds": ["evidence-acfau-editorial"]
+      },
+      "endpoints": [
+        {
+          "kind": "direct",
+          "endpointId": "source-78e6ea7f27354acb21b7c9f24b7f7830340bb427db2d54d534e1ed0f867ec81f",
+          "url": "https://ancomfed.org/",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-acfau-identity", "evidence-acfau-activity"]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-78e6ea7f27354acb21b7c9f24b7f7830340bb427db2d54d534e1ed0f867ec81f",
+      "originalEndpointId": "source-78e6ea7f27354acb21b7c9f24b7f7830340bb427db2d54d534e1ed0f867ec81f",
+      "regions": ["Oceania"],
+      "countries": ["Australia"],
+      "languages": ["en"],
+      "topics": ["labor", "anarchism", "social movements"],
+      "tendencies": ["anarchist communist"],
+      "mediaTypes": ["organization", "articles", "events"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": ["evidence-acfau-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": ["evidence-acfau-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": ["evidence-acfau-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-acfau-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-acfau-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://ancomfed.org/contact/",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-acfau-contact"]
+      },
+      "evidenceIds": [
+        "evidence-acfau-identity",
+        "evidence-acfau-activity",
+        "evidence-acfau-contact",
+        "evidence-acfau-rights",
+        "evidence-acfau-editorial"
+      ]
+    },
+    {
+      "id": "wrn-source-pass-6ea39377bd6804d52cd62d12d31871cc",
+      "canonicalName": "Anarchy.org.au",
+      "aliasNames": [],
+      "curationStatus": "archive",
+      "selfDescription": {
+        "text": "An Australasian and Oceanian online resource project by and for anarchists, currently administered by Melbourne Anarchist Club.",
+        "language": "en",
+        "evidenceIds": ["evidence-anarchyau-identity"]
+      },
+      "editorialDescription": {
+        "text": "WRN lists this as a resource and directory project rather than a current news outlet.",
+        "language": "en",
+        "evidenceIds": ["evidence-anarchyau-editorial"]
+      },
+      "endpoints": [
+        {
+          "kind": "direct",
+          "endpointId": "source-2e743d78c47bb2bc7b97a711d084dc534ca66342f4badbd76ac6ecbe624d8e62",
+          "url": "https://anarchy.org.au/",
+          "role": "homepage",
+          "health": "healthy",
+          "checkedAt": "2026-09-25T00:00:00Z",
+          "lastSuccessfulAt": "2026-09-25T00:00:00Z",
+          "evidenceIds": ["evidence-anarchyau-identity", "evidence-anarchyau-activity"]
+        }
+      ],
+      "preferenceAnchorEndpointId": "source-2e743d78c47bb2bc7b97a711d084dc534ca66342f4badbd76ac6ecbe624d8e62",
+      "originalEndpointId": "source-2e743d78c47bb2bc7b97a711d084dc534ca66342f4badbd76ac6ecbe624d8e62",
+      "regions": ["Oceania"],
+      "countries": ["Australia"],
+      "languages": ["en"],
+      "topics": ["anarchism", "directory", "online projects"],
+      "tendencies": ["anarchist"],
+      "mediaTypes": ["directory", "archive", "texts"],
+      "rights": [
+        {
+          "medium": "metadata",
+          "status": "link-only",
+          "evidenceIds": ["evidence-anarchyau-rights"]
+        },
+        {
+          "medium": "text",
+          "status": "unknown",
+          "evidenceIds": ["evidence-anarchyau-rights"]
+        },
+        {
+          "medium": "image",
+          "status": "unknown",
+          "evidenceIds": ["evidence-anarchyau-rights"]
+        },
+        {
+          "medium": "audio",
+          "status": "unknown",
+          "evidenceIds": ["evidence-anarchyau-rights"]
+        },
+        {
+          "medium": "logo",
+          "status": "unknown",
+          "evidenceIds": ["evidence-anarchyau-rights"]
+        }
+      ],
+      "logo": null,
+      "correctionContact": {
+        "status": "verified-url",
+        "url": "https://anarchy.org.au/contact/",
+        "checkedAt": "2026-09-25T00:00:00Z",
+        "evidenceIds": ["evidence-anarchyau-contact"]
+      },
+      "evidenceIds": [
+        "evidence-anarchyau-identity",
+        "evidence-anarchyau-activity",
+        "evidence-anarchyau-contact",
+        "evidence-anarchyau-rights",
+        "evidence-anarchyau-editorial"
+      ]
+    }
+  ],
+  "relations": [],
+  "evidence": [
+    {
+      "id": "evidence-eff-about",
+      "kind": "source-self-description",
+      "url": "https://www.eff.org/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official About page was reachable and supplies the source self-description and homepage observation."
+    },
+    {
+      "id": "evidence-eff-rights",
+      "kind": "rights",
+      "url": "https://www.eff.org/copyright",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official policy permits redistribution of original EFF material under CC BY 4.0 unless otherwise noted; per-item media review remains required."
+    },
+    {
+      "id": "evidence-eff-contact",
+      "kind": "direct-observation",
+      "url": "https://www.eff.org/about/contact",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact page verified; no private contact data copied."
+    },
+    {
+      "id": "evidence-eff-feed-snapshot",
+      "kind": "direct-observation",
+      "url": "https://www.eff.org/rss/updates.xml",
+      "observedAt": "2026-09-09T04:37:14.725Z",
+      "note": "Feed endpoint is retained from the recorded directory snapshot and was not rechecked in this source pass."
+    },
+    {
+      "id": "evidence-eff-editorial",
+      "kind": "editorial-inference",
+      "url": "https://www.eff.org/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN editorial scope based on the official self-description and the admitted local article set."
+    },
+    {
+      "id": "evidence-c4ss-about",
+      "kind": "source-self-description",
+      "url": "https://c4ss.org/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official About page was reachable and supplies the self-description, language links and homepage observation."
+    },
+    {
+      "id": "evidence-c4ss-rights",
+      "kind": "rights",
+      "url": "https://c4ss.org/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official page states site content is available under a Creative Commons Public Domain Dedication; media still receives per-item review."
+    },
+    {
+      "id": "evidence-c4ss-contact",
+      "kind": "direct-observation",
+      "url": "https://c4ss.org/contact",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact page verified; no email address or personal contact data copied into the app."
+    },
+    {
+      "id": "evidence-c4ss-feed-snapshot",
+      "kind": "direct-observation",
+      "url": "https://c4ss.org/feed",
+      "observedAt": "2026-09-09T04:37:14.725Z",
+      "note": "Feed endpoint is retained from the recorded directory snapshot and was not rechecked in this source pass."
+    },
+    {
+      "id": "evidence-c4ss-editorial",
+      "kind": "editorial-inference",
+      "url": "https://c4ss.org/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN editorial scope based on the official self-description and the admitted local article set."
+    },
+    {
+      "id": "evidence-aiac-about",
+      "kind": "source-self-description",
+      "url": "https://africasacountry.com/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official About page was reachable and supplies the source self-description, scope and homepage observation."
+    },
+    {
+      "id": "evidence-aiac-rights",
+      "kind": "rights",
+      "url": "https://africasacountry.com/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official About page states site content is CC BY 4.0 unless otherwise noted; the admitted sport article excludes media without image-specific evidence."
+    },
+    {
+      "id": "evidence-aiac-contact",
+      "kind": "direct-observation",
+      "url": "https://africasacountry.com/contact",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact page verified; no obfuscated email address copied into the app."
+    },
+    {
+      "id": "evidence-aiac-feed-snapshot",
+      "kind": "direct-observation",
+      "url": "https://africasacountry.com/feed",
+      "observedAt": "2026-09-09T04:37:14.725Z",
+      "note": "Feed endpoint is retained from the recorded directory snapshot and was not rechecked in this source pass."
+    },
+    {
+      "id": "evidence-aiac-editorial",
+      "kind": "editorial-inference",
+      "url": "https://africasacountry.com/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN editorial scope based on the official self-description and the admitted local sport article."
+    },
+    {
+      "id": "evidence-blm-identity",
+      "kind": "source-self-description",
+      "url": "https://blkliberationmedia.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "A collective of Black and Afrikan organizers, journalists, academics and media personalities producing news and programmes for Black and Afrikan audiences."
+    },
+    {
+      "id": "evidence-blm-activity",
+      "kind": "direct-observation",
+      "url": "https://blkliberationmedia.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Latest exact-dated official publication verified: 2026-09-01."
+    },
+    {
+      "id": "evidence-blm-contact",
+      "kind": "direct-observation",
+      "url": "https://blkliberationmedia.org/contact/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact route observed."
+    },
+    {
+      "id": "evidence-blm-rights",
+      "kind": "rights",
+      "url": "https://blkliberationmedia.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No general reuse license was verified. WRN stores a minimal source profile and original link; text, image, audio and logo reuse remain unapproved."
+    },
+    {
+      "id": "evidence-blm-editorial",
+      "kind": "editorial-inference",
+      "url": "https://blkliberationmedia.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN lists this active media collective for Black liberation reporting and commentary; only organization-level metadata and original links are stored."
+    },
+    {
+      "id": "evidence-coopjackson-identity",
+      "kind": "source-self-description",
+      "url": "https://cooperationjackson.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "An organization building a solidarity economy in Jackson through cooperatives and worker-owned, democratically self-managed enterprises."
+    },
+    {
+      "id": "evidence-coopjackson-activity",
+      "kind": "direct-observation",
+      "url": "https://cooperationjackson.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Latest exact-dated official publication verified: 2024-06-15."
+    },
+    {
+      "id": "evidence-coopjackson-contact",
+      "kind": "direct-observation",
+      "url": "https://cooperationjackson.org/contact-us",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact route observed."
+    },
+    {
+      "id": "evidence-coopjackson-rights",
+      "kind": "rights",
+      "url": "https://cooperationjackson.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No general reuse license was verified. WRN stores a minimal source profile and original link; text, image, audio and logo reuse remain unapproved."
+    },
+    {
+      "id": "evidence-coopjackson-editorial",
+      "kind": "editorial-inference",
+      "url": "https://cooperationjackson.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN lists this as an organization profile about cooperation, mutual aid and solidarity economy; it is not treated as an independent news outlet."
+    },
+    {
+      "id": "evidence-mtlci-identity",
+      "kind": "source-self-description",
+      "url": "https://mtlcounterinfo.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "A space for Montréal anarchists to circulate ideas and actions through news, reports, communiqués, writing and counter-information archives."
+    },
+    {
+      "id": "evidence-mtlci-activity",
+      "kind": "direct-observation",
+      "url": "https://mtlcounterinfo.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Latest exact-dated official publication verified: 2026-09-08."
+    },
+    {
+      "id": "evidence-mtlci-contact",
+      "kind": "direct-observation",
+      "url": "https://mtlcounterinfo.org/about-2/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact route observed."
+    },
+    {
+      "id": "evidence-mtlci-rights",
+      "kind": "rights",
+      "url": "https://mtlcounterinfo.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No general reuse license was verified. WRN stores a minimal source profile and original link; text, image, audio and logo reuse remain unapproved."
+    },
+    {
+      "id": "evidence-mtlci-editorial",
+      "kind": "editorial-inference",
+      "url": "https://mtlcounterinfo.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN lists this active counter-information publication while preserving anonymous attribution and avoiding any assumption of reuse rights."
+    },
+    {
+      "id": "evidence-fau-identity",
+      "kind": "source-self-description",
+      "url": "https://federacionanarquistauruguaya.uy/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "An Uruguayan anarchist federation describing its struggle for social revolution and a libertarian socialist society."
+    },
+    {
+      "id": "evidence-fau-activity",
+      "kind": "direct-observation",
+      "url": "https://federacionanarquistauruguaya.uy/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Latest exact-dated official publication verified: 2025-11-03."
+    },
+    {
+      "id": "evidence-fau-contact",
+      "kind": "direct-observation",
+      "url": "https://federacionanarquistauruguaya.uy/contacto/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact route observed."
+    },
+    {
+      "id": "evidence-fau-rights",
+      "kind": "rights",
+      "url": "https://federacionanarquistauruguaya.uy/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No general reuse license was verified. WRN stores a minimal source profile and original link; text, image, audio and logo reuse remain unapproved."
+    },
+    {
+      "id": "evidence-fau-editorial",
+      "kind": "editorial-inference",
+      "url": "https://federacionanarquistauruguaya.uy/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN lists the federation as an organization-published source for anarchist statements, analysis and activity notices."
+    },
+    {
+      "id": "evidence-vialibre-identity",
+      "kind": "source-self-description",
+      "url": "https://grupovialibre.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "A Bogotá political organization founded in 2010 that identifies with social and organized anarchism and Colombian popular struggles."
+    },
+    {
+      "id": "evidence-vialibre-activity",
+      "kind": "direct-observation",
+      "url": "https://grupovialibre.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Latest exact-dated official-site publication verified: 2024-06-21; newer official-channel video listings were observed without exact dates."
+    },
+    {
+      "id": "evidence-vialibre-contact",
+      "kind": "direct-observation",
+      "url": "https://grupovialibre.org/about/contacto/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact route observed."
+    },
+    {
+      "id": "evidence-vialibre-rights",
+      "kind": "rights",
+      "url": "https://grupovialibre.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No general reuse license was verified. WRN stores a minimal source profile and original link; text, image, audio and logo reuse remain unapproved."
+    },
+    {
+      "id": "evidence-vialibre-editorial",
+      "kind": "editorial-inference",
+      "url": "https://grupovialibre.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN lists Vía Libre as an organization profile for anarchist education, statements and movement analysis."
+    },
+    {
+      "id": "evidence-solidaritycollectives-identity",
+      "kind": "source-self-description",
+      "url": "https://www.solidaritycollectives.org/en/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "A Ukrainian anarchist and anti-authoritarian volunteer network doing humanitarian, media and material-support work during Russia’s invasion."
+    },
+    {
+      "id": "evidence-solidaritycollectives-activity",
+      "kind": "direct-observation",
+      "url": "https://www.solidaritycollectives.org/en/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Latest exact-dated official blog listing verified: 2026-08-31."
+    },
+    {
+      "id": "evidence-solidaritycollectives-contact",
+      "kind": "direct-observation",
+      "url": "https://www.solidaritycollectives.org/en/about-us/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact route observed."
+    },
+    {
+      "id": "evidence-solidaritycollectives-rights",
+      "kind": "rights",
+      "url": "https://www.solidaritycollectives.org/en/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No general reuse license was verified. WRN stores a minimal source profile and original link; text, image, audio and logo reuse remain unapproved."
+    },
+    {
+      "id": "evidence-solidaritycollectives-editorial",
+      "kind": "editorial-inference",
+      "url": "https://www.solidaritycollectives.org/en/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN lists public organization-level metadata only and excludes tactical locations, non-public identities and operational details."
+    },
+    {
+      "id": "evidence-anarhistka-identity",
+      "kind": "source-self-description",
+      "url": "https://anarhistka.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "An autonomous counter-media project of Anti-authoritarian Platform amplifying social movements and marginalized or repressed communities."
+    },
+    {
+      "id": "evidence-anarhistka-activity",
+      "kind": "direct-observation",
+      "url": "https://anarhistka.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Latest exact-dated official publication verified: 2026-09-19."
+    },
+    {
+      "id": "evidence-anarhistka-contact",
+      "kind": "direct-observation",
+      "url": "https://anarhistka.org/about/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact route observed."
+    },
+    {
+      "id": "evidence-anarhistka-rights",
+      "kind": "rights",
+      "url": "https://anarhistka.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No general reuse license was verified. WRN stores a minimal source profile and original link; text, image, audio and logo reuse remain unapproved."
+    },
+    {
+      "id": "evidence-anarhistka-editorial",
+      "kind": "editorial-inference",
+      "url": "https://anarhistka.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN lists this active counter-media platform using public organization-level metadata and original links."
+    },
+    {
+      "id": "evidence-anarchistfront-identity",
+      "kind": "source-self-description",
+      "url": "https://anarchistfront.noblogs.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "A first-party publication of the Anarchist Front of Iran and Afghanistan with statements and political analysis."
+    },
+    {
+      "id": "evidence-anarchistfront-activity",
+      "kind": "direct-observation",
+      "url": "https://anarchistfront.noblogs.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Latest exact-dated official publication verified: 2026-08-08."
+    },
+    {
+      "id": "evidence-anarchistfront-contact",
+      "kind": "direct-observation",
+      "url": "https://anarchistfront.noblogs.org/%D8%AF%D8%B1%D8%A8%D8%A7%D8%B1%D9%87-%D9%85%D8%A7/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact route observed."
+    },
+    {
+      "id": "evidence-anarchistfront-rights",
+      "kind": "rights",
+      "url": "https://anarchistfront.noblogs.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No general reuse license was verified. WRN stores a minimal source profile and original link; text, image, audio and logo reuse remain unapproved."
+    },
+    {
+      "id": "evidence-anarchistfront-editorial",
+      "kind": "editorial-inference",
+      "url": "https://anarchistfront.noblogs.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN keeps this source distinct from the Federation of Anarchism Era and stores no personal identities or fine-grained location data."
+    },
+    {
+      "id": "evidence-anarkistan-identity",
+      "kind": "source-self-description",
+      "url": "https://anarkistan.net/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "A forum for discussion, debate and analysis among Kurdish-speaking libertarians and anarchists across several states."
+    },
+    {
+      "id": "evidence-anarkistan-activity",
+      "kind": "direct-observation",
+      "url": "https://anarkistan.net/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "The actual latest publication date remains unknown; a precise first-party item from 2020-12-07 was verified."
+    },
+    {
+      "id": "evidence-anarkistan-contact",
+      "kind": "direct-observation",
+      "url": "https://anarkistan.net/about/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact route observed."
+    },
+    {
+      "id": "evidence-anarkistan-rights",
+      "kind": "rights",
+      "url": "https://anarkistan.net/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No general reuse license was verified. WRN stores a minimal source profile and original link; text, image, audio and logo reuse remain unapproved."
+    },
+    {
+      "id": "evidence-anarkistan-editorial",
+      "kind": "editorial-inference",
+      "url": "https://anarkistan.net/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN marks this source rare because the latest publication was not established; no relation to the Federation of Anarchism Era is inferred."
+    },
+    {
+      "id": "evidence-tekosina-identity",
+      "kind": "source-self-description",
+      "url": "https://tekosinaanarsist.noblogs.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "A revolutionary anarchist organization working in north-east Syria whose site archives statements, articles, interviews and video."
+    },
+    {
+      "id": "evidence-tekosina-activity",
+      "kind": "direct-observation",
+      "url": "https://tekosinaanarsist.noblogs.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "An exact-dated official publication was verified for 2026-04-18; later indexed posts lacked an exact checked date."
+    },
+    {
+      "id": "evidence-tekosina-contact",
+      "kind": "direct-observation",
+      "url": "https://tekosinaanarsist.noblogs.org/contact/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact route observed."
+    },
+    {
+      "id": "evidence-tekosina-rights",
+      "kind": "rights",
+      "url": "https://tekosinaanarsist.noblogs.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No general reuse license was verified. WRN stores a minimal source profile and original link; text, image, audio and logo reuse remain unapproved."
+    },
+    {
+      "id": "evidence-tekosina-editorial",
+      "kind": "editorial-inference",
+      "url": "https://tekosinaanarsist.noblogs.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN lists public organization metadata only and excludes operational details, geotags, identities and live frontline information."
+    },
+    {
+      "id": "evidence-ifa-identity",
+      "kind": "source-self-description",
+      "url": "https://i-f-a.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "An international coordination of social anarchist organizations and federations with member and associated-project directories."
+    },
+    {
+      "id": "evidence-ifa-activity",
+      "kind": "direct-observation",
+      "url": "https://i-f-a.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Latest exact-dated official homepage post verified: 2026-07-25."
+    },
+    {
+      "id": "evidence-ifa-contact",
+      "kind": "direct-observation",
+      "url": "https://i-f-a.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public correction contact was checked but not verified."
+    },
+    {
+      "id": "evidence-ifa-rights",
+      "kind": "rights",
+      "url": "https://i-f-a.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No general reuse license was verified. WRN stores a minimal source profile and original link; text, image, audio and logo reuse remain unapproved."
+    },
+    {
+      "id": "evidence-ifa-editorial",
+      "kind": "editorial-inference",
+      "url": "https://i-f-a.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN lists IFA as an organization and directory profile, not as an independent single-member news feed."
+    },
+    {
+      "id": "evidence-saal-identity",
+      "kind": "source-self-description",
+      "url": "https://sa.theanarchistlibrary.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "A library supporting anarchist thought, organizers and learners across South Asia."
+    },
+    {
+      "id": "evidence-saal-activity",
+      "kind": "direct-observation",
+      "url": "https://sa.theanarchistlibrary.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No exact-dated latest catalogue entry was verified during this review."
+    },
+    {
+      "id": "evidence-saal-contact",
+      "kind": "direct-observation",
+      "url": "https://sa.theanarchistlibrary.org/special/about",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact route observed."
+    },
+    {
+      "id": "evidence-saal-rights",
+      "kind": "rights",
+      "url": "https://sa.theanarchistlibrary.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No general reuse license was verified. WRN stores a minimal source profile and original link; text, image, audio and logo reuse remain unapproved."
+    },
+    {
+      "id": "evidence-saal-editorial",
+      "kind": "editorial-inference",
+      "url": "https://sa.theanarchistlibrary.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN lists this as a library and archive. Item-level rights remain unknown and no works are copied into WRN from this profile."
+    },
+    {
+      "id": "evidence-seaal-identity",
+      "kind": "source-self-description",
+      "url": "https://sea.theanarchistlibrary.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "A regional library of anarchist literature from and about Southeast Asia and in regional languages."
+    },
+    {
+      "id": "evidence-seaal-activity",
+      "kind": "direct-observation",
+      "url": "https://sea.theanarchistlibrary.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Latest observed official archive entry date verified: 2026-07-14."
+    },
+    {
+      "id": "evidence-seaal-contact",
+      "kind": "direct-observation",
+      "url": "https://sea.theanarchistlibrary.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact route observed."
+    },
+    {
+      "id": "evidence-seaal-rights",
+      "kind": "rights",
+      "url": "https://sea.theanarchistlibrary.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No general reuse license was verified. WRN stores a minimal source profile and original link; text, image, audio and logo reuse remain unapproved."
+    },
+    {
+      "id": "evidence-seaal-editorial",
+      "kind": "editorial-inference",
+      "url": "https://sea.theanarchistlibrary.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN lists this as a multilingual archive and stores only source metadata and the original link."
+    },
+    {
+      "id": "evidence-kal-identity",
+      "kind": "source-self-description",
+      "url": "https://kr.theanarchistlibrary.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "A Korean-language library collecting texts by Korean and international anarchist organizations and individuals."
+    },
+    {
+      "id": "evidence-kal-activity",
+      "kind": "direct-observation",
+      "url": "https://kr.theanarchistlibrary.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Latest exact-dated official homepage entry verified: 2026-04-21."
+    },
+    {
+      "id": "evidence-kal-contact",
+      "kind": "direct-observation",
+      "url": "https://kr.theanarchistlibrary.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact route observed."
+    },
+    {
+      "id": "evidence-kal-rights",
+      "kind": "rights",
+      "url": "https://kr.theanarchistlibrary.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No general reuse license was verified. WRN stores a minimal source profile and original link; text, image, audio and logo reuse remain unapproved."
+    },
+    {
+      "id": "evidence-kal-editorial",
+      "kind": "editorial-inference",
+      "url": "https://kr.theanarchistlibrary.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN lists this as a library and archive; it does not imply representation by a political organization."
+    },
+    {
+      "id": "evidence-acfau-identity",
+      "kind": "source-self-description",
+      "url": "https://ancomfed.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "An Australian anarchist communist membership organization with branches in Brisbane, Melbourne, Geelong and Sydney."
+    },
+    {
+      "id": "evidence-acfau-activity",
+      "kind": "direct-observation",
+      "url": "https://ancomfed.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Latest exact-dated official publication verified: 2026-09-05."
+    },
+    {
+      "id": "evidence-acfau-contact",
+      "kind": "direct-observation",
+      "url": "https://ancomfed.org/contact/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact route observed."
+    },
+    {
+      "id": "evidence-acfau-rights",
+      "kind": "rights",
+      "url": "https://ancomfed.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No general reuse license was verified. WRN stores a minimal source profile and original link; text, image, audio and logo reuse remain unapproved."
+    },
+    {
+      "id": "evidence-acfau-editorial",
+      "kind": "editorial-inference",
+      "url": "https://ancomfed.org/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN clearly labels this as organization-published material and links to its original publication and contact route."
+    },
+    {
+      "id": "evidence-anarchyau-identity",
+      "kind": "source-self-description",
+      "url": "https://anarchy.org.au/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "An Australasian and Oceanian online resource project by and for anarchists, currently administered by Melbourne Anarchist Club."
+    },
+    {
+      "id": "evidence-anarchyau-activity",
+      "kind": "direct-observation",
+      "url": "https://anarchy.org.au/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No exact-dated current publication was verified during this review."
+    },
+    {
+      "id": "evidence-anarchyau-contact",
+      "kind": "direct-observation",
+      "url": "https://anarchy.org.au/contact/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "Official public contact route observed."
+    },
+    {
+      "id": "evidence-anarchyau-rights",
+      "kind": "rights",
+      "url": "https://anarchy.org.au/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "No general reuse license was verified. WRN stores a minimal source profile and original link; text, image, audio and logo reuse remain unapproved."
+    },
+    {
+      "id": "evidence-anarchyau-editorial",
+      "kind": "editorial-inference",
+      "url": "https://anarchy.org.au/",
+      "observedAt": "2026-09-25T00:00:00Z",
+      "note": "WRN lists this as a resource and directory project rather than a current news outlet."
+    }
+  ]
+}

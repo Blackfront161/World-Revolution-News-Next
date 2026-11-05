@@ -1,0 +1,9 @@
+{
+  "schema": "wrn.android-aab-assets-verification.v1",
+  "status": "PASS",
+  "sourceCommit": "446c578b7be5fa0729132d560057c5ba58ae8cde",
+  "assets": 108,
+  "aabBytes": 9735118,
+  "aabSha256": "4e6cfe2b46823c0e4dbdbef617427f1805134a1c9d9dd46ff4a7a0e06b88bcf2",
+  "manifestSha256": "9201c3d461e24986236559b910ab7d0247d052948c26ba6027df411b5fa08762"
+}

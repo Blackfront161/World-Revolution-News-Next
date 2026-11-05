@@ -1,0 +1,7 @@
+{
+  "schema": "wrn.source-pass-revocations.v1",
+  "contractVersion": "1.0.0",
+  "revision": 1,
+  "observedAt": "2026-09-25T00:00:00.000Z",
+  "endpointIds": []
+}

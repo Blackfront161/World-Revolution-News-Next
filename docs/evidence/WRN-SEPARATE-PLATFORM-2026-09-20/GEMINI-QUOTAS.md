@@ -22,3 +22,13 @@ Der erfasste Legacy-Proxy3349d475 enthält bereits Gemini3.5Flash,3.1FlashLite,2
 Hugging Face Billing read-only am20.09.: Credits0,00USD, aktuelle Inference-Nutzung0,00 von0,10USD, keine ausgewiesene automatische Aufladung. Das belegt ein kleines Kontingent, keine unbegrenzte Gratisübersetzung. Der Legacy-Proxy nutzt router.huggingface.co mit Qwen/Qwen2.5-7B-Instruct-1M:fastest beziehungsweise google/gemma-2-2b-it:fastest. Im Neubau bleibt dieser nicht als automatisch kostenfreier Fallback eingebunden. Keine Schlüsselwerte, Zahlungseinstellungen oder Provideraufrufe wurden geöffnet/verändert.
 
 Nachtrag: native KV-/SQLite-Portadapter und lokaler Workerd-Test inzwischen bestanden; siehe NATIVE-TRANSLATION.md. Tatsächliche Ressourcenbindung und kostenloses Providerprojekt bleiben offen.
+
+Preis-/Privacy-Nachtrag 26.09.: Die aktuelle offizielle
+[Gemini-Preisseite](https://ai.google.dev/gemini-api/docs/pricing) führt
+`gemini-3.1-flash-lite` weiterhin mit kostenloser Eingabe und Ausgabe **nur
+innerhalb der Free Tier**. Dieselbe Tabelle kennzeichnet Free-Tier-Inhalte als
+für Produktverbesserung verwendbar; die Paid Tier hat eine andere
+Datenverwendung und ist kostenpflichtig. Das konkrete API-Projekt und sein
+Billingstatus sind für den neuen Worker weiterhin nicht gebunden. Deshalb ist
+aus dem Modellnamen allein weder Kostenfreiheit noch eine passende
+Datenschutzgrundlage ableitbar; `TRANSLATION_V2_ENABLED=false` bleibt richtig.

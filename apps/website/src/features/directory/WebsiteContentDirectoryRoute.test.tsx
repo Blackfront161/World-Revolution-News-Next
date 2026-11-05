@@ -6,16 +6,26 @@ import {
 import { fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, expect, it, vi } from 'vitest';
 import snapshot from './data/content-directory-v1.json';
+import fullOverlayRaw from '../../../../../packages/browser-content/src/data/source-pass-overlay-v1.json?raw';
 import { WebsiteContentDirectoryRoute } from './WebsiteContentDirectoryRoute';
 
 afterEach(() => vi.restoreAllMocks());
 
+const mockContentFetch = () =>
+  vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+    const url =
+      typeof input === 'string'
+        ? input
+        : input instanceof URL
+          ? input.href
+          : ((input as Request | undefined)?.url ?? '');
+    const body =
+      url === '/wrn-source-passes/current.json' ? fullOverlayRaw : JSON.stringify(snapshot);
+    return new Response(body, { headers: { 'content-type': 'application/json' } });
+  });
+
 it('finds the existing Direkte Aktion source by domain and name', async () => {
-  vi.spyOn(globalThis, 'fetch').mockResolvedValue(
-    new Response(JSON.stringify(snapshot), {
-      headers: { 'content-type': 'application/json' },
-    }),
-  );
+  mockContentFetch();
   render(
     <WebsiteContentDirectoryRoute
       language="en"
@@ -56,11 +66,7 @@ it('finds every admitted source by recorded names, endpoint and homepage domains
   }
 });
 it('uses recorded aliases and homepage domains in the rendered source search', async () => {
-  vi.spyOn(globalThis, 'fetch').mockResolvedValue(
-    new Response(JSON.stringify(snapshot), {
-      headers: { 'content-type': 'application/json' },
-    }),
-  );
+  mockContentFetch();
   render(
     <WebsiteContentDirectoryRoute
       language="en"
@@ -81,4 +87,32 @@ it('uses recorded aliases and homepage domains in the rendered source search', a
       query,
     ).toBe(true);
   }
+});
+
+it('renders canonical source passes before the complete endpoint list with combined facets', async () => {
+  mockContentFetch();
+  render(
+    <WebsiteContentDirectoryRoute
+      language="en"
+      section="sources"
+      headingRef={{ current: null }}
+      onSectionChange={() => {}}
+    />,
+  );
+  expect(
+    await screen.findByRole('heading', { name: 'Curated active sources' }),
+  ).toBeInTheDocument();
+  expect(
+    screen.getByRole('heading', { name: 'Historical and current directory endpoints' }),
+  ).toBeInTheDocument();
+  expect(
+    await screen.findByRole('heading', { name: 'Center for a Stateless Society', level: 3 }),
+  ).toBeInTheDocument();
+  fireEvent.change(screen.getByLabelText('Topic or tendency'), { target: { value: 'privacy' } });
+  expect(
+    screen.getByRole('heading', { name: 'Electronic Frontier Foundation', level: 3 }),
+  ).toBeInTheDocument();
+  expect(
+    screen.queryByRole('heading', { name: 'Center for a Stateless Society', level: 3 }),
+  ).not.toBeInTheDocument();
 });

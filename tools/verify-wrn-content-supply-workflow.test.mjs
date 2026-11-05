@@ -22,6 +22,12 @@ const hashManifest = JSON.parse(
     'utf8',
   ),
 );
+const historicalBlobs = JSON.parse(
+  await readFile(
+    path.join(workspace, 'tools/fixtures/wrn-content-supply-historical-blobs.json'),
+    'utf8',
+  ),
+);
 
 test('scheduled content supply is bounded, private-repository compatible, and does not publish', () => {
   assert.match(workflow, /schedule:\s*\n\s*- cron: '17 \*\/6 \* \* \*'/u);
@@ -123,15 +129,24 @@ test('the versioned operations manifest describes the same local-only dry-run co
   });
 });
 
-test('the hash manifest binds the packet to its source commit and exact SHA-256 entries', async () => {
-  assert.match(hashManifest.sourceCommit, /^[a-f0-9]{40}$/u);
+test('the historical hash manifest has exact, reproducible archived bytes', async () => {
+  assert.equal(hashManifest.sourceCommit, 'b981c676b9d0a8e0df785dddac9e2ec0181e313d');
   assert.equal(hashManifest.schema, 'wrn.live-directory-supply-hash-manifest.v1');
   assert.equal(hashManifest.version, 1);
   assert.equal(hashManifest.files.length, 12);
+  assert.equal(historicalBlobs.schema, 'wrn.historical-source-archive.v1');
+  assert.equal(historicalBlobs.declaredSourceCommit, hashManifest.sourceCommit);
+  assert.deepEqual(
+    Object.keys(historicalBlobs.blobs).sort(),
+    hashManifest.files.map((entry) => entry.path).sort(),
+  );
   for (const entry of hashManifest.files) {
     assert.match(entry.path, /^(?:package\.json$|(?:\.github|tools|docs\/evidence)\/)/u);
     assert.match(entry.sha256, /^[a-f0-9]{64}$/u);
-    const bytes = await readFile(path.join(workspace, entry.path));
+    const blob = historicalBlobs.blobs[entry.path];
+    assert.match(blob.observedAtCommit, /^[a-f0-9]{40}$/u);
+    const bytes = Buffer.from(blob.base64, 'base64');
+    assert.ok(bytes.length > 0, entry.path);
     assert.equal(createHash('sha256').update(bytes).digest('hex'), entry.sha256, entry.path);
   }
 });

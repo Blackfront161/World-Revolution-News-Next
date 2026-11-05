@@ -1,17 +1,29 @@
 import AxeBuilder from '@axe-core/playwright';
-import { expect, test } from '@playwright/test';
+import { expect, test, type Request } from '@playwright/test';
 import { writeFile } from 'node:fs/promises';
 import { getDirectoryCopy } from '../../packages/ui-language/src/directory-copy';
 import { getMobileKnowledgeCopy, uiLanguageIds } from '../../packages/ui-language/src';
+import {
+  auditRemotePointers,
+  directoryPointer,
+  recordRemotePointer,
+  revocationPointer,
+} from './remote-pointer-audit';
+test.beforeEach(async ({ context }) => {
+  await context.addInitScript(() =>
+    sessionStorage.setItem('wrn.website.support-welcome.v1', 'dismissed'),
+  );
+});
 
 test('website directory serves news, sources and sport from same-origin local JSON assets', async ({
   page,
 }, info) => {
   test.skip(!info.project.name.startsWith('website-'));
-  const foreign: string[] = [];
+  const foreign: string[] = [],
+    approved: Request[] = [];
   const origin = new URL(info.project.use.baseURL as string).origin;
   page.on('request', (request) => {
-    if (new URL(request.url()).origin !== origin) foreign.push(request.url());
+    recordRemotePointer(request, origin, foreign, approved, [directoryPointer, revocationPointer]);
   });
   await page.goto('/?theme=dark#discover/news');
   await expect(page.getByRole('heading', { name: 'News directory' })).toBeVisible();
@@ -33,7 +45,7 @@ test('website directory serves news, sources and sport from same-origin local JS
   await expect(page.locator('.website-content-list li')).toHaveCount(30);
   await page.getByRole('textbox', { name: 'Search', exact: true }).fill('Palestine');
   await page.getByRole('button', { name: 'Sources' }).click();
-  await expect(page.getByRole('heading', { name: 'Sources' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Sources', exact: true })).toBeVisible();
   await page.getByRole('textbox', { name: 'Search', exact: true }).fill('');
   await page.screenshot({
     path: info.outputPath('website-directory-sources-dark.png'),
@@ -45,6 +57,7 @@ test('website directory serves news, sources and sport from same-origin local JS
   await expect(page.getByRole('heading', { name: getDirectoryCopy('ru').sport })).toBeVisible();
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   expect(foreign).toEqual([]);
+  await auditRemotePointers(approved, [directoryPointer, revocationPointer], 8);
   await page.screenshot({
     path: info.outputPath('website-directory-sport-ru-dark.png'),
     fullPage: true,
@@ -80,23 +93,26 @@ test('a missing or malformed directory asset shows retry without rendering unval
   await expect(page.getByRole('heading', { name: 'News directory', exact: true })).toBeVisible();
 });
 
-test('visible shell save survives network-off reload with all three bound catalogues', async ({
+test('visible shell save survives network-off reload with four bound catalogues', async ({
   page,
   context,
 }, info) => {
   test.skip(info.project.name !== 'website-390x844');
-  const foreign: string[] = [];
+  const foreign: string[] = [],
+    approved: Request[] = [];
   const pageErrors: string[] = [];
   const catalogResponses: { path: string; worker: boolean }[] = [];
   const origin = new URL(info.project.use.baseURL as string).origin;
   page.on('request', (request) => {
-    if (new URL(request.url()).origin !== origin) foreign.push(request.url());
+    recordRemotePointer(request, origin, foreign, approved, [directoryPointer, revocationPointer]);
   });
   page.on('pageerror', (error) => pageErrors.push(error.message));
   await page.goto('/?theme=violet#more');
   const panel = page.locator('.website-shell-panel');
   await expect(panel).toHaveAttribute('data-shell-status', 'uncontrolled');
-  await expect(panel).toContainText('library, help, source and news-directory metadata');
+  await expect(panel).toContainText(
+    'library, help, source, news, event and media-directory metadata',
+  );
   await page.getByRole('button', { name: 'Save website shell', exact: true }).click();
   await expect(panel).toHaveAttribute('data-shell-status', /^(saved|active)$/);
   await page.evaluate(() => navigator.serviceWorker.ready.then(() => undefined));
@@ -139,8 +155,9 @@ test('visible shell save survives network-off reload with all three bound catalo
         (request) => new URL(request.url).pathname,
       );
     });
-    expect(paths).toHaveLength(8);
-    expect(paths.filter((path) => path.endsWith('.json'))).toHaveLength(3);
+    expect(paths).toHaveLength(14);
+    expect(paths.filter((path) => path.endsWith('.json'))).toHaveLength(4);
+    expect(paths.some((path) => path.includes('/production-events-media-v1-'))).toBe(true);
     for (const family of ['legacy-knowledge-v1', 'legacy-support-v1', 'content-directory-v1'])
       expect(
         catalogResponses.some((response) => response.path.includes(family) && response.worker),
@@ -148,10 +165,15 @@ test('visible shell save survives network-off reload with all three bound catalo
     expect(catalogResponses.every((response) => response.worker)).toBe(true);
     expect(pageErrors).toEqual([]);
     expect(foreign).toEqual([]);
+    await auditRemotePointers(approved, [directoryPointer, revocationPointer], 8);
     const proofPath = info.outputPath('offline-catalog-cache-proof.json');
     await writeFile(
       proofPath,
-      JSON.stringify({ paths, catalogResponses, pageErrors, foreign }, null, 2),
+      JSON.stringify(
+        { paths, catalogResponses, pageErrors, foreign, approved: approved.length },
+        null,
+        2,
+      ),
     );
     await info.attach('offline-catalog-cache-proof', {
       path: proofPath,

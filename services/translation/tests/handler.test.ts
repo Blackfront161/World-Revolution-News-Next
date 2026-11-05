@@ -179,6 +179,10 @@ describe('target-owned translation handler', () => {
     const caller = new AbortController();
     let release!: () => void;
     let secondRead!: () => void;
+    let started!: () => void;
+    const upstreamStarted = new Promise<void>((resolve) => {
+      started = resolve;
+    });
     const upstreamReleased = new Promise<void>((resolve) => {
       release = resolve;
     });
@@ -192,13 +196,16 @@ describe('target-owned translation handler', () => {
       return ports.cacheEntries.get(key);
     });
     vi.spyOn(ports.upstream, 'translate').mockImplementation(async () => {
+      started();
       await upstreamReleased;
       return upstreamResult('Exakter übersetzter Absatz.');
     });
 
     const first = handleTranslation(request, ports);
+    await upstreamStarted;
     const second = handleTranslation(request, ports, caller.signal);
     await secondCacheRead;
+    await new Promise<void>((resolve) => setImmediate(resolve));
     caller.abort();
     await expect(second).resolves.toMatchObject({ status: 503 });
     release();
@@ -207,6 +214,52 @@ describe('target-owned translation handler', () => {
     expect(ports.upstream.translate).toHaveBeenCalledTimes(1);
     expect(ports.calls.provider).toEqual([request.text.length]);
     expect(ports.calls.write).toEqual([0]);
+  });
+
+  it('starts a fresh miss when a pending reader arrives as the last waiter leaves', async () => {
+    const ports = portsFor();
+    const firstCaller = new AbortController();
+    let firstStarted!: () => void;
+    let secondRead!: () => void;
+    let releaseSecondRead!: () => void;
+    const firstUpstreamStarted = new Promise<void>((resolve) => {
+      firstStarted = resolve;
+    });
+    const secondCacheRead = new Promise<void>((resolve) => {
+      secondRead = resolve;
+    });
+    const secondCacheReleased = new Promise<void>((resolve) => {
+      releaseSecondRead = resolve;
+    });
+    let cacheReads = 0;
+    vi.spyOn(ports.cache, 'get').mockImplementation(async (key: string) => {
+      cacheReads += 1;
+      if (cacheReads === 2) {
+        secondRead();
+        await secondCacheReleased;
+      }
+      return ports.cacheEntries.get(key);
+    });
+    let upstreamCalls = 0;
+    vi.spyOn(ports.upstream, 'translate').mockImplementation(async (_request, options) => {
+      upstreamCalls += 1;
+      if (upstreamCalls === 1) {
+        options.signal.addEventListener('abort', releaseSecondRead, { once: true });
+        firstStarted();
+        await new Promise<void>(() => {});
+      }
+      return upstreamResult('Retry after abandoned miss.');
+    });
+
+    const first = handleTranslation(request, ports, firstCaller.signal);
+    await firstUpstreamStarted;
+    const second = handleTranslation(request, ports);
+    await secondCacheRead;
+    firstCaller.abort();
+
+    await expect(first).resolves.toMatchObject({ status: 503 });
+    await expect(second).resolves.toMatchObject({ status: 200 });
+    expect(ports.upstream.translate).toHaveBeenCalledTimes(2);
   });
 
   it('aborts the shared miss only after all waiters leave and allows a later retry', async () => {

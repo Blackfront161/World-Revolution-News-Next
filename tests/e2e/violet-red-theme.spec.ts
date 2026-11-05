@@ -84,12 +84,12 @@ test('violet/red themes preserve preferences, localized labels, and red control 
   const baseUrl = isMobile ? 'http://127.0.0.1:43173' : 'http://127.0.0.1:43174';
   const navigationSelector = isMobile ? '.mobile-primary-nav a' : '.site-nav a';
 
-  await page.goto(`${baseUrl}/?state=ready`);
+  await page.goto(`${baseUrl}/?state=ready#more`);
   const themeSelector = page.getByTestId('theme-selector');
   const languageSelector = page.getByTestId('ui-language-selector');
   await expect(page.locator('html')).toHaveAttribute('data-theme-preference', 'violet');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'violet');
-  await expect(themeSelector.locator('option')).toHaveCount(8);
+  await expect(themeSelector.locator('option')).toHaveCount(9);
 
   for (const preference of themePreferences) {
     await themeSelector.selectOption(preference);
@@ -349,9 +349,10 @@ test('blocked theme storage fails closed to violet without disabling the local p
       },
     });
   });
-  await page.goto(`${baseUrl}/?state=ready`);
+  await page.goto(`${baseUrl}/?state=ready#more`);
   await expect(page.locator('html')).toHaveAttribute('data-theme-preference', 'violet');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'violet');
   await expect(page.getByTestId('theme-selector')).toHaveValue('violet');
+  await page.goto(`${baseUrl}/?state=ready#home`);
   await expect(page.getByTestId('manifest-revision')).toBeVisible();
 });
