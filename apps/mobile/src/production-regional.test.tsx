@@ -19,7 +19,7 @@ import {
 import { ProductionHome } from '../../../packages/browser-content/src/production-home';
 import { ProductionEventsMediaDirectory } from '../../../packages/browser-content/src/events-media-directory';
 
-const now = Date.parse('2026-09-25T14:00:00.000Z');
+const now = Date.parse('2026-11-13T20:45:00.000Z');
 beforeEach(() => {
   vi.spyOn(Date, 'now').mockReturnValue(now);
 });
@@ -30,11 +30,11 @@ afterEach(() => {
 describe('actual regional client', () => {
   it('pins the reviewed actual input and projects only the explicitly chosen region', async () => {
     expect(regionalInputSha256).toBe(
-      '4ccb0da681444a8970e16113c7160c840f4cc9d777aafaba82923478ad9672a3',
+      '12f7b72c4e258319d004b4a82496abbbe6c234d2f242edcb71bf8a65ff4d7ff2',
     );
     const catalog = await loadCurrentRegionalEvents();
     expect(catalog?.events).toHaveLength(5);
-    expect(catalog?.sources.every((source) => source.checkedOn === '2026-09-25')).toBe(true);
+    expect(catalog?.sources.every((source) => source.checkedOn === '2026-11-13')).toBe(true);
     expect(projectProductionRegionalEventsV1(catalog!, emptyRegionalSelection, now).status).toBe(
       'unselected',
     );
@@ -44,29 +44,35 @@ describe('actual regional client', () => {
         { continentId: 'continent-europe', countryId: 'country-gb', regionId: 'region-london' },
         now,
       ).events.map((event) => event.id),
-    ).toEqual(['event-london-constitutionalising-anarchy-launch-2026']);
+    ).toEqual(['event-london-state-histories-2026-11-26']);
   });
   it('preserves date-only precision and exact source-local times', async () => {
     const catalog = (await loadCurrentRegionalEvents())!;
-    const london = catalog.events.find(
-      (event) => event.id === 'event-london-constitutionalising-anarchy-launch-2026',
+    const santiago = catalog.events.find(
+      (event) => event.id === 'event-santiago-dialogo-judicial-derechos-humanos-2026-11-25',
     )!;
-    expect(formatRegionalSchedule(london.schedule, 'de')).toContain('Uhrzeit nicht angegeben');
-    expect(formatRegionalSchedule(london.schedule, 'de')).not.toContain('00:00');
+    expect(formatRegionalSchedule(santiago.schedule, 'de')).toContain('Uhrzeit nicht angegeben');
+    expect(formatRegionalSchedule(santiago.schedule, 'de')).not.toContain('00:00');
     const nyc = formatRegionalSchedule(
-      catalog.events.find((event) => event.id === 'event-ewoc-workers-circle-2026-10-06')!.schedule,
-      'de',
-    );
-    expect(nyc).toContain('18:30');
-    expect(nyc).toContain('20:30');
-    const manchester = formatRegionalSchedule(
       catalog.events.find(
-        (event) => event.id === 'event-manchester-salford-anarchist-bookfair-2026',
+        (event) => event.id === 'event-interference-volunteer-orientation-2026-11-16',
       )!.schedule,
       'de',
     );
-    expect(manchester).toContain('10:00');
-    expect(manchester).toContain('16:00');
+    expect(nyc).toContain('19:00');
+    expect(nyc).toContain('20:30');
+    const london = formatRegionalSchedule(
+      catalog.events.find((event) => event.id === 'event-london-state-histories-2026-11-26')!
+        .schedule,
+      'de',
+    );
+    expect(london).toContain('18:00');
+    expect(london).toContain('20:00');
+    const manchester = catalog.events.find(
+      (event) => event.id === 'event-manchester-creative-writing-industry-day-2026',
+    )!;
+    expect(formatRegionalSchedule(manchester.schedule, 'de')).toContain('Uhrzeit nicht angegeben');
+    expect(formatRegionalSchedule(manchester.schedule, 'de')).not.toContain('00:00');
   });
   it('validates minimal selection without accepting extra location or history fields', async () => {
     expect(isRegionalSelection(emptyRegionalSelection)).toBe(true);
@@ -87,7 +93,9 @@ describe('actual regional client', () => {
     fireEvent.change(screen.getByLabelText('Region'), { target: { value: 'region-london' } });
     expect(screen.getAllByRole('article')).toHaveLength(1);
     expect(
-      screen.getByRole('heading', { name: 'Constitutionalising Anarchy: Book Launch' }),
+      screen.getByRole('heading', {
+        name: 'State Histories: The Politics of Teaching the Past in Iran',
+      }),
     ).toHaveAttribute('lang', 'en');
     expect(screen.getByRole('link', { name: 'Originalankündigung öffnen' })).toHaveAttribute(
       'referrerpolicy',
@@ -105,7 +113,7 @@ describe('actual regional client', () => {
       target: { value: 'continent-europe' },
     });
     expect(screen.getAllByRole('article')).toHaveLength(2);
-    vi.mocked(Date.now).mockReturnValue(Date.parse('2026-10-02T00:00:00.000Z'));
+    vi.mocked(Date.now).mockReturnValue(Date.parse('2026-11-20T20:42:17.000Z'));
     fireEvent.focus(window);
     expect(screen.queryAllByRole('article')).toHaveLength(0);
     expect(screen.getByText(/Dieser Stand ist nicht mehr aktuell/)).toBeVisible();
@@ -149,7 +157,7 @@ describe('actual regional client', () => {
     ).toBeVisible();
     expect(
       screen.getByRole('heading', {
-        name: 'Constitutionalising Anarchy: Book Launch',
+        name: 'State Histories: The Politics of Teaching the Past in Iran',
         level: 4,
       }),
     ).toBeVisible();

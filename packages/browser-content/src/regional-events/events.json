@@ -1,14 +1,23 @@
 {
   "schema": "wrn.production-regional-events.v1",
-  "revision": 3,
-  "generatedAt": "2026-09-25T00:00:00.000Z",
-  "validUntil": "2026-10-02T00:00:00.000Z",
+  "revision": 5,
+  "generatedAt": "2026-11-13T20:42:17.000Z",
+  "validUntil": "2026-11-20T20:42:17.000Z",
   "rights": "metadata-references-only",
-  "reviewReference": "wrn-current-regional-review-2026-09-25",
+  "reviewReference": "wrn-current-regional-review-2026-11-13",
   "continents": [
-    { "id": "continent-europe", "name": "Europe" },
-    { "id": "continent-north-america", "name": "North America" },
-    { "id": "continent-south-america", "name": "South America" }
+    {
+      "id": "continent-europe",
+      "name": "Europe"
+    },
+    {
+      "id": "continent-north-america",
+      "name": "North America"
+    },
+    {
+      "id": "continent-south-america",
+      "name": "South America"
+    }
   ],
   "countries": [
     {
@@ -37,15 +46,31 @@
     }
   ],
   "regions": [
-    { "id": "region-london", "countryId": "country-gb", "name": "London" },
+    {
+      "id": "region-london",
+      "countryId": "country-gb",
+      "name": "London"
+    },
     {
       "id": "region-greater-manchester",
       "countryId": "country-gb",
       "name": "Greater Manchester"
     },
-    { "id": "region-new-york", "countryId": "country-us", "name": "New York" },
-    { "id": "region-santiago", "countryId": "country-cl", "name": "Santiago" },
-    { "id": "region-sao-paulo", "countryId": "country-br", "name": "São Paulo" }
+    {
+      "id": "region-new-york",
+      "countryId": "country-us",
+      "name": "New York"
+    },
+    {
+      "id": "region-santiago",
+      "countryId": "country-cl",
+      "name": "Santiago"
+    },
+    {
+      "id": "region-sao-paulo",
+      "countryId": "country-br",
+      "name": "São Paulo"
+    }
   ],
   "sources": [
     {
@@ -54,114 +79,114 @@
       "language": "en",
       "url": "https://interferencearchive.org/",
       "kind": "venue",
-      "checkedOn": "2026-09-25"
+      "checkedOn": "2026-11-13"
     },
     {
       "id": "source-isrf",
       "name": "Independent Social Research Foundation",
       "language": "en",
-      "url": "https://mailinglist.isrf.org/p/isrf-book-launch-announcement-constitutionalisin",
-      "kind": "attributed-announcement",
-      "checkedOn": "2026-09-25"
-    },
-    {
-      "id": "source-manchester-bookfair",
-      "name": "Manchester & Salford Anarchist Bookfair",
-      "language": "en",
-      "url": "https://bookfair.org.uk/",
+      "url": "https://isrf.org/events/state-histories",
       "kind": "organizer",
-      "checkedOn": "2026-09-25"
+      "checkedOn": "2026-11-13"
     },
     {
-      "id": "source-la-zarzamora",
-      "name": "La Zarzamora",
+      "id": "source-comma-press",
+      "name": "Comma Press",
+      "language": "en",
+      "url": "https://commapress.co.uk/events/national-creative-writing-industry-dat-2026",
+      "kind": "organizer",
+      "checkedOn": "2026-11-13"
+    },
+    {
+      "id": "source-universidad-chile-derecho",
+      "name": "Universidad de Chile – Departamento de Ciencias del Derecho",
       "language": "es",
-      "url": "https://lazarzamora.cl/invitacion-al-8vo-encuentro-del-libro-y-la-propaganda-anarquista-de-santiago-2026/",
-      "kind": "attributed-announcement",
-      "checkedOn": "2026-09-25"
+      "url": "https://uchile.cl/agenda/246720/libro-dialogo-judicial-sobre-derechos-humanos-m-gonzalez",
+      "kind": "organizer",
+      "checkedOn": "2026-11-13"
     },
     {
-      "id": "source-noticias-anarquistas",
-      "name": "Agência de Notícias Anarquistas",
+      "id": "source-federacao-anarquista-ana",
+      "name": "Agência de Notícias Anarquistas via Federação Anarquista",
       "language": "pt",
-      "url": "https://noticiasanarquistas.noblogs.org/post/2026/06/19/iniciamos-os-trabalhos-de-divulgacao-da-xvi-feira-anarquista-de-sao-paulo/",
+      "url": "https://www.federacaoanarquista.com.br/envio-de-cartazes-para-xvi-feira-anarquista-de-sp/",
       "kind": "attributed-announcement",
-      "checkedOn": "2026-09-25"
+      "checkedOn": "2026-11-13"
     }
   ],
   "events": [
     {
-      "id": "event-ewoc-workers-circle-2026-10-06",
+      "id": "event-interference-volunteer-orientation-2026-11-16",
       "regionId": "region-new-york",
       "sourceId": "source-interference-archive",
-      "title": "EWOC Workers' Circle",
+      "title": "Volunteer Orientation",
       "language": "en",
-      "venue": "Interference Archive, 314 7th Street, Brooklyn",
-      "originalUrl": "https://interferencearchive.org/event/ewoc-workers-circle/",
+      "venue": "Interference Archive, 314 7th St, Brooklyn, NY 11215, USA",
+      "originalUrl": "https://interferencearchive.org/event/volunteer-orientation-7/",
       "status": "scheduled",
       "schedule": {
         "precision": "minute",
-        "startAt": "2026-10-06T22:30:00.000Z",
-        "endAt": "2026-10-07T00:30:00.000Z",
+        "startAt": "2026-11-17T00:00:00.000Z",
+        "endAt": "2026-11-17T01:30:00.000Z",
         "timeZone": "America/New_York"
       }
     },
     {
-      "id": "event-london-constitutionalising-anarchy-launch-2026",
+      "id": "event-london-state-histories-2026-11-26",
       "regionId": "region-london",
       "sourceId": "source-isrf",
-      "title": "Constitutionalising Anarchy: Book Launch",
+      "title": "State Histories: The Politics of Teaching the Past in Iran",
       "language": "en",
-      "venue": "Bishopsgate Institute",
-      "originalUrl": "https://mailinglist.isrf.org/p/isrf-book-launch-announcement-constitutionalisin",
-      "status": "scheduled",
-      "schedule": {
-        "precision": "day",
-        "startDate": "2026-10-23",
-        "endDate": "2026-10-23",
-        "timeZone": "Europe/London"
-      }
-    },
-    {
-      "id": "event-manchester-salford-anarchist-bookfair-2026",
-      "regionId": "region-greater-manchester",
-      "sourceId": "source-manchester-bookfair",
-      "title": "Manchester & Salford Anarchist Bookfair 2026",
-      "language": "en",
-      "venue": "People's History Museum",
-      "originalUrl": "https://bookfair.org.uk/",
+      "venue": "P21 Gallery, London",
+      "originalUrl": "https://isrf.org/events/state-histories",
       "status": "scheduled",
       "schedule": {
         "precision": "minute",
-        "startAt": "2026-10-31T10:00:00.000Z",
-        "endAt": "2026-10-31T16:00:00.000Z",
+        "startAt": "2026-11-26T18:00:00.000Z",
+        "endAt": "2026-11-26T20:00:00.000Z",
         "timeZone": "Europe/London"
       }
     },
     {
-      "id": "event-santiago-encuentro-libro-anarquista-2026",
-      "regionId": "region-santiago",
-      "sourceId": "source-la-zarzamora",
-      "title": "8vo Encuentro del Libro y la Propaganda Anarquista de Santiago",
-      "language": "es",
-      "venue": null,
-      "originalUrl": "https://lazarzamora.cl/invitacion-al-8vo-encuentro-del-libro-y-la-propaganda-anarquista-de-santiago-2026/",
+      "id": "event-manchester-creative-writing-industry-day-2026",
+      "regionId": "region-greater-manchester",
+      "sourceId": "source-comma-press",
+      "title": "National Creative Writing Industry Day 2026",
+      "language": "en",
+      "venue": "Manchester Metropolitan University, Grosvenor East Building, Cavendish Street, Manchester, M15 6BG",
+      "originalUrl": "https://commapress.co.uk/events/national-creative-writing-industry-dat-2026",
       "status": "scheduled",
       "schedule": {
         "precision": "day",
-        "startDate": "2026-11-07",
-        "endDate": "2026-11-08",
+        "startDate": "2026-12-05",
+        "endDate": "2026-12-05",
+        "timeZone": "Europe/London"
+      }
+    },
+    {
+      "id": "event-santiago-dialogo-judicial-derechos-humanos-2026-11-25",
+      "regionId": "region-santiago",
+      "sourceId": "source-universidad-chile-derecho",
+      "title": "Presentación libro: Diálogo judicial sobre Derechos Humanos",
+      "language": "es",
+      "venue": "Aula Magna Derecho, Pío Nono 1, Piso 1, Providencia, Santiago, Chile",
+      "originalUrl": "https://uchile.cl/agenda/246720/libro-dialogo-judicial-sobre-derechos-humanos-m-gonzalez",
+      "status": "scheduled",
+      "schedule": {
+        "precision": "day",
+        "startDate": "2026-11-25",
+        "endDate": "2026-11-25",
         "timeZone": "America/Santiago"
       }
     },
     {
       "id": "event-sao-paulo-feira-anarquista-2026",
       "regionId": "region-sao-paulo",
-      "sourceId": "source-noticias-anarquistas",
+      "sourceId": "source-federacao-anarquista-ana",
       "title": "XVI Feira Anarquista de São Paulo",
       "language": "pt",
       "venue": "ARCO Escola-Cooperativa, Rua Corinto 652, Butantã",
-      "originalUrl": "https://noticiasanarquistas.noblogs.org/post/2026/06/19/iniciamos-os-trabalhos-de-divulgacao-da-xvi-feira-anarquista-de-sao-paulo/",
+      "originalUrl": "https://www.federacaoanarquista.com.br/envio-de-cartazes-para-xvi-feira-anarquista-de-sp/",
       "status": "scheduled",
       "schedule": {
         "precision": "minute",

@@ -1,0 +1,55 @@
+{
+  "schema": "wrn.live-directory-supply-hash-manifest.v1",
+  "version": 1,
+  "sourceCommit": "8b96b323b8881c561596d1d81cf962e72f4c5eb8",
+  "files": [
+    {
+      "path": ".github/workflows/wrn-content-supply.yml",
+      "sha256": "e4d40028e9a7a7a9145bc63453540dd0356f55f3a8dded031e0d9926d21a70db"
+    },
+    {
+      "path": "package.json",
+      "sha256": "43cf9f356f3bcd2365d21cb7c90165a4db05cd1efb9c070ba06804e5cb60a6c5"
+    },
+    {
+      "path": "tools/legacy-news-ingestion.mjs",
+      "sha256": "1f64595bb48bf67428583500f9ad010317df5afac5062df7cff75466bef38be1"
+    },
+    {
+      "path": "tools/run-legacy-news-supply.mjs",
+      "sha256": "243fe062ba95c8746c2e2ec10e09ff4fdfb02efc65066f0f5829e51554f7de8c"
+    },
+    {
+      "path": "tools/directory/prepare-content-directory-refresh.mjs",
+      "sha256": "024da72d5788a5863896b6d3fd9bc94d2b088beeb4a65c8a6b8e25c3096aea48"
+    },
+    {
+      "path": "tools/directory/prepare-live-content-directory.mjs",
+      "sha256": "c9aadb193a7cdf29cf88a720779de6b32842a621535f7cdc917216319a1b474c"
+    },
+    {
+      "path": "tools/directory/prepare-live-content-directory.test.mjs",
+      "sha256": "b3f426a9aceed68d718e36473d89f3c01e297370e425c10e39a0b194771639b4"
+    },
+    {
+      "path": "tools/check-current-regional-events.mjs",
+      "sha256": "f674fd3aedf7e87315e9bfa7a782823b8b60368dbad51dd50c9820b6774a2079"
+    },
+    {
+      "path": "tools/check-current-regional-events.test.mjs",
+      "sha256": "7ac7d522d7149ac629a12298b8bd157d11154fe87e9226666fabc7b79c9cc8b5"
+    },
+    {
+      "path": "tools/node-ts-source-loader.mjs",
+      "sha256": "66ce09952628764cbfd1ea3bb7f27a074b4eba0b0d42101d42270c34e298bad2"
+    },
+    {
+      "path": "tools/verify-wrn-content-supply-workflow.test.mjs",
+      "sha256": "7baf54cb98f07dce9251fba43382e9f050c643be8f98feb192df6bdb5dc44774"
+    },
+    {
+      "path": "docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/manifest.json",
+      "sha256": "58776b2ce44b973dff2e4109df65f5b8f0f491656d28d7ea4ab5e81555dc968e"
+    }
+  ]
+}
