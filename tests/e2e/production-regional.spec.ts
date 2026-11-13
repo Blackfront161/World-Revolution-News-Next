@@ -3,7 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import path from 'node:path';
 
 const moduleUrl = `/@fs/${path.resolve('packages/browser-content/src/regional-events/selection-store.ts').replaceAll('\\', '/')}`;
-const now = new Date('2026-09-25T14:00:00.000Z');
+const now = new Date('2026-11-13T20:45:00.000Z');
 
 for (const [client, port, sizes] of [
   [

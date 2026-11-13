@@ -18,7 +18,10 @@ const manifest = JSON.parse(
 );
 const hashManifest = JSON.parse(
   await readFile(
-    path.join(workspace, 'docs/evidence/WRN-LIVE-DIRECTORY-SUPPLY-2026-09-25/hash-manifest.json'),
+    path.join(
+      workspace,
+      'docs/evidence/WRN-REGIONAL-REVIEW-2026-11-13/operations-hash-manifest.json',
+    ),
     'utf8',
   ),
 );

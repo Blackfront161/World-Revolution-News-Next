@@ -10,20 +10,20 @@ const workspace = path.resolve(import.meta.dirname, '..');
 test('accepts the exact pinned five-event snapshot outside its renewal window', async () => {
   const result = await checkCurrentRegionalEvents({
     root: workspace,
-    at: '2026-09-25T14:00:00.000Z',
+    at: '2026-11-13T20:45:00.000Z',
     minimumHours: 48,
   });
   assert.equal(result.schema, 'wrn.regional-events-freshness-check.v1');
-  assert.equal(result.revision, 3);
+  assert.equal(result.revision, 5);
   assert.equal(result.events, 5);
   assert.equal(result.sources, 5);
-  assert.equal(result.validUntil, '2026-10-02T00:00:00.000Z');
+  assert.equal(result.validUntil, '2026-11-20T20:42:17.000Z');
   assert.equal(result.publicationPerformed, false);
   assert.match(result.sha256, /^[a-f0-9]{64}$/u);
 });
 
 test('requires review before the snapshot expires and at the exact boundary', async () => {
-  for (const at of ['2026-09-30T00:00:00.000Z', '2026-10-02T00:00:00.000Z'])
+  for (const at of ['2026-11-18T20:42:17.000Z', '2026-11-20T20:42:17.000Z'])
     await assert.rejects(
       checkCurrentRegionalEvents({ root: workspace, at, minimumHours: 48 }),
       /regional-events-renewal-required/u,
@@ -46,7 +46,7 @@ test('rejects changed bytes even when the JSON still parses', async () => {
     writeFile(path.join(dataDirectory, 'data.ts'), pin),
   ]);
   await assert.rejects(
-    checkCurrentRegionalEvents({ root, at: '2026-09-25T14:00:00.000Z' }),
+    checkCurrentRegionalEvents({ root, at: '2026-11-13T20:45:00.000Z' }),
     /regional-hash-pin-mismatch/u,
   );
 });
