@@ -399,6 +399,60 @@ test('fetches only two pinned upstream files without cookies or redirects', asyn
   assert.equal(result.intake.candidates.length, 1);
 });
 
+test('accepts octet-stream only for the exact pinned raw news-feed response', async () => {
+  const input = snapshot();
+  const root = 'https://raw.githubusercontent.com/Blackfront161/Revolution-News-Data/' + commit + '/';
+  const feedUrl = root + 'news-feed.json';
+  const binary = (body, url, options = {}, redirected = false) => {
+    const result = new Response(body, {
+      headers: { 'content-type': 'application/octet-stream' },
+      ...options,
+    });
+    Object.defineProperties(result, { url: { value: url }, redirected: { value: redirected } });
+    return result;
+  };
+  const run = (feed, status = response(input.statusBytes)) =>
+    fetchLegacyNewsSnapshot({
+      commit,
+      now: () => now,
+      fetchImpl: async (url) => (url === feedUrl ? feed : status),
+    });
+
+  assert.deepEqual((await run(binary(input.feedBytes, feedUrl))).feedBytes, input.feedBytes);
+  for (const url of [
+    '',
+    root + 'feed-status.json',
+    feedUrl + '?copy=1',
+    feedUrl.replace(commit, 'main'),
+    feedUrl.replace('raw.githubusercontent.com', 'example.org'),
+    feedUrl.replace('Revolution-News-Data', 'World-Revolution-News-Next'),
+  ]) {
+    await assert.rejects(run(binary(input.feedBytes, url)), /invalid transport response/);
+  }
+  await assert.rejects(
+    run(binary(input.feedBytes, feedUrl), binary(input.statusBytes, root + 'feed-status.json')),
+    /invalid transport response/,
+  );
+  await assert.rejects(
+    run(binary(input.feedBytes, feedUrl, { status: 404 })),
+    /invalid transport response/,
+  );
+  await assert.rejects(run(binary(input.feedBytes, feedUrl, {}, true)), /invalid transport response/);
+  await assert.rejects(run(binary(null, feedUrl)), /invalid transport response/);
+  for (const [length, error] of [
+    [4 * 1024 * 1024 + 1, /transport byte limit/],
+    [input.feedBytes.length + 1, /transport length mismatch/],
+  ]) {
+    await assert.rejects(
+      run(binary(input.feedBytes, feedUrl, {
+        headers: { 'content-type': 'application/octet-stream', 'content-length': String(length) },
+      })),
+      error,
+    );
+  }
+  await assert.rejects(run(binary(Buffer.from('not JSON'), feedUrl)), /json/i);
+});
+
 test('rejects malformed commit before network access and already cancelled calls', async () => {
   let calls = 0;
   const fetchImpl = () => {
