@@ -275,19 +275,21 @@ export function inspectLegacyNewsSnapshot({ feedBytes, statusBytes, commit, obse
   };
 }
 
-async function readBounded(response, limit, signal) {
+async function readBounded(response, limit, signal, canonicalNewsFeedUrl) {
   const rejectResponse = (reason) => {
     void response.body?.cancel().catch(() => {});
     fail(reason);
   };
-  if (
-    !response.ok ||
-    response.redirected ||
-    !response.body ||
-    !/^application\/(?:[\w.+-]*\+)?json(?:\s*;|$)|^text\/plain(?:\s*;|$)/iu.test(
-      response.headers.get('content-type') ?? '',
-    )
-  )
+  const contentType = response.headers.get('content-type') ?? '';
+  const isExpectedRawFeed =
+    canonicalNewsFeedUrl !== undefined &&
+    response.url === canonicalNewsFeedUrl &&
+    /^application\/octet-stream(?:\s*;|$)/iu.test(contentType);
+  const hasSupportedContentType =
+    /^application\/(?:[\w.+-]*\+)?json(?:\s*;|$)|^text\/plain(?:\s*;|$)/iu.test(
+      contentType,
+    ) || isExpectedRawFeed;
+  if (!response.ok || response.redirected || !response.body || !hasSupportedContentType)
     rejectResponse('invalid transport response');
   const length = response.headers.get('content-length');
   if (length !== null && (!/^\d+$/u.test(length) || Number(length) > limit))
@@ -344,7 +346,8 @@ export async function fetchLegacyNewsSnapshot({
       },
     );
     signal.throwIfAborted();
-    return readBounded(response, limit, signal);
+    // GitHub Raw may serve this pinned JSON blob as application/octet-stream.
+    return readBounded(response, limit, signal, name === 'news-feed.json' ? root + name : undefined);
   };
   // Sequential reads share one deadline and pin both files to the same Git commit.
   const statusBytes = await obtain('feed-status.json', legacyNewsLimits.statusBytes);
